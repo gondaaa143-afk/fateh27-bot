@@ -6,10 +6,10 @@
 <title>Current Affairs</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
-body{margin:0;background:#07152d;color:white;font-family:Arial;padding:20px;}
-.card{background:#0f2348;padding:18px;border-radius:16px;margin-top:15px;}
-h1{font-size:24px;}
-small{color:#7dd3fc;}
+body{margin:0;background:#07152d;color:white;font-family:Arial;padding:20px}
+.card{background:#0f2348;padding:18px;border-radius:16px;margin-top:15px}
+h1{font-size:24px}
+small{color:#7dd3fc}
 </style>
 </head>
 <body>
@@ -24,13 +24,13 @@ small{color:#7dd3fc;}
 
 <script type="module">
 import { db } from "./firebaseConfig.js";
-import { collection, getDocs, query, limit } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+import { collection, getDocs, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 Telegram.WebApp.ready();
 Telegram.WebApp.expand();
 
 const snap = await getDocs(
-  query(collection(db, "currentAffairs"), limit(1))
+  query(collection(db,"currentAffairs"), orderBy("createdAt","desc"), limit(1))
 );
 
 const d = snap.docs[0].data();
