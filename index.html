@@ -184,32 +184,34 @@ const today=new Date();
 const diff=Math.ceil((exam-today)/(1000*60*60*24));
 document.getElementById("days").innerText=diff>0?diff:0;
 
-let xp=2450;
-let streak=12;
+let xp = 2450;
+
+const xpValue = document.getElementById("xpValue");
+const xpText = document.getElementById("xpText");
+const percentText = document.getElementById("percent");
+const ring = document.getElementById("ring");
+const rank = document.getElementById("rank");
 
 function updateUI(){
- document.getElementById("xpValue").innerText=xp;
- document.getElementById("xpText").innerText=xp+" XP";
- document.getElementById("streakValue").innerText=streak;
+  xpValue.textContent = xp;
+  xpText.textContent = xp + " XP";
 
- const percent=Math.min((xp/5000)*100,100);
- document.getElementById("percent").innerText=Math.round(percent)+"%";
- document.getElementById("ring").style.strokeDashoffset=251-(251*percent/100);
+  const p = Math.round((xp/5000)*100);
+  percentText.textContent = p + "%";
+  ring.setAttribute("stroke-dashoffset", 251-(251*p/100));
 
- const rank=document.getElementById("rank");
-
- if(xp>=5000) rank.innerText="IAS Officer";
- else if(xp>=1000) rank.innerText="Deputy Collector";
- else if(xp>=500) rank.innerText="Captain";
- else if(xp>=200) rank.innerText="Lieutenant";
- else rank.innerText="Cadet";
+  if(xp>=5000) rank.textContent="IAS Officer";
+  else if(xp>=1000) rank.textContent="Deputy Collector";
+  else if(xp>=500) rank.textContent="Captain";
+  else if(xp>=200) rank.textContent="Lieutenant";
+  else rank.textContent="Cadet";
 }
 
-document.querySelectorAll(".missionBox").forEach(box=>{
- box.addEventListener("change",function(){
-   xp+=this.checked?20:-20;
-   updateUI();
- });
+document.querySelectorAll(".missionBox").forEach(cb=>{
+  cb.onclick=function(){
+    xp += this.checked ? 20 : -20;
+    updateUI();
+  };
 });
 
 updateUI();
