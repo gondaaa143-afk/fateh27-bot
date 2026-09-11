@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GS3 PYQs</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+body{margin:0;background:#07152d;color:white;font-family:Arial;padding:20px}
+.card{background:#0f2348;padding:18px;border-radius:16px;margin:12px 0}
+select,input{width:100%;padding:12px;border-radius:10px;margin:10px 0;background:#0f2348;color:white;border:none}
+</style>
+</head>
+<body>
+
+<h1>📙 GS3 PYQs</h1>
+
+<select id="year">
+<option value="all">All Years</option>
+<option value="2026">2026</option>
+<option value="2025">2025</option>
+</select>
+
+<input id="search" placeholder="Topic Search">
+
+<div id="questions"></div>
+
+<script>
+const year=document.getElementById("year");
+const search=document.getElementById("search");
+
+async function load(){
+ const list=await fetch("/api/gs3").then(r=>r.json());
+ const box=document.getElementById("questions");
+ box.innerHTML="";
+ list.forEach(q=>{
+   if((year.value=="all"||year.value==q.year.toString()) &&
+      q.question.toLowerCase().includes(search.value.toLowerCase())){
+     box.innerHTML+=`<div class="card"><b>${q.year}</b><p>${q.question}</p></div>`;
+   }
+ });
+}
+year.onchange=load;
+search.oninput=load;
+load();
+</script>
+
+</body>
+</html>
