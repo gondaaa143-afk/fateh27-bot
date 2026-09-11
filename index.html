@@ -122,7 +122,32 @@ body{
 <div class="footer">
  Officer OS • Version 1.0
 </div>
+let xp = 2450;
 
+document.querySelectorAll(".missionBox").forEach(box=>{
+  box.addEventListener("change",()=>{
+
+    xp += box.checked ? 20 : -20;
+
+    document.querySelector(".card:nth-child(2) b").innerText = xp;
+
+    const percent = Math.min((xp/5000)*100,100);
+
+    document.getElementById("percent").innerText = Math.round(percent)+"%";
+
+    document.getElementById("ring").style.strokeDashoffset =
+      251 - (251*percent/100);
+
+    const rank = document.getElementById("rank");
+
+    if(xp>=5000) rank.innerText="IAS Officer";
+    else if(xp>=1000) rank.innerText="Deputy Collector";
+    else if(xp>=500) rank.innerText="Captain";
+    else if(xp>=200) rank.innerText="Lieutenant";
+    else rank.innerText="Cadet";
+
+  });
+});
 <script>
 const tg=window.Telegram.WebApp;
 tg.ready();
