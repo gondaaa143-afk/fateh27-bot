@@ -23,7 +23,14 @@ button{width:100%;padding:14px;background:#229ED9;color:white;border:none;border
 <script>
 Telegram.WebApp.ready();
 Telegram.WebApp.expand();
+const ADMIN_ID = 123456789; // अभी बाद में तुम्हारी Telegram ID डालेंगे
 
+const user = Telegram.WebApp.initDataUnsafe?.user;
+
+if (!user || user.id !== ADMIN_ID) {
+  document.body.innerHTML = "<h2 style='color:white;text-align:center;margin-top:80px'>❌ Access Denied</h2>";
+  throw new Error("Not Admin");
+}
 function save(){
  Telegram.WebApp.showAlert("Admin Panel Ready!");
 }
