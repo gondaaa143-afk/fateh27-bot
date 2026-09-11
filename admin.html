@@ -38,6 +38,19 @@ if (!user || user.id !== ADMIN_ID) {
 }
 async function save(){
 
+ const title = document.getElementById("title").value;
+ const summary = document.getElementById("summary").value;
+
+ await addDoc(collection(db,"currentAffairs"),{
+   title,
+   summary,
+   date:new Date().toLocaleDateString("en-GB"),
+   source:"Admin"
+ });
+
+ Telegram.WebApp.showAlert("Current Affairs Saved!");
+}
+
  const title=document.getElementById("title").value;
  const summary=document.getElementById("summary").value;
 
