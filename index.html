@@ -7,36 +7,57 @@
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
 body{
-background:#0f172a;
-color:white;
-font-family:Arial;
-text-align:center;
-padding:40px;
+  margin:0;
+  background:#07152d;
+  color:white;
+  font-family:Arial;
 }
-button{
-padding:15px 30px;
-background:#229ED9;
-color:white;
-border:none;
-border-radius:12px;
-font-size:18px;
+.header{
+  padding:25px;
+}
+.name{
+  color:#7dd3fc;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+  padding:20px;
+}
+.card{
+  background:#0f2348;
+  border-radius:18px;
+  padding:20px;
+  text-align:center;
+  font-size:18px;
 }
 </style>
 </head>
 <body>
 
-<h1>FATEH27</h1>
-<p>UPSC Notes • Quiz • PYQs</p>
+<div class="header">
+<h2>FATEH27</h2>
+<p>Welcome, <span class="name" id="user">Aspirant</span></p>
+</div>
 
-<button onclick="Telegram.WebApp.showAlert('Welcome to Fateh27')">
-Start
-</button>
+<div class="grid">
+<div class="card">📚 Current Affairs</div>
+<div class="card">📝 PYQs</div>
+<div class="card">⏱ Answer Writing</div>
+<div class="card">🧠 Quiz</div>
+<div class="card">📖 Notes</div>
+<div class="card">📈 Progress</div>
+</div>
 
 <script>
-Telegram.WebApp.ready();
-Telegram.WebApp.expand();
+const tg = window.Telegram.WebApp;
+tg.ready();
+tg.expand();
+
+if(tg.initDataUnsafe?.user){
+ document.getElementById("user").innerText=tg.initDataUnsafe.user.first_name;
+}
 </script>
 
 </body>
 </html>
-
