@@ -20,7 +20,12 @@ button{width:100%;padding:14px;background:#229ED9;color:white;border:none;border
 
 <button onclick="save()">Save (Demo)</button>
 
-<script>
+<script type="module">
+24  import { db } from "./firebaseConfig.js";
+25  import { collection, addDoc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+26  Telegram.WebApp.ready();
+27  Telegram.WebApp.expand();
+28  const ADMIN_ID = 5496422260;
 Telegram.WebApp.ready();
 Telegram.WebApp.expand();
 const ADMIN_ID = 5496422260;
