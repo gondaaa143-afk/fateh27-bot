@@ -3,96 +3,165 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FATEH27 • War Room</title>
+<title>FATEH27 • WAR ROOM</title>
 
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script src="./progress.js"></script>
 
 <style>
-*{box-sizing:border-box}
+*{margin:0;padding:0;box-sizing:border-box}
 body{
- margin:0;
- background:#07152d;
- color:white;
- font-family:Arial,sans-serif;
- padding:20px;
+font-family:Arial,sans-serif;
+background:linear-gradient(180deg,#020817,#07152d,#0b1f3f);
+color:#fff;
+padding:18px;
+padding-bottom:90px;
 }
-.card{
- background:#0f2348;
- border-radius:18px;
- padding:18px;
- margin:14px 0;
+.hero{
+background:linear-gradient(135deg,#0f2348,#102c5c);
+border:1px solid rgba(34,158,217,.3);
+border-radius:24px;
+padding:22px;
+box-shadow:0 0 25px rgba(34,158,217,.15);
+margin-bottom:18px;
 }
-button{
- width:100%;
- padding:14px;
- border:none;
- border-radius:14px;
- margin:8px 0;
- background:#229ED9;
- color:white;
- font-size:16px;
- font-weight:bold;
-}
-.grid{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:10px;
-}
-.small{
- background:#132c59;
- padding:16px;
- border-radius:14px;
- text-align:center;
+.title{font-size:30px;font-weight:900;letter-spacing:2px}
+.sub{color:#9fb3d9;font-size:13px;margin-top:6px}
+.badge{
+display:inline-block;
+padding:6px 14px;
+background:#163a72;
+border:1px solid #2aa8ff;
+border-radius:999px;
+margin-top:12px;
+font-size:13px;
 }
 .ring{
- width:130px;
- height:130px;
- margin:auto;
- position:relative;
+width:170px;
+height:170px;
+margin:20px auto;
+position:relative;
 }
-.ring svg{
- transform:rotate(-90deg);
-}
+.ring svg{transform:rotate(-90deg)}
 .center{
- position:absolute;
- inset:0;
- display:flex;
- align-items:center;
- justify-content:center;
- flex-direction:column;
+position:absolute;
+inset:0;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
 }
-label{
- display:flex;
- align-items:center;
- gap:10px;
- margin:10px 0;
+#xp{font-size:30px;font-weight:900}
+#rank{color:#8fd3ff;font-size:15px}
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+margin-bottom:18px;
+}
+.card{
+background:#0f2348;
+border:1px solid rgba(255,255,255,.05);
+border-radius:18px;
+padding:16px;
+box-shadow:0 0 12px rgba(0,0,0,.25);
+}
+.stat{
+font-size:28px;
+font-weight:bold;
+color:#4fd1ff;
+}
+.label{
+font-size:13px;
+color:#a6c0e6;
+margin-top:6px;
+}
+.section{
+font-size:20px;
+font-weight:bold;
+margin:18px 0 10px;
+}
+.subjects{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+}
+.subject{
+background:#10254d;
+border:1px solid rgba(79,209,255,.15);
+border-radius:18px;
+padding:18px;
+text-align:center;
+}
+.subject b{display:block;font-size:20px;margin-bottom:6px}
+.subject span{color:#7dd3fc;font-size:13px}
+.mission{
+display:flex;
+align-items:center;
+gap:10px;
+margin:12px 0;
+}
+.mission input{
+width:22px;
+height:22px;
+accent-color:#22c55e;
+}
+.activity{
+padding:12px;
+background:#132c59;
+border-radius:14px;
+margin-top:10px;
+font-size:14px;
+}
+button{
+width:100%;
+padding:16px;
+margin-top:12px;
+border:none;
+border-radius:16px;
+background:linear-gradient(135deg,#229ED9,#2563eb);
+color:white;
+font-size:16px;
+font-weight:bold;
+box-shadow:0 6px 18px rgba(34,158,217,.35);
+cursor:pointer;
 }
 </style>
 </head>
+
 <body>
 
-<h1>⚔️ FATEH27</h1>
+<div class="hero">
 
-<div class="card">
+<div class="title">⚔ FATEH27</div>
+<div class="sub">UPSC WAR ROOM • Mission IAS</div>
+<div class="badge" id="time">00:00</div>
 
 <div class="ring">
 
-<svg width="130" height="130">
-<circle cx="65" cy="65" r="52" stroke="#1d3d70" stroke-width="10" fill="none"/>
-<circle id="progressRing"
-cx="65" cy="65" r="52"
-stroke="#22c55e"
+<svg width="170" height="170">
+
+<circle cx="85" cy="85" r="68"
+stroke="#16345f"
+stroke-width="10"
+fill="none"/>
+
+<circle id="ring"
+cx="85"
+cy="85"
+r="68"
+stroke="#36d1ff"
 stroke-width="10"
 fill="none"
 stroke-linecap="round"
-stroke-dasharray="327"
-stroke-dashoffset="327"/>
+stroke-dasharray="427"
+stroke-dashoffset="427"/>
+
 </svg>
 
 <div class="center">
-<h2 id="xp">0 XP</h2>
-<p id="rank">Recruit</p>
+<div id="xp">0 XP</div>
+<div id="rank">Recruit</div>
 </div>
 
 </div>
@@ -101,49 +170,76 @@ stroke-dashoffset="327"/>
 
 <div class="grid">
 
-<div class="small">
-<h2 id="streak">0</h2>
-<p>🔥 Streak</p>
-</div>
-
-<div class="small">
-<h2 id="solved">0</h2>
-<p>✅ Solved</p>
-</div>
-
+<div class="card">
+<div class="stat" id="streak">0</div>
+<div class="label">🔥 Day Streak</div>
 </div>
 
 <div class="card">
-
-<h2>📊 Subject Progress</h2>
-
-<div class="grid">
-
-<div class="small"><b>GS1</b><br><span id="gs1">0</span></div>
-<div class="small"><b>GS2</b><br><span id="gs2">0</span></div>
-<div class="small"><b>GS3</b><br><span id="gs3">0</span></div>
-<div class="small"><b>GS4</b><br><span id="gs4">0</span></div>
-
+<div class="stat" id="solved">0</div>
+<div class="label">✅ Questions Solved</div>
 </div>
 
 </div>
+
+<div class="section">📊 Subject Progress</div>
+
+<div class="subjects">
+
+<div class="subject">
+<b>📘 GS1</b>
+<span id="gs1">0</span>
+</div>
+
+<div class="subject">
+<b>📗 GS2</b>
+<span id="gs2">0</span>
+</div>
+
+<div class="subject">
+<b>📙 GS3</b>
+<span id="gs3">0</span>
+</div>
+
+<div class="subject">
+<b>📕 GS4</b>
+<span id="gs4">0</span>
+</div>
+
+</div>
+
+<div class="section">🎯 Today's Mission</div>
 
 <div class="card">
 
-<h2>🎯 Today's Mission</h2>
+<label class="mission">
+<input type="checkbox">
+<span>4 Answer Writing</span>
+</label>
 
-<label><input type="checkbox"> 4 Answer Writing</label>
-<label><input type="checkbox"> GS Revision</label>
-<label><input type="checkbox"> Current Affairs</label>
+<label class="mission">
+<input type="checkbox">
+<span>The Hindu + PIB</span>
+</label>
+
+<label class="mission">
+<input type="checkbox">
+<span>1 Hour Revision</span>
+</label>
 
 </div>
+
+<div class="section">📜 Recent Activity</div>
 
 <div class="card">
 
-<h2>📜 Recent Activity</h2>
-<p id="recent">No activity yet.</p>
+<div class="activity" id="recent">
+No activity yet.
+</div>
 
 </div>
+
+<div class="section">⚡ Quick Launch</div>
 
 <button onclick="location.href='gs1.html'">📘 GS1</button>
 <button onclick="location.href='gs2.html'">📗 GS2</button>
@@ -154,38 +250,47 @@ stroke-dashoffset="327"/>
 Telegram.WebApp.ready();
 Telegram.WebApp.expand();
 
-function rank(x){
- if(x>=1500)return"🏆 Officer";
- if(x>=800)return"⚔️ Warrior";
- if(x>=300)return"🥈 Aspirant";
- return"🟢 Recruit";
+function getRank(x){
+if(x>=1500)return"🏆 Officer";
+if(x>=800)return"⚔ Warrior";
+if(x>=300)return"🥈 Aspirant";
+return"🟢 Recruit";
 }
 
 function load(){
 
- const d=Progress.get();
+const d=Progress.get();
 
- document.getElementById("xp").textContent=d.xp+" XP";
- document.getElementById("rank").textContent=rank(d.xp);
+xp.textContent=d.xp+" XP";
+rank.textContent=getRank(d.xp);
 
- document.getElementById("streak").textContent=d.streak;
- document.getElementById("solved").textContent=d.solved;
+streak.textContent=d.streak||0;
+solved.textContent=d.solved||0;
 
- document.getElementById("gs1").textContent=d.gs1||0;
- document.getElementById("gs2").textContent=d.gs2||0;
- document.getElementById("gs3").textContent=d.gs3||0;
- document.getElementById("gs4").textContent=d.gs4||0;
+gs1.textContent=d.gs1||0;
+gs2.textContent=d.gs2||0;
+gs3.textContent=d.gs3||0;
+gs4.textContent=d.gs4||0;
 
- document.getElementById("recent").textContent=
- d.lastActivity||"No activity yet.";
+recent.textContent=d.lastActivity||"No activity yet.";
 
- const goal=1500;
- const p=Math.min(d.xp/goal,1);
- const c=327;
- document.getElementById("progressRing").style.strokeDashoffset=c-(c*p);
+const goal=1500;
+const p=Math.min(d.xp/goal,1);
+const c=427;
+ring.style.strokeDashoffset=c-(c*p);
 
 }
 
+function clock(){
+const n=new Date();
+time.textContent=n.toLocaleTimeString([],{
+hour:'2-digit',
+minute:'2-digit'
+});
+}
+
+setInterval(clock,1000);
+clock();
 load();
 </script>
 
