@@ -18,8 +18,7 @@ button{width:100%;padding:14px;background:#229ED9;color:white;border:none;border
 <input id="title" placeholder="Current Affairs Title">
 <textarea id="summary" rows="6" placeholder="Summary"></textarea>
 
-<button onclick="save()">💾 Save Current Affairs</button>
-
+<button id="saveBtn">💾 Save Current Affairs</button>
 <script type="module">
 24  import { db } from "./firebaseConfig.js";
 25  import { collection, addDoc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
