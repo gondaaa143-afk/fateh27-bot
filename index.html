@@ -1,231 +1,232 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FATEH27</title>
+<title>GS1 PYQs • FATEH27</title>
 
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
-<script src="/progress.js"></script>
+<script src="./progress.js"></script>
 
 <style>
 *{box-sizing:border-box}
 body{
- margin:0;
- background:#07152d;
- color:white;
- font-family:Arial;
+  margin:0;
+  background:#07152d;
+  color:white;
+  font-family:Arial,sans-serif;
+  padding:20px 20px 90px;
 }
-.header{padding:22px;}
-.name{color:#7dd3fc;}
-.count{
- background:#0f2348;
- border-radius:18px;
- padding:18px;
- margin:0 20px 18px;
- text-align:center;
-}
-.count h1{margin:8px 0;font-size:42px;color:#38bdf8;}
-.grid{
- display:grid;
- grid-template-columns:repeat(2,1fr);
- gap:14px;
- padding:0 20px 20px;
-}
+h1{margin:0 0 18px}
 .card{
- background:#0f2348;
- border-radius:18px;
- padding:18px;
- text-align:center;
- cursor:pointer;
+  background:#0f2348;
+  padding:18px;
+  border-radius:16px;
+  margin:12px 0;
+  cursor:pointer;
 }
-.card span{font-size:28px;display:block;margin-bottom:8px;}
-.mission{
- margin:0 20px 25px;
- background:#0f2348;
- border-radius:18px;
- padding:18px;
+select,input,button{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  background:#0f2348;
+  color:white;
+  margin:10px 0;
+  font-size:15px;
 }
-.task{
- display:flex;
- align-items:center;
- gap:10px;
- margin:12px 0;
- cursor:pointer;
-}
-.task input[type="checkbox"]{
- width:22px !important;
- height:22px !important;
- margin:0;
- accent-color:#38bdf8;
- flex-shrink:0;
-}
-.footer{
- text-align:center;
- color:#7dd3fc;
- padding-bottom:25px;
- font-size:14px;
+#detail{display:none}
+#homeBtn{
+  position:fixed;
+  left:20px;
+  right:20px;
+  bottom:20px;
+  width:auto;
+  background:#229ED9;
+  font-weight:bold;
 }
 </style>
 </head>
 
 <body>
 
-<div class="header">
- <h2>FATEH27</h2>
- <p>Welcome, <span class="name" id="user">Aspirant</span></p>
+<div id="listView">
+  <h1>📘 GS1 PYQs</h1>
+
+  <select id="year">
+    <option value="all">All Years</option>
+  </select>
+
+  <input id="search" placeholder="Search Topic">
+
+  <div id="questions"></div>
 </div>
 
-<div class="count">
- <div>UPSC 2027 Mission</div>
- <h1 id="days">000</h1>
- <div>Days Remaining</div>
+<div id="detail" class="card">
+
+  <h2 id="dYear"></h2>
+  <p id="dQuestion"></p>
+
+  <button id="btn7" type="button">⏱ 7 Min Timer</button>
+  <button id="btn11" type="button">⏱ 11 Min Timer</button>
+
+  <button id="copyBtn" type="button">📋 Copy Question</button>
+  <button id="backBtn" type="button">⬅ Back to List</button>
+
+  <h2 id="timer"></h2>
+
 </div>
 
-<div class="grid">
- <div class="card">
-   <span>🔥</span>
-   <b id="streakValue">12</b><br>Streak
- </div>
-
- <div class="card">
-   <span>🏆</span>
-   <b id="xpValue">2450</b><br>XP
- </div>
-
- <div class="card" onclick="location.href='/pyqs.html'">
-   <span>📝</span>PYQs
- </div>
-
- <div class="card" onclick="location.href='/timer.html'">
-   <span>⏱</span>Answer Writing
- </div>
-
- <div class="card">
-   <span>📚</span>Current Affairs
- </div>
-
- <div class="card">
-   <span>📖</span>Notes
- </div>
-</div>
-
-<div class="mission">
- <h3>🛡 Officer Progress</h3>
-
- <div style="display:flex;align-items:center;gap:20px;">
-   <svg width="90" height="90" viewBox="0 0 100 100">
-     <circle cx="50" cy="50" r="40"
-       stroke="#1e3a8a" stroke-width="8" fill="none"/>
-
-     <circle id="ring"
-       cx="50" cy="50" r="40"
-       stroke="#38bdf8"
-       stroke-width="8"
-       fill="none"
-       stroke-linecap="round"
-       stroke-dasharray="251"
-       stroke-dashoffset="128"
-       transform="rotate(-90 50 50)"/>
-
-     <text id="percent"
-       x="50" y="55"
-       text-anchor="middle"
-       fill="white"
-       font-size="18"
-       font-weight="bold">49%</text>
-   </svg>
-
-   <div>
-     <h3 id="rank" style="margin:0;color:#38bdf8;">Deputy Collector</h3>
-     <p id="xpText" style="margin:6px 0;color:#9ca3af;">2450 XP</p>
-     <small>Next: IAS Officer</small>
-   </div>
- </div>
-</div>
-
-<div class="mission">
- <h3>🎯 Today's Mission</h3>
-
- <label class="task">
-   <input type="checkbox" class="missionBox">
-   GS2 – 2 PYQs
- </label>
-
- <label class="task">
-   <input type="checkbox" class="missionBox">
-   Current Affairs – 30 min
- </label>
-
- <label class="task">
-   <input type="checkbox" class="missionBox">
-   Polity Revision
- </label>
-
- <label class="task">
-   <input type="checkbox" class="missionBox">
-   Answer Writing
- </label>
-</div>
-
-<div class="footer">
- Officer OS • Version 1.1
-</div>
+<button id="homeBtn" type="button">🏠 Home</button>
 
 <script>
 const tg=window.Telegram.WebApp;
 tg.ready();
 tg.expand();
-const p = Progress.get();
 
-document.getElementById("xpValue").innerText = p.xp;
-document.getElementById("streakValue").innerText = p.streak;
-document.getElementById("rank").innerText = Progress.rank();
-document.getElementById("xpText").innerText = p.xp + " XP";
+const year=document.getElementById("year");
+const search=document.getElementById("search");
+const box=document.getElementById("questions");
 
-const percent = Math.min((p.xp / 5000) * 100, 100);
-document.getElementById("percent").innerText = Math.round(percent) + "%";
-document.getElementById("ring").style.strokeDashoffset = 251 - (251 * percent / 100);
-if(tg.initDataUnsafe?.user){
- document.getElementById("user").innerText=tg.initDataUnsafe.user.first_name;
+const listView=document.getElementById("listView");
+const detail=document.getElementById("detail");
+const dYear=document.getElementById("dYear");
+const dQuestion=document.getElementById("dQuestion");
+const timer=document.getElementById("timer");
+
+let currentQuestion="";
+let interval;
+let data=[];
+
+async function load(){
+
+ const text=await fetch("./pyqs.csv?"+Date.now()).then(r=>r.text());
+ const rows=text.trim().split(/\r?\n/).slice(1);
+
+ data=[];
+
+ rows.forEach(row=>{
+
+   const c=row.match(/(".*?"|[^,]+)(?=\s*,|\s*$)/g);
+   if(!c||c.length<3)return;
+
+   const item={
+     year:c[0].replace(/"/g,""),
+     paper:c[1].replace(/"/g,""),
+     question:c[2].replace(/"/g,"")
+   };
+
+   if(item.paper==="GS1") data.push(item);
+
+ });
+
+ year.innerHTML='<option value="all">All Years</option>';
+
+ [...new Set(data.map(x=>x.year))]
+ .sort((a,b)=>Number(b)-Number(a))
+ .forEach(y=>{
+   year.innerHTML+=`<option value="${y}">${y}</option>`;
+ });
+
+ render();
 }
 
-const exam=new Date("2027-05-30");
-const today=new Date();
-const diff=Math.ceil((exam-today)/(1000*60*60*24));
-document.getElementById("days").innerText=diff>0?diff:0;
+function render(){
 
-let xp = 2450;
+ box.innerHTML="";
 
-const xpValue = document.getElementById("xpValue");
-const xpText = document.getElementById("xpText");
-const percentText = document.getElementById("percent");
-const ring = document.getElementById("ring");
-const rank = document.getElementById("rank");
+ data.filter(q=>
+   (year.value==="all"||q.year===year.value) &&
+   q.question.toLowerCase().includes(search.value.toLowerCase())
+ ).forEach(q=>{
 
-function updateUI(){
-  xpValue.textContent = xp;
-  xpText.textContent = xp + " XP";
+   const card=document.createElement("div");
+   card.className="card";
+   card.innerHTML=`<b>${q.year}</b><p>${q.question}</p>`;
 
-  const p = Math.round((xp/5000)*100);
-  percentText.textContent = p + "%";
-  ring.setAttribute("stroke-dashoffset", 251-(251*p/100));
+   card.onclick=()=>{
 
-  if(xp>=5000) rank.textContent="IAS Officer";
-  else if(xp>=1000) rank.textContent="Deputy Collector";
-  else if(xp>=500) rank.textContent="Captain";
-  else if(xp>=200) rank.textContent="Lieutenant";
-  else rank.textContent="Cadet";
+      Progress.addXP(5);
+      Progress.addSolved("GS1");
+
+      currentQuestion=q.question;
+      dYear.textContent=q.year;
+      dQuestion.textContent=q.question;
+      timer.textContent="";
+
+      listView.style.display="none";
+      detail.style.display="block";
+
+      window.scrollTo(0,0);
+   };
+
+   box.appendChild(card);
+ });
 }
 
-document.querySelectorAll(".missionBox").forEach(cb=>{
-  cb.onclick=function(){
-    xp += this.checked ? 20 : -20;
-    updateUI();
-  };
-});
+document.getElementById("backBtn").onclick=()=>{
+ clearInterval(interval);
+ timer.textContent="";
+ detail.style.display="none";
+ listView.style.display="block";
+ window.scrollTo(0,0);
+};
 
-updateUI();
+document.getElementById("copyBtn").onclick=async()=>{
+ try{
+   await navigator.clipboard.writeText(currentQuestion);
+   tg.showAlert("Question Copied");
+ }catch{
+   tg.showAlert("Copy Failed");
+ }
+};
+
+function startTimer(min){
+
+ clearInterval(interval);
+
+ let sec=min*60;
+
+ timer.textContent=`${min}:00`;
+
+ interval=setInterval(()=>{
+
+   sec--;
+
+   timer.textContent=
+   Math.floor(sec/60)+":"+String(sec%60).padStart(2,"0");
+
+   if(sec<=0){
+      clearInterval(interval);
+      Progress.addXP(10);
+      tg.showAlert("Time Up (+10 XP)");
+   }
+
+ },1000);
+}
+
+document.getElementById("btn7").onclick=()=>startTimer(7);
+document.getElementById("btn11").onclick=()=>startTimer(11);
+
+/* FINAL HOME BUTTON FIX */
+document.getElementById("homeBtn").onclick=()=>{
+
+  tg.HapticFeedback.impactOccurred("light");
+
+  // Telegram Back Button
+  if(window.history.length>1){
+    history.back();
+    return;
+  }
+
+  // Fallback
+  window.location.href="index.html";
+};
+
+year.onchange=render;
+search.oninput=render;
+
+load();
 </script>
 
 </body>
