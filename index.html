@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GS1 PYQs • FATEH27</title>
+<title>FATEH27 • War Room</title>
 
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script src="./progress.js"></script>
@@ -11,220 +11,180 @@
 <style>
 *{box-sizing:border-box}
 body{
-  margin:0;
-  background:#07152d;
-  color:white;
-  font-family:Arial,sans-serif;
-  padding:20px 20px 90px;
+ margin:0;
+ background:#07152d;
+ color:white;
+ font-family:Arial,sans-serif;
+ padding:20px;
 }
-h1{margin:0 0 18px}
 .card{
-  background:#0f2348;
-  padding:18px;
-  border-radius:16px;
-  margin:12px 0;
-  cursor:pointer;
+ background:#0f2348;
+ border-radius:18px;
+ padding:18px;
+ margin:14px 0;
 }
-select,input,button{
-  width:100%;
-  padding:12px;
-  border:none;
-  border-radius:12px;
-  background:#0f2348;
-  color:white;
-  margin:10px 0;
-  font-size:15px;
+button{
+ width:100%;
+ padding:14px;
+ border:none;
+ border-radius:14px;
+ margin:8px 0;
+ background:#229ED9;
+ color:white;
+ font-size:16px;
+ font-weight:bold;
 }
-#detail{display:none}
-#homeBtn{
-  position:fixed;
-  left:20px;
-  right:20px;
-  bottom:20px;
-  width:auto;
-  background:#229ED9;
-  font-weight:bold;
+.grid{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:10px;
+}
+.small{
+ background:#132c59;
+ padding:16px;
+ border-radius:14px;
+ text-align:center;
+}
+.ring{
+ width:130px;
+ height:130px;
+ margin:auto;
+ position:relative;
+}
+.ring svg{
+ transform:rotate(-90deg);
+}
+.center{
+ position:absolute;
+ inset:0;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ flex-direction:column;
+}
+label{
+ display:flex;
+ align-items:center;
+ gap:10px;
+ margin:10px 0;
 }
 </style>
 </head>
-
 <body>
 
-<div id="listView">
-  <h1>📘 GS1 PYQs</h1>
+<h1>⚔️ FATEH27</h1>
 
-  <select id="year">
-    <option value="all">All Years</option>
-  </select>
+<div class="card">
 
-  <input id="search" placeholder="Search Topic">
+<div class="ring">
 
-  <div id="questions"></div>
+<svg width="130" height="130">
+<circle cx="65" cy="65" r="52" stroke="#1d3d70" stroke-width="10" fill="none"/>
+<circle id="progressRing"
+cx="65" cy="65" r="52"
+stroke="#22c55e"
+stroke-width="10"
+fill="none"
+stroke-linecap="round"
+stroke-dasharray="327"
+stroke-dashoffset="327"/>
+</svg>
+
+<div class="center">
+<h2 id="xp">0 XP</h2>
+<p id="rank">Recruit</p>
 </div>
 
-<div id="detail" class="card">
-
-  <h2 id="dYear"></h2>
-  <p id="dQuestion"></p>
-
-  <button id="btn7" type="button">⏱ 7 Min Timer</button>
-  <button id="btn11" type="button">⏱ 11 Min Timer</button>
-
-  <button id="copyBtn" type="button">📋 Copy Question</button>
-  <button id="backBtn" type="button">⬅ Back to List</button>
-
-  <h2 id="timer"></h2>
+</div>
 
 </div>
 
-<button id="homeBtn" type="button">🏠 Home</button>
+<div class="grid">
+
+<div class="small">
+<h2 id="streak">0</h2>
+<p>🔥 Streak</p>
+</div>
+
+<div class="small">
+<h2 id="solved">0</h2>
+<p>✅ Solved</p>
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>📊 Subject Progress</h2>
+
+<div class="grid">
+
+<div class="small"><b>GS1</b><br><span id="gs1">0</span></div>
+<div class="small"><b>GS2</b><br><span id="gs2">0</span></div>
+<div class="small"><b>GS3</b><br><span id="gs3">0</span></div>
+<div class="small"><b>GS4</b><br><span id="gs4">0</span></div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>🎯 Today's Mission</h2>
+
+<label><input type="checkbox"> 4 Answer Writing</label>
+<label><input type="checkbox"> GS Revision</label>
+<label><input type="checkbox"> Current Affairs</label>
+
+</div>
+
+<div class="card">
+
+<h2>📜 Recent Activity</h2>
+<p id="recent">No activity yet.</p>
+
+</div>
+
+<button onclick="location.href='gs1.html'">📘 GS1</button>
+<button onclick="location.href='gs2.html'">📗 GS2</button>
+<button onclick="location.href='gs3.html'">📙 GS3</button>
+<button onclick="location.href='gs4.html'">📕 GS4</button>
 
 <script>
-const tg=window.Telegram.WebApp;
-tg.ready();
-tg.expand();
+Telegram.WebApp.ready();
+Telegram.WebApp.expand();
 
-const year=document.getElementById("year");
-const search=document.getElementById("search");
-const box=document.getElementById("questions");
-
-const listView=document.getElementById("listView");
-const detail=document.getElementById("detail");
-const dYear=document.getElementById("dYear");
-const dQuestion=document.getElementById("dQuestion");
-const timer=document.getElementById("timer");
-
-let currentQuestion="";
-let interval;
-let data=[];
-
-async function load(){
-
- const text=await fetch("./pyqs.csv?"+Date.now()).then(r=>r.text());
- const rows=text.trim().split(/\r?\n/).slice(1);
-
- data=[];
-
- rows.forEach(row=>{
-
-   const c=row.match(/(".*?"|[^,]+)(?=\s*,|\s*$)/g);
-   if(!c||c.length<3)return;
-
-   const item={
-     year:c[0].replace(/"/g,""),
-     paper:c[1].replace(/"/g,""),
-     question:c[2].replace(/"/g,"")
-   };
-
-   if(item.paper==="GS1") data.push(item);
-
- });
-
- year.innerHTML='<option value="all">All Years</option>';
-
- [...new Set(data.map(x=>x.year))]
- .sort((a,b)=>Number(b)-Number(a))
- .forEach(y=>{
-   year.innerHTML+=`<option value="${y}">${y}</option>`;
- });
-
- render();
+function rank(x){
+ if(x>=1500)return"🏆 Officer";
+ if(x>=800)return"⚔️ Warrior";
+ if(x>=300)return"🥈 Aspirant";
+ return"🟢 Recruit";
 }
 
-function render(){
+function load(){
 
- box.innerHTML="";
+ const d=Progress.get();
 
- data.filter(q=>
-   (year.value==="all"||q.year===year.value) &&
-   q.question.toLowerCase().includes(search.value.toLowerCase())
- ).forEach(q=>{
+ document.getElementById("xp").textContent=d.xp+" XP";
+ document.getElementById("rank").textContent=rank(d.xp);
 
-   const card=document.createElement("div");
-   card.className="card";
-   card.innerHTML=`<b>${q.year}</b><p>${q.question}</p>`;
+ document.getElementById("streak").textContent=d.streak;
+ document.getElementById("solved").textContent=d.solved;
 
-   card.onclick=()=>{
+ document.getElementById("gs1").textContent=d.gs1||0;
+ document.getElementById("gs2").textContent=d.gs2||0;
+ document.getElementById("gs3").textContent=d.gs3||0;
+ document.getElementById("gs4").textContent=d.gs4||0;
 
-      Progress.addXP(5);
-      Progress.addSolved("GS1");
+ document.getElementById("recent").textContent=
+ d.lastActivity||"No activity yet.";
 
-      currentQuestion=q.question;
-      dYear.textContent=q.year;
-      dQuestion.textContent=q.question;
-      timer.textContent="";
+ const goal=1500;
+ const p=Math.min(d.xp/goal,1);
+ const c=327;
+ document.getElementById("progressRing").style.strokeDashoffset=c-(c*p);
 
-      listView.style.display="none";
-      detail.style.display="block";
-
-      window.scrollTo(0,0);
-   };
-
-   box.appendChild(card);
- });
 }
-
-document.getElementById("backBtn").onclick=()=>{
- clearInterval(interval);
- timer.textContent="";
- detail.style.display="none";
- listView.style.display="block";
- window.scrollTo(0,0);
-};
-
-document.getElementById("copyBtn").onclick=async()=>{
- try{
-   await navigator.clipboard.writeText(currentQuestion);
-   tg.showAlert("Question Copied");
- }catch{
-   tg.showAlert("Copy Failed");
- }
-};
-
-function startTimer(min){
-
- clearInterval(interval);
-
- let sec=min*60;
-
- timer.textContent=`${min}:00`;
-
- interval=setInterval(()=>{
-
-   sec--;
-
-   timer.textContent=
-   Math.floor(sec/60)+":"+String(sec%60).padStart(2,"0");
-
-   if(sec<=0){
-      clearInterval(interval);
-      Progress.addXP(10);
-      tg.showAlert("Time Up (+10 XP)");
-   }
-
- },1000);
-}
-
-document.getElementById("btn7").onclick=()=>startTimer(7);
-document.getElementById("btn11").onclick=()=>startTimer(11);
-
-/* FINAL HOME BUTTON FIX */
-document.getElementById("homeBtn").onclick=()=>{
-
-  tg.HapticFeedback.impactOccurred("light");
-
-  // Telegram Back Button
-  if(window.history.length>1){
-    history.back();
-    return;
-  }
-
-  // Fallback
-  window.location.href="index.html";
-};
-
-year.onchange=render;
-search.oninput=render;
 
 load();
 </script>
