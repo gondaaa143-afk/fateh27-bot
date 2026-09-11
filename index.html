@@ -176,7 +176,16 @@ body{
 const tg=window.Telegram.WebApp;
 tg.ready();
 tg.expand();
+const p = Progress.get();
 
+document.getElementById("xpValue").innerText = p.xp;
+document.getElementById("streakValue").innerText = p.streak;
+document.getElementById("rank").innerText = Progress.rank();
+document.getElementById("xpText").innerText = p.xp + " XP";
+
+const percent = Math.min((p.xp / 5000) * 100, 100);
+document.getElementById("percent").innerText = Math.round(percent) + "%";
+document.getElementById("ring").style.strokeDashoffset = 251 - (251 * percent / 100);
 if(tg.initDataUnsafe?.user){
  document.getElementById("user").innerText=tg.initDataUnsafe.user.first_name;
 }
