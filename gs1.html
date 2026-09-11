@@ -100,42 +100,65 @@ const dQuestion=document.getElementById("dQuestion");
 const timer=document.getElementById("timer");
 
 let currentQuestion="";
-let interval;
+<script>
+Telegram.WebApp.ready();
+Telegram.WebApp.expand();
 
-async function load(){
+const year=document.getElementById("year");
+const search=document.getElementById("search");
+const box=document.getElementById("questions");
+
+const listView=document.getElementById("listView");
+const detail=document.getElementById("detail");
+const dYear=document.getElementById("dYear");
+const dQuestion=document.getElementById("dQuestion");
+const timer=document.getElementById("timer");
+
+let currentQuestion="";
+let interval;
+let data=[];
+
+async function loadCSV(){
   const text=await fetch("./pyqs.csv").then(r=>r.text());
+
   const rows=text.trim().split("\n").slice(1);
 
+  data=rows.map(r=>{
+    const c=r.match(/(".*?"|[^,]+)(?=\s*,|\s*$)/g)||[];
+    return{
+      year:c[0]?.replace(/"/g,""),
+      paper:c[1]?.replace(/"/g,""),
+      question:c[2]?.replace(/"/g,""),
+      topic:c[3]?.replace(/"/g,""),
+      marks:c[4]?.replace(/"/g,"")
+    };
+  }).filter(x=>x.paper==="GS1");
+
+  year.innerHTML='<option value="all">All Years</option>';
+  [...new Set(data.map(x=>x.year))]
+    .sort((a,b)=>b-a)
+    .forEach(y=>year.innerHTML+=`<option value="${y}">${y}</option>`);
+
+  render();
+}
+
+function render(){
   box.innerHTML="";
-
-  rows.forEach(row=>{
-    const p=row.match(/(".*?"|[^,]+)/g);
-    if(!p)return;
-
-    const y=p[0];
-    const paper=p[1];
-    const q=p[2].replace(/^"|"$/g,"");
-
-    if(
-      paper==="GS1" &&
-      (year.value==="all"||year.value===y) &&
-      q.toLowerCase().includes(search.value.toLowerCase())
-    ){
-      const card=document.createElement("div");
-      card.className="card";
-      card.innerHTML="<b>"+y+"</b><p>"+q+"</p>";
-
-      card.onclick=()=>{
-        currentQuestion=q;
-        dYear.textContent=y;
-        dQuestion.textContent=q;
-        timer.textContent="";
-        listView.style.display="none";
-        detail.style.display="block";
-      };
-
-      box.appendChild(card);
-    }
+  data.filter(q=>
+    (year.value==="all"||q.year===year.value) &&
+    q.question.toLowerCase().includes(search.value.toLowerCase())
+  ).forEach(q=>{
+    const card=document.createElement("div");
+    card.className="card";
+    card.innerHTML=`<b>${q.year}</b><p>${q.question}</p>`;
+    card.onclick=()=>{
+      currentQuestion=q.question;
+      dYear.textContent=q.year;
+      dQuestion.textContent=q.question;
+      listView.style.display="none";
+      detail.style.display="block";
+    };
+    box.appendChild(card);
   });
 }
 
@@ -144,39 +167,29 @@ document.getElementById("backBtn").onclick=()=>{
   listView.style.display="block";
 };
 
-document.getElementById("copyBtn").onclick=async()=>{
-  try{
-    await navigator.clipboard.writeText(currentQuestion);
-    Telegram.WebApp.showAlert("Question Copied");
-  }catch(e){}
+document.getElementById("copyBtn").onclick=()=>{
+  navigator.clipboard.writeText(currentQuestion);
 };
 
-function startTimer(min){
+function startTimer(m){
   clearInterval(interval);
-  let sec=min*60;
-
+  let s=m*60;
   interval=setInterval(()=>{
-    timer.textContent=Math.floor(sec/60)+":"+String(sec%60).padStart(2,"0");
-
-    if(sec===0){
+    timer.textContent=Math.floor(s/60)+":"+String(s%60).padStart(2,"0");
+    if(s--<=0){
       clearInterval(interval);
       Telegram.WebApp.showAlert("Time Up");
     }
-    sec--;
   },1000);
 }
 
 document.getElementById("btn7").onclick=()=>startTimer(7);
 document.getElementById("btn11").onclick=()=>startTimer(11);
 
-document.getElementById("homeBtn").onclick=()=>{
-  location.href="./index.html";
-};
+year.onchange=render;
+search.oninput=render;
 
-year.onchange=load;
-search.oninput=load;
-
-load();
+loadCSV();
 </script>
 
 </body>
