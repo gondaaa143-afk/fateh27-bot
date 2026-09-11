@@ -3,69 +3,119 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Fateh27</title>
+<title>FATEH27</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
 <style>
+*{box-sizing:border-box}
 body{
-  margin:0;
-  background:#07152d;
-  color:white;
-  font-family:Arial;
+ margin:0;
+ background:#07152d;
+ color:white;
+ font-family:Arial;
 }
 .header{
-  padding:25px;
+ padding:22px;
 }
-.name{
-  color:#7dd3fc;
+.name{color:#7dd3fc}
+.count{
+ background:#0f2348;
+ border-radius:18px;
+ padding:18px;
+ margin:0 20px 18px;
+ text-align:center;
 }
+.count h1{margin:8px 0;font-size:42px;color:#38bdf8}
 .grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:15px;
-  padding:20px;
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:14px;
+ padding:0 20px 20px;
 }
 .card{
-  background:#0f2348;
-  border-radius:18px;
-  padding:20px;
-  text-align:center;
-  font-size:18px;
+ background:#0f2348;
+ border-radius:18px;
+ padding:18px;
+ text-align:center;
+}
+.card span{font-size:28px;display:block;margin-bottom:8px}
+.mission{
+ margin:0 20px 25px;
+ background:#0f2348;
+ border-radius:18px;
+ padding:18px;
+}
+.task{
+ display:flex;
+ align-items:center;
+ gap:10px;
+ margin:10px 0;
+}
+.footer{
+ text-align:center;
+ color:#7dd3fc;
+ padding-bottom:25px;
+ font-size:14px;
 }
 </style>
 </head>
+
 <body>
 
 <div class="header">
-<h2>FATEH27</h2>
-<p>Welcome, <span class="name" id="user">Aspirant</span></p>
+ <h2>FATEH27</h2>
+ <p>Welcome, <span class="name" id="user">Aspirant</span></p>
+</div>
+
+<div class="count">
+ <div>UPSC 2027 Mission</div>
+ <h1 id="days">000</h1>
+ <div>Days Remaining</div>
 </div>
 
 <div class="grid">
-<div class="card" onclick="openCurrent()">📚 Current Affairs</div>
-<div class="card" onclick="location.href='/pyqs.html'">📝 PYQs</div>
-<div class="card" onclick="location.href='/timer.html'">⏱ Answer Writing</div>
-<div class="card">🧠 Quiz</div>
-<div class="card">📖 Notes</div>
-<div class="card">📈 Progress</div>
+ <div class="card"><span>🔥</span><b>12</b><br>Streak</div>
+ <div class="card"><span>🏆</span><b>2450</b><br>XP</div>
+
+ <div class="card" onclick="location.href='/pyqs.html'">
+   <span>📝</span>PYQs
+ </div>
+
+ <div class="card" onclick="location.href='/timer.html'">
+   <span>⏱</span>Answer Writing
+ </div>
+
+ <div class="card"><span>📚</span>Current Affairs</div>
+ <div class="card"><span>📖</span>Notes</div>
+</div>
+
+<div class="mission">
+ <h3>🎯 Today's Mission</h3>
+
+ <div class="task">⬜ GS2 – 2 PYQs</div>
+ <div class="task">⬜ Current Affairs – 30 min</div>
+ <div class="task">⬜ Polity Revision</div>
+ <div class="task">⬜ Answer Writing</div>
+</div>
+
+<div class="footer">
+ Officer OS • Version 1.0
 </div>
 
 <script>
-const tg = window.Telegram.WebApp;
+const tg=window.Telegram.WebApp;
 tg.ready();
 tg.expand();
 
 if(tg.initDataUnsafe?.user){
  document.getElementById("user").innerText=tg.initDataUnsafe.user.first_name;
-}if(tg.initDataUnsafe?.user){
-  document.getElementById("user").innerText=tg.initDataUnsafe.user.first_name;
 }
 
-function openCurrent(){
-  location.href="/current.html";
-}
-
+const exam=new Date("2027-05-30");
+const today=new Date();
+const diff=Math.ceil((exam-today)/(1000*60*60*24));
+document.getElementById("days").innerText=diff>0?diff:0;
 </script>
-
 
 </body>
 </html>
