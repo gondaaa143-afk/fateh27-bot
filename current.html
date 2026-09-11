@@ -22,17 +22,22 @@ small{color:#7dd3fc;}
 <p id="summary"></p>
 </div>
 
-<script>
+<script type="module">
+import { db } from "./firebaseConfig.js";
+import { collection, getDocs, query, limit } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
 Telegram.WebApp.ready();
 Telegram.WebApp.expand();
 
-fetch("/api/current")
-.then(r=>r.json())
-.then(d=>{
- document.getElementById("title").innerText=d.title;
- document.getElementById("date").innerText=d.date+" • "+d.source;
- document.getElementById("summary").innerText=d.summary;
-});
+const snap = await getDocs(
+  query(collection(db, "currentAffairs"), limit(1))
+);
+
+const d = snap.docs[0].data();
+
+document.getElementById("title").innerText = d.title;
+document.getElementById("date").innerText = d.date + " • " + d.source;
+document.getElementById("summary").innerText = d.summary;
 </script>
 
 </body>
