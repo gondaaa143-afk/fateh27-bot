@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Answer Writing Timer</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+body{margin:0;background:#07152d;color:white;font-family:Arial;padding:20px;text-align:center}
+#time{font-size:48px;margin:30px 0}
+button{padding:12px 22px;margin:8px;border:none;border-radius:12px;background:#229ED9;color:white;font-size:16px}
+</style>
+</head>
+<body>
+
+<h1>⏱ Answer Writing Timer</h1>
+<div id="time">04:00:00</div>
+
+<button onclick="start()">Start</button>
+<button onclick="pause()">Pause</button>
+<button onclick="reset()">Reset</button>
+
+<script>
+let sec=14400;
+let t=null;
+
+function show(){
+ let h=Math.floor(sec/3600);
+ let m=Math.floor((sec%3600)/60);
+ let s=sec%60;
+ document.getElementById("time").innerText=
+ String(h).padStart(2,"0")+":"+
+ String(m).padStart(2,"0")+":"+
+ String(s).padStart(2,"0");
+}
+
+function start(){
+ if(t) return;
+ t=setInterval(()=>{
+  if(sec>0){sec--;show();}
+  else{clearInterval(t);t=null;Telegram.WebApp.showAlert("Time Up!");}
+ },1000);
+}
+
+function pause(){clearInterval(t);t=null;}
+
+function reset(){pause();sec=14400;show();}
+
+show();
+Telegram.WebApp.ready();
+Telegram.WebApp.expand();
+</script>
+
+</body>
+</html>
