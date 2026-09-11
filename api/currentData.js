@@ -1,9 +1,5 @@
-export const currentAffairs = [
-  {
-    id: 1,
-    title: "Mission Mausam",
-    source: "PIB",
-    date: "11 Sept 2026",
-    summary: "Mission Mausam aims to improve weather forecasting and climate resilience."
-  }
-];
+import { currentAffairs } from "./currentData";
+
+export default function handler(req, res) {
+  res.status(200).json(currentAffairs[0]);
+}
