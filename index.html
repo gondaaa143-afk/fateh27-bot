@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>FATEH27 • WAR ROOM</title>
 
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -16,103 +16,90 @@ background:linear-gradient(180deg,#020817,#07152d,#0b1f3f);
 color:#fff;
 padding:18px;
 padding-bottom:90px;
+overflow-x:hidden;
+}
+.scan{
+position:fixed;
+top:-100%;
+left:0;
+width:100%;
+height:200px;
+background:linear-gradient(180deg,transparent,rgba(54,209,255,.12),transparent);
+animation:scan 5s linear infinite;
+pointer-events:none;
+}
+@keyframes scan{
+0%{top:-30%}
+100%{top:120%}
 }
 .hero{
 background:linear-gradient(135deg,#0f2348,#102c5c);
-border:1px solid rgba(34,158,217,.3);
+border:1px solid rgba(54,209,255,.25);
 border-radius:24px;
 padding:22px;
-box-shadow:0 0 25px rgba(34,158,217,.15);
-margin-bottom:18px;
+box-shadow:0 0 30px rgba(34,158,217,.18);
 }
-.title{font-size:30px;font-weight:900;letter-spacing:2px}
-.sub{color:#9fb3d9;font-size:13px;margin-top:6px}
-.badge{
+.profile{
+display:flex;
+align-items:center;
+gap:14px;
+}
+.avatar{
+width:64px;
+height:64px;
+border-radius:50%;
+background:#16345f;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+font-weight:bold;
+overflow:hidden;
+border:2px solid #36d1ff;
+}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.name{font-size:24px;font-weight:800}
+.id{color:#8fd3ff;font-size:13px}
+.clock{
+margin-top:8px;
 display:inline-block;
-padding:6px 14px;
-background:#163a72;
-border:1px solid #2aa8ff;
+padding:6px 12px;
 border-radius:999px;
-margin-top:12px;
-font-size:13px;
+background:#16345f;
+color:#8fd3ff;
 }
-.ring{
-width:170px;
-height:170px;
-margin:20px auto;
-position:relative;
-}
+.ring{width:170px;height:170px;margin:20px auto;position:relative}
 .ring svg{transform:rotate(-90deg)}
+.glow{filter:drop-shadow(0 0 8px #36d1ff)}
 .center{
 position:absolute;
 inset:0;
 display:flex;
 flex-direction:column;
-align-items:center;
 justify-content:center;
+align-items:center;
 }
 #xp{font-size:30px;font-weight:900}
-#rank{color:#8fd3ff;font-size:15px}
-.grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12px;
-margin-bottom:18px;
-}
+#rank{color:#8fd3ff}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}
 .card{
 background:#0f2348;
-border:1px solid rgba(255,255,255,.05);
 border-radius:18px;
 padding:16px;
-box-shadow:0 0 12px rgba(0,0,0,.25);
+border:1px solid rgba(255,255,255,.05);
 }
-.stat{
-font-size:28px;
-font-weight:bold;
-color:#4fd1ff;
-}
-.label{
-font-size:13px;
-color:#a6c0e6;
-margin-top:6px;
-}
-.section{
-font-size:20px;
-font-weight:bold;
-margin:18px 0 10px;
-}
-.subjects{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12px;
-}
+.stat{font-size:26px;font-weight:bold;color:#4fd1ff}
+.label{font-size:13px;color:#a6c0e6}
+.section{font-size:20px;font-weight:bold;margin:18px 0 10px}
+.subjects{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .subject{
 background:#10254d;
-border:1px solid rgba(79,209,255,.15);
 border-radius:18px;
 padding:18px;
 text-align:center;
 }
-.subject b{display:block;font-size:20px;margin-bottom:6px}
-.subject span{color:#7dd3fc;font-size:13px}
-.mission{
-display:flex;
-align-items:center;
-gap:10px;
-margin:12px 0;
-}
-.mission input{
-width:22px;
-height:22px;
-accent-color:#22c55e;
-}
-.activity{
-padding:12px;
-background:#132c59;
-border-radius:14px;
-margin-top:10px;
-font-size:14px;
-}
+.subject b{display:block;font-size:20px}
+.subject span{color:#7dd3fc}
 button{
 width:100%;
 padding:16px;
@@ -120,31 +107,54 @@ margin-top:12px;
 border:none;
 border-radius:16px;
 background:linear-gradient(135deg,#229ED9,#2563eb);
-color:white;
+color:#fff;
 font-size:16px;
 font-weight:bold;
 box-shadow:0 6px 18px rgba(34,158,217,.35);
-cursor:pointer;
+}
+#xpToast{
+position:fixed;
+left:50%;
+bottom:120px;
+transform:translateX(-50%);
+padding:12px 22px;
+border-radius:30px;
+background:#16a34a;
+font-weight:bold;
+display:none;
+animation:float 1.6s ease;
+}
+@keyframes float{
+0%{opacity:0;transform:translate(-50%,20px)}
+20%{opacity:1}
+100%{opacity:0;transform:translate(-50%,-70px)}
 }
 </style>
 </head>
 
 <body>
 
+<div class="scan"></div>
+
 <div class="hero">
 
-<div class="title">⚔ FATEH27</div>
-<div class="sub">UPSC WAR ROOM • Mission IAS</div>
-<div class="badge" id="time">00:00</div>
+<div class="profile">
+
+<div class="avatar" id="avatar">A</div>
+
+<div>
+<div class="name" id="username">Aspirant</div>
+<div class="id" id="officerId">Officer ID: F27-0001</div>
+<div class="clock" id="clock">00:00</div>
+</div>
+
+</div>
 
 <div class="ring">
 
 <svg width="170" height="170">
 
-<circle cx="85" cy="85" r="68"
-stroke="#16345f"
-stroke-width="10"
-fill="none"/>
+<circle cx="85" cy="85" r="68" stroke="#16345f" stroke-width="10" fill="none"/>
 
 <circle id="ring"
 cx="85"
@@ -155,7 +165,8 @@ stroke-width="10"
 fill="none"
 stroke-linecap="round"
 stroke-dasharray="427"
-stroke-dashoffset="427"/>
+stroke-dashoffset="427"
+class="glow"/>
 
 </svg>
 
@@ -177,7 +188,7 @@ stroke-dashoffset="427"/>
 
 <div class="card">
 <div class="stat" id="solved">0</div>
-<div class="label">✅ Questions Solved</div>
+<div class="label">✅ Solved</div>
 </div>
 
 </div>
@@ -186,56 +197,10 @@ stroke-dashoffset="427"/>
 
 <div class="subjects">
 
-<div class="subject">
-<b>📘 GS1</b>
-<span id="gs1">0</span>
-</div>
-
-<div class="subject">
-<b>📗 GS2</b>
-<span id="gs2">0</span>
-</div>
-
-<div class="subject">
-<b>📙 GS3</b>
-<span id="gs3">0</span>
-</div>
-
-<div class="subject">
-<b>📕 GS4</b>
-<span id="gs4">0</span>
-</div>
-
-</div>
-
-<div class="section">🎯 Today's Mission</div>
-
-<div class="card">
-
-<label class="mission">
-<input type="checkbox">
-<span>4 Answer Writing</span>
-</label>
-
-<label class="mission">
-<input type="checkbox">
-<span>The Hindu + PIB</span>
-</label>
-
-<label class="mission">
-<input type="checkbox">
-<span>1 Hour Revision</span>
-</label>
-
-</div>
-
-<div class="section">📜 Recent Activity</div>
-
-<div class="card">
-
-<div class="activity" id="recent">
-No activity yet.
-</div>
+<div class="subject"><b>📘 GS1</b><span id="gs1">0</span></div>
+<div class="subject"><b>📗 GS2</b><span id="gs2">0</span></div>
+<div class="subject"><b>📙 GS3</b><span id="gs3">0</span></div>
+<div class="subject"><b>📕 GS4</b><span id="gs4">0</span></div>
 
 </div>
 
@@ -246,11 +211,29 @@ No activity yet.
 <button onclick="location.href='gs3.html'">📙 GS3</button>
 <button onclick="location.href='gs4.html'">📕 GS4</button>
 
-<script>
-Telegram.WebApp.ready();
-Telegram.WebApp.expand();
+<div id="xpToast">+5 XP</div>
 
-function getRank(x){
+<script>
+const tg=Telegram.WebApp;
+tg.ready();
+tg.expand();
+
+const user=tg.initDataUnsafe?.user;
+
+if(user){
+document.getElementById("username").textContent=user.first_name;
+document.getElementById("avatar").textContent=user.first_name[0];
+if(user.photo_url){
+document.getElementById("avatar").innerHTML='<img src="'+user.photo_url+'">';
+}
+}
+
+if(!localStorage.officerId){
+localStorage.officerId="F27-"+Math.floor(1000+Math.random()*9000);
+}
+officerId.textContent="Officer ID: "+localStorage.officerId;
+
+function rank(x){
 if(x>=1500)return"🏆 Officer";
 if(x>=800)return"⚔ Warrior";
 if(x>=300)return"🥈 Aspirant";
@@ -262,7 +245,7 @@ function load(){
 const d=Progress.get();
 
 xp.textContent=d.xp+" XP";
-rank.textContent=getRank(d.xp);
+document.getElementById("rank").textContent=rank(d.xp);
 
 streak.textContent=d.streak||0;
 solved.textContent=d.solved||0;
@@ -272,26 +255,33 @@ gs2.textContent=d.gs2||0;
 gs3.textContent=d.gs3||0;
 gs4.textContent=d.gs4||0;
 
-recent.textContent=d.lastActivity||"No activity yet.";
-
 const goal=1500;
 const p=Math.min(d.xp/goal,1);
-const c=427;
-ring.style.strokeDashoffset=c-(c*p);
+ring.style.strokeDashoffset=427-(427*p);
 
 }
 
-function clock(){
-const n=new Date();
-time.textContent=n.toLocaleTimeString([],{
-hour:'2-digit',
-minute:'2-digit'
+function clockTick(){
+clock.textContent=new Date().toLocaleTimeString([],{
+hour:"2-digit",
+minute:"2-digit"
 });
 }
 
-setInterval(clock,1000);
-clock();
+setInterval(clockTick,1000);
+clockTick();
 load();
+
+const prev=Number(localStorage.lastXp||0);
+const now=Progress.get().xp;
+
+if(now>prev){
+xpToast.textContent="+"+(now-prev)+" XP";
+xpToast.style.display="block";
+setTimeout(()=>xpToast.style.display="none",1500);
+}
+
+localStorage.lastXp=now;
 </script>
 
 </body>
