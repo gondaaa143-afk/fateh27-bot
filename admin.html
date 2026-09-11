@@ -5,10 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fateh27 Admin</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script type="module" src="./admin.js"></script>
 <style>
 body{margin:0;background:#07152d;color:white;font-family:Arial;padding:20px}
-input,textarea{width:100%;padding:12px;margin:10px 0;background:#0f2348;color:white;border:none;border-radius:10px}
-button{width:100%;padding:14px;background:#229ED9;color:white;border:none;border-radius:12px;font-size:16px}
+input,textarea{width:100%;padding:14px;margin:12px 0;border:none;border-radius:12px;background:#10244a;color:white;box-sizing:border-box}
+button{width:100%;padding:14px;background:#2a9df4;color:white;border:none;border-radius:12px;font-size:18px}
 </style>
 </head>
 <body>
@@ -19,42 +20,6 @@ button{width:100%;padding:14px;background:#229ED9;color:white;border:none;border
 <textarea id="summary" rows="6" placeholder="Summary"></textarea>
 
 <button id="saveBtn">💾 Save Current Affairs</button>
-<script type="module">
-24  import { db } from "./firebaseConfig.js";
-25  import { collection, addDoc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
-26  Telegram.WebApp.ready();
-27  Telegram.WebApp.expand();
-28  const ADMIN_ID = 5496422260;
-
-
-const user = Telegram.WebApp.initDataUnsafe?.user;
-
-if (!user || user.id !== ADMIN_ID) {
-  document.body.innerHTML = "<h2 style='color:white;text-align:center;margin-top:80px'>❌ Access Denied</h2>";
-  throw new Error("Not Admin");
-}
-window.save = async function(){
-
- const title = document.getElementById("title").value;
- const summary = document.getElementById("summary").value;
-
- await addDoc(collection(db,"currentAffairs"),{
-   title,
-   summary,
-   date:new Date().toLocaleDateString("en-GB"),
-   source:"Admin"
- });
-
- Telegram.WebApp.showAlert("Current Affairs Saved!");
-}
-
- 
-
- 
- 
-document.getElementById("saveBtn")
-  .addEventListener("click", save);
-</script>
 
 </body>
 </html>
