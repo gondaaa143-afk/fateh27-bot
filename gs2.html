@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GS2 PYQs</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script src="/progress.js"></script>
 <style>
 body{margin:0;background:#07152d;color:white;font-family:Arial;padding:20px}
 .card{background:#0f2348;padding:18px;border-radius:16px;margin:12px 0}
@@ -84,7 +85,13 @@ async function load(){
       card.innerHTML="<b>"+y+"</b><p>"+q+"</p>";
 
       card.addEventListener("click",()=>{
-         currentQuestion=q;
+   Progress.addXP(5);
+   Progress.addSolved("GS2");
+if(sec===0){
+   clearInterval(interval);
+   Telegram.WebApp.showAlert("Time Up");
+}
+   currentQuestion=q;
          dYear.textContent=y;
          dQuestion.textContent=q;
          timer.textContent="";
