@@ -4,75 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PYQs</title>
-
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
-
 <style>
 *{box-sizing:border-box;}
-
-body{
-  margin:0;
-  background:#07152d;
-  color:white;
-  font-family:Arial,sans-serif;
-  padding:70px 20px 20px;
-}
-
-#appBack{
-  position:fixed;
-  top:15px;
-  left:15px;
-  width:46px;
-  height:46px;
-  border:none;
-  border-radius:50%;
-  background:#229ED9;
-  color:white;
-  font-size:22px;
-  font-weight:bold;
-  z-index:9999;
-}
-
-h1{
-  margin-top:0;
-  margin-bottom:25px;
-}
-
-.card{
-  background:#0f2348;
-  padding:18px;
-  border-radius:16px;
-  margin:14px 0;
-  font-size:18px;
-}
+body{margin:0;background:#07152d;color:white;font-family:Arial,sans-serif;padding:20px 20px 90px;}
+.card{background:#0f2348;padding:18px;border-radius:16px;margin:14px 0;font-size:18px;}
+#appBack{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);width:180px;padding:14px;border:none;border-radius:14px;background:#229ED9;color:white;font-size:18px;font-weight:bold;z-index:9999;}
 </style>
 </head>
-
 <body>
-
-<button id="appBack">←</button>
-
 <h1>📚 UPSC PYQs</h1>
-
 <div class="card" onclick="location.href='./gs1.html'">📘 GS1 (2013–2026)</div>
-
 <div class="card" onclick="location.href='./gs2.html'">🏛 GS2 (2013–2026)</div>
-
 <div class="card" onclick="location.href='./gs3.html'">⚙ GS3 (2013–2026)</div>
-
 <div class="card" onclick="location.href='./gs4.html'">⚖ GS4 (2013–2026)</div>
-
+<button id="appBack">⬅ Home</button>
 <script>
-const tg=window.Telegram.WebApp;
-
-tg.ready();
-tg.expand();
-
-tg.BackButton.show();
-tg.BackButton.onClick(()=>history.back());
-
-document.getElementById("appBack").onclick=()=>history.back();
+const tg=window.Telegram.WebApp;tg.ready();tg.expand();document.getElementById('appBack').onclick=()=>location.href='./index.html';
 </script>
-
 </body>
 </html>
