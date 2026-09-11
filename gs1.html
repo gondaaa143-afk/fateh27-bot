@@ -15,15 +15,7 @@ select{width:100%;padding:12px;border-radius:10px;margin:10px 0;background:#0f23
 
 <h1>📘 GS1 PYQs</h1>
 
-<select id="year">
-<option value="all">All Years</option>
-<option value="2026">2026</option>
-<option value="2025">2025</option>
-</select>
-
-<div class="card" id="q1">
-<b>2026</b>
-<p>Discuss the role of Mission Mausam in climate resilience.</p>
+<div id="questions"></div>
 </div>
 
 <div class="card" id="q2">
@@ -32,15 +24,29 @@ select{width:100%;padding:12px;border-radius:10px;margin:10px 0;background:#0f23
 </div>
 
 <script>
+
 const year=document.getElementById("year");
 
-year.onchange=()=>{
-document.getElementById("q1").style.display=
-(year.value=="all"||year.value=="2026")?"block":"none";
+async function load(){
+ const list=await fetch("/api/gs1").then(r=>r.json());
+ const box=document.getElementById("questions");
 
-document.getElementById("q2").style.display=
-(year.value=="all"||year.value=="2025")?"block":"none";
+ box.innerHTML="";
+
+ list.forEach(q=>{
+   if(year.value=="all"||year.value==q.year.toString()){
+     box.innerHTML+=`
+      <div class="card">
+       <b>${q.year}</b>
+       <p>${q.question}</p>
+      </div>`;
+   }
+ });
 }
+
+year.onchange=load;
+load();
+  
 </script>
 
 </body>
