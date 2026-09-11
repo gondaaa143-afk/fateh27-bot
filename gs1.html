@@ -41,8 +41,11 @@ async function load(){
 
  const rows=text.trim().split("\n").slice(1);
 
- box.innerHTML+=`
-<div class="card" onclick="location.href='/question.html?year=${y}&question=${encodeURIComponent(question)}'">
+ box.innerHTML += `
+<div class="card" onclick="openQuestion('${y}','${encodeURIComponent(question)}')">
+  <b>${y}</b>
+  <p>${question}</p>
+</div>`;
 
  rows.forEach(row=>{
    const parts=row.match(/(".*?"|[^,]+)/g);
@@ -66,7 +69,9 @@ async function load(){
  });
 
 }
-
+function openQuestion(year, question){
+  location.href = "/question.html?year=" + year + "&question=" + question;
+}
 year.onchange=load;
 search.oninput=load;
 load();
