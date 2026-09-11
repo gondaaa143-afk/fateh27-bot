@@ -25,9 +25,7 @@ button{width:100%;padding:14px;background:#229ED9;color:white;border:none;border
 26  Telegram.WebApp.ready();
 27  Telegram.WebApp.expand();
 28  const ADMIN_ID = 5496422260;
-Telegram.WebApp.ready();
-Telegram.WebApp.expand();
-const ADMIN_ID = 5496422260;
+
 
 const user = Telegram.WebApp.initDataUnsafe?.user;
 
@@ -50,19 +48,11 @@ window.save = async function(){
  Telegram.WebApp.showAlert("Current Affairs Saved!");
 }
 
- const title=document.getElementById("title").value;
- const summary=document.getElementById("summary").value;
+ 
 
- const res=await fetch("/api/saveCurrent",{
-   method:"POST",
-   headers:{"Content-Type":"application/json"},
-   body:JSON.stringify({title,summary})
- });
-
- const data=await res.json();
-
- Telegram.WebApp.showAlert(data.message);
-}document.getElementById("saveBtn")
+ 
+ 
+document.getElementById("saveBtn")
   .addEventListener("click", save);
 </script>
 
