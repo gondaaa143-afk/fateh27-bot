@@ -62,7 +62,8 @@ window.save = async function(){
  const data=await res.json();
 
  Telegram.WebApp.showAlert(data.message);
-}
+}document.getElementById("saveBtn")
+  .addEventListener("click", save);
 </script>
 
 </body>
