@@ -41,7 +41,8 @@ async function load(){
 
  const rows=text.trim().split("\n").slice(1);
 
- box.innerHTML="";
+ box.innerHTML+=`
+<div class="card" onclick="location.href='/question.html?year=${y}&question=${encodeURIComponent(question)}'">
 
  rows.forEach(row=>{
    const parts=row.match(/(".*?"|[^,]+)/g);
