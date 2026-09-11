@@ -14,10 +14,8 @@ body{
  color:white;
  font-family:Arial;
 }
-.header{
- padding:22px;
-}
-.name{color:#7dd3fc}
+.header{padding:22px;}
+.name{color:#7dd3fc;}
 .count{
  background:#0f2348;
  border-radius:18px;
@@ -25,7 +23,7 @@ body{
  margin:0 20px 18px;
  text-align:center;
 }
-.count h1{margin:8px 0;font-size:42px;color:#38bdf8}
+.count h1{margin:8px 0;font-size:42px;color:#38bdf8;}
 .grid{
  display:grid;
  grid-template-columns:repeat(2,1fr);
@@ -37,8 +35,9 @@ body{
  border-radius:18px;
  padding:18px;
  text-align:center;
+ cursor:pointer;
 }
-.card span{font-size:28px;display:block;margin-bottom:8px}
+.card span{font-size:28px;display:block;margin-bottom:8px;}
 .mission{
  margin:0 20px 25px;
  background:#0f2348;
@@ -49,7 +48,15 @@ body{
  display:flex;
  align-items:center;
  gap:10px;
- margin:10px 0;
+ margin:12px 0;
+ cursor:pointer;
+}
+.task input[type="checkbox"]{
+ width:22px !important;
+ height:22px !important;
+ margin:0;
+ accent-color:#38bdf8;
+ flex-shrink:0;
 }
 .footer{
  text-align:center;
@@ -74,8 +81,15 @@ body{
 </div>
 
 <div class="grid">
- <div class="card"><span>🔥</span><b>12</b><br>Streak</div>
- <div class="card"><span>🏆</span><b>2450</b><br>XP</div>
+ <div class="card">
+   <span>🔥</span>
+   <b id="streakValue">12</b><br>Streak
+ </div>
+
+ <div class="card">
+   <span>🏆</span>
+   <b id="xpValue">2450</b><br>XP
+ </div>
 
  <div class="card" onclick="location.href='/pyqs.html'">
    <span>📝</span>PYQs
@@ -85,69 +99,77 @@ body{
    <span>⏱</span>Answer Writing
  </div>
 
- <div class="card"><span>📚</span>Current Affairs</div>
- <div class="card"><span>📖</span>Notes</div>
+ <div class="card">
+   <span>📚</span>Current Affairs
+ </div>
+
+ <div class="card">
+   <span>📖</span>Notes
+ </div>
 </div>
+
 <div class="mission">
-  <h3>🛡 Officer Progress</h3>
+ <h3>🛡 Officer Progress</h3>
 
-  <div style="display:flex;align-items:center;gap:20px;">
-    <svg width="90" height="90" viewBox="0 0 100 100">
-      <circle cx="50" cy="50" r="40" stroke="#1e3a8a" stroke-width="8" fill="none"/>
-      <circle id="ring" cx="50" cy="50" r="40"
-        stroke="#38bdf8" stroke-width="8" fill="none"
-        stroke-linecap="round"
-        stroke-dasharray="251"
-        stroke-dashoffset="100"
-        transform="rotate(-90 50 50)"/>
-      <text x="50" y="55" text-anchor="middle" fill="white" font-size="18" font-weight="bold" id="percent">60%</text>
-    </svg>
+ <div style="display:flex;align-items:center;gap:20px;">
+   <svg width="90" height="90" viewBox="0 0 100 100">
+     <circle cx="50" cy="50" r="40"
+       stroke="#1e3a8a" stroke-width="8" fill="none"/>
 
-    <div>
-      <h3 id="rank" style="margin:0;color:#38bdf8;">Captain</h3>
-      <p style="margin:6px 0;color:#9ca3af;">2450 XP</p>
-      <small>Next: Deputy Collector</small>
-    </div>
-  </div>
+     <circle id="ring"
+       cx="50" cy="50" r="40"
+       stroke="#38bdf8"
+       stroke-width="8"
+       fill="none"
+       stroke-linecap="round"
+       stroke-dasharray="251"
+       stroke-dashoffset="128"
+       transform="rotate(-90 50 50)"/>
+
+     <text id="percent"
+       x="50" y="55"
+       text-anchor="middle"
+       fill="white"
+       font-size="18"
+       font-weight="bold">49%</text>
+   </svg>
+
+   <div>
+     <h3 id="rank" style="margin:0;color:#38bdf8;">Deputy Collector</h3>
+     <p id="xpText" style="margin:6px 0;color:#9ca3af;">2450 XP</p>
+     <small>Next: IAS Officer</small>
+   </div>
+ </div>
 </div>
+
 <div class="mission">
  <h3>🎯 Today's Mission</h3>
 
- <label class="task"><input type="checkbox" class="missionBox"> GS2 - 2 PYQs</label>
-<label class="task"><input type="checkbox" class="missionBox"> Current Affairs - 30 min</label>
-<label class="task"><input type="checkbox" class="missionBox"> Polity Revision</label>
-<label class="task"><input type="checkbox" class="missionBox"> Answer Writing</label>
+ <label class="task">
+   <input type="checkbox" class="missionBox">
+   GS2 – 2 PYQs
+ </label>
+
+ <label class="task">
+   <input type="checkbox" class="missionBox">
+   Current Affairs – 30 min
+ </label>
+
+ <label class="task">
+   <input type="checkbox" class="missionBox">
+   Polity Revision
+ </label>
+
+ <label class="task">
+   <input type="checkbox" class="missionBox">
+   Answer Writing
+ </label>
 </div>
 
 <div class="footer">
- Officer OS • Version 1.0
+ Officer OS • Version 1.1
 </div>
-let xp = 2450;
 
-document.querySelectorAll(".missionBox").forEach(box=>{
-  box.addEventListener("change",()=>{
-
-    xp += box.checked ? 20 : -20;
-
-    document.querySelector(".card:nth-child(2) b").innerText = xp;
-
-    const percent = Math.min((xp/5000)*100,100);
-
-    document.getElementById("percent").innerText = Math.round(percent)+"%";
-
-    document.getElementById("ring").style.strokeDashoffset =
-      251 - (251*percent/100);
-
-    const rank = document.getElementById("rank");
-
-    if(xp>=5000) rank.innerText="IAS Officer";
-    else if(xp>=1000) rank.innerText="Deputy Collector";
-    else if(xp>=500) rank.innerText="Captain";
-    else if(xp>=200) rank.innerText="Lieutenant";
-    else rank.innerText="Cadet";
-
-  });
-});
 <script>
 const tg=window.Telegram.WebApp;
 tg.ready();
@@ -161,6 +183,36 @@ const exam=new Date("2027-05-30");
 const today=new Date();
 const diff=Math.ceil((exam-today)/(1000*60*60*24));
 document.getElementById("days").innerText=diff>0?diff:0;
+
+let xp=2450;
+let streak=12;
+
+function updateUI(){
+ document.getElementById("xpValue").innerText=xp;
+ document.getElementById("xpText").innerText=xp+" XP";
+ document.getElementById("streakValue").innerText=streak;
+
+ const percent=Math.min((xp/5000)*100,100);
+ document.getElementById("percent").innerText=Math.round(percent)+"%";
+ document.getElementById("ring").style.strokeDashoffset=251-(251*percent/100);
+
+ const rank=document.getElementById("rank");
+
+ if(xp>=5000) rank.innerText="IAS Officer";
+ else if(xp>=1000) rank.innerText="Deputy Collector";
+ else if(xp>=500) rank.innerText="Captain";
+ else if(xp>=200) rank.innerText="Lieutenant";
+ else rank.innerText="Cadet";
+}
+
+document.querySelectorAll(".missionBox").forEach(box=>{
+ box.addEventListener("change",function(){
+   xp+=this.checked?20:-20;
+   updateUI();
+ });
+});
+
+updateUI();
 </script>
 
 </body>
