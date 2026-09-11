@@ -166,12 +166,19 @@ function render(){
 
 }
 
-document.getElementById("backBtn").onclick=()=>{
+const backBtn = document.getElementById("backBtn");
 
- detail.style.display="none";
- listView.style.display="block";
+backBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  e.stopPropagation();
 
-};
+  detail.style.display = "none";
+  listView.style.display = "block";
+  timer.textContent = "";
+  clearInterval(interval);
+
+  window.scrollTo(0,0);
+});
 
 document.getElementById("copyBtn").onclick=async()=>{
 
