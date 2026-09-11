@@ -60,14 +60,8 @@ if(tg.initDataUnsafe?.user){
   document.getElementById("user").innerText=tg.initDataUnsafe.user.first_name;
 }
 
-async function openCurrent(){
-  const data = await fetch("/api/current").then(r=>r.json());
-
-  tg.showPopup({
-    title: data.title,
-    message: data.summary,
-    buttons:[{type:"ok"}]
-  });
+function openCurrent(){
+  location.href="/current.html";
 }
 
 </script>
