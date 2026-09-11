@@ -7,71 +7,60 @@
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
 body{margin:0;background:#07152d;color:white;font-family:Arial;padding:20px}
-.card{background:#0f2348;padding:18px;border-radius:16px;margin:12px 0}
-select{width:100%;padding:12px;border-radius:10px;margin:10px 0;background:#0f2348;color:white;border:none}
+.card{background:#0f2348;padding:18px;border-radius:16px;margin:12px 0;cursor:pointer}
+select,input{width:100%;padding:12px;border-radius:10px;margin:10px 0;background:#0f2348;color:white;border:none;box-sizing:border-box}
 </style>
 </head>
 <body>
 
 <h1>📘 GS1 PYQs</h1>
+
 <select id="year">
   <option value="all">All Years</option>
   <option value="2026">2026</option>
   <option value="2025">2025</option>
 </select>
 
-<input id="search"
-placeholder="Topic Search (जैसे Federalism)"
-style="width:100%;padding:12px;border-radius:10px;margin:10px 0;background:#0f2348;color:white;border:none;">
-<div id="questions"></div>
-</div>
+<input id="search" placeholder="Topic Search (जैसे Federalism)">
 
-<div class="card" id="q2">
-<b>2025</b>
-<p>How does urbanisation affect disaster management?</p>
-</div>
+<div id="questions"></div>
+
 <script>
 const year=document.getElementById("year");
 const search=document.getElementById("search");
 const box=document.getElementById("questions");
 
 async function load(){
+  const text=await fetch("/pyqs.csv").then(r=>r.text());
+  const rows=text.trim().split("\n").slice(1);
+  box.innerHTML="";
 
- const text=await fetch("/pyqs.csv").then(r=>r.text());
+  rows.forEach(row=>{
+    const parts=row.match(/(".*?"|[^,]+)/g);
+    if(!parts) return;
 
- const rows=text.trim().split("\n").slice(1);
+    const y=parts[0];
+    const paper=parts[1];
+    const question=parts[2].replace(/^"|"$/g,"");
 
- box.innerHTML += `
-<div class="card" onclick="openQuestion('${y}','${encodeURIComponent(question)}')">
-  <b>${y}</b>
-  <p>${question}</p>
-</div>`;
-
- rows.forEach(row=>{
-   const parts=row.match(/(".*?"|[^,]+)/g);
-   if(!parts) return;
-
-   const y=parts[0];
-   const paper=parts[1];
-   const question=parts[2].replace(/^"|"$/g,"");
-
-   if(
+    if(
       paper==="GS1" &&
       (year.value==="all"||year.value===y) &&
       question.toLowerCase().includes(search.value.toLowerCase())
-   ){
-      box.innerHTML+=`
-      <div class="card">
+    ){
+      box.innerHTML += `
+      <div class="card" onclick="openQuestion('${y}','${encodeURIComponent(question)}')">
         <b>${y}</b>
         <p>${question}</p>
       </div>`;
-   }
- });
+    }
+  });
+}
 
-}
 function openQuestion(year, question){
-  location.href = "/question.html?year=" + year + "&question=" + question;
+  location.href="/question.html?year="+year+"&question="+question;
 }
+
 year.onchange=load;
 search.oninput=load;
 load();
