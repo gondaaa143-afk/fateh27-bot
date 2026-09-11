@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fateh27 Admin</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+body{margin:0;background:#07152d;color:white;font-family:Arial;padding:20px}
+input,textarea{width:100%;padding:12px;margin:10px 0;background:#0f2348;color:white;border:none;border-radius:10px}
+button{width:100%;padding:14px;background:#229ED9;color:white;border:none;border-radius:12px;font-size:16px}
+</style>
+</head>
+<body>
+
+<h1>🔐 Fateh27 Admin</h1>
+
+<input id="title" placeholder="Current Affairs Title">
+<textarea id="summary" rows="6" placeholder="Summary"></textarea>
+
+<button onclick="save()">Save (Demo)</button>
+
+<script>
+Telegram.WebApp.ready();
+Telegram.WebApp.expand();
+
+function save(){
+ Telegram.WebApp.showAlert("Admin Panel Ready!");
+}
+</script>
+
+</body>
+</html>
