@@ -18,6 +18,24 @@ body{margin:0;background:#07152d;color:white;font-family:Arial;padding:20px}
 <div class="card">GS2 (2013–2026)</div>
 <div class="card">GS3 (2013–2026)</div>
 <div class="card">GS4 (2013–2026)</div>
+<script>
+fetch("/api/pyqs")
+.then(r=>r.json())
+.then(list=>{
+  const box=document.createElement("div");
 
+  list.forEach(q=>{
+    box.innerHTML+=`
+      <div class="card">
+        <b>${q.paper} • ${q.year}</b>
+        <p>${q.question}</p>
+      </div>`;
+  });
+
+  document.body.appendChild(box);
+});
+</script>
+</body>
+</html>
 </body>
 </html>
