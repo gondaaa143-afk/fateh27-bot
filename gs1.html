@@ -11,38 +11,39 @@
 <style>
 *{box-sizing:border-box}
 body{
- margin:0;
- background:#07152d;
- color:#fff;
- font-family:Arial,sans-serif;
- padding:20px;
+  margin:0;
+  background:#07152d;
+  color:white;
+  font-family:Arial,sans-serif;
+  padding:20px 20px 90px;
 }
 h1{margin:0 0 18px}
 .card{
- background:#0f2348;
- padding:18px;
- border-radius:16px;
- margin:12px 0;
+  background:#0f2348;
+  padding:18px;
+  border-radius:16px;
+  margin:12px 0;
+  cursor:pointer;
 }
 select,input,button{
- width:100%;
- padding:12px;
- border:none;
- border-radius:12px;
- background:#0f2348;
- color:white;
- margin:10px 0;
- font-size:15px;
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  background:#0f2348;
+  color:white;
+  margin:10px 0;
+  font-size:15px;
 }
 #detail{display:none}
 #homeBtn{
- position:fixed;
- left:20px;
- right:20px;
- bottom:20px;
- width:auto;
- background:#229ED9;
- font-weight:bold;
+  position:fixed;
+  left:20px;
+  right:20px;
+  bottom:20px;
+  width:auto;
+  background:#229ED9;
+  font-weight:bold;
 }
 </style>
 </head>
@@ -50,33 +51,33 @@ select,input,button{
 <body>
 
 <div id="listView">
-<h1>📘 GS1 PYQs</h1>
+  <h1>📘 GS1 PYQs</h1>
 
-<select id="year">
-<option value="all">All Years</option>
-</select>
+  <select id="year">
+    <option value="all">All Years</option>
+  </select>
 
-<input id="search" placeholder="Search Topic">
+  <input id="search" placeholder="Search Topic">
 
-<div id="questions"></div>
+  <div id="questions"></div>
 </div>
 
 <div id="detail" class="card">
 
-<h2 id="dYear"></h2>
-<p id="dQuestion"></p>
+  <h2 id="dYear"></h2>
+  <p id="dQuestion"></p>
 
-<button id="btn7">⏱ 7 Min Timer</button>
-<button id="btn11">⏱ 11 Min Timer</button>
+  <button id="btn7" type="button">⏱ 7 Min Timer</button>
+  <button id="btn11" type="button">⏱ 11 Min Timer</button>
 
-<button id="copyBtn">📋 Copy Question</button>
-<button id="backBtn">⬅ Back to List</button>
+  <button id="copyBtn" type="button">📋 Copy Question</button>
+  <button id="backBtn" type="button">⬅ Back to List</button>
 
-<h2 id="timer"></h2>
+  <h2 id="timer"></h2>
 
 </div>
 
-<button id="homeBtn">🏠 Home</button>
+<button id="homeBtn" type="button">🏠 Home</button>
 
 <script>
 Telegram.WebApp.ready();
@@ -98,53 +99,54 @@ let data=[];
 
 async function load(){
 
- const text=await fetch("./pyqs.csv?"+Date.now()).then(r=>r.text());
+  const text=await fetch("./pyqs.csv?"+Date.now()).then(r=>r.text());
 
- const rows=text.trim().split(/\r?\n/).slice(1);
+  const rows=text.trim().split(/\r?\n/).slice(1);
 
- data=[];
+  data=[];
 
- rows.forEach(row=>{
+  rows.forEach(row=>{
 
-   const c=row.match(/(".*?"|[^,]+)(?=\s*,|\s*$)/g);
-   if(!c||c.length<3)return;
+    const c=row.match(/(".*?"|[^,]+)(?=\s*,|\s*$)/g);
 
-   const item={
-     year:c[0].replace(/"/g,""),
-     paper:c[1].replace(/"/g,""),
-     question:c[2].replace(/"/g,"")
-   };
+    if(!c || c.length<3) return;
 
-   if(item.paper==="GS1") data.push(item);
+    const item={
+      year:c[0].replace(/"/g,""),
+      paper:c[1].replace(/"/g,""),
+      question:c[2].replace(/"/g,"")
+    };
 
- });
+    if(item.paper==="GS1") data.push(item);
 
- year.innerHTML='<option value="all">All Years</option>';
+  });
 
- [...new Set(data.map(x=>x.year))]
- .sort((a,b)=>Number(b)-Number(a))
- .forEach(y=>{
-   year.innerHTML+=`<option value="${y}">${y}</option>`;
- });
+  year.innerHTML='<option value="all">All Years</option>';
 
- render();
+  [...new Set(data.map(x=>x.year))]
+    .sort((a,b)=>Number(b)-Number(a))
+    .forEach(y=>{
+      year.innerHTML+=`<option value="${y}">${y}</option>`;
+    });
 
+  render();
 }
 
 function render(){
 
- box.innerHTML="";
+  box.innerHTML="";
 
- data.filter(q=>
-   (year.value==="all"||q.year===year.value) &&
-   q.question.toLowerCase().includes(search.value.toLowerCase())
- ).forEach(q=>{
+  data.filter(q=>
+    (year.value==="all" || q.year===year.value) &&
+    q.question.toLowerCase().includes(search.value.toLowerCase())
+  ).forEach(q=>{
 
-   const card=document.createElement("div");
-   card.className="card";
-   card.innerHTML=`<b>${q.year}</b><p>${q.question}</p>`;
+    const card=document.createElement("div");
+    card.className="card";
 
-   card.onclick=()=>{
+    card.innerHTML=`<b>${q.year}</b><p>${q.question}</p>`;
+
+    card.addEventListener("click",()=>{
 
       Progress.addXP(5);
       Progress.addSolved("GS1");
@@ -158,51 +160,56 @@ function render(){
       listView.style.display="none";
       detail.style.display="block";
 
-   };
+      window.scrollTo(0,0);
 
-   box.appendChild(card);
+    });
 
- });
+    box.appendChild(card);
+
+  });
 
 }
 
-const backBtn = document.getElementById("backBtn");
+document.getElementById("backBtn").addEventListener("click",()=>{
 
-backBtn.addEventListener("click", function (e) {
-  e.preventDefault();
-  e.stopPropagation();
-
-  detail.style.display = "none";
-  listView.style.display = "block";
-  timer.textContent = "";
   clearInterval(interval);
 
+  timer.textContent="";
+
+  detail.style.display="none";
+  listView.style.display="block";
+
   window.scrollTo(0,0);
+
 });
 
-document.getElementById("copyBtn").onclick=async()=>{
+document.getElementById("copyBtn").addEventListener("click",async()=>{
 
- try{
-   await navigator.clipboard.writeText(currentQuestion);
-   Telegram.WebApp.showAlert("Question Copied");
- }catch{
-   Telegram.WebApp.showAlert("Copy Failed");
- }
+  try{
+    await navigator.clipboard.writeText(currentQuestion);
+    Telegram.WebApp.showAlert("Question Copied");
+  }catch{
+    Telegram.WebApp.showAlert("Copy Failed");
+  }
 
-};
+});
 
 function startTimer(min){
 
- clearInterval(interval);
+  clearInterval(interval);
 
- let sec=min*60;
+  let sec=min*60;
 
- interval=setInterval(()=>{
+  timer.textContent=`${min}:00`;
 
-   timer.textContent=
-   Math.floor(sec/60)+":"+String(sec%60).padStart(2,"0");
+  interval=setInterval(()=>{
 
-   if(sec===0){
+    sec--;
+
+    timer.textContent=
+      Math.floor(sec/60)+":"+String(sec%60).padStart(2,"0");
+
+    if(sec<=0){
 
       clearInterval(interval);
 
@@ -210,25 +217,23 @@ function startTimer(min){
 
       Telegram.WebApp.showAlert("Time Up (+10 XP)");
 
-   }
+    }
 
-   sec--;
-
- },1000);
+  },1000);
 
 }
 
-document.getElementById("btn7").onclick=()=>startTimer(7);
-document.getElementById("btn11").onclick=()=>startTimer(11);
+document.getElementById("btn7").addEventListener("click",()=>startTimer(7));
+document.getElementById("btn11").addEventListener("click",()=>startTimer(11));
 
-document.getElementById("homeBtn").onclick=()=>{
+document.getElementById("homeBtn").addEventListener("click",()=>{
 
- window.location.href="./index.html";
+  window.location.href="./index.html";
 
-};
+});
 
-year.onchange=render;
-search.oninput=render;
+year.addEventListener("change",render);
+search.addEventListener("input",render);
 
 load();
 </script>
