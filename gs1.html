@@ -76,7 +76,6 @@ select,input,button{
 </div>
 
 <button id="homeBtn">⬅ Home</button>
-
 <script>
 Telegram.WebApp.ready();
 Telegram.WebApp.expand();
@@ -93,34 +92,31 @@ const timer=document.getElementById("timer");
 
 let currentQuestion="";
 let interval;
-let allQuestions=[];
+let data=[];
 
-async function loadCSV(){
+async function load(){
   const text=await fetch("./pyqs.csv").then(r=>r.text());
   const rows=text.trim().split(/\r?\n/).slice(1);
 
-  allQuestions=[];
+  data=[];
 
-  rows.forEach(row=>{
-    const c=row.match(/(".*?"|[^,]+)(?=\s*,|\s*$)/g);
+  rows.forEach(r=>{
+    const c=r.match(/(".*?"|[^,]+)(?=\s*,|\s*$)/g);
     if(!c) return;
 
     const item={
       year:(c[0]||"").replace(/"/g,""),
       paper:(c[1]||"").replace(/"/g,""),
-      question:(c[2]||"").replace(/"/g,""),
-      topic:(c[3]||"").replace(/"/g,""),
-      marks:(c[4]||"").replace(/"/g,"")
+      question:(c[2]||"").replace(/"/g,"")
     };
 
-    if(item.paper==="GS1") allQuestions.push(item);
+    if(item.paper==="GS1") data.push(item);
   });
 
-  const years=[...new Set(allQuestions.map(x=>x.year))].sort((a,b)=>b-a);
   year.innerHTML='<option value="all">All Years</option>';
-  years.forEach(y=>{
-    year.innerHTML+=`<option value="${y}">${y}</option>`;
-  });
+  [...new Set(data.map(x=>x.year))]
+    .sort((a,b)=>Number(b)-Number(a))
+    .forEach(y=>year.innerHTML+=`<option value="${y}">${y}</option>`);
 
   render();
 }
@@ -128,15 +124,14 @@ async function loadCSV(){
 function render(){
   box.innerHTML="";
 
-  allQuestions
-  .filter(q=>
+  data.filter(q=>
     (year.value==="all"||q.year===year.value) &&
     q.question.toLowerCase().includes(search.value.toLowerCase())
-  )
-  .forEach(q=>{
+  ).forEach(q=>{
     const card=document.createElement("div");
     card.className="card";
     card.innerHTML=`<b>${q.year}</b><p>${q.question}</p>`;
+
     card.onclick=()=>{
       currentQuestion=q.question;
       dYear.textContent=q.year;
@@ -145,6 +140,7 @@ function render(){
       listView.style.display="none";
       detail.style.display="block";
     };
+
     box.appendChild(card);
   });
 }
@@ -156,34 +152,27 @@ document.getElementById("backBtn").onclick=()=>{
 
 document.getElementById("copyBtn").onclick=()=>{
   navigator.clipboard.writeText(currentQuestion);
-  Telegram.WebApp.showAlert("Question Copied");
 };
 
-function startTimer(min){
+function startTimer(m){
   clearInterval(interval);
-  let sec=min*60;
+  let s=m*60;
   interval=setInterval(()=>{
-    timer.textContent=
-      Math.floor(sec/60)+":"+String(sec%60).padStart(2,"0");
-    if(sec===0){
+    timer.textContent=Math.floor(s/60)+":"+String(s%60).padStart(2,"0");
+    if(s--<=0){
       clearInterval(interval);
       Telegram.WebApp.showAlert("Time Up");
     }
-    sec--;
   },1000);
 }
 
 document.getElementById("btn7").onclick=()=>startTimer(7);
 document.getElementById("btn11").onclick=()=>startTimer(11);
 
-document.getElementById("homeBtn").onclick=()=>{
-  location.href="./index.html";
-};
-
 year.onchange=render;
 search.oninput=render;
 
-loadCSV();
+load();
 </script>
 
 </body>
