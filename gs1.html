@@ -54,7 +54,7 @@ select,input,button{
 <div id="listView">
   <h1>📘 GS1 PYQs</h1>
 
-  <select id="year">
+  <select id="year"></select>
     <option value="all">All Years</option>
     <option value="2026">2026</option>
     <option value="2025">2025</option>
@@ -82,7 +82,13 @@ select,input,button{
 <script>
 Telegram.WebApp.ready();
 Telegram.WebApp.expand();
+const year=document.getElementById("year");
 
+year.innerHTML='<option value="all">All Years</option>';
+
+for(let y=2026;y>=2013;y--){
+  year.innerHTML+=`<option value="${y}">${y}</option>`;
+}
 const year=document.getElementById("year");
 const search=document.getElementById("search");
 const box=document.getElementById("questions");
