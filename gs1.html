@@ -5,13 +5,50 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GS1 PYQs</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
 <style>
-body{margin:0;background:#07152d;color:white;font-family:Arial;padding:20px}
-.card{background:#0f2348;padding:18px;border-radius:16px;margin:12px 0}
-select,input,button{width:100%;padding:12px;border-radius:10px;margin:10px 0;background:#0f2348;color:white;border:none;box-sizing:border-box}
-#detail{display:none}
+body{
+  margin:0;
+  background:#07152d;
+  color:white;
+  font-family:Arial;
+  padding:20px 20px 90px;
+}
+.card{
+  background:#0f2348;
+  padding:18px;
+  border-radius:16px;
+  margin:12px 0;
+}
+select,input,button{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  margin:10px 0;
+  background:#0f2348;
+  color:white;
+  border:none;
+  box-sizing:border-box;
+}
+#detail{display:none;}
+
+#homeBtn{
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  width:180px;
+  padding:14px;
+  border:none;
+  border-radius:14px;
+  background:#229ED9;
+  color:white;
+  font-size:18px;
+  font-weight:bold;
+}
 </style>
 </head>
+
 <body>
 
 <div id="listView">
@@ -24,6 +61,7 @@ select,input,button{width:100%;padding:12px;border-radius:10px;margin:10px 0;bac
   </select>
 
   <input id="search" placeholder="Topic Search">
+
   <div id="questions"></div>
 </div>
 
@@ -38,6 +76,8 @@ select,input,button{width:100%;padding:12px;border-radius:10px;margin:10px 0;bac
 
   <h3 id="timer"></h3>
 </div>
+
+<button id="homeBtn">⬅ Home</button>
 
 <script>
 Telegram.WebApp.ready();
@@ -122,6 +162,10 @@ function startTimer(min){
 
 document.getElementById("btn7").onclick=()=>startTimer(7);
 document.getElementById("btn11").onclick=()=>startTimer(11);
+
+document.getElementById("homeBtn").onclick=()=>{
+  location.href="./index.html";
+};
 
 year.onchange=load;
 search.oninput=load;
