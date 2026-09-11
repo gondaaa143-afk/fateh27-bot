@@ -14,7 +14,15 @@ select{width:100%;padding:12px;border-radius:10px;margin:10px 0;background:#0f23
 <body>
 
 <h1>📘 GS1 PYQs</h1>
+<select id="year">
+  <option value="all">All Years</option>
+  <option value="2026">2026</option>
+  <option value="2025">2025</option>
+</select>
 
+<input id="search"
+placeholder="Topic Search (जैसे Federalism)"
+style="width:100%;padding:12px;border-radius:10px;margin:10px 0;background:#0f2348;color:white;border:none;">
 <div id="questions"></div>
 </div>
 
@@ -25,7 +33,7 @@ select{width:100%;padding:12px;border-radius:10px;margin:10px 0;background:#0f23
 
 <script>
 
-const year=document.getElementById("year");
+const search = document.getElementById("search");
 
 async function load(){
  const list=await fetch("/api/gs1").then(r=>r.json());
@@ -34,7 +42,7 @@ async function load(){
  box.innerHTML="";
 
  list.forEach(q=>{
-   if(year.value=="all"||year.value==q.year.toString()){
+   if((year.value=="all"||year.value==q.year.toString()) && q.question.toLowerCase().includes(search.value.toLowerCase())){
      box.innerHTML+=`
       <div class="card">
        <b>${q.year}</b>
@@ -45,6 +53,7 @@ async function load(){
 }
 
 year.onchange=load;
+ search.oninput = load;
 load();
   
 </script>
