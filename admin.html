@@ -36,7 +36,7 @@ if (!user || user.id !== ADMIN_ID) {
   document.body.innerHTML = "<h2 style='color:white;text-align:center;margin-top:80px'>❌ Access Denied</h2>";
   throw new Error("Not Admin");
 }
-async function save(){
+window.save = async function(){
 
  const title = document.getElementById("title").value;
  const summary = document.getElementById("summary").value;
