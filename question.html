@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PYQ Detail</title>
+<style>
+body{margin:0;background:#07152d;color:white;font-family:Arial;padding:20px}
+.card{background:#0f2348;padding:18px;border-radius:16px}
+button{width:100%;padding:14px;margin-top:20px;background:#229ED9;color:white;border:none;border-radius:12px}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h2 id="year"></h2>
+  <p id="question"></p>
+</div>
+
+<button onclick="history.back()">⬅ Back</button>
+
+<script>
+const p=new URLSearchParams(location.search);
+document.getElementById("year").innerText=p.get("year");
+document.getElementById("question").innerText=p.get("question");
+</script>
+
+</body>
+</html>
