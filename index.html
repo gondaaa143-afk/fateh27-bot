@@ -41,7 +41,7 @@ body{
 </div>
 
 <div class="grid">
-<div class="card">📚 Current Affairs</div>
+<div class="card" onclick="openCurrent()">📚 Current Affairs</div>
 <div class="card">📝 PYQs</div>
 <div class="card">⏱ Answer Writing</div>
 <div class="card">🧠 Quiz</div>
@@ -56,7 +56,21 @@ tg.expand();
 
 if(tg.initDataUnsafe?.user){
  document.getElementById("user").innerText=tg.initDataUnsafe.user.first_name;
+}if(tg.initDataUnsafe?.user){
+  document.getElementById("user").innerText=tg.initDataUnsafe.user.first_name;
 }
+
+async function openCurrent(){
+  const data = await fetch("/api/current").then(r=>r.json());
+
+  tg.showPopup({
+    title: data.title,
+    message: data.summary,
+    buttons:[{type:"ok"}]
+  });
+}
+
+</script>
 </script>
 
 </body>
