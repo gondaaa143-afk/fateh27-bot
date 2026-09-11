@@ -1,50 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GS1 PYQs</title>
+<title>GS1 PYQs • FATEH27</title>
+
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script src="./progress.js"></script>
 
 <style>
+*{box-sizing:border-box}
 body{
-  margin:0;
-  background:#07152d;
-  color:white;
-  font-family:Arial;
-  padding:20px 20px 100px;
+ margin:0;
+ background:#07152d;
+ color:#fff;
+ font-family:Arial,sans-serif;
+ padding:20px;
 }
-h1{margin-bottom:20px;}
+h1{margin:0 0 18px}
 .card{
-  background:#0f2348;
-  padding:18px;
-  border-radius:16px;
-  margin:12px 0;
+ background:#0f2348;
+ padding:18px;
+ border-radius:16px;
+ margin:12px 0;
 }
 select,input,button{
-  width:100%;
-  padding:12px;
-  border-radius:10px;
-  margin:10px 0;
-  background:#0f2348;
-  color:white;
-  border:none;
-  box-sizing:border-box;
+ width:100%;
+ padding:12px;
+ border:none;
+ border-radius:12px;
+ background:#0f2348;
+ color:white;
+ margin:10px 0;
+ font-size:15px;
 }
-#detail{display:none;}
+#detail{display:none}
 #homeBtn{
-  position:fixed;
-  bottom:20px;
-  left:50%;
-  transform:translateX(-50%);
-  width:180px;
-  padding:14px;
-  border:none;
-  border-radius:14px;
-  background:#229ED9;
-  color:white;
-  font-size:18px;
-  font-weight:bold;
+ position:fixed;
+ left:20px;
+ right:20px;
+ bottom:20px;
+ width:auto;
+ background:#229ED9;
+ font-weight:bold;
 }
 </style>
 </head>
@@ -52,30 +50,34 @@ select,input,button{
 <body>
 
 <div id="listView">
-  <h1>📘 GS1 PYQs</h1>
+<h1>📘 GS1 PYQs</h1>
 
-  <select id="year">
-    <option value="all">All Years</option>
-  </select>
+<select id="year">
+<option value="all">All Years</option>
+</select>
 
-  <input id="search" placeholder="Topic Search">
+<input id="search" placeholder="Search Topic">
 
-  <div id="questions"></div>
+<div id="questions"></div>
 </div>
 
 <div id="detail" class="card">
-  <h2 id="dYear"></h2>
-  <p id="dQuestion"></p>
 
-  <button id="btn7">⏱ 7 Min Timer</button>
-  <button id="btn11">⏱ 11 Min Timer</button>
-  <button id="copyBtn">📋 Copy Question</button>
-  <button id="backBtn">⬅ Back to List</button>
+<h2 id="dYear"></h2>
+<p id="dQuestion"></p>
 
-  <h3 id="timer"></h3>
+<button id="btn7">⏱ 7 Min Timer</button>
+<button id="btn11">⏱ 11 Min Timer</button>
+
+<button id="copyBtn">📋 Copy Question</button>
+<button id="backBtn">⬅ Back to List</button>
+
+<h2 id="timer"></h2>
+
 </div>
 
-<button id="homeBtn">⬅ Home</button>
+<button id="homeBtn">🏠 Home</button>
+
 <script>
 Telegram.WebApp.ready();
 Telegram.WebApp.expand();
@@ -95,79 +97,128 @@ let interval;
 let data=[];
 
 async function load(){
-  const text=await fetch("./pyqs.csv").then(r=>r.text());
-  const rows=text.trim().split(/\r?\n/).slice(1);
 
-  data=[];
+ const text=await fetch("./pyqs.csv?"+Date.now()).then(r=>r.text());
 
-  rows.forEach(r=>{
-    const c=r.match(/(".*?"|[^,]+)(?=\s*,|\s*$)/g);
-    if(!c) return;
+ const rows=text.trim().split(/\r?\n/).slice(1);
 
-    const item={
-      year:(c[0]||"").replace(/"/g,""),
-      paper:(c[1]||"").replace(/"/g,""),
-      question:(c[2]||"").replace(/"/g,"")
-    };
+ data=[];
 
-    if(item.paper==="GS1") data.push(item);
-  });
+ rows.forEach(row=>{
 
-  year.innerHTML='<option value="all">All Years</option>';
-  [...new Set(data.map(x=>x.year))]
-    .sort((a,b)=>Number(b)-Number(a))
-    .forEach(y=>year.innerHTML+=`<option value="${y}">${y}</option>`);
+   const c=row.match(/(".*?"|[^,]+)(?=\s*,|\s*$)/g);
+   if(!c||c.length<3)return;
 
-  render();
+   const item={
+     year:c[0].replace(/"/g,""),
+     paper:c[1].replace(/"/g,""),
+     question:c[2].replace(/"/g,"")
+   };
+
+   if(item.paper==="GS1") data.push(item);
+
+ });
+
+ year.innerHTML='<option value="all">All Years</option>';
+
+ [...new Set(data.map(x=>x.year))]
+ .sort((a,b)=>Number(b)-Number(a))
+ .forEach(y=>{
+   year.innerHTML+=`<option value="${y}">${y}</option>`;
+ });
+
+ render();
+
 }
 
 function render(){
-  box.innerHTML="";
 
-  data.filter(q=>
-    (year.value==="all"||q.year===year.value) &&
-    q.question.toLowerCase().includes(search.value.toLowerCase())
-  ).forEach(q=>{
-    const card=document.createElement("div");
-    card.className="card";
-    card.innerHTML=`<b>${q.year}</b><p>${q.question}</p>`;
+ box.innerHTML="";
 
-    card.onclick=()=>{
+ data.filter(q=>
+   (year.value==="all"||q.year===year.value) &&
+   q.question.toLowerCase().includes(search.value.toLowerCase())
+ ).forEach(q=>{
+
+   const card=document.createElement("div");
+   card.className="card";
+   card.innerHTML=`<b>${q.year}</b><p>${q.question}</p>`;
+
+   card.onclick=()=>{
+
+      Progress.addXP(5);
+      Progress.addSolved("GS1");
+
       currentQuestion=q.question;
+
       dYear.textContent=q.year;
       dQuestion.textContent=q.question;
       timer.textContent="";
+
       listView.style.display="none";
       detail.style.display="block";
-    };
 
-    box.appendChild(card);
-  });
+   };
+
+   box.appendChild(card);
+
+ });
+
 }
 
 document.getElementById("backBtn").onclick=()=>{
-  detail.style.display="none";
-  listView.style.display="block";
+
+ detail.style.display="none";
+ listView.style.display="block";
+
 };
 
-document.getElementById("copyBtn").onclick=()=>{
-  navigator.clipboard.writeText(currentQuestion);
+document.getElementById("copyBtn").onclick=async()=>{
+
+ try{
+   await navigator.clipboard.writeText(currentQuestion);
+   Telegram.WebApp.showAlert("Question Copied");
+ }catch{
+   Telegram.WebApp.showAlert("Copy Failed");
+ }
+
 };
 
-function startTimer(m){
-  clearInterval(interval);
-  let s=m*60;
-  interval=setInterval(()=>{
-    timer.textContent=Math.floor(s/60)+":"+String(s%60).padStart(2,"0");
-    if(s--<=0){
+function startTimer(min){
+
+ clearInterval(interval);
+
+ let sec=min*60;
+
+ interval=setInterval(()=>{
+
+   timer.textContent=
+   Math.floor(sec/60)+":"+String(sec%60).padStart(2,"0");
+
+   if(sec===0){
+
       clearInterval(interval);
-      Telegram.WebApp.showAlert("Time Up");
-    }
-  },1000);
+
+      Progress.addXP(10);
+
+      Telegram.WebApp.showAlert("Time Up (+10 XP)");
+
+   }
+
+   sec--;
+
+ },1000);
+
 }
 
 document.getElementById("btn7").onclick=()=>startTimer(7);
 document.getElementById("btn11").onclick=()=>startTimer(11);
+
+document.getElementById("homeBtn").onclick=()=>{
+
+ window.location.href="./index.html";
+
+};
 
 year.onchange=render;
 search.oninput=render;
