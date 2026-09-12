@@ -6,29 +6,28 @@ module.exports = async (req, res) => {
   try {
     const { image } = req.body;
 
-    const response = await fetch("https://api.openai.com/v1/responses", {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        model: "gpt-5",
-        input: [{
-          role: "user",
-          content: [
-            {
-              type: "input_text",
-              text: "You are a UPSC Mains examiner. Read this handwritten answer and return: 1) Marks out of 15, 2) Strengths, 3) Weaknesses, 4) Missing points, 5) Better conclusion."
-            },
-            {
-              type: "input_image",
-              image_url: image
-            }
-          ]
-        }]
-      })
-    });
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contents: [{
+            parts: [
+              {
+                text: "You are a UPSC Mains examiner. Read this handwritten answer. Give marks out of 15, strengths, weaknesses, missing points and a model conclusion."
+              },
+              {
+                inlineData: {
+                  mimeType: "image/jpeg",
+                  data: image.split(",")[1]
+                }
+              }
+            ]
+          }]
+        })
+      }
+    );
 
     const data = await response.json();
 
@@ -39,9 +38,11 @@ module.exports = async (req, res) => {
       });
     }
 
+    const text = data.candidates?.[0]?.content?.parts?.[0]?.text || "No response";
+
     res.status(200).json({
       score: "AI/15",
-      feedback: data.output_text || "Evaluation completed."
+      feedback: text
     });
 
   } catch (err) {
