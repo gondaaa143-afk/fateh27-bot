@@ -7,7 +7,105 @@
 
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script src="./progress.js"></script>
+.globe{
+width:230px;
+height:230px;
+margin:28px auto;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+}
 
+.earth{
+position:absolute;
+width:180px;
+height:180px;
+border-radius:50%;
+background:
+radial-gradient(circle at 35% 35%,#39FF88,#0b1f15 70%);
+box-shadow:
+0 0 30px rgba(57,255,136,.35),
+inset 0 0 40px rgba(0,0,0,.5);
+animation:earthRotate 10s linear infinite;
+}
+
+@keyframes earthRotate{
+from{transform:rotate(0deg);}
+to{transform:rotate(360deg);}
+}
+
+.orbit{
+position:absolute;
+border:1px solid rgba(57,255,136,.28);
+border-radius:50%;
+}
+
+.orbit1{
+width:210px;
+height:210px;
+animation:spin1 8s linear infinite;
+}
+
+.orbit2{
+width:180px;
+height:180px;
+transform:rotateX(75deg);
+animation:spin2 6s linear infinite;
+}
+
+.orbit3{
+width:150px;
+height:150px;
+transform:rotateY(70deg);
+animation:spin3 12s linear infinite reverse;
+}
+
+@keyframes spin1{
+to{transform:rotate(360deg);}
+}
+
+@keyframes spin2{
+to{transform:rotate(-360deg);}
+}
+
+@keyframes spin3{
+to{transform:rotate(360deg);}
+}
+
+.radarSweep{
+position:absolute;
+width:210px;
+height:210px;
+border-radius:50%;
+background:
+conic-gradient(from 0deg,
+rgba(57,255,136,.35),
+transparent 45%);
+animation:radar 4s linear infinite;
+}
+
+@keyframes radar{
+to{transform:rotate(360deg);}
+}
+
+.indiaPulse{
+position:absolute;
+width:14px;
+height:14px;
+background:#39FF88;
+border-radius:50%;
+top:82px;
+right:92px;
+box-shadow:0 0 18px #39FF88;
+animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.8);}
+100%{transform:scale(1);}
+}
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
@@ -299,14 +397,21 @@ font-size:20px;
 </div>
 
 <div class="globe">
-<div class="sphere"></div>
-<div class="ring1"></div>
-<div class="ring2"></div>
-<div class="sweep"></div>
+<div class="globe">
+
+<div class="earth"></div>
+
+<div class="orbit orbit1"></div>
+<div class="orbit orbit2"></div>
+<div class="orbit orbit3"></div>
+
+<div class="radarSweep"></div>
+
+<div class="indiaPulse"></div>
+
 <div class="center">
 <div id="xp">0 XP</div>
 <div id="rank">Recruit</div>
-</div>
 </div>
 
 </div>
@@ -359,13 +464,40 @@ font-size:20px;
 
 <div class="secretary">
 
-<h3>COMMAND BRIEF</h3>
+<h3>🤖 AI SECRETARY</h3>
 
-<div class="mission"><span>Today's Mission</span><span>4 Answers</span></div>
-<div class="mission"><span>Current Affairs</span><span>Pending</span></div>
-<div class="mission"><span>Revision</span><span>Pending</span></div>
-<div class="mission"><span>Last Activity</span><span id="recent">None</span></div>
+<div class="mission">
+<span>Current Status</span>
+<span id="statusMsg">Loading...</span>
+</div>
 
+<div class="mission">
+<span>Today's Target</span>
+<span>4 Answers</span>
+</div>
+
+<div class="mission">
+<span>Weak Subject</span>
+<span id="weakSubject">GS3</span>
+</div>
+
+<div class="mission">
+<span>Last Activity</span>
+<span id="recent">None</span>
+</div>
+
+<div id="aiTip"
+style="
+margin-top:14px;
+padding:12px;
+border-radius:14px;
+background:rgba(57,255,136,.08);
+border:1px solid rgba(57,255,136,.18);
+color:#CFFFE1;">
+Mission loading...
+</div>
+
+</div>
 </div>
 
 <div class="section">Quick Launch</div>
@@ -432,7 +564,39 @@ gs1.textContent=d.gs1||0;
 gs2.textContent=d.gs2||0;
 gs3.textContent=d.gs3||0;
 gs4.textContent=d.gs4||0;
+// AI Secretary
 
+let weakest="GS3";
+
+const arr=[
+  {n:"GS1",v:d.gs1},
+  {n:"GS2",v:d.gs2},
+  {n:"GS3",v:d.gs3},
+  {n:"GS4",v:d.gs4}
+];
+
+arr.sort((a,b)=>a.v-b.v);
+
+weakest=arr[0].n;
+
+weakSubject.textContent=weakest;
+
+if(d.streak===0){
+
+  statusMsg.textContent="Alert";
+  aiTip.textContent="Streak bachane ke liye aaj kam se kam 1 question solve karo.";
+
+}else if(d.solved<4){
+
+  statusMsg.textContent="Mission Pending";
+  aiTip.textContent=`${weakest} par focus karo. Aaj ${4-d.solved} answers aur likhne hain.`;
+
+}else{
+
+  statusMsg.textContent="Excellent";
+  aiTip.textContent="Aaj ka mission complete. Revision mode activate karo.";
+
+}
 f1.style.width=pct(d.gs1)+"%";
 f2.style.width=pct(d.gs2)+"%";
 f3.style.width=pct(d.gs3)+"%";
