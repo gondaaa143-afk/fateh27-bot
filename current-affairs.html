@@ -353,101 +353,51 @@ Selected date ke Current Affairs yahin load honge (V2).
 </div>
 
 <script>
+async function loadCurrentAffairs(){
 
-Telegram.WebApp.ready();
-Telegram.WebApp.expand();
+const res=await fetch("data/current-affairs.json");
+const data=await res.json();
 
-const pills=document.querySelectorAll(".pill");
-const cards=document.querySelectorAll(".card");
+const hero=document.querySelector(".subtitle");
+hero.textContent=`${data.brief} • ${data.date}`;
 
-pills.forEach(p=>{
+const oldCards=document.querySelectorAll(".newsCard");
+oldCards.forEach(c=>c.remove());
 
-p.onclick=()=>{
+const filters=document.querySelector(".filters");
 
-pills.forEach(x=>x.classList.remove("active"));
-p.classList.add("active");
+data.articles.forEach(a=>{
 
-const f=p.textContent.trim();
+const card=document.createElement("div");
+card.className="card newsCard";
 
-cards.forEach(c=>{
+card.innerHTML=`
+<div class="news-title">${a.title}</div>
+<p>${a.summary}</p>
 
-const tags=c.innerText;
+<div class="tag">${a.gs}</div>
+<div class="tag">${a.source}</div>
 
-if(f==="All"){
-c.style.display="";
-return;
-}
+<div class="box">
+<h3>🎯 Prelims Facts</h3>
+<ul>${a.prelims.map(x=>`<li>${x}</li>`).join("")}</ul>
+</div>
 
-if(tags.includes(f)){
-c.style.display="";
-}else{
-if(c.querySelector(".news-title"))
-c.style.display="none";
-}
+<div class="box">
+<h3>📝 Mains Value Addition</h3>
+<p>${a.mains}</p>
+</div>
 
-});
+<button>+10 XP Mark Revised</button>
+`;
 
-};
-
-});
-
-document.querySelector(".search").oninput=e=>{
-
-const q=e.target.value.toLowerCase();
-
-cards.forEach(c=>{
-
-if(c.innerText.toLowerCase().includes(q)){
-c.style.display="";
-}else{
-if(c.querySelector(".news-title"))
-c.style.display="none";
-}
+filters.after(card);
 
 });
 
-};
-
-const reviseBtns=document.querySelectorAll("button");
-
-reviseBtns.forEach(b=>{
-
-if(b.textContent.includes("Mark Revised")){
-
-b.onclick=()=>{
-
-let d=Progress.get();
-
-d.xp=(d.xp||0)+10;
-d.lastActivity="Current Affairs Revised";
-
-Progress.save(d);
-
-b.innerHTML="✅ Revised +10 XP";
-b.disabled=true;
-
-Telegram.WebApp.HapticFeedback.notificationOccurred("success");
-
-};
-
 }
 
-});
-
-const sec=document.getElementById("secretaryMsg");
-
-const d=Progress.get();
-
-if((d.xp||0)<100){
-
-sec.innerHTML="Officer, Current Affairs weak area detect hua hai. Aaj ke 3 cards revise karo aur +30 XP secure karo.";
-
-}else{
-
-sec.innerHTML="Excellent. Revision streak maintain rakho aur GS linkage par focus karo.";
-
-}
-
+loadCurrentAffairs();
 </script>
 
 </body>
