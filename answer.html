@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Answer Evaluation</title>
+
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Arial,sans-serif;
+background:#020805;
+color:white;
+padding:20px;
+}
+.card{
+background:rgba(10,22,16,.8);
+border:1px solid rgba(57,255,136,.2);
+border-radius:20px;
+padding:18px;
+margin-bottom:16px;
+}
+button,input{
+width:100%;
+padding:15px;
+margin-top:12px;
+border:none;
+border-radius:16px;
+font-size:16px;
+}
+button{
+background:linear-gradient(135deg,#16C47F,#0EA85D);
+color:white;
+font-weight:bold;
+}
+img{
+width:100%;
+border-radius:16px;
+margin-top:12px;
+display:none;
+}
+.score{
+font-size:40px;
+font-weight:bold;
+color:#39FF88;
+text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+<h2>📝 AI Answer Evaluation</h2>
+
+<input type="file" id="image" accept="image/*">
+
+<img id="preview">
+
+<button id="evaluate">🚀 Evaluate Answer</button>
+</div>
+
+<div class="card">
+
+<h3>Evaluation Report</h3>
+
+<div class="score" id="marks">--/15</div>
+
+<p id="feedback">
+Upload your handwritten answer and tap Evaluate.
+</p>
+
+</div>
+
+<script>
+
+Telegram.WebApp.ready();
+Telegram.WebApp.expand();
+
+const image=document.getElementById("image");
+const preview=document.getElementById("preview");
+
+image.onchange=e=>{
+
+const file=e.target.files[0];
+
+preview.src=URL.createObjectURL(file);
+
+preview.style.display="block";
+
+};
+
+document.getElementById("evaluate").onclick=async()=>{
+
+const file=image.files[0];
+
+if(!file){
+
+Telegram.WebApp.showAlert("Please upload an image.");
+
+return;
+
+}
+
+const form=new FormData();
+
+form.append("image",file);
+
+const res=await fetch("/api/evaluate",{
+
+method:"POST",
+
+body:form
+
+});
+
+const data=await res.json();
+
+marks.textContent=data.score;
+
+feedback.innerHTML=data.feedback;
+
+};
+
+</script>
+
+</body>
+</html>
