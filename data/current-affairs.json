@@ -1,0 +1,17 @@
+{
+  "date": "2026-09-12",
+  "brief": "Today's UPSC Intelligence Brief",
+  "articles": [
+    {
+      "id": 1,
+      "title": "Waiting for Daily Update",
+      "gs": "GS3",
+      "source": "AI",
+      "summary": "7 PM par automatic update aayega.",
+      "prelims": [
+        "Daily Update"
+      ],
+      "mains": "UPSC value addition."
+    }
+  ]
+}
