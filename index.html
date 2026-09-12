@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>FATEH27 • WAR ROOM</title>
+<title>FATEH27 WAR ROOM</title>
 
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script src="./progress.js"></script>
@@ -11,135 +11,253 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-  font-family:Arial,sans-serif;
-  background:#030A06;
-  color:#fff;
-  overflow-x:hidden;
+font-family:Arial,sans-serif;
+background:#030905;
+color:white;
+overflow-x:hidden;
 }
 .bg{
-  position:fixed; inset:0;
-  background:
-    radial-gradient(circle at 20% 20%,rgba(57,255,136,.12),transparent 35%),
-    radial-gradient(circle at 80% 30%,rgba(57,255,136,.08),transparent 40%),
-    linear-gradient(180deg,#020704,#08140d,#0d1c14);
-  z-index:-3;
+position:fixed;inset:0;
+background:
+radial-gradient(circle at 20% 20%,rgba(57,255,136,.15),transparent 35%),
+radial-gradient(circle at 80% 30%,rgba(57,255,136,.08),transparent 40%),
+linear-gradient(#020704,#08140d,#102117);
+z-index:-3;
 }
-.gridline{
-  position:fixed; inset:0;
-  background-image:
-    linear-gradient(rgba(57,255,136,.03) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(57,255,136,.03) 1px,transparent 1px);
-  background-size:40px 40px;
-  z-index:-2;
+.grid{
+position:fixed;inset:0;
+background-image:
+linear-gradient(rgba(57,255,136,.04) 1px,transparent 1px),
+linear-gradient(90deg,rgba(57,255,136,.04) 1px,transparent 1px);
+background-size:35px 35px;
+z-index:-2;
 }
 .scan{
-  position:fixed;
-  left:0;
-  width:100%;
-  height:140px;
-  top:-140px;
-  background:linear-gradient(180deg,transparent,rgba(57,255,136,.08),transparent);
-  animation:scan 5s linear infinite;
-  z-index:-1;
+position:fixed;
+width:100%;
+height:160px;
+top:-160px;
+background:linear-gradient(180deg,transparent,rgba(57,255,136,.08),transparent);
+animation:scan 6s linear infinite;
+z-index:-1;
 }
 @keyframes scan{
-  from{top:-140px}
-  to{top:110%}
+0%{top:-160px}
+100%{top:120%}
 }
-.wrap{padding:18px 18px 90px}
-.hero,.card,.subject{
-  backdrop-filter:blur(18px);
-  background:rgba(12,24,18,.62);
-  border:1px solid rgba(57,255,136,.18);
-  border-radius:24px;
-  box-shadow:0 0 28px rgba(57,255,136,.08);
+.wrap{padding:18px;padding-bottom:90px}
+
+.hero{
+background:rgba(10,22,16,.72);
+backdrop-filter:blur(20px);
+border:1px solid rgba(57,255,136,.18);
+border-radius:26px;
+padding:20px;
+box-shadow:0 0 30px rgba(57,255,136,.08);
 }
-.hero{padding:22px}
-.top{display:flex;justify-content:space-between;align-items:center}
-.title{font-size:30px;font-weight:900;letter-spacing:2px}
-.badge{
-  padding:6px 12px;
-  border-radius:999px;
-  border:1px solid #39FF88;
-  background:rgba(57,255,136,.10);
-  color:#CFFFE1;
-  font-size:12px;
+
+.top{
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
-.profile{display:flex;align-items:center;gap:14px;margin-top:18px}
+
+.logo{
+font-size:28px;
+font-weight:900;
+letter-spacing:2px;
+}
+
+.status{
+padding:6px 12px;
+border-radius:999px;
+background:rgba(57,255,136,.1);
+border:1px solid #39FF88;
+color:#CFFFE1;
+font-size:12px;
+}
+
+.profile{
+display:flex;
+align-items:center;
+gap:14px;
+margin-top:18px;
+}
+
 .avatar{
-  width:64px;height:64px;border-radius:50%;
-  border:2px solid #39FF88;
-  background:#143523;
-  display:flex;align-items:center;justify-content:center;
-  font-size:26px;font-weight:bold;
-  overflow:hidden;
+width:65px;
+height:65px;
+border-radius:50%;
+border:2px solid #39FF88;
+background:#143523;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+font-weight:bold;
+overflow:hidden;
 }
-.avatar img{width:100%;height:100%;object-fit:cover}
-.name{font-size:24px;font-weight:800}
-.id,.clock{font-size:13px;color:#B8FFD8}
-.ring{width:190px;height:190px;margin:22px auto;position:relative}
-.ring svg{transform:rotate(-90deg)}
+
+.avatar img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.idcard{
+margin-top:18px;
+background:linear-gradient(135deg,#0F2A1B,#143523);
+border:1px solid rgba(57,255,136,.25);
+border-radius:20px;
+padding:16px;
+position:relative;
+overflow:hidden;
+}
+
+.idcard::after{
+content:"";
+position:absolute;
+top:-40%;
+left:-20%;
+width:160%;
+height:70%;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);
+transform:rotate(-12deg);
+animation:holo 5s linear infinite;
+}
+
+@keyframes holo{
+0%{left:-120%}
+100%{left:120%}
+}
+
+.radar{
+width:190px;
+height:190px;
+margin:20px auto;
+position:relative;
+}
+
+.radar svg{
+position:absolute;
+inset:0;
+transform:rotate(-90deg);
+}
+
+.sweep{
+position:absolute;
+inset:8px;
+border-radius:50%;
+background:conic-gradient(from 0deg,rgba(57,255,136,.35),transparent 45%);
+animation:rotate 4s linear infinite;
+}
+
+@keyframes rotate{
+to{transform:rotate(360deg)}
+}
+
 .center{
-  position:absolute;inset:0;
-  display:flex;align-items:center;justify-content:center;
-  flex-direction:column;
+position:absolute;
+inset:0;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
 }
-#xp{font-size:34px;font-weight:900;color:#39FF88}
-#rank{color:#CFFFE1}
+
+#xp{
+font-size:32px;
+font-weight:900;
+color:#39FF88;
+}
+
+#rank{
+color:#CFFFE1;
+}
+
 .stats,.subjects{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-  margin-top:18px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+margin-top:18px;
 }
-.card{padding:16px}
-.stat{font-size:28px;font-weight:bold;color:#39FF88}
-.label{font-size:13px;color:#B8FFD8}
-.section{font-size:20px;font-weight:bold;margin:24px 0 12px}
-.subject{padding:16px;text-align:center}
-.subject b{display:block;font-size:20px;margin-bottom:6px}
+
+.card,.subject{
+background:rgba(10,22,16,.72);
+backdrop-filter:blur(16px);
+border:1px solid rgba(57,255,136,.15);
+border-radius:18px;
+padding:16px;
+}
+
+.stat{
+font-size:28px;
+font-weight:bold;
+color:#39FF88;
+}
+
+.section{
+font-size:20px;
+font-weight:bold;
+margin:24px 0 12px;
+}
+
 .bar{
-  height:7px;
-  background:#143523;
-  border-radius:999px;
-  overflow:hidden;
-  margin-top:8px;
+height:7px;
+background:#173925;
+border-radius:999px;
+overflow:hidden;
+margin-top:8px;
 }
+
 .fill{
-  height:100%;
-  background:linear-gradient(90deg,#16C47F,#39FF88);
+height:100%;
+background:linear-gradient(90deg,#16C47F,#39FF88);
 }
-.activity{
-  background:#143523;
-  padding:12px;
-  border-radius:14px;
-  color:#D9FFE9;
+
+.secretary{
+background:linear-gradient(135deg,#0F2A1B,#143523);
+border-radius:18px;
+padding:18px;
+border:1px solid rgba(57,255,136,.2);
 }
+
+.secretary h3{
+color:#39FF88;
+margin-bottom:10px;
+}
+
+.mission{
+display:flex;
+justify-content:space-between;
+padding:10px 0;
+border-bottom:1px solid rgba(255,255,255,.05);
+}
+
 button{
-  width:100%;
-  padding:16px;
-  margin-top:12px;
-  border:none;
-  border-radius:18px;
-  background:linear-gradient(135deg,#16C47F,#0EA85D);
-  color:#fff;
-  font-size:16px;
-  font-weight:bold;
-  box-shadow:0 0 22px rgba(57,255,136,.22);
+width:100%;
+padding:16px;
+margin-top:12px;
+border:none;
+border-radius:18px;
+background:linear-gradient(135deg,#16C47F,#0EA85D);
+color:white;
+font-weight:bold;
+font-size:16px;
+box-shadow:0 0 20px rgba(57,255,136,.2);
 }
-button:active{transform:scale(.98)}
+
 #toast{
-  position:fixed;
-  left:50%;
-  bottom:120px;
-  transform:translateX(-50%);
-  background:#16C47F;
-  color:#fff;
-  padding:12px 22px;
-  border-radius:999px;
-  font-weight:bold;
-  opacity:0;
-  transition:.35s;
+position:fixed;
+left:50%;
+bottom:120px;
+transform:translateX(-50%);
+background:#16C47F;
+padding:12px 24px;
+border-radius:999px;
+font-weight:bold;
+opacity:0;
+transition:.35s;
 }
 </style>
 </head>
@@ -147,7 +265,7 @@ button:active{transform:scale(.98)}
 <body>
 
 <div class="bg"></div>
-<div class="gridline"></div>
+<div class="grid"></div>
 <div class="scan"></div>
 
 <div class="wrap">
@@ -155,8 +273,8 @@ button:active{transform:scale(.98)}
 <div class="hero">
 
 <div class="top">
-<div class="title">⚔ FATEH27</div>
-<div class="badge">WAR ROOM</div>
+<div class="logo">⚔ FATEH27</div>
+<div class="status">WAR ROOM</div>
 </div>
 
 <div class="profile">
@@ -164,38 +282,39 @@ button:active{transform:scale(.98)}
 <div class="avatar" id="avatar">F</div>
 
 <div>
-<div class="name" id="username">Officer</div>
-<div class="id" id="officerId">F27-0001</div>
-<div class="clock" id="clock">00:00</div>
+<div style="font-size:24px;font-weight:bold" id="username">Officer</div>
+<div id="officerId">F27-0001</div>
+<div id="clock"></div>
 </div>
 
 </div>
 
-<div class="ring">
+<div class="idcard">
+
+<div style="font-size:12px;color:#A7F3D0">OFFICER ACCESS CARD</div>
+
+<div style="font-size:20px;font-weight:bold;margin-top:6px" id="cardName">Officer</div>
+
+<div style="margin-top:10px;color:#39FF88">Clearance: ALPHA</div>
+
+</div>
+
+<div class="radar">
+
+<div class="sweep"></div>
 
 <svg width="190" height="190">
 
-<circle cx="95" cy="95" r="76"
-stroke="#143523"
-stroke-width="10"
-fill="none"/>
-
-<circle id="ring"
-cx="95"
-cy="95"
-r="76"
+<circle cx="95" cy="95" r="78" stroke="#173925" stroke-width="10" fill="none"/>
+<circle id="ring" cx="95" cy="95" r="78"
 stroke="#39FF88"
 stroke-width="10"
 fill="none"
 stroke-linecap="round"
-stroke-dasharray="477"
-stroke-dashoffset="477"/>
+stroke-dasharray="490"
+stroke-dashoffset="490"/>
 
-<circle cx="95" cy="95" r="58"
-stroke="#39FF88"
-stroke-width="2"
-fill="none"
-opacity=".25"/>
+<circle cx="95" cy="95" r="56" stroke="#39FF88" stroke-width="2" fill="none" opacity=".3"/>
 
 </svg>
 
@@ -212,50 +331,57 @@ opacity=".25"/>
 
 <div class="card">
 <div class="stat" id="streak">0</div>
-<div class="label">🔥 Day Streak</div>
+<div>🔥 Streak</div>
 </div>
 
 <div class="card">
 <div class="stat" id="solved">0</div>
-<div class="label">✅ Solved</div>
+<div>✅ Solved</div>
 </div>
 
 </div>
 
-<div class="section">Mission Status</div>
+<div class="section">Mission Progress</div>
 
 <div class="subjects">
 
 <div class="subject">
-<b>📘 GS1</b>
+<b>GS1</b>
 <div id="gs1">0</div>
 <div class="bar"><div class="fill" style="width:20%"></div></div>
 </div>
 
 <div class="subject">
-<b>📗 GS2</b>
+<b>GS2</b>
 <div id="gs2">0</div>
+<div class="bar"><div class="fill" style="width:10%"></div></div>
+</div>
+
+<div class="subject">
+<b>GS3</b>
+<div id="gs3">0</div>
 <div class="bar"><div class="fill" style="width:5%"></div></div>
 </div>
 
 <div class="subject">
-<b>📙 GS3</b>
-<div id="gs3">0</div>
-<div class="bar"><div class="fill" style="width:3%"></div></div>
-</div>
-
-<div class="subject">
-<b>📕 GS4</b>
+<b>GS4</b>
 <div id="gs4">0</div>
 <div class="bar"><div class="fill" style="width:2%"></div></div>
 </div>
 
 </div>
 
-<div class="section">Recent Activity</div>
+<div class="section">AI Secretary</div>
 
-<div class="card">
-<div class="activity" id="recent">No activity yet.</div>
+<div class="secretary">
+
+<h3>COMMAND BRIEF</h3>
+
+<div class="mission"><span>Today's Mission</span><span>4 Answers</span></div>
+<div class="mission"><span>Current Affairs</span><span>Pending</span></div>
+<div class="mission"><span>Revision</span><span>Pending</span></div>
+<div class="mission"><span>Last Activity</span><span id="recent">None</span></div>
+
 </div>
 
 <div class="section">Quick Launch</div>
@@ -270,71 +396,96 @@ opacity=".25"/>
 <div id="toast">+5 XP</div>
 
 <script>
-const tg=window.Telegram?.WebApp;
-tg?.ready();
-tg?.expand();
 
-const user=tg?.initDataUnsafe?.user;
+const tg=Telegram.WebApp;
+tg.ready();
+tg.expand();
+
+const user=tg.initDataUnsafe?.user;
 
 if(user){
-  username.textContent=user.first_name||"Officer";
-  avatar.textContent=(user.first_name||"F")[0];
-  if(user.photo_url){
-    avatar.innerHTML=`<img src="${user.photo_url}">`;
-  }
+
+username.textContent=user.first_name;
+cardName.textContent=user.first_name;
+avatar.textContent=user.first_name[0];
+
+if(user.photo_url){
+
+avatar.innerHTML='<img src="'+user.photo_url+'">';
+
+}
+
 }
 
 if(!localStorage.officerId){
-  localStorage.officerId="F27-"+Math.floor(1000+Math.random()*9000);
+
+localStorage.officerId="F27-"+Math.floor(1000+Math.random()*9000);
+
 }
+
 officerId.textContent=localStorage.officerId;
 
-function getRank(x){
-  if(x>=1500)return"🏆 Officer";
-  if(x>=800)return"⚔ Warrior";
-  if(x>=300)return"🥈 Aspirant";
-  return"🟢 Recruit";
+function rankName(x){
+
+if(x>=1500)return"🏆 Officer";
+if(x>=800)return"⚔ Warrior";
+if(x>=300)return"🥈 Aspirant";
+return"🟢 Recruit";
+
 }
 
 function load(){
 
-  const d=window.Progress?.get?Progress.get():{xp:0,streak:0,solved:0};
+const d=Progress.get();
 
-  xp.textContent=d.xp+" XP";
-  rank.textContent=getRank(d.xp);
+xp.textContent=d.xp+" XP";
+rank.textContent=rankName(d.xp);
 
-  streak.textContent=d.streak||0;
-  solved.textContent=d.solved||0;
+streak.textContent=d.streak||0;
+solved.textContent=d.solved||0;
 
-  gs1.textContent=d.gs1||0;
-  gs2.textContent=d.gs2||0;
-  gs3.textContent=d.gs3||0;
-  gs4.textContent=d.gs4||0;
+gs1.textContent=d.gs1||0;
+gs2.textContent=d.gs2||0;
+gs3.textContent=d.gs3||0;
+gs4.textContent=d.gs4||0;
 
-  recent.textContent=d.lastActivity||"No activity yet.";
+recent.textContent=d.lastActivity||"None";
 
-  const p=Math.min(d.xp/1500,1);
-  ring.style.strokeDashoffset=477-(477*p);
+const p=Math.min(d.xp/1500,1);
 
-  const prev=Number(localStorage.lastXp||0);
-  if(d.xp>prev){
-    toast.textContent="+"+(d.xp-prev)+" XP";
-    toast.style.opacity=1;
-    setTimeout(()=>toast.style.opacity=0,1400);
-  }
-  localStorage.lastXp=d.xp;
+ring.style.strokeDashoffset=490-(490*p);
+
+const old=Number(localStorage.lastXp||0);
+
+if(d.xp>old){
+
+toast.textContent="+"+(d.xp-old)+" XP";
+
+toast.style.opacity=1;
+
+setTimeout(()=>toast.style.opacity=0,1500);
+
+}
+
+localStorage.lastXp=d.xp;
+
 }
 
 function tick(){
-  clock.textContent=new Date().toLocaleTimeString([],{
-    hour:"2-digit",
-    minute:"2-digit"
-  });
+
+clock.textContent=new Date().toLocaleTimeString([],{
+hour:"2-digit",
+minute:"2-digit"
+});
+
 }
 
 setInterval(tick,1000);
+
 tick();
+
 load();
+
 </script>
 
 </body>
