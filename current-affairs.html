@@ -49,65 +49,77 @@ button{width:100%;padding:15px;border:none;border-radius:18px;background:#1fd37a
 </div>
 
 <script>
-let articles=[];
-let currentFilter="All";
+let articles = [];
+let currentFilter = "All";
 
-async function loadCurrentAffairs(){
-try{
-const res=await fetch("data/current-affairs.json?t="+Date.now());
-const data=await res.json();
+async function loadCurrentAffairs() {
+  try {
+    const res = await fetch("/data/current-affairs.json?t=" + Date.now());
+    const data = await res.json();
 
-document.getElementById("date").textContent=data.date||"Today";
+    document.getElementById("date").textContent =
+      data.date || new Date().toISOString().slice(0, 10);
 
-articles=(data.articles||[]).map(a=>({
-title:a.title,
-gs:(a.gs_paper||"").match(/GS Paper (\\d)/)?.[1]?"GS"+(a.gs_paper.match(/GS Paper (\\d)/)[1]):"GS3",
-points:a.key_points||[],
-source:a.gs_paper||"",
-}));
+    articles = (data.articles || []).map(a => ({
+      title: a.title,
+      gs: a.gs_paper?.match(/GS Paper (\d)/)
+        ? "GS" + a.gs_paper.match(/GS Paper (\d)/)[1]
+        : "GS3",
+      points: a.key_points || [],
+      source: a.gs_paper || ""
+    }));
 
-render();
-}catch(e){
-document.getElementById("newsContainer").innerHTML="<div class='card'>Data load failed.</div>";
-}
-}
-
-function render(){
-const q=document.getElementById("search").value.toLowerCase();
-const box=document.getElementById("newsContainer");
-box.innerHTML="";
-
-articles
-.filter(a=>(currentFilter==="All"||a.gs===currentFilter)&&a.title.toLowerCase().includes(q))
-.forEach(a=>{
-box.innerHTML+=`
-<div class="card">
-<h2>${a.title}</h2>
-<div class="tag">${a.gs}</div>
-<div class="tag">${a.source}</div>
-<ul>${a.points.map(p=>`<li>${p}</li>`).join("")}</ul>
-<button onclick="markXP()">+10 XP Mark Revised</button>
-</div>`;
-});
+    render();
+  } catch (e) {
+    document.getElementById("newsContainer").innerHTML =
+      "<div class='card'>Data load failed.</div>";
+  }
 }
 
-function setFilter(gs,el){
-currentFilter=gs;
-document.querySelectorAll(".chip").forEach(c=>c.classList.remove("active"));
-el.classList.add("active");
-render();
+function render() {
+  const q = document.getElementById("search").value.toLowerCase();
+  const box = document.getElementById("newsContainer");
+  box.innerHTML = "";
+
+  articles
+    .filter(a =>
+      (currentFilter === "All" || a.gs === currentFilter) &&
+      a.title.toLowerCase().includes(q)
+    )
+    .forEach(a => {
+      box.innerHTML += `
+        <div class="card">
+          <h2>${a.title}</h2>
+
+          <div class="tag">${a.gs}</div>
+          <div class="tag">${a.source}</div>
+
+          <ul>
+            ${a.points.map(p => `<li>${p}</li>`).join("")}
+          </ul>
+
+          <button onclick="markXP()">+10 XP Mark Revised</button>
+        </div>
+      `;
+    });
 }
 
-function markXP(){
-const d=Progress.get();
-d.xp=(d.xp||0)+10;
-Progress.save(d);
-alert("+10 XP");
+function setFilter(gs, el) {
+  currentFilter = gs;
+  document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+  el.classList.add("active");
+  render();
 }
 
-document.getElementById("search").addEventListener("input",render);
+function markXP() {
+  const d = Progress.get();
+  d.xp = (d.xp || 0) + 10;
+  Progress.save(d);
+  alert("+10 XP");
+}
+
+document.getElementById("search").addEventListener("input", render);
 loadCurrentAffairs();
 </script>
-
 </body>
 </html>
