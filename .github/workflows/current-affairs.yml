@@ -1,0 +1,30 @@
+name: FATEH27 Current Affairs
+
+on:
+  schedule:
+    - cron: "30 13 * * *"   # रोज़ 7:00 PM IST
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm install axios
+
+      - run: node scripts/update-current.js
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      - run: |
+          git config user.name "FATEH27 Bot"
+          git config user.email "bot@fateh27.ai"
+          git add data/current-affairs.json
+          git diff --cached --quiet || git commit -m "Daily Current Affairs"
+          git push
