@@ -82,46 +82,38 @@ Telegram.WebApp.expand();
 const image=document.getElementById("image");
 const preview=document.getElementById("preview");
 
+let imgData="";
+
 image.onchange=e=>{
+ const file=e.target.files[0];
+ preview.src=URL.createObjectURL(file);
+ preview.style.display="block";
 
-const file=e.target.files[0];
-
-preview.src=URL.createObjectURL(file);
-
-preview.style.display="block";
-
+ const reader=new FileReader();
+ reader.onload=()=>imgData=reader.result;
+ reader.readAsDataURL(file);
 };
 
 document.getElementById("evaluate").onclick=async()=>{
+ if(!imgData){
+   Telegram.WebApp.showAlert("Photo upload karo.");
+   return;
+ }
 
-const file=image.files[0];
+ marks.textContent="Checking...";
+ feedback.innerHTML="AI examiner copy padh raha hai...";
 
-if(!file){
+ const res=await fetch("/api/evaluate",{
+   method:"POST",
+   headers:{"Content-Type":"application/json"},
+   body:JSON.stringify({image:imgData})
+ });
 
-Telegram.WebApp.showAlert("Please upload an image.");
+ const data=await res.json();
 
-return;
-
-}
-
-const form=new FormData();
-
-form.append("image",file);
-
-const res=await fetch("/api/evaluate",{
-
-method:"POST",
-
-body:form
-
-});
-
-const data=await res.json();
-
-marks.textContent=data.score;
-
-feedback.innerHTML=data.feedback;
-
+ marks.textContent=data.score;
+ feedback.innerHTML=data.feedback;
+};
 };
 
 </script>
