@@ -148,8 +148,7 @@ function render(){
 
     card.addEventListener("click",()=>{
 
-      Progress.addXP(5);
-      Progress.addSolved("GS1");
+      Progress.addSolved("GS1", q.year + "_" + q.question);
 
       currentQuestion=q.question;
 
