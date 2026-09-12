@@ -5,36 +5,75 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>FATEH27 Current Affairs</title>
 
-<script src="./progress.js"></script>
-
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,sans-serif;background:#04110a;color:#fff}
-.wrap{padding:18px;padding-bottom:90px}
-h1{font-size:34px;font-weight:900}
-.sub{color:#9FD8B6;margin:4px 0 20px}
-.search{width:100%;padding:14px;border-radius:16px;border:1px solid #1f5f3a;background:#081b11;color:#fff;margin-bottom:18px}
-.filter{display:flex;gap:8px;overflow:auto;margin-bottom:18px}
-.chip{padding:10px 16px;border-radius:999px;border:1px solid #1f5f3a;background:#081b11;color:#fff}
-.active{background:#1fd37a;color:#001a0d;font-weight:bold}
-.card{background:rgba(10,24,16,.9);border:1px solid rgba(57,255,136,.18);border-radius:22px;padding:18px;margin-bottom:18px}
-.tag{display:inline-block;margin-top:10px;padding:6px 12px;border-radius:999px;background:#0d2d1b;border:1px solid #1f5f3a;font-size:12px}
-ul{margin:14px 0 0 18px}
-li{margin:8px 0}
-button{width:100%;padding:15px;border:none;border-radius:18px;background:#1fd37a;color:#001a0d;font-weight:bold;margin-top:16px}
-.back{margin-top:24px}
+body{
+background:#02140b;
+color:#fff;
+font-family:Arial,sans-serif;
+margin:0;
+padding:24px;
+}
+h1{margin:0;font-size:48px}
+.sub{color:#9fb3a8;margin-bottom:24px}
+.search{
+width:100%;
+padding:14px;
+background:#072317;
+border:1px solid #13452c;
+border-radius:18px;
+color:white;
+margin-bottom:20px;
+}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+.chip{
+padding:12px 20px;
+border:1px solid #175538;
+border-radius:999px;
+cursor:pointer;
+}
+.active{background:#2be07a;color:#000}
+.card{
+background:#072317;
+border:1px solid #12462d;
+border-radius:22px;
+padding:22px;
+margin-bottom:18px;
+}
+.tag{
+display:inline-block;
+padding:6px 12px;
+border-radius:999px;
+background:#11321f;
+font-size:12px;
+margin-right:8px;
+margin-top:8px;
+}
+.box{
+background:#0b2c1d;
+border-radius:18px;
+padding:16px;
+margin-top:14px;
+}
+.back{
+width:100%;
+padding:18px;
+border:none;
+border-radius:18px;
+background:#2be07a;
+font-weight:bold;
+margin-top:22px;
+}
 </style>
 </head>
-<body>
 
-<div class="wrap">
+<body>
 
 <h1>CURRENT AFFAIRS</h1>
 <div class="sub">Command Center • <span id="date">Loading...</span></div>
 
 <input class="search" id="search" placeholder="Search topic, scheme, article...">
 
-<div class="filter">
+<div class="filters">
 <div class="chip active" onclick="setFilter('All',this)">All</div>
 <div class="chip" onclick="setFilter('GS1',this)">GS1</div>
 <div class="chip" onclick="setFilter('GS2',this)">GS2</div>
@@ -46,82 +85,127 @@ button{width:100%;padding:15px;border:none;border-radius:18px;background:#1fd37a
 
 <button class="back" onclick="location.href='index.html'">← Back to War Room</button>
 
+<script>
+let articles=[];
+let currentFilter="All";
+
+async function loadCurrentAffairs(){
+
+try{
+
+const res=await fetch("./data/current-affairs.json?v="+Date.now(),{
+cache:"no-store"
+});
+
+if(!res.ok) throw new Error("HTTP "+res.status);
+
+const data=await res.json();
+
+document.getElementById("date").textContent=data.date||"Today";
+
+articles=(data.articles||[]).map(a=>{
+
+let gs="GS3";
+
+if(a.gs) gs=a.gs;
+
+else if(a.gs_paper){
+
+const m=a.gs_paper.match(/GS Paper (\d)/);
+
+if(m) gs="GS"+m[1];
+
+}
+
+return{
+title:a.title||"",
+gs,
+source:a.source||"AI",
+points:a.key_points||a.prelims||[],
+mains:a.mains||""
+};
+
+});
+
+render();
+
+}catch(e){
+
+document.getElementById("newsContainer").innerHTML=
+`<div class="card">Error: ${e.message}</div>`;
+
+}
+
+}
+
+function render(){
+
+const q=document.getElementById("search").value.toLowerCase();
+
+const list=articles.filter(a=>
+
+(currentFilter==="All"||a.gs===currentFilter)&&
+a.title.toLowerCase().includes(q)
+
+);
+
+const c=document.getElementById("newsContainer");
+
+c.innerHTML="";
+
+list.forEach(a=>{
+
+const card=document.createElement("div");
+
+card.className="card";
+
+card.innerHTML=`
+<h2>${a.title}</h2>
+
+<div>
+<span class="tag">${a.gs}</span>
+<span class="tag">${a.source}</span>
 </div>
 
-<script>
-let articles = [];
-let currentFilter = "All";
+<div class="box">
+<b>Prelims Facts</b>
+<ul>${a.points.map(p=>`<li>${p}</li>`).join("")}</ul>
+</div>
 
-async function loadCurrentAffairs() {
-  try {
-    fetch("/data/current-affairs.json?v=" + Date.now(), {
-  cache: "no-store"
-})
-    const data = await res.json();
+<div class="box">
+<b>Mains Value Addition</b>
+<p>${a.mains||"Use in UPSC answer writing."}</p>
+</div>
+`;
 
-    document.getElementById("date").textContent =
-      data.date || new Date().toISOString().slice(0, 10);
+c.appendChild(card);
 
-    articles = (data.articles || []).map(a => ({
-      title: a.title,
-      gs: a.gs_paper?.match(/GS Paper (\d)/)
-        ? "GS" + a.gs_paper.match(/GS Paper (\d)/)[1]
-        : "GS3",
-      points: a.key_points || [],
-      source: a.gs_paper || ""
-    }));
+});
 
-    render();
-  } catch (e) {
-    document.getElementById("newsContainer").innerHTML =
-      "<div class='card'>Data load failed.</div>";
-  }
+if(!list.length){
+
+c.innerHTML="<div class='card'>No articles found.</div>";
+
 }
 
-function render() {
-  const q = document.getElementById("search").value.toLowerCase();
-  const box = document.getElementById("newsContainer");
-  box.innerHTML = "";
-
-  articles
-    .filter(a =>
-      (currentFilter === "All" || a.gs === currentFilter) &&
-      a.title.toLowerCase().includes(q)
-    )
-    .forEach(a => {
-      box.innerHTML += `
-        <div class="card">
-          <h2>${a.title}</h2>
-
-          <div class="tag">${a.gs}</div>
-          <div class="tag">${a.source}</div>
-
-          <ul>
-            ${a.points.map(p => `<li>${p}</li>`).join("")}
-          </ul>
-
-          <button onclick="markXP()">+10 XP Mark Revised</button>
-        </div>
-      `;
-    });
 }
 
-function setFilter(gs, el) {
-  currentFilter = gs;
-  document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
-  el.classList.add("active");
-  render();
+function setFilter(f,el){
+
+currentFilter=f;
+
+document.querySelectorAll(".chip").forEach(x=>x.classList.remove("active"));
+
+el.classList.add("active");
+
+render();
+
 }
 
-function markXP() {
-  const d = Progress.get();
-  d.xp = (d.xp || 0) + 10;
-  Progress.save(d);
-  alert("+10 XP");
-}
+document.getElementById("search").addEventListener("input",render);
 
-document.getElementById("search").addEventListener("input", render);
 loadCurrentAffairs();
 </script>
+
 </body>
 </html>
