@@ -176,7 +176,7 @@ transition:.35s
 
 <div class="top">
 <div class="logo">⚔ FATEH27</div>
-<div class="badge">WAR ROOM</div>
+<div class="badge">BETA v1.0 • LIVE</div>
 </div>
 
 <div class="profile">
@@ -244,7 +244,9 @@ Mission loading...
 <button onclick="location.href='gs3.html'">📙 GS3</button>
 <button onclick="location.href='gs4.html'">📕 GS4</button>
 <button onclick="location.href='answer.html'">📷 AI Answer Evaluation</button>
-
+<button onclick="location.href='current-affairs.html'">
+📰 Current Affairs Command Center
+</button>
 </div>
 
 <div id="toast">+5 XP</div>
@@ -354,6 +356,60 @@ localStorage.lastRank=newRank;
 
 load();
 </script>
+<style>
+.bottomNav{
+position:fixed;
+left:0;
+right:0;
+bottom:0;
+height:72px;
+background:rgba(8,18,12,.92);
+backdrop-filter:blur(18px);
+border-top:1px solid rgba(57,255,136,.18);
+display:flex;
+justify-content:space-around;
+align-items:center;
+z-index:99;
+}
+.navBtn{
+display:flex;
+flex-direction:column;
+align-items:center;
+font-size:11px;
+color:#CFFFE1;
+text-decoration:none;
+}
+.navBtn span{
+font-size:22px;
+margin-bottom:4px;
+}
+.navBtn.active{
+color:#39FF88;
+}
+</style>
 
+<div class="bottomNav">
+
+<a class="navBtn active" href="index.html">
+<span>🏠</span>
+Home
+</a>
+
+<a class="navBtn" href="current-affairs.html">
+<span>📰</span>
+CA
+</a>
+
+<a class="navBtn" href="gs1.html">
+<span>📘</span>
+GS
+</a>
+
+<a class="navBtn" href="answer.html">
+<span>🤖</span>
+AI
+</a>
+
+</div>
 </body>
 </html>
