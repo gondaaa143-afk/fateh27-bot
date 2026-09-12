@@ -120,8 +120,28 @@ evaluateBtn.addEventListener("click", async () => {
 
     const data = await res.json();
 
-    marks.textContent = data.score || "--/15";
-    feedback.innerHTML = data.feedback || "Done.";
+    marks.textContent = data.marks || "--/15";
+
+feedback.innerHTML = `
+<div class="box">
+<h3>✅ Strengths</h3>
+<ul>${data.strengths.map(x=>`<li>${x}</li>`).join("")}</ul>
+</div>
+
+<div class="box">
+<h3>❌ Weaknesses</h3>
+<ul>${data.weaknesses.map(x=>`<li>${x}</li>`).join("")}</ul>
+</div>
+
+<div class="box">
+<h3>📌 Missing Points</h3>
+<ul>${data.missing.map(x=>`<li>${x}</li>`).join("")}</ul>
+</div>
+
+<div class="box">
+<h3>🏆 Model Conclusion</h3>
+<p>${data.modelConclusion}</p>
+</div>`;
 
   } catch (err) {
     marks.textContent = "Error";
