@@ -6,11 +6,20 @@ module.exports = async (req, res) => {
   try {
     const { image } = req.body;
 
+    if (!image) {
+      return res.status(400).json({
+        score: "0/15",
+        feedback: "Image missing."
+      });
+    }
+
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
       {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json"
+        },
         body: JSON.stringify({
           contents: [{
             parts: [
@@ -38,15 +47,17 @@ module.exports = async (req, res) => {
       });
     }
 
-    const text = data.candidates?.[0]?.content?.parts?.[0]?.text || "No response";
+    const text =
+      data.candidates?.[0]?.content?.parts?.[0]?.text ||
+      "No response";
 
-    res.status(200).json({
+    return res.status(200).json({
       score: "AI/15",
       feedback: text
     });
 
   } catch (err) {
-    res.status(500).json({
+    return res.status(500).json({
       score: "0/15",
       feedback: err.message
     });
