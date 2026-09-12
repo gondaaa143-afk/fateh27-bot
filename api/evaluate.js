@@ -4,12 +4,19 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const { image } = req.body;
+    const { image } = req.body || {};
 
-    const ai = await fetch("https://api.openai.com/v1/responses", {
+    if (!image) {
+      return res.status(400).json({
+        score: "0/15",
+        feedback: "Image missing."
+      });
+    }
+
+    const response = await fetch("https://api.openai.com/v1/responses", {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
+        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
@@ -19,7 +26,7 @@ module.exports = async (req, res) => {
           content: [
             {
               type: "input_text",
-              text: "You are a UPSC Mains examiner. Read this handwritten answer and give marks out of 15. Return: Marks, Strengths, Weaknesses, Missing points, Model conclusion."
+              text: "You are a UPSC Mains examiner. Read the handwritten answer and give marks out of 15 with strengths, weaknesses, missing points and a better conclusion."
             },
             {
               type: "input_image",
@@ -30,17 +37,24 @@ module.exports = async (req, res) => {
       })
     });
 
-    const data = await ai.json();
+    const data = await response.json();
+
+    if (!response.ok) {
+      return res.status(500).json({
+        score: "0/15",
+        feedback: JSON.stringify(data)
+      });
+    }
 
     res.status(200).json({
       score: "AI/15",
       feedback: data.output_text || "Evaluation completed."
     });
 
-  } catch (e) {
+  } catch (err) {
     res.status(500).json({
       score: "0/15",
-      feedback: "AI evaluation failed."
+      feedback: err.message
     });
   }
 };
