@@ -85,8 +85,7 @@ async function load(){
       card.innerHTML=`<b>${y}</b><p>${q}</p>`;
 
       card.onclick=()=>{
-        Progress.addXP(5);
-        Progress.addSolved("GS2");
+        Progress.addSolved("GS2", q.year + "_" + q.question);
 
         currentQuestion=q;
         dYear.textContent=y;
