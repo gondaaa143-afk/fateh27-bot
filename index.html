@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>FATEH27 WAR ROOM V6</title>
+<title>FATEH27 WAR ROOM</title>
 
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script src="./progress.js"></script>
@@ -11,13 +12,25 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:Arial,sans-serif;background:#020805;color:#fff;overflow-x:hidden}
-.bg{position:fixed;inset:0;background:radial-gradient(circle at 20% 20%,rgba(57,255,136,.14),transparent 35%),radial-gradient(circle at 80% 30%,rgba(57,255,136,.08),transparent 40%),linear-gradient(#020704,#08140d,#102117);z-index:-3}
-.grid{position:fixed;inset:0;background-image:linear-gradient(rgba(57,255,136,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(57,255,136,.03) 1px,transparent 1px);background-size:36px 36px;z-index:-2}
-.scan{position:fixed;left:0;width:100%;height:160px;top:-160px;background:linear-gradient(180deg,transparent,rgba(57,255,136,.08),transparent);animation:scan 6s linear infinite;z-index:-1}
+.bg{position:fixed;inset:0;background:
+radial-gradient(circle at 20% 20%,rgba(57,255,136,.15),transparent 35%),
+radial-gradient(circle at 80% 30%,rgba(57,255,136,.08),transparent 40%),
+linear-gradient(180deg,#020704,#08140d,#102117);z-index:-3}
+.grid{position:fixed;inset:0;background-image:
+linear-gradient(rgba(57,255,136,.03) 1px,transparent 1px),
+linear-gradient(90deg,rgba(57,255,136,.03) 1px,transparent 1px);
+background-size:36px 36px;z-index:-2}
+.scan{position:fixed;left:0;top:-160px;width:100%;height:160px;background:linear-gradient(180deg,transparent,rgba(57,255,136,.08),transparent);animation:scan 6s linear infinite;z-index:-1}
 @keyframes scan{0%{top:-160px}100%{top:120%}}
 
 .wrap{padding:18px;padding-bottom:90px}
-.panel,.card,.subject,.secretary{background:rgba(10,22,16,.72);backdrop-filter:blur(18px);border:1px solid rgba(57,255,136,.18);border-radius:22px;box-shadow:0 0 25px rgba(57,255,136,.08)}
+.panel,.card,.subject,.secretary{
+background:rgba(10,22,16,.72);
+backdrop-filter:blur(18px);
+border:1px solid rgba(57,255,136,.18);
+border-radius:22px;
+box-shadow:0 0 25px rgba(57,255,136,.08)
+}
 .panel{padding:20px}
 
 .top{display:flex;justify-content:space-between;align-items:center}
@@ -29,11 +42,37 @@ body{font-family:Arial,sans-serif;background:#020805;color:#fff;overflow-x:hidde
 .avatar img{width:100%;height:100%;object-fit:cover}
 
 .idcard{margin-top:18px;background:linear-gradient(135deg,#0F2A1B,#143523);border:1px solid rgba(57,255,136,.25);border-radius:20px;padding:16px;position:relative;overflow:hidden}
-.idcard:after{content:"";position:absolute;top:-40%;left:-30%;width:160%;height:70%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);transform:rotate(-12deg);animation:holo 5s linear infinite}
+.idcard:after{
+content:"";
+position:absolute;
+top:-40%;
+left:-30%;
+width:160%;
+height:70%;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);
+transform:rotate(-12deg);
+animation:holo 5s linear infinite
+}
 @keyframes holo{0%{left:-120%}100%{left:120%}}
 
-.globe{width:230px;height:230px;margin:26px auto;position:relative;display:flex;align-items:center;justify-content:center}
-.earth{position:absolute;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#39FF88,#0b1f15 70%);box-shadow:0 0 30px rgba(57,255,136,.35),inset 0 0 40px rgba(0,0,0,.5);animation:earthRotate 10s linear infinite}
+.globe{
+width:230px;
+height:230px;
+margin:28px auto;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center
+}
+.earth{
+position:absolute;
+width:180px;
+height:180px;
+border-radius:50%;
+background:radial-gradient(circle at 35% 35%,#39FF88,#0b1f15 70%);
+box-shadow:0 0 30px rgba(57,255,136,.35),inset 0 0 40px rgba(0,0,0,.5);
+animation:earthRotate 10s linear infinite
+}
 @keyframes earthRotate{to{transform:rotate(360deg)}}
 .orbit{position:absolute;border:1px solid rgba(57,255,136,.28);border-radius:50%}
 .orbit1{width:210px;height:210px;animation:spin1 8s linear infinite}
@@ -42,12 +81,36 @@ body{font-family:Arial,sans-serif;background:#020805;color:#fff;overflow-x:hidde
 @keyframes spin1{to{transform:rotate(360deg)}}
 @keyframes spin2{to{transform:rotate(-360deg)}}
 @keyframes spin3{to{transform:rotate(360deg)}}
-.radarSweep{position:absolute;width:210px;height:210px;border-radius:50%;background:conic-gradient(from 0deg,rgba(57,255,136,.35),transparent 45%);animation:radar 4s linear infinite}
+.radarSweep{
+position:absolute;
+width:210px;
+height:210px;
+border-radius:50%;
+background:conic-gradient(from 0deg,rgba(57,255,136,.35),transparent 45%);
+animation:radar 4s linear infinite
+}
 @keyframes radar{to{transform:rotate(360deg)}}
-.indiaPulse{position:absolute;width:14px;height:14px;background:#39FF88;border-radius:50%;top:82px;right:92px;box-shadow:0 0 18px #39FF88;animation:pulse 1.5s infinite}
+.indiaPulse{
+position:absolute;
+width:14px;
+height:14px;
+background:#39FF88;
+border-radius:50%;
+top:82px;
+right:92px;
+box-shadow:0 0 18px #39FF88;
+animation:pulse 1.5s infinite
+}
 @keyframes pulse{50%{transform:scale(1.8)}}
 
-.center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.center{
+position:absolute;
+inset:0;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center
+}
 #xp{font-size:34px;font-weight:900;color:#39FF88}
 #rank{color:#CFFFE1}
 
@@ -59,12 +122,43 @@ body{font-family:Arial,sans-serif;background:#020805;color:#fff;overflow-x:hidde
 .fill{height:100%;background:linear-gradient(90deg,#16C47F,#39FF88)}
 .secretary{padding:16px}
 .mission{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05)}
-button{width:100%;padding:16px;margin-top:12px;border:none;border-radius:18px;background:linear-gradient(135deg,#16C47F,#0EA85D);color:#fff;font-size:16px;font-weight:bold}
-#level{position:fixed;inset:0;background:rgba(2,8,5,.96);display:none;align-items:center;justify-content:center;flex-direction:column;z-index:50}
+button{
+width:100%;
+padding:16px;
+margin-top:12px;
+border:none;
+border-radius:18px;
+background:linear-gradient(135deg,#16C47F,#0EA85D);
+color:#fff;
+font-size:16px;
+font-weight:bold
+}
+#level{
+position:fixed;
+inset:0;
+background:rgba(2,8,5,.96);
+display:none;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+z-index:50
+}
 #level h1{font-size:46px;color:#39FF88}
-#toast{position:fixed;left:50%;bottom:120px;transform:translateX(-50%);background:#16C47F;padding:12px 24px;border-radius:999px;font-weight:bold;opacity:0;transition:.35s}
+#toast{
+position:fixed;
+left:50%;
+bottom:120px;
+transform:translateX(-50%);
+background:#16C47F;
+padding:12px 24px;
+border-radius:999px;
+font-weight:bold;
+opacity:0;
+transition:.35s
+}
 </style>
 </head>
+
 <body>
 
 <div class="bg"></div>
@@ -75,7 +169,10 @@ button{width:100%;padding:16px;margin-top:12px;border:none;border-radius:18px;ba
 <h1>LEVEL UP</h1>
 <p id="levelRank"></p>
 </div>
-  <div class="panel">
+
+<div class="wrap">
+
+<div class="panel">
 
 <div class="top">
 <div class="logo">⚔ FATEH27</div>
@@ -134,6 +231,7 @@ button{width:100%;padding:16px;margin-top:12px;border:none;border-radius:18px;ba
 <div class="mission"><span>Today's Target</span><span>4 Answers</span></div>
 <div class="mission"><span>Weak Subject</span><span id="weakSubject">GS3</span></div>
 <div class="mission"><span>Last Activity</span><span id="recent">None</span></div>
+
 <div id="aiTip" style="margin-top:14px;padding:12px;border-radius:14px;background:rgba(57,255,136,.08);border:1px solid rgba(57,255,136,.18);color:#CFFFE1">
 Mission loading...
 </div>
@@ -145,15 +243,14 @@ Mission loading...
 <button onclick="location.href='gs2.html'">📗 GS2</button>
 <button onclick="location.href='gs3.html'">📙 GS3</button>
 <button onclick="location.href='gs4.html'">📕 GS4</button>
-<button onclick="location.href='answer.html'">
-📷 AI Answer Evaluation
-</button>
+<button onclick="location.href='answer.html'">📷 AI Answer Evaluation</button>
+
 </div>
 
 <div id="toast">+5 XP</div>
-  <script>
 
-const tg=Telegram.WebApp;
+<script>
+const tg=window.Telegram.WebApp;
 tg.ready();
 tg.expand();
 
@@ -195,7 +292,7 @@ tick();
 
 function load(){
 
-const d=Progress.get();
+const d=(window.Progress&&Progress.get)?Progress.get():{xp:0,streak:0,solved:0,gs1:0,gs2:0,gs3:0,gs4:0,lastActivity:"None"};
 
 xp.textContent=d.xp+" XP";
 rank.textContent=rankName(d.xp);
@@ -218,21 +315,17 @@ const arr=[
 {n:"GS2",v:d.gs2},
 {n:"GS3",v:d.gs3},
 {n:"GS4",v:d.gs4}
-];
-
-arr.sort((a,b)=>a.v-b.v);
+].sort((a,b)=>a.v-b.v);
 
 weakSubject.textContent=arr[0].n;
 
 if(d.streak===0){
 statusMsg.textContent="Alert";
 aiTip.textContent="Aaj kam se kam 1 question solve karo.";
-}
-else if(d.solved<4){
+}else if(d.solved<4){
 statusMsg.textContent="Mission Pending";
 aiTip.textContent=`${arr[0].n} par focus karo. ${4-d.solved} answers aur likhne hain.`;
-}
-else{
+}else{
 statusMsg.textContent="Excellent";
 aiTip.textContent="Aaj ka mission complete. Revision mode activate karo.";
 }
@@ -257,14 +350,10 @@ setTimeout(()=>level.style.display="none",2200);
 
 localStorage.lastXP=d.xp;
 localStorage.lastRank=newRank;
-
 }
 
 load();
-
 </script>
 
 </body>
 </html>
-
-<div class="wrap">
