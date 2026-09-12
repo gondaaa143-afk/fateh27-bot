@@ -54,7 +54,9 @@ let currentFilter = "All";
 
 async function loadCurrentAffairs() {
   try {
-    const res = await fetch("/data/current-affairs.json?t=" + Date.now());
+    fetch("/data/current-affairs.json?v=" + Date.now(), {
+  cache: "no-store"
+})
     const data = await res.json();
 
     document.getElementById("date").textContent =
