@@ -4,7 +4,12 @@ on:
   schedule:
     - cron: "30 13 * * *"   # रोज़ 7:00 PM IST
   workflow_dispatch:
+permissions:
+  contents: write
 
+jobs:
+  update:
+    runs-on: ubuntu-latest
 jobs:
   update:
     runs-on: ubuntu-latest
