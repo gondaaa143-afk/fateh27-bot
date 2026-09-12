@@ -75,48 +75,59 @@ Upload your handwritten answer and tap Evaluate.
 </div>
 
 <script>
-
 Telegram.WebApp.ready();
 Telegram.WebApp.expand();
 
-const image=document.getElementById("image");
-const preview=document.getElementById("preview");
+const fileInput = document.getElementById("image");
+const preview = document.getElementById("preview");
+const evaluateBtn = document.getElementById("evaluate");
+const marks = document.getElementById("marks");
+const feedback = document.getElementById("feedback");
 
-let imgData="";
+let imgData = "";
 
-image.onchange=e=>{
- const file=e.target.files[0];
- preview.src=URL.createObjectURL(file);
- preview.style.display="block";
+fileInput.addEventListener("change", (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
 
- const reader=new FileReader();
- reader.onload=()=>imgData=reader.result;
- reader.readAsDataURL(file);
-};
+  preview.src = URL.createObjectURL(file);
+  preview.style.display = "block";
 
-document.getElementById("evaluate").onclick=async()=>{
- if(!imgData){
-   Telegram.WebApp.showAlert("Photo upload karo.");
-   return;
- }
+  const reader = new FileReader();
+  reader.onload = () => {
+    imgData = reader.result;
+  };
+  reader.readAsDataURL(file);
+});
 
- marks.textContent="Checking...";
- feedback.innerHTML="AI examiner copy padh raha hai...";
+evaluateBtn.addEventListener("click", async () => {
+  if (!imgData) {
+    Telegram.WebApp.showAlert("Pehle handwritten photo upload karo.");
+    return;
+  }
 
- const res=await fetch("/api/evaluate",{
-   method:"POST",
-   headers:{"Content-Type":"application/json"},
-   body:JSON.stringify({image:imgData})
- });
+  marks.textContent = "Checking...";
+  feedback.textContent = "AI examiner answer padh raha hai...";
 
- const data=await res.json();
+  try {
+    const res = await fetch("/api/evaluate", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ image: imgData })
+    });
 
- marks.textContent=data.score;
- feedback.innerHTML=data.feedback;
-};
-};
+    const data = await res.json();
 
+    marks.textContent = data.score || "--/15";
+    feedback.innerHTML = data.feedback || "Done.";
+
+  } catch (err) {
+    marks.textContent = "Error";
+    feedback.textContent = err.message;
+  }
+});
 </script>
-
 </body>
 </html>
