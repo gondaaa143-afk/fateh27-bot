@@ -1,41 +1,66 @@
 {
-  "date": "2024-05-19",
-  "category": "UPSC Current Affairs",
-  "top_5_topics": [
+  "date": "2024-05-20",
+  "source": "UPSC Current Affairs Daily Digest",
+  "topics": [
     {
       "rank": 1,
-      "title": "India-Iran 10-Year Agreement on Chabahar Port",
-      "gs_paper": "GS Paper II - International Relations",
-      "summary": "India Ports Global Limited signed a historic 10-year contract with Iran's Ports and Maritime Organization to equip and operate the Shahid Beheshti Terminal at Chabahar Port.",
-      "relevance": "Crucial for India's strategic connectivity to Central Asia, Eurasia, and the INSTC, bypassing Pakistan."
+      "title": "Great Nicobar Island Infrastructure Project and Environmental Concerns",
+      "category": "Environment & Ecology / Geography",
+      "gs_paper": "GS Paper 3",
+      "summary": "The National Green Tribunal (NGT) and Union Environment Ministry continue monitoring the ₹72,000-crore Great Nicobar project, balancing strategic maritime infrastructure against tribal rights and biodiversity loss.",
+      "key_takeaways": [
+        "Impact on Particularly Vulnerable Tribal Groups (PVTGs) like the Shompen and Nicobarese.",
+        "Threat to the nesting grounds of the Leatherback Sea Turtle at Galathea Bay National Park.",
+        "Strategic significance of the International Container Transshipment Terminal (ICTT) in the Indo-Pacific."
+      ]
     },
     {
       "rank": 2,
-      "title": "RBI Surplus Transfer to the Central Government",
-      "gs_paper": "GS Paper III - Indian Economy and Fiscal Policy",
-      "summary": "The Reserve Bank of India approved a record surplus transfer of ₹2.11 lakh crore to the Union Government for the accounting year 2023-24.",
-      "relevance": "Provides significant fiscal space to the government to manage fiscal deficit targets while maintaining capital spending."
+      "title": "RBI's Framework for Self-Regulatory Organisations (SROs) in FinTech",
+      "category": "Economy",
+      "gs_paper": "GS Paper 3",
+      "summary": "The Reserve Bank of India (RBI) finalized the framework for recognizing Self-Regulatory Organisations in the Financial Technology sector to promote responsible innovation and compliance.",
+      "key_takeaways": [
+        "SROs will bridge the gap between FinTech entities and the regulator.",
+        "Focus on customer protection, data privacy, and cybersecurity compliance.",
+        "Encourages voluntary code of conduct without stifling technological advancements."
+      ]
     },
     {
       "rank": 3,
-      "title": "Supreme Court Ruling on Grounds of Arrest Under PMLA",
-      "gs_paper": "GS Paper II - Indian Constitution & Governance",
-      "summary": "The Supreme Court ruled that the Enforcement Directorate must supply written grounds of arrest to the accused at the time of arrest without exception.",
-      "relevance": "Reinforces fundamental rights under Article 22(1) and personal liberty against arbitrary state action."
+      "title": "Progress on ISRO's Gaganyaan Mission & Pad Abort Tests",
+      "category": "Science & Technology",
+      "gs_paper": "GS Paper 3",
+      "summary": "ISRO advances preparations for India's first human spaceflight mission, conducting critical safety tests for the Crew Escape System and environmental control systems.",
+      "key_takeaways": [
+        "LVM3 (GSLV Mk III) re-engineered to meet human-rating specifications.",
+        "Deployment of 'Vyommitra', the humanoid robot, for uncrewed precursor missions.",
+        "Establishment of astronaut recovery protocols with the Indian Navy and Coast Guard."
+      ]
     },
     {
       "rank": 4,
-      "title": "WMO Report on Global Heatwaves and Climate Anomalies",
-      "gs_paper": "GS Paper III - Environment, Disaster Management & Ecology",
-      "summary": "The World Meteorological Organization highlighted continuing unprecedented rise in ocean heat content and surface temperatures due to anthropogenic greenhouse gases.",
-      "relevance": "Directly links to global climate commitments, Paris Agreement targets, and climate adaptation strategies."
+      "title": "India-Middle East-Europe Economic Corridor (IMEC) Strategic Review",
+      "category": "International Relations",
+      "gs_paper": "GS Paper 2",
+      "summary": "Discussions resume on operationalizing the IMEC route to enhance multi-modal connectivity, trade efficiency, and supply chain resilience between Asia, the Arabian Gulf, and Europe.",
+      "key_takeaways": [
+        "Counterpart to China's Belt and Road Initiative (BRI).",
+        "Includes railway lines, ship-to-rail transit networks, electricity cables, and green hydrogen pipelines.",
+        "Geopolitical significance in light of Middle Eastern stability and Red Sea security issues."
+      ]
     },
     {
       "rank": 5,
-      "title": "Successful Testing of Astra Indigenous Beyond-Visual-Range Missile",
-      "gs_paper": "GS Paper III - Science & Technology / Indigenisation of Tech",
-      "summary": "DRDO and the Indian Air Force successfully integrated and flight-tested the Astra Beyond Visual Range (BVR) air-to-air missile from LCA Tejas.",
-      "relevance": "Pertains to Atmanirbhar Bharat in defense technology and enhancing tactical air capability."
+      "title": "Delimitation Commission and Article 82 of the Indian Constitution",
+      "category": "Polity & Governance",
+      "gs_paper": "GS Paper 2",
+      "summary": "Debates intensify regarding the upcoming post-2026 delimitation exercise, highlighting representation imbalances between North and South Indian states based on demographic trends.",
+      "key_takeaways": [
+        "Article 82 mandates the readjustment of seats after each census, frozen until the first census after 2026 via the 84th Constitutional Amendment Act.",
+        "Federal governance implications regarding population control incentives versus parliamentary representation.",
+        "Proposed mechanisms like weighted voting or expanding the Rajya Sabha's scope to address federal friction."
+      ]
     }
   ]
 }
