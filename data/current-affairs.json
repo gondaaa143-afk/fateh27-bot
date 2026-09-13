@@ -1,66 +1,61 @@
 {
   "date": "2024-05-20",
   "target_exam": "UPSC Civil Services Examination",
-  "top_5_current_affairs": [
+  "current_affairs": [
     {
       "id": 1,
-      "title": "Mission Divyastra: Agni-V with MIRV Technology",
-      "gs_paper": "GS Paper III (Science & Technology / Defense)",
-      "category": "Defense & Strategic Studies",
-      "summary": "India successfully tested the Agni-V missile equipped with Multiple Independently Targetable Re-entry Vehicle (MIRV) technology, allowing a single missile to deploy multiple warheads at different targets.",
+      "title": "Mission Divyastra: Successful Flight-Test of Agni-5 with MIRV Technology",
+      "gs_paper": "GS Paper 3 (Science & Technology / Defense)",
       "key_points": [
-        "Indigenously developed by the Defence Research and Development Organisation (DRDO).",
-        "Significantly enhances India's strategic nuclear deterrence capability.",
-        "Places India among a select group of nations (USA, Russia, China, France, UK) with MIRV capabilities."
-      ]
+        "India successfully conducted the first flight test of the indigenously developed Agni-5 missile equipped with Multiple Independently Targetable Re-entry Vehicle (MIRV) technology.",
+        "MIRV capability allows a single missile to deploy multiple warheads at different targets hundreds of kilometers apart.",
+        "Developed by DRDO, placing India in an elite group of nations possessing MIRV capability (USA, Russia, China, France, UK)."
+      ],
+      "upsc_relevance": "Strategic deterrence, indigenization of defense technology, ballistic missile systems."
     },
     {
       "id": 2,
-      "title": "Delimitation Commission and Article 82",
-      "gs_paper": "GS Paper II (Polity & Governance)",
-      "category": "Polity",
-      "summary": "Renewed national debate surrounding the upcoming delimitation exercise expected post-2026 based on the fresh census, highlighting federal dynamics between North and South Indian states.",
+      "title": "India Adds 5 New Wetlands, Taking Total Ramsar Sites Count to 80",
+      "gs_paper": "GS Paper 3 (Environment & Ecology)",
       "key_points": [
-        "Article 82 mandates the readjustment of Lok Sabha seats after every census.",
-        "The 84th Constitutional Amendment Act, 2002 froze the seat allocation until the first census after 2026.",
-        "Key concerns include federal imbalance, representation proportionate to population control achievements, and Southern state seat share."
-      ]
+        "Five more Indian wetlands (three in Karnataka and two in Tamil Nadu) were designated as Ramsar sites of international importance.",
+        "New sites include Magadi Kere Conservation Reserve, Ankasamudra Bird Conservation Reserve, Aghanashini Estuary (Karnataka), and Karaivetti Bird Sanctuary, Longwood Shola Reserve Forest (Tamil Nadu).",
+        "India now ranks first in South Asia in the total number of Ramsar sites."
+      ],
+      "upsc_relevance": "Ramsar Convention criteria, wetland ecosystem services, biodiversity conservation efforts."
     },
     {
       "id": 3,
-      "title": "India-Middle East-Europe Economic Corridor (IMEC)",
-      "gs_paper": "GS Paper II (International Relations)",
-      "category": "International Relations",
-      "summary": "Strategic and economic reviews of the proposed IMEC project aimed at boosting connectivity and trade integration between India, the Arabian Gulf, and Europe.",
+      "title": "Supreme Court Strikes Down Electoral Bonds Scheme",
+      "gs_paper": "GS Paper 2 (Polity & Governance)",
       "key_points": [
-        "Unveiled during the G20 Summit in New Delhi.",
-        "Consists of East Corridor (connecting India to Gulf) and Northern Corridor (connecting Gulf to Europe).",
-        "Serves as a counter strategy to China's Belt and Road Initiative (BRI) and promotes regional integration."
-      ]
+        "A Constitution Bench of the Supreme Court unanimously declared the Electoral Bonds Scheme unconstitutional.",
+        "The court held that anonymous political donations violate the voters' Right to Information under Article 19(1)(a) of the Constitution.",
+        "SBI was directed to stop issuing electoral bonds and disclose details of donors and recipient political parties to the Election Commission of India."
+      ],
+      "upsc_relevance": "Fundamental Rights (Article 19), transparency in electoral funding, free and fair elections, judicial review."
     },
     {
       "id": 4,
-      "title": "Environmental Assessment of the Great Nicobar Development Project",
-      "gs_paper": "GS Paper III (Environment & Biodiversity)",
-      "category": "Environment",
-      "summary": "Ongoing legal and ecological scrutiny over the ₹72,000-crore mega-infrastructure project on Great Nicobar Island involving an International Transshipment Port, airport, and power plant.",
+      "title": "RBI Guidelines on Climate-Related Financial Risks",
+      "gs_paper": "GS Paper 3 (Indian Economy / Environment)",
       "key_points": [
-        "Concerns raised regarding the displacement of particularly vulnerable tribal groups (PVTGs) like Shompen and Nicobarese.",
-        "Threats to critical biodiversity habitats of Giant Leatherback Sea Turtles and Nicobar Megapode.",
-        "Strategic counter balance against China's presence near the Malacca Strait."
-      ]
+        "The Reserve Bank of India released a draft disclosure framework on climate-related financial risks for Regulated Entities (REs).",
+        "Framework focuses on four thematic pillars: Governance, Strategy, Risk Management, and Metrics & Targets.",
+        "Aims to foster sustainable finance, improve climate resilience in the banking sector, and mitigate physical and transition risks."
+      ],
+      "upsc_relevance": "Green banking, climate finance, financial sector stability, ESG disclosures."
     },
     {
       "id": 5,
-      "title": "RBI Framework for Central Bank Digital Currency (CBDC) - e-Rupee",
-      "gs_paper": "GS Paper III (Indian Economy)",
-      "category": "Economy",
-      "summary": "The Reserve Bank of India (RBI) expands the pilot scope of the Digital Rupee (e₹) by introducing offline capability and programmability features.",
+      "title": "Operationalization of the India-Middle East-Europe Economic Corridor (IMEC)",
+      "gs_paper": "GS Paper 2 (International Relations)",
       "key_points": [
-        "Offline functionality enables transactions in areas with limited or no internet connectivity.",
-        "Programmability allows targeted delivery of government subsidies and corporate benefits.",
-        "Differentiates CBDC (legal tender issued by RBI) from decentralized private cryptocurrencies."
-      ]
+        "India and the UAE signed an Intergovernmental Framework Agreement to advance cooperation on the India-Middle East-Europe Economic Corridor (IMEC).",
+        "IMEC aims to connect India to Europe through the Gulf region via rail and shipping lines.",
+        "Envisaged as a counter to China's Belt and Road Initiative (BRI), fostering economic integration and supply chain resilience."
+      ],
+      "upsc_relevance": "Geo-economics, strategic connectivity initiatives, West Asia policy, global supply chain resilience."
     }
   ]
 }
