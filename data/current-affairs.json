@@ -1,40 +1,40 @@
 {
   "date": "2024-05-20",
-  "current_affairs": [
+  "top_current_affairs": [
     {
       "id": 1,
-      "topic": "UN Convention Against Cybercrime",
-      "category": "International Relations & Security",
-      "summary": "The United Nations approved its first-ever comprehensive treaty on cybercrime, aiming to strengthen international cooperation to combat cyber threats, illicit data transfers, and online child exploitation.",
-      "upsc_relevance": "GS Paper II (International Treaties) & GS Paper III (Cybersecurity)"
+      "title": "India-Iran 10-Year Long-Term Contract on Chabahar Port Operation",
+      "category": "International Relations (GS Paper II)",
+      "summary": "India Ports Global Limited (IPGL) signed a 10-year contract with Iran's Ports and Maritime Organization to operate the Shahid Beheshti terminal at Chabahar Port, boosting regional connectivity and trade bypassing Pakistan.",
+      "upsc_relevance": "Key for questions on India's 'Connect Central Asia' policy, INSTC (International North-South Transport Corridor), and strategic diplomacy in Western Asia."
     },
     {
       "id": 2,
-      "topic": "Sub-categorization within Scheduled Castes (SC) and Scheduled Tribes (ST)",
-      "category": "Polity & Social Justice",
-      "summary": "The Supreme Court held that states have the constitutional authority to create sub-classifications within SC/ST categories to provide targeted affirmative action to the most backward sub-groups.",
-      "upsc_relevance": "GS Paper II (Indian Constitution, Reservation & Social Justice)"
+      "title": "RBI Approves Record ₹2.11 Lakh Crore Surplus Transfer to Central Government",
+      "category": "Indian Economy (GS Paper III)",
+      "summary": "The Reserve Bank of India (RBI) approved a surplus transfer of ₹2,10,874 crore to the Union Government for FY 2023-24 under the Economic Capital Framework (ECF) recommended by the Bimal Jalan Committee.",
+      "upsc_relevance": "Important for understanding fiscal deficit management, RBI's capital reserve framework, non-tax revenue sources, and macroeconomic stability."
     },
     {
       "id": 3,
-      "topic": "Small Modular Reactors (SMRs) for India's Energy Transition",
-      "category": "Science & Technology / Environment",
-      "summary": "NITI Aayog recommended increased private sector participation and policy updates to accelerate the deployment of Small Modular Reactors (SMRs) to meet India's net-zero targets.",
-      "upsc_relevance": "GS Paper III (Nuclear Energy, Technology & Environment)"
+      "title": "Severe Heatwave Conditions and Urban Heat Island (UHI) Effect Across Northern India",
+      "category": "Environment & Geography (GS Paper I & III)",
+      "summary": "IMD issued red alerts for multiple northern states due to extreme heatwaves amplified by climate change, deforestation, and the Urban Heat Island effect in metropolitan regions.",
+      "upsc_relevance": "Relevant for topics on Disaster Management, Climate Change adaptation, IMD heatwave criteria, and urban planning challenges."
     },
     {
       "id": 4,
-      "topic": "RBI Guidelines on Peer-to-Peer (P2P) Lending Platforms",
-      "category": "Economy",
-      "summary": "The Reserve Bank of India issued stricter compliance norms for Non-Banking Financial Company - Peer-to-Peer (NBFC-P2P) platforms to prevent unfair credit-enhancement practices and protect retail investors.",
-      "upsc_relevance": "GS Paper III (Indian Economy & Financial Regulation)"
+      "title": "ISRO Successfully Tests 3D-Printed Liquid Rocket Engine (PSQA)",
+      "category": "Science & Technology (GS Paper III)",
+      "summary": "ISRO achieved a major milestone by successfully testing a 3D-printed liquid rocket engine (PS4 engine for PSLV), reducing manufacturing lead time by 60% and raw material usage by 50%.",
+      "upsc_relevance": "High probability topic for Prelims and Mains regarding additive manufacturing (3D printing), space technology cost-efficiency, and indigenous innovation."
     },
     {
       "id": 5,
-      "topic": "Great Nicobar Island Development Project and Ecological Concerns",
-      "category": "Environment & Ecology",
-      "summary": "Concerns were re-highlighted regarding the environmental impact on the Shompen and Nicobarese tribes and the endemic biodiversity due to the mega transshipment port and infrastructure expansion in Great Nicobar.",
-      "upsc_relevance": "GS Paper III (Ecology, Biodiversity & Tribal Rights)"
+      "title": "Supreme Court Ruling on Arrest Powers under the Prevention of Money Laundering Act (PMLA)",
+      "category": "Polity & Governance (GS Paper II)",
+      "summary": "The Supreme Court clarified that once a trial court takes cognizance of a complaint under PMLA, the Enforcement Directorate (ED) cannot arrest the accused without obtaining a warrant from the court.",
+      "upsc_relevance": "Crucial for questions on Fundamental Rights (Article 21), power dynamics of statutory investigation agencies, and judicial review."
     }
   ]
 }
