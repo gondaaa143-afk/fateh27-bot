@@ -1,41 +1,61 @@
 {
-  "date": "2024-05-20",
-  "source": "UPSC Current Affairs Digest",
+  "date": "2024-10-24",
+  "category": "UPSC Current Affairs",
   "top_5_topics": [
     {
       "rank": 1,
-      "title": "Supreme Court Recognizes Right Against Climate Change Effects",
-      "category": "Polity & Environment (GS Paper II & III)",
-      "summary": "The Supreme Court of India recognized the right to be free from the adverse effects of climate change as part of the fundamental rights under Article 14 (Right to Equality) and Article 21 (Right to Life).",
-      "upsc_relevance": "Fundamental Rights, Environmental Jurisprudence, Judicial Activism, Climate Governance."
+      "title": "Unified Pension Scheme (UPS) and Fiscal Implications",
+      "gs_paper": "GS Paper III - Indian Economy and Issues Relating to Planning, Mobilization of Resources",
+      "summary": "The Union Cabinet approved the Unified Pension Scheme (UPS), offering a guaranteed pension to central government employees. It combines features of the National Pension System (NPS) and Old Pension Scheme (OPS).",
+      "key_takeaways": [
+        "Guarantees 50% of the average basic pay drawn over the last 12 months prior to superannuation for minimum 25 years of service.",
+        "Requires a minimum of 10 years of service for a proportionate pension.",
+        "Balancing employee social security with long-term fiscal prudence for state exchequers."
+      ]
     },
     {
       "rank": 2,
-      "title": "India Signs 10-Year Contract for Chabahar Port Operation",
-      "category": "International Relations (GS Paper II)",
-      "summary": "India Ports Global Limited (IPGL) signed a long-term agreement with Iran's Port and Maritime Organization to operate the Shahid Beheshti Terminal at Chabahar Port, boosting regional connectivity to Central Asia.",
-      "upsc_relevance": "India-Iran Relations, INSTC, Strategic Autonomy, Regional Connectivity, Middle East Geopolitics."
+      "title": "High-Level Committee Recommendations on 'One Nation, One Election'",
+      "gs_paper": "GS Paper II - Indian Constitution, Polity, and Governance",
+      "summary": "The Cabinet accepted the Ram Nath Kovind panel report recommending simultaneous elections for the Lok Sabha and State Legislative Assemblies as a first step, followed by local body elections within 100 days.",
+      "key_takeaways": [
+        "Requires constitutional amendments to Articles 83, 172, and 356.",
+        "Aims to reduce election expenditure, policy paralysis, and governance disruption.",
+        "Concerns raised regarding federalism, regional party visibility, and constitutional feasibility."
+      ]
     },
     {
       "rank": 3,
-      "title": "RBI Surplus Transfer to the Central Government",
-      "category": "Indian Economy (GS Paper III)",
-      "summary": "The Reserve Bank of India approved a record surplus transfer to the Central Government for the fiscal year, driven by higher interest income on foreign assets and optimal risk buffer management under the Economic Capital Framework (ECF).",
-      "upsc_relevance": "Bimal Jalan Committee, Fiscal Deficit, Monetary Policy, Central Bank Autonomy."
+      "title": "Great Nicobar Island Strategic Infrastructure Project and Ecological Concerns",
+      "gs_paper": "GS Paper III - Environment, Ecology, and Biodiversity",
+      "summary": "The ₹72,000-crore mega project includes an International Container Transshipment Terminal, airport, power plant, and township on Great Nicobar Island, drawing scrutiny over environmental clearance.",
+      "key_takeaways": [
+        "Strategic significance for Indo-Pacific maritime security and proximity to Malacca Strait.",
+        "Threats to the endemic Shompen and Nicobarese vulnerable tribal groups.",
+        "Impact on biodiversity hotspots, coral reefs, and primary rainforest cover."
+      ]
     },
     {
       "rank": 4,
-      "title": "Negotiations for the Global Plastics Treaty (INC-4)",
-      "category": "Environment & Ecology (GS Paper III)",
-      "summary": "The fourth session of the Intergovernmental Negotiating Committee (INC-4) met to advance a legally binding international instrument on plastic pollution, including in the marine environment.",
-      "upsc_relevance": "UNEP, International Environmental Conventions, Waste Management, Single-Use Plastics."
+      "title": "NISAR Mission (NASA-ISRO Synthetic Aperture Radar) Progress",
+      "gs_paper": "GS Paper III - Science & Technology (Space Technology)",
+      "summary": "The joint Earth-observing mission between NASA and ISRO nears launch readiness, designed to map the entire globe every 12 days using dual-frequency radar.",
+      "key_takeaways": [
+        "First satellite to use dual frequencies (L-band by NASA, S-band by ISRO) for earth observation.",
+        "Will monitor glacier dynamics, land surface deformation, forest biomass, and natural hazard warnings.",
+        "Demonstrates high-level international scientific collaboration."
+      ]
     },
     {
       "rank": 5,
-      "title": "Aditya-L1 Mission Captures Solar Eruptions from L1 Point",
-      "category": "Science & Technology (GS Paper III)",
-      "summary": "ISRO's maiden solar mission, Aditya-L1, successfully observed major solar flares and Coronal Mass Ejections (CMEs) using its payloads, contributing to global space weather forecasting.",
-      "upsc_relevance": "Space Technology, ISRO Missions, Lagrange Points, Solar Physics, Space Weather."
+      "title": "Implementation of India-EFTA Trade and Economic Partnership Agreement (TEPA)",
+      "gs_paper": "GS Paper II - Bilateral, Regional and Global Groupings involving India",
+      "summary": "Progress continues on operationalizing the historic pact between India and the European Free Trade Association (Iceland, Liechtenstein, Norway, Switzerland).",
+      "key_takeaways": [
+        "Includes a target of $100 billion investment commitment into India over 15 years.",
+        "Enhances trade in services, intellectual property rights, and reduction of tariff barriers.",
+        "Sets a benchmark for India's future Free Trade Agreements (FTAs) with Western economies."
+      ]
     }
   ]
 }
