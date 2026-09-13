@@ -1,40 +1,40 @@
 {
-  "date": "2024-03-31",
-  "current_affairs": [
+  "date": "2024-05-20",
+  "topics": [
     {
       "rank": 1,
-      "title": "Trade and Economic Partnership Agreement (TEPA) between India and EFTA",
-      "category": "International Relations & Economy",
-      "summary": "India signed a historic Trade and Economic Partnership Agreement (TEPA) with the European Free Trade Association (EFTA) countries (Iceland, Liechtenstein, Norway, and Switzerland), securing a target of $100 billion investment in India over 15 years.",
-      "syllabus_relevance": "GS Paper II (Bilateral Agreements) & GS Paper III (Indian Economy)"
+      "title": "Flight Test of Agni-V with MIRV Technology (Mission Divyastra)",
+      "category": "Science & Technology / Defence",
+      "summary": "India successfully conducted the first flight test of the endogenously developed Agni-V missile equipped with Multiple Independently Targetable Re-entry Vehicle (MIRV) technology, joining an elite group of nations possessing this capability.",
+      "upsc_relevance": "GS Paper III: Indigenization of technology, Security challenges, and strategic deterrence."
     },
     {
       "rank": 2,
-      "title": "High-Level Committee Report on 'One Nation, One Election'",
+      "title": "High-Level Committee Recommendations on Simultaneous Elections",
       "category": "Polity & Governance",
-      "summary": "The High-Level Committee on Simultaneous Elections, chaired by former President Ram Nath Kovind, submitted its report recommending constitutional amendments to synchronize elections for the Lok Sabha and State Legislative Assemblies in a phased manner.",
-      "syllabus_relevance": "GS Paper II (Electoral Reforms & Indian Constitution)"
+      "summary": "The Ram Nath Kovind-led High-Level Committee submitted its report recommending a two-phase framework to synchronize elections for the Lok Sabha, State Assemblies, and local bodies across India.",
+      "upsc_relevance": "GS Paper II: Constitutional amendments, Federal structure, and Electoral reforms."
     },
     {
       "rank": 3,
-      "title": "Supreme Court Ruling on Right against Climate Change Impacts",
-      "category": "Environment & Supreme Court Judgments",
-      "summary": "The Supreme Court recognized the right to be free from the adverse impacts of climate change as part of the fundamental rights to life (Article 21) and equality (Article 14) while ruling on the protection of the Great Indian Bustard.",
-      "syllabus_relevance": "GS Paper II (Judiciary & Fundamental Rights) & GS Paper III (Environment)"
+      "title": "Environmental Impact Assessment of the Great Nicobar Island Project",
+      "category": "Environment & Ecology",
+      "summary": "Ongoing policy reviews highlight the ecological trade-offs of the Rs 72,000-crore Great Nicobar Project, focusing on forest clearance, the protection of the particularly vulnerable Shompen tribe, and marine biodiversity.",
+      "upsc_relevance": "GS Paper III: Conservation, environmental pollution and degradation, Environmental Impact Assessment (EIA)."
     },
     {
       "rank": 4,
-      "title": "Household Consumption Expenditure Survey (HCES) 2022-23",
-      "category": "Economy & Social Issues",
-      "summary": "The National Sample Survey Office (NSSO) released the results of the HCES, showing a significant decline in the share of food in household consumption spending alongside a reduction in rural-urban monthly per capita consumption expenditure (MPCE) disparity.",
-      "syllabus_relevance": "GS Paper III (Economic Growth, Poverty & Development)"
+      "title": "Operationalization Framework for the India-Middle East-Europe Economic Corridor (IMEC)",
+      "category": "International Relations",
+      "summary": "India and key regional partners signed preliminary framework agreements to advance the IMEC, focusing on multi-modal logistics, digital connectivity, and green energy export routes.",
+      "upsc_relevance": "GS Paper II: Bilateral, regional and global groupings, and agreements involving India."
     },
     {
       "rank": 5,
-      "title": "Status of the Gaganyaan Mission and Astronaut Selection",
-      "category": "Science & Technology",
-      "summary": "ISRO announced the four designated astronaut-designates for India's first human spaceflight mission, Gaganyaan, alongside crucial progress in testing the CE20 cryogenic engine for human rating.",
-      "syllabus_relevance": "GS Paper III (Awareness in the field of Space)"
+      "title": "RBI's Expansion of Digital Rupee (e-₹) Interoperability with UPI",
+      "category": "Indian Economy",
+      "summary": "The Reserve Bank of India integrated Central Bank Digital Currency (CBDC) retail architecture with Unified Payments Interface (UPI) QR codes to increase adoption and financial inclusion.",
+      "upsc_relevance": "GS Paper III: Indian Economy, monetary policy, digital public infrastructure, and banking sector reforms."
     }
   ]
 }
