@@ -2,23 +2,78 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FATEH27 Current Affairs</title>
 
 <style>
-body{background:#02140b;color:#fff;font-family:Arial,sans-serif;margin:0;padding:24px}
-h1{margin:0;font-size:48px}
-.sub{color:#9fb3a8;margin-bottom:24px}
-.search{width:100%;padding:14px;background:#072317;border:1px solid #13452c;border-radius:18px;color:#fff;margin-bottom:20px;box-sizing:border-box}
-.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
-.chip{padding:12px 20px;border:1px solid #175538;border-radius:999px;cursor:pointer}
-.active{background:#2be07a;color:#000}
-.card{background:#072317;border:1px solid #12462d;border-radius:22px;padding:22px;margin-bottom:18px}
-.tag{display:inline-block;padding:6px 12px;border-radius:999px;background:#11321f;font-size:12px;margin-right:8px;margin-top:8px}
-.box{background:#0b2c1d;border-radius:18px;padding:16px;margin-top:14px}
-.back{width:100%;padding:18px;border:none;border-radius:18px;background:#2be07a;font-weight:bold;margin-top:22px}
+body{
+  background:#02140b;
+  color:white;
+  font-family:Arial,sans-serif;
+  margin:0;
+  padding:24px;
+}
+h1{font-size:48px;margin:0}
+.sub{color:#9fb3a8;margin:8px 0 24px}
+.search{
+  width:100%;
+  padding:15px;
+  background:#072317;
+  border:1px solid #14472d;
+  border-radius:18px;
+  color:white;
+  box-sizing:border-box;
+}
+.filters{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin:20px 0;
+}
+.chip{
+  padding:12px 18px;
+  border:1px solid #175538;
+  border-radius:999px;
+  cursor:pointer;
+}
+.active{
+  background:#2be07a;
+  color:black;
+}
+.card{
+  background:#072317;
+  border:1px solid #12462d;
+  border-radius:22px;
+  padding:20px;
+  margin-bottom:18px;
+}
+.tag{
+  display:inline-block;
+  background:#11321f;
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:12px;
+  margin-right:8px;
+}
+.box{
+  background:#0b2c1d;
+  border-radius:18px;
+  padding:14px;
+  margin-top:14px;
+}
+.back{
+  width:100%;
+  padding:18px;
+  border:none;
+  border-radius:18px;
+  background:#2be07a;
+  color:black;
+  font-weight:bold;
+  margin-top:20px;
+}
 </style>
 </head>
+
 <body>
 
 <h1>CURRENT AFFAIRS</h1>
@@ -44,40 +99,50 @@ let currentFilter="All";
 
 async function loadCurrentAffairs(){
   try{
-    const res=await fetch("/data/current-affairs.json?v="+Date.now(),{cache:"no-store"});
-    if(!res.ok) throw new Error("HTTP "+res.status);
+
+    const res=await fetch("/data/current-affairs.json?v="+Date.now(),{
+      cache:"no-store"
+    });
 
     const data=await res.json();
+
     document.getElementById("date").textContent=data.date||"Today";
 
-    articles=(data.articles||[]).map(a=>{
-      let gs="GS3";
-      if(a.gs) gs=a.gs;
-      else if(a.gs_paper){
-        const m=a.gs_paper.match(/GS Paper (\d)/);
-        if(m) gs="GS"+m[1];
-      }
+    articles=(data.top_5_upsc_current_affairs||[]).map(a=>{
+
+      const m=(a.gs_paper||"").match(/GS Paper (\d)/);
 
       return{
-        title:a.title||"",
-        gs:gs,
-        source:a.source||"AI",
+        title:a.title,
+        gs:m?"GS"+m[1]:"GS3",
+        source:"AI",
         points:a.key_points||[],
-        mains:a.mains||a.summary||"Use in UPSC answer writing."
+        mains:"Use this issue in UPSC Mains value addition."
       };
+
     });
 
     render();
+
   }catch(e){
-    document.getElementById("newsContainer").innerHTML="<div class='card'>Data load failed.</div>";
+
+    document.getElementById("newsContainer").innerHTML=
+      "<div class='card'>Data load failed.</div>";
+
   }
 }
 
 function render(){
+
   const q=document.getElementById("search").value.toLowerCase();
-  const list=articles.filter(a=>(currentFilter==="All"||a.gs===currentFilter)&&a.title.toLowerCase().includes(q));
+
+  const list=articles.filter(a=>
+    (currentFilter==="All"||a.gs===currentFilter)&&
+    a.title.toLowerCase().includes(q)
+  );
 
   const c=document.getElementById("newsContainer");
+
   c.innerHTML="";
 
   if(!list.length){
@@ -86,25 +151,30 @@ function render(){
   }
 
   list.forEach(a=>{
+
     c.innerHTML+=`
       <div class="card">
         <h2>${a.title}</h2>
+
         <div>
           <span class="tag">${a.gs}</span>
           <span class="tag">${a.source}</span>
         </div>
 
         <div class="box">
-          <b>Prelims Facts</b>
+          <b>🎯 Prelims Facts</b>
           <ul>${a.points.map(p=>`<li>${p}</li>`).join("")}</ul>
         </div>
 
         <div class="box">
-          <b>Mains Value Addition</b>
+          <b>📝 Mains Value Addition</b>
           <p>${a.mains}</p>
         </div>
-      </div>`;
+
+      </div>
+    `;
   });
+
 }
 
 function setFilter(f,el){
@@ -115,6 +185,7 @@ function setFilter(f,el){
 }
 
 document.getElementById("search").addEventListener("input",render);
+
 window.onload=loadCurrentAffairs;
 </script>
 
