@@ -1,40 +1,45 @@
 {
   "date": "2024-05-20",
-  "top_current_affairs": [
+  "top_5_upsc_current_affairs": [
     {
-      "id": 1,
-      "title": "India-Iran 10-Year Long-Term Contract on Chabahar Port Operation",
-      "category": "International Relations (GS Paper II)",
-      "summary": "India Ports Global Limited (IPGL) signed a 10-year contract with Iran's Ports and Maritime Organization to operate the Shahid Beheshti terminal at Chabahar Port, boosting regional connectivity and trade bypassing Pakistan.",
-      "upsc_relevance": "Key for questions on India's 'Connect Central Asia' policy, INSTC (International North-South Transport Corridor), and strategic diplomacy in Western Asia."
+      "rank": 1,
+      "topic": "Implementation of Bharatiya Nyaya Sanhita (BNS) and Criminal Law Reforms",
+      "category": "Polity and Governance",
+      "gs_paper": "GS Paper 2",
+      "summary": "The transition from the Indian Penal Code (IPC), Code of Criminal Procedure (CrPC), and Indian Evidence Act to the Bharatiya Nyaya Sanhita, Bharatiya Nagarik Suraksha Sanhita, and Bharatiya Sakshya Adhiniyam aims to modernize India's criminal justice system by focusing on digital evidence, strict timelines, and penalizing organized crime.",
+      "key_takeaway_for_upsc": "Focus on the shift from punitive to restorative justice, provisions for terrorism and organized crime, and potential challenges in police implementation."
     },
     {
-      "id": 2,
-      "title": "RBI Approves Record ₹2.11 Lakh Crore Surplus Transfer to Central Government",
-      "category": "Indian Economy (GS Paper III)",
-      "summary": "The Reserve Bank of India (RBI) approved a surplus transfer of ₹2,10,874 crore to the Union Government for FY 2023-24 under the Economic Capital Framework (ECF) recommended by the Bimal Jalan Committee.",
-      "upsc_relevance": "Important for understanding fiscal deficit management, RBI's capital reserve framework, non-tax revenue sources, and macroeconomic stability."
+      "rank": 2,
+      "topic": "India-Middle East-Europe Economic Corridor (IMEC) Developments",
+      "category": "International Relations",
+      "gs_paper": "GS Paper 2",
+      "summary": "Strategic and logistical discussions continue around IMEC despite Red Sea security challenges. The corridor aims to enhance connectivity between India, the Arabian Gulf, and Europe, serving as a key alternative to China's Belt and Road Initiative (BRI).",
+      "key_takeaway_for_upsc": "Analyze the strategic significance for India's trade resilience, geopolitical implications in the West Asia region, and comparison with BRI."
     },
     {
-      "id": 3,
-      "title": "Severe Heatwave Conditions and Urban Heat Island (UHI) Effect Across Northern India",
-      "category": "Environment & Geography (GS Paper I & III)",
-      "summary": "IMD issued red alerts for multiple northern states due to extreme heatwaves amplified by climate change, deforestation, and the Urban Heat Island effect in metropolitan regions.",
-      "upsc_relevance": "Relevant for topics on Disaster Management, Climate Change adaptation, IMD heatwave criteria, and urban planning challenges."
+      "rank": 3,
+      "topic": "Environmental and Tribal Concerns Over Great Nicobar Project",
+      "category": "Environment and Disaster Management",
+      "gs_paper": "GS Paper 3 / GS Paper 1",
+      "summary": "The mega infrastructure project on Great Nicobar Island, involving a transshipment port and military base, faces scrutiny regarding its impact on the Particularly Vulnerable Tribal Group (PVTG) Shompen and local biodiversity.",
+      "key_takeaway_for_upsc": "Balance between national security/strategic maritime location vs. environmental conservation and PVTG rights under the Forest Rights Act."
     },
     {
-      "id": 4,
-      "title": "ISRO Successfully Tests 3D-Printed Liquid Rocket Engine (PSQA)",
-      "category": "Science & Technology (GS Paper III)",
-      "summary": "ISRO achieved a major milestone by successfully testing a 3D-printed liquid rocket engine (PS4 engine for PSLV), reducing manufacturing lead time by 60% and raw material usage by 50%.",
-      "upsc_relevance": "High probability topic for Prelims and Mains regarding additive manufacturing (3D printing), space technology cost-efficiency, and indigenous innovation."
+      "rank": 4,
+      "topic": "RBI Guidelines on Digital Public Infrastructure and Fintech Lending",
+      "category": "Indian Economy",
+      "gs_paper": "GS Paper 3",
+      "summary": "The Reserve Bank of India has updated regulatory frameworks for digital lending apps and payment aggregators to prevent fraudulent practices, protect consumer data, and regulate cross-border fintech flows.",
+      "key_takeaway_for_upsc": "Understand Digital Public Infrastructure (DPI), financial inclusion benefits, systemic risks in shadow banking, and central bank digital currency (CBDC) integration."
     },
     {
-      "id": 5,
-      "title": "Supreme Court Ruling on Arrest Powers under the Prevention of Money Laundering Act (PMLA)",
-      "category": "Polity & Governance (GS Paper II)",
-      "summary": "The Supreme Court clarified that once a trial court takes cognizance of a complaint under PMLA, the Enforcement Directorate (ED) cannot arrest the accused without obtaining a warrant from the court.",
-      "upsc_relevance": "Crucial for questions on Fundamental Rights (Article 21), power dynamics of statutory investigation agencies, and judicial review."
+      "rank": 5,
+      "topic": "Aditya-L1 Solar Mission Data Release",
+      "category": "Science and Technology",
+      "gs_paper": "GS Paper 3",
+      "summary": "ISRO's maiden solar mission, positioned at Lagrange Point 1 (L1), has begun providing crucial scientific payloads data on Coronal Mass Ejections (CMEs) and solar wind dynamics affecting space weather.",
+      "key_takeaway_for_upsc": "Study the concept of Lagrange Points, solar dynamics (CME, solar flares), and India's growing capabilities in deep-space observational astronomy."
     }
   ]
 }
