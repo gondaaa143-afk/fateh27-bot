@@ -1,59 +1,65 @@
 {
-  "date": "2024-05-20",
-  "top_5_current_affairs": [
+  "date": "2024-11-20",
+  "target_exam": "UPSC Civil Services Examination",
+  "current_affairs": [
     {
       "rank": 1,
-      "title": "Gaganyaan Mission: ISRO Successfully Tests Drogue Parachutes",
-      "gs_paper": "GS Paper 3: Science and Technology",
-      "summary": "ISRO conducted a series of Drogue Parachute deployment tests critical for stabilizing the crew module during the re-entry phase of the Gaganyaan human spaceflight mission.",
-      "key_points": [
-        "Drogue parachutes slow down and stabilize the module before main parachute deployment.",
-        "Developed jointly by DRDO's Aerial Delivery Research and Development Establishment (ADRDE) and ISRO.",
-        "Essential milestone for India's target to send a 3-member crew into a 400 km orbit."
+      "title": "Supreme Court Ruling on Article 39(b) and Private Property",
+      "gs_paper": "GS Paper II (Polity & Governance)",
+      "category": "Indian Constitution & Judiciary",
+      "summary": "A nine-judge Constitution Bench ruled that not all privately owned resources can be classified as 'material resources of the community' under Article 39(b) of the Directive Principles of State Policy (DPSP).",
+      "key_takeaways": [
+        "Overturns previous interpretations suggesting the state can acquire all private property for common good.",
+        "Establishes that private property can only be acquired if it serves a public purpose and meets specific economic and social conditions.",
+        "Protects individual property rights while balancing public welfare obligations."
       ]
     },
     {
       "rank": 2,
-      "title": "RBI Approves Surplus Transfer to Central Government",
-      "gs_paper": "GS Paper 3: Indian Economy",
-      "summary": "The Reserve Bank of India approved a significant surplus transfer to the Central Government, enhancing non-tax revenue and helping ease fiscal deficit pressures.",
-      "key_points": [
-        "Surplus calculation is based on the revised Economic Capital Framework (ECF) recommended by the Bimal Jalan Committee.",
-        "Maintains the Contingency Risk Buffer (CRB) within the prescribed range of 5.5% to 6.5%.",
-        "Provides fiscal headroom for government capital expenditure and infrastructure development."
+      "title": "India's Deep Ocean Mission and Samudrayaan Progress",
+      "gs_paper": "GS Paper III (Science & Technology / Environment)",
+      "category": "Oceanography & Energy Security",
+      "summary": "The Ministry of Earth Sciences highlighted key updates on the Deep Ocean Mission, including trials for MATSYA 6000, India's crewed submersible designed to explore polymetallic nodules.",
+      "key_takeaways": [
+        "Aims to tap critical minerals like nickel, cobalt, copper, and manganese in the Central Indian Ocean Basin.",
+        "Complements India's Blue Economy Policy and sustainable ocean resource extraction.",
+        "Places India among a select group of countries (USA, Russia, China, France, Japan) with deep-sea crewed capability."
       ]
     },
     {
       "rank": 3,
-      "title": "India-Middle East-Europe Economic Corridor (IMEC) Implementation Focus",
-      "gs_paper": "GS Paper 2: International Relations",
-      "summary": "Partner countries hold bilateral discussions to fast-track logistics and operational frameworks for the IMEC project launched during the G20 Summit.",
-      "key_points": [
-        "Comprises the East Corridor (connecting India to the Arabian Gulf) and the Northern Corridor (connecting the Gulf to Europe).",
-        "Includes railway networks, ship-to-rail transit routes, electricity cables, and hydrogen pipelines.",
-        "Aims to boost trade efficiency, enhance energy security, and counter China's Belt and Road Initiative (BRI)."
+      "title": "Great Nicobar Island Project and Environmental Impact Assessment",
+      "gs_paper": "GS Paper III (Environment & Ecology) & GS Paper I (Geography)",
+      "category": "Infrastructure vs Conservation",
+      "summary": "Debates continue regarding the mega-infrastructure project on Great Nicobar Island, involving an International Transshipment Terminal, airport, power plant, and township.",
+      "key_takeaways": [
+        "Strategic location near the Malacca Strait strengthens India's maritime posture in the Indo-Pacific.",
+        "Concerns raised over impacts on the indigenous Shompen and Nicobarese tribes.",
+        "Ecological threat to primary rainforests, Leatherback sea turtle nesting sites, and coral reefs."
       ]
     },
     {
       "rank": 4,
-      "title": "NDMA Issues Fresh Directives for Urban Flood Resilience",
-      "gs_paper": "GS Paper 3: Disaster Management",
-      "summary": "The National Disaster Management Authority (NDMA) released updated guidelines encouraging cities to adopt 'Sponge City' principles to combat increasing urban flooding.",
-      "key_points": [
-        "Recommends Sustainable Urban Drainage Systems (SuDS) and protection of natural wetlands.",
-        "Mandates real-time flood monitoring systems and integrated hydrological modeling.",
-        "Addresses risks linked to unplanned urbanization, concrete coverage, and climate-induced extreme rain events."
+      "title": "Implementation of PM-SURYA GHAR: Muft Bijli Yojana",
+      "gs_paper": "GS Paper III (Economy & Renewable Energy)",
+      "category": "Government Schemes & Sustainability",
+      "summary": "The central government reports accelerated adoption of the rooftop solar scheme, aimed at providing free electricity up to 300 units per month to 1 crore households.",
+      "key_takeaways": [
+        "Promotes decentralized solar power generation and reduces grid dependence.",
+        "Provides direct financial subsidies to households to lower capital expenditure.",
+        "Contributes to India's Nationally Determined Contributions (NDCs) target of 500 GW non-fossil capacity by 2030."
       ]
     },
     {
       "rank": 5,
-      "title": "Supreme Court Directs Standardization of Healthcare Service Rates",
-      "gs_paper": "GS Paper 2: Governance and Polity",
-      "summary": "The Supreme Court urged the Union Government to enforce standardized treatment rates under the Clinical Establishments Act to ensure affordable healthcare.",
-      "key_points": [
-        "Reiterates that the Right to Health is an integral part of the Right to Life under Article 21.",
-        "Highlights disparities in charges between public and private health establishments.",
-        "Calls for uniform state-level enforcement of the Clinical Establishments (Registration and Regulation) Act."
+      "title": "Global Commission on the Economics of Water Report on Global Water Crisis",
+      "gs_paper": "GS Paper II (International Relations) & GS Paper III (Environment/Water Security)",
+      "category": "Global Issues & Resource Management",
+      "summary": "A major international report warns that mismanaging global water cycles threatens more than half of world food production and could reduce global GDP by up to 8% by 2050.",
+      "key_takeaways": [
+        "Distinguishes between 'blue water' (rivers/lakes) and 'green water' (soil moisture/evapotranspiration).",
+        "Highlights India's severe groundwater depletion and vulnerability to monsoon shifts.",
+        "Calls for redesigning agricultural subsidies that encourage over-extraction of water."
       ]
     }
   ]
