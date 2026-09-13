@@ -1,61 +1,70 @@
 {
-  "date": "2024-05-20",
-  "target_exam": "UPSC Civil Services Examination",
+  "date": "2024-05-18",
   "current_affairs": [
     {
-      "id": 1,
-      "title": "Mission Divyastra: Successful Flight-Test of Agni-5 with MIRV Technology",
-      "gs_paper": "GS Paper 3 (Science & Technology / Defense)",
-      "key_points": [
-        "India successfully conducted the first flight test of the indigenously developed Agni-5 missile equipped with Multiple Independently Targetable Re-entry Vehicle (MIRV) technology.",
-        "MIRV capability allows a single missile to deploy multiple warheads at different targets hundreds of kilometers apart.",
-        "Developed by DRDO, placing India in an elite group of nations possessing MIRV capability (USA, Russia, China, France, UK)."
+      "rank": 1,
+      "title": "India Signs 10-Year Long-Term Bilateral Agreement for Chabahar Port Operation",
+      "gs_paper": "GS Paper II (International Relations)",
+      "category": "Bilateral & Regional Agreements",
+      "summary": "India Ports Global Limited (IPGL) signed a historic 10-year contract with Iran's Ports and Maritime Organisation (PMO) to equip and operate the Shahid Beheshti Terminal at Chabahar Port.",
+      "key_takeaways": [
+        "Establishes a long-term framework for India's presence at the strategic port in the Gulf of Oman.",
+        "Facilitates trade with Afghanistan and Central Asian Republics, bypassing Pakistan.",
+        "Acts as a key hub for the International North-South Transport Corridor (INSTC)."
       ],
-      "upsc_relevance": "Strategic deterrence, indigenization of defense technology, ballistic missile systems."
+      "mains_relevance": "Strategic importance of Chabahar in India's Extended Neighborhood Policy and counter-balancing Gwadar port."
     },
     {
-      "id": 2,
-      "title": "India Adds 5 New Wetlands, Taking Total Ramsar Sites Count to 80",
-      "gs_paper": "GS Paper 3 (Environment & Ecology)",
-      "key_points": [
-        "Five more Indian wetlands (three in Karnataka and two in Tamil Nadu) were designated as Ramsar sites of international importance.",
-        "New sites include Magadi Kere Conservation Reserve, Ankasamudra Bird Conservation Reserve, Aghanashini Estuary (Karnataka), and Karaivetti Bird Sanctuary, Longwood Shola Reserve Forest (Tamil Nadu).",
-        "India now ranks first in South Asia in the total number of Ramsar sites."
+      "rank": 2,
+      "title": "G5 Geomagnetic Storm Triggers Rare Auroral Displays at Ladakh Observatory",
+      "gs_paper": "GS Paper III (Science & Technology)",
+      "category": "Space & Astronomy",
+      "summary": "The Indian Astronomical Observatory (IAO) in Hanle, Ladakh, captured intense auroral activity resulting from an extreme G5 geomagnetic storm caused by strong Solar Coronal Mass Ejections (CMEs).",
+      "key_takeaways": [
+        "First time such intense intense stable auroral red (SAR) arcs were recorded in India at low geomagnetic latitudes.",
+        "Geomagnetic storms are major disturbances in Earth's magnetosphere caused by solar wind energy exchange.",
+        "Poses potential risks to low-Earth orbit satellites, power grids, and GPS navigation systems."
       ],
-      "upsc_relevance": "Ramsar Convention criteria, wetland ecosystem services, biodiversity conservation efforts."
+      "mains_relevance": "Understanding solar weather phenomena, space-based observational infrastructure, and threats to critical technological infrastructure."
     },
     {
-      "id": 3,
-      "title": "Supreme Court Strikes Down Electoral Bonds Scheme",
-      "gs_paper": "GS Paper 2 (Polity & Governance)",
-      "key_points": [
-        "A Constitution Bench of the Supreme Court unanimously declared the Electoral Bonds Scheme unconstitutional.",
-        "The court held that anonymous political donations violate the voters' Right to Information under Article 19(1)(a) of the Constitution.",
-        "SBI was directed to stop issuing electoral bonds and disclose details of donors and recipient political parties to the Election Commission of India."
+      "rank": 3,
+      "title": "Supreme Court Rules on Custody Powers Under Prevention of Money Laundering Act (PMLA)",
+      "gs_paper": "GS Paper II (Polity & Governance)",
+      "category": "Judicial Reforms & Fundamental Rights",
+      "summary": "The Supreme Court ruled that Enforcement Directorate (ED) officers cannot arrest an accused under Section 19 of the PMLA once the Special Court has taken cognizance of the complaint.",
+      "key_takeaways": [
+        "If an accused appears in response to a court summons, they cannot be deemed to be in custody.",
+        "The ED must apply to the Special Court if custody is required post-cognizance.",
+        "Reinforces the protection of personal liberty under Article 21 of the Indian Constitution."
       ],
-      "upsc_relevance": "Fundamental Rights (Article 19), transparency in electoral funding, free and fair elections, judicial review."
+      "mains_relevance": "Balance between executive power, statutory anti-money laundering frameworks, and fundamental constitutional protections."
     },
     {
-      "id": 4,
-      "title": "RBI Guidelines on Climate-Related Financial Risks",
-      "gs_paper": "GS Paper 3 (Indian Economy / Environment)",
-      "key_points": [
-        "The Reserve Bank of India released a draft disclosure framework on climate-related financial risks for Regulated Entities (REs).",
-        "Framework focuses on four thematic pillars: Governance, Strategy, Risk Management, and Metrics & Targets.",
-        "Aims to foster sustainable finance, improve climate resilience in the banking sector, and mitigate physical and transition risks."
+      "rank": 4,
+      "title": "SC-Appointed Panel Evaluates Power Line Undergrounding for Great Indian Bustard",
+      "gs_paper": "GS Paper III (Ecology & Environment)",
+      "category": "Biodiversity & Conservation",
+      "summary": "An expert committee appointed by the Supreme Court of India is assessing the technical feasibility of undergrounding overhead power transmission lines in Rajasthan and Gujarat to save the critically endangered Great Indian Bustard (GIB).",
+      "key_takeaways": [
+        "Great Indian Bustard (Ardeotis nigriceps) is listed as 'Critically Endangered' on the IUCN Red List and in Schedule I of the Wildlife Protection Act, 1972.",
+        "Collision with high-voltage power lines is the primary threat to the surviving wild population.",
+        "The court highlighted the need to balance renewable energy deployment (solar/wind) with wildlife conservation."
       ],
-      "upsc_relevance": "Green banking, climate finance, financial sector stability, ESG disclosures."
+      "mains_relevance": "Environment vs. Development dilemma, conservation strategies for critically endangered fauna, and climate policy integration."
     },
     {
-      "id": 5,
-      "title": "Operationalization of the India-Middle East-Europe Economic Corridor (IMEC)",
-      "gs_paper": "GS Paper 2 (International Relations)",
-      "key_points": [
-        "India and the UAE signed an Intergovernmental Framework Agreement to advance cooperation on the India-Middle East-Europe Economic Corridor (IMEC).",
-        "IMEC aims to connect India to Europe through the Gulf region via rail and shipping lines.",
-        "Envisaged as a counter to China's Belt and Road Initiative (BRI), fostering economic integration and supply chain resilience."
+      "rank": 5,
+      "title": "Outbreak of West Nile Virus Reported in Kerala",
+      "gs_paper": "GS Paper III (Issues Related to Health)",
+      "category": "Public Health & Infectious Diseases",
+      "summary": "The Kerala state health department issued a heightened alert following confirmed cases and vector activity related to the West Nile Virus (WNV) across multiple districts.",
+      "key_takeaways": [
+        "West Nile Virus is a single-stranded RNA mosquito-borne flavivirus.",
+        "Maintained in nature through a transmission cycle between birds and Culex mosquitoes.",
+        "Humans are dead-end hosts; most infections are asymptomatic, but severe cases cause neuroinvasive diseases like encephalitis or meningitis."
       ],
-      "upsc_relevance": "Geo-economics, strategic connectivity initiatives, West Asia policy, global supply chain resilience."
+      "mains_relevance": "Vector-borne disease management, public health preparedness, and the role of 'One Health' approaches in controlling zoonotic outbreaks."
     }
   ]
 }
