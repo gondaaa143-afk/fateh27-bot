@@ -1,60 +1,70 @@
 {
-  "date": "2024-10-24",
-  "category": "UPSC Current Affairs",
+  "date": "2024-05-20",
+  "source": "UPSC Current Affairs Digest",
   "top_5_topics": [
     {
-      "rank": 1,
-      "title": "Unified Pension Scheme (UPS) and Fiscal Implications",
-      "gs_paper": "GS Paper III - Indian Economy and Issues Relating to Planning, Mobilization of Resources",
-      "summary": "The Union Cabinet approved the Unified Pension Scheme (UPS), offering a guaranteed pension to central government employees. It combines features of the National Pension System (NPS) and Old Pension Scheme (OPS).",
-      "key_takeaways": [
-        "Guarantees 50% of the average basic pay drawn over the last 12 months prior to superannuation for minimum 25 years of service.",
-        "Requires a minimum of 10 years of service for a proportionate pension.",
-        "Balancing employee social security with long-term fiscal prudence for state exchequers."
+      "id": 1,
+      "title": "Supreme Court Verdict on Electoral Bonds Scheme",
+      "gs_paper": "GS Paper 2 (Polity & Governance)",
+      "category": "Polity",
+      "summary": "The Supreme Court struck down the Electoral Bonds Scheme, declaring it unconstitutional as it violated the Right to Information under Article 19(1)(a). The court mandated SBI to disclose transaction details.",
+      "key_concepts": [
+        "Article 19(1)(a)",
+        "RTI Act",
+        "Electoral Transparency",
+        "Money Bills"
       ]
     },
     {
-      "rank": 2,
-      "title": "High-Level Committee Recommendations on 'One Nation, One Election'",
-      "gs_paper": "GS Paper II - Indian Constitution, Polity, and Governance",
-      "summary": "The Cabinet accepted the Ram Nath Kovind panel report recommending simultaneous elections for the Lok Sabha and State Legislative Assemblies as a first step, followed by local body elections within 100 days.",
-      "key_takeaways": [
-        "Requires constitutional amendments to Articles 83, 172, and 356.",
-        "Aims to reduce election expenditure, policy paralysis, and governance disruption.",
-        "Concerns raised regarding federalism, regional party visibility, and constitutional feasibility."
+      "id": 2,
+      "title": "India-Middle East-Europe Economic Corridor (IMEEC) & Red Sea Disruptions",
+      "gs_paper": "GS Paper 2 (International Relations) & GS Paper 3 (Infrastructure)",
+      "category": "International Relations",
+      "summary": "Maritime security threats in the Red Sea have accelerated discussions around alternative trade routes, highlighting strategic necessity and challenges facing the proposed IMEEC framework.",
+      "key_concepts": [
+        "IMEEC",
+        "Bab-el-Mandeb Strait",
+        "Global Supply Chains",
+        "Maritime Security"
       ]
     },
     {
-      "rank": 3,
-      "title": "Great Nicobar Island Strategic Infrastructure Project and Ecological Concerns",
-      "gs_paper": "GS Paper III - Environment, Ecology, and Biodiversity",
-      "summary": "The ₹72,000-crore mega project includes an International Container Transshipment Terminal, airport, power plant, and township on Great Nicobar Island, drawing scrutiny over environmental clearance.",
-      "key_takeaways": [
-        "Strategic significance for Indo-Pacific maritime security and proximity to Malacca Strait.",
-        "Threats to the endemic Shompen and Nicobarese vulnerable tribal groups.",
-        "Impact on biodiversity hotspots, coral reefs, and primary rainforest cover."
+      "id": 3,
+      "title": "Great Nicobar Island Infrastructure Project & Environmental Concerns",
+      "gs_paper": "GS Paper 3 (Environment & Disaster Management)",
+      "category": "Environment",
+      "summary": "The mega infrastructure project on Great Nicobar Island faces scrutiny regarding forest diversion, impact on the Shompen and Nicobarese indigenous tribes, and threat to giant leatherback turtle nesting sites.",
+      "key_concepts": [
+        "CRZ Regulations",
+        "PVTGs",
+        "Deforestation and Compensatory Afforestation",
+        "Island Security"
       ]
     },
     {
-      "rank": 4,
-      "title": "NISAR Mission (NASA-ISRO Synthetic Aperture Radar) Progress",
-      "gs_paper": "GS Paper III - Science & Technology (Space Technology)",
-      "summary": "The joint Earth-observing mission between NASA and ISRO nears launch readiness, designed to map the entire globe every 12 days using dual-frequency radar.",
-      "key_takeaways": [
-        "First satellite to use dual frequencies (L-band by NASA, S-band by ISRO) for earth observation.",
-        "Will monitor glacier dynamics, land surface deformation, forest biomass, and natural hazard warnings.",
-        "Demonstrates high-level international scientific collaboration."
+      "id": 4,
+      "title": "Retail Inflation (CPI) Trends & RBI Monetary Policy Stance",
+      "gs_paper": "GS Paper 3 (Indian Economy)",
+      "category": "Economy",
+      "summary": "The Reserve Bank of India maintained the repo rate status quo to anchor Consumer Price Index (CPI) inflation within the target band of 4% (+/- 2%), driven primarily by food price volatility.",
+      "key_concepts": [
+        "Monetary Policy Committee (MPC)",
+        "Headline vs Core Inflation",
+        "Consumer Price Index (CPI)",
+        "Food Inflation"
       ]
     },
     {
-      "rank": 5,
-      "title": "Implementation of India-EFTA Trade and Economic Partnership Agreement (TEPA)",
-      "gs_paper": "GS Paper II - Bilateral, Regional and Global Groupings involving India",
-      "summary": "Progress continues on operationalizing the historic pact between India and the European Free Trade Association (Iceland, Liechtenstein, Norway, Switzerland).",
-      "key_takeaways": [
-        "Includes a target of $100 billion investment commitment into India over 15 years.",
-        "Enhances trade in services, intellectual property rights, and reduction of tariff barriers.",
-        "Sets a benchmark for India's future Free Trade Agreements (FTAs) with Western economies."
+      "id": 5,
+      "title": "Aditya-L1 Mission and Solar Physics Discoveries",
+      "gs_paper": "GS Paper 3 (Science & Technology)",
+      "category": "Science & Technology",
+      "summary": "ISRO's Aditya-L1 satellite successfully executed halo-orbit insertion around the Sun-Earth Lagrange Point 1 (L1), providing continuous observation of coronal mass ejections and solar winds.",
+      "key_concepts": [
+        "Lagrange Point 1 (L1)",
+        "Coronal Mass Ejections (CME)",
+        "Space Weather",
+        "Solar Corona"
       ]
     }
   ]
