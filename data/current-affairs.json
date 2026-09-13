@@ -1,45 +1,41 @@
 {
   "date": "2024-05-20",
-  "top_5_upsc_current_affairs": [
+  "source_target": "UPSC Civil Services Examination",
+  "top_current_affairs": [
     {
       "rank": 1,
-      "topic": "Implementation of Bharatiya Nyaya Sanhita (BNS) and Criminal Law Reforms",
-      "category": "Polity and Governance",
-      "gs_paper": "GS Paper 2",
-      "summary": "The transition from the Indian Penal Code (IPC), Code of Criminal Procedure (CrPC), and Indian Evidence Act to the Bharatiya Nyaya Sanhita, Bharatiya Nagarik Suraksha Sanhita, and Bharatiya Sakshya Adhiniyam aims to modernize India's criminal justice system by focusing on digital evidence, strict timelines, and penalizing organized crime.",
-      "key_takeaway_for_upsc": "Focus on the shift from punitive to restorative justice, provisions for terrorism and organized crime, and potential challenges in police implementation."
+      "title": "Supreme Court Recognizes Right Against Climate Change as a Fundamental Right",
+      "gs_paper": "GS Paper II (Polity) & GS Paper III (Environment)",
+      "summary": "The Supreme Court of India expanded Articles 14 and 21 of the Constitution to include the right to be free from the adverse effects of climate change, emphasizing that human rights and environmental protection are deeply intertwined.",
+      "key_takeaway": "Links fundamental rights directly to climate action; critical for mains answers on environmental jurisprudence."
     },
     {
       "rank": 2,
-      "topic": "India-Middle East-Europe Economic Corridor (IMEC) Developments",
-      "category": "International Relations",
-      "gs_paper": "GS Paper 2",
-      "summary": "Strategic and logistical discussions continue around IMEC despite Red Sea security challenges. The corridor aims to enhance connectivity between India, the Arabian Gulf, and Europe, serving as a key alternative to China's Belt and Road Initiative (BRI).",
-      "key_takeaway_for_upsc": "Analyze the strategic significance for India's trade resilience, geopolitical implications in the West Asia region, and comparison with BRI."
+      "title": "Cabinet Approves National 'IndiaAI Mission' to Drive AI Infrastructure",
+      "gs_paper": "GS Paper III (Science & Technology & Economy)",
+      "summary": "The Union Cabinet sanctioned the IndiaAI Mission with a budget allocation exceeding ₹10,000 crore to build compute capacity, establish AI Innovation Centers, and foster ethical AI applications across key sectors.",
+      "key_takeaway": "Focuses on public-private partnerships in deep-tech, digital public infrastructure (DPI), and AI governance."
     },
     {
       "rank": 3,
-      "topic": "Environmental and Tribal Concerns Over Great Nicobar Project",
-      "category": "Environment and Disaster Management",
-      "gs_paper": "GS Paper 3 / GS Paper 1",
-      "summary": "The mega infrastructure project on Great Nicobar Island, involving a transshipment port and military base, faces scrutiny regarding its impact on the Particularly Vulnerable Tribal Group (PVTG) Shompen and local biodiversity.",
-      "key_takeaway_for_upsc": "Balance between national security/strategic maritime location vs. environmental conservation and PVTG rights under the Forest Rights Act."
+      "title": "High-Level Committee Recommendations on 'One Nation, One Election'",
+      "gs_paper": "GS Paper II (Governance & Electoral Reforms)",
+      "summary": "The Ram Nath Kovind-led panel formally submitted its report recommending a two-phase framework to synchronize elections for the Lok Sabha, State Legislative Assemblies, and local bodies.",
+      "key_takeaway": "Requires constitutional amendments regarding Article 83, Article 172, and ratification by states; important for polity mains."
     },
     {
       "rank": 4,
-      "topic": "RBI Guidelines on Digital Public Infrastructure and Fintech Lending",
-      "category": "Indian Economy",
-      "gs_paper": "GS Paper 3",
-      "summary": "The Reserve Bank of India has updated regulatory frameworks for digital lending apps and payment aggregators to prevent fraudulent practices, protect consumer data, and regulate cross-border fintech flows.",
-      "key_takeaway_for_upsc": "Understand Digital Public Infrastructure (DPI), financial inclusion benefits, systemic risks in shadow banking, and central bank digital currency (CBDC) integration."
+      "title": "Red Sea Security Crisis and Global Supply Chain Disruptions",
+      "gs_paper": "GS Paper II (International Relations) & GS Paper III (Security)",
+      "summary": "Ongoing maritime security threats in the Bab-el-Mandeb Strait by Houthi forces have led to increased freight costs, rerouting of trade via the Cape of Good Hope, and enhanced anti-piracy deployments by the Indian Navy.",
+      "key_takeaway": "Highlights strategic maritime choke points, India's Net Security Provider role in the Indian Ocean Region (IOR), and economic vulnerability."
     },
     {
       "rank": 5,
-      "topic": "Aditya-L1 Solar Mission Data Release",
-      "category": "Science and Technology",
-      "gs_paper": "GS Paper 3",
-      "summary": "ISRO's maiden solar mission, positioned at Lagrange Point 1 (L1), has begun providing crucial scientific payloads data on Coronal Mass Ejections (CMEs) and solar wind dynamics affecting space weather.",
-      "key_takeaway_for_upsc": "Study the concept of Lagrange Points, solar dynamics (CME, solar flares), and India's growing capabilities in deep-space observational astronomy."
+      "title": "NDMA Guidelines for Glacial Lake Outburst Floods (GLOFs) Risk Reduction",
+      "gs_paper": "GS Paper III (Disaster Management & Geography)",
+      "summary": "In response to heightened vulnerabilities in the High Mountain Asia region, the National Disaster Management Authority (NDMA) expanded early-warning installations and hazard mapping across high-risk glacial lakes in Sikkim and Ladakh.",
+      "key_takeaway": "Focuses on Sendai Framework alignment, disaster resilience, climate adaptation strategies, and early warning systems."
     }
   ]
 }
