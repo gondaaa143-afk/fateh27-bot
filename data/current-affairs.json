@@ -1,40 +1,65 @@
 {
   "date": "2024-05-20",
-  "current_affairs": [
+  "top_current_affairs": [
     {
       "rank": 1,
-      "category": "Polity and Governance",
-      "title": "Supreme Court Seven-Judge Bench Ruling on Sub-Categorization of SC/STs",
-      "summary": "The Supreme Court of India ruled that states have the constitutional authority to create sub-categories within Scheduled Castes (SCs) and Scheduled Tribes (STs) to extend targeted affirmative action to the most disadvantaged groups within these categories.",
-      "upsc_relevance": "GS Paper II: Indian Constitution—historical underpinnings, evolution, features, amendments, significant provisions and basic structure; Mechanisms, Laws, Institutions for vulnerable sections."
+      "title": "High-Level Committee Report on 'One Nation, One Election'",
+      "gs_paper": "GS Paper II - Indian Constitution, Polity & Governance",
+      "category": "Polity",
+      "summary": "The High-Level Committee led by former President Ram Nath Kovind submitted its report recommending simultaneous elections to the Lok Sabha and State Legislative Assemblies as a first step.",
+      "key_upsc_relevance": [
+        "Requires constitutional amendments to Articles 83, 172, and 356.",
+        "Proposes a two-phase implementation, including local body polls within 100 days of national polls.",
+        "Examines federal principles, Article 368 requirements, and logistical implications for the Election Commission."
+      ]
     },
     {
       "rank": 2,
-      "category": "Environment and Ecology",
-      "title": "Addition of New Ramsar Sites to India's Network",
-      "summary": "India has expanded its list of Wetlands of International Importance under the Ramsar Convention, bringing the total count to 85. The newly designated sites emphasize conservation efforts in critical biodiversity hotspots and coastal ecosystems.",
-      "upsc_relevance": "GS Paper III: Conservation, Environmental Pollution and Degradation, Environmental Impact Assessment; International Environmental Conventions."
+      "title": "Ecological Concerns Over the Great Nicobar Island Infrastructure Project",
+      "gs_paper": "GS Paper III - Environment, Biodiversity & Disaster Management",
+      "category": "Environment & Ecology",
+      "summary": "Environmentalists and tribal rights groups have raised concerns regarding the strategic ₹72,000-crore megaproject involving a transshipment port, airport, and township on Great Nicobar Island.",
+      "key_upsc_relevance": [
+        "Impact on the Leatherback sea turtle nesting sites and Shompen tribal community.",
+        "Compensatory afforestation policies and diversion of pristine rainforest habitat.",
+        "Strategic importance of the Malacca Strait vs. ecological conservation trade-offs."
+      ]
     },
     {
       "rank": 3,
-      "category": "Science and Technology",
-      "title": "Final Integration Phase of NASA-ISRO NISAR Satellite Mission",
-      "summary": "The joint NASA-ISRO Synthetic Aperture Radar (NISAR) mission enters its final pre-launch testing phase. Operating dual-frequency L-band and S-band radar, NISAR will track Earth's land-surface changes, glacier movements, and ecosystem dynamics globally every 12 days.",
-      "upsc_relevance": "GS Paper III: Science and Technology- developments and their applications and effects in everyday life; Achievements of Indians in science & technology; Space technology."
+      "title": "RBI Transfer of Record Surplus Dividend to the Central Government",
+      "gs_paper": "GS Paper III - Indian Economy & Fiscal Policy",
+      "category": "Economy",
+      "summary": "The Reserve Bank of India approved a record surplus transfer to the Central Government under the Economic Capital Framework (ECF) recommended by the Bimal Jalan Committee.",
+      "key_upsc_relevance": [
+        "Analysis of RBI's balance sheet and Contingency Risk Buffer (CRB) requirements.",
+        "Fiscal deficit target impact for FY25 and sovereign debt management.",
+        "Mechanism of central bank dividend transfers to fiscal accounts."
+      ]
     },
     {
       "rank": 4,
-      "category": "Economy",
-      "title": "RBI Framework on Climate-Related Financial Risks and Green Finance",
-      "summary": "The Reserve Bank of India (RBI) issued detailed guidelines for Regulated Entities (REs) regarding climate risk management, requiring financial institutions to disclose climate-related financial risks and implement green lending metrics.",
-      "upsc_relevance": "GS Paper III: Indian Economy and issues relating to planning, mobilization of resources, growth, development, and sustainable finance."
+      "title": "India's Push for the India-Middle East-Europe Economic Corridor (IMEC)",
+      "gs_paper": "GS Paper II - International Relations & Strategic Alliances",
+      "category": "International Relations",
+      "summary": "Diplomatic efforts continue to operationalize the IMEC initiative amidst geopolitical tensions in West Asia, aiming to enhance trade connectivity between Asia, the Arabian Gulf, and Europe.",
+      "key_upsc_relevance": [
+        "Comparison with China's Belt and Road Initiative (BRI).",
+        "Key multimodal routes including rail links, port developments, and clean energy pipelines.",
+        "Strategic significance for Indian trade routes bypassing the Suez Canal bottlenecks."
+      ]
     },
     {
       "rank": 5,
-      "category": "International Relations",
-      "title": "BIMSTEC Connectivity Master Plan Roadmap Finalized",
-      "summary": "Member nations of the Bay of Bengal Initiative for Multi-Sectoral Technical and Economic Cooperation (BIMSTEC) adopted a concrete implementation strategy for the Master Plan for Transport Connectivity, focusing on port linkages, cross-border transport, and trade facilitation.",
-      "upsc_relevance": "GS Paper II: Regional and Global Groupings and Agreements involving India and/or affecting India's interests; India and its Neighborhood relations."
+      "title": "Implementation of the India Semiconductor Mission (ISM)",
+      "gs_paper": "GS Paper III - Science & Technology and Industrial Growth",
+      "category": "Science & Technology",
+      "summary": "Construction begins on multiple semiconductor fabrication plants and ATMP (Assembly, Testing, Marking, and Packaging) units approved under the ₹76,000-crore India Semiconductor Mission.",
+      "key_upsc_relevance": [
+        "Global supply chain diversification and critical technology reliance.",
+        "Role of modified PLI schemes in high-tech manufacturing.",
+        "Key challenges: High capital expenditure, specialized raw materials (silicon wafers, ultra-pure water), and skilled workforce requirement."
+      ]
     }
   ]
 }
