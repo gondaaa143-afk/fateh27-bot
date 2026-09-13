@@ -1,45 +1,41 @@
 {
   "date": "2024-05-20",
-  "top_current_affairs": [
+  "source": "UPSC Current Affairs Digest",
+  "top_5_topics": [
     {
       "rank": 1,
-      "title": "Implementation of New Criminal Laws (BNS, BNSS, BSA)",
-      "gs_paper": "GS Paper II (Polity & Governance)",
-      "category": "Governance & Legislation",
-      "summary": "India transitions to the Bharatiya Nyaya Sanhita, Bharatiya Nagarik Suraksha Sanhita, and Bharatiya Sakshya Adhiniyam, replacing colonial-era laws with a focus on modernizing justice delivery, victim protection, and digital evidence.",
-      "key_upsc_relevance": "Important for questions on judicial reforms, fundamental rights, procedural law efficiency, and the balance between state security and civil liberties."
+      "title": "Supreme Court Recognizes Right Against Climate Change Effects",
+      "category": "Polity & Environment (GS Paper II & III)",
+      "summary": "The Supreme Court of India recognized the right to be free from the adverse effects of climate change as part of the fundamental rights under Article 14 (Right to Equality) and Article 21 (Right to Life).",
+      "upsc_relevance": "Fundamental Rights, Environmental Jurisprudence, Judicial Activism, Climate Governance."
     },
     {
       "rank": 2,
-      "title": "India-Middle East-Europe Economic Corridor (IMEEC) Developments",
-      "gs_paper": "GS Paper II (International Relations)",
-      "category": "International Affairs & Infrastructure",
-      "summary": "Strategic discussions continue on operationalizing the IMEEC to enhance connectivity, boost trade resilience, and provide an alternative global supply chain route amidst Red Sea geopolitical tensions.",
-      "key_upsc_relevance": "Relevant for topics on bilateral/multilateral agreements involving India's strategic interests, Indo-Pacific region, and global supply chain diversification."
+      "title": "India Signs 10-Year Contract for Chabahar Port Operation",
+      "category": "International Relations (GS Paper II)",
+      "summary": "India Ports Global Limited (IPGL) signed a long-term agreement with Iran's Port and Maritime Organization to operate the Shahid Beheshti Terminal at Chabahar Port, boosting regional connectivity to Central Asia.",
+      "upsc_relevance": "India-Iran Relations, INSTC, Strategic Autonomy, Regional Connectivity, Middle East Geopolitics."
     },
     {
       "rank": 3,
-      "title": "Draft Notification on Western Ghats Ecologically Sensitive Area (ESA)",
-      "gs_paper": "GS Paper III (Environment & Ecology)",
-      "category": "Biodiversity & Conservation",
-      "summary": "The Ministry of Environment, Forest and Climate Change re-issued a draft notification declaring over 56,000 sq km of the Western Ghats as Ecologically Sensitive Area, balancing biodiversity conservation with local livelihood concerns.",
-      "key_upsc_relevance": "Crucial for questions regarding environmental impact assessments, Kasturirangan/Gadgil committee recommendations, and sustainable development goals."
+      "title": "RBI Surplus Transfer to the Central Government",
+      "category": "Indian Economy (GS Paper III)",
+      "summary": "The Reserve Bank of India approved a record surplus transfer to the Central Government for the fiscal year, driven by higher interest income on foreign assets and optimal risk buffer management under the Economic Capital Framework (ECF).",
+      "upsc_relevance": "Bimal Jalan Committee, Fiscal Deficit, Monetary Policy, Central Bank Autonomy."
     },
     {
       "rank": 4,
-      "title": "RBI's Surplus Transfer to the Central Government",
-      "gs_paper": "GS Paper III (Indian Economy)",
-      "category": "Fiscal Policy & Banking",
-      "summary": "The Reserve Bank of India approved a record dividend transfer to the Central Government under the Economic Capital Framework (ECF), aiding fiscal deficit targets and capital expenditure plans.",
-      "key_upsc_relevance": "Key topic for questions on central bank autonomy, Bimal Jalan Committee recommendations, fiscal consolidation, and non-tax revenue sources."
+      "title": "Negotiations for the Global Plastics Treaty (INC-4)",
+      "category": "Environment & Ecology (GS Paper III)",
+      "summary": "The fourth session of the Intergovernmental Negotiating Committee (INC-4) met to advance a legally binding international instrument on plastic pollution, including in the marine environment.",
+      "upsc_relevance": "UNEP, International Environmental Conventions, Waste Management, Single-Use Plastics."
     },
     {
       "rank": 5,
-      "title": "Adoption of Digital Public Infrastructure (DPI) and AI Governance Frameworks",
-      "gs_paper": "GS Paper III (Science & Technology)",
-      "category": "Technology & E-Governance",
-      "summary": "India advances its IndiaAI Mission to democratize AI compute capacity and secure data infrastructure, promoting ethical AI deployment alongside expanding the India Stack to global markets.",
-      "key_upsc_relevance": "Highly significant for questions on emerging technologies, ethical AI frameworks, digital divide, and technology-driven inclusive growth."
+      "title": "Aditya-L1 Mission Captures Solar Eruptions from L1 Point",
+      "category": "Science & Technology (GS Paper III)",
+      "summary": "ISRO's maiden solar mission, Aditya-L1, successfully observed major solar flares and Coronal Mass Ejections (CMEs) using its payloads, contributing to global space weather forecasting.",
+      "upsc_relevance": "Space Technology, ISRO Missions, Lagrange Points, Solar Physics, Space Weather."
     }
   ]
 }
