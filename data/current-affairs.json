@@ -1,66 +1,41 @@
 {
-  "date": "2024-05-20",
-  "source": "UPSC Current Affairs Daily Digest",
-  "top_stories": [
+  "date": "2024-05-19",
+  "category": "UPSC Current Affairs",
+  "top_5_topics": [
     {
       "rank": 1,
-      "title": "High-Level Committee Report on 'One Nation, One Election'",
-      "gs_paper": "GS Paper II (Governance, Constitution & Polity)",
-      "category": "Polity & Governance",
-      "summary": "The Kovind Committee submitted its report recommending simultaneous elections to the Lok Sabha and State Legislative Assemblies in the first phase, followed by local body elections within 100 days.",
-      "key_takeaways": [
-        "Requires constitutional amendments to Articles 83, 172, and 356.",
-        "Aims to reduce election expenditure, policy paralysis, and administrative strain.",
-        "Concerns raised regarding federalism and regional party visibility."
-      ]
+      "title": "India-Iran 10-Year Agreement on Chabahar Port",
+      "gs_paper": "GS Paper II - International Relations",
+      "summary": "India Ports Global Limited signed a historic 10-year contract with Iran's Ports and Maritime Organization to equip and operate the Shahid Beheshti Terminal at Chabahar Port.",
+      "relevance": "Crucial for India's strategic connectivity to Central Asia, Eurasia, and the INSTC, bypassing Pakistan."
     },
     {
       "rank": 2,
-      "title": "Implementation of the Carbon Credit Trading Scheme (CCTS) Framework",
-      "gs_paper": "GS Paper III (Environment, Ecology & Economy)",
-      "category": "Environment & Energy",
-      "summary": "The Ministry of Power and Bureau of Energy Efficiency (BEE) finalized the operational guidelines for India's domestic carbon market to help meet its NDC targets under the Paris Agreement.",
-      "key_takeaways": [
-        "Establishes a compliance market for obligated entities and a voluntary market for non-obligated entities.",
-        "Managed by the National Steering Committee for Indian Carbon Market (NSCICM).",
-        "Supports India's target of achieving Net Zero emissions by 2070."
-      ]
+      "title": "RBI Surplus Transfer to the Central Government",
+      "gs_paper": "GS Paper III - Indian Economy and Fiscal Policy",
+      "summary": "The Reserve Bank of India approved a record surplus transfer of ₹2.11 lakh crore to the Union Government for the accounting year 2023-24.",
+      "relevance": "Provides significant fiscal space to the government to manage fiscal deficit targets while maintaining capital spending."
     },
     {
       "rank": 3,
-      "title": "Progress under India Semiconductor Mission (ISM)",
-      "gs_paper": "GS Paper III (Science & Technology & Infrastructure)",
-      "category": "Science & Technology",
-      "summary": "Approval of new commercial semiconductor fabrication units and packaging facilities in Gujarat and Assam under the $10 billion ISM umbrella.",
-      "key_takeaways": [
-        "Aims to build a sustainable semiconductor and display ecosystem in India.",
-        "Reduces import dependency on critical microelectronics.",
-        "Fosters domestic supply chain resilience in strategic sectors."
-      ]
+      "title": "Supreme Court Ruling on Grounds of Arrest Under PMLA",
+      "gs_paper": "GS Paper II - Indian Constitution & Governance",
+      "summary": "The Supreme Court ruled that the Enforcement Directorate must supply written grounds of arrest to the accused at the time of arrest without exception.",
+      "relevance": "Reinforces fundamental rights under Article 22(1) and personal liberty against arbitrary state action."
     },
     {
       "rank": 4,
-      "title": "India-Middle East-Europe Economic Corridor (IMEC) Strategic Developments",
-      "gs_paper": "GS Paper II (International Relations & Bilateral Agreements)",
-      "category": "International Relations",
-      "summary": "Inter-governmental framework agreements are being finalized to push forward rail, ship-to-rail transit networks, and energy pipeline connections between India, the UAE, Saudi Arabia, and Europe.",
-      "key_takeaways": [
-        "Unveiled during the G20 Summit in New Delhi as part of PGII (Partnership for Global Infrastructure and Investment).",
-        "Comprises the East Corridor (India to Arabian Gulf) and Northern Corridor (Gulf to Europe).",
-        "Serves as an alternative to China's Belt and Road Initiative (BRI)."
-      ]
+      "title": "WMO Report on Global Heatwaves and Climate Anomalies",
+      "gs_paper": "GS Paper III - Environment, Disaster Management & Ecology",
+      "summary": "The World Meteorological Organization highlighted continuing unprecedented rise in ocean heat content and surface temperatures due to anthropogenic greenhouse gases.",
+      "relevance": "Directly links to global climate commitments, Paris Agreement targets, and climate adaptation strategies."
     },
     {
       "rank": 5,
-      "title": "Deep Ocean Mission & MATSYA 6000 Trials",
-      "gs_paper": "GS Paper III (Economic Development & Security / Environment)",
-      "category": "Science, Tech & Blue Economy",
-      "summary": "The Ministry of Earth Sciences progresses with deep-sea wet tests for the crewed submersible MATSYA 6000, designed to explore polymetallic nodules and deep-sea biodiversity.",
-      "key_takeaways": [
-        "Part of India's Deep Ocean Mission launched in 2021.",
-        "Focuses on sustainable utilization of ocean resources for the Blue Economy.",
-        "Targets exploration of critical minerals like nickel, copper, cobalt, and manganese in the Central Indian Ocean Basin (CIOB)."
-      ]
+      "title": "Successful Testing of Astra Indigenous Beyond-Visual-Range Missile",
+      "gs_paper": "GS Paper III - Science & Technology / Indigenisation of Tech",
+      "summary": "DRDO and the Indian Air Force successfully integrated and flight-tested the Astra Beyond Visual Range (BVR) air-to-air missile from LCA Tejas.",
+      "relevance": "Pertains to Atmanirbhar Bharat in defense technology and enhancing tactical air capability."
     }
   ]
 }
