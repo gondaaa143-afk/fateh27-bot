@@ -1,8 +1,9 @@
 name: FATEH27 Current Affairs
 
 on:
+  schedule:
+    - cron: "*/5 * * * *"
   workflow_dispatch:
-
 permissions:
   contents: write
 
