@@ -103,7 +103,7 @@ const data=await res.json();
 
 document.getElementById("date").textContent=data.date||"Today";
 
-articles=(data.articles||[]).map(a=>{
+articles=(data.articles||data.top5||data.news||[]).map(...)
 
 let gs="GS3";
 
