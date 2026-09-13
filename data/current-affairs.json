@@ -1,66 +1,61 @@
 {
-  "date": "2026-02-18",
-  "source_domain": "UPSC Civil Services Current Affairs",
-  "top_5_topics": [
+  "date": "2024-10-24",
+  "category": "UPSC Current Affairs Top 5",
+  "items": [
     {
       "rank": 1,
-      "title": "National Green Hydrogen Mission and Next-Gen Energy Transition",
-      "gs_paper": "GS Paper 3: Environment, Conservation, and Economy",
-      "summary": "India accelerates the implementation of the National Green Hydrogen Mission to reduce carbon intensity and achieve its net-zero goals by 2070.",
+      "title": "Digital Agriculture Mission Approved",
+      "gs_paper": "GS Paper III (Agriculture & Economy)",
+      "summary": "The Union Cabinet approved the Digital Agriculture Mission with an outlay of ₹2,817 crore to build Digital Public Infrastructure (DPI) for the agriculture sector.",
       "key_points": [
-        "Focus on pilot projects in steel making, heavy transport, and shipping sectors.",
-        "Strategic Interventions for Green Hydrogen Transition (SIGHT) program providing financial incentives for electrolyser manufacturing.",
-        "Key challenges include high production costs, infrastructure constraints, and water resource management."
-      ],
-      "upsc_relevance": "Important for questions on renewable energy targets, climate change mitigation, and sustainable economic growth."
+        "Includes AgriStack (Farmers' Registry, Crop Sown Registry, Village Maps).",
+        "Aims to enable tech-driven crop estimation, modern advisory, and seamless credit flow.",
+        "Promotes the use of AI, Big Data, and remote sensing in Indian farming."
+      ]
     },
     {
       "rank": 2,
-      "title": "Deliberations on Electoral Reforms and the 'One Nation, One Election' Framework",
-      "gs_paper": "GS Paper 2: Indian Constitution, Polity, and Governance",
-      "summary": "High-level committee recommendations on simultaneous elections spark nationwide debates regarding federalism and constitutional amendments.",
+      "title": "Unified Pension Scheme (UPS)",
+      "gs_paper": "GS Paper II & III (Governance & Fiscal Policy)",
+      "summary": "The Central Government introduced the Unified Pension Scheme for government employees, combining features of the National Pension System (NPS) and Old Pension Scheme (OPS).",
       "key_points": [
-        "Requires constitutional amendments to Articles 83, 85, 172, 174, and 356.",
-        "Proponents argue it reduces election expenditure and policy paralysis.",
-        "Critics raise concerns about undermining regional federal dynamics and national issues overshadowing state issues."
-      ],
-      "upsc_relevance": "Crucial for polity topics on constitutional amendments, federal structure, and electoral integrity."
+        "Provides an assured pension of 50% of average basic pay for minimum 25 years of service.",
+        "Includes assured family pension at 60% of the employee's pension.",
+        "Ensures inflation indexation and a guaranteed minimum pension of ₹10,000/month."
+      ]
     },
     {
       "rank": 3,
-      "title": "Progress on the India-Middle East-Europe Economic Corridor (IMEC)",
-      "gs_paper": "GS Paper 2: International Relations and Strategic Partnerships",
-      "summary": "Strategic engagements continue to operationalize the IMEC project aimed at enhancing connectivity and trade integration across Asia, the Arabian Gulf, and Europe.",
+      "title": "Anusandhan National Research Foundation (ANRF) First Board Meeting",
+      "gs_paper": "GS Paper III (Science & Technology)",
+      "summary": "The inaugural meeting of the ANRF Governing Board laid down the roadmap to democratize India's R&D ecosystem and boost industry-academia linkages.",
       "key_points": [
-        "Comprises Eastern Corridor (connecting India to Gulf) and Northern Corridor (connecting Gulf to Europe).",
-        "Aims to secure supply chains, boost digital connectivity, and support clean energy trade.",
-        "Geopolitical instabilities in the Middle East present operational challenges."
-      ],
-      "upsc_relevance": "Key topic for questions on India's foreign policy, maritime security, and global infrastructure initiatives."
+        "Established under the ANRF Act, 2023, replacing the Science and Engineering Research Board (SERB).",
+        "Introduces the 'PAIR' (Partnerships for Accelerated Innovation and Research) hub-and-spoke model.",
+        "Focuses on translational research and expanding R&D capacity in state universities."
+      ]
     },
     {
       "rank": 4,
-      "title": "National Deep Tech Startup Policy (NDTSP) and Responsible AI Framework",
-      "gs_paper": "GS Paper 3: Science & Technology and Innovation",
-      "summary": "The government pushes for finalizing the Deep Tech policy to bolster research and development in artificial intelligence, quantum computing, and biotechnology.",
+      "title": "Ecological Safeguards for Great Nicobar Project",
+      "gs_paper": "GS Paper III (Environment & Biodiversity)",
+      "summary": "Discussions surrounding the ₹72,000-crore Great Nicobar Island Holistic Development Project highlight the balance between national strategic security and ecological conservation.",
       "key_points": [
-        "Focuses on simplified regulatory frameworks, IP protection, and specialized funding mechanisms.",
-        "Emphasizes Ethical AI and data privacy guardrails aligned with the Digital Personal Data Protection (DPDP) Act.",
-        "Aims to bridge the gap between academic research and commercial technology deployment."
-      ],
-      "upsc_relevance": "Relevant for questions regarding emerging technologies, intellectual property rights, and AI governance."
+        "Project includes an International Transshipment Port, International Airport, and Power Plant.",
+        "Raises concerns over impact on Particular Vulnerable Tribal Groups (PVTGs) like Shompen and Nicobarese.",
+        "Involves compensatory afforestation measures and protection of nesting sites for Leatherback turtles."
+      ]
     },
     {
       "rank": 5,
-      "title": "Great Nicobar Island Development Project and Ecological Balance",
-      "gs_paper": "GS Paper 3: Environment, Biodiversity, and Disaster Management",
-      "summary": "Ongoing legal and environmental scrutiny surrounds the holistic development of Great Nicobar Island balancing strategic defense imperatives with fragile ecosystem conservation.",
+      "title": "India-Middle East-Europe Economic Corridor (IMEC) Developments",
+      "gs_paper": "GS Paper II (International Relations & Infrastructure)",
+      "summary": "Efforts to operationalize the IMEC initiative gain momentum as partner nations work on standardized logistics protocols despite regional geopolitical tensions.",
       "key_points": [
-        "Involves an International Transshipment Port, an airport, power plant, and township development.",
-        "Raises concerns over loss of rainforest cover, impact on indigenous Shompen and Nicobarese tribes, and turtle nesting sites.",
-        "Compensatory afforestation and environmental safeguard monitoring committees established."
-      ],
-      "upsc_relevance": "High probability topic for environmental impact assessment (EIA), tribal rights, and strategic island infrastructure."
+        "Unveiled on the sidelines of the G20 Summit in New Delhi.",
+        "Comprises the East Corridor (connecting India to the Arabian Gulf) and Northern Corridor (Gulf to Europe).",
+        "Aims to enhance trade efficiency, lower transportation costs, and foster clean energy connectivity."
+      ]
     }
   ]
 }
