@@ -1,70 +1,66 @@
 {
-  "date": "2024-05-18",
+  "date": "2024-05-20",
+  "source_category": "UPSC Current Affairs Top 5",
   "current_affairs": [
     {
-      "rank": 1,
-      "title": "India Signs 10-Year Long-Term Bilateral Agreement for Chabahar Port Operation",
-      "gs_paper": "GS Paper II (International Relations)",
-      "category": "Bilateral & Regional Agreements",
-      "summary": "India Ports Global Limited (IPGL) signed a historic 10-year contract with Iran's Ports and Maritime Organisation (PMO) to equip and operate the Shahid Beheshti Terminal at Chabahar Port.",
+      "id": 1,
+      "title": "High-Level Committee Report on 'One Nation, One Election'",
+      "gs_paper": "GS Paper 2: Indian Constitution, Polity, and Governance",
+      "summary": "The High-Level Committee on Simultaneous Elections submitted recommendations for conducting concurrent polls to the Lok Sabha and State Legislative Assemblies, followed by synchronized local body elections within 100 days.",
       "key_takeaways": [
-        "Establishes a long-term framework for India's presence at the strategic port in the Gulf of Oman.",
-        "Facilitates trade with Afghanistan and Central Asian Republics, bypassing Pakistan.",
-        "Acts as a key hub for the International North-South Transport Corridor (INSTC)."
+        "Requires constitutional amendments to Articles 83, 172, and 356.",
+        "Aims to reduce election expenditure, minimize governance disruption, and reduce administrative burden.",
+        "Concerns raised regarding impact on federalism and regional party visibility."
       ],
-      "mains_relevance": "Strategic importance of Chabahar in India's Extended Neighborhood Policy and counter-balancing Gwadar port."
+      "upsc_relevance": "Electoral reforms, Constitutional Amendment process, Federal structure dynamics."
     },
     {
-      "rank": 2,
-      "title": "G5 Geomagnetic Storm Triggers Rare Auroral Displays at Ladakh Observatory",
-      "gs_paper": "GS Paper III (Science & Technology)",
-      "category": "Space & Astronomy",
-      "summary": "The Indian Astronomical Observatory (IAO) in Hanle, Ladakh, captured intense auroral activity resulting from an extreme G5 geomagnetic storm caused by strong Solar Coronal Mass Ejections (CMEs).",
+      "id": 2,
+      "title": "National Green Hydrogen Mission and SIGHT Program Implementation",
+      "gs_paper": "GS Paper 3: Infrastructure, Energy, and Environment",
+      "summary": "The Ministry of New and Renewable Energy (MNRE) rolled out implementation guidelines under the Strategic Interventions for Green Hydrogen Transition (SIGHT) scheme to boost domestic electrolyser manufacturing and green hydrogen production.",
       "key_takeaways": [
-        "First time such intense intense stable auroral red (SAR) arcs were recorded in India at low geomagnetic latitudes.",
-        "Geomagnetic storms are major disturbances in Earth's magnetosphere caused by solar wind energy exchange.",
-        "Poses potential risks to low-Earth orbit satellites, power grids, and GPS navigation systems."
+        "Target to achieve 5 MMT annual Green Hydrogen production by 2030.",
+        "Incentives provided for local production of electrolysers.",
+        "Supports India's target of Net-Zero emissions by 2070."
       ],
-      "mains_relevance": "Understanding solar weather phenomena, space-based observational infrastructure, and threats to critical technological infrastructure."
+      "upsc_relevance": "Renewable energy targets, climate change mitigation, industrial decarbonization."
     },
     {
-      "rank": 3,
-      "title": "Supreme Court Rules on Custody Powers Under Prevention of Money Laundering Act (PMLA)",
-      "gs_paper": "GS Paper II (Polity & Governance)",
-      "category": "Judicial Reforms & Fundamental Rights",
-      "summary": "The Supreme Court ruled that Enforcement Directorate (ED) officers cannot arrest an accused under Section 19 of the PMLA once the Special Court has taken cognizance of the complaint.",
+      "id": 3,
+      "title": "India-Middle East-Europe Economic Corridor (IMEC) Strategic Progress",
+      "gs_paper": "GS Paper 2: International Relations and Bilateral Groupings",
+      "summary": "Strategic discussions continue on operationalizing the IMEC network involving India, the UAE, Saudi Arabia, the EU, and the US, aiming to enhance connectivity and resilient supply chains across Eurasia.",
       "key_takeaways": [
-        "If an accused appears in response to a court summons, they cannot be deemed to be in custody.",
-        "The ED must apply to the Special Court if custody is required post-cognizance.",
-        "Reinforces the protection of personal liberty under Article 21 of the Indian Constitution."
+        "Comprises Eastern corridor (India to Arabian Gulf) and Northern corridor (Gulf to Europe).",
+        "Includes railway lines, ship-to-rail transit networks, hydrogen pipelines, and high-speed data cables.",
+        "Positions India as a key hub in global value chains, serving as a strategic counterweight to China's BRI."
       ],
-      "mains_relevance": "Balance between executive power, statutory anti-money laundering frameworks, and fundamental constitutional protections."
+      "upsc_relevance": "Geopolitics, global supply chains, connectivity corridors, trade infrastructure."
     },
     {
-      "rank": 4,
-      "title": "SC-Appointed Panel Evaluates Power Line Undergrounding for Great Indian Bustard",
-      "gs_paper": "GS Paper III (Ecology & Environment)",
-      "category": "Biodiversity & Conservation",
-      "summary": "An expert committee appointed by the Supreme Court of India is assessing the technical feasibility of undergrounding overhead power transmission lines in Rajasthan and Gujarat to save the critically endangered Great Indian Bustard (GIB).",
+      "id": 4,
+      "title": "Great Nicobar Island Development Project and Environmental Impact Assessment",
+      "gs_paper": "GS Paper 3: Environment, Biodiversity, and Security",
+      "summary": "The mega ₹72,000-crore infrastructure project on Great Nicobar Island involving an International Transshipment Terminal, airport, power plant, and township faces ongoing scrutiny regarding ecological impact and tribal protection.",
       "key_takeaways": [
-        "Great Indian Bustard (Ardeotis nigriceps) is listed as 'Critically Endangered' on the IUCN Red List and in Schedule I of the Wildlife Protection Act, 1972.",
-        "Collision with high-voltage power lines is the primary threat to the surviving wild population.",
-        "The court highlighted the need to balance renewable energy deployment (solar/wind) with wildlife conservation."
+        "Project located near Galathea Bay National Park and Campbell Bay National Park.",
+        "Impacts endemic fauna and indigenous Particularly Vulnerable Tribal Groups (PVTGs) like the Shompen.",
+        "Strategic defense imperative versus ecological and indigenous rights balance."
       ],
-      "mains_relevance": "Environment vs. Development dilemma, conservation strategies for critically endangered fauna, and climate policy integration."
+      "upsc_relevance": "Environmental Impact Assessment (EIA), biodiversity vs development, tribal rights, strategic island infrastructure."
     },
     {
-      "rank": 5,
-      "title": "Outbreak of West Nile Virus Reported in Kerala",
-      "gs_paper": "GS Paper III (Issues Related to Health)",
-      "category": "Public Health & Infectious Diseases",
-      "summary": "The Kerala state health department issued a heightened alert following confirmed cases and vector activity related to the West Nile Virus (WNV) across multiple districts.",
+      "id": 5,
+      "title": "National Deep Tech Startup Policy (NDTSP) Framework",
+      "gs_paper": "GS Paper 3: Science and Technology, Economy",
+      "summary": "The government finalized key strategies under the National Deep Tech Startup Policy to nurture startups working on breakthrough technologies like Artificial Intelligence, Quantum Computing, and Biotechnology.",
       "key_takeaways": [
-        "West Nile Virus is a single-stranded RNA mosquito-borne flavivirus.",
-        "Maintained in nature through a transmission cycle between birds and Culex mosquitoes.",
-        "Humans are dead-end hosts; most infections are asymptomatic, but severe cases cause neuroinvasive diseases like encephalitis or meningitis."
+        "Focuses on intellectual property rights (IPR) creation, long-term patient capital funding, and shared R&D infrastructure.",
+        "Aims to bridge the gap between academic research and commercial technology deployment.",
+        "Addresses data privacy, ethical AI adoption, and dual-use technological challenges."
       ],
-      "mains_relevance": "Vector-borne disease management, public health preparedness, and the role of 'One Health' approaches in controlling zoonotic outbreaks."
+      "upsc_relevance": "Indigenous technology development, R&D funding, technology transfer, economic innovation ecosystem."
     }
   ]
 }
