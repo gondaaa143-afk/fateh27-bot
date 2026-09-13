@@ -1,41 +1,66 @@
 {
   "date": "2024-05-20",
-  "source": "UPSC Current Affairs Daily Summary",
-  "top_news": [
+  "target_exam": "UPSC Civil Services Examination",
+  "top_5_current_affairs": [
     {
       "id": 1,
-      "category": "Polity & Governance",
-      "title": "Implementation of New Criminal Laws (Bharatiya Nyaya Sanhita)",
-      "summary": "The landmark criminal justice reform laws replace the colonial-era Indian Penal Code (IPC), Code of Criminal Procedure (CrPC), and Indian Evidence Act to modernize the justice delivery system with zero FIR and electronic evidence provisions.",
-      "upsc_relevance": "GS Paper II - Structure, Organization and Functioning of the Executive and the Judiciary"
+      "title": "Mission Divyastra: Agni-V with MIRV Technology",
+      "gs_paper": "GS Paper III (Science & Technology / Defense)",
+      "category": "Defense & Strategic Studies",
+      "summary": "India successfully tested the Agni-V missile equipped with Multiple Independently Targetable Re-entry Vehicle (MIRV) technology, allowing a single missile to deploy multiple warheads at different targets.",
+      "key_points": [
+        "Indigenously developed by the Defence Research and Development Organisation (DRDO).",
+        "Significantly enhances India's strategic nuclear deterrence capability.",
+        "Places India among a select group of nations (USA, Russia, China, France, UK) with MIRV capabilities."
+      ]
     },
     {
       "id": 2,
-      "category": "Environment & Ecology",
-      "title": "Expansion of India's Ramsar Sites Network",
-      "summary": "India adds new wetlands to the Ramsar list of international importance, emphasizing conservation of ecologically fragile urban and peri-urban water bodies and biodiversity hotspots.",
-      "upsc_relevance": "GS Paper III - Conservation, Environmental Pollution and Degradation"
+      "title": "Delimitation Commission and Article 82",
+      "gs_paper": "GS Paper II (Polity & Governance)",
+      "category": "Polity",
+      "summary": "Renewed national debate surrounding the upcoming delimitation exercise expected post-2026 based on the fresh census, highlighting federal dynamics between North and South Indian states.",
+      "key_points": [
+        "Article 82 mandates the readjustment of Lok Sabha seats after every census.",
+        "The 84th Constitutional Amendment Act, 2002 froze the seat allocation until the first census after 2026.",
+        "Key concerns include federal imbalance, representation proportionate to population control achievements, and Southern state seat share."
+      ]
     },
     {
       "id": 3,
-      "category": "Economy",
-      "title": "RBI Framework for Domestic Systemically Important Banks (D-SIBs)",
-      "summary": "The Reserve Bank of India updates higher capital requirements for D-SIBs to safeguard financial stability and address the 'too big to fail' risks in India's banking sector.",
-      "upsc_relevance": "GS Paper III - Indian Economy and Issues Relating to Planning, Mobilization of Resources"
+      "title": "India-Middle East-Europe Economic Corridor (IMEC)",
+      "gs_paper": "GS Paper II (International Relations)",
+      "category": "International Relations",
+      "summary": "Strategic and economic reviews of the proposed IMEC project aimed at boosting connectivity and trade integration between India, the Arabian Gulf, and Europe.",
+      "key_points": [
+        "Unveiled during the G20 Summit in New Delhi.",
+        "Consists of East Corridor (connecting India to Gulf) and Northern Corridor (connecting Gulf to Europe).",
+        "Serves as a counter strategy to China's Belt and Road Initiative (BRI) and promotes regional integration."
+      ]
     },
     {
       "id": 4,
-      "category": "Science & Technology",
-      "title": "ISRO's Progress on Gaganyaan Crewed Spaceflight Mission",
-      "summary": "ISRO successfully conducts critical qualification tests of the human-rated L110 Vikas Engine, marking a major milestone towards India's first human spaceflight mission.",
-      "upsc_relevance": "GS Paper III - Awareness in the Fields of Space and Technology"
+      "title": "Environmental Assessment of the Great Nicobar Development Project",
+      "gs_paper": "GS Paper III (Environment & Biodiversity)",
+      "category": "Environment",
+      "summary": "Ongoing legal and ecological scrutiny over the ₹72,000-crore mega-infrastructure project on Great Nicobar Island involving an International Transshipment Port, airport, and power plant.",
+      "key_points": [
+        "Concerns raised regarding the displacement of particularly vulnerable tribal groups (PVTGs) like Shompen and Nicobarese.",
+        "Threats to critical biodiversity habitats of Giant Leatherback Sea Turtles and Nicobar Megapode.",
+        "Strategic counter balance against China's presence near the Malacca Strait."
+      ]
     },
     {
       "id": 5,
-      "category": "International Relations",
-      "title": "Operationalization of the Chabahar Port Agreement",
-      "summary": "India secures a long-term contract to operate the Shahid Beheshti terminal at Iran's Chabahar Port, strengthening trade connectivity to Central Asia bypassing Pakistan.",
-      "upsc_relevance": "GS Paper II - India and its Neighborhood- Relations, Effect of Policies of Developed and Developing Countries"
+      "title": "RBI Framework for Central Bank Digital Currency (CBDC) - e-Rupee",
+      "gs_paper": "GS Paper III (Indian Economy)",
+      "category": "Economy",
+      "summary": "The Reserve Bank of India (RBI) expands the pilot scope of the Digital Rupee (e₹) by introducing offline capability and programmability features.",
+      "key_points": [
+        "Offline functionality enables transactions in areas with limited or no internet connectivity.",
+        "Programmability allows targeted delivery of government subsidies and corporate benefits.",
+        "Differentiates CBDC (legal tender issued by RBI) from decentralized private cryptocurrencies."
+      ]
     }
   ]
 }
