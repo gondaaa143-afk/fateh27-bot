@@ -1,66 +1,40 @@
 {
-  "date": "2024-05-20",
-  "source_category": "UPSC Current Affairs Top 5",
+  "date": "2024-03-31",
   "current_affairs": [
     {
-      "id": 1,
+      "rank": 1,
+      "title": "Trade and Economic Partnership Agreement (TEPA) between India and EFTA",
+      "category": "International Relations & Economy",
+      "summary": "India signed a historic Trade and Economic Partnership Agreement (TEPA) with the European Free Trade Association (EFTA) countries (Iceland, Liechtenstein, Norway, and Switzerland), securing a target of $100 billion investment in India over 15 years.",
+      "syllabus_relevance": "GS Paper II (Bilateral Agreements) & GS Paper III (Indian Economy)"
+    },
+    {
+      "rank": 2,
       "title": "High-Level Committee Report on 'One Nation, One Election'",
-      "gs_paper": "GS Paper 2: Indian Constitution, Polity, and Governance",
-      "summary": "The High-Level Committee on Simultaneous Elections submitted recommendations for conducting concurrent polls to the Lok Sabha and State Legislative Assemblies, followed by synchronized local body elections within 100 days.",
-      "key_takeaways": [
-        "Requires constitutional amendments to Articles 83, 172, and 356.",
-        "Aims to reduce election expenditure, minimize governance disruption, and reduce administrative burden.",
-        "Concerns raised regarding impact on federalism and regional party visibility."
-      ],
-      "upsc_relevance": "Electoral reforms, Constitutional Amendment process, Federal structure dynamics."
+      "category": "Polity & Governance",
+      "summary": "The High-Level Committee on Simultaneous Elections, chaired by former President Ram Nath Kovind, submitted its report recommending constitutional amendments to synchronize elections for the Lok Sabha and State Legislative Assemblies in a phased manner.",
+      "syllabus_relevance": "GS Paper II (Electoral Reforms & Indian Constitution)"
     },
     {
-      "id": 2,
-      "title": "National Green Hydrogen Mission and SIGHT Program Implementation",
-      "gs_paper": "GS Paper 3: Infrastructure, Energy, and Environment",
-      "summary": "The Ministry of New and Renewable Energy (MNRE) rolled out implementation guidelines under the Strategic Interventions for Green Hydrogen Transition (SIGHT) scheme to boost domestic electrolyser manufacturing and green hydrogen production.",
-      "key_takeaways": [
-        "Target to achieve 5 MMT annual Green Hydrogen production by 2030.",
-        "Incentives provided for local production of electrolysers.",
-        "Supports India's target of Net-Zero emissions by 2070."
-      ],
-      "upsc_relevance": "Renewable energy targets, climate change mitigation, industrial decarbonization."
+      "rank": 3,
+      "title": "Supreme Court Ruling on Right against Climate Change Impacts",
+      "category": "Environment & Supreme Court Judgments",
+      "summary": "The Supreme Court recognized the right to be free from the adverse impacts of climate change as part of the fundamental rights to life (Article 21) and equality (Article 14) while ruling on the protection of the Great Indian Bustard.",
+      "syllabus_relevance": "GS Paper II (Judiciary & Fundamental Rights) & GS Paper III (Environment)"
     },
     {
-      "id": 3,
-      "title": "India-Middle East-Europe Economic Corridor (IMEC) Strategic Progress",
-      "gs_paper": "GS Paper 2: International Relations and Bilateral Groupings",
-      "summary": "Strategic discussions continue on operationalizing the IMEC network involving India, the UAE, Saudi Arabia, the EU, and the US, aiming to enhance connectivity and resilient supply chains across Eurasia.",
-      "key_takeaways": [
-        "Comprises Eastern corridor (India to Arabian Gulf) and Northern corridor (Gulf to Europe).",
-        "Includes railway lines, ship-to-rail transit networks, hydrogen pipelines, and high-speed data cables.",
-        "Positions India as a key hub in global value chains, serving as a strategic counterweight to China's BRI."
-      ],
-      "upsc_relevance": "Geopolitics, global supply chains, connectivity corridors, trade infrastructure."
+      "rank": 4,
+      "title": "Household Consumption Expenditure Survey (HCES) 2022-23",
+      "category": "Economy & Social Issues",
+      "summary": "The National Sample Survey Office (NSSO) released the results of the HCES, showing a significant decline in the share of food in household consumption spending alongside a reduction in rural-urban monthly per capita consumption expenditure (MPCE) disparity.",
+      "syllabus_relevance": "GS Paper III (Economic Growth, Poverty & Development)"
     },
     {
-      "id": 4,
-      "title": "Great Nicobar Island Development Project and Environmental Impact Assessment",
-      "gs_paper": "GS Paper 3: Environment, Biodiversity, and Security",
-      "summary": "The mega ₹72,000-crore infrastructure project on Great Nicobar Island involving an International Transshipment Terminal, airport, power plant, and township faces ongoing scrutiny regarding ecological impact and tribal protection.",
-      "key_takeaways": [
-        "Project located near Galathea Bay National Park and Campbell Bay National Park.",
-        "Impacts endemic fauna and indigenous Particularly Vulnerable Tribal Groups (PVTGs) like the Shompen.",
-        "Strategic defense imperative versus ecological and indigenous rights balance."
-      ],
-      "upsc_relevance": "Environmental Impact Assessment (EIA), biodiversity vs development, tribal rights, strategic island infrastructure."
-    },
-    {
-      "id": 5,
-      "title": "National Deep Tech Startup Policy (NDTSP) Framework",
-      "gs_paper": "GS Paper 3: Science and Technology, Economy",
-      "summary": "The government finalized key strategies under the National Deep Tech Startup Policy to nurture startups working on breakthrough technologies like Artificial Intelligence, Quantum Computing, and Biotechnology.",
-      "key_takeaways": [
-        "Focuses on intellectual property rights (IPR) creation, long-term patient capital funding, and shared R&D infrastructure.",
-        "Aims to bridge the gap between academic research and commercial technology deployment.",
-        "Addresses data privacy, ethical AI adoption, and dual-use technological challenges."
-      ],
-      "upsc_relevance": "Indigenous technology development, R&D funding, technology transfer, economic innovation ecosystem."
+      "rank": 5,
+      "title": "Status of the Gaganyaan Mission and Astronaut Selection",
+      "category": "Science & Technology",
+      "summary": "ISRO announced the four designated astronaut-designates for India's first human spaceflight mission, Gaganyaan, alongside crucial progress in testing the CE20 cryogenic engine for human rating.",
+      "syllabus_relevance": "GS Paper III (Awareness in the field of Space)"
     }
   ]
 }
