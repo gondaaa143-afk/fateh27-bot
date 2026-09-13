@@ -141,69 +141,80 @@ document.getElementById("newsContainer").innerHTML=
 function render(){
 
 const q=document.getElementById("search").value.toLowerCase();
+let articles = [];
+let currentFilter = "All";
 
-const list=articles.filter(a=>
+async function loadCurrentAffairs() {
+  try {
+    const res = await fetch("./data/current-affairs.json?v=" + Date.now(), {
+      cache: "no-store"
+    });
 
-(currentFilter==="All"||a.gs===currentFilter)&&
-a.title.toLowerCase().includes(q)
+    if (!res.ok) throw new Error("HTTP " + res.status);
 
-);
+    const data = await res.json();
+    document.getElementById("date").textContent = data.date || "Today";
 
-const c=document.getElementById("newsContainer");
+    articles = (data.articles || []).map(a => {
+      const m = (a.gs_paper || "").match(/GS Paper (\d)/);
+      return {
+        title: a.title || "",
+        gs: m ? "GS" + m[1] : "GS3",
+        source: a.source || "AI",
+        points: a.key_points || [],
+        mains: a.mains || a.summary || "Use in UPSC answer writing."
+      };
+    });
 
-c.innerHTML="";
-
-list.forEach(a=>{
-
-const card=document.createElement("div");
-
-card.className="card";
-
-card.innerHTML=`
-<h2>${a.title}</h2>
-
-<div>
-<span class="tag">${a.gs}</span>
-<span class="tag">${a.source}</span>
-</div>
-
-<div class="box">
-<b>Prelims Facts</b>
-<ul>${a.points.map(p=>`<li>${p}</li>`).join("")}</ul>
-</div>
-
-<div class="box">
-<b>Mains Value Addition</b>
-<p>${a.mains||"Use in UPSC answer writing."}</p>
-</div>
-`;
-
-c.appendChild(card);
-
-});
-
-if(!list.length){
-
-c.innerHTML="<div class='card'>No articles found.</div>";
-
+    render();
+  } catch (e) {
+    document.getElementById("newsContainer").innerHTML =
+      `<div class="card">Error: ${e.message}</div>`;
+  }
 }
 
+function render() {
+  const q = document.getElementById("search").value.toLowerCase();
+  const list = articles.filter(a =>
+    (currentFilter === "All" || a.gs === currentFilter) &&
+    a.title.toLowerCase().includes(q)
+  );
+
+  const c = document.getElementById("newsContainer");
+  c.innerHTML = "";
+
+  list.forEach(a => {
+    c.innerHTML += `
+      <div class="card">
+        <h2>${a.title}</h2>
+        <div>
+          <span class="tag">${a.gs}</span>
+          <span class="tag">${a.source}</span>
+        </div>
+        <div class="box">
+          <b>Prelims Facts</b>
+          <ul>${a.points.map(p => `<li>${p}</li>`).join("")}</ul>
+        </div>
+        <div class="box">
+          <b>Mains Value Addition</b>
+          <p>${a.mains}</p>
+        </div>
+      </div>`;
+  });
+
+  if (!list.length) {
+    c.innerHTML = "<div class='card'>No articles found.</div>";
+  }
 }
 
-function setFilter(f,el){
-
-currentFilter=f;
-
-document.querySelectorAll(".chip").forEach(x=>x.classList.remove("active"));
-
-el.classList.add("active");
-
-render();
-
+function setFilter(f, el) {
+  currentFilter = f;
+  document.querySelectorAll(".chip").forEach(x => x.classList.remove("active"));
+  el.classList.add("active");
+  render();
 }
 
-document.getElementById("search").addEventListener("input",render);
-
+document.getElementById("search").addEventListener("input", render);
 loadCurrentAffairs();
 </script>
 
