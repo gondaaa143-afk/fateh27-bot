@@ -1,45 +1,40 @@
 {
-  "date": "2026-03-30",
-  "top_current_affairs": [
+  "date": "2024-05-20",
+  "current_affairs": [
     {
-      "id": 1,
-      "title": "Supreme Court Clarifies Guidelines on Arbitrary Demolitions ('Bulldozer Justice')",
-      "category": "Polity & Governance",
-      "gs_paper": "GS Paper II",
-      "summary": "The Supreme Court reiterates mandatory procedural safeguards, including advance notice and personal hearings, before any property demolition, emphasizing that executive overreach violates the Rule of Law and Article 21.",
-      "upsc_relevance": "Important for constitutional law, fundamental rights (Article 21), rule of law, and judicial oversight of executive actions."
+      "rank": 1,
+      "category": "Polity and Governance",
+      "title": "Supreme Court Seven-Judge Bench Ruling on Sub-Categorization of SC/STs",
+      "summary": "The Supreme Court of India ruled that states have the constitutional authority to create sub-categories within Scheduled Castes (SCs) and Scheduled Tribes (STs) to extend targeted affirmative action to the most disadvantaged groups within these categories.",
+      "upsc_relevance": "GS Paper II: Indian Constitution—historical underpinnings, evolution, features, amendments, significant provisions and basic structure; Mechanisms, Laws, Institutions for vulnerable sections."
     },
     {
-      "id": 2,
-      "title": "RBI Releases Updated Framework for Climate-Related Financial Risks",
-      "category": "Economy & Environment",
-      "gs_paper": "GS Paper III",
-      "summary": "The Reserve Bank of India has issued guidelines for Regulated Entities (REs) to incorporate climate risk management, green finance classification, and stress testing against extreme weather events.",
-      "upsc_relevance": "Relevant for economic development, sustainable finance, climate risk integration in banking, and RBI's regulatory role."
+      "rank": 2,
+      "category": "Environment and Ecology",
+      "title": "Addition of New Ramsar Sites to India's Network",
+      "summary": "India has expanded its list of Wetlands of International Importance under the Ramsar Convention, bringing the total count to 85. The newly designated sites emphasize conservation efforts in critical biodiversity hotspots and coastal ecosystems.",
+      "upsc_relevance": "GS Paper III: Conservation, Environmental Pollution and Degradation, Environmental Impact Assessment; International Environmental Conventions."
     },
     {
-      "id": 3,
-      "title": "India and ASEAN Finalize Scope for Reviewing the AITIGA Agreement",
+      "rank": 3,
+      "category": "Science and Technology",
+      "title": "Final Integration Phase of NASA-ISRO NISAR Satellite Mission",
+      "summary": "The joint NASA-ISRO Synthetic Aperture Radar (NISAR) mission enters its final pre-launch testing phase. Operating dual-frequency L-band and S-band radar, NISAR will track Earth's land-surface changes, glacier movements, and ecosystem dynamics globally every 12 days.",
+      "upsc_relevance": "GS Paper III: Science and Technology- developments and their applications and effects in everyday life; Achievements of Indians in science & technology; Space technology."
+    },
+    {
+      "rank": 4,
+      "category": "Economy",
+      "title": "RBI Framework on Climate-Related Financial Risks and Green Finance",
+      "summary": "The Reserve Bank of India (RBI) issued detailed guidelines for Regulated Entities (REs) regarding climate risk management, requiring financial institutions to disclose climate-related financial risks and implement green lending metrics.",
+      "upsc_relevance": "GS Paper III: Indian Economy and issues relating to planning, mobilization of resources, growth, development, and sustainable finance."
+    },
+    {
+      "rank": 5,
       "category": "International Relations",
-      "gs_paper": "GS Paper II",
-      "summary": "India and ASEAN member states agreed on terms to revise the ASEAN-India Trade in Goods Agreement (AITIGA) to address trade deficits, non-tariff barriers, and supply chain resilience.",
-      "upsc_relevance": "Crucial for Act East Policy, bilateral trade agreements, Indo-Pacific diplomacy, and regional integration."
-    },
-    {
-      "id": 4,
-      "title": "Draft Rules Issued for the Indian Carbon Market (ICM)",
-      "category": "Environment & Ecology",
-      "gs_paper": "GS Paper III",
-      "summary": "The Ministry of Power and MoEFCC released guidelines for the Carbon Credit Trading Scheme (CCTS), establishing mechanisms for voluntary and compliance-based carbon offset trading for major industries.",
-      "upsc_relevance": "Key topic for climate change mitigation, NDC commitments under the Paris Agreement, and market-based environmental instruments."
-    },
-    {
-      "id": 5,
-      "title": "Cabinet Approves National Mission on Critical and Strategic Minerals",
-      "category": "Science & Technology / Economy",
-      "gs_paper": "GS Paper III",
-      "summary": "The government launched a dedicated mission aimed at domestic exploration, processing capacity, and international acquisition of critical minerals like lithium, cobalt, and rare earth elements (REEs).",
-      "upsc_relevance": "High relevance for energy transition, clean technology manufacturing, strategic autonomy, and mineral security."
+      "title": "BIMSTEC Connectivity Master Plan Roadmap Finalized",
+      "summary": "Member nations of the Bay of Bengal Initiative for Multi-Sectoral Technical and Economic Cooperation (BIMSTEC) adopted a concrete implementation strategy for the Master Plan for Transport Connectivity, focusing on port linkages, cross-border transport, and trade facilitation.",
+      "upsc_relevance": "GS Paper II: Regional and Global Groupings and Agreements involving India and/or affecting India's interests; India and its Neighborhood relations."
     }
   ]
 }
