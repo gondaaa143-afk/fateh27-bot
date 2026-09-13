@@ -1,41 +1,66 @@
 {
-  "date": "2024-05-20",
-  "source_target": "UPSC Civil Services Examination",
-  "top_current_affairs": [
+  "date": "2026-02-18",
+  "source_domain": "UPSC Civil Services Current Affairs",
+  "top_5_topics": [
     {
       "rank": 1,
-      "title": "Supreme Court Recognizes Right Against Climate Change as a Fundamental Right",
-      "gs_paper": "GS Paper II (Polity) & GS Paper III (Environment)",
-      "summary": "The Supreme Court of India expanded Articles 14 and 21 of the Constitution to include the right to be free from the adverse effects of climate change, emphasizing that human rights and environmental protection are deeply intertwined.",
-      "key_takeaway": "Links fundamental rights directly to climate action; critical for mains answers on environmental jurisprudence."
+      "title": "National Green Hydrogen Mission and Next-Gen Energy Transition",
+      "gs_paper": "GS Paper 3: Environment, Conservation, and Economy",
+      "summary": "India accelerates the implementation of the National Green Hydrogen Mission to reduce carbon intensity and achieve its net-zero goals by 2070.",
+      "key_points": [
+        "Focus on pilot projects in steel making, heavy transport, and shipping sectors.",
+        "Strategic Interventions for Green Hydrogen Transition (SIGHT) program providing financial incentives for electrolyser manufacturing.",
+        "Key challenges include high production costs, infrastructure constraints, and water resource management."
+      ],
+      "upsc_relevance": "Important for questions on renewable energy targets, climate change mitigation, and sustainable economic growth."
     },
     {
       "rank": 2,
-      "title": "Cabinet Approves National 'IndiaAI Mission' to Drive AI Infrastructure",
-      "gs_paper": "GS Paper III (Science & Technology & Economy)",
-      "summary": "The Union Cabinet sanctioned the IndiaAI Mission with a budget allocation exceeding ₹10,000 crore to build compute capacity, establish AI Innovation Centers, and foster ethical AI applications across key sectors.",
-      "key_takeaway": "Focuses on public-private partnerships in deep-tech, digital public infrastructure (DPI), and AI governance."
+      "title": "Deliberations on Electoral Reforms and the 'One Nation, One Election' Framework",
+      "gs_paper": "GS Paper 2: Indian Constitution, Polity, and Governance",
+      "summary": "High-level committee recommendations on simultaneous elections spark nationwide debates regarding federalism and constitutional amendments.",
+      "key_points": [
+        "Requires constitutional amendments to Articles 83, 85, 172, 174, and 356.",
+        "Proponents argue it reduces election expenditure and policy paralysis.",
+        "Critics raise concerns about undermining regional federal dynamics and national issues overshadowing state issues."
+      ],
+      "upsc_relevance": "Crucial for polity topics on constitutional amendments, federal structure, and electoral integrity."
     },
     {
       "rank": 3,
-      "title": "High-Level Committee Recommendations on 'One Nation, One Election'",
-      "gs_paper": "GS Paper II (Governance & Electoral Reforms)",
-      "summary": "The Ram Nath Kovind-led panel formally submitted its report recommending a two-phase framework to synchronize elections for the Lok Sabha, State Legislative Assemblies, and local bodies.",
-      "key_takeaway": "Requires constitutional amendments regarding Article 83, Article 172, and ratification by states; important for polity mains."
+      "title": "Progress on the India-Middle East-Europe Economic Corridor (IMEC)",
+      "gs_paper": "GS Paper 2: International Relations and Strategic Partnerships",
+      "summary": "Strategic engagements continue to operationalize the IMEC project aimed at enhancing connectivity and trade integration across Asia, the Arabian Gulf, and Europe.",
+      "key_points": [
+        "Comprises Eastern Corridor (connecting India to Gulf) and Northern Corridor (connecting Gulf to Europe).",
+        "Aims to secure supply chains, boost digital connectivity, and support clean energy trade.",
+        "Geopolitical instabilities in the Middle East present operational challenges."
+      ],
+      "upsc_relevance": "Key topic for questions on India's foreign policy, maritime security, and global infrastructure initiatives."
     },
     {
       "rank": 4,
-      "title": "Red Sea Security Crisis and Global Supply Chain Disruptions",
-      "gs_paper": "GS Paper II (International Relations) & GS Paper III (Security)",
-      "summary": "Ongoing maritime security threats in the Bab-el-Mandeb Strait by Houthi forces have led to increased freight costs, rerouting of trade via the Cape of Good Hope, and enhanced anti-piracy deployments by the Indian Navy.",
-      "key_takeaway": "Highlights strategic maritime choke points, India's Net Security Provider role in the Indian Ocean Region (IOR), and economic vulnerability."
+      "title": "National Deep Tech Startup Policy (NDTSP) and Responsible AI Framework",
+      "gs_paper": "GS Paper 3: Science & Technology and Innovation",
+      "summary": "The government pushes for finalizing the Deep Tech policy to bolster research and development in artificial intelligence, quantum computing, and biotechnology.",
+      "key_points": [
+        "Focuses on simplified regulatory frameworks, IP protection, and specialized funding mechanisms.",
+        "Emphasizes Ethical AI and data privacy guardrails aligned with the Digital Personal Data Protection (DPDP) Act.",
+        "Aims to bridge the gap between academic research and commercial technology deployment."
+      ],
+      "upsc_relevance": "Relevant for questions regarding emerging technologies, intellectual property rights, and AI governance."
     },
     {
       "rank": 5,
-      "title": "NDMA Guidelines for Glacial Lake Outburst Floods (GLOFs) Risk Reduction",
-      "gs_paper": "GS Paper III (Disaster Management & Geography)",
-      "summary": "In response to heightened vulnerabilities in the High Mountain Asia region, the National Disaster Management Authority (NDMA) expanded early-warning installations and hazard mapping across high-risk glacial lakes in Sikkim and Ladakh.",
-      "key_takeaway": "Focuses on Sendai Framework alignment, disaster resilience, climate adaptation strategies, and early warning systems."
+      "title": "Great Nicobar Island Development Project and Ecological Balance",
+      "gs_paper": "GS Paper 3: Environment, Biodiversity, and Disaster Management",
+      "summary": "Ongoing legal and environmental scrutiny surrounds the holistic development of Great Nicobar Island balancing strategic defense imperatives with fragile ecosystem conservation.",
+      "key_points": [
+        "Involves an International Transshipment Port, an airport, power plant, and township development.",
+        "Raises concerns over loss of rainforest cover, impact on indigenous Shompen and Nicobarese tribes, and turtle nesting sites.",
+        "Compensatory afforestation and environmental safeguard monitoring committees established."
+      ],
+      "upsc_relevance": "High probability topic for environmental impact assessment (EIA), tribal rights, and strategic island infrastructure."
     }
   ]
 }
