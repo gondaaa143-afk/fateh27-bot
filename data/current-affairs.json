@@ -1,60 +1,65 @@
 {
-  "date": "2024-10-24",
-  "category": "UPSC Current Affairs Top 5",
-  "items": [
+  "date": "2024-05-20",
+  "source_domain": "UPSC Current Affairs",
+  "topics": [
     {
       "rank": 1,
-      "title": "Digital Agriculture Mission Approved",
-      "gs_paper": "GS Paper III (Agriculture & Economy)",
-      "summary": "The Union Cabinet approved the Digital Agriculture Mission with an outlay of ₹2,817 crore to build Digital Public Infrastructure (DPI) for the agriculture sector.",
+      "title": "India and Iran Sign 10-Year Long-Term Contract for Chabahar Port Operations",
+      "gs_paper": "GS Paper II (International Relations)",
+      "category": "International Relations",
+      "summary": "India Ports Global Limited (IPGL) signed a long-term main contract with Iran's Port and Maritime Organisation (PMO) to equip and operate the Shahid Beheshti Terminal at Chabahar Port for 10 years.",
       "key_points": [
-        "Includes AgriStack (Farmers' Registry, Crop Sown Registry, Village Maps).",
-        "Aims to enable tech-driven crop estimation, modern advisory, and seamless credit flow.",
-        "Promotes the use of AI, Big Data, and remote sensing in Indian farming."
+        "Provides alternative trade route bypassing Pakistan to Afghanistan and Central Asia.",
+        "Crucial component of the International North-South Transport Corridor (INSTC).",
+        "Strategic counterweight to China's presence in Pakistan's Gwadar Port."
       ]
     },
     {
       "rank": 2,
-      "title": "Unified Pension Scheme (UPS)",
-      "gs_paper": "GS Paper II & III (Governance & Fiscal Policy)",
-      "summary": "The Central Government introduced the Unified Pension Scheme for government employees, combining features of the National Pension System (NPS) and Old Pension Scheme (OPS).",
+      "title": "RBI Approves Record Surplus Transfer of ₹2.11 Lakh Crore to Central Government",
+      "gs_paper": "GS Paper III (Indian Economy)",
+      "category": "Economy",
+      "summary": "The Reserve Bank of India's Board approved a dividend payout of ₹2.11 lakh crore to the Union Government for FY24 under the Economic Capital Framework (ECF).",
       "key_points": [
-        "Provides an assured pension of 50% of average basic pay for minimum 25 years of service.",
-        "Includes assured family pension at 60% of the employee's pension.",
-        "Ensures inflation indexation and a guaranteed minimum pension of ₹10,000/month."
+        "Framework guided by the Bimal Jalan Committee recommendations.",
+        "Contingency Risk Buffer (CRB) raised to 6.5% from 6.0%.",
+        "Helps fiscal consolidation efforts and infrastructure funding without widening the fiscal deficit."
       ]
     },
     {
       "rank": 3,
-      "title": "Anusandhan National Research Foundation (ANRF) First Board Meeting",
+      "title": "ISRO Successfully Tests 3D-Printed Liquid Rocket Engine",
       "gs_paper": "GS Paper III (Science & Technology)",
-      "summary": "The inaugural meeting of the ANRF Governing Board laid down the roadmap to democratize India's R&D ecosystem and boost industry-academia linkages.",
+      "category": "Science & Technology",
+      "summary": "The Indian Space Research Organisation achieved a milestone by successfully hot-testing a liquid rocket engine produced using Additive Manufacturing Technology (3D printing).",
       "key_points": [
-        "Established under the ANRF Act, 2023, replacing the Science and Engineering Research Board (SERB).",
-        "Introduces the 'PAIR' (Partnerships for Accelerated Innovation and Research) hub-and-spoke model.",
-        "Focuses on translational research and expanding R&D capacity in state universities."
+        "Engine used in PSLV's PS4 stage.",
+        "Reduces manufacturing time by 60% and raw material usage by 97%.",
+        "Demonstrates advanced indigenous capabilities in aerospace manufacturing."
       ]
     },
     {
       "rank": 4,
-      "title": "Ecological Safeguards for Great Nicobar Project",
-      "gs_paper": "GS Paper III (Environment & Biodiversity)",
-      "summary": "Discussions surrounding the ₹72,000-crore Great Nicobar Island Holistic Development Project highlight the balance between national strategic security and ecological conservation.",
+      "title": "Supreme Court Clarifies Scope of Governor's Assent to Bills Under Article 200",
+      "gs_paper": "GS Paper II (Polity & Governance)",
+      "category": "Polity",
+      "summary": "The Supreme Court deliberated on the timeline and discretionary powers of State Governors regarding withholding assent or referring state legislative bills to the President.",
       "key_points": [
-        "Project includes an International Transshipment Port, International Airport, and Power Plant.",
-        "Raises concerns over impact on Particular Vulnerable Tribal Groups (PVTGs) like Shompen and Nicobarese.",
-        "Involves compensatory afforestation measures and protection of nesting sites for Leatherback turtles."
+        "Article 200 outlines options for Governors: Grant assent, withhold assent, return bill, or reserve for President.",
+        "Emphasizes constitutional conventions to prevent legislative deadlocks.",
+        "Crucial for federal harmony and center-state relations."
       ]
     },
     {
       "rank": 5,
-      "title": "India-Middle East-Europe Economic Corridor (IMEC) Developments",
-      "gs_paper": "GS Paper II (International Relations & Infrastructure)",
-      "summary": "Efforts to operationalize the IMEC initiative gain momentum as partner nations work on standardized logistics protocols despite regional geopolitical tensions.",
+      "title": "Environmental Concerns Raised Over the Great Nicobar Development Project",
+      "gs_paper": "GS Paper III (Environment & Ecology)",
+      "category": "Environment",
+      "summary": "The mega-infrastructure project at Great Nicobar Island faces scrutiny regarding its potential impact on biodiversity hotspots, primary rain forests, and indigenous tribes like the Shompen.",
       "key_points": [
-        "Unveiled on the sidelines of the G20 Summit in New Delhi.",
-        "Comprises the East Corridor (connecting India to the Arabian Gulf) and Northern Corridor (Gulf to Europe).",
-        "Aims to enhance trade efficiency, lower transportation costs, and foster clean energy connectivity."
+        "Includes a transshipment port, international airport, and power plant.",
+        "Involves diversion of sensitive forest land near Campbell Bay and Galathea National Parks.",
+        "Balances geopolitical imperatives in the Indian Ocean Region with ecological sustainability."
       ]
     }
   ]
