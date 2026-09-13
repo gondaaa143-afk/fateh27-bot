@@ -1,55 +1,45 @@
 {
-  "date": "2024-05-24",
-  "top_5_upsc_current_affairs": [
+  "date": "2024-05-20",
+  "top_current_affairs": [
     {
       "rank": 1,
-      "title": "10-Year Bilateral Contract for Chabahar Port Operation",
-      "gs_paper": "GS Paper 2 (International Relations)",
-      "key_points": [
-        "India Ports Global Limited (IPGL) signed a 10-year contract with Iran's Ports and Maritime Organization to operate the Shahid Beheshti Terminal.",
-        "Crucial for India's trade connectivity to Central Asia via the International North-South Transport Corridor (INSTC), bypassing Pakistan.",
-        "U.S. sanctions warnings pose a potential diplomatic and economic challenge."
-      ]
+      "title": "Implementation of New Criminal Laws (BNS, BNSS, BSA)",
+      "gs_paper": "GS Paper II (Polity & Governance)",
+      "category": "Governance & Legislation",
+      "summary": "India transitions to the Bharatiya Nyaya Sanhita, Bharatiya Nagarik Suraksha Sanhita, and Bharatiya Sakshya Adhiniyam, replacing colonial-era laws with a focus on modernizing justice delivery, victim protection, and digital evidence.",
+      "key_upsc_relevance": "Important for questions on judicial reforms, fundamental rights, procedural law efficiency, and the balance between state security and civil liberties."
     },
     {
       "rank": 2,
-      "title": "Record Surplus Transfer by RBI to the Central Government",
-      "gs_paper": "GS Paper 3 (Indian Economy)",
-      "key_points": [
-        "The Reserve Bank of India approved a record dividend payout of ₹2.11 lakh crore for FY 2023-24 under the Bimal Jalan Committee Economic Capital Framework.",
-        "Increased the Contingency Risk Buffer (CRB) to 6.5% from 6.0%.",
-        "Provides fiscal headroom to the government to reduce fiscal deficit or increase capital expenditure."
-      ]
+      "title": "India-Middle East-Europe Economic Corridor (IMEEC) Developments",
+      "gs_paper": "GS Paper II (International Relations)",
+      "category": "International Affairs & Infrastructure",
+      "summary": "Strategic discussions continue on operationalizing the IMEEC to enhance connectivity, boost trade resilience, and provide an alternative global supply chain route amidst Red Sea geopolitical tensions.",
+      "key_upsc_relevance": "Relevant for topics on bilateral/multilateral agreements involving India's strategic interests, Indo-Pacific region, and global supply chain diversification."
     },
     {
       "rank": 3,
-      "title": "Supreme Court Recognizes Right Against Climate Change Effects",
-      "gs_paper": "GS Paper 2 (Polity & Governance / Judiciary)",
-      "key_points": [
-        "In MK Ranjitsinh v. Union of India, the SC expanded Articles 14 and 21 to include the right to be free from adverse impacts of climate change.",
-        "Balanced Great Indian Bustard (GIB) protection with India's international renewable energy commitments.",
-        "Sets a precedent for climate litigation and constitutional environmental law in India."
-      ]
+      "title": "Draft Notification on Western Ghats Ecologically Sensitive Area (ESA)",
+      "gs_paper": "GS Paper III (Environment & Ecology)",
+      "category": "Biodiversity & Conservation",
+      "summary": "The Ministry of Environment, Forest and Climate Change re-issued a draft notification declaring over 56,000 sq km of the Western Ghats as Ecologically Sensitive Area, balancing biodiversity conservation with local livelihood concerns.",
+      "key_upsc_relevance": "Crucial for questions regarding environmental impact assessments, Kasturirangan/Gadgil committee recommendations, and sustainable development goals."
     },
     {
       "rank": 4,
-      "title": "Mission Divyastra: Successful Test of Agni-V with MIRV Tech",
-      "gs_paper": "GS Paper 3 (Science & Technology - Defence)",
-      "key_points": [
-        "DRDO successfully tested the Agni-V missile equipped with Multiple Independently Targetable Re-entry Vehicle (MIRV) technology.",
-        "Allows a single missile to deploy multiple warheads at different targets hundreds of kilometers apart.",
-        "Places India in a select group of nations possessing advanced nuclear deterrence capability."
-      ]
+      "title": "RBI's Surplus Transfer to the Central Government",
+      "gs_paper": "GS Paper III (Indian Economy)",
+      "category": "Fiscal Policy & Banking",
+      "summary": "The Reserve Bank of India approved a record dividend transfer to the Central Government under the Economic Capital Framework (ECF), aiding fiscal deficit targets and capital expenditure plans.",
+      "key_upsc_relevance": "Key topic for questions on central bank autonomy, Bimal Jalan Committee recommendations, fiscal consolidation, and non-tax revenue sources."
     },
     {
       "rank": 5,
-      "title": "Ecological & Tribal Concerns Over Great Nicobar Project",
-      "gs_paper": "GS Paper 3 (Environment, Bio-diversity & Disaster Management)",
-      "key_points": [
-        "NITI Aayog's ₹72,000-crore mega-development project includes an International Container Transshipment Terminal, airport, and power plant.",
-        "High environmental risk to endemic flora/fauna and critical nesting sites of the Leatherback sea turtle.",
-        "Raises serious human rights concerns regarding the Particularly Vulnerable Tribal Group (PVTG) Shompen and Nicobarese communities."
-      ]
+      "title": "Adoption of Digital Public Infrastructure (DPI) and AI Governance Frameworks",
+      "gs_paper": "GS Paper III (Science & Technology)",
+      "category": "Technology & E-Governance",
+      "summary": "India advances its IndiaAI Mission to democratize AI compute capacity and secure data infrastructure, promoting ethical AI deployment alongside expanding the India Stack to global markets.",
+      "key_upsc_relevance": "Highly significant for questions on emerging technologies, ethical AI frameworks, digital divide, and technology-driven inclusive growth."
     }
   ]
 }
