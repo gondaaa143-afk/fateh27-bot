@@ -1,40 +1,45 @@
 {
-  "date": "2024-05-20",
-  "topics": [
+  "date": "2026-03-30",
+  "top_current_affairs": [
     {
-      "rank": 1,
-      "title": "Flight Test of Agni-V with MIRV Technology (Mission Divyastra)",
-      "category": "Science & Technology / Defence",
-      "summary": "India successfully conducted the first flight test of the endogenously developed Agni-V missile equipped with Multiple Independently Targetable Re-entry Vehicle (MIRV) technology, joining an elite group of nations possessing this capability.",
-      "upsc_relevance": "GS Paper III: Indigenization of technology, Security challenges, and strategic deterrence."
-    },
-    {
-      "rank": 2,
-      "title": "High-Level Committee Recommendations on Simultaneous Elections",
+      "id": 1,
+      "title": "Supreme Court Clarifies Guidelines on Arbitrary Demolitions ('Bulldozer Justice')",
       "category": "Polity & Governance",
-      "summary": "The Ram Nath Kovind-led High-Level Committee submitted its report recommending a two-phase framework to synchronize elections for the Lok Sabha, State Assemblies, and local bodies across India.",
-      "upsc_relevance": "GS Paper II: Constitutional amendments, Federal structure, and Electoral reforms."
+      "gs_paper": "GS Paper II",
+      "summary": "The Supreme Court reiterates mandatory procedural safeguards, including advance notice and personal hearings, before any property demolition, emphasizing that executive overreach violates the Rule of Law and Article 21.",
+      "upsc_relevance": "Important for constitutional law, fundamental rights (Article 21), rule of law, and judicial oversight of executive actions."
     },
     {
-      "rank": 3,
-      "title": "Environmental Impact Assessment of the Great Nicobar Island Project",
-      "category": "Environment & Ecology",
-      "summary": "Ongoing policy reviews highlight the ecological trade-offs of the Rs 72,000-crore Great Nicobar Project, focusing on forest clearance, the protection of the particularly vulnerable Shompen tribe, and marine biodiversity.",
-      "upsc_relevance": "GS Paper III: Conservation, environmental pollution and degradation, Environmental Impact Assessment (EIA)."
+      "id": 2,
+      "title": "RBI Releases Updated Framework for Climate-Related Financial Risks",
+      "category": "Economy & Environment",
+      "gs_paper": "GS Paper III",
+      "summary": "The Reserve Bank of India has issued guidelines for Regulated Entities (REs) to incorporate climate risk management, green finance classification, and stress testing against extreme weather events.",
+      "upsc_relevance": "Relevant for economic development, sustainable finance, climate risk integration in banking, and RBI's regulatory role."
     },
     {
-      "rank": 4,
-      "title": "Operationalization Framework for the India-Middle East-Europe Economic Corridor (IMEC)",
+      "id": 3,
+      "title": "India and ASEAN Finalize Scope for Reviewing the AITIGA Agreement",
       "category": "International Relations",
-      "summary": "India and key regional partners signed preliminary framework agreements to advance the IMEC, focusing on multi-modal logistics, digital connectivity, and green energy export routes.",
-      "upsc_relevance": "GS Paper II: Bilateral, regional and global groupings, and agreements involving India."
+      "gs_paper": "GS Paper II",
+      "summary": "India and ASEAN member states agreed on terms to revise the ASEAN-India Trade in Goods Agreement (AITIGA) to address trade deficits, non-tariff barriers, and supply chain resilience.",
+      "upsc_relevance": "Crucial for Act East Policy, bilateral trade agreements, Indo-Pacific diplomacy, and regional integration."
     },
     {
-      "rank": 5,
-      "title": "RBI's Expansion of Digital Rupee (e-₹) Interoperability with UPI",
-      "category": "Indian Economy",
-      "summary": "The Reserve Bank of India integrated Central Bank Digital Currency (CBDC) retail architecture with Unified Payments Interface (UPI) QR codes to increase adoption and financial inclusion.",
-      "upsc_relevance": "GS Paper III: Indian Economy, monetary policy, digital public infrastructure, and banking sector reforms."
+      "id": 4,
+      "title": "Draft Rules Issued for the Indian Carbon Market (ICM)",
+      "category": "Environment & Ecology",
+      "gs_paper": "GS Paper III",
+      "summary": "The Ministry of Power and MoEFCC released guidelines for the Carbon Credit Trading Scheme (CCTS), establishing mechanisms for voluntary and compliance-based carbon offset trading for major industries.",
+      "upsc_relevance": "Key topic for climate change mitigation, NDC commitments under the Paris Agreement, and market-based environmental instruments."
+    },
+    {
+      "id": 5,
+      "title": "Cabinet Approves National Mission on Critical and Strategic Minerals",
+      "category": "Science & Technology / Economy",
+      "gs_paper": "GS Paper III",
+      "summary": "The government launched a dedicated mission aimed at domestic exploration, processing capacity, and international acquisition of critical minerals like lithium, cobalt, and rare earth elements (REEs).",
+      "upsc_relevance": "High relevance for energy transition, clean technology manufacturing, strategic autonomy, and mineral security."
     }
   ]
 }
