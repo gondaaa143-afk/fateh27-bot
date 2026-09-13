@@ -1,40 +1,60 @@
 {
-  "date": "2024-10-24",
-  "current_affairs": [
+  "date": "2024-05-20",
+  "top_5_current_affairs": [
     {
       "rank": 1,
-      "title": "Cabinet Approves High-Level Committee Recommendations on 'One Nation, One Election'",
-      "category": "Polity & Governance (GS Paper II)",
-      "summary": "The Union Cabinet accepted the recommendations of the Ram Nath Kovind-led committee to conduct simultaneous elections for the Lok Sabha and State Legislative Assemblies in the first phase, followed by local body elections within 100 days.",
-      "upsc_relevance": "Important for questions on Constitutional Amendments (Article 83, 172), Federalism, Law Commission reports, and Electoral Reforms."
+      "title": "Gaganyaan Mission: ISRO Successfully Tests Drogue Parachutes",
+      "gs_paper": "GS Paper 3: Science and Technology",
+      "summary": "ISRO conducted a series of Drogue Parachute deployment tests critical for stabilizing the crew module during the re-entry phase of the Gaganyaan human spaceflight mission.",
+      "key_points": [
+        "Drogue parachutes slow down and stabilize the module before main parachute deployment.",
+        "Developed jointly by DRDO's Aerial Delivery Research and Development Establishment (ADRDE) and ISRO.",
+        "Essential milestone for India's target to send a 3-member crew into a 400 km orbit."
+      ]
     },
     {
       "rank": 2,
-      "title": "Government Launches Unified Pension Scheme (UPS) for Central Employees",
-      "category": "Economy & Social Justice (GS Paper III/II)",
-      "summary": "The Centre introduced the Unified Pension Scheme, combining features of the National Pension System (NPS) and Old Pension Scheme (OPS). It guarantees an assured pension of 50% of the average basic pay for employees with 25+ years of service.",
-      "upsc_relevance": "Relevant for fiscal policy debates, government budget constraints, social security measures, and public administration reforms."
+      "title": "RBI Approves Surplus Transfer to Central Government",
+      "gs_paper": "GS Paper 3: Indian Economy",
+      "summary": "The Reserve Bank of India approved a significant surplus transfer to the Central Government, enhancing non-tax revenue and helping ease fiscal deficit pressures.",
+      "key_points": [
+        "Surplus calculation is based on the revised Economic Capital Framework (ECF) recommended by the Bimal Jalan Committee.",
+        "Maintains the Contingency Risk Buffer (CRB) within the prescribed range of 5.5% to 6.5%.",
+        "Provides fiscal headroom for government capital expenditure and infrastructure development."
+      ]
     },
     {
       "rank": 3,
-      "title": "ISRO Completes Key Tests for Gaganyaan Crew Module Recovery",
-      "category": "Science & Technology (GS Paper III)",
-      "summary": "ISRO and the Indian Navy successfully carried out simulated recovery operations of the Gaganyaan Crew Module, moving closer to India's first human spaceflight mission.",
-      "upsc_relevance": "Key topic for space technology, indigenization of tech, and India's achievements in Science and Technology."
+      "title": "India-Middle East-Europe Economic Corridor (IMEC) Implementation Focus",
+      "gs_paper": "GS Paper 2: International Relations",
+      "summary": "Partner countries hold bilateral discussions to fast-track logistics and operational frameworks for the IMEC project launched during the G20 Summit.",
+      "key_points": [
+        "Comprises the East Corridor (connecting India to the Arabian Gulf) and the Northern Corridor (connecting the Gulf to Europe).",
+        "Includes railway networks, ship-to-rail transit routes, electricity cables, and hydrogen pipelines.",
+        "Aims to boost trade efficiency, enhance energy security, and counter China's Belt and Road Initiative (BRI)."
+      ]
     },
     {
       "rank": 4,
-      "title": "Ecological Concerns Raised Over Great Nicobar Island Development Project",
-      "category": "Environment & Ecology (GS Paper III)",
-      "summary": "Environmentalists and indigenous rights groups have highlighted severe threats to the Shompen and Nicobarese tribes, as well as fragile coral ecosystems, due to the mega transshipment port and infrastructure push.",
-      "upsc_relevance": "Pertains to Environmental Impact Assessment (EIA), Particularly Vulnerable Tribal Groups (PVTGs), coastal zone regulation, and balancing ecology vs. strategic infrastructure."
+      "title": "NDMA Issues Fresh Directives for Urban Flood Resilience",
+      "gs_paper": "GS Paper 3: Disaster Management",
+      "summary": "The National Disaster Management Authority (NDMA) released updated guidelines encouraging cities to adopt 'Sponge City' principles to combat increasing urban flooding.",
+      "key_points": [
+        "Recommends Sustainable Urban Drainage Systems (SuDS) and protection of natural wetlands.",
+        "Mandates real-time flood monitoring systems and integrated hydrological modeling.",
+        "Addresses risks linked to unplanned urbanization, concrete coverage, and climate-induced extreme rain events."
+      ]
     },
     {
       "rank": 5,
-      "title": "India Strengthens Maritime Diplomacy in the Western Indian Ocean under SAGAR",
-      "category": "International Relations (GS Paper II)",
-      "summary": "India has deployed naval assets and expanded capacity-building initiatives with Indian Ocean Region (IOR) littoral states like Mauritius, Seychelles, and Madagascar to counter maritime piracy and ensure regional security.",
-      "upsc_relevance": "Crucial for topics on SAGAR initiative, Net Security Provider role in the IOR, UNCLOS, and Geopolitics of the Indo-Pacific."
+      "title": "Supreme Court Directs Standardization of Healthcare Service Rates",
+      "gs_paper": "GS Paper 2: Governance and Polity",
+      "summary": "The Supreme Court urged the Union Government to enforce standardized treatment rates under the Clinical Establishments Act to ensure affordable healthcare.",
+      "key_points": [
+        "Reiterates that the Right to Health is an integral part of the Right to Life under Article 21.",
+        "Highlights disparities in charges between public and private health establishments.",
+        "Calls for uniform state-level enforcement of the Clinical Establishments (Registration and Regulation) Act."
+      ]
     }
   ]
 }
