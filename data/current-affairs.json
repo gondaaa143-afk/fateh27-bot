@@ -4,68 +4,68 @@
   "articles": [
     {
       "id": 1,
-      "title": "India Deep Ocean Mission: MATSYA 6000 Deep-Sea Submersible Trial Milestone",
-      "gs": "GS3",
-      "source": "The Hindu",
-      "summary": "India's indigenous manned submersible MATSYA 6000 successfully advances deep ocean exploration trials under the Ministry of Earth Sciences.",
+      "title": "India-ASEAN Digital Public Infrastructure (DPI) Partnership Framework",
+      "gs": "GS2",
+      "source": "PIB / The Hindu",
+      "summary": "India and ASEAN launched a strategic initiative to export modular Digital Public Infrastructure (DPI) solutions across Southeast Asian economies.",
       "prelims": [
-        "MATSYA 6000 is developed by the National Institute of Ocean Technology (NIOT), Chennai.",
-        "Targeted at exploring polymetallic nodules containing nickel, cobalt, copper, and manganese in the Central Indian Ocean Basin.",
-        "Nodal initiative under the National Deep Ocean Mission launched in 2021."
+        "Digital Public Infrastructure (DPI) consists of interoperable, open-source technology stacks like identity, payments, and data exchange.",
+        "The ASEAN-India Comprehensive Strategic Partnership drives regional digital integration and financial inclusion.",
+        "The framework targets real-time cross-border payment links between UPI and ASEAN national fast-payment networks."
       ],
-      "mains": "Examine the strategic and economic significance of India's Deep Ocean Mission in securing critical mineral supply chains for clean energy transition."
+      "mains": "Use under GS2: Bilateral, regional and global groupings involving India and affecting India's interests; DPI as a pillar of India's soft power diplomacy."
     },
     {
       "id": 2,
-      "title": "Implementation of Bharatiya Nagarik Suraksha Sanhita (BNSS) Digital Evidence Protocols",
-      "gs": "GS2",
-      "source": "Indian Express",
-      "summary": "Union Home Ministry reviews nationwide implementation of mandatory digital evidence collection standards under the new criminal procedural framework.",
+      "title": "Implementation Guidelines for BioE3 Policy: Biomanufacturing Ecosystem",
+      "gs": "GS3",
+      "source": "PIB / Indian Express",
+      "summary": "Department of Biotechnology releases operational guidelines for high-performance biomanufacturing hubs under the BioE3 Policy.",
       "prelims": [
-        "BNSS mandates compulsory videography during search and seizure operations.",
-        "e-Sakshya portal serves as the centralized repository for forensic digital evidence handling.",
-        "Replaced the Code of Criminal Procedure, 1973 to modernize investigation protocols."
+        "BioE3 stands for 'Biotechnology for Economy, Environment, and Employment', led by the Department of Biotechnology (DBT).",
+        "Key focus areas include bio-monomers, smart proteins, precision biotherapeutics, and carbon capture utilization.",
+        "It introduces Bio-AI hubs and biofoundries to scale up circular bioeconomy research and commercialization."
       ],
-      "mains": "Discuss how modernizing criminal justice laws through mandatory digital forensics improves conviction rates while addressing data integrity and privacy concerns."
+      "mains": "Use under GS3: Science and Technology developments; Indigenization of technology; Sustainable development and circular bioeconomy."
     },
     {
       "id": 3,
-      "title": "Digital Public Infrastructure (DPI) Expansion Strategy for Global South",
-      "gs": "GS2",
-      "source": "Business Standard",
-      "summary": "India accelerates the export of modular open-source DPI stacks to developing nations across Africa and Southeast Asia.",
+      "title": "Glacial Lake Outburst Flood (GLOF) Risk Reduction Strategy for the Himalayan Region",
+      "gs": "GS3",
+      "source": "Down To Earth",
+      "summary": "NDMA updates its risk mitigation framework for high-risk glacial lakes across the Indian Himalayan Region aligning with Sendai Framework goals.",
       "prelims": [
-        "India Stack includes identity (Aadhaar), fast payments (UPI), and data governance (Account Aggregator).",
-        "Aligned with the G20 Framework for Systems of Digital Public Infrastructure endorsed during India's presidency.",
-        "Focuses on non-proprietary architecture to ensure technology sovereignty for recipient nations."
+        "GLOFs occur when unstable moraine dams containing glacial lakes breach, releasing large volumes of water.",
+        "The Sendai Framework for Disaster Risk Reduction (2015-2030) sets 4 priority action areas and 7 global targets.",
+        "The strategy mandates IoT-enabled automated weather stations and early warning systems at high-altitude lakes."
       ],
-      "mains": "Analyze Digital Public Infrastructure (DPI) as an instrument of soft power and economic diplomacy in India's foreign policy toward the Global South."
+      "mains": "Use under GS3: Disaster and disaster management; Environmental impact assessment and climate resilience in ecologically fragile zones."
     },
     {
       "id": 4,
-      "title": "National Green Hydrogen Mission: SIGHT Scheme Tranche-II Progress",
+      "title": "National Energy Storage Systems (ESS) Guidelines for Grid Resilience",
       "gs": "GS3",
-      "source": "Livemint",
-      "summary": "Ministry of New & Renewable Energy reviews domestic electrolyzer manufacturing capacity under the SIGHT component.",
+      "source": "Ministry of Power / Livemint",
+      "summary": "Ministry of Power releases framework for integrating grid-scale Battery Energy Storage Systems (BESS) to support 500 GW non-fossil capacity goals.",
       "prelims": [
-        "SIGHT (Strategic Interventions for Green Hydrogen Transition) offers financial incentives for electrolyzers and hydrogen production.",
-        "Targets production of 5 MMT (Million Metric Tonnes) of Green Hydrogen annually by 2030.",
-        "Nodal Ministry: Ministry of New and Renewable Energy (MNRE)."
+        "India aims to achieve 500 GW of non-fossil energy capacity by 2030 as part of its Panchamrit commitments.",
+        "Battery Energy Storage Systems address duck-curve challenges and intermittency inherent to solar and wind power.",
+        "The initiative includes Viability Gap Funding (VGF) support covering up to 40% of capital costs for ESS infrastructure."
       ],
-      "mains": "Critically evaluate the infrastructure and financial bottlenecks in scaling up Green Hydrogen production for hard-to-abate industrial sectors in India."
+      "mains": "Use under GS3: Infrastructure: Energy; Clean energy transition, renewable energy integration, and grid stability."
     },
     {
       "id": 5,
-      "title": "Western Ghats Ecologically Sensitive Area (ESA) Draft Notification",
-      "gs": "GS3",
-      "source": "Down to Earth",
-      "summary": "Environment Ministry updates draft notifications defining Ecologically Sensitive Areas across six Western Ghats states.",
+      "title": "Digital Evidence Management System (DEMS) under Bharatiya Nagarik Suraksha Sanhita",
+      "gs": "GS2",
+      "source": "Economic Times / PIB",
+      "summary": "MHA rolls out standard operational procedures for DEMS to maintain cryptographic chain-of-custody for digital evidence under new criminal laws.",
       "prelims": [
-        "Kasturirangan Committee recommended declaring nearly 37% of the Western Ghats as Ecologically Sensitive Area.",
-        "Madhav Gadgil Commission originally recommended designating 90% of the Western Ghats as ESA.",
-        "Prohibits red-category polluting industries, mining, and large thermal power plants in ESA zones."
+        "Bharatiya Nagarik Suraksha Sanhita (BNSS), 2023 replaced the Code of Criminal Procedure, 1973.",
+        "Section 105 of BNSS mandates videography and photography during search and seizure operations.",
+        "DEMS ensures immutable hash logging and standardized electronic record submission admissible in judicial proceedings."
       ],
-      "mains": "Discuss the challenge of balancing biodiversity conservation with the socio-economic development rights of local communities in fragile bio-regions like the Western Ghats."
+      "mains": "Use under GS2: Government policies and interventions; Technology adoption in judicial and criminal justice reforms."
     }
   ]
 }
