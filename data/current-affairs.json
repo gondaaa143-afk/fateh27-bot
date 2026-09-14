@@ -1,41 +1,56 @@
 {
-  "date": "2024-10-24",
-  "source_domain": "UPSC Current Affairs",
-  "top_topics": [
+  "date": "2024-05-20",
+  "source": "UPSC Current Affairs Daily Digest",
+  "topics": [
     {
-      "rank": 1,
-      "title": "India-EFTA Trade and Economic Partnership Agreement (TEPA)",
-      "category": "International Relations & Economy",
-      "summary": "India signed the historical TEPA with European Free Trade Association (EFTA) countries (Iceland, Liechtenstein, Norway, Switzerland), securing a target of $100 billion investment in India over 15 years.",
-      "upsc_relevance": "GS Paper II (Bilateral Groupings and Agreements) & GS Paper III (Effects of Liberalization on the Economy)"
+      "id": 1,
+      "title": "Supreme Court Clarifies Scope of Article 31C and Private Property Acquisition",
+      "paper_relevance": "GS Paper II - Polity and Constitution",
+      "summary": "A 9-judge Constitution Bench of the Supreme Court heard arguments on whether private resources can be considered 'material resources of the community' under Article 39(b) for distribution to serve the common good.",
+      "key_takeaways": [
+        "Focuses on the interplay between Fundamental Rights (Article 14, 19) and Directive Principles of State Policy (Article 39(b)).",
+        "Re-examines the precedent set in the Sanjeev Coke (1983) and Ranganatha Reddy (1977) cases regarding state control over private assets."
+      ]
     },
     {
-      "rank": 2,
-      "title": "Recommendations on 'One Nation, One Election'",
-      "category": "Polity & Governance",
-      "summary": "The High-Level Committee on Simultaneous Elections submitted recommendations to synchronize elections for Lok Sabha, State Legislative Assemblies, and local bodies in a phased manner.",
-      "upsc_relevance": "GS Paper II (Electoral Reforms, Indian Constitution, Federalism)"
+      "id": 2,
+      "title": "RBI Releases Draft Framework for Climate Risk and Sustainable Finance",
+      "paper_relevance": "GS Paper III - Economy & Environment",
+      "summary": "The Reserve Bank of India issued guidelines mandating Regulated Entities (REs) to implement robust governance and risk management frameworks to address climate-related financial risks.",
+      "key_takeaways": [
+        "Introduces requirements for climate scenario analysis and stress testing by banks.",
+        "Aims to foster sustainable lending aligned with India's Net-Zero emission targets for 2070."
+      ]
     },
     {
-      "rank": 3,
-      "title": "Milestones in India's Gaganyaan Mission Preparation",
-      "category": "Science & Technology",
-      "summary": "ISRO successfully completed key human-rating tests for the L110 Vikas Engine and designated astronaut candidates, preparing for the uncrewed G1 test flight.",
-      "upsc_relevance": "GS Paper III (Awareness in the fields of Space, Indigenization of Technology)"
+      "id": 3,
+      "title": "India Signs 10-Year Long-Term Contract to Operate Chabahar Port in Iran",
+      "paper_relevance": "GS Paper II - International Relations",
+      "summary": "India Ports Global Limited (IPGL) signed a long-term agreement with Iran's Ports and Maritime Organisation (PMO) for operations at the Shahid Beheshti Terminal in Chabahar Port.",
+      "key_takeaways": [
+        "Enhances India's trade connectivity with Central Asia and Russia via the INSTC (International North-South Transport Corridor).",
+        "Bypasses land routes through Pakistan, boosting strategic presence in the Indian Ocean Region."
+      ]
     },
     {
-      "rank": 4,
-      "title": "Environmental Review of the Great Nicobar Island Project",
-      "category": "Environment & Ecology",
-      "summary": "Ongoing scrutiny surrounding the Rs 72,000-crore mega-infrastructure plan in Great Nicobar, balancing strategic maritime dominance with biodiversity conservation and tribal rights (Shompen & Nicobarese).",
-      "upsc_relevance": "GS Paper III (Conservation, Environmental Impact Assessment) & GS Paper I (Tribal Issues)"
+      "id": 4,
+      "title": "MoEFCC Reports Expansion of Invasive Alien Species Threatening Western Ghats Biodiversity",
+      "paper_relevance": "GS Paper III - Environment & Ecology",
+      "summary": "A recent assessment highlights the rapid spread of invasive species like *Senna spectabilis* and *Lantana camara* in Western Ghats protected areas, displacing native flora.",
+      "key_takeaways": [
+        "Aligns with Target 6 of the Kunming-Montreal Global Biodiversity Framework (KMGBF).",
+        "Underscores the need for eco-restoration policies and biological control measures in sensitive ecosystems."
+      ]
     },
     {
-      "rank": 5,
-      "title": "RBI Guidelines on Climate-Related Financial Risks for Banks",
-      "category": "Economy & Environment",
-      "summary": "The Reserve Bank of India released a draft disclosure framework requiring regulated entities to report governance, strategy, and metrics related to climate-related financial risks.",
-      "upsc_relevance": "GS Paper III (Indian Economy, Banking Sector, Sustainable Development)"
+      "id": 5,
+      "title": "ISRO Successfully Tests 3D-Printed Liquid Rocket Engine",
+      "paper_relevance": "GS Paper III - Science & Technology",
+      "summary": "The Indian Space Research Organisation (ISRO) successfully conducted a hot test of a 3D-printed liquid rocket engine (PS engines), reducing manufacturing time and material usage.",
+      "key_takeaways": [
+        "Utilizes Additive Manufacturing technology, lowering raw material waste by nearly 60%.",
+        "Enhances efficiency for the PS4 stage of the Polar Satellite Launch Vehicle (PSLV)."
+      ]
     }
   ]
 }
