@@ -1,66 +1,41 @@
 {
-  "date": "2026-03-30",
-  "source_domain": "UPSC Current Affairs",
-  "items": [
+  "date": "2024-05-20",
+  "source": "UPSC Current Affairs Digest",
+  "current_affairs": [
     {
-      "id": 1,
-      "title": "Supreme Court Ruling on Sub-Classification within Scheduled Castes",
-      "gs_paper": "GS Paper 2 (Polity & Social Justice)",
-      "category": "Polity",
-      "summary": "A seven-judge Constitution Bench of the Supreme Court held that states are constitutionally empowered to create sub-classifications within Scheduled Castes (SCs) to ensure targeted affirmative action for the most backward subgroups.",
-      "key_takeaways": [
-        "Permits sub-classification without violating Article 341(2).",
-        "Requires quantifiable empirical data on inadequacy of representation.",
-        "Introduces the concept of applying the 'creamy layer' principle to SCs and STs."
-      ]
+      "rank": 1,
+      "title": "Supreme Court Recognizes Right to be Free from Climate Change Impacts",
+      "category": "Polity & Environment",
+      "gs_paper": "GS Paper 2 & GS Paper 3",
+      "summary": "The Supreme Court expanded the scope of Article 21 (Right to Life) and Article 14 (Right to Equality) to include the fundamental right to be free from the adverse effects of climate change, while balancing biodiversity conservation of the Great Indian Bustard with renewable energy expansion."
     },
     {
-      "id": 2,
-      "title": "BioE3 (Biotechnology for Economy, Environment and Employment) Policy",
-      "gs_paper": "GS Paper 3 (Science & Technology / Economy)",
-      "category": "Science & Technology",
-      "summary": "The Union Cabinet approved the BioE3 Policy to drive high-performance biomanufacturing, aiming to transition India toward a green, bio-based circular economy.",
-      "key_takeaways": [
-        "Focuses on bio-based chemicals, smart proteins, bioplastics, and precision therapeutics.",
-        "Establishes Bio-foundries and Bio-AI hubs across the country.",
-        "Supports India's net-zero carbon goals and green transition strategy."
-      ]
+      "rank": 2,
+      "title": "India-EFTA Trade and Economic Partnership Agreement (TEPA)",
+      "category": "International Relations & Economy",
+      "gs_paper": "GS Paper 2 & GS Paper 3",
+      "summary": "India signed a historic trade deal with the European Free Trade Association (Iceland, Liechtenstein, Norway, Switzerland), securing a commitment of $100 billion in investments over 15 years and generation of 1 million direct jobs."
     },
     {
-      "id": 3,
-      "title": "Right to Protection against Climate Change under Article 21",
-      "gs_paper": "GS Paper 2 (Governance & Rights) / GS Paper 3 (Environment)",
-      "category": "Environment & Polity",
-      "summary": "The Supreme Court recognized a distinct fundamental right to be free from the adverse impacts of climate change, grounding it under Article 21 (Right to Life) and Article 14 (Right to Equality).",
-      "key_takeaways": [
-        "Explicitly links climate change impacts to fundamental rights.",
-        "Highlights the duty of the state to balance clean energy goals with biodiversity conservation.",
-        "Sets a global precedent for climate litigation in constitutional courts."
-      ]
-    },
-    {
-      "id": 4,
-      "title": "RBI Launches Unified Lending Interface (ULI)",
-      "gs_paper": "GS Paper 3 (Indian Economy & Banking)",
+      "rank": 3,
+      "title": "RBI Transfer of Record Dividend Surplus to the Central Government",
       "category": "Economy",
-      "summary": "The Reserve Bank of India rolled out the Unified Lending Interface (ULI) to streamline and democratize credit delivery, especially for MSMEs and rural borrowers.",
-      "key_takeaways": [
-        "Enables seamless, consent-based digital data flow between lenders and data providers.",
-        "Reduces credit appraisal turnaround time dramatically.",
-        "Acts as a complementary platform to UPI for financial inclusion."
-      ]
+      "gs_paper": "GS Paper 3",
+      "summary": "The Reserve Bank of India approved a record surplus transfer of ₹2.11 lakh crore to the Central Government for FY24 under the Economic Capital Framework (ECF), aiding fiscal deficit targets and capital expenditure plans."
     },
     {
-      "id": 5,
-      "title": "India-Iran 10-Year Long-Term Agreement on Chabahar Port",
-      "gs_paper": "GS Paper 2 (International Relations)",
-      "category": "International Relations",
-      "summary": "India Ports Global Limited (IPGL) signed a 10-year contract with Iran to operate the Shahid Beheshti Terminal at Chabahar Port, securing India's strategic access to Central Asia and Eurasia.",
-      "key_takeaways": [
-        "Provides trade access bypassing Pakistan via the INSTC (International North-South Transport Corridor).",
-        "Enhances India's maritime presence in the Western Indian Ocean.",
-        "Strengthens humanitarian assistance and trade linkages with Afghanistan and Central Asian Republics."
-      ]
+      "rank": 4,
+      "title": "Induction of INS Jatayu at Minicoy Island",
+      "category": "Security & International Relations",
+      "gs_paper": "GS Paper 3",
+      "summary": "The Indian Navy commissioned INS Jatayu at Minicoy Island in Lakshadweep, significantly strengthening maritime domain awareness, operational reach, and anti-piracy operations in the Indian Ocean Region (IOR)."
+    },
+    {
+      "rank": 5,
+      "title": "Plastic Waste Management (Amendment) Rules, 2024",
+      "category": "Environment & Ecology",
+      "gs_paper": "GS Paper 3",
+      "summary": "The Ministry of Environment, Forest and Climate Change notified new rules defining biodegradable plastics, enforcing stricter criteria for microplastics threshold, and introducing mandatory certification by the Central Pollution Control Board (CPCB)."
     }
   ]
 }
