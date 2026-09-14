@@ -1,71 +1,71 @@
 {
   "date": "2026-09-14",
-  "brief": "Today's UPSC Intelligence Brief covering key developments across International Relations, Agriculture & Environment, Deep Sea Mining, Governance, and Critical Minerals.",
+  "brief": "Today's UPSC Intelligence Brief",
   "articles": [
     {
       "id": 1,
-      "title": "Cross-Border Electricity Trade Framework and South Asian Energy Security",
+      "title": "National Data Governance Framework & Ethical AI Guidelines",
       "gs": "GS2",
-      "source": "The Hindu / PIB",
-      "summary": "India expands cross-border electricity trade rules to facilitate regional renewable energy integration across BBIN countries.",
+      "source": "The Hindu",
+      "summary": "MeitY releases updated operational guidelines for non-personal data governance and AI transparency mechanisms in public service delivery.",
       "prelims": [
-        "Governed by Central Electricity Regulatory Commission (CERC) regulations in India.",
-        "BBIN initiative includes Bangladesh, Bhutan, India, and Nepal.",
-        "Facilitates tripartite energy agreements like the Nepal-India-Bangladesh power trade agreement."
+        "Establishes the National Data Management Office (NDMO) under the Ministry of Electronics & IT.",
+        "Focuses primarily on non-personal data (NPD) generated across government departments.",
+        "Mandates algorithmic audit logs for high-risk automated decision systems in public governance."
       ],
-      "mains": "Use as a concrete case study for Neighbourhood First Policy, regional diplomacy, and cross-border energy grid integration in South Asia."
+      "mains": "Examine how the National Data Governance Policy can balance data-driven public service delivery with citizen privacy and ethical AI deployment."
     },
     {
       "id": 2,
-      "title": "Implementation of National Climate Resilient Agriculture Framework",
-      "gs": "GS3",
-      "source": "Indian Express / ICAR",
-      "summary": "ICAR issues updated guidelines for scaling climate-smart agriculture technologies to combat erratic monsoon patterns.",
+      "title": "India-Middle East-Europe Economic Corridor (IMEC) Infrastructure Sync",
+      "gs": "GS2",
+      "source": "Indian Express",
+      "summary": "High-level steering committee assesses port-rail integration readiness across India's western seaboard for IMEC execution.",
       "prelims": [
-        "National Innovations in Climate Resilient Agriculture (NICRA) was launched by ICAR in 2011.",
-        "Emphasizes heat-tolerant crop varieties, Direct Seeded Rice (DSR), and micro-irrigation systems.",
-        "Promotes carbon farming practices and Custom Hiring Centres (CHCs) for modern farm tools."
+        "IMEC consists of the East Corridor (connecting India to the Arabian Gulf) and the Northern Corridor (connecting the Gulf to Europe).",
+        "Includes multi-modal transportation links alongside hydrogen pipelines and high-speed data cables.",
+        "Key Indian nodes identified include Jawaharlal Nehru Port (JNPT), Mundra, and Kandla ports."
       ],
-      "mains": "Useful for answers on agrarian distress, climate change adaptation strategies, and sustainable resource management in agriculture."
+      "mains": "Analyze the strategic and geopolitical significance of IMEC for India's foreign policy amidst evolving global trade dynamics."
     },
     {
       "id": 3,
-      "title": "Deep Sea Mining Code and Protection of Benthic Ecosystems",
+      "title": "National Green Hydrogen Mission: Green Ammonia and Methanol Norms",
       "gs": "GS3",
-      "source": "Down To Earth / UN",
-      "summary": "International Seabed Authority (ISA) reviews safety regulations for polymetallic nodule extraction in international waters.",
+      "source": "PIB",
+      "summary": "Government notifies updated carbon intensity thresholds for green hydrogen derivatives to accelerate decarbonization in heavy industries.",
       "prelims": [
-        "ISA was established under the 1982 UN Convention on the Law of the Sea (UNCLOS).",
-        "Polymetallic nodules are rich sources of nickel, cobalt, copper, and manganese.",
-        "India's Samudrayaan and Deep Ocean Mission are spearheaded by the Ministry of Earth Sciences (MoES)."
+        "National Green Hydrogen Mission targets at least 5 MMT annual production of Green Hydrogen by 2030.",
+        "SIGHT (Strategic Interventions for Green Hydrogen Transition) scheme provides financial incentives for electrolyser manufacturing.",
+        "Nodal Ministry responsible for implementation is the Ministry of New and Renewable Energy (MNRE)."
       ],
-      "mains": "Incorporate in questions regarding Blue Economy, environmental ethics vs. resource extraction, and ocean governance."
+      "mains": "Evaluate the potential of green hydrogen derivatives in decarbonizing India's hard-to-abate industrial sectors such as steel, fertilizers, and shipping."
     },
     {
       "id": 4,
-      "title": "Strengthening Digital Public Infrastructure for Rural Legal Inclusion",
-      "gs": "GS2",
-      "source": "PIB / Ministry of Law and Justice",
-      "summary": "Ministry of Law and Justice expands the Tele-Law initiative to streamline pre-litigation legal advice across rural Panchayats.",
+      "title": "High Seas Treaty (BBNJ Agreement) and Marine Conservation",
+      "gs": "GS3",
+      "source": "Down To Earth",
+      "summary": "India advances domestic ratification protocols for the Biodiversity Beyond National Jurisdiction (BBNJ) Agreement under UNCLOS.",
       "prelims": [
-        "Tele-Law reaches rural populations using Common Services Centres (CSCs).",
-        "Operates under the DISHA (Designing Innovative Solutions for Holistic Access to Justice) scheme.",
-        "Complements NALSA's mandate to offer free legal services under Article 39A."
+        "Operates under the framework of the UN Convention on the Law of the Sea (UNCLOS).",
+        "Applies to marine areas beyond national jurisdiction (beyond the 200 nautical mile Exclusive Economic Zone).",
+        "Mandates Environmental Impact Assessments (EIAs) for commercial activities in international ocean zones."
       ],
-      "mains": "Highlight as an innovative application of Digital Public Infrastructure (DPI) to fulfill constitutional mandates on equal access to justice."
+      "mains": "Discuss the institutional and regulatory challenges in implementing the BBNJ Treaty to protect marine biodiversity in international waters."
     },
     {
       "id": 5,
-      "title": "National Critical Mineral Mission and Global Value Chain Integration",
+      "title": "Deep Ocean Mission: MATSYA 6000 Submersible Trials",
       "gs": "GS3",
-      "source": "Economic Times / Ministry of Mines",
-      "summary": "India advances key bilateral partnerships to secure processing capabilities and overseas supply chains for critical minerals.",
+      "source": "Times of India",
+      "summary": "National Institute of Ocean Technology (NIOT) achieves milestone shallow-water integration tests for the crewed MATSYA 6000 submersible.",
       "prelims": [
-        "Ministry of Mines identified 30 critical minerals essential for economic development and national security.",
-        "Khanij Bidesh India Ltd (KABIL) is a joint venture tasked with acquiring strategic mineral assets abroad.",
-        "India is a member of the US-led Mineral Security Partnership (MSP)."
+        "MATSYA 6000 is designed to take three human aquanauts to a ocean depth of 6,000 meters.",
+        "Implemented under India's flagship Deep Ocean Mission led by the Ministry of Earth Sciences (MoES).",
+        "Aims to explore polymetallic nodules containing key critical minerals like nickel, cobalt, copper, and manganese in the Central Indian Ocean Basin."
       ],
-      "mains": "Crucial for questions on industrial strategy, green energy transition, geo-economics, and reducing strategic import dependencies."
+      "mains": "Highlight India's strategic interest in deep-sea mineral exploration while balancing marine ecological preservation."
     }
   ]
 }
