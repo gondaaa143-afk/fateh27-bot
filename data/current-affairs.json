@@ -1,60 +1,55 @@
 {
-  "date": "2024-05-24",
-  "source": "UPSC Current Affairs Daily Digest",
-  "items": [
+  "date": "2024-05-20",
+  "source_relevance": "UPSC Civil Services Examination (Prelims & Mains)",
+  "current_affairs": [
     {
-      "id": 1,
-      "title": "First Snow Leopard Population Assessment in India (SPAI)",
-      "category": "GS Paper III - Environment and Ecology",
-      "summary": "The Wildlife Institute of India (WII) released the first-ever scientific population assessment of snow leopards in India, reporting a total of 718 individuals across the Himalayan region.",
-      "key_takeaways": [
-        "Ladakh holds the highest population (477), followed by Uttarakhand and Himachal Pradesh.",
-        "Snow Leopard IUCN Status: Vulnerable; Wildlife Protection Act, 1972: Schedule I.",
-        "Crucial for questions on high-altitude ecosystem conservation and Project Snow Leopard."
+      "rank": 1,
+      "topic": "10-Year Bilateral Agreement on Chabahar Port",
+      "gs_paper": "GS Paper 2 (International Relations)",
+      "key_points": [
+        "India signed a 10-year contract with Iran to operate the Shahid Beheshti Terminal at Chabahar Port.",
+        "Enhances land-sea trade route to Afghanistan and Central Asian Republics bypassing Pakistan.",
+        "Crucial component of the International North-South Transport Corridor (INSTC)."
       ]
     },
     {
-      "id": 2,
-      "title": "RBI Framework on Climate-Related Financial Risks",
-      "category": "GS Paper III - Indian Economy & Banking",
-      "summary": "The Reserve Bank of India issued draft guidelines for Regulated Entities (REs) requiring mandatory climate risk disclosures and sustainable finance practices.",
-      "key_takeaways": [
-        "Aims to address greenwashing and mandate disclosure of physical and transition climate risks.",
-        "Aligns Indian banking with Task Force on Climate-related Financial Disclosures (TCFD) standards.",
-        "Relevant for economics topics regarding green financing and systemic financial stability."
+      "rank": 2,
+      "topic": "RBI's Record Dividend Transfer to Central Government",
+      "gs_paper": "GS Paper 3 (Indian Economy)",
+      "key_points": [
+        "Reserve Bank of India approved a record surplus transfer of ₹2.11 lakh crore to the Union Government for FY 2023-24.",
+        "Boosted by higher interest income on foreign securities and foreign exchange operations.",
+        "Helps fiscal consolidation efforts and lowers the government's net market borrowings."
       ]
     },
     {
-      "id": 3,
-      "title": "Supreme Court Scope on Article 142 Extraordinary Powers",
-      "category": "GS Paper II - Polity & Governance",
-      "summary": "The Supreme Court delivered a landmark judgment clarifying the limits and application of Article 142, stating that extraordinary powers cannot override explicit statutory provisions.",
-      "key_takeaways": [
-        "Article 142 empowers the apex court to pass any order necessary for doing 'complete justice'.",
-        "Reiterates balance of powers between Judiciary and Legislature.",
-        "Important for Indian Polity questions on Judicial Activism vs Judicial Overreach."
+      "rank": 3,
+      "topic": "National Green Hydrogen Mission Progress and VGF Framework",
+      "gs_paper": "GS Paper 3 (Environment & Economy)",
+      "key_points": [
+        "Ministry of New and Renewable Energy issued guidelines for Viability Gap Funding (VGF) for green hydrogen hubs.",
+        "Aims to make India a global hub for production, usage, and export of Green Hydrogen.",
+        "Targets production of 5 MMT of Green Hydrogen per annum by 2030."
       ]
     },
     {
-      "id": 4,
-      "title": "India-EFTA Trade and Economic Partnership Agreement (TEPA)",
-      "category": "GS Paper II - International Relations",
-      "summary": "India finalized the Trade and Economic Partnership Agreement with the European Free Trade Association (Iceland, Liechtenstein, Norway, Switzerland), securing a $100 billion investment commitment over 15 years.",
-      "key_takeaways": [
-        "First trade agreement for India with a commitment of targeted FDI investment.",
-        "Focuses on tariff reductions, service exports, and intellectual property rights.",
-        "Crucial for questions on bilateral trade networks and India's FTAs."
+      "rank": 4,
+      "topic": "Supreme Court Ruling on PMLA and Right to Personal Liberty",
+      "gs_paper": "GS Paper 2 (Polity and Governance)",
+      "key_points": [
+        "Supreme Court clarified strict conditions for arrest under the Prevention of Money Laundering Act (PMLA).",
+        "Emphasized that the right to personal liberty under Article 21 remains paramount.",
+        "Mandated clear written grounds of arrest to be provided to the accused at the time of detention."
       ]
     },
     {
-      "id": 5,
-      "title": "ISRO Tests Semi-Cryogenic Engine Development",
-      "category": "GS Paper III - Science & Technology (Space Technology)",
-      "summary": "ISRO achieved a major milestone by successfully conducting hot-tests of its 2000 kN semi-cryogenic engine at the ISRO Propulsion Complex in Mahendragiri.",
-      "key_takeaways": [
-        "Uses refined kerosene (Isrosene) as fuel and Liquid Oxygen (LOX) as oxidizer.",
-        "Designed to enhance payload capacity of LVM3 and future Next Generation Launch Vehicles (NGLV).",
-        "Highly relevant for indigenous space technology developments and deep-space missions."
+      "rank": 5,
+      "topic": "India Semiconductor Mission (ISM) Phase-II Expansion",
+      "gs_paper": "GS Paper 3 (Science and Technology)",
+      "key_points": [
+        "Government plans expansion of India Semiconductor Mission to build a local supply chain ecosystem.",
+        "Focus on compound semiconductors, silicon photonics, and semiconductor packaging (ATMP/OSAT).",
+        "Aims to reduce import dependency and strengthen digital infrastructure resilience."
       ]
     }
   ]
