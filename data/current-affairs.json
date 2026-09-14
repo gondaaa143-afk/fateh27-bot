@@ -1,71 +1,71 @@
 {
   "date": "2026-09-14",
-  "brief": "Today's UPSC Intelligence Briefing covering key developments in International Relations, Deep-Sea Ecology, Quantum Infrastructure, Urban Disaster Governance, and Bio-Economy Governance.",
+  "brief": "Today's UPSC Intelligence Brief",
   "articles": [
     {
       "id": 1,
-      "title": "Global South Clean Energy Alliance (GSCEA) Framework Ratified at New Delhi Summit",
-      "gs": "GS2",
-      "source": "The Hindu / Down To Earth",
-      "summary": "Developing nations adopt a unified strategy for technology transfer and concessional climate finance ahead of COP31.",
+      "title": "CWC and IMD Deploy Advanced GLOF Early Warning Systems in Himalayan Region",
+      "gs": "GS3",
+      "source": "PIB",
+      "summary": "High-altitude automated weather and hydrological monitoring stations deployed in Sikkim and Uttarakhand to mitigate Glacial Lake Outburst Flood risks.",
       "prelims": [
-        "GSCEA was proposed as an outcome of India's voice of the Global South initiatives.",
-        "Establishes a $50 billion concessional fund managed by the Asian Infrastructure Investment Bank (AIIB).",
-        "Focuses on decentralised renewable grids and critical mineral processing capability in developing nations."
+        "GLOFs occur when moraine dams containing glacial lakes fail due to erosion, avalanches, or seismic activity.",
+        "High Mountain Asia (Third Pole) contains the largest freshwater reserve outside the polar regions.",
+        "Central Water Commission (CWC) coordinates with IMD and ISRO for real-time hydrological monitoring."
       ],
-      "mains": "Evaluates how India leverages South-South Cooperation to reshape global climate diplomacy and challenge traditional North-South financial impasses."
+      "mains": "Use as a contemporary case study for disaster risk reduction (DRR), climate change adaptation in fragile ecosystems, and NDMA guidelines on GLOFs."
     },
     {
       "id": 2,
-      "title": "International Seabed Authority (ISA) Issues Revised Guidelines for Deep Seabed Mining",
-      "gs": "GS3",
-      "source": "Indian Express / Down To Earth",
-      "summary": "New regulatory framework mandates strict environmental impact assessments and real-time biodiversity monitoring for polymetallic nodule extraction.",
+      "title": "Union Government Operationalizes Data Protection Board under DPDP Act",
+      "gs": "GS2",
+      "source": "The Hindu",
+      "summary": "Ministry of Electronics and IT notifies rules governing the functioning and digital-first grievance redressal platform of the Data Protection Board.",
       "prelims": [
-        "India's Deep Ocean Mission is operated under the Ministry of Earth Sciences (MoES).",
-        "Polymetallic nodules in the Central Indian Ocean Basin contain copper, nickel, cobalt, and manganese.",
-        "ISA is an autonomous international organization established under the 1982 UN Convention on the Law of the Sea (UNCLOS)."
+        "Data Fiduciary refers to entities determining the purpose and means of processing personal data.",
+        "Data Protection Board of India operates as a digital-by-design adjudicatory body handling data breaches.",
+        "Cross-border data transfers are permitted by default unless restricted via a government-notified negative list."
       ],
-      "mains": "Discuss the tension between technological resource acquisition for green energy transitions and marine ecosystem preservation in international waters."
+      "mains": "Cite in answers on Right to Privacy (Puttaswamy judgment), digital governance, regulatory independence, and balancing economic innovation with civil liberties."
     },
     {
       "id": 3,
-      "title": "Cabinet Approves National Quantum Communication Backbone Project",
-      "gs": "GS3",
-      "source": "PIB / Livemint",
-      "summary": "India launches a multi-city Quantum Key Distribution (QKD) network to secure critical strategic and financial digital infrastructure.",
+      "title": "India-GCC Free Trade Agreement Negotiations Enter Key Round in Riyadh",
+      "gs": "GS2",
+      "source": "Indian Express",
+      "summary": "India and the Gulf Cooperation Council advance negotiations on market access, service trade, and investment protection.",
       "prelims": [
-        "Implemented under the National Quantum Mission (NQM) launched by the Department of Science & Technology.",
-        "Quantum Key Distribution (QKD) leverages quantum mechanics principles like superposition and entanglement for encryption.",
-        "Phase 1 connects national capital hubs, defense nodes, and reserve banking servers via satellite and fiber QKD."
+        "GCC consists of six member states: Saudi Arabia, UAE, Qatar, Kuwait, Oman, and Bahrain.",
+        "GCC represents India's largest regional trading bloc, contributing significantly to crude oil and LNG imports.",
+        "Strait of Hormuz serves as the critical maritime choke point connecting the Persian Gulf with the Gulf of Oman."
       ],
-      "mains": "Analyze the strategic imperative of post-quantum cryptography for national security in an era of asymmetric cyber warfare."
+      "mains": "Valuable for questions on India's 'Think West' strategy, energy security diversification, non-resident Indian (NRI) remittances, and West Asian geopolitics."
     },
     {
       "id": 4,
-      "title": "MoHUA Releases Sponge Cities Governance Guidelines 2026 for Coastal Urban Agglomerations",
-      "gs": "GS1",
-      "source": "Hindustan Times / PIB",
-      "summary": "A nationwide mandate integrating nature-based drainage solutions into urban master plans to mitigate flash flooding.",
+      "title": "AgriStack and Farmers' Registry Cross Major Milestone under Digital Agriculture Mission",
+      "gs": "GS3",
+      "source": "PIB",
+      "summary": "Digital Public Infrastructure (DPI) for agriculture integrates land records and crop-sown data across major agricultural states.",
       "prelims": [
-        "Sponge Cities design uses permeable pavements, urban wetlands, bioswales, and rain gardens to absorb run-off.",
-        "Integrated into AMRUT 2.0 and the National Disaster Management Authority (NDMA) urban flood framework.",
-        "Focuses on coastal cities vulnerable to compound flooding from extreme rainfall and storm surges."
+        "AgriStack comprises three core registries: Farmers' Registry, Geo-referenced Village Maps, and Crop Sown Registry.",
+        "Assigns a Unique Farmer ID linked to Aadhaar for streamlined delivery of PM-KISAN and crop insurance.",
+        "Spearheaded by the Ministry of Agriculture & Farmers Welfare under the Digital Agriculture Mission."
       ],
-      "mains": "Critically analyze why traditional concrete storm-water infrastructure fails against climate-induced extreme events and how eco-hydrological planning provides urban resilience."
+      "mains": "Incorporate into answers on Digital Public Infrastructure (DPI), agricultural credit delivery, reduction of yield estimation errors, and precision farming."
     },
     {
       "id": 5,
-      "title": "Bio-E3 Policy 2.0: Operational Guidelines for Synthetic Biology & Biomanufacturing Hubs",
+      "title": "Commission for Air Quality Management (CAQM) Directs Strict Monitoring of Stubble Burning",
       "gs": "GS3",
-      "source": "PIB / Business Standard",
-      "summary": "Government releases regulatory mechanisms for bio-foundries, biomanufacturing hubs, and biosafety protocols for gene-edited organisms.",
+      "source": "Livemint",
+      "summary": "CAQM mandates real-time remote sensing via satellite tracking and expands subsidies for ex-situ crop residue management.",
       "prelims": [
-        "Bio-E3 stands for Biotechnology for Economy, Environment, and Employment.",
-        "Monitored by the Department of Biotechnology (DBT) under the Ministry of Science and Technology.",
-        "Facilitates transition from fossil-fuel-based chemicals to bio-based polymers, bio-enzymes, and smart proteins."
+        "CAQM is a statutory body established under the CAQM in National Capital Region and Adjoining Areas Act, 2021.",
+        "Ex-situ residue management involves converting paddy straw into bio-CNG, pellets for thermal power, and fodder.",
+        "ISRO's CREAMS platform provides real-time thermal anomaly data to monitor agricultural fires."
       ],
-      "mains": "Examine the role of biomanufacturing in achieving India's target of a $300 billion bioeconomy while maintaining ethical and biosafety standards."
+      "mains": "Use as an example of environmental governance, cooperative federalism challenges in air pollution management, and circular bio-economy solutions in agriculture."
     }
   ]
 }
