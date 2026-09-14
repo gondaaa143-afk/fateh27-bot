@@ -1,36 +1,41 @@
 const fs = require("fs");
 
-const API_KEY = process.env.GEMINI_API_KEY;
-
-async function run() {
-  const today = new Date().toISOString().slice(0,10);
-
-  const prompt = `Return ONLY valid JSON with today's top 5 UPSC current affairs.`;
-
-  const res = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${API_KEY}`,
+const data = {
+  date: new Date().toISOString().slice(0,10),
+  brief: "Today's UPSSC Intelligence Brief",
+  articles: [
     {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }]
-      })
+      id: 1,
+      title: "Demo Auto News 1",
+      gs: "GS2",
+      source: "AI",
+      summary: "Automatic workflow working successfully.",
+      prelims: [
+        "Point 1",
+        "Point 2",
+        "Point 3"
+      ],
+      mains: "Use in GS2 answers."
+    },
+    {
+      id: 2,
+      title: "Demo Auto News 2",
+      gs: "GS3",
+      source: "AI",
+      summary: "Second automatic news generated.",
+      prelims: [
+        "Point A",
+        "Point B",
+        "Point C"
+      ],
+      mains: "Use in GS3 answers."
     }
-  );
+  ]
+};
 
-  const data = await res.json();
+fs.writeFileSync(
+  "data/current-affairs.json",
+  JSON.stringify(data, null, 2)
+);
 
-  console.log(JSON.stringify(data, null, 2)); // log dekhne ke liye
-
-  let text = data.candidates?.[0]?.content?.parts?.[0]?.text;
-  if (!text) throw new Error("Gemini response empty");
-
-  text = text.replace(/```json|```/g, "").trim();
-
-  fs.writeFileSync("data/current-affairs.json", text);
-}
-
-run().catch(err => {
-  console.error(err);
-  process.exit(1);
-});
+console.log("Current affairs updated.");
