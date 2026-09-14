@@ -1,71 +1,71 @@
 {
   "date": "2026-09-14",
-  "brief": "Today's UPSC Intelligence Brief",
+  "brief": "Today's UPSC Intelligence Briefing covering key developments in International Relations, Deep-Sea Ecology, Quantum Infrastructure, Urban Disaster Governance, and Bio-Economy Governance.",
   "articles": [
     {
       "id": 1,
-      "title": "Deep Ocean Mission: Strategic Progress in Central Indian Ocean Basin Exploration",
-      "gs": "GS3",
-      "source": "PIB / The Hindu",
-      "summary": "India advances its deep-sea exploration capabilities targeting Polymetallic Nodules and rare earth minerals in the Indian Ocean.",
+      "title": "Global South Clean Energy Alliance (GSCEA) Framework Ratified at New Delhi Summit",
+      "gs": "GS2",
+      "source": "The Hindu / Down To Earth",
+      "summary": "Developing nations adopt a unified strategy for technology transfer and concessional climate finance ahead of COP31.",
       "prelims": [
-        "Polymetallic Nodules (PMN) in the Central Indian Ocean Basin contain copper, nickel, cobalt, and manganese.",
-        "International Seabed Authority (ISA) regulates mineral exploration in international waters under UNCLOS.",
-        "MATSYA 6000 is India's indigenously developed crewed submersible under the Deep Ocean Mission implemented by the Ministry of Earth Sciences."
+        "GSCEA was proposed as an outcome of India's voice of the Global South initiatives.",
+        "Establishes a $50 billion concessional fund managed by the Asian Infrastructure Investment Bank (AIIB).",
+        "Focuses on decentralised renewable grids and critical mineral processing capability in developing nations."
       ],
-      "mains": "Examine the geopolitical and economic significance of deep-sea mining for India's critical mineral security and global energy transition."
+      "mains": "Evaluates how India leverages South-South Cooperation to reshape global climate diplomacy and challenge traditional North-South financial impasses."
     },
     {
       "id": 2,
-      "title": "Global Biofuels Alliance: Standardization Guidelines for Sustainable Aviation Fuel (SAF)",
+      "title": "International Seabed Authority (ISA) Issues Revised Guidelines for Deep Seabed Mining",
       "gs": "GS3",
-      "source": "Indian Express",
-      "summary": "The Global Biofuels Alliance introduces unified technical standards to accelerate Sustainable Aviation Fuel adoption across emerging economies.",
+      "source": "Indian Express / Down To Earth",
+      "summary": "New regulatory framework mandates strict environmental impact assessments and real-time biodiversity monitoring for polymetallic nodule extraction.",
       "prelims": [
-        "Global Biofuels Alliance (GBA) was launched during India's G20 Presidency by India, the US, and Brazil.",
-        "Sustainable Aviation Fuel (SAF) reduces lifecycle greenhouse gas emissions by up to 80% compared to conventional jet fuel.",
-        "ICAO's Carbon Offsetting and Reduction Scheme for International Aviation (CORSIA) sets global targets for aviation decarbonization."
+        "India's Deep Ocean Mission is operated under the Ministry of Earth Sciences (MoES).",
+        "Polymetallic nodules in the Central Indian Ocean Basin contain copper, nickel, cobalt, and manganese.",
+        "ISA is an autonomous international organization established under the 1982 UN Convention on the Law of the Sea (UNCLOS)."
       ],
-      "mains": "Discuss how biofuel integration in the aviation sector can help India fulfill its Net Zero 2070 commitments while addressing agricultural feedstock challenges."
+      "mains": "Discuss the tension between technological resource acquisition for green energy transitions and marine ecosystem preservation in international waters."
     },
     {
       "id": 3,
-      "title": "Expansion of Ayushman Bharat Digital Mission (ABDM) with Open Health Protocols",
-      "gs": "GS2",
-      "source": "The Hindu",
-      "summary": "The Ministry of Health operationalizes the Unified Health Interface (UHI) protocol to improve last-mile healthcare access in rural districts.",
+      "title": "Cabinet Approves National Quantum Communication Backbone Project",
+      "gs": "GS3",
+      "source": "PIB / Livemint",
+      "summary": "India launches a multi-city Quantum Key Distribution (QKD) network to secure critical strategic and financial digital infrastructure.",
       "prelims": [
-        "Ayushman Bharat Health Account (ABHA) assigns a 14-digit unique identifier for digital health record integration.",
-        "Unified Health Interface (UHI) acts as an open network protocol for digital health services, modeled on UPI.",
-        "Tele-MANAS provides 24/7 free tele-mental health services across all Indian States and Union Territories."
+        "Implemented under the National Quantum Mission (NQM) launched by the Department of Science & Technology.",
+        "Quantum Key Distribution (QKD) leverages quantum mechanics principles like superposition and entanglement for encryption.",
+        "Phase 1 connects national capital hubs, defense nodes, and reserve banking servers via satellite and fiber QKD."
       ],
-      "mains": "Analyze the role of Digital Public Infrastructure (DPI) in bridging the urban-rural healthcare divide and advancing Universal Health Coverage in India."
+      "mains": "Analyze the strategic imperative of post-quantum cryptography for national security in an era of asymmetric cyber warfare."
     },
     {
       "id": 4,
-      "title": "Regulatory Framework for CRISPR-Cas9 Gene-Edited Crop Varieties",
-      "gs": "GS3",
-      "source": "Down To Earth",
-      "summary": "ICAR guidelines streamline biosafety evaluations for SDN-1 and SDN-2 genome-edited climate-resilient staple crops.",
+      "title": "MoHUA Releases Sponge Cities Governance Guidelines 2026 for Coastal Urban Agglomerations",
+      "gs": "GS1",
+      "source": "Hindustan Times / PIB",
+      "summary": "A nationwide mandate integrating nature-based drainage solutions into urban master plans to mitigate flash flooding.",
       "prelims": [
-        "Site-Directed Nuclease (SDN-1 and SDN-2) techniques do not introduce foreign genetic material, unlike traditional Genetically Modified Organisms (GMOs).",
-        "Genetic Engineering Appraisal Committee (GEAC) under MoEFCC is the apex body regulating GMO releases in India.",
-        "Genome editing selectively modifies endogenous DNA sequences to improve traits like drought and salinity tolerance."
+        "Sponge Cities design uses permeable pavements, urban wetlands, bioswales, and rain gardens to absorb run-off.",
+        "Integrated into AMRUT 2.0 and the National Disaster Management Authority (NDMA) urban flood framework.",
+        "Focuses on coastal cities vulnerable to compound flooding from extreme rainfall and storm surges."
       ],
-      "mains": "Evaluate the potential of genome-edited crops in ensuring food security under changing climate regimes and assess the institutional safeguards required."
+      "mains": "Critically analyze why traditional concrete storm-water infrastructure fails against climate-induced extreme events and how eco-hydrological planning provides urban resilience."
     },
     {
       "id": 5,
-      "title": "Enhancing Maritime Domain Awareness in the Indian Ocean Region",
-      "gs": "GS2",
-      "source": "PIB / Economic Times",
-      "summary": "India expands its Information Fusion Centre - Indian Ocean Region (IFC-IOR) network to bolster maritime safety and security.",
+      "title": "Bio-E3 Policy 2.0: Operational Guidelines for Synthetic Biology & Biomanufacturing Hubs",
+      "gs": "GS3",
+      "source": "PIB / Business Standard",
+      "summary": "Government releases regulatory mechanisms for bio-foundries, biomanufacturing hubs, and biosafety protocols for gene-edited organisms.",
       "prelims": [
-        "IFC-IOR was established in 2018 in Gurugram to promote maritime security through real-time information sharing.",
-        "White Shipping Agreements facilitate the exchange of non-military commercial vessel traffic data between signatory nations.",
-        "Under UNCLOS, the Exclusive Economic Zone (EEZ) extends up to 200 nautical miles from a coastal state's baseline."
+        "Bio-E3 stands for Biotechnology for Economy, Environment, and Employment.",
+        "Monitored by the Department of Biotechnology (DBT) under the Ministry of Science and Technology.",
+        "Facilitates transition from fossil-fuel-based chemicals to bio-based polymers, bio-enzymes, and smart proteins."
       ],
-      "mains": "Discuss India's SAGAR (Security and Growth for All in the Region) vision in addressing traditional and non-traditional maritime challenges in the Indo-Pacific."
+      "mains": "Examine the role of biomanufacturing in achieving India's target of a $300 billion bioeconomy while maintaining ethical and biosafety standards."
     }
   ]
 }
