@@ -1,40 +1,66 @@
 {
-  "date": "2024-05-20",
-  "current_affairs": [
+  "date": "2026-03-30",
+  "source_domain": "UPSC Current Affairs",
+  "items": [
     {
-      "rank": 1,
-      "category": "Polity & Governance",
-      "title": "Supreme Court Clarifies Scope of Article 142 Inherent Powers",
-      "summary": "The Supreme Court reaffirmed that extraordinary powers granted under Article 142 to do 'complete justice' must be used judiciously and cannot override explicit statutory provisions of existing laws.",
-      "upsc_relevance": "GS Paper II - Structure, Organization, and Functioning of the Judiciary; Constitutional Provisions."
+      "id": 1,
+      "title": "Supreme Court Ruling on Sub-Classification within Scheduled Castes",
+      "gs_paper": "GS Paper 2 (Polity & Social Justice)",
+      "category": "Polity",
+      "summary": "A seven-judge Constitution Bench of the Supreme Court held that states are constitutionally empowered to create sub-classifications within Scheduled Castes (SCs) to ensure targeted affirmative action for the most backward subgroups.",
+      "key_takeaways": [
+        "Permits sub-classification without violating Article 341(2).",
+        "Requires quantifiable empirical data on inadequacy of representation.",
+        "Introduces the concept of applying the 'creamy layer' principle to SCs and STs."
+      ]
     },
     {
-      "rank": 2,
-      "category": "Environment & Ecology",
-      "title": "India Expands Conservation Efforts with Addition of New Ramsar Sites",
-      "summary": "India designated new wetland ecosystems under the Ramsar Convention, strengthening international recognition for vulnerable aquatic biodiversity and migratory bird habitats across key states.",
-      "upsc_relevance": "GS Paper III - Conservation, Environmental Pollution and Degradation, Environmental Impact Assessment."
-    },
-    {
-      "rank": 3,
-      "category": "Economy",
-      "title": "RBI Tests Offline Capabilities for Digital Rupee (CBDC)",
-      "summary": "The Reserve Bank of India has initiated pilot testing for offline transactions using the Central Bank Digital Currency (CBDC-P), aiming to bolster financial inclusion in regions with low connectivity.",
-      "upsc_relevance": "GS Paper III - Indian Economy, Monetary Policy, Digital Public Infrastructure, and Banking Sector Reforms."
-    },
-    {
-      "rank": 4,
+      "id": 2,
+      "title": "BioE3 (Biotechnology for Economy, Environment and Employment) Policy",
+      "gs_paper": "GS Paper 3 (Science & Technology / Economy)",
       "category": "Science & Technology",
-      "title": "ISRO Advances Gaganyaan Mission with Successful Propulsion Motor Tests",
-      "summary": "ISRO completed key static testing of the high-altitude motor for the Gaganyaan Crew Escape System, marking a crucial step toward India's inaugural human spaceflight mission.",
-      "upsc_relevance": "GS Paper III - Awareness in the fields of Space, Technology Transfer, and Achievements of Indians in Science."
+      "summary": "The Union Cabinet approved the BioE3 Policy to drive high-performance biomanufacturing, aiming to transition India toward a green, bio-based circular economy.",
+      "key_takeaways": [
+        "Focuses on bio-based chemicals, smart proteins, bioplastics, and precision therapeutics.",
+        "Establishes Bio-foundries and Bio-AI hubs across the country.",
+        "Supports India's net-zero carbon goals and green transition strategy."
+      ]
     },
     {
-      "rank": 5,
+      "id": 3,
+      "title": "Right to Protection against Climate Change under Article 21",
+      "gs_paper": "GS Paper 2 (Governance & Rights) / GS Paper 3 (Environment)",
+      "category": "Environment & Polity",
+      "summary": "The Supreme Court recognized a distinct fundamental right to be free from the adverse impacts of climate change, grounding it under Article 21 (Right to Life) and Article 14 (Right to Equality).",
+      "key_takeaways": [
+        "Explicitly links climate change impacts to fundamental rights.",
+        "Highlights the duty of the state to balance clean energy goals with biodiversity conservation.",
+        "Sets a global precedent for climate litigation in constitutional courts."
+      ]
+    },
+    {
+      "id": 4,
+      "title": "RBI Launches Unified Lending Interface (ULI)",
+      "gs_paper": "GS Paper 3 (Indian Economy & Banking)",
+      "category": "Economy",
+      "summary": "The Reserve Bank of India rolled out the Unified Lending Interface (ULI) to streamline and democratize credit delivery, especially for MSMEs and rural borrowers.",
+      "key_takeaways": [
+        "Enables seamless, consent-based digital data flow between lenders and data providers.",
+        "Reduces credit appraisal turnaround time dramatically.",
+        "Acts as a complementary platform to UPI for financial inclusion."
+      ]
+    },
+    {
+      "id": 5,
+      "title": "India-Iran 10-Year Long-Term Agreement on Chabahar Port",
+      "gs_paper": "GS Paper 2 (International Relations)",
       "category": "International Relations",
-      "title": "India Signs 10-Year Long-Term Contract for Chabahar Port Operations",
-      "summary": "India Ports Global Limited executed a landmark agreement with Iran to operate the Shahid Beheshti Terminal at Chabahar Port, facilitating direct trade corridors to Central Asia and bypassing traditional maritime bottlenecks.",
-      "upsc_relevance": "GS Paper II - India and its Neighborhood-Relations, Bilateral Agreements, and Strategic Connectivity Projects."
+      "summary": "India Ports Global Limited (IPGL) signed a 10-year contract with Iran to operate the Shahid Beheshti Terminal at Chabahar Port, securing India's strategic access to Central Asia and Eurasia.",
+      "key_takeaways": [
+        "Provides trade access bypassing Pakistan via the INSTC (International North-South Transport Corridor).",
+        "Enhances India's maritime presence in the Western Indian Ocean.",
+        "Strengthens humanitarian assistance and trade linkages with Afghanistan and Central Asian Republics."
+      ]
     }
   ]
 }
