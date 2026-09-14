@@ -4,68 +4,68 @@
   "articles": [
     {
       "id": 1,
-      "title": "UN High-Level Panel on AI Governance & India's DPI Framework",
-      "gs": "GS2",
+      "title": "Operational Framework Finalised for India's Carbon Credit Trading Scheme (CCTS)",
+      "gs": "GS3",
       "source": "The Hindu",
-      "summary": "India advocates adopting its open-source Digital Public Infrastructure (DPI) model to democratize global AI governance and bridge the digital divide.",
+      "summary": "The Bureau of Energy Efficiency (BEE) releases key operational guidelines for the domestic compliance carbon market under CCTS.",
       "prelims": [
-        "DPI core pillars include Digital Identity (Aadhaar), Fast Payments (UPI), and Consent-based Data Sharing (Account Aggregator).",
-        "Global Partnership on Artificial Intelligence (GPAI) is a multi-stakeholder initiative hosted by the OECD.",
-        "IndiaAI Mission focuses on building compute capacity, foundational models, and safe deployment frameworks."
+        "CCTS was notified under the Energy Conservation Act, 2001.",
+        "Bureau of Energy Efficiency (BEE) acts as the administrator for the market framework.",
+        "Greenhouse Gas Emission Intensity targets are assigned to obligated entities to issue Carbon Credit Certificates (CCCs)."
       ],
-      "mains": "Use in GS-2 answers on international technology governance, soft power projection through tech diplomacy, and digital inclusion."
+      "mains": "Examine how the Carbon Credit Trading Scheme (CCTS) balances industrial growth with India's Panchamrit climate commitments under the UNFCCC."
     },
     {
       "id": 2,
-      "title": "RBI Issues Guidelines on Climate-Related Financial Risk Disclosures",
-      "gs": "GS3",
-      "source": "Livemint",
-      "summary": "RBI mandates climate risk stress testing and green finance disclosures for Regulated Entities to safeguard macro-financial stability.",
+      "title": "Implementation Progress of the India-EFTA Trade and Economic Partnership Agreement (TEPA)",
+      "gs": "GS2",
+      "source": "Indian Express",
+      "summary": "India and European Free Trade Association (EFTA) nations advance tariff rationalisation and $100 billion investment targets.",
       "prelims": [
-        "Climate risk is categorized into Physical Risk (extreme events) and Transition Risk (policy/market shifts).",
-        "Task Force on Climate-related Financial Disclosures (TCFD) provides the global framework for climate risk reporting.",
-        "Network for Greening the Financial System (NGFS) is a central bank network fostering climate risk management in banking."
+        "EFTA member countries are Iceland, Liechtenstein, Norway, and Switzerland.",
+        "First FTA signed by India featuring a legally binding commitment of $100 billion in FDI over 15 years.",
+        "Key sectors covered include pharmaceuticals, precision machinery, and renewable technology transfer."
       ],
-      "mains": "Use in GS-3 Economy answers concerning banking sector resilience, green finance mechanisms, and systemic economic risks."
+      "mains": "Analyze the significance of investment-linked free trade agreements for enhancing India's manufacturing competitiveness and global supply chain integration."
     },
     {
       "id": 3,
-      "title": "CACP Recommends Integrating Eco-Services Incentives into MSP Regime",
-      "gs": "GS3",
-      "source": "Indian Express",
-      "summary": "The Commission for Agricultural Costs and Prices suggests incentivizing eco-friendly farming practices alongside MSP calculations.",
+      "title": "Draft National Guidelines on Ethical Integration of AI in Public Service Delivery",
+      "gs": "GS2",
+      "source": "PIB",
+      "summary": "MeitY issues comprehensive guidelines prioritizing algorithmic transparency, data privacy, and non-discrimination in AI public deployment.",
       "prelims": [
-        "CACP is an attached office of the Ministry of Agriculture and Farmers Welfare established in 1965.",
-        "MSP is currently announced for 22 mandated crops plus Fair and Remunerative Price (FRP) for sugarcane.",
-        "CACP considers cost concepts like A2, A2+FL, and C2 when evaluating production economics."
+        "Formulated under the operational aegis of the IndiaAI Mission.",
+        "Mandates Human-in-the-Loop (HITL) architecture for welfare scheme beneficiary selection.",
+        "Aligns strictly with provisions of the Digital Personal Data Protection (DPDP) Act, 2023."
       ],
-      "mains": "Use in GS-3 Agriculture questions regarding sustainable farming, MSP regime reforms, and crop diversification strategy."
+      "mains": "Discuss the ethical challenges of adopting Artificial Intelligence in public governance and suggest safeguards to protect civil liberties."
     },
     {
       "id": 4,
-      "title": "Deep Ocean Mission: MATSYA 6000 Advances to Shallow Water Phase",
+      "title": "Dual-Frequency Earth Observation: ISRO-NASA NISAR Mission Advances Pre-Launch Workflows",
       "gs": "GS3",
-      "source": "PIB",
-      "summary": "India's human submersible MATSYA 6000 reaches key milestones in testing for deep-sea resource exploration.",
+      "source": "The Hindu",
+      "summary": "The joint ISRO-NASA Earth-observing satellite NISAR completes crucial integration testing for dual-frequency radar land mapping.",
       "prelims": [
-        "MATSYA 6000 is designed by NIOT under the Ministry of Earth Sciences (MoES) to carry 3 humans to 6,000 meters depth.",
-        "Central Indian Ocean Basin holds exploration rights for Polymetallic Nodules allocated by International Seabed Authority (ISA).",
-        "Polymetallic nodules primarily contain nickel, copper, cobalt, and manganese essential for green transitions."
+        "NISAR utilizes both L-band (NASA) and S-band (ISRO) Synthetic Aperture Radars (SAR).",
+        "It will map the entire globe's land and ice masses every 12 days to monitor crustal deformation and natural hazards.",
+        "Configuration allows for surface movement measurements down to fractions of an inch."
       ],
-      "mains": "Use in GS-3 Science & Tech and Environment answers on Blue Economy policy, critical mineral security, and oceanographic research."
+      "mains": "Highlight the applications of dual-frequency synthetic aperture radar technology in disaster management and climate resilience planning in India."
     },
     {
       "id": 5,
-      "title": "Supreme Court Reaffirms Procedural Guarantees Under Article 300A",
-      "gs": "GS2",
-      "source": "The Hindu",
-      "summary": "The Supreme Court rules that procedural fairness and fair compensation remain constitutional guarantees under Article 300A.",
+      "title": "Strengthening Wetlands along the Central Asian Flyway (CAF) Action Plan",
+      "gs": "GS3",
+      "source": "Down To Earth",
+      "summary": "Ministry of Environment, Forest and Climate Change scales up wetland restoration to protect migratory birds along the CAF.",
       "prelims": [
-        "Right to Property was removed from Fundamental Rights via the 44th Constitutional Amendment Act, 1978.",
-        "Article 300A states that no person shall be deprived of property save by authority of law.",
-        "Article 300A is a constitutional/statutory right protecting citizens against arbitrary executive actions."
+        "Central Asian Flyway covers 30 countries, extending from Arctic breeding grounds to South Asian wintering grounds.",
+        "India hosts over 90% of the migratory bird species traversing the Central Asian Flyway route.",
+        "Initiative operates under the aegis of the Convention on the Conservation of Migratory Species of Wild Animals (CMS / Bonn Convention)."
       ],
-      "mains": "Use in GS-2 Constitutional Law answers on the doctrine of eminent domain, evolution of rights, and judicial protection of constitutional liberties."
+      "mains": "Evaluate the role of transboundary conservation initiatives and Ramsar site management in safeguarding migratory avian species."
     }
   ]
 }
