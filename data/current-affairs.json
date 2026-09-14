@@ -4,68 +4,68 @@
   "articles": [
     {
       "id": 1,
-      "title": "Global Digital Public Infrastructure (DPI) Framework and India's Governance Model",
+      "title": "Cabinet Approves AgriData Governance Framework for AgriStack Infrastructure",
       "gs": "GS2",
-      "source": "The Hindu",
-      "summary": "India advances open-source digital public infrastructure frameworks to enhance global financial inclusion and e-governance across developing nations.",
+      "source": "PIB",
+      "summary": "The Union Cabinet approved a landmark data governance policy securing farmer consent and privacy within the national AgriStack digital network.",
       "prelims": [
-        "Digital Public Infrastructure (DPI) incorporates digital identity, fast payment systems, and consent-based data sharing.",
-        "The G20 Framework for Digital Public Infrastructure Systems was formally recognized during India's G20 Presidency.",
-        "Open APIs serve as the core technological architecture behind India's Aadhaar, UPI, and Account Aggregator systems."
+        "AgriStack builds a national Digital Public Infrastructure (DPI) linking Digital Crop Surveys and Land Records to unique Farmer IDs.",
+        "The AgriData Governance Framework incorporates consent management protocols governed by the Digital Personal Data Protection (DPDP) Act.",
+        "State governments act as primary custodians of verified land ownership data integrated into the central AgriStack hub."
       ],
-      "mains": "Use as a key case study in GS-2 Governance and International Relations to illustrate India's soft power diplomacy and technology-driven public service delivery models."
+      "mains": "Examine how Digital Public Infrastructure in agriculture can revolutionize credit delivery and targeted subsidies while safeguarding the data privacy of smallholders."
     },
     {
       "id": 2,
-      "title": "Operationalization of India's Carbon Credit Trading Scheme (CCTS)",
+      "title": "RBI Tests Multi-CBDC Cross-Border Settlement Platform with ASEAN Partners",
       "gs": "GS3",
-      "source": "PIB",
-      "summary": "Bureau of Energy Efficiency releases targeted guidelines for carbon intensity reductions across energy-intensive industrial sectors.",
+      "source": "The Hindu",
+      "summary": "The Reserve Bank of India initiated pilot cross-border trade transactions using wholesale digital rupees (e₹-W) across selected ASEAN central banks.",
       "prelims": [
-        "The Bureau of Energy Efficiency (BEE) acts as the primary administrator and regulatory body for CCTS in India.",
-        "CCTS encompasses both compliance mechanism targets for specific sectors and a voluntary carbon trading market.",
-        "The Green Credit Program operates independently from CCTS to incentivize broader ecological actions beyond carbon mitigation."
+        "Multi-CBDC (mCBDC) platforms enable direct bilateral clearing without reliance on traditional correspondent banking networks.",
+        "Wholesale CBDCs operate on Distributed Ledger Technology (DLT) to achieve near-instantaneous settlement and lower transaction costs.",
+        "The mechanism helps reduce foreign exchange volatility and dependence on third-country reserve currencies in regional trade."
       ],
-      "mains": "Incorporate in GS-3 Economy and Environment questions regarding market-based mechanisms for industrial decarbonization and achievement of India's Nationally Determined Contributions (NDCs)."
+      "mains": "Analyze the strategic and economic implications of cross-border CBDC integration for India's external trade resilience and currency internationalization."
     },
     {
       "id": 3,
-      "title": "Deep Sea Mining Regulations and India's Samudrayaan Mission Progress",
+      "title": "UNEP Report Warns of Heightened GLOF Hazards Across High-Mountain Asia",
       "gs": "GS3",
-      "source": "Indian Express",
-      "summary": "International Seabed Authority reviews environmental safeguards as India prepares deep-submergence vehicle MATSYA 6000 for ocean mineral exploration.",
+      "source": "Down To Earth",
+      "summary": "A UNEP assessment highlights rapid glacier recession in the Himalayan region, urging accelerated installation of automated early warning systems.",
       "prelims": [
-        "MATSYA 6000 is an indigenous crewed deep-submergence vehicle developed by the National Institute of Ocean Technology (NIOT).",
-        "India holds exclusive rights granted by the International Seabed Authority (ISA) for exploring polymetallic nodules in the Central Indian Ocean Basin.",
-        "Polymetallic nodules contain critical minerals such as nickel, cobalt, copper, and manganese essential for energy transition."
+        "High-Mountain Asia features the largest concentration of snow and ice outside the Earth's polar regions, feeding 10 major Asian river systems.",
+        "Glacial Lake Outburst Floods (GLOFs) occur when moraine or ice dams containing glacial lakes suffer sudden structural failures.",
+        "NDMA's National GLOF Risk Mitigation Project prioritizes synthetic aperture radar monitoring and real-time hydrological sensors in high-risk zones."
       ],
-      "mains": "Analyze in GS-3 Science & Tech and Environment papers on the balance between resource extraction for clean energy technology and marine biodiversity preservation."
+      "mains": "Evaluate India's disaster preparedness and institutional mechanisms in mitigating risks associated with Glacial Lake Outburst Floods in the fragile Himalayan ecosystem."
     },
     {
       "id": 4,
-      "title": "Central Asian Flyway Action Plan under the Bonn Convention",
-      "gs": "GS3",
-      "source": "Down To Earth",
-      "summary": "India leads regional coordination initiatives under the Convention on Migratory Species to safeguard wetland habitats along the Central Asian Flyway.",
+      "title": "India and Nordic-Baltic Nations Sign Compact on Green Hydrogen & Critical Minerals",
+      "gs": "GS2",
+      "source": "Indian Express",
+      "summary": "India expanded bilateral ties with the Nordic-Baltic Eight (NB8) grouping to create robust supply chains for critical minerals and standard green hydrogen certificates.",
       "prelims": [
-        "The Convention on the Conservation of Migratory Species of Wild Animals (CMS) is commonly known as the Bonn Convention.",
-        "CMS functions under the aegis of the United Nations Environment Programme (UNEP).",
-        "The Central Asian Flyway (CAF) spans 30 countries and covers crucial wintering grounds for migratory birds across India."
+        "The NB8 platform comprises Denmark, Estonia, Finland, Iceland, Latvia, Lithuania, Norway, and Sweden.",
+        "The agreement aligns green hydrogen certification rules to facilitate seamless renewable fuel trade between South Asia and Europe.",
+        "Nordic countries hold strategic expertise in deep-sea geology, rare earth element processing, and offshore wind integration."
       ],
-      "mains": "Use in GS-3 Environment and Biodiversity answers regarding transboundary conservation strategies and international environmental treaties."
+      "mains": "Discuss the potential of India-Nordic collaboration in facilitating technological transfers for the clean energy transition and critical mineral security."
     },
     {
       "id": 5,
-      "title": "Electoral Reform Recommendations on Decriminalization under RPA, 1951",
-      "gs": "GS2",
-      "source": "Livemint",
-      "summary": "Discussions highlight legal amendments needed under the Representation of the People Act to address pending criminal charges among political candidates.",
+      "title": "ICMR Releases Ethical Guidelines for Generative AI in Diagnostic Medicine",
+      "gs": "GS4",
+      "source": "PIB",
+      "summary": "The Indian Council of Medical Research published national bioethical principles to guide clinical deployment and accountability of generative AI algorithms.",
       "prelims": [
-        "Section 8 of the Representation of the People Act, 1951 specifies disqualification criteria for legislators upon conviction.",
-        "In Lily Thomas v. Union of India (2013), the Supreme Court struck down Section 8(4) which protected convicted sitting legislators from immediate disqualification.",
-        "Article 324 of the Constitution vests the power of superintendence, direction, and control of elections in the Election Commission of India."
+        "The framework mandates Human-in-the-Loop (HITL) oversight, retaining ultimate legal liability with treating physicians.",
+        "It establishes algorithmic auditing requirements to eliminate dataset bias against underrepresented demographic groups.",
+        "Explicit patient consent is made mandatory before clinical diagnostic tools process personal health information (PHI) via AI systems."
       ],
-      "mains": "Cite in GS-2 Polity answers concerning electoral integrity, institutional reforms, and legal mechanisms to curb the criminalization of politics."
+      "mains": "Discuss the ethical dilemmas posed by the integration of Artificial Intelligence in public healthcare, focusing on clinical accountability, data equity, and patient autonomy."
     }
   ]
 }
