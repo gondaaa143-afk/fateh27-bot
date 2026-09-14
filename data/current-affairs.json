@@ -4,68 +4,68 @@
   "articles": [
     {
       "id": 1,
-      "title": "Operational Framework Finalised for India's Carbon Credit Trading Scheme (CCTS)",
-      "gs": "GS3",
-      "source": "The Hindu",
-      "summary": "The Bureau of Energy Efficiency (BEE) releases key operational guidelines for the domestic compliance carbon market under CCTS.",
+      "title": "India Operationalizes National AI Security and Ethics Framework",
+      "gs": "GS2",
+      "source": "The Hindu / PIB",
+      "summary": "Ministry of Electronics and Information Technology releases comprehensive guidelines for responsible AI deployment and algorithmic auditing.",
       "prelims": [
-        "CCTS was notified under the Energy Conservation Act, 2001.",
-        "Bureau of Energy Efficiency (BEE) acts as the administrator for the market framework.",
-        "Greenhouse Gas Emission Intensity targets are assigned to obligated entities to issue Carbon Credit Certificates (CCCs)."
+        "Establishment of the IndiaAI Governance Office under MeitY to enforce ethical compliance.",
+        "Mandatory algorithmic impact assessments for high-risk public sector AI deployments.",
+        "Alignment with the UN Global Digital Compact and OECD Principles on Artificial Intelligence."
       ],
-      "mains": "Examine how the Carbon Credit Trading Scheme (CCTS) balances industrial growth with India's Panchamrit climate commitments under the UNFCCC."
+      "mains": "Examine the regulatory challenges of balancing Artificial Intelligence innovation with citizen privacy and ethical governance in India."
     },
     {
       "id": 2,
-      "title": "Implementation Progress of the India-EFTA Trade and Economic Partnership Agreement (TEPA)",
-      "gs": "GS2",
+      "title": "Bureau of Energy Efficiency (BEE) Notifies Carbon Credit Trading Scheme Targets",
+      "gs": "GS3",
       "source": "Indian Express",
-      "summary": "India and European Free Trade Association (EFTA) nations advance tariff rationalisation and $100 billion investment targets.",
+      "summary": "India's domestic carbon market reaches a key operational milestone with emission intensity reduction targets notified for energy-intensive sectors.",
       "prelims": [
-        "EFTA member countries are Iceland, Liechtenstein, Norway, and Switzerland.",
-        "First FTA signed by India featuring a legally binding commitment of $100 billion in FDI over 15 years.",
-        "Key sectors covered include pharmaceuticals, precision machinery, and renewable technology transfer."
+        "CCTS established under the provisions of the Energy Conservation (Amendment) Act, 2022.",
+        "National Steering Committee for Indian Carbon Market (NSCICM) serves as the apex governing body.",
+        "BEE acts as the administrator, while Grid Controller of India Limited is the registry."
       ],
-      "mains": "Analyze the significance of investment-linked free trade agreements for enhancing India's manufacturing competitiveness and global supply chain integration."
+      "mains": "Discuss the role of the Indian Carbon Market in achieving India's Panchamrit climate targets and facilitating a just energy transition."
     },
     {
       "id": 3,
-      "title": "Draft National Guidelines on Ethical Integration of AI in Public Service Delivery",
-      "gs": "GS2",
+      "title": "ISRO Completes Payload Integration Tests for Chandrayaan-4 Mission",
+      "gs": "GS3",
       "source": "PIB",
-      "summary": "MeitY issues comprehensive guidelines prioritizing algorithmic transparency, data privacy, and non-discrimination in AI public deployment.",
+      "summary": "ISRO successfully completes key module integration tests for the upcoming Chandrayaan-4 mission aimed at lunar sample return.",
       "prelims": [
-        "Formulated under the operational aegis of the IndiaAI Mission.",
-        "Mandates Human-in-the-Loop (HITL) architecture for welfare scheme beneficiary selection.",
-        "Aligns strictly with provisions of the Digital Personal Data Protection (DPDP) Act, 2023."
+        "Chandrayaan-4 employs a multi-module architecture comprising Transfer, Lander, Ascender, and Re-entry modules.",
+        "First Indian space mission designed to perform autonomous lunar orbit docking and sample transfer.",
+        "Targeted to land in the lunar south pole region to retrieve volatile and water-ice samples."
       ],
-      "mains": "Discuss the ethical challenges of adopting Artificial Intelligence in public governance and suggest safeguards to protect civil liberties."
+      "mains": "Analyze how India's space exploration strategy has evolved from technology demonstration to deep-space resource analysis and international scientific leadership."
     },
     {
       "id": 4,
-      "title": "Dual-Frequency Earth Observation: ISRO-NASA NISAR Mission Advances Pre-Launch Workflows",
-      "gs": "GS3",
+      "title": "Progress Review of the National Sickle Cell Anaemia Elimination Mission",
+      "gs": "GS2",
       "source": "The Hindu",
-      "summary": "The joint ISRO-NASA Earth-observing satellite NISAR completes crucial integration testing for dual-frequency radar land mapping.",
+      "summary": "Ministry of Health reports significant milestones in screening and genetic counseling across high-prevalence tribal districts.",
       "prelims": [
-        "NISAR utilizes both L-band (NASA) and S-band (ISRO) Synthetic Aperture Radars (SAR).",
-        "It will map the entire globe's land and ice masses every 12 days to monitor crustal deformation and natural hazards.",
-        "Configuration allows for surface movement measurements down to fractions of an inch."
+        "Mission objective: Eliminate Sickle Cell Disease (SCD) as a public health problem in India by 2047.",
+        "Focuses on 17 high-priority states covering 278 districts with significant tribal populations.",
+        "Utilizes point-of-care rapid diagnostic kits integrated with Ayushman Bharat Health Account (ABHA) IDs."
       ],
-      "mains": "Highlight the applications of dual-frequency synthetic aperture radar technology in disaster management and climate resilience planning in India."
+      "mains": "Evaluate the socio-economic impact of genetic blood disorders on tribal communities in India and assess the key pillars of the National Sickle Cell Elimination Mission."
     },
     {
       "id": 5,
-      "title": "Strengthening Wetlands along the Central Asian Flyway (CAF) Action Plan",
+      "title": "NDMA Issues Guidelines on 'Sponge Cities' for Urban Flood Mitigation",
       "gs": "GS3",
       "source": "Down To Earth",
-      "summary": "Ministry of Environment, Forest and Climate Change scales up wetland restoration to protect migratory birds along the CAF.",
+      "summary": "National Disaster Management Authority releases updated directives emphasizing nature-based solutions and permeable infrastructure for major urban centers.",
       "prelims": [
-        "Central Asian Flyway covers 30 countries, extending from Arctic breeding grounds to South Asian wintering grounds.",
-        "India hosts over 90% of the migratory bird species traversing the Central Asian Flyway route.",
-        "Initiative operates under the aegis of the Convention on the Conservation of Migratory Species of Wild Animals (CMS / Bonn Convention)."
+        "Mandates 'Sponge City' elements: permeable pavements, urban wetlands, rain gardens, and bioswales.",
+        "Integration of Doppler Weather Radars (DWR) with real-time municipal drainage monitoring systems.",
+        "Aligned with Sendai Framework for Disaster Risk Reduction and CDRI urban resilience guidelines."
       ],
-      "mains": "Evaluate the role of transboundary conservation initiatives and Ramsar site management in safeguarding migratory avian species."
+      "mains": "Urban flooding is increasingly recognized as a policy-driven and planning failure rather than a purely natural hazard. Critically analyze the structural and non-structural measures needed to build resilient Indian cities."
     }
   ]
 }
