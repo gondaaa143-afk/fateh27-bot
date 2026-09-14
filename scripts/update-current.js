@@ -1,41 +1,67 @@
 const fs = require("fs");
+const axios = require("axios");
 
-const data = {
-  date: new Date().toISOString().slice(0,10),
-  brief: "Today's UPSSC Intelligence Brief",
-  articles: [
+const API_KEY = process.env.GEMINI_API_KEY;
+
+async function run() {
+  const today = new Date().toISOString().slice(0, 10);
+
+  const prompt = `
+Today's date is ${today}.
+
+Generate today's TOP 5 UPSC Current Affairs in VALID JSON ONLY.
+
+Return exactly in this format:
+
+{
+  "date":"${today}",
+  "brief":"Today's UPSC Intelligence Brief",
+  "articles":[
     {
-      id: 1,
-      title: "Demo Auto News 1",
-      gs: "GS2",
-      source: "AI",
-      summary: "Automatic workflow working successfully.",
-      prelims: [
-        "Point 1",
-        "Point 2",
-        "Point 3"
-      ],
-      mains: "Use in GS2 answers."
-    },
-    {
-      id: 2,
-      title: "Demo Auto News 2",
-      gs: "GS3",
-      source: "AI",
-      summary: "Second automatic news generated.",
-      prelims: [
-        "Point A",
-        "Point B",
-        "Point C"
-      ],
-      mains: "Use in GS3 answers."
+      "id":1,
+      "title":"...",
+      "gs":"GS2",
+      "source":"AI",
+      "summary":"One-line summary.",
+      "prelims":["Point 1","Point 2","Point 3"],
+      "mains":"Use in UPSC answer writing."
     }
   ]
-};
+}
+`;
 
-fs.writeFileSync(
-  "data/current-affairs.json",
-  JSON.stringify(data, null, 2)
-);
+  const url =
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
 
-console.log("Current affairs updated.");
+  const response = await axios.post(url, {
+    contents: [
+      {
+        parts: [{ text: prompt }]
+      }
+    ]
+  });
+
+  const text =
+    response.data.candidates?.[0]?.content?.parts?.[0]?.text || "";
+
+  if (!text) throw new Error("Gemini response empty");
+
+  const cleaned = text
+    .replace(/```json/g, "")
+    .replace(/```/g, "")
+    .trim();
+
+  const json = JSON.parse(cleaned);
+
+  fs.writeFileSync(
+    "data/current-affairs.json",
+    JSON.stringify(json, null, 2)
+  );
+
+  console.log("Current affairs updated.");
+}
+
+run().catch(err => {
+  console.error(err.response?.data || err);
+  process.exit(1);
+});
