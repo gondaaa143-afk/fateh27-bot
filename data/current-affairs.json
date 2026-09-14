@@ -1,32 +1,71 @@
 {
   "date": "2026-09-14",
-  "brief": "Today's UPSSC Intelligence Brief",
+  "brief": "Today's UPSC Intelligence Briefing covers key developments across Geopolitics, Climate Governance, Quantum Security, Digital Public Infrastructure, and Environmental Conservation.",
   "articles": [
     {
       "id": 1,
-      "title": "Demo Auto News 1",
+      "title": "Expansion of India-Nordic-Baltic (NB8) Partnership in Renewable Tech & Maritime Security",
       "gs": "GS2",
-      "source": "AI",
-      "summary": "Automatic workflow working successfully.",
+      "source": "PIB / The Hindu",
+      "summary": "India and the Nordic-Baltic Eight (NB8) agreed to deepen cooperation on green hydrogen, critical mineral supply chains, and Arctic research.",
       "prelims": [
-        "Point 1",
-        "Point 2",
-        "Point 3"
+        "NB8 comprises 5 Nordic countries (Denmark, Finland, Iceland, Norway, Sweden) and 3 Baltic countries (Estonia, Latvia, Lithuania).",
+        "The primary areas of collaboration include the Blue Economy, green transition, AI governance, and Arctic scientific research.",
+        "The initiative builds upon the framework established during the inaugural India-Nordic Summit held in Stockholm."
       ],
-      "mains": "Use in GS2 answers."
+      "mains": "Examine the strategic significance of the Nordic-Baltic grouping for India's long-term energy transition and Arctic policy objectives."
     },
     {
       "id": 2,
-      "title": "Demo Auto News 2",
+      "title": "BEE Outlines Operational Regulations for the Indian Carbon Market (ICM)",
       "gs": "GS3",
-      "source": "AI",
-      "summary": "Second automatic news generated.",
+      "source": "Indian Express / Down To Earth",
+      "summary": "Bureau of Energy Efficiency (BEE) releases functional compliance standards for the Carbon Credit Trading Scheme (CCTS) targeting high-emission industrial sectors.",
       "prelims": [
-        "Point A",
-        "Point B",
-        "Point C"
+        "CCTS was notified under the Energy Conservation Act, 2001 (as amended in 2022).",
+        "The National Steering Committee for the Indian Carbon Market (NSCICM) is chaired by the Secretary, Ministry of Power.",
+        "Grid Controller of India Limited (Grid-India) acts as the official registry for Carbon Credit Certificates (CCCs)."
       ],
-      "mains": "Use in GS3 answers."
+      "mains": "Discuss how the Indian Carbon Market can effectively balance domestic industrial growth with India's updated Nationally Determined Contributions (NDCs) under the Paris Agreement."
+    },
+    {
+      "id": 3,
+      "title": "Indigenously Developed Quantum Key Distribution (QKD) Integrated into Defence Communication Networks",
+      "gs": "GS3",
+      "source": "PIB / Financial Express",
+      "summary": "Under the National Quantum Mission (NQM), India's defence sector successfully deploys secure Quantum Key Distribution protocols over long-distance military fiber routes.",
+      "prelims": [
+        "The National Quantum Mission (NQM) is implemented by the Department of Science and Technology (DST).",
+        "QKD uses fundamental principles of quantum mechanics (superposition and entanglement) to ensure secure key exchange resistant to quantum decryption.",
+        "NQM targets developing intermediate-scale quantum computers with 50-1000 physical qubits over an eight-year roadmap."
+      ],
+      "mains": "Analyze the critical role of emerging quantum technologies in safeguarding national communications infrastructure against futuristic cyber threats."
+    },
+    {
+      "id": 4,
+      "title": "NHA Releases ABDM 2.0 Norms for Interoperability and Digital Health Data Privacy",
+      "gs": "GS2",
+      "source": "Livemint / PIB",
+      "summary": "The National Health Authority (NHA) updates protocols under the Unified Health Interface (UHI) to streamline digital consent management across healthcare providers.",
+      "prelims": [
+        "The National Health Authority (NHA) is the apex body responsible for implementing the Ayushman Bharat Digital Mission (ABDM).",
+        "ABHA (Ayushman Bharat Health Account) provides citizens with a 14-digit unique health identification number.",
+        "Unified Health Interface (UHI) works on open protocols, enabling seamless interoperability across digital health services akin to UPI in banking."
+      ],
+      "mains": "Evaluate the role of Digital Public Infrastructure (DPI) in improving healthcare delivery and discuss the operational challenges in ensuring patient data privacy under the DPDP Act."
+    },
+    {
+      "id": 5,
+      "title": "India Reaches Milestone of 100 Ramsar Sites Under 'Amrit Dharohar' Initiative",
+      "gs": "GS3",
+      "source": "PIB / Down To Earth",
+      "summary": "India adds key inland wetland ecosystems to the Ramsar List, reaching 100 designated Wetlands of International Importance while boosting community-led eco-tourism.",
+      "prelims": [
+        "The Ramsar Convention on Wetlands was adopted in 1971 in Ramsar, Iran; India became a contracting party in 1982.",
+        "The 'Amrit Dharohar' scheme promotes non-consumptive use of wetlands, local community livelihoods, and carbon sequestration.",
+        "The Montreux Record is a register of Ramsar sites where ecological character changes have occurred, are occurring, or are likely to occur due to human interference."
+      ],
+      "mains": "Highlight the ecological importance of wetland restoration in climate change adaptation and evaluate community-centric strategies for sustainable wetland management."
     }
   ]
 }
