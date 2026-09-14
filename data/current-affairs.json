@@ -4,68 +4,68 @@
   "articles": [
     {
       "id": 1,
-      "title": "India's Revised National Biodiversity Action Plan (NBAP) Aligned with Kunming-Montreal Targets",
+      "title": "Cabinet Approves Expansion of Deep Ocean Mission to Boost Blue Economy",
       "gs": "GS3",
-      "source": "PIB / The Hindu",
-      "summary": "India updates its NBAP to align national conservation goals with 23 global targets set under the Kunming-Montreal Global Biodiversity Framework.",
+      "source": "PIB",
+      "summary": "The Union Cabinet has approved Phase-II of the Deep Ocean Mission focusing on deep-sea mining technology and marine biodiversity conservation.",
       "prelims": [
-        "The 30x30 target aims to effectively conserve at least 30% of terrestrial, inland water, and coastal areas by 2030.",
-        "National Biodiversity Authority (NBA) is a statutory autonomous body established under the Biological Diversity Act, 2002.",
-        "Incorporates legally binding Access and Benefit Sharing (ABS) mechanisms for local community resources."
+        "Nodal Ministry: Ministry of Earth Sciences (MoES).",
+        "Key Component: Development of MATSYA 6000, a human submersible capable of reaching 6,000 meters depth.",
+        "Focus Area: Polymetallic nodules containing copper, nickel, cobalt, and manganese in the Central Indian Ocean Basin."
       ],
-      "mains": "Examine the challenges in implementing the updated National Biodiversity Action Plan while balancing economic growth and indigenous rights in India."
+      "mains": "Examine the significance of the Deep Ocean Mission in securing critical mineral supply chains and enhancing India's strategic footprint in the Indian Ocean Region."
     },
     {
       "id": 2,
-      "title": "RBI Rolls Out Offline Capabilities for Central Bank Digital Currency (CBDC-R)",
-      "gs": "GS3",
-      "source": "Indian Express",
-      "summary": "The Reserve Bank of India introduces offline and programmable capabilities for the retail Digital Rupee to facilitate transactions in network-constrained environments.",
+      "title": "Election Commission Introduces Enhanced Digital Voter Verification System",
+      "gs": "GS2",
+      "source": "The Hindu",
+      "summary": "The Election Commission of India has launched an AI-driven digital verification platform to streamline electoral roll management across states.",
       "prelims": [
-        "CBDC is a sovereign currency issued by a central bank in alignment with its monetary policy.",
-        "Offline functionality utilizes secure hardware-based elements to prevent double-spending without active internet connection.",
-        "Programmability enables targeted distribution of central and state government welfare subsidies."
+        "Constitutional Basis: Article 324 grants powers of superintendence, direction, and control of elections to ECI.",
+        "Governed by the Representation of the People Act, 1950 for electoral roll preparation.",
+        "Key Feature: Automated cross-referencing to eliminate duplicate and deceased entries across interstate databases."
       ],
-      "mains": "Discuss how offline and programmable CBDC features can bridge India's digital financial divide and enhance welfare delivery."
+      "mains": "Discuss how digital technologies can enhance electoral integrity while addressing privacy concerns and risks of digital exclusion."
     },
     {
       "id": 3,
-      "title": "NDMA Initiates Comprehensive Glacial Lake Outburst Flood (GLOF) Risk Reduction Plan",
-      "gs": "GS3",
-      "source": "Down To Earth",
-      "summary": "The National Disaster Management Authority deploys automated early warning monitoring systems across high-risk Himalayan glacial lakes.",
+      "title": "India and European Union Finalize Green Hydrogen Trade Standards",
+      "gs": "GS2",
+      "source": "Indian Express",
+      "summary": "India and the EU have established harmonized certification and trade standards for Green Hydrogen to accelerate bilateral clean energy trade.",
       "prelims": [
-        "GLOFs occur when a natural moraine or ice dam containing a glacial lake suddenly breaches.",
-        "Integrates Synthetic Aperture Radar (SAR) and real-time telemetry sensors for high-altitude monitoring.",
-        "High-vulnerability sites include South Lhonak Lake (Sikkim) and Lake Kedartal (Uttarakhand)."
+        "National Green Hydrogen Mission aims for 5 MMT annual production capacity by 2030.",
+        "Definition: Green Hydrogen is produced through electrolysis of water using renewable energy sources.",
+        "Harmonized standards align with the EU's Carbon Border Adjustment Mechanism (CBAM) requirements."
       ],
-      "mains": "Critically evaluate the vulnerability of the Indian Himalayan Region to GLOF disasters and suggest structural and non-structural mitigation strategies."
+      "mains": "Evaluate the role of international green energy partnerships in achieving India's Panchamrit climate goals and boosting energy exports."
     },
     {
       "id": 4,
-      "title": "India-ASEAN Digital Work Plan 2026: Enhancing Cross-Border DPI Interoperability",
-      "gs": "GS2",
-      "source": "Ministry of External Affairs",
-      "summary": "India and ASEAN adopt a joint digital initiative focusing on AI governance, cybersecurity, and scaling Digital Public Infrastructure across Southeast Asia.",
+      "title": "RBI Issues Updated Framework for Climate Risk and Sustainable Finance",
+      "gs": "GS3",
+      "source": "Livemint",
+      "summary": "The Reserve Bank of India has mandated climate scenario stress testing and green asset disclosure for major financial institutions.",
       "prelims": [
-        "ASEAN is a regional grouping of 10 Southeast Asian nations; India became a full Dialogue Partner in 1996.",
-        "Focuses on integrating India's UPI and digital identity frameworks with ASEAN national payment gateways.",
-        "Aligns with the strategic framework of India's Act East Policy and the Indo-Pacific Vision."
+        "Applies to Scheduled Commercial Banks, All India Financial Institutions, and Deposit-taking NBFCs.",
+        "Framework relies on guidelines from the Network for Greening the Financial System (NGFS).",
+        "Mandates structured reporting on physical and transition risks associated with institutional loan portfolios."
       ],
-      "mains": "Analyze Digital Public Infrastructure (DPI) as an instrument of India's soft power diplomacy in strengthening ties with ASEAN nations."
+      "mains": "Analyze how climate-related financial risks threaten banking stability and suggest policy measures to scale green finance in India."
     },
     {
       "id": 5,
-      "title": "Department of Biotechnology Operationalizes BioE3 Policy Biomanufacturing Hubs",
-      "gs": "GS3",
-      "source": "LiveMint",
-      "summary": "Guidelines are released for setting up high-performance biomanufacturing hubs under the BioE3 policy to drive a circular bioeconomy.",
+      "title": "Archaeological Survey of India Unearths Megalithic Site in Vidarbha",
+      "gs": "GS1",
+      "source": "The Hindu",
+      "summary": "Excavations in Maharashtra's Vidarbha region have uncovered Iron Age megalithic stone circles containing iron tools and black-and-red ware.",
       "prelims": [
-        "BioE3 stands for Biotechnology for Economy, Environment, and Employment.",
-        "Prioritizes bio-foundries, bio-based polymers, carbon capture bioprocesses, and precision therapeutics.",
-        "Nodal agency for implementation is the Department of Biotechnology (DST, Ministry of Science & Technology)."
+        "Megaliths are large stone structures used as burial sites or commemorative markers.",
+        "Vidarbha region is renowned for major Iron Age megalithic sites such as Mahurjhari, Junapani, and Naikund.",
+        "Key findings include horse trappings, iron weaponry, and characteristic Black and Red Ware (BRW) pottery."
       ],
-      "mains": "Assess the potential of the BioE3 policy in advancing India's transition toward a low-carbon circular economy."
+      "mains": "Discuss the socio-economic and technological significance of Megalithic cultures in understanding early iron age transitions in Peninsular India."
     }
   ]
 }
