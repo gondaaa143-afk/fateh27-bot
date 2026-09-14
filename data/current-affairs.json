@@ -4,68 +4,68 @@
   "articles": [
     {
       "id": 1,
-      "title": "Implementation Framework for India-EFTA Trade and Economic Partnership Agreement",
-      "gs": "GS2",
-      "source": "PIB",
-      "summary": "Ministry of Commerce issues operational norms for the $100 billion investment commitment under TEPA.",
+      "title": "India Deep Ocean Mission: MATSYA 6000 Deep-Sea Submersible Trial Milestone",
+      "gs": "GS3",
+      "source": "The Hindu",
+      "summary": "India's indigenous manned submersible MATSYA 6000 successfully advances deep ocean exploration trials under the Ministry of Earth Sciences.",
       "prelims": [
-        "EFTA includes Switzerland, Norway, Iceland, and Liechtenstein.",
-        "TEPA features a legally binding commitment for $100B FDI over 15 years.",
-        "Excludes sensitive agricultural products and dairy from immediate tariff cuts."
+        "MATSYA 6000 is developed by the National Institute of Ocean Technology (NIOT), Chennai.",
+        "Targeted at exploring polymetallic nodules containing nickel, cobalt, copper, and manganese in the Central Indian Ocean Basin.",
+        "Nodal initiative under the National Deep Ocean Mission launched in 2021."
       ],
-      "mains": "Use to illustrate modern free trade agreement dynamics and foreign direct investment strategies in GS-2 (International Relations) and GS-3 (Economy)."
+      "mains": "Examine the strategic and economic significance of India's Deep Ocean Mission in securing critical mineral supply chains for clean energy transition."
     },
     {
       "id": 2,
-      "title": "National Green Hydrogen Mission: Rollout of SIGHT Program Phase-II Incentives",
-      "gs": "GS3",
-      "source": "The Hindu",
-      "summary": "MNRE expands financial allocations for domestic electrolyser manufacturing and green hydrogen generation.",
+      "title": "Implementation of Bharatiya Nagarik Suraksha Sanhita (BNSS) Digital Evidence Protocols",
+      "gs": "GS2",
+      "source": "Indian Express",
+      "summary": "Union Home Ministry reviews nationwide implementation of mandatory digital evidence collection standards under the new criminal procedural framework.",
       "prelims": [
-        "SIGHT (Strategic Interventions for Green Hydrogen Transition) is a major sub-component of NGHM.",
-        "Solar Energy Corporation of India (SECI) serves as the nodal implementing agency.",
-        "Target is to produce at least 5 MMT of green hydrogen per annum by 2030."
+        "BNSS mandates compulsory videography during search and seizure operations.",
+        "e-Sakshya portal serves as the centralized repository for forensic digital evidence handling.",
+        "Replaced the Code of Criminal Procedure, 1973 to modernize investigation protocols."
       ],
-      "mains": "Cite as a key state intervention for energy transition, industrial decarbonization, and achieving net-zero targets by 2070 in GS-3 (Environment & Infrastructure)."
+      "mains": "Discuss how modernizing criminal justice laws through mandatory digital forensics improves conviction rates while addressing data integrity and privacy concerns."
     },
     {
       "id": 3,
-      "title": "International Seabed Authority Negotiations on Deep-Sea Mining Code",
-      "gs": "GS3",
-      "source": "Indian Express",
-      "summary": "ISA delegates convene to finalize environmental regulations governing polymetallic nodule extraction in the high seas.",
+      "title": "Digital Public Infrastructure (DPI) Expansion Strategy for Global South",
+      "gs": "GS2",
+      "source": "Business Standard",
+      "summary": "India accelerates the export of modular open-source DPI stacks to developing nations across Africa and Southeast Asia.",
       "prelims": [
-        "Operates under the framework of the UN Convention on the Law of the Sea (UNCLOS).",
-        "The Area (seabed beyond national jurisdiction) is designated as the 'common heritage of mankind'.",
-        "India holds exploration rights for polymetallic nodules in the Central Indian Ocean Basin."
+        "India Stack includes identity (Aadhaar), fast payments (UPI), and data governance (Account Aggregator).",
+        "Aligned with the G20 Framework for Systems of Digital Public Infrastructure endorsed during India's presidency.",
+        "Focuses on non-proprietary architecture to ensure technology sovereignty for recipient nations."
       ],
-      "mains": "Use to illustrate the tension between Blue Economy resource acquisition and oceanic ecosystem conservation in GS-3 (Environment & Geography)."
+      "mains": "Analyze Digital Public Infrastructure (DPI) as an instrument of soft power and economic diplomacy in India's foreign policy toward the Global South."
     },
     {
       "id": 4,
-      "title": "Phase III E-Courts Integration: AI Translation Tools in District Judiciary",
-      "gs": "GS2",
-      "source": "PIB",
-      "summary": "Supreme Court e-Committee reviews nationwide scaling of AI tools to translate legal transcripts into scheduled regional languages.",
+      "title": "National Green Hydrogen Mission: SIGHT Scheme Tranche-II Progress",
+      "gs": "GS3",
+      "source": "Livemint",
+      "summary": "Ministry of New & Renewable Energy reviews domestic electrolyzer manufacturing capacity under the SIGHT component.",
       "prelims": [
-        "E-Courts is a Central Sector Scheme funded under the Ministry of Law and Justice.",
-        "SUVAS (Supreme Court Vidhik Anuvaad Software) uses AI for translating legal documents.",
-        "Phase III focuses on creating cloud-based paperless courts and open-source API architectures."
+        "SIGHT (Strategic Interventions for Green Hydrogen Transition) offers financial incentives for electrolyzers and hydrogen production.",
+        "Targets production of 5 MMT (Million Metric Tonnes) of Green Hydrogen annually by 2030.",
+        "Nodal Ministry: Ministry of New and Renewable Energy (MNRE)."
       ],
-      "mains": "Incorporate into answers on legal reform, reducing pendency, and strengthening access to justice under Article 39A in GS-2 (Governance)."
+      "mains": "Critically evaluate the infrastructure and financial bottlenecks in scaling up Green Hydrogen production for hard-to-abate industrial sectors in India."
     },
     {
       "id": 5,
-      "title": "NDMA Issues Guidelines for Sponge City Models in Coastal Metros",
+      "title": "Western Ghats Ecologically Sensitive Area (ESA) Draft Notification",
       "gs": "GS3",
-      "source": "Down To Earth",
-      "summary": "National Disaster Management Authority publishes urban drainage and nature-based infrastructure standards to combat recurring pluvial flooding.",
+      "source": "Down to Earth",
+      "summary": "Environment Ministry updates draft notifications defining Ecologically Sensitive Areas across six Western Ghats states.",
       "prelims": [
-        "Sponge City concepts prioritize permeable pavements, rain gardens, and wetland restoration.",
-        "NDMA functions under the Ministry of Home Affairs, chaired ex-officio by the Prime Minister.",
-        "Integrates Sendai Framework Priority 3: Investing in disaster risk reduction for resilience."
+        "Kasturirangan Committee recommended declaring nearly 37% of the Western Ghats as Ecologically Sensitive Area.",
+        "Madhav Gadgil Commission originally recommended designating 90% of the Western Ghats as ESA.",
+        "Prohibits red-category polluting industries, mining, and large thermal power plants in ESA zones."
       ],
-      "mains": "Quote as a structural mitigation strategy for urban flooding and climate adaptation in GS-3 (Disaster Management & Urbanization)."
+      "mains": "Discuss the challenge of balancing biodiversity conservation with the socio-economic development rights of local communities in fragile bio-regions like the Western Ghats."
     }
   ]
 }
