@@ -1,60 +1,50 @@
 {
-  "date": "2026-03-31",
-  "top_5_upsc_current_affairs": [
+  "date": "2024-05-20",
+  "current_affairs": [
     {
       "rank": 1,
-      "title": "Supreme Court Recognizes Right to be Free from Adverse Climate Change Impacts",
-      "gs_paper": "GS Paper 2 (Polity & Governance) & GS Paper 3 (Environment)",
-      "summary": "The Supreme Court of India expanded the scope of Articles 21 (Right to Life) and 14 (Right to Equality) to include the right to be free from the adverse effects of climate change, emphasizing the state's duty to balance biodiversity protection with renewable energy expansion.",
-      "key_points": [
-        "Links environmental rights directly to fundamental constitutional rights.",
-        "Highlights challenges in protecting endangered species (e.g., Great Indian Bustard) versus establishing solar power infrastructure.",
-        "Sets a precedent for climate litigation and policy alignment in India."
-      ]
+      "title": "High-Level Committee Report on 'One Nation, One Election'",
+      "category": "Polity & Governance",
+      "gs_paper": "GS Paper II",
+      "summary": "The committee led by former President Ram Nath Kovind submitted recommendations to hold simultaneous elections for Lok Sabha and State Legislative Assemblies, followed by synchronized local body elections.",
+      "key_takeaways": "Requires constitutional amendments to Articles 83, 172, and 356; addresses issues of continuous election cycles, expenditure, and governance stability.",
+      "upsc_relevance": "Electoral reforms, federal structure, constitutional amendment procedures, and democratic governance."
     },
     {
       "rank": 2,
-      "title": "India-EFTA Trade and Economic Partnership Agreement (TEPA)",
-      "gs_paper": "GS Paper 2 (International Relations) & GS Paper 3 (Economy)",
-      "summary": "India signed the Trade and Economic Partnership Agreement (TEPA) with the European Free Trade Association (EFTA) nations (Iceland, Liechtenstein, Norway, and Switzerland), securing $100 billion in investment commitments over 15 years.",
-      "key_points": [
-        "First trade agreement for India with a commitment to target-based investment and job creation.",
-        "Reduces tariffs on high-end manufactured goods, precision instruments, and machinery.",
-        "Provides enhanced market access for Indian service sectors like IT, audio-visual, and professional services."
-      ]
+      "title": "Environmental Clearances and Tribal Rights in Great Nicobar Island Project",
+      "category": "Environment & Geography",
+      "gs_paper": "GS Paper III",
+      "summary": "Concerns have intensified regarding the environmental impact of the ₹72,000-crore Mega Infrastructure Project in Great Nicobar, affecting primary rainforests and Particularly Vulnerable Tribal Groups (PVTGs) like the Shompen and Nicobarese.",
+      "key_takeaways": "Involves diversion of pristine forest land, potential loss of marine biodiversity, rights under the Forest Rights Act (FRA) 2006, and strategic maritime posture in the Bay of Bengal.",
+      "upsc_relevance": "Environmental Impact Assessment (EIA), PVTGs, island ecology, and national security vs. conservation debates."
     },
     {
       "rank": 3,
-      "title": "Pilot Projects for Green Hydrogen Usage in the Steel and Transport Sectors",
-      "gs_paper": "GS Paper 3 (Science & Technology / Environment)",
-      "summary": "Under the National Green Hydrogen Mission, the Ministry of New and Renewable Energy launched guidelines for implementing pilot projects using Green Hydrogen in the steelmaking process and heavy-duty transport.",
-      "key_points": [
-        "Aims to reduce carbon intensity in hard-to-abate industrial sectors.",
-        "Supports decarbonization targets ahead of India's 2070 Net-Zero goal.",
-        "Fosters domestic technology development and reduces reliance on imported coking coal."
-      ]
+      "title": "Strategic Advancements in the India-Middle East-Europe Economic Corridor (IMEC)",
+      "category": "International Relations",
+      "gs_paper": "GS Paper II",
+      "summary": "India continues diplomatic engagement to institutionalize the IMEC framework, aiming to establish resilient trade networks connecting India, the Arabian Gulf, and Europe despite ongoing geopolitical friction in West Asia.",
+      "key_takeaways": "Focuses on multi-modal transport networks, green hydrogen pipelines, and digital connectivity cables; serves as an alternative to China's Belt and Road Initiative (BRI).",
+      "upsc_relevance": "India's foreign policy, West Asia relations, global supply chain diversification, and economic diplomacy."
     },
     {
       "rank": 4,
-      "title": "UN Summit of the Future and the Adoption of the 'Pact for the Future'",
-      "gs_paper": "GS Paper 2 (International Organizations & Global Governance)",
-      "summary": "World leaders adopted the 'Pact for the Future' at the United Nations, focusing on multilateralism reform, international peace and security, digital cooperation, and global financial architecture reform.",
-      "key_points": [
-        "Reiterates the urgency of reforming the UN Security Council to reflect contemporary geopolitical realities.",
-        "Includes a Global Digital Compact to regulate AI and bridge the global digital divide.",
-        "Emphasizes sustainable development funding mechanisms for the Global South."
-      ]
+      "title": "ISRO's Progress on the Gaganyaan Mission and 'Vyommitra' Uncrewed Flight",
+      "category": "Science & Technology",
+      "gs_paper": "GS Paper III",
+      "summary": "ISRO has advanced the preparation for the uncrewed Gaganyaan mission featuring 'Vyommitra', a female spacefaring humanoid robot designed to test life support and module systems under spaceflight conditions.",
+      "key_takeaways": "Validates human-rated launch vehicle (LVM3), crew escape system (CES), environmental control and life support system (ECLSS), and space robotics capabilities.",
+      "upsc_relevance": "Indigenous technology development, space exploration, robotics, and ISRO's long-term human spaceflight roadmap."
     },
     {
       "rank": 5,
-      "title": "Commission for Agricultural Costs and Prices (CACP) Recommendations on MSP Reform",
-      "gs_paper": "GS Paper 3 (Agriculture & Economy)",
-      "summary": "The CACP submitted policy recommendations highlighting the need for legal guarantees on Minimum Support Price (MSP), diversification towards climate-resilient pulses and oilseeds, and modernization of agricultural market infrastructure (e-NAM).",
-      "key_points": [
-        "Focuses on crop diversification away from water-intensive wheat-paddy monoculture.",
-        "Addresses the economic sustainability of small and marginal farmers.",
-        "Examines procurement challenges and price stabilization mechanisms across states."
-      ]
+      "title": "RBI Guidelines on Disclosure Framework for Climate-Related Financial Risks",
+      "category": "Economy & Financial Sector",
+      "gs_paper": "GS Paper III",
+      "summary": "The Reserve Bank of India (RBI) mandated Regulated Entities (REs) to implement structured disclosures covering climate governance, strategy, risk management, and metrics to address financial stability threats posed by climate change.",
+      "key_takeaways": "Addresses physical and transition risks from climate change, fosters green finance, and aligns Indian banking regulation with global standards (TCFD framework).",
+      "upsc_relevance": "Green banking, regulatory frameworks, monetary policy adaptation, and sustainable development goals (SDGs)."
     }
   ]
 }
