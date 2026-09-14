@@ -1,41 +1,41 @@
 {
   "date": "2024-05-20",
-  "source": "UPSC Current Affairs Digest",
-  "current_affairs": [
+  "category": "UPSC Current Affairs",
+  "items": [
     {
       "rank": 1,
-      "title": "Supreme Court Recognizes Right to be Free from Climate Change Impacts",
-      "category": "Polity & Environment",
-      "gs_paper": "GS Paper 2 & GS Paper 3",
-      "summary": "The Supreme Court expanded the scope of Article 21 (Right to Life) and Article 14 (Right to Equality) to include the fundamental right to be free from the adverse effects of climate change, while balancing biodiversity conservation of the Great Indian Bustard with renewable energy expansion."
+      "title": "RBI Maintains Stance on Repo Rate to Balance Growth and Inflation",
+      "gs_paper": "GS Paper III (Indian Economy and Issues Relating to Planning, Mobilization of Resources)",
+      "summary": "The Reserve Bank of India's Monetary Policy Committee (MPC) decided to keep the benchmark repo rate unchanged, emphasizing a disciplined approach to bring retail inflation down to the 4% target while sustaining economic momentum.",
+      "key_takeaway": "Focus on consumer price index (CPI), food inflation volatility, monetary transmission mechanisms, and macro-economic stability."
     },
     {
       "rank": 2,
-      "title": "India-EFTA Trade and Economic Partnership Agreement (TEPA)",
-      "category": "International Relations & Economy",
-      "gs_paper": "GS Paper 2 & GS Paper 3",
-      "summary": "India signed a historic trade deal with the European Free Trade Association (Iceland, Liechtenstein, Norway, Switzerland), securing a commitment of $100 billion in investments over 15 years and generation of 1 million direct jobs."
+      "title": "India Expands Ramsar Network with New Wetland Sites",
+      "gs_paper": "GS Paper III (Conservation, Environmental Pollution and Degradation)",
+      "summary": "The Union Ministry of Environment, Forest and Climate Change has added new wetlands of international importance to the Ramsar list, bolstering India's efforts toward ecosystem restoration and biodiversity conservation.",
+      "key_takeaway": "Understand the criteria under the Ramsar Convention, the role of wise use of wetlands, and related domestic legal protections like the Wetland (Conservation and Management) Rules."
     },
     {
       "rank": 3,
-      "title": "RBI Transfer of Record Dividend Surplus to the Central Government",
-      "category": "Economy",
-      "gs_paper": "GS Paper 3",
-      "summary": "The Reserve Bank of India approved a record surplus transfer of ₹2.11 lakh crore to the Central Government for FY24 under the Economic Capital Framework (ECF), aiding fiscal deficit targets and capital expenditure plans."
+      "title": "Supreme Court Reaffirms the Scope of Article 142 on Complete Justice",
+      "gs_paper": "GS Paper II (Indian Constitution - Historical Underpinnings, Evolution, Features, Amendments, and Provisions)",
+      "summary": "The Supreme Court reiterated that its extraordinary powers under Article 142 cannot be used to bypass express statutory provisions, outlining the delicate balance between judicial discretion and statutory law.",
+      "key_takeaway": "Analyze judicial activism vs. judicial restraint, constitutional limits of Article 142, and key precedents governing inherent powers of the judiciary."
     },
     {
       "rank": 4,
-      "title": "Induction of INS Jatayu at Minicoy Island",
-      "category": "Security & International Relations",
-      "gs_paper": "GS Paper 3",
-      "summary": "The Indian Navy commissioned INS Jatayu at Minicoy Island in Lakshadweep, significantly strengthening maritime domain awareness, operational reach, and anti-piracy operations in the Indian Ocean Region (IOR)."
+      "title": "India-Middle East-Europe Economic Corridor (IMEC) Gains Strategic Momentum",
+      "gs_paper": "GS Paper II (Bilateral, Regional and Global Groupings and Agreements involving India)",
+      "summary": "Diplomatic discussions highlighted the operationalization of logistics routes and green hydrogen pipelines under the IMEC initiative, aimed at improving connectivity between Asia, the Arabian Gulf, and Europe.",
+      "key_takeaway": "Evaluate strategic implications for India's trade, alternative routes to BRI (Belt and Road Initiative), and maritime logistics infrastructure."
     },
     {
       "rank": 5,
-      "title": "Plastic Waste Management (Amendment) Rules, 2024",
-      "category": "Environment & Ecology",
-      "gs_paper": "GS Paper 3",
-      "summary": "The Ministry of Environment, Forest and Climate Change notified new rules defining biodegradable plastics, enforcing stricter criteria for microplastics threshold, and introducing mandatory certification by the Central Pollution Control Board (CPCB)."
+      "title": "Indigenous Development of High-Altitude UAVs under iDEX",
+      "gs_paper": "GS Paper III (Indigenization of Technology and Developing New Technology, Security Challenges)",
+      "summary": "The Ministry of Defence awarded contracts to domestic start-ups under the Innovations for Defence Excellence (iDEX) framework to manufacture high-altitude long-endurance (HALE) unmanned aerial vehicles.",
+      "key_takeaway": "Study the role of public-private partnerships in defense sector self-reliance (Atmanirbhar Bharat), technology transfer, and border security enhancement."
     }
   ]
 }
