@@ -1,55 +1,60 @@
 {
   "date": "2024-05-20",
-  "source_relevance": "UPSC Civil Services Examination (Prelims & Mains)",
-  "current_affairs": [
+  "target_exam": "UPSC Civil Services Examination",
+  "top_current_affairs": [
     {
       "rank": 1,
-      "topic": "10-Year Bilateral Agreement on Chabahar Port",
-      "gs_paper": "GS Paper 2 (International Relations)",
+      "title": "Implementation Framework of 'One Nation, One Election'",
+      "category": "Polity and Governance",
+      "gs_paper": "GS Paper 2",
       "key_points": [
-        "India signed a 10-year contract with Iran to operate the Shahid Beheshti Terminal at Chabahar Port.",
-        "Enhances land-sea trade route to Afghanistan and Central Asian Republics bypassing Pakistan.",
-        "Crucial component of the International North-South Transport Corridor (INSTC)."
+        "High-Level Committee recommendations on simultaneous elections.",
+        "Proposed Constitutional Amendments requiring ratification by states.",
+        "Impact on federalism, election expenditure, and governance stability."
       ]
     },
     {
       "rank": 2,
-      "topic": "RBI's Record Dividend Transfer to Central Government",
-      "gs_paper": "GS Paper 3 (Indian Economy)",
+      "title": "Deep Ocean Mission and Samudrayaan Project",
+      "category": "Science & Technology and Environment",
+      "gs_paper": "GS Paper 3",
       "key_points": [
-        "Reserve Bank of India approved a record surplus transfer of ₹2.11 lakh crore to the Union Government for FY 2023-24.",
-        "Boosted by higher interest income on foreign securities and foreign exchange operations.",
-        "Helps fiscal consolidation efforts and lowers the government's net market borrowings."
+        "MATSYA 6000 deep-diving manned submersible development.",
+        "Sustainable extraction of Polymetallic Nodules in the Central Indian Ocean Basin.",
+        "Aligning with India's Blue Economy vision and UN SDG 14 (Life Below Water)."
       ]
     },
     {
       "rank": 3,
-      "topic": "National Green Hydrogen Mission Progress and VGF Framework",
-      "gs_paper": "GS Paper 3 (Environment & Economy)",
+      "title": "Expansion of Central Bank Digital Currency (CBDC-R) Interoperability",
+      "category": "Indian Economy",
+      "gs_paper": "GS Paper 3",
       "key_points": [
-        "Ministry of New and Renewable Energy issued guidelines for Viability Gap Funding (VGF) for green hydrogen hubs.",
-        "Aims to make India a global hub for production, usage, and export of Green Hydrogen.",
-        "Targets production of 5 MMT of Green Hydrogen per annum by 2030."
+        "RBI integration of e-Rupee with existing Unified Payments Interface (UPI) QR codes.",
+        "Implications for monetary policy transmission and reduction in cash handling costs.",
+        "Cross-border payment integration and financial inclusion impacts."
       ]
     },
     {
       "rank": 4,
-      "topic": "Supreme Court Ruling on PMLA and Right to Personal Liberty",
-      "gs_paper": "GS Paper 2 (Polity and Governance)",
+      "title": "Indo-Pacific Economic Framework (IPEF) Supply Chain Pillar",
+      "category": "International Relations",
+      "gs_paper": "GS Paper 2",
       "key_points": [
-        "Supreme Court clarified strict conditions for arrest under the Prevention of Money Laundering Act (PMLA).",
-        "Emphasized that the right to personal liberty under Article 21 remains paramount.",
-        "Mandated clear written grounds of arrest to be provided to the accused at the time of detention."
+        "Establishment of the IPEF Supply Chain Agreement to prevent supply disruption.",
+        "India's role in critical minerals supply chains and clean economy transitions.",
+        "Geopolitical balancing in the Indo-Pacific region."
       ]
     },
     {
       "rank": 5,
-      "topic": "India Semiconductor Mission (ISM) Phase-II Expansion",
-      "gs_paper": "GS Paper 3 (Science and Technology)",
+      "title": "Ecologically Sensitive Areas (ESA) Notification in Western Ghats",
+      "category": "Ecology and Biodiversity",
+      "gs_paper": "GS Paper 3",
       "key_points": [
-        "Government plans expansion of India Semiconductor Mission to build a local supply chain ecosystem.",
-        "Focus on compound semiconductors, silicon photonics, and semiconductor packaging (ATMP/OSAT).",
-        "Aims to reduce import dependency and strengthen digital infrastructure resilience."
+        "Reconciliation of Gadgil Committee vs. Kasturirangan Committee recommendations.",
+        "Balancing conservation of global biodiversity hotspots with local livelihood needs.",
+        "Role of Section 3 of the Environment (Protection) Act, 1986."
       ]
     }
   ]
