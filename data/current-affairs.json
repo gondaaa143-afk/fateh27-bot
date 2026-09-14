@@ -1,71 +1,71 @@
 {
   "date": "2026-09-14",
-  "brief": "Today's UPSC Intelligence Briefing covers key developments across Geopolitics, Climate Governance, Quantum Security, Digital Public Infrastructure, and Environmental Conservation.",
+  "brief": "Today's UPSC Intelligence Brief",
   "articles": [
     {
       "id": 1,
-      "title": "Expansion of India-Nordic-Baltic (NB8) Partnership in Renewable Tech & Maritime Security",
+      "title": "India's Digital Public Infrastructure Model Adopted as ITU Global Standard",
       "gs": "GS2",
       "source": "PIB / The Hindu",
-      "summary": "India and the Nordic-Baltic Eight (NB8) agreed to deepen cooperation on green hydrogen, critical mineral supply chains, and Arctic research.",
+      "summary": "The International Telecommunication Union (ITU) has officially adopted India's modular Digital Public Infrastructure (DPI) framework as a global benchmark for digital inclusion.",
       "prelims": [
-        "NB8 comprises 5 Nordic countries (Denmark, Finland, Iceland, Norway, Sweden) and 3 Baltic countries (Estonia, Latvia, Lithuania).",
-        "The primary areas of collaboration include the Blue Economy, green transition, AI governance, and Arctic scientific research.",
-        "The initiative builds upon the framework established during the inaugural India-Nordic Summit held in Stockholm."
+        "Digital Public Infrastructure (DPI) comprises identity (Aadhaar), real-time payments (UPI), and open data-sharing layers (DigiLocker).",
+        "The International Telecommunication Union (ITU) is a specialized agency of the United Nations responsible for global information and communication technologies.",
+        "The framework emphasizes open APIs, interoperability, vendor neutrality, and non-proprietary standards."
       ],
-      "mains": "Examine the strategic significance of the Nordic-Baltic grouping for India's long-term energy transition and Arctic policy objectives."
+      "mains": "Examine how India's Digital Public Infrastructure acts as an effective instrument of soft power diplomacy and aids global South nations in achieving Sustainable Development Goals (SDGs)."
     },
     {
       "id": 2,
-      "title": "BEE Outlines Operational Regulations for the Indian Carbon Market (ICM)",
+      "title": "Operationalization of India's Domestic Carbon Credit Trading Scheme (CCTS)",
       "gs": "GS3",
-      "source": "Indian Express / Down To Earth",
-      "summary": "Bureau of Energy Efficiency (BEE) releases functional compliance standards for the Carbon Credit Trading Scheme (CCTS) targeting high-emission industrial sectors.",
+      "source": "Indian Express / Business Standard",
+      "summary": "The Bureau of Energy Efficiency (BEE) notifies compliance targets and trading mechanisms for energy-intensive sectors under the Carbon Credit Trading Scheme.",
       "prelims": [
-        "CCTS was notified under the Energy Conservation Act, 2001 (as amended in 2022).",
-        "The National Steering Committee for the Indian Carbon Market (NSCICM) is chaired by the Secretary, Ministry of Power.",
-        "Grid Controller of India Limited (Grid-India) acts as the official registry for Carbon Credit Certificates (CCCs)."
+        "CCTS was established under the provisions of the Energy Conservation Act, 2001 (amended in 2022).",
+        "The Bureau of Energy Efficiency (BEE) serves as the administrator, while the Grid Controller of India functions as the registry.",
+        "The market covers both a mandatory compliance sector for obligated entities and a voluntary offset market for non-obligated entities."
       ],
-      "mains": "Discuss how the Indian Carbon Market can effectively balance domestic industrial growth with India's updated Nationally Determined Contributions (NDCs) under the Paris Agreement."
+      "mains": "Discuss the potential of market-based instruments like the Carbon Credit Trading Scheme (CCTS) in helping India achieve its Panchamrit targets and Net-Zero commitment by 2070."
     },
     {
       "id": 3,
-      "title": "Indigenously Developed Quantum Key Distribution (QKD) Integrated into Defence Communication Networks",
+      "title": "NISAR Mission Delivers High-Resolution Global Biomass and Earth Deformation Map",
       "gs": "GS3",
-      "source": "PIB / Financial Express",
-      "summary": "Under the National Quantum Mission (NQM), India's defence sector successfully deploys secure Quantum Key Distribution protocols over long-distance military fiber routes.",
+      "source": "PIB / Down To Earth",
+      "summary": "The joint ISRO-NASA NISAR satellite mission releases its first comprehensive dual-frequency radar dataset tracking global forest carbon stocks and land movement.",
       "prelims": [
-        "The National Quantum Mission (NQM) is implemented by the Department of Science and Technology (DST).",
-        "QKD uses fundamental principles of quantum mechanics (superposition and entanglement) to ensure secure key exchange resistant to quantum decryption.",
-        "NQM targets developing intermediate-scale quantum computers with 50-1000 physical qubits over an eight-year roadmap."
+        "NISAR carries both L-band (developed by NASA) and S-band (developed by ISRO) Synthetic Aperture Radar (SAR) systems.",
+        "It is the first satellite radar mission to systematically map Earth using two different radar frequencies.",
+        "The mission maps the entire land surface every 12 days to monitor glacier movement, crustal deformation, groundwater changes, and biomass dynamics."
       ],
-      "mains": "Analyze the critical role of emerging quantum technologies in safeguarding national communications infrastructure against futuristic cyber threats."
+      "mains": "Analyze the significance of remote sensing and Earth observation satellites in disaster management and climate change mitigation, with special reference to NISAR."
     },
     {
       "id": 4,
-      "title": "NHA Releases ABDM 2.0 Norms for Interoperability and Digital Health Data Privacy",
+      "title": "Strategic Integration of Chabahar Port into the International North-South Transport Corridor (INSTC)",
       "gs": "GS2",
-      "source": "Livemint / PIB",
-      "summary": "The National Health Authority (NHA) updates protocols under the Unified Health Interface (UHI) to streamline digital consent management across healthcare providers.",
+      "source": "Livemint / Foreign Affairs",
+      "summary": "India and Central Asian nations sign a multilateral agreement integrating the Shahid Beheshti Terminal at Chabahar directly into the main INSTC operational framework.",
       "prelims": [
-        "The National Health Authority (NHA) is the apex body responsible for implementing the Ayushman Bharat Digital Mission (ABDM).",
-        "ABHA (Ayushman Bharat Health Account) provides citizens with a 14-digit unique health identification number.",
-        "Unified Health Interface (UHI) works on open protocols, enabling seamless interoperability across digital health services akin to UPI in banking."
+        "INSTC is a 7,200-km multi-modal transport route connecting India, Iran, Azerbaijan, Russia, and Europe.",
+        "Shahid Beheshti Port at Chabahar provides India direct sea-land access to Central Asia and Afghanistan bypassing Pakistan.",
+        "The agreement introduces unified digital transit customs declarations and standardized container logistics protocols across member countries."
       ],
-      "mains": "Evaluate the role of Digital Public Infrastructure (DPI) in improving healthcare delivery and discuss the operational challenges in ensuring patient data privacy under the DPDP Act."
+      "mains": "Assess the geo-economic and geopolitical significance of the INSTC and Chabahar Port for India's strategic outreach to Central Asia and Eurasia."
     },
     {
       "id": 5,
-      "title": "India Reaches Milestone of 100 Ramsar Sites Under 'Amrit Dharohar' Initiative",
+      "title": "Union Cabinet Approves National Clean Coastal Ecosystem Mission (NCCEM)",
       "gs": "GS3",
-      "source": "PIB / Down To Earth",
-      "summary": "India adds key inland wetland ecosystems to the Ramsar List, reaching 100 designated Wetlands of International Importance while boosting community-led eco-tourism.",
+      "source": "PIB / Times of India",
+      "summary": "The Union Cabinet approves a major ecological initiative aimed at combating ocean plastic pollution, restoring blue carbon sinks, and securing coastal community livelihoods.",
       "prelims": [
-        "The Ramsar Convention on Wetlands was adopted in 1971 in Ramsar, Iran; India became a contracting party in 1982.",
-        "The 'Amrit Dharohar' scheme promotes non-consumptive use of wetlands, local community livelihoods, and carbon sequestration.",
-        "The Montreux Record is a register of Ramsar sites where ecological character changes have occurred, are occurring, or are likely to occur due to human interference."
+        "NCCEM focuses on Integrated Coastal Zone Management (ICZM) covering India's 7,516 km coastline.",
+        "The mission targets the restoration of key 'Blue Carbon' ecosystems including mangroves, seagrass meadows, and coral reefs.",
+        "It aligns with UN Sustainable Development Goal 14 (Life Below Water) and the global 30x30 target under the Kunming-Montreal Global Biodiversity Framework."
       ],
-      "mains": "Highlight the ecological importance of wetland restoration in climate change adaptation and evaluate community-centric strategies for sustainable wetland management."
+      "mains": "Critically evaluate the vulnerability of India's coastal ecosystems to climate change and discuss the role of community-led restoration projects in coastal hazard mitigation."
     }
   ]
 }
