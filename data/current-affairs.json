@@ -4,68 +4,68 @@
   "articles": [
     {
       "id": 1,
-      "title": "ISRO Completes Initial Design Phase for Bharatiya Antariksha Station (BAS-1) Module",
-      "gs": "GS3",
+      "title": "India-ASEAN Digital Work Plan 2026: Focus on AI Governance and Cyber Resilience",
+      "gs": "GS2",
       "source": "The Hindu",
-      "summary": "ISRO advances indigenous space station development with finalized designs for the BAS-1 core module set for upcoming testing phases.",
+      "summary": "India and ASEAN adoption of a new digital roadmap prioritizing cross-border data flows, ethical AI frameworks, and critical infrastructure protection.",
       "prelims": [
-        "BAS-1 is the foundational primary module of India's planned Bharatiya Antariksha Station targeted for full assembly by 2035.",
-        "The module utilizes indigenous Environmental Control and Life Support Systems (ECLSS) and automated docking mechanisms.",
-        "The modified LVM3 heavy-lift launch vehicle will serve as the primary carrier for station core modules."
+        "The ASEAN-India Digital Ministers Meeting (ADGMIN) oversees the joint work plan implementation.",
+        "Focus areas include digital public infrastructure (DPI) interoperability using India's UPI and DigiLocker frameworks.",
+        "Cooperation extends to establishing joint Computer Emergency Response Teams (CERT) for regional threat monitoring."
       ],
-      "mains": "Examine the strategic and technological significance of establishing a sovereign space station for India's long-term deep-space exploration roadmap."
+      "mains": "Examine how India's Digital Public Infrastructure export strategy serves as a key pillar of Act East Policy and soft power diplomacy in Southeast Asia."
     },
     {
       "id": 2,
-      "title": "Cabinet Finalizes Operational Framework for Indian Carbon Market (ICM)",
+      "title": "National Carbon Market Framework Notified for Hard-to-Abate Sectors",
       "gs": "GS3",
       "source": "PIB",
-      "summary": "The Ministry of Power and BEE issue detailed compliance metrics and credit registry protocols under the Carbon Credit Trading Scheme.",
+      "summary": "Ministry of Power publishes operational guidelines for India's Carbon Credit Trading Scheme (CCTS) targeting heavy industries.",
       "prelims": [
-        "Notified under the Energy Conservation Act, 2001, replacing the legacy Perform, Achieve and Trade (PAT) scheme for obligated sectors.",
-        "Bureau of Energy Efficiency (BEE) acts as the administrator, while Grid Controller of India operates the registry.",
-        "Establishes dual mechanisms: a mandatory compliance market for energy-intensive sectors and a voluntary offset market."
+        "The Bureau of Energy Efficiency (BEE) acts as the administrator for carbon intensity target settings.",
+        "Covers heavy industries including steel, cement, petrochemicals, and aluminum under mandatory compliance targets.",
+        "Grid Controller of India Limited (Grid-India) acts as the registry for tracking carbon credit certificates (CCCs)."
       ],
-      "mains": "Critically analyze how the Indian Carbon Market can enable India to meet its NDC commitments under the Paris Agreement without hampering industrial growth."
+      "mains": "Discuss the potential of the Carbon Credit Trading Scheme (CCTS) in balancing India's net-zero commitments with industrial economic growth."
     },
     {
       "id": 3,
-      "title": "BIMSTEC Maritime Transport Cooperation Agreement Finalized in Dhaka",
-      "gs": "GS2",
+      "title": "CWC Launches Real-Time Glacial Lake Outburst Flood (GLOF) Monitoring Network",
+      "gs": "GS3",
       "source": "Indian Express",
-      "summary": "BIMSTEC member nations approve a common framework to streamline port logistics, coastal shipping protocols, and maritime safety.",
+      "summary": "Central Water Commission deploys automated weather stations and water-level sensor networks across high-risk Himalayan glacial lakes.",
       "prelims": [
-        "BIMSTEC comprises 7 member states: 5 from South Asia (Bangladesh, Bhutan, India, Nepal, Sri Lanka) and 2 from Southeast Asia (Myanmar, Thailand).",
-        "The agreement grants reciprocal access to commercial vessels and harmonizes customs clearance across Bay of Bengal ports.",
-        "The permanent BIMSTEC Secretariat is headquartered in Dhaka, Bangladesh."
+        "Focuses on high-altitude glacial lakes in Sikkim, Ladakh, Himachal Pradesh, and Uttarakhand.",
+        "Integrates satellite radar altimetry from ISRO with ground-based early warning acoustic sensors.",
+        "National Disaster Management Authority (NDMA) serves as the primary coordinating agency for downstream alert systems."
       ],
-      "mains": "Discuss how strengthening BIMSTEC operational capacity aligns with India's 'Neighbourhood First' and 'Act East' foreign policy objectives."
+      "mains": "Analyze the vulnerability of Himalayan infrastructure to climate-induced cascading hazards like GLOFs and suggest mitigation strategies."
     },
     {
       "id": 4,
-      "title": "National Disaster Management Authority Issues Guidelines on Himalayan GLOF Mitigation",
-      "gs": "GS3",
-      "source": "Down To Earth",
-      "summary": "NDMA mandates real-time automated monitoring networks for high-vulnerability glacial lakes across the Himalayan region.",
+      "title": "Implementation of AgriStack: Unified Farmer Service Interface Launched",
+      "gs": "GS2",
+      "source": "Business Standard",
+      "summary": "Government launches the digital framework for federated AgriStack to streamline credit access, crop insurance, and minimum support price payouts.",
       "prelims": [
-        "Glacial Lake Outburst Floods (GLOFs) occur when natural moraine dams retaining glacial meltwater collapse catastrophically.",
-        "High-altitude lakes across Sikkim, Ladakh, Himachal Pradesh, and Uttarakhand have been prioritized for automated sensor installation.",
-        "Synthetic Aperture Radar (SAR) remote sensing technology is utilized to detect surface area changes in high-altitude lakes."
+        "AgriStack provides a unique ID (Farmers' ID) linked to land record databases across participating states.",
+        "Includes three foundational registries: Farmers Registry, Village Land Maps Registry, and Crop Sown Registry.",
+        "Built under the Digital Agriculture Mission to eliminate documentation friction for institutional credit."
       ],
-      "mains": "Evaluate the vulnerability of the Indian Himalayan Region to climate-induced disaster risks and suggest integrated disaster risk reduction measures."
+      "mains": "Critically evaluate the role of digital technology in transforming Indian agriculture while addressing data privacy and digital divide concerns."
     },
     {
       "id": 5,
-      "title": "Election Commission Rolls Out AI-Driven Electoral Roll Reconciliation System",
-      "gs": "GS2",
-      "source": "PIB",
-      "summary": "ECI deploys advanced cross-referencing technology to eliminate duplicate voter enrollments across inter-state boundaries.",
+      "title": "Successful Qualification Test of Semi-Cryogenic Engine for Heavy Payload Lift Capability",
+      "gs": "GS3",
+      "source": "Down To Earth",
+      "summary": "ISRO successfully conducts a long-duration hot test of the 2000 kN semi-cryogenic engine at the IPRC test facility in Mahendragiri.",
       "prelims": [
-        "Article 324 of the Constitution vests the superintendence, direction, and control of electoral roll preparation in the Election Commission.",
-        "The system complies with the Digital Personal Data Protection (DPDP) Act guidelines to ensure voter privacy.",
-        "Facilitates seamless voter registration transfers for inter-state migrant populations without physical re-verification delay."
+        "The semi-cryogenic engine uses refined kerosene (Isorocket) as fuel and Liquid Oxygen (LOX) as oxidizer.",
+        "Designed to replace the L110 liquid stage in LVM3 (GSLV Mk III) to significantly increase payload capacity to GTO.",
+        "Operates on an efficient staged combustion cycle system."
       ],
-      "mains": "Assess the potential of emerging technologies in modernizing electoral administration in India while ensuring data security and constitutional safeguards."
+      "mains": "How does indigenous technological self-reliance in heavy-lift launch vehicles bolster India's position in the global commercial space market?"
     }
   ]
 }
