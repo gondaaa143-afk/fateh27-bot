@@ -1,55 +1,65 @@
 {
-  "date": "2024-05-20",
-  "source": "UPSC Current Affairs Daily Digest",
-  "topics": [
+  "date": "2024-10-24",
+  "source": "UPSC Current Affairs Daily Briefing",
+  "top_stories": [
     {
-      "id": 1,
-      "title": "Supreme Court Clarifies Scope of Article 31C and Private Property Acquisition",
-      "paper_relevance": "GS Paper II - Polity and Constitution",
-      "summary": "A 9-judge Constitution Bench of the Supreme Court heard arguments on whether private resources can be considered 'material resources of the community' under Article 39(b) for distribution to serve the common good.",
+      "rank": 1,
+      "title": "Supreme Court Ruling on Sub-Classification of Scheduled Castes",
+      "category": "Polity & Governance",
+      "gs_paper": "GS Paper 2",
+      "summary": "The Supreme Court held that states have the constitutional authority to sub-classify Scheduled Castes (SCs) to provide targeted reservations for the most backward communities within these groups.",
       "key_takeaways": [
-        "Focuses on the interplay between Fundamental Rights (Article 14, 19) and Directive Principles of State Policy (Article 39(b)).",
-        "Re-examines the precedent set in the Sanjeev Coke (1983) and Ranganatha Reddy (1977) cases regarding state control over private assets."
+        "Reversed the 2004 E.V. Chinnaiah judgment.",
+        "Invoked Article 14 (Equality before Law) to justify sub-categorization.",
+        "Emphasized that sub-classification must be backed by empirical data on inadequate representation."
       ]
     },
     {
-      "id": 2,
-      "title": "RBI Releases Draft Framework for Climate Risk and Sustainable Finance",
-      "paper_relevance": "GS Paper III - Economy & Environment",
-      "summary": "The Reserve Bank of India issued guidelines mandating Regulated Entities (REs) to implement robust governance and risk management frameworks to address climate-related financial risks.",
+      "rank": 2,
+      "title": "NISAR Mission: NASA-ISRO Synthetic Aperture Radar Deployment",
+      "category": "Science & Technology",
+      "gs_paper": "GS Paper 3",
+      "summary": "Joint Earth-observing mission between NASA and ISRO entering final integration phases to track systemic changes in Earth's land and ice surfaces.",
       "key_takeaways": [
-        "Introduces requirements for climate scenario analysis and stress testing by banks.",
-        "Aims to foster sustainable lending aligned with India's Net-Zero emission targets for 2070."
+        "Uses dual-frequency radar (L-band and S-band) to map the entire globe every 12 days.",
+        "Crucial for monitoring ecosystems, ice sheet collapse, and natural hazards like earthquakes and landslides.",
+        "First hardware collaboration between NASA and ISRO on an Earth-observing mission."
       ]
     },
     {
-      "id": 3,
-      "title": "India Signs 10-Year Long-Term Contract to Operate Chabahar Port in Iran",
-      "paper_relevance": "GS Paper II - International Relations",
-      "summary": "India Ports Global Limited (IPGL) signed a long-term agreement with Iran's Ports and Maritime Organisation (PMO) for operations at the Shahid Beheshti Terminal in Chabahar Port.",
+      "rank": 3,
+      "title": "Great Nicobar Island Development Project & Ecological Concerns",
+      "category": "Environment & Ecology / Infrastructure",
+      "gs_paper": "GS Paper 3",
+      "summary": "The mega-infrastructure project at Galathea Bay faces heightened scrutiny regarding its impact on the Shompen indigenous tribe and critical marine biodiversity.",
       "key_takeaways": [
-        "Enhances India's trade connectivity with Central Asia and Russia via the INSTC (International North-South Transport Corridor).",
-        "Bypasses land routes through Pakistan, boosting strategic presence in the Indian Ocean Region."
+        "Includes an International Transshipment Terminal, an airport, and a power plant.",
+        "Impacts Galathea National Park, a primary nesting site for the Giant Leatherback Turtle.",
+        "Highlights the conflict between strategic maritime positioning and ecological conservation."
       ]
     },
     {
-      "id": 4,
-      "title": "MoEFCC Reports Expansion of Invasive Alien Species Threatening Western Ghats Biodiversity",
-      "paper_relevance": "GS Paper III - Environment & Ecology",
-      "summary": "A recent assessment highlights the rapid spread of invasive species like *Senna spectabilis* and *Lantana camara* in Western Ghats protected areas, displacing native flora.",
+      "rank": 4,
+      "title": "Red Sea Shipping Disruptions and Global Supply Chain Impact",
+      "category": "International Relations / Economy",
+      "gs_paper": "GS Paper 2 & 3",
+      "summary": "Continued security threats in the Bab-el-Mandeb Strait force maritime vessels to reroute around the Cape of Good Hope, inflating freight rates and delays for Indian exports.",
       "key_takeaways": [
-        "Aligns with Target 6 of the Kunming-Montreal Global Biodiversity Framework (KMGBF).",
-        "Underscores the need for eco-restoration policies and biological control measures in sensitive ecosystems."
+        "Rerouting adds 10–14 days to trade routes between Asia and Europe.",
+        "Increases insurance premiums and fuel costs, affecting India's agricultural and engineering exports.",
+        "Underscores the geopolitical significance of chokepoints under UNCLOS frameworks."
       ]
     },
     {
-      "id": 5,
-      "title": "ISRO Successfully Tests 3D-Printed Liquid Rocket Engine",
-      "paper_relevance": "GS Paper III - Science & Technology",
-      "summary": "The Indian Space Research Organisation (ISRO) successfully conducted a hot test of a 3D-printed liquid rocket engine (PS engines), reducing manufacturing time and material usage.",
+      "rank": 5,
+      "title": "Sovereign Green Bonds (SGBs) and Climate Finance Strategy",
+      "category": "Indian Economy",
+      "gs_paper": "GS Paper 3",
+      "summary": "The RBI and Ministry of Finance continue expanding the issuance of Sovereign Green Bonds to mobilize capital for green infrastructure and renewable energy transition.",
       "key_takeaways": [
-        "Utilizes Additive Manufacturing technology, lowering raw material waste by nearly 60%.",
-        "Enhances efficiency for the PS4 stage of the Polar Satellite Launch Vehicle (PSLV)."
+        "Proceeds are mapped directly to public sector projects lowering carbon intensity.",
+        "Supports India's Panchamrit targets (500 GW non-fossil capacity by 2030, Net-Zero by 2070).",
+        "Encourages foreign portfolio investment in India's sustainable finance ecosystem."
       ]
     }
   ]
