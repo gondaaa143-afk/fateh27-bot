@@ -1,61 +1,32 @@
 {
-  "date": "2024-05-20",
-  "target_exam": "UPSC Civil Services Examination",
-  "top_current_affairs": [
+  "date": "2026-09-14",
+  "brief": "Today's UPSSC Intelligence Brief",
+  "articles": [
     {
-      "rank": 1,
-      "title": "Implementation Framework of 'One Nation, One Election'",
-      "category": "Polity and Governance",
-      "gs_paper": "GS Paper 2",
-      "key_points": [
-        "High-Level Committee recommendations on simultaneous elections.",
-        "Proposed Constitutional Amendments requiring ratification by states.",
-        "Impact on federalism, election expenditure, and governance stability."
-      ]
+      "id": 1,
+      "title": "Demo Auto News 1",
+      "gs": "GS2",
+      "source": "AI",
+      "summary": "Automatic workflow working successfully.",
+      "prelims": [
+        "Point 1",
+        "Point 2",
+        "Point 3"
+      ],
+      "mains": "Use in GS2 answers."
     },
     {
-      "rank": 2,
-      "title": "Deep Ocean Mission and Samudrayaan Project",
-      "category": "Science & Technology and Environment",
-      "gs_paper": "GS Paper 3",
-      "key_points": [
-        "MATSYA 6000 deep-diving manned submersible development.",
-        "Sustainable extraction of Polymetallic Nodules in the Central Indian Ocean Basin.",
-        "Aligning with India's Blue Economy vision and UN SDG 14 (Life Below Water)."
-      ]
-    },
-    {
-      "rank": 3,
-      "title": "Expansion of Central Bank Digital Currency (CBDC-R) Interoperability",
-      "category": "Indian Economy",
-      "gs_paper": "GS Paper 3",
-      "key_points": [
-        "RBI integration of e-Rupee with existing Unified Payments Interface (UPI) QR codes.",
-        "Implications for monetary policy transmission and reduction in cash handling costs.",
-        "Cross-border payment integration and financial inclusion impacts."
-      ]
-    },
-    {
-      "rank": 4,
-      "title": "Indo-Pacific Economic Framework (IPEF) Supply Chain Pillar",
-      "category": "International Relations",
-      "gs_paper": "GS Paper 2",
-      "key_points": [
-        "Establishment of the IPEF Supply Chain Agreement to prevent supply disruption.",
-        "India's role in critical minerals supply chains and clean economy transitions.",
-        "Geopolitical balancing in the Indo-Pacific region."
-      ]
-    },
-    {
-      "rank": 5,
-      "title": "Ecologically Sensitive Areas (ESA) Notification in Western Ghats",
-      "category": "Ecology and Biodiversity",
-      "gs_paper": "GS Paper 3",
-      "key_points": [
-        "Reconciliation of Gadgil Committee vs. Kasturirangan Committee recommendations.",
-        "Balancing conservation of global biodiversity hotspots with local livelihood needs.",
-        "Role of Section 3 of the Environment (Protection) Act, 1986."
-      ]
+      "id": 2,
+      "title": "Demo Auto News 2",
+      "gs": "GS3",
+      "source": "AI",
+      "summary": "Second automatic news generated.",
+      "prelims": [
+        "Point A",
+        "Point B",
+        "Point C"
+      ],
+      "mains": "Use in GS3 answers."
     }
   ]
 }
