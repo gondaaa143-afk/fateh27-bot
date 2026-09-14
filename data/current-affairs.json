@@ -1,41 +1,46 @@
 {
   "date": "2024-05-20",
-  "category": "UPSC Current Affairs",
-  "items": [
+  "source_target": "UPSC Civil Services Examination",
+  "top_current_affairs": [
     {
       "rank": 1,
-      "title": "RBI Maintains Stance on Repo Rate to Balance Growth and Inflation",
-      "gs_paper": "GS Paper III (Indian Economy and Issues Relating to Planning, Mobilization of Resources)",
-      "summary": "The Reserve Bank of India's Monetary Policy Committee (MPC) decided to keep the benchmark repo rate unchanged, emphasizing a disciplined approach to bring retail inflation down to the 4% target while sustaining economic momentum.",
-      "key_takeaway": "Focus on consumer price index (CPI), food inflation volatility, monetary transmission mechanisms, and macro-economic stability."
+      "title": "Supreme Court Ruling on the Right Against Climate Change Effects",
+      "category": "Polity & Environment",
+      "syllabus_mapping": "GS Paper II (Judiciary & Fundamental Rights) & GS Paper III (Environment)",
+      "summary": "The Supreme Court recognized the right to be free from the adverse effects of climate change as a distinct fundamental right under Article 21 (Right to Life) and Article 14 (Right to Equality).",
+      "key_takeaway": "Expands the scope of environmental jurisprudence in India, linking climate action directly to fundamental rights."
     },
     {
       "rank": 2,
-      "title": "India Expands Ramsar Network with New Wetland Sites",
-      "gs_paper": "GS Paper III (Conservation, Environmental Pollution and Degradation)",
-      "summary": "The Union Ministry of Environment, Forest and Climate Change has added new wetlands of international importance to the Ramsar list, bolstering India's efforts toward ecosystem restoration and biodiversity conservation.",
-      "key_takeaway": "Understand the criteria under the Ramsar Convention, the role of wise use of wetlands, and related domestic legal protections like the Wetland (Conservation and Management) Rules."
+      "title": "RBI's Surplus Transfer to the Central Government",
+      "category": "Economy",
+      "syllabus_mapping": "GS Paper III (Indian Economy and Issues Relating to Planning, Mobilization of Resources)",
+      "summary": "The Reserve Bank of India approved a record dividend/surplus transfer to the Union Government, aided by higher interest income on foreign assets and prudent economic capital framework management.",
+      "key_takeaway": "Helps fiscal consolidation efforts and provides additional capital for public capital expenditure without increasing the fiscal deficit."
     },
     {
       "rank": 3,
-      "title": "Supreme Court Reaffirms the Scope of Article 142 on Complete Justice",
-      "gs_paper": "GS Paper II (Indian Constitution - Historical Underpinnings, Evolution, Features, Amendments, and Provisions)",
-      "summary": "The Supreme Court reiterated that its extraordinary powers under Article 142 cannot be used to bypass express statutory provisions, outlining the delicate balance between judicial discretion and statutory law.",
-      "key_takeaway": "Analyze judicial activism vs. judicial restraint, constitutional limits of Article 142, and key precedents governing inherent powers of the judiciary."
+      "title": "Progress on the Gaganyaan Mission & Human Spaceflight Centre",
+      "category": "Science & Technology",
+      "syllabus_mapping": "GS Paper III (Awareness in the fields of Space)",
+      "summary": "ISRO successfully completed key drogue parachute deployment tests and crew module integration milestones for the upcoming uncrewed Gaganyaan (G1) flight.",
+      "key_takeaway": "India moves closer to becoming the 4th nation to independently launch humans into space, boosting domestic deep-tech manufacturing."
     },
     {
       "rank": 4,
-      "title": "India-Middle East-Europe Economic Corridor (IMEC) Gains Strategic Momentum",
-      "gs_paper": "GS Paper II (Bilateral, Regional and Global Groupings and Agreements involving India)",
-      "summary": "Diplomatic discussions highlighted the operationalization of logistics routes and green hydrogen pipelines under the IMEC initiative, aimed at improving connectivity between Asia, the Arabian Gulf, and Europe.",
-      "key_takeaway": "Evaluate strategic implications for India's trade, alternative routes to BRI (Belt and Road Initiative), and maritime logistics infrastructure."
+      "title": "India-Middle East-Europe Economic Corridor (IMEC) Developments",
+      "category": "International Relations",
+      "syllabus_mapping": "GS Paper II (Bilateral, Regional and Global Groupings and Agreements involving India)",
+      "summary": "Inter-governmental discussions continue on finalizing operational frameworks for the IMEC, focusing on multi-modal transit networks, energy pipelines, and digital connectivity.",
+      "key_takeaway": "Serves as a strategic counter-weight to China's Belt and Road Initiative (BRI) and enhances India's trade integration with West Asia and Europe."
     },
     {
       "rank": 5,
-      "title": "Indigenous Development of High-Altitude UAVs under iDEX",
-      "gs_paper": "GS Paper III (Indigenization of Technology and Developing New Technology, Security Challenges)",
-      "summary": "The Ministry of Defence awarded contracts to domestic start-ups under the Innovations for Defence Excellence (iDEX) framework to manufacture high-altitude long-endurance (HALE) unmanned aerial vehicles.",
-      "key_takeaway": "Study the role of public-private partnerships in defense sector self-reliance (Atmanirbhar Bharat), technology transfer, and border security enhancement."
+      "title": "Conservation Status and Recovery Plan for the Great Indian Bustard (GIB)",
+      "category": "Environment & Ecology",
+      "syllabus_mapping": "GS Paper III (Biodiversity Conservation)",
+      "summary": "The Supreme Court appointed an expert committee to assess the feasibility of undergrounding powerlines in Rajasthan and Gujarat to prevent GIB electrocution deaths while balancing renewable energy goals.",
+      "key_takeaway": "Highlights the delicate balance between sustainable green energy expansion (solar/wind) and critically endangered species protection."
     }
   ]
 }
