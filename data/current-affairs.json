@@ -1,46 +1,61 @@
 {
-  "date": "2024-05-20",
-  "source_target": "UPSC Civil Services Examination",
-  "top_current_affairs": [
+  "date": "2024-05-24",
+  "source": "UPSC Current Affairs Daily Digest",
+  "items": [
     {
-      "rank": 1,
-      "title": "Supreme Court Ruling on the Right Against Climate Change Effects",
-      "category": "Polity & Environment",
-      "syllabus_mapping": "GS Paper II (Judiciary & Fundamental Rights) & GS Paper III (Environment)",
-      "summary": "The Supreme Court recognized the right to be free from the adverse effects of climate change as a distinct fundamental right under Article 21 (Right to Life) and Article 14 (Right to Equality).",
-      "key_takeaway": "Expands the scope of environmental jurisprudence in India, linking climate action directly to fundamental rights."
+      "id": 1,
+      "title": "First Snow Leopard Population Assessment in India (SPAI)",
+      "category": "GS Paper III - Environment and Ecology",
+      "summary": "The Wildlife Institute of India (WII) released the first-ever scientific population assessment of snow leopards in India, reporting a total of 718 individuals across the Himalayan region.",
+      "key_takeaways": [
+        "Ladakh holds the highest population (477), followed by Uttarakhand and Himachal Pradesh.",
+        "Snow Leopard IUCN Status: Vulnerable; Wildlife Protection Act, 1972: Schedule I.",
+        "Crucial for questions on high-altitude ecosystem conservation and Project Snow Leopard."
+      ]
     },
     {
-      "rank": 2,
-      "title": "RBI's Surplus Transfer to the Central Government",
-      "category": "Economy",
-      "syllabus_mapping": "GS Paper III (Indian Economy and Issues Relating to Planning, Mobilization of Resources)",
-      "summary": "The Reserve Bank of India approved a record dividend/surplus transfer to the Union Government, aided by higher interest income on foreign assets and prudent economic capital framework management.",
-      "key_takeaway": "Helps fiscal consolidation efforts and provides additional capital for public capital expenditure without increasing the fiscal deficit."
+      "id": 2,
+      "title": "RBI Framework on Climate-Related Financial Risks",
+      "category": "GS Paper III - Indian Economy & Banking",
+      "summary": "The Reserve Bank of India issued draft guidelines for Regulated Entities (REs) requiring mandatory climate risk disclosures and sustainable finance practices.",
+      "key_takeaways": [
+        "Aims to address greenwashing and mandate disclosure of physical and transition climate risks.",
+        "Aligns Indian banking with Task Force on Climate-related Financial Disclosures (TCFD) standards.",
+        "Relevant for economics topics regarding green financing and systemic financial stability."
+      ]
     },
     {
-      "rank": 3,
-      "title": "Progress on the Gaganyaan Mission & Human Spaceflight Centre",
-      "category": "Science & Technology",
-      "syllabus_mapping": "GS Paper III (Awareness in the fields of Space)",
-      "summary": "ISRO successfully completed key drogue parachute deployment tests and crew module integration milestones for the upcoming uncrewed Gaganyaan (G1) flight.",
-      "key_takeaway": "India moves closer to becoming the 4th nation to independently launch humans into space, boosting domestic deep-tech manufacturing."
+      "id": 3,
+      "title": "Supreme Court Scope on Article 142 Extraordinary Powers",
+      "category": "GS Paper II - Polity & Governance",
+      "summary": "The Supreme Court delivered a landmark judgment clarifying the limits and application of Article 142, stating that extraordinary powers cannot override explicit statutory provisions.",
+      "key_takeaways": [
+        "Article 142 empowers the apex court to pass any order necessary for doing 'complete justice'.",
+        "Reiterates balance of powers between Judiciary and Legislature.",
+        "Important for Indian Polity questions on Judicial Activism vs Judicial Overreach."
+      ]
     },
     {
-      "rank": 4,
-      "title": "India-Middle East-Europe Economic Corridor (IMEC) Developments",
-      "category": "International Relations",
-      "syllabus_mapping": "GS Paper II (Bilateral, Regional and Global Groupings and Agreements involving India)",
-      "summary": "Inter-governmental discussions continue on finalizing operational frameworks for the IMEC, focusing on multi-modal transit networks, energy pipelines, and digital connectivity.",
-      "key_takeaway": "Serves as a strategic counter-weight to China's Belt and Road Initiative (BRI) and enhances India's trade integration with West Asia and Europe."
+      "id": 4,
+      "title": "India-EFTA Trade and Economic Partnership Agreement (TEPA)",
+      "category": "GS Paper II - International Relations",
+      "summary": "India finalized the Trade and Economic Partnership Agreement with the European Free Trade Association (Iceland, Liechtenstein, Norway, Switzerland), securing a $100 billion investment commitment over 15 years.",
+      "key_takeaways": [
+        "First trade agreement for India with a commitment of targeted FDI investment.",
+        "Focuses on tariff reductions, service exports, and intellectual property rights.",
+        "Crucial for questions on bilateral trade networks and India's FTAs."
+      ]
     },
     {
-      "rank": 5,
-      "title": "Conservation Status and Recovery Plan for the Great Indian Bustard (GIB)",
-      "category": "Environment & Ecology",
-      "syllabus_mapping": "GS Paper III (Biodiversity Conservation)",
-      "summary": "The Supreme Court appointed an expert committee to assess the feasibility of undergrounding powerlines in Rajasthan and Gujarat to prevent GIB electrocution deaths while balancing renewable energy goals.",
-      "key_takeaway": "Highlights the delicate balance between sustainable green energy expansion (solar/wind) and critically endangered species protection."
+      "id": 5,
+      "title": "ISRO Tests Semi-Cryogenic Engine Development",
+      "category": "GS Paper III - Science & Technology (Space Technology)",
+      "summary": "ISRO achieved a major milestone by successfully conducting hot-tests of its 2000 kN semi-cryogenic engine at the ISRO Propulsion Complex in Mahendragiri.",
+      "key_takeaways": [
+        "Uses refined kerosene (Isrosene) as fuel and Liquid Oxygen (LOX) as oxidizer.",
+        "Designed to enhance payload capacity of LVM3 and future Next Generation Launch Vehicles (NGLV).",
+        "Highly relevant for indigenous space technology developments and deep-space missions."
+      ]
     }
   ]
 }
