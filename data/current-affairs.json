@@ -1,71 +1,71 @@
 {
   "date": "2026-09-14",
-  "brief": "Today's UPSC Intelligence Brief",
+  "brief": "Today's UPSC Intelligence Brief focusing on high-yield developments across International Relations, Environment, Economy, and Science & Technology.",
   "articles": [
     {
       "id": 1,
-      "title": "Cabinet Approves Expansion of Deep Ocean Mission to Boost Blue Economy",
-      "gs": "GS3",
-      "source": "PIB",
-      "summary": "The Union Cabinet has approved Phase-II of the Deep Ocean Mission focusing on deep-sea mining technology and marine biodiversity conservation.",
+      "title": "India-ASEAN Maritime Security & Blue Economy Cooperation Framework",
+      "gs": "GS2",
+      "source": "The Hindu",
+      "summary": "India and ASEAN member states finalized a new joint roadmap focusing on maritime domain awareness, sustainable ocean resource management, and anti-piracy operations.",
       "prelims": [
-        "Nodal Ministry: Ministry of Earth Sciences (MoES).",
-        "Key Component: Development of MATSYA 6000, a human submersible capable of reaching 6,000 meters depth.",
-        "Focus Area: Polymetallic nodules containing copper, nickel, cobalt, and manganese in the Central Indian Ocean Basin."
+        "Covers the Indo-Pacific Oceans Initiative (IPOI) pillars related to maritime ecology and security.",
+        "Emphasizes compliance with UNCLOS (United Nations Convention on the Law of the Sea) in the South China Sea.",
+        "Integrates the Information Fusion Centre – Indian Ocean Region (IFC-IOR) for real-time data sharing."
       ],
-      "mains": "Examine the significance of the Deep Ocean Mission in securing critical mineral supply chains and enhancing India's strategic footprint in the Indian Ocean Region."
+      "mains": "Examine how strategic alignment between India's SAGAR vision and ASEAN's Outlook on the Indo-Pacific (AOIP) can ensure regional stability and counter unilateral maritime assertions."
     },
     {
       "id": 2,
-      "title": "Election Commission Introduces Enhanced Digital Voter Verification System",
-      "gs": "GS2",
-      "source": "The Hindu",
-      "summary": "The Election Commission of India has launched an AI-driven digital verification platform to streamline electoral roll management across states.",
+      "title": "RBI Releases Updated Regulatory Framework for Climate-Related Financial Risks",
+      "gs": "GS3",
+      "source": "Business Standard",
+      "summary": "The Reserve Bank of India issued mandatory disclosure guidelines for Scheduled Commercial Banks regarding climate risk exposure and green asset allocation.",
       "prelims": [
-        "Constitutional Basis: Article 324 grants powers of superintendence, direction, and control of elections to ECI.",
-        "Governed by the Representation of the People Act, 1950 for electoral roll preparation.",
-        "Key Feature: Automated cross-referencing to eliminate duplicate and deceased entries across interstate databases."
+        "Mandates Task Force on Climate-related Financial Disclosures (TCFD) framework compliance.",
+        "Categorizes climate risks into Physical Risks (extreme weather events) and Transition Risks (policy/market shifts).",
+        "Requires banks to conduct climate scenario stress-testing starting FY2027."
       ],
-      "mains": "Discuss how digital technologies can enhance electoral integrity while addressing privacy concerns and risks of digital exclusion."
+      "mains": "Discuss the implications of integrating climate risk metrics into banking regulation on credit flow to carbon-intensive sectors in developing economies."
     },
     {
       "id": 3,
-      "title": "India and European Union Finalize Green Hydrogen Trade Standards",
-      "gs": "GS2",
-      "source": "Indian Express",
-      "summary": "India and the EU have established harmonized certification and trade standards for Green Hydrogen to accelerate bilateral clean energy trade.",
+      "title": "Integrated Elephant-Tiger Corridor Conservation Policy Finalized",
+      "gs": "GS3",
+      "source": "Down To Earth",
+      "summary": "The Ministry of Environment, Forest and Climate Change introduced a unified landscape-level conservation strategy linking Project Tiger and Project Elephant reserves.",
       "prelims": [
-        "National Green Hydrogen Mission aims for 5 MMT annual production capacity by 2030.",
-        "Definition: Green Hydrogen is produced through electrolysis of water using renewable energy sources.",
-        "Harmonized standards align with the EU's Carbon Border Adjustment Mechanism (CBAM) requirements."
+        "Focuses on ecological connectivity to mitigate Human-Wildlife Conflict (HWC).",
+        "Utilizes M-STrIPES and AI-driven monitoring systems across transboundary wildlife corridors.",
+        "Recognizes community-managed eco-sensitive zones under the Scheduled Tribes and Other Traditional Forest Dwellers Act, 2006."
       ],
-      "mains": "Evaluate the role of international green energy partnerships in achieving India's Panchamrit climate goals and boosting energy exports."
+      "mains": "Critically analyze the role of landscape-level management over isolated protected areas in conserving India's megaherbivores and apex predators."
     },
     {
       "id": 4,
-      "title": "RBI Issues Updated Framework for Climate Risk and Sustainable Finance",
+      "title": "National Quantum Mission Achieves Milestone in Superconducting Qubit Fabrication",
       "gs": "GS3",
-      "source": "Livemint",
-      "summary": "The Reserve Bank of India has mandated climate scenario stress testing and green asset disclosure for major financial institutions.",
+      "source": "PIB",
+      "summary": "Indian researchers under the National Quantum Mission successfully demonstrated an indigenously developed 8-qubit quantum processor using superconducting circuits.",
       "prelims": [
-        "Applies to Scheduled Commercial Banks, All India Financial Institutions, and Deposit-taking NBFCs.",
-        "Framework relies on guidelines from the Network for Greening the Financial System (NGFS).",
-        "Mandates structured reporting on physical and transition risks associated with institutional loan portfolios."
+        "National Quantum Mission (NQM) is implemented by the Department of Science and Technology (DST).",
+        "Target: Developing intermediate-scale quantum computers (50–1000 physical qubits) within an 8-year timeline.",
+        "Focuses on four thematic hubs: Quantum Computing, Quantum Communication, Quantum Sensing, and Quantum Materials."
       ],
-      "mains": "Analyze how climate-related financial risks threaten banking stability and suggest policy measures to scale green finance in India."
+      "mains": "Evaluate India's preparedness in adopting quantum technology compared to global standards and discuss its applications in national security and drug discovery."
     },
     {
       "id": 5,
-      "title": "Archaeological Survey of India Unearths Megalithic Site in Vidarbha",
-      "gs": "GS1",
-      "source": "The Hindu",
-      "summary": "Excavations in Maharashtra's Vidarbha region have uncovered Iron Age megalithic stone circles containing iron tools and black-and-red ware.",
+      "title": "Expansion of India's Digital Public Infrastructure (DPI) to G77 Nations",
+      "gs": "GS2",
+      "source": "Indian Express",
+      "summary": "India signed bilateral agreements with five developing nations to export its open-source tech stack, including UPI, Aadhaar-like identity frameworks, and DigiLocker.",
       "prelims": [
-        "Megaliths are large stone structures used as burial sites or commemorative markers.",
-        "Vidarbha region is renowned for major Iron Age megalithic sites such as Mahurjhari, Junapani, and Naikund.",
-        "Key findings include horse trappings, iron weaponry, and characteristic Black and Red Ware (BRW) pottery."
+        "India Stack consists of three layers: Identity (Aadhaar), Payments (UPI), and Data Management (Account Aggregator).",
+        "Supported by the Global DPI Repository initiative proposed during India's G20 Presidency.",
+        "Promotes soft power diplomacy through 'Tech Diplomacy' and South-South Cooperation."
       ],
-      "mains": "Discuss the socio-economic and technological significance of Megalithic cultures in understanding early iron age transitions in Peninsular India."
+      "mains": "How does the global deployment of Digital Public Infrastructure enhance India's soft power and advance Global South leadership?"
     }
   ]
 }
