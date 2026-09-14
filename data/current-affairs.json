@@ -4,68 +4,68 @@
   "articles": [
     {
       "id": 1,
-      "title": "National Data Governance Framework & Ethical AI Guidelines",
-      "gs": "GS2",
-      "source": "The Hindu",
-      "summary": "MeitY releases updated operational guidelines for non-personal data governance and AI transparency mechanisms in public service delivery.",
+      "title": "India's Revised National Biodiversity Action Plan (NBAP) Aligned with Kunming-Montreal Targets",
+      "gs": "GS3",
+      "source": "PIB / The Hindu",
+      "summary": "India updates its NBAP to align national conservation goals with 23 global targets set under the Kunming-Montreal Global Biodiversity Framework.",
       "prelims": [
-        "Establishes the National Data Management Office (NDMO) under the Ministry of Electronics & IT.",
-        "Focuses primarily on non-personal data (NPD) generated across government departments.",
-        "Mandates algorithmic audit logs for high-risk automated decision systems in public governance."
+        "The 30x30 target aims to effectively conserve at least 30% of terrestrial, inland water, and coastal areas by 2030.",
+        "National Biodiversity Authority (NBA) is a statutory autonomous body established under the Biological Diversity Act, 2002.",
+        "Incorporates legally binding Access and Benefit Sharing (ABS) mechanisms for local community resources."
       ],
-      "mains": "Examine how the National Data Governance Policy can balance data-driven public service delivery with citizen privacy and ethical AI deployment."
+      "mains": "Examine the challenges in implementing the updated National Biodiversity Action Plan while balancing economic growth and indigenous rights in India."
     },
     {
       "id": 2,
-      "title": "India-Middle East-Europe Economic Corridor (IMEC) Infrastructure Sync",
-      "gs": "GS2",
+      "title": "RBI Rolls Out Offline Capabilities for Central Bank Digital Currency (CBDC-R)",
+      "gs": "GS3",
       "source": "Indian Express",
-      "summary": "High-level steering committee assesses port-rail integration readiness across India's western seaboard for IMEC execution.",
+      "summary": "The Reserve Bank of India introduces offline and programmable capabilities for the retail Digital Rupee to facilitate transactions in network-constrained environments.",
       "prelims": [
-        "IMEC consists of the East Corridor (connecting India to the Arabian Gulf) and the Northern Corridor (connecting the Gulf to Europe).",
-        "Includes multi-modal transportation links alongside hydrogen pipelines and high-speed data cables.",
-        "Key Indian nodes identified include Jawaharlal Nehru Port (JNPT), Mundra, and Kandla ports."
+        "CBDC is a sovereign currency issued by a central bank in alignment with its monetary policy.",
+        "Offline functionality utilizes secure hardware-based elements to prevent double-spending without active internet connection.",
+        "Programmability enables targeted distribution of central and state government welfare subsidies."
       ],
-      "mains": "Analyze the strategic and geopolitical significance of IMEC for India's foreign policy amidst evolving global trade dynamics."
+      "mains": "Discuss how offline and programmable CBDC features can bridge India's digital financial divide and enhance welfare delivery."
     },
     {
       "id": 3,
-      "title": "National Green Hydrogen Mission: Green Ammonia and Methanol Norms",
+      "title": "NDMA Initiates Comprehensive Glacial Lake Outburst Flood (GLOF) Risk Reduction Plan",
       "gs": "GS3",
-      "source": "PIB",
-      "summary": "Government notifies updated carbon intensity thresholds for green hydrogen derivatives to accelerate decarbonization in heavy industries.",
+      "source": "Down To Earth",
+      "summary": "The National Disaster Management Authority deploys automated early warning monitoring systems across high-risk Himalayan glacial lakes.",
       "prelims": [
-        "National Green Hydrogen Mission targets at least 5 MMT annual production of Green Hydrogen by 2030.",
-        "SIGHT (Strategic Interventions for Green Hydrogen Transition) scheme provides financial incentives for electrolyser manufacturing.",
-        "Nodal Ministry responsible for implementation is the Ministry of New and Renewable Energy (MNRE)."
+        "GLOFs occur when a natural moraine or ice dam containing a glacial lake suddenly breaches.",
+        "Integrates Synthetic Aperture Radar (SAR) and real-time telemetry sensors for high-altitude monitoring.",
+        "High-vulnerability sites include South Lhonak Lake (Sikkim) and Lake Kedartal (Uttarakhand)."
       ],
-      "mains": "Evaluate the potential of green hydrogen derivatives in decarbonizing India's hard-to-abate industrial sectors such as steel, fertilizers, and shipping."
+      "mains": "Critically evaluate the vulnerability of the Indian Himalayan Region to GLOF disasters and suggest structural and non-structural mitigation strategies."
     },
     {
       "id": 4,
-      "title": "High Seas Treaty (BBNJ Agreement) and Marine Conservation",
-      "gs": "GS3",
-      "source": "Down To Earth",
-      "summary": "India advances domestic ratification protocols for the Biodiversity Beyond National Jurisdiction (BBNJ) Agreement under UNCLOS.",
+      "title": "India-ASEAN Digital Work Plan 2026: Enhancing Cross-Border DPI Interoperability",
+      "gs": "GS2",
+      "source": "Ministry of External Affairs",
+      "summary": "India and ASEAN adopt a joint digital initiative focusing on AI governance, cybersecurity, and scaling Digital Public Infrastructure across Southeast Asia.",
       "prelims": [
-        "Operates under the framework of the UN Convention on the Law of the Sea (UNCLOS).",
-        "Applies to marine areas beyond national jurisdiction (beyond the 200 nautical mile Exclusive Economic Zone).",
-        "Mandates Environmental Impact Assessments (EIAs) for commercial activities in international ocean zones."
+        "ASEAN is a regional grouping of 10 Southeast Asian nations; India became a full Dialogue Partner in 1996.",
+        "Focuses on integrating India's UPI and digital identity frameworks with ASEAN national payment gateways.",
+        "Aligns with the strategic framework of India's Act East Policy and the Indo-Pacific Vision."
       ],
-      "mains": "Discuss the institutional and regulatory challenges in implementing the BBNJ Treaty to protect marine biodiversity in international waters."
+      "mains": "Analyze Digital Public Infrastructure (DPI) as an instrument of India's soft power diplomacy in strengthening ties with ASEAN nations."
     },
     {
       "id": 5,
-      "title": "Deep Ocean Mission: MATSYA 6000 Submersible Trials",
+      "title": "Department of Biotechnology Operationalizes BioE3 Policy Biomanufacturing Hubs",
       "gs": "GS3",
-      "source": "Times of India",
-      "summary": "National Institute of Ocean Technology (NIOT) achieves milestone shallow-water integration tests for the crewed MATSYA 6000 submersible.",
+      "source": "LiveMint",
+      "summary": "Guidelines are released for setting up high-performance biomanufacturing hubs under the BioE3 policy to drive a circular bioeconomy.",
       "prelims": [
-        "MATSYA 6000 is designed to take three human aquanauts to a ocean depth of 6,000 meters.",
-        "Implemented under India's flagship Deep Ocean Mission led by the Ministry of Earth Sciences (MoES).",
-        "Aims to explore polymetallic nodules containing key critical minerals like nickel, cobalt, copper, and manganese in the Central Indian Ocean Basin."
+        "BioE3 stands for Biotechnology for Economy, Environment, and Employment.",
+        "Prioritizes bio-foundries, bio-based polymers, carbon capture bioprocesses, and precision therapeutics.",
+        "Nodal agency for implementation is the Department of Biotechnology (DST, Ministry of Science & Technology)."
       ],
-      "mains": "Highlight India's strategic interest in deep-sea mineral exploration while balancing marine ecological preservation."
+      "mains": "Assess the potential of the BioE3 policy in advancing India's transition toward a low-carbon circular economy."
     }
   ]
 }
