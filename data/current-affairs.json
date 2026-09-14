@@ -4,68 +4,68 @@
   "articles": [
     {
       "id": 1,
-      "title": "India-ASEAN Digital Public Infrastructure (DPI) Partnership Framework",
-      "gs": "GS2",
+      "title": "Deep Ocean Mission: Strategic Progress in Central Indian Ocean Basin Exploration",
+      "gs": "GS3",
       "source": "PIB / The Hindu",
-      "summary": "India and ASEAN launched a strategic initiative to export modular Digital Public Infrastructure (DPI) solutions across Southeast Asian economies.",
+      "summary": "India advances its deep-sea exploration capabilities targeting Polymetallic Nodules and rare earth minerals in the Indian Ocean.",
       "prelims": [
-        "Digital Public Infrastructure (DPI) consists of interoperable, open-source technology stacks like identity, payments, and data exchange.",
-        "The ASEAN-India Comprehensive Strategic Partnership drives regional digital integration and financial inclusion.",
-        "The framework targets real-time cross-border payment links between UPI and ASEAN national fast-payment networks."
+        "Polymetallic Nodules (PMN) in the Central Indian Ocean Basin contain copper, nickel, cobalt, and manganese.",
+        "International Seabed Authority (ISA) regulates mineral exploration in international waters under UNCLOS.",
+        "MATSYA 6000 is India's indigenously developed crewed submersible under the Deep Ocean Mission implemented by the Ministry of Earth Sciences."
       ],
-      "mains": "Use under GS2: Bilateral, regional and global groupings involving India and affecting India's interests; DPI as a pillar of India's soft power diplomacy."
+      "mains": "Examine the geopolitical and economic significance of deep-sea mining for India's critical mineral security and global energy transition."
     },
     {
       "id": 2,
-      "title": "Implementation Guidelines for BioE3 Policy: Biomanufacturing Ecosystem",
+      "title": "Global Biofuels Alliance: Standardization Guidelines for Sustainable Aviation Fuel (SAF)",
       "gs": "GS3",
-      "source": "PIB / Indian Express",
-      "summary": "Department of Biotechnology releases operational guidelines for high-performance biomanufacturing hubs under the BioE3 Policy.",
+      "source": "Indian Express",
+      "summary": "The Global Biofuels Alliance introduces unified technical standards to accelerate Sustainable Aviation Fuel adoption across emerging economies.",
       "prelims": [
-        "BioE3 stands for 'Biotechnology for Economy, Environment, and Employment', led by the Department of Biotechnology (DBT).",
-        "Key focus areas include bio-monomers, smart proteins, precision biotherapeutics, and carbon capture utilization.",
-        "It introduces Bio-AI hubs and biofoundries to scale up circular bioeconomy research and commercialization."
+        "Global Biofuels Alliance (GBA) was launched during India's G20 Presidency by India, the US, and Brazil.",
+        "Sustainable Aviation Fuel (SAF) reduces lifecycle greenhouse gas emissions by up to 80% compared to conventional jet fuel.",
+        "ICAO's Carbon Offsetting and Reduction Scheme for International Aviation (CORSIA) sets global targets for aviation decarbonization."
       ],
-      "mains": "Use under GS3: Science and Technology developments; Indigenization of technology; Sustainable development and circular bioeconomy."
+      "mains": "Discuss how biofuel integration in the aviation sector can help India fulfill its Net Zero 2070 commitments while addressing agricultural feedstock challenges."
     },
     {
       "id": 3,
-      "title": "Glacial Lake Outburst Flood (GLOF) Risk Reduction Strategy for the Himalayan Region",
-      "gs": "GS3",
-      "source": "Down To Earth",
-      "summary": "NDMA updates its risk mitigation framework for high-risk glacial lakes across the Indian Himalayan Region aligning with Sendai Framework goals.",
+      "title": "Expansion of Ayushman Bharat Digital Mission (ABDM) with Open Health Protocols",
+      "gs": "GS2",
+      "source": "The Hindu",
+      "summary": "The Ministry of Health operationalizes the Unified Health Interface (UHI) protocol to improve last-mile healthcare access in rural districts.",
       "prelims": [
-        "GLOFs occur when unstable moraine dams containing glacial lakes breach, releasing large volumes of water.",
-        "The Sendai Framework for Disaster Risk Reduction (2015-2030) sets 4 priority action areas and 7 global targets.",
-        "The strategy mandates IoT-enabled automated weather stations and early warning systems at high-altitude lakes."
+        "Ayushman Bharat Health Account (ABHA) assigns a 14-digit unique identifier for digital health record integration.",
+        "Unified Health Interface (UHI) acts as an open network protocol for digital health services, modeled on UPI.",
+        "Tele-MANAS provides 24/7 free tele-mental health services across all Indian States and Union Territories."
       ],
-      "mains": "Use under GS3: Disaster and disaster management; Environmental impact assessment and climate resilience in ecologically fragile zones."
+      "mains": "Analyze the role of Digital Public Infrastructure (DPI) in bridging the urban-rural healthcare divide and advancing Universal Health Coverage in India."
     },
     {
       "id": 4,
-      "title": "National Energy Storage Systems (ESS) Guidelines for Grid Resilience",
+      "title": "Regulatory Framework for CRISPR-Cas9 Gene-Edited Crop Varieties",
       "gs": "GS3",
-      "source": "Ministry of Power / Livemint",
-      "summary": "Ministry of Power releases framework for integrating grid-scale Battery Energy Storage Systems (BESS) to support 500 GW non-fossil capacity goals.",
+      "source": "Down To Earth",
+      "summary": "ICAR guidelines streamline biosafety evaluations for SDN-1 and SDN-2 genome-edited climate-resilient staple crops.",
       "prelims": [
-        "India aims to achieve 500 GW of non-fossil energy capacity by 2030 as part of its Panchamrit commitments.",
-        "Battery Energy Storage Systems address duck-curve challenges and intermittency inherent to solar and wind power.",
-        "The initiative includes Viability Gap Funding (VGF) support covering up to 40% of capital costs for ESS infrastructure."
+        "Site-Directed Nuclease (SDN-1 and SDN-2) techniques do not introduce foreign genetic material, unlike traditional Genetically Modified Organisms (GMOs).",
+        "Genetic Engineering Appraisal Committee (GEAC) under MoEFCC is the apex body regulating GMO releases in India.",
+        "Genome editing selectively modifies endogenous DNA sequences to improve traits like drought and salinity tolerance."
       ],
-      "mains": "Use under GS3: Infrastructure: Energy; Clean energy transition, renewable energy integration, and grid stability."
+      "mains": "Evaluate the potential of genome-edited crops in ensuring food security under changing climate regimes and assess the institutional safeguards required."
     },
     {
       "id": 5,
-      "title": "Digital Evidence Management System (DEMS) under Bharatiya Nagarik Suraksha Sanhita",
+      "title": "Enhancing Maritime Domain Awareness in the Indian Ocean Region",
       "gs": "GS2",
-      "source": "Economic Times / PIB",
-      "summary": "MHA rolls out standard operational procedures for DEMS to maintain cryptographic chain-of-custody for digital evidence under new criminal laws.",
+      "source": "PIB / Economic Times",
+      "summary": "India expands its Information Fusion Centre - Indian Ocean Region (IFC-IOR) network to bolster maritime safety and security.",
       "prelims": [
-        "Bharatiya Nagarik Suraksha Sanhita (BNSS), 2023 replaced the Code of Criminal Procedure, 1973.",
-        "Section 105 of BNSS mandates videography and photography during search and seizure operations.",
-        "DEMS ensures immutable hash logging and standardized electronic record submission admissible in judicial proceedings."
+        "IFC-IOR was established in 2018 in Gurugram to promote maritime security through real-time information sharing.",
+        "White Shipping Agreements facilitate the exchange of non-military commercial vessel traffic data between signatory nations.",
+        "Under UNCLOS, the Exclusive Economic Zone (EEZ) extends up to 200 nautical miles from a coastal state's baseline."
       ],
-      "mains": "Use under GS2: Government policies and interventions; Technology adoption in judicial and criminal justice reforms."
+      "mains": "Discuss India's SAGAR (Security and Growth for All in the Region) vision in addressing traditional and non-traditional maritime challenges in the Indo-Pacific."
     }
   ]
 }
