@@ -4,68 +4,68 @@
   "articles": [
     {
       "id": 1,
-      "title": "Cabinet Approves AgriData Governance Framework for AgriStack Infrastructure",
+      "title": "UN High-Level Panel on AI Governance & India's DPI Framework",
       "gs": "GS2",
-      "source": "PIB",
-      "summary": "The Union Cabinet approved a landmark data governance policy securing farmer consent and privacy within the national AgriStack digital network.",
+      "source": "The Hindu",
+      "summary": "India advocates adopting its open-source Digital Public Infrastructure (DPI) model to democratize global AI governance and bridge the digital divide.",
       "prelims": [
-        "AgriStack builds a national Digital Public Infrastructure (DPI) linking Digital Crop Surveys and Land Records to unique Farmer IDs.",
-        "The AgriData Governance Framework incorporates consent management protocols governed by the Digital Personal Data Protection (DPDP) Act.",
-        "State governments act as primary custodians of verified land ownership data integrated into the central AgriStack hub."
+        "DPI core pillars include Digital Identity (Aadhaar), Fast Payments (UPI), and Consent-based Data Sharing (Account Aggregator).",
+        "Global Partnership on Artificial Intelligence (GPAI) is a multi-stakeholder initiative hosted by the OECD.",
+        "IndiaAI Mission focuses on building compute capacity, foundational models, and safe deployment frameworks."
       ],
-      "mains": "Examine how Digital Public Infrastructure in agriculture can revolutionize credit delivery and targeted subsidies while safeguarding the data privacy of smallholders."
+      "mains": "Use in GS-2 answers on international technology governance, soft power projection through tech diplomacy, and digital inclusion."
     },
     {
       "id": 2,
-      "title": "RBI Tests Multi-CBDC Cross-Border Settlement Platform with ASEAN Partners",
+      "title": "RBI Issues Guidelines on Climate-Related Financial Risk Disclosures",
       "gs": "GS3",
-      "source": "The Hindu",
-      "summary": "The Reserve Bank of India initiated pilot cross-border trade transactions using wholesale digital rupees (e₹-W) across selected ASEAN central banks.",
+      "source": "Livemint",
+      "summary": "RBI mandates climate risk stress testing and green finance disclosures for Regulated Entities to safeguard macro-financial stability.",
       "prelims": [
-        "Multi-CBDC (mCBDC) platforms enable direct bilateral clearing without reliance on traditional correspondent banking networks.",
-        "Wholesale CBDCs operate on Distributed Ledger Technology (DLT) to achieve near-instantaneous settlement and lower transaction costs.",
-        "The mechanism helps reduce foreign exchange volatility and dependence on third-country reserve currencies in regional trade."
+        "Climate risk is categorized into Physical Risk (extreme events) and Transition Risk (policy/market shifts).",
+        "Task Force on Climate-related Financial Disclosures (TCFD) provides the global framework for climate risk reporting.",
+        "Network for Greening the Financial System (NGFS) is a central bank network fostering climate risk management in banking."
       ],
-      "mains": "Analyze the strategic and economic implications of cross-border CBDC integration for India's external trade resilience and currency internationalization."
+      "mains": "Use in GS-3 Economy answers concerning banking sector resilience, green finance mechanisms, and systemic economic risks."
     },
     {
       "id": 3,
-      "title": "UNEP Report Warns of Heightened GLOF Hazards Across High-Mountain Asia",
+      "title": "CACP Recommends Integrating Eco-Services Incentives into MSP Regime",
       "gs": "GS3",
-      "source": "Down To Earth",
-      "summary": "A UNEP assessment highlights rapid glacier recession in the Himalayan region, urging accelerated installation of automated early warning systems.",
+      "source": "Indian Express",
+      "summary": "The Commission for Agricultural Costs and Prices suggests incentivizing eco-friendly farming practices alongside MSP calculations.",
       "prelims": [
-        "High-Mountain Asia features the largest concentration of snow and ice outside the Earth's polar regions, feeding 10 major Asian river systems.",
-        "Glacial Lake Outburst Floods (GLOFs) occur when moraine or ice dams containing glacial lakes suffer sudden structural failures.",
-        "NDMA's National GLOF Risk Mitigation Project prioritizes synthetic aperture radar monitoring and real-time hydrological sensors in high-risk zones."
+        "CACP is an attached office of the Ministry of Agriculture and Farmers Welfare established in 1965.",
+        "MSP is currently announced for 22 mandated crops plus Fair and Remunerative Price (FRP) for sugarcane.",
+        "CACP considers cost concepts like A2, A2+FL, and C2 when evaluating production economics."
       ],
-      "mains": "Evaluate India's disaster preparedness and institutional mechanisms in mitigating risks associated with Glacial Lake Outburst Floods in the fragile Himalayan ecosystem."
+      "mains": "Use in GS-3 Agriculture questions regarding sustainable farming, MSP regime reforms, and crop diversification strategy."
     },
     {
       "id": 4,
-      "title": "India and Nordic-Baltic Nations Sign Compact on Green Hydrogen & Critical Minerals",
-      "gs": "GS2",
-      "source": "Indian Express",
-      "summary": "India expanded bilateral ties with the Nordic-Baltic Eight (NB8) grouping to create robust supply chains for critical minerals and standard green hydrogen certificates.",
+      "title": "Deep Ocean Mission: MATSYA 6000 Advances to Shallow Water Phase",
+      "gs": "GS3",
+      "source": "PIB",
+      "summary": "India's human submersible MATSYA 6000 reaches key milestones in testing for deep-sea resource exploration.",
       "prelims": [
-        "The NB8 platform comprises Denmark, Estonia, Finland, Iceland, Latvia, Lithuania, Norway, and Sweden.",
-        "The agreement aligns green hydrogen certification rules to facilitate seamless renewable fuel trade between South Asia and Europe.",
-        "Nordic countries hold strategic expertise in deep-sea geology, rare earth element processing, and offshore wind integration."
+        "MATSYA 6000 is designed by NIOT under the Ministry of Earth Sciences (MoES) to carry 3 humans to 6,000 meters depth.",
+        "Central Indian Ocean Basin holds exploration rights for Polymetallic Nodules allocated by International Seabed Authority (ISA).",
+        "Polymetallic nodules primarily contain nickel, copper, cobalt, and manganese essential for green transitions."
       ],
-      "mains": "Discuss the potential of India-Nordic collaboration in facilitating technological transfers for the clean energy transition and critical mineral security."
+      "mains": "Use in GS-3 Science & Tech and Environment answers on Blue Economy policy, critical mineral security, and oceanographic research."
     },
     {
       "id": 5,
-      "title": "ICMR Releases Ethical Guidelines for Generative AI in Diagnostic Medicine",
-      "gs": "GS4",
-      "source": "PIB",
-      "summary": "The Indian Council of Medical Research published national bioethical principles to guide clinical deployment and accountability of generative AI algorithms.",
+      "title": "Supreme Court Reaffirms Procedural Guarantees Under Article 300A",
+      "gs": "GS2",
+      "source": "The Hindu",
+      "summary": "The Supreme Court rules that procedural fairness and fair compensation remain constitutional guarantees under Article 300A.",
       "prelims": [
-        "The framework mandates Human-in-the-Loop (HITL) oversight, retaining ultimate legal liability with treating physicians.",
-        "It establishes algorithmic auditing requirements to eliminate dataset bias against underrepresented demographic groups.",
-        "Explicit patient consent is made mandatory before clinical diagnostic tools process personal health information (PHI) via AI systems."
+        "Right to Property was removed from Fundamental Rights via the 44th Constitutional Amendment Act, 1978.",
+        "Article 300A states that no person shall be deprived of property save by authority of law.",
+        "Article 300A is a constitutional/statutory right protecting citizens against arbitrary executive actions."
       ],
-      "mains": "Discuss the ethical dilemmas posed by the integration of Artificial Intelligence in public healthcare, focusing on clinical accountability, data equity, and patient autonomy."
+      "mains": "Use in GS-2 Constitutional Law answers on the doctrine of eminent domain, evolution of rights, and judicial protection of constitutional liberties."
     }
   ]
 }
