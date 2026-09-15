@@ -6,26 +6,60 @@
 <title>FATEH27 Command Map</title>
 
 <style>
+
 body{
 margin:0;
-padding:20px;
-font-family:Arial,sans-serif;
+padding:18px;
 background:#02140b;
-color:#fff;
+color:white;
+font-family:Arial,sans-serif;
 }
 
 h1{
 font-size:42px;
-margin-bottom:20px;
+margin:0 0 14px;
+}
+
+.search{
+width:100%;
+padding:14px;
+border-radius:18px;
+border:1px solid #14553a;
+background:#072317;
+color:white;
+margin-bottom:14px;
+box-sizing:border-box;
+}
+
+.filters{
+display:flex;
+gap:8px;
+overflow:auto;
+margin-bottom:16px;
+}
+
+.chip{
+padding:10px 16px;
+border-radius:999px;
+background:#0b2c1d;
+border:1px solid #14553a;
+white-space:nowrap;
+cursor:pointer;
+}
+
+.chip.active{
+background:#2be07a;
+color:black;
 }
 
 #mapWrap{
 position:relative;
 max-width:650px;
 margin:auto;
-border-radius:24px;
+border-radius:26px;
 overflow:hidden;
-border:1px solid #14462d;
+border:1px solid #14553a;
+box-shadow:0 0 30px rgba(43,224,122,.12);
 }
 
 #mapWrap img{
@@ -35,44 +69,20 @@ display:block;
 
 .hotspot{
 position:absolute;
-width:22px;
-height:22px;
-background:#2be07a;
-border:3px solid rgba(255,255,255,.85);
+width:18px;
+height:18px;
 border-radius:50%;
+background:#2be07a;
+border:2px solid white;
 transform:translate(-50%,-50%);
 cursor:pointer;
-box-shadow:0 0 12px rgba(43,224,122,.45);
+animation:pulse 2s infinite;
 }
 
-.hotspot:hover{
-transform:translate(-50%,-50%) scale(1.2);
-}
-
-.badge{
-display:inline-block;
-background:#103a24;
-padding:8px 14px;
-border-radius:999px;
-margin:10px 0;
-}
-
-.card{
-background:#072114;
-border:1px solid #14462d;
-padding:18px;
-border-radius:18px;
-margin-top:16px;
-}
-
-.back{
-width:100%;
-padding:16px;
-border:none;
-border-radius:18px;
-background:#2be07a;
-font-weight:bold;
-margin-top:22px;
+@keyframes pulse{
+0%{box-shadow:0 0 0 0 rgba(43,224,122,.7)}
+70%{box-shadow:0 0 0 12px rgba(43,224,122,0)}
+100%{box-shadow:0 0 0 0 rgba(43,224,122,0)}
 }
 
 .sheet{
@@ -88,7 +98,7 @@ transition:.35s;
 max-height:82vh;
 overflow:auto;
 z-index:999;
-border-top:1px solid #1f5a3c;
+border-top:1px solid #14553a;
 }
 
 .sheet.open{
@@ -105,52 +115,87 @@ margin:0 auto 18px;
 
 .close{
 float:right;
-font-size:28px;
+font-size:26px;
 cursor:pointer;
 }
+
+.badge{
+display:inline-block;
+padding:8px 14px;
+background:#103a24;
+border-radius:999px;
+margin:8px 6px 0 0;
+}
+
+.card{
+background:#082518;
+border:1px solid #14553a;
+padding:16px;
+border-radius:18px;
+margin-top:16px;
+}
+
+.back{
+width:100%;
+padding:16px;
+border:none;
+border-radius:18px;
+background:#2be07a;
+font-weight:bold;
+margin-top:22px;
+}
+
 </style>
 </head>
-
 <body>
 
-<h1>🗺️ COMMAND MAP</h1>
+<h1>🗺 COMMAND MAP</h1>
+
+<input class="search" id="search" placeholder="Search State...">
+
+<div class="filters">
+<div class="chip active" onclick="setFilter('All',this)">All</div>
+<div class="chip" onclick="setFilter('GS1',this)">GS1</div>
+<div class="chip" onclick="setFilter('GS2',this)">GS2</div>
+<div class="chip" onclick="setFilter('GS3',this)">GS3</div>
+</div>
 
 <div id="mapWrap">
 
-<img src="./India-map-en.png?v=3">
+<img src="./India-map-en.png?v=5">
 
-<!-- NORTH -->
+<!-- North -->
 <div class="hotspot" style="left:34%;top:8%" onclick="showState('Jammu & Kashmir')"></div>
 <div class="hotspot" style="left:41%;top:14%" onclick="showState('Himachal Pradesh')"></div>
 <div class="hotspot" style="left:35%;top:17%" onclick="showState('Punjab')"></div>
 <div class="hotspot" style="left:40%;top:20%" onclick="showState('Haryana')"></div>
 <div class="hotspot" style="left:46%;top:18%" onclick="showState('Uttarakhand')"></div>
 
-<!-- WEST -->
+<!-- West -->
 <div class="hotspot" style="left:20%;top:34%" onclick="showState('Rajasthan')"></div>
 <div class="hotspot" style="left:17%;top:47%" onclick="showState('Gujarat')"></div>
 <div class="hotspot" style="left:28%;top:60%" onclick="showState('Maharashtra')"></div>
 <div class="hotspot" style="left:25%;top:75%" onclick="showState('Goa')"></div>
 
-<!-- CENTRAL -->
+<!-- Central -->
 <div class="hotspot" style="left:39%;top:43%" onclick="showState('Madhya Pradesh')"></div>
 <div class="hotspot" style="left:47%;top:50%" onclick="showState('Chhattisgarh')"></div>
 
-<!-- EAST -->
+<!-- East -->
 <div class="hotspot" style="left:54%;top:30%" onclick="showState('Uttar Pradesh')"></div>
 <div class="hotspot" style="left:63%;top:35%" onclick="showState('Bihar')"></div>
 <div class="hotspot" style="left:60%;top:46%" onclick="showState('Jharkhand')"></div>
 <div class="hotspot" style="left:67%;top:43%" onclick="showState('West Bengal')"></div>
 <div class="hotspot" style="left:61%;top:55%" onclick="showState('Odisha')"></div>
 
-<!-- SOUTH -->
+<!-- South -->
 <div class="hotspot" style="left:43%;top:63%" onclick="showState('Telangana')"></div>
 <div class="hotspot" style="left:40%;top:73%" onclick="showState('Karnataka')"></div>
 <div class="hotspot" style="left:48%;top:78%" onclick="showState('Andhra Pradesh')"></div>
 <div class="hotspot" style="left:43%;top:89%" onclick="showState('Tamil Nadu')"></div>
 <div class="hotspot" style="left:48%;top:84%" onclick="showState('Kerala')"></div>
 
-<!-- NORTH EAST -->
+<!-- North East -->
 <div class="hotspot" style="left:73%;top:34%" onclick="showState('Assam')"></div>
 <div class="hotspot" style="left:76%;top:30%" onclick="showState('Arunachal Pradesh')"></div>
 <div class="hotspot" style="left:75%;top:40%" onclick="showState('Nagaland')"></div>
@@ -182,15 +227,28 @@ cursor:pointer;
 <script>
 
 let states={};
+let currentFilter="All";
 
 async function loadStates(){
-const res=await fetch("./data/states.json?v=5");
+const res=await fetch("./data/states.json?v=6");
 states=await res.json();
 }
 
 function closeSheet(){
 document.getElementById("sheet").classList.remove("open");
 }
+
+function setFilter(f,el){
+currentFilter=f;
+document.querySelectorAll(".chip").forEach(x=>x.classList.remove("active"));
+el.classList.add("active");
+}
+
+document.getElementById("search").addEventListener("input",()=>{
+const q=document.getElementById("search").value.toLowerCase();
+const found=Object.keys(states).find(x=>x.toLowerCase().includes(q));
+if(found) showState(found);
+});
 
 function showState(name){
 
@@ -207,7 +265,7 @@ document.getElementById("sheetContent").innerHTML=
 `
 <h2>${name}</h2>
 
-<div class="badge">🏛 Capital: ${s.capital}</div>
+<div class="badge">🏛 ${s.capital}</div>
 
 <div class="card">
 <h3>🔥 Hot Topics</h3>
@@ -215,13 +273,20 @@ document.getElementById("sheetContent").innerHTML=
 </div>
 
 <div class="card">
-<h3>📘 Related PYQ</h3>
+<h3>📘 PYQ Theme</h3>
 <p>${s.pyq}</p>
 </div>
 
 <div class="card">
-<h3>📰 Current Affairs</h3>
+<h3>📰 Current Focus</h3>
 <p>${s.current}</p>
+</div>
+
+<div class="card">
+<h3>⚡ Quick Revision</h3>
+<span class="badge">${s.topics[0]}</span>
+<span class="badge">${s.topics[1]}</span>
+<span class="badge">${s.topics[2]}</span>
 </div>
 `;
 
