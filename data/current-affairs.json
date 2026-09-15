@@ -4,68 +4,68 @@
   "articles": [
     {
       "id": 1,
-      "title": "RBI Issues Guidelines on Climate-Related Financial Risk Management",
+      "title": "India Semiconductor Mission 2.0: Strategic Focus on Fabless Ecosystem and Compound Semiconductors",
       "gs": "GS3",
-      "source": "The Hindu",
-      "summary": "The Reserve Bank of India has introduced a standardized framework for Regulated Entities to address climate-induced financial vulnerabilities.",
+      "source": "PIB",
+      "summary": "The Union Government has announced the expansion of the India Semiconductor Mission (ISM 2.0) to incentivize native fabless chip design, raw material supply chains, and specialized compound semiconductor foundries.",
       "prelims": [
-        "Applies to all Scheduled Commercial Banks, Tier 4 Urban Co-operative Banks, and All-India Financial Institutions.",
-        "Mandates governance structures aligned with Task Force on Climate-related Financial Disclosures (TCFD) recommendations.",
-        "Requires periodic climate scenario analysis and stress testing of asset portfolios."
+        "ISM 2.0 is executed under the Ministry of Electronics and Information Technology (MeitY).",
+        "It includes expanded support under the Design Linked Incentive (DLI) scheme to promote IP ownership among domestic startups.",
+        "Compound semiconductors (like GaN and SiC) are essential for high-power electronics, EV powertrains, and 6G telecom networks."
       ],
-      "mains": "Use to substantiate answers on financial stability, sustainable finance, and India's Panchamrit climate commitments."
+      "mains": "Use in GS3 Economy and Science & Technology answers to demonstrate India's push for technological sovereignty, industrial upgrade, and global supply chain integration."
     },
     {
       "id": 2,
-      "title": "SCO RATS Council Meeting Strengthens Regional Counter-Terror Framework",
+      "title": "India-Africa Maritime Security Framework: Strengthening SAGAR in the Western Indian Ocean",
       "gs": "GS2",
-      "source": "Indian Express",
-      "summary": "Member countries of the Shanghai Cooperation Organisation reaffirmed commitments to combat joint security threats and cyber-terrorism.",
+      "source": "The Hindu",
+      "summary": "India expands its defense diplomacy in the Western Indian Ocean through joint hydrographic surveys, anti-piracy patrols, and capacity building under the SAGAR vision.",
       "prelims": [
-        "Regional Anti-Terrorist Structure (RATS) is a permanent organ of the SCO headquartered in Tashkent, Uzbekistan.",
-        "Focuses on information sharing, joint exercises, and combating the 'three evils': terrorism, separatism, and extremism.",
-        "India became a full member of the SCO during the Astana Summit in 2017."
+        "SAGAR stands for 'Security and Growth for All in the Region', introduced in 2015.",
+        "Key focus areas include Maritime Domain Awareness (MDA), Disaster Relief (HADR), and combating illegal, unreported, and unregulated (IUU) fishing.",
+        "Complements initiatives under the Indian Ocean Rim Association (IORA) and Djibouti Code of Conduct."
       ],
-      "mains": "Use as an example of multi-alignment strategy and regional security architecture in Eurasia."
+      "mains": "Incorporate into GS2 International Relations answers regarding India's Global South leadership, Indo-Pacific strategy, and Indian Ocean regional security architecture."
     },
     {
       "id": 3,
-      "title": "Deep Ocean Mission: 'Matsya 6000' Prepares for Final Deep-Sea Trials",
+      "title": "National Green Hydrogen Mission: Operationalization of SIGHT Electrolyser Hubs",
       "gs": "GS3",
-      "source": "PIB",
-      "summary": "Ministry of Earth Sciences reports significant milestones in the indigenous human submersible program aimed at blue economy exploration.",
+      "source": "Business Standard",
+      "summary": "First commercial-scale electrolyser manufacturing facilities under the Strategic Interventions for Green Hydrogen Transition (SIGHT) scheme have begun operational trials.",
       "prelims": [
-        "Nodal Ministry: Ministry of Earth Sciences (MoES); National Institute of Ocean Technology (NIOT) is the key executing agency.",
-        "Designed to carry 3 humans to a depth of 6,000 meters for polymetallic nodule exploration.",
-        "India holds exclusive rights for polymetallic nodule exploration in the Central Indian Ocean Basin assigned by the International Seabed Authority (ISA)."
+        "The SIGHT scheme is a sub-component of the National Green Hydrogen Mission, implemented by the Solar Energy Corporation of India (SECI).",
+        "Target: Reaching 5 MMT per annum of green hydrogen production capacity by 2030.",
+        "Electrolyser technology splits water into hydrogen and oxygen using renewable electricity."
       ],
-      "mains": "Use to highlight scientific self-reliance (Atmanirbhar Bharat), energy security, and Sustainable Development Goal 14 (Life Below Water)."
+      "mains": "Cite in GS3 Environment & Energy answers to address industrial decarbonization, energy security, and Net-Zero 2070 climate goals."
     },
     {
       "id": 4,
-      "title": "ECI Proposes Harmonization of Common Electoral Rolls Across States",
+      "title": "Integration of Digital Public Infrastructure (DPI) with Panchayati Raj Institutions",
       "gs": "GS2",
-      "source": "Livemint",
-      "summary": "The Election Commission of India advocated for a unified voter database to streamline local body and parliamentary elections.",
+      "source": "Indian Express",
+      "summary": "Ministry of Panchayati Raj rolls out integrated e-GramSwaraj 2.0 featuring real-time AI translation via Bhashini for grassroots governance transparency.",
       "prelims": [
-        "Article 324 mandates the Election Commission of India to conduct elections to Parliament, State Legislatures, and the offices of President/Vice-President.",
-        "Article 243K and 243ZA vest the power of preparing electoral rolls for local bodies in State Election Commissions (SECs).",
-        "Adoption of a common roll requires amendments to state electoral laws or voluntary adoption by state governments."
+        "e-GramSwaraj portal was launched to strengthen work-based accounting and planning in Panchayati Raj Institutions (PRIs).",
+        "Bhashini is Digital India's AI-led language translation initiative designed to overcome linguistic barriers.",
+        "Article 243G empowers Panchayats to prepare plans for economic development and social justice."
       ],
-      "mains": "Use in questions regarding electoral reforms, administrative efficiency, and cooperative federalism."
+      "mains": "Utilize in GS2 Governance answers on democratic decentralization, last-mile delivery of public services, and rural digital inclusion."
     },
     {
       "id": 5,
-      "title": "Bhu-Aadhaar (ULPIN) Integration Achieves High Rural Coverage",
-      "gs": "GS1",
-      "source": "Business Standard",
-      "summary": "The Unique Land Parcel Identification Number system enhances land titling accuracy and reduces rural property disputes across states.",
+      "title": "Deep Ocean Mission: MATSYA 6000 Prepares for Deep-Sea Resource Exploration",
+      "gs": "GS3",
+      "source": "The Hindu",
+      "summary": "India's human submersible MATSYA 6000 successfully completes advanced sea trials under the Deep Ocean Mission led by the Ministry of Earth Sciences.",
       "prelims": [
-        "ULPIN is a 14-digit alphanumeric identification number assigned to every surveyed parcel of land.",
-        "Part of the Digital India Land Records Modernization Programme (DILRMP) under the Ministry of Rural Development.",
-        "Utilizes longitude and latitude coordinates based on geo-referenced cadastral maps."
+        "MATSYA 6000 is designed to carry three humans to a depth of 6,000 meters.",
+        "India has been allocated exploration rights for Polymetallic Nodules (PMNs) in the Central Indian Ocean Basin by the International Seabed Authority (ISA).",
+        "PMNs contain strategically crucial metals like nickel, cobalt, copper, and manganese."
       ],
-      "mains": "Use as an illustration of digital spatial governance, reduction of land litigation, and empowerment of agricultural credit access."
+      "mains": "Apply to GS3 Science & Tech and Resources questions addressing the Blue Economy, sustainable marine extraction, and deep-sea exploration capabilities."
     }
   ]
 }
