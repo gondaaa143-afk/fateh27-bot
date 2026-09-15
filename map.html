@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FATEH27 Command Map</title>
+
+<style>
+body{
+background:#02140b;
+color:white;
+font-family:Arial;
+padding:20px;
+margin:0;
+}
+select{
+width:100%;
+padding:16px;
+border-radius:18px;
+background:#072317;
+color:white;
+margin:20px 0;
+}
+.card{
+background:#072317;
+border:1px solid #12462d;
+border-radius:20px;
+padding:18px;
+}
+.badge{
+display:inline-block;
+background:#11321f;
+padding:6px 12px;
+border-radius:999px;
+margin:6px 0;
+}
+</style>
+
+</head>
+<body>
+
+<h1>COMMAND MAP</h1>
+
+<select id="stateSelect"></select>
+
+<div id="info"></div>
+
+<script>
+let states=[];
+
+async function load(){
+
+const res=await fetch("/data/states.json?v="+Date.now());
+
+states=await res.json();
+
+const s=document.getElementById("stateSelect");
+
+states.forEach(x=>{
+s.innerHTML+=`<option>${x.state}</option>`;
+});
+
+show();
+
+}
+
+function show(){
+
+const st=states.find(x=>x.state===stateSelect.value)||states[0];
+
+info.innerHTML=`
+<div class="card">
+
+<h2>${st.state}</h2>
+
+<div class="badge">${st.gs}</div>
+
+<h3>Hot Topics</h3>
+
+<ul>${st.topics.map(t=>`<li>${t}</li>`).join("")}</ul>
+
+<h3>Related PYQ</h3>
+
+<p>${st.pyq}</p>
+
+<h3>Current Focus</h3>
+
+<p>${st.current}</p>
+
+</div>
+`;
+
+}
+
+stateSelect.onchange=show;
+
+load();
+</script>
+
+</body>
+</html>
