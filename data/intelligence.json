@@ -1,0 +1,23 @@
+{
+  "today": "2026-09-16",
+  "highlights": [
+    {
+      "state": "Assam",
+      "type": "Environment",
+      "title": "Kaziranga Flood Alert",
+      "priority": "High"
+    },
+    {
+      "state": "Gujarat",
+      "type": "Economy",
+      "title": "GIFT City Expansion",
+      "priority": "Medium"
+    },
+    {
+      "state": "Ladakh",
+      "type": "Security",
+      "title": "Border Infrastructure",
+      "priority": "High"
+    }
+  ]
+}
