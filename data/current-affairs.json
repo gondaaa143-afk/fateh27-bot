@@ -4,68 +4,68 @@
   "articles": [
     {
       "id": 1,
-      "title": "India and ASEAN Finalize Framework for Digital Public Infrastructure (DPI) Integration",
+      "title": "Expansion of India's Global South Diplomacy through FIPIC 4.0",
       "gs": "GS2",
       "source": "The Hindu",
-      "summary": "India and ASEAN member nations signed a milestone agreement to integrate cross-border digital payment mechanisms and digital identity verification models.",
+      "summary": "India reinforces its strategic commitment to Pacific Island Countries focusing on climate resilience, digital connectivity, and sustainable maritime infrastructure.",
       "prelims": [
-        "Cross-border interoperability between UPI and ASEAN payment switches.",
-        "Key pillars of Digital Public Infrastructure (DPI): Identity, Payments, and Data Exchange.",
-        "ASEAN-India Digital Work Plan priorities for regional economic connectivity."
+        "FIPIC (Forum for India-Pacific Islands Cooperation) was launched in 2014, covering 14 Pacific Island nations.",
+        "Aligns with India's SAGAR (Security and Growth for All in the Region) vision and Indo-Pacific ocean initiative.",
+        "Focus areas include healthcare solarization, desalination plants, and disaster-resilient infrastructure."
       ],
-      "mains": "Examine how Digital Diplomacy enhances India's Act East Policy and deepens economic integration with Southeast Asian nations."
+      "mains": "Examine how India's strategic engagements with Pacific Island countries counter regional power imbalances while advancing sustainable blue economy goals."
     },
     {
       "id": 2,
-      "title": "RBI Issues Mandatory Climate Risk Disclosures Framework for Commercial Banks",
+      "title": "Operational Guidelines Issued for National Quantum Mission (NQM) T-Hubs",
       "gs": "GS3",
-      "source": "Business Standard",
-      "summary": "The Reserve Bank of India has mandated standardized climate-related financial disclosures and stress-testing mechanisms for all Scheduled Commercial Banks.",
+      "source": "PIB",
+      "summary": "The Department of Science & Technology releases operationalization framework for setting up four thematic hubs to drive quantum technology R&D.",
       "prelims": [
-        "Four pillar framework: Governance, Strategy, Risk Management, and Metrics/Targets.",
-        "Concept of Green Taxonomy and transition finance mechanisms.",
-        "Role of the Network for Greening the Financial System (NGFS) in central banking."
+        "National Quantum Mission (NQM) spans from 2023-24 to 2030-31 under DST.",
+        "Focuses on 4 key domains: Quantum Computing, Quantum Communication, Quantum Sensing & Metrology, and Quantum Materials.",
+        "Aims to develop satellite-based secure quantum communications and high-capacity quantum computers."
       ],
-      "mains": "Discuss the role of central banks in mitigating financial instability arising from physical and transition risks of climate change."
+      "mains": "Discuss the strategic importance of quantum technology in national security and evaluate how the NQM positions India in global high-tech supply chains."
     },
     {
       "id": 3,
-      "title": "ISRO Successfully Demonstrates Automated In-Orbit Docking Technology",
+      "title": "Rollout of Bio-E3 Policy for High-Performance Biomanufacturing",
       "gs": "GS3",
-      "source": "PIB",
-      "summary": "ISRO achieved a critical technological milestone with the successful automated rendezvous and docking of two experimental satellites under the SPADEX program.",
+      "source": "Indian Express",
+      "summary": "Government launches biomanufacturing hubs to accelerate circular bioeconomy solutions under the Bio-E3 framework.",
       "prelims": [
-        "Objectives of the Space Docking Experiment (SPADEX).",
-        "Significance of autonomous docking for the proposed Bharatiya Antariksh Station (BAS).",
-        "Difference between active and passive satellite docking systems."
+        "Bio-E3 stands for Biotechnology for Economy, Environment, and Employment.",
+        "Targeted areas include bio-based products, functional foods, smart proteins, and carbon capture biomanufacturing.",
+        "Spearheaded by the Department of Biotechnology (DBT) to support green transition goals."
       ],
-      "mains": "Evaluate India's technological readiness and strategic imperatives for establishing an autonomous permanent space station."
+      "mains": "How can the Bio-E3 policy catalyze India's transition towards a net-zero economy while fostering innovation-led employment?"
     },
     {
       "id": 4,
-      "title": "Union Health Ministry Expands Financial Coverage for Rare Diseases under PM-JAY",
+      "title": "Supreme Court Directives on Rights of Forest Dwellers in Eco-Sensitive Zones",
       "gs": "GS2",
-      "source": "Indian Express",
-      "summary": "The central government extended enhanced financial coverage under PM-JAY to cover treatment for specialized rare diseases across recognized Centres of Excellence.",
+      "source": "Live Law",
+      "summary": "Apex court clarifies that Eco-Sensitive Zone (ESZ) declarations must harmoniously balance environmental conservation with the pre-existing rights under the FRA, 2006.",
       "prelims": [
-        "Classification of Rare Diseases (Group 1, 2, and 3) under the National Policy for Rare Diseases.",
-        "Definition and regulatory provisions for 'Orphan Drugs' in India.",
-        "Role of Designated Centres of Excellence (CoE) in tertiary healthcare."
+        "Eco-Sensitive Zones are notified under the Environment (Protection) Act, 1986 around National Parks and Sanctuaries.",
+        "Forest Rights Act (FRA), 2006 recognizes individual and community rights of traditional forest dwellers.",
+        "Activities in ESZs are categorized into Prohibited, Regulated, and Permitted activities."
       ],
-      "mains": "Analyze the socio-economic burden of rare diseases in India and assess recent policy measures aimed at improving affordable healthcare access."
+      "mains": "Analyze the potential conflicts between environmental conservation laws and indigenous community rights, suggesting measures for inclusive ecological governance."
     },
     {
       "id": 5,
-      "title": "NDMA Rolls Out Integrated Early Warning System for High-Risk Himalayan Glacial Lakes",
-      "gs": "GS1",
-      "source": "Down To Earth",
-      "summary": "The National Disaster Management Authority deployed automated sensor networks and satellite monitoring for high-risk glacial lakes across the Himalayan region.",
+      "title": "Global South Framework Endorses India's Digital Public Infrastructure Model",
+      "gs": "GS2",
+      "source": "Business Standard",
+      "summary": "International agencies adopt India's open-source Digital Public Infrastructure (DPI) framework to accelerate SDGs in developing economies.",
       "prelims": [
-        "Causative factors behind Glacial Lake Outburst Floods (GLOFs).",
-        "Application of Synthetic Aperture Radar (SAR) imagery in monitoring glacial retreat.",
-        "NDMA guidelines on non-structural risk mitigation measures for flash floods."
+        "DPI relies on three foundational pillars: Identity (Aadhaar), Payments (UPI), and Data Sharing (Account Aggregator).",
+        "Built on principles of open APIs, interoperability, and non-proprietary software architecture.",
+        "G20 Framework under India's presidency benchmarked DPI for global financial inclusion."
       ],
-      "mains": "Critically analyze the vulnerability of the Himalayan ecosystem to climate-induced disasters and suggest sustainable risk mitigation strategies."
+      "mains": "Evaluate India's potential to leverage Digital Public Infrastructure as an instrument of soft power and digital diplomacy in the Global South."
     }
   ]
 }
