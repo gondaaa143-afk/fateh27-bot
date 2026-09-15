@@ -4,68 +4,68 @@
   "articles": [
     {
       "id": 1,
-      "title": "Expanded Maritime Security Cooperation under India-ASEAN Strategic Partnership",
+      "title": "India's Push for Global South Digital Public Infrastructure (DPI) Framework",
       "gs": "GS2",
-      "source": "The Hindu / PIB",
-      "summary": "India and ASEAN strengthen joint maritime domain awareness and counter-piracy operations across the Indo-Pacific region.",
+      "source": "The Hindu",
+      "summary": "India advocates for a unified global governance model for Digital Public Infrastructure to enhance financial inclusion across developing nations.",
       "prelims": [
-        "United Nations Convention on the Law of the Sea (UNCLOS) outlines sovereign rights in Exclusive Economic Zones (EEZ).",
-        "India's SAGAR (Security and Growth for All in the Region) vision anchors its Indo-Pacific strategy.",
-        "The Malacca Strait serves as a strategic maritime chokepoint between the Indian Ocean and the South China Sea."
+        "DPI encompasses foundational digital layers: Identity (Aadhaar), Payments (UPI), and Data Exchange (Account Aggregator).",
+        "Global South DPI initiatives focus on open-source, interoperable technology transfers.",
+        "The G20 Framework on DPI serves as the baseline for international adoption and standardized digital architecture."
       ],
-      "mains": "Use in answers evaluating India's Act East Policy, Indo-Pacific geopolitical dynamics, and regional security frameworks."
+      "mains": "Evaluates the role of soft-power diplomacy through technological export in strengthening India's leadership in the Global South."
     },
     {
       "id": 2,
-      "title": "RBI Expands CBDC-UPI Interoperability Framework for Offline Retail Payments",
+      "title": "Carbon Credit Trading Scheme (CCTS): Framework for Compliance Market",
       "gs": "GS3",
-      "source": "Indian Express",
-      "summary": "The Reserve Bank of India introduces offline transaction capabilities for the Digital Rupee to boost financial inclusion in remote regions.",
+      "source": "PIB",
+      "summary": "The Ministry of Power details operational guidelines for the compliance carbon market under the Energy Conservation Act.",
       "prelims": [
-        "Central Bank Digital Currency (CBDC) is sovereign currency issued in digital form by the RBI.",
-        "CBDC is categorized into Retail (CBDC-R) for general public and Wholesale (CBDC-W) for financial institutions.",
-        "Unlike decentralized cryptocurrencies, CBDC represents direct liability of the central bank."
+        "Bureau of Energy Efficiency (BEE) acts as the administrator for the Carbon Credit Trading Scheme.",
+        "Designated entities receive annual Greenhouse Gas (GHG) emission intensity targets.",
+        "Non-compliant entities must purchase Carbon Credit Certificates (CCCs) to meet their statutory obligations."
       ],
-      "mains": "Useful for analyzing Digital Public Infrastructure (DPI), monetary policy transmission, and financial technology innovations in India."
+      "mains": "Analyze how a functional domestic carbon market balances industrial growth with India's Net-Zero 2070 climate commitments."
     },
     {
       "id": 3,
-      "title": "National Carbon Farming Framework Launched to Enhance Soil Organic Carbon",
+      "title": "NISAR Earth Observation Satellite: Dual-Frequency Radar Applications",
       "gs": "GS3",
-      "source": "PIB / Down To Earth",
-      "summary": "Ministry of Agriculture introduces standardized guidelines for carbon credit generation through regenerative agricultural practices.",
+      "source": "Indian Express",
+      "summary": "Joint ISRO-NASA mission NISAR delivers high-resolution imagery for monitoring ecosystem changes and natural hazards.",
       "prelims": [
-        "Soil Organic Carbon (SOC) is a critical indicator of soil health and agricultural productivity.",
-        "Regenerative agriculture emphasizes minimal soil disturbance, cover cropping, and crop rotation.",
-        "Carbon farming monetizes carbon sequestration activities carried out by agricultural landholders."
+        "NISAR utilizes dual-frequency Synthetic Aperture Radar: L-band (NASA) and S-band (ISRO).",
+        "It provides global coverage every 12 days to monitor land surface change, crustal deformation, and ice sheet dynamics.",
+        "Operates in a sun-synchronous orbit, delivering all-weather, day-and-night imaging capabilities."
       ],
-      "mains": "Ideal for questions regarding climate-resilient agriculture, sustainable farm income, and climate change mitigation strategies."
+      "mains": "Highlight the significance of international space collaborations in enhancing disaster risk reduction and climate monitoring."
     },
     {
       "id": 4,
-      "title": "Universal Health Interface Integration under Ayushman Bharat Digital Mission",
+      "title": "PM-JANMAN Scheme: Welfare Delivery for Particularly Vulnerable Tribal Groups",
       "gs": "GS2",
-      "source": "Livemint",
-      "summary": "National Health Authority expands open-protocol infrastructure to enable seamless teleconsultation and access to health records nationwide.",
+      "source": "Down To Earth",
+      "summary": "Progress review on critical infrastructure delivery across 75 Particularly Vulnerable Tribal Groups (PVTGs).",
       "prelims": [
-        "National Health Authority (NHA) is the apex body responsible for implementing ABDM.",
-        "ABHA (Ayushman Bharat Health Account) assigns a 14-digit unique health identification number to citizens.",
-        "Universal Health Interface (UHI) operates on open network standards similar to UPI for healthcare services."
+        "PVTGs are characterized by stagnant/declining population, pre-agricultural technology, extreme poverty, and low literacy.",
+        "Dhebar Commission (1973) created Primitive Tribal Groups as a distinct category, renamed PVTGs in 2006.",
+        "PM-JANMAN integrates 11 critical interventions across 9 central ministries to address basic amenities."
       ],
-      "mains": "Use in answers examining digital health interventions, governance in public healthcare, and achieving Universal Health Coverage."
+      "mains": "Discuss the structural challenges in executing targeted welfare schemes for geographically isolated indigenous populations."
     },
     {
       "id": 5,
-      "title": "ISRO Upgrades Deep Space Network Infrastructure for Venus Orbiter Mission",
-      "gs": "GS3",
-      "source": "ISRO / Times of India",
-      "summary": "ISRO enhances communication antennas at the Indian Deep Space Network to support upcoming planetary exploration missions.",
+      "title": "Sub-Categorization of Scheduled Castes: Operational Framework for States",
+      "gs": "GS2",
+      "source": "LiveLaw",
+      "summary": "States initiate empirical data collection following Supreme Court guidelines on sub-classification within reserved categories.",
       "prelims": [
-        "The Venus Orbiter Mission (Shukrayaan) is designed to study the atmosphere and surface radar imagery of Venus.",
-        "Indian Deep Space Network (IDSN) is located at Byalalu, near Bengaluru, Karnataka.",
-        "Venus has a high-density atmosphere dominated primarily by carbon dioxide and thick clouds of sulfuric acid."
+        "Seven-judge Supreme Court bench affirmed sub-categorization within SC/ST categories under Article 341 and 342.",
+        "Sub-categorization mandates quantifiable and empirical data showing inadequate representation of specific sub-groups.",
+        "The judgment laid down that sub-classification cannot result in 100% reservation for any single sub-group."
       ],
-      "mains": "Valuable for questions on India's indigenous space technology achievements, deep-space communication capabilities, and scientific research."
+      "mains": "Critically examine the implications of sub-categorization of Scheduled Castes on social equity and affirmative action policies in India."
     }
   ]
 }
