@@ -4,68 +4,68 @@
   "articles": [
     {
       "id": 1,
-      "title": "India-ASEAN Maritime Cooperation Framework: Strengthening Indo-Pacific Security Architecture",
+      "title": "India Advances National Data Governance Framework Policy 2026",
       "gs": "GS2",
-      "source": "The Hindu / PIB",
-      "summary": "India and ASEAN countries advance a collaborative maritime security framework focusing on freedom of navigation and supply chain resilience.",
+      "source": "The Hindu",
+      "summary": "MeitY issues revised guidelines to facilitate non-personal data sharing for domestic AI development while protecting sovereign digital assets.",
       "prelims": [
-        "ASEAN was established in 1967 via the Bangkok Declaration.",
-        "India became a Sectoral Dialogue Partner of ASEAN in 1992 and Full Dialogue Partner in 1996.",
-        "UNCLOS (1982) defines the legal status of Exclusive Economic Zones (EEZ) extending up to 200 nautical miles from baselines."
+        "Non-personal data comprises anonymized datasets from which personal identifiers have been removed.",
+        "Establishes the India Data Management Office (IDMO) under MeitY to oversee data access standards.",
+        "Exempts strategic datasets related to national security and defense from public sharing mandates."
       ],
-      "mains": "Analyze the geopolitical significance of ASEAN centrality in India's Act East Policy and its strategic implications for maritime security in the Indo-Pacific."
+      "mains": "Use in GS2 (Governance/E-Governance) to analyze the balance between data democratization, state sovereignty, and privacy rights."
     },
     {
       "id": 2,
-      "title": "National Bio-Foundry Network: Accelerating Synthetic Biology under the BioE3 Policy",
+      "title": "Cabinet Approves Phase II Expansion of National Quantum Mission",
       "gs": "GS3",
-      "source": "PIB / Down to Earth",
-      "summary": "The Ministry of Science and Technology operationalizes advanced bio-foundries to foster high-tech biomanufacturing and industrial decarbonization.",
+      "source": "Indian Express",
+      "summary": "The Union Cabinet approves enhanced funding for quantum communication security protocols and thematic research hubs across top institutes.",
       "prelims": [
-        "Bio-foundries integrate synthetic biology, automation, and artificial intelligence to design and test biological systems.",
-        "The BioE3 Policy stands for Economy, Environment, and Employment.",
-        "Key focus sectors include bioplastics, precision therapeutics, and enzyme-based industrial synthesis."
+        "National Quantum Mission is spearheaded by the Department of Science and Technology (DST).",
+        "Operates through four main Thematic Hubs (T-Hubs): Computation, Communication, Sensing & Metrology, and Materials.",
+        "Aims to construct intermediate-scale quantum computers with 50 to 1,000 physical qubits."
       ],
-      "mains": "Examine how synthetic biology and biomanufacturing can transform India's industrial landscape while aiding its net-zero emissions commitment."
+      "mains": "Crucial for GS3 (Science and Technology) answers on emerging technologies, indigenous R&D capability, and technological self-reliance."
     },
     {
       "id": 3,
-      "title": "Critical Minerals Security: KABIL Secures Overseas Exploration Blocks for Lithium and Cobalt",
+      "title": "MoEFCC Releases State of Marine Biodiversity Report 2026",
       "gs": "GS3",
-      "source": "Indian Express",
-      "summary": "Khanij Bidesh India Limited expands its overseas footprints in South America to safeguard India's green energy supply chain.",
+      "source": "PIB",
+      "summary": "A comprehensive national evaluation highlights resilience strategies for vulnerable coral reef ecosystems in Lakshadweep and the Andaman Sea.",
       "prelims": [
-        "KABIL is a joint venture of NALCO, HCL, and MECL under the Ministry of Mines.",
-        "The 'Lithium Triangle' consists of Argentina, Bolivia, and Chile.",
-        "Critical minerals like Lithium, Cobalt, and Rare Earth Elements (REEs) are crucial for EV batteries and renewable storage systems."
+        "Lakshadweep consists mainly of coral atolls, whereas the Andaman and Nicobar Islands predominantly feature fringing reefs.",
+        "Aligns India's national targets with the Kunming-Montreal Global Biodiversity Framework (30x30 target).",
+        "Integrated Coastal Zone Management Plan (ICZMP) acts as the primary governance mechanism for coastal protection."
       ],
-      "mains": "Discuss India's strategy to achieve critical mineral security and evaluate its role in mitigating global supply chain vulnerabilities."
+      "mains": "Use in GS3 (Environment & Ecology) questions on coastal ecosystem preservation, ocean warming resilience, and biodiversity conservation."
     },
     {
       "id": 4,
-      "title": "Digital Public Infrastructure in Rural Governance: CAG Report Evaluates Last-Mile Impact",
+      "title": "Supreme Court Bench Elaborates Guidelines on Sub-Categorisation within Reserved Classes",
       "gs": "GS2",
-      "source": "Livemint",
-      "summary": "A CAG audit assesses the effectiveness, transparency, and data privacy compliance of India Stack implementations across Panchayati Raj institutions.",
+      "source": "LiveLaw",
+      "summary": "The Supreme Court underscores the necessity of empirical data to justify sub-classification among Scheduled Castes to ensure targeted affirmative action.",
       "prelims": [
-        "The Comptroller and Auditor General (CAG) is a constitutional authority established under Article 148 of the Indian Constitution.",
-        "India Stack consists of three distinct layers: Identity (Aadhaar), Payments (UPI), and Data Sharing (Account Aggregator framework).",
-        "The Digital Agriculture Mission incorporates the AgriStack platform for unified farmer identification."
+        "Articles 341 and 342 empower the President to notify the list of Scheduled Castes and Scheduled Tribes.",
+        "States can sub-classify SC/ST lists only if backed by quantifiable data of inadequate representation.",
+        "The landmark Indra Sawhney Case (1992) established the 50% cap on total reservations and the concept of the creamy layer."
       ],
-      "mains": "Evaluate the impact of Digital Public Infrastructure (DPI) on enhancing transparency and reducing corruption in rural service delivery."
+      "mains": "High utility in GS2 (Polity and Social Justice) for questions regarding social equity, affirmative action design, and judicial interpretation of constitutional rights."
     },
     {
       "id": 5,
-      "title": "RBI Expands Offline and Cross-Border Functionality of Central Bank Digital Currency (e-₹)",
+      "title": "RBI Expands Offline Digital Rupee (e₹) Pilots to Rural Sectors",
       "gs": "GS3",
-      "source": "Business Standard",
-      "summary": "The Reserve Bank of India introduces offline transaction protocols and cross-border payment integration for the Digital Rupee.",
+      "source": "Financial Express",
+      "summary": "The Reserve Bank of India rolls out network-independent offline functionality for the Central Bank Digital Currency to strengthen last-mile financial inclusion.",
       "prelims": [
-        "CBDC is a sovereign currency issued by a central bank in digital form, holding legal tender status equal to physical cash.",
-        "Retail CBDC (e-₹-R) is designed for public use, whereas Wholesale CBDC (e-₹-W) is meant for interbank settlements.",
-        "Offline CBDC implementations rely on Near Field Communication (NFC) and hardware-based secure elements."
+        "Digital Rupee (e₹) is sovereign currency issued by the RBI under amendments to the RBI Act, 1934.",
+        "Offline e₹ transactions utilize Near Field Communication (NFC) and hardware-based secure elements without requiring active internet connectivity.",
+        "Unlike decentralized cryptocurrencies, e₹ represents a direct liability of the central bank with zero credit risk."
       ],
-      "mains": "Assess the potential of Central Bank Digital Currency (CBDC) to reduce cash logistics costs and streamline international remittances."
+      "mains": "Direct application in GS3 (Indian Economy) regarding monetary policy innovation, digital public infrastructure (DPI), and financial inclusion initiatives."
     }
   ]
 }
