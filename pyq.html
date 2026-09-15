@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FATEH27 PYQ Intelligence</title>
+<style>
+body{background:#02140b;color:#fff;font-family:Arial,sans-serif;margin:0;padding:20px}
+h1{font-size:40px;margin:0}
+.search{width:100%;padding:14px;border-radius:16px;border:1px solid #1f5f3a;background:#081b11;color:#fff;margin:20px 0;box-sizing:border-box}
+.card{background:#072317;border:1px solid #12462d;border-radius:20px;padding:18px;margin-bottom:16px}
+.badge{display:inline-block;background:#11321f;padding:6px 12px;border-radius:999px;font-size:12px;margin-right:8px}
+</style>
+</head>
+<body>
+
+<h1>PYQ INTELLIGENCE</h1>
+
+<input id="search" class="search" placeholder="Search topic...">
+
+<div id="list"></div>
+
+<script>
+let data=[];
+
+async function load(){
+ const res=await fetch("/data/pyq.json?v="+Date.now());
+ data=await res.json();
+ render();
+}
+
+function render(){
+ const q=document.getElementById("search").value.toLowerCase();
+ const box=document.getElementById("list");
+ box.innerHTML="";
+
+ data.filter(x=>x.topic.toLowerCase().includes(q)).forEach(t=>{
+   box.innerHTML+=`
+   <div class="card">
+      <h2>${t.topic}</h2>
+      <span class="badge">${t.gs}</span>
+      <span class="badge">${t.frequency} PYQs</span>
+
+      <h3>Previous Questions</h3>
+      <ul>
+        ${t.pyqs.map(p=>`<li><b>${p.year}</b> — ${p.question}</li>`).join("")}
+      </ul>
+
+      <h3>Expected Next Angle</h3>
+      <p>${t.expected}</p>
+   </div>`;
+ });
+}
+
+document.getElementById("search").addEventListener("input",render);
+load();
+</script>
+
+</body>
+</html>
