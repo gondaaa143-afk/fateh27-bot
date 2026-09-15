@@ -13,22 +13,30 @@ font-family:Arial,sans-serif;
 margin:0;
 padding:20px;
 }
-h1{font-size:42px;margin-bottom:20px}
-svg{width:100%;max-width:420px;display:block;margin:auto}
-.state{
-fill:#0b2c1d;
-stroke:#2be07a;
-stroke-width:2;
-cursor:pointer;
-transition:.2s;
+h1{
+font-size:42px;
+margin-bottom:20px;
 }
-.state:hover,.active{fill:#2be07a}
+#mapWrap{
+background:#072317;
+border:1px solid #12462d;
+border-radius:20px;
+padding:12px;
+margin-bottom:22px;
+}
+#mapWrap img{
+width:100%;
+max-width:420px;
+display:block;
+margin:auto;
+border-radius:18px;
+}
 .card{
 background:#072317;
 border:1px solid #12462d;
 border-radius:20px;
 padding:18px;
-margin-top:24px;
+margin-top:18px;
 }
 .badge{
 display:inline-block;
@@ -37,22 +45,32 @@ padding:6px 12px;
 border-radius:999px;
 margin-bottom:10px;
 }
-text{pointer-events:none;font-size:9px;fill:white}
+button{
+width:100%;
+padding:16px;
+border:none;
+border-radius:18px;
+background:#2be07a;
+font-weight:bold;
+margin-top:22px;
+}
 </style>
 </head>
+
 <body>
 
 <h1>🗺 COMMAND MAP</h1>
 
-<svg viewBox="0 0 300 420">
 <div id="mapWrap">
-  <img src="./india-map-en.png"
-       alt="India Political Map"
-       style="width:100%;max-width:420px;display:block;margin:auto;border-radius:18px;border:1px solid #12462d;">
+<img src="./India-map-en.png?v=1"
+alt="India Political Map">
+</div>
+
+<div id="info" class="card">
+Tap any highlighted state.
 </div>
 
 <script>
-
 const data={
 
 "Uttar Pradesh":{
@@ -85,34 +103,31 @@ current:"Renewable energy."
 
 };
 
-document.querySelectorAll(".state").forEach(s=>{
-
-s.onclick=()=>{
-
-document.querySelectorAll(".state").forEach(x=>x.classList.remove("active"));
-s.classList.add("active");
-
-const d=data[s.id];
+document.getElementById("mapWrap").onclick=()=>{
 
 document.getElementById("info").innerHTML=`
-<h2>${s.id}</h2>
-<div class="badge">${d.gs}</div>
+<h2>Demo State</h2>
+
+<div class="badge">GS1+GS2</div>
 
 <h3>🔥 Hot Topics</h3>
-<ul>${d.topics.map(t=>`<li>${t}</li>`).join("")}</ul>
+<ul>
+<li>Ganga</li>
+<li>Sugar Industry</li>
+<li>Prayagraj</li>
+</ul>
 
 <h3>📜 Related PYQ</h3>
-<p>${d.pyq}</p>
+<p>River interlinking and federalism.</p>
 
 <h3>📰 Current Focus</h3>
-<p>${d.current}</p>
+<p>River conservation projects.</p>
 `;
 
 };
-
-});
-
 </script>
+
+<button onclick="location.href='index.html'">← Back to War Room</button>
 
 </body>
 </html>
