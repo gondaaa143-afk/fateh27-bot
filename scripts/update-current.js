@@ -33,15 +33,29 @@ Return ONLY valid JSON in this format:
   const url =
     `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${API_KEY}`;
 
-  const response = await axios.post(url,{
-    contents:[
-      {
-        parts:[
-          { text: prompt }
-        ]
-      }
-    ]
-  });
+  let response;
+
+for (let i = 0; i < 3; i++) {
+  try {
+    response = await axios.post(url, {
+      contents: [
+        {
+          parts: [
+            { text: prompt }
+          ]
+        }
+      ]
+    });
+    break;
+  } catch (e) {
+    if (e.response?.status === 429 && i < 2) {
+      console.log("Quota hit. Waiting 30 sec...");
+      await new Promise(r => setTimeout(r, 30000));
+    } else {
+      throw e;
+    }
+  }
+}
 
   const text =
     response.data.candidates?.[0]?.content?.parts?.[0]?.text || "";
