@@ -1,30 +1,17 @@
-[
-  {
-    "state":"Uttar Pradesh",
-    "gs":"GS1+GS2",
-    "topics":["Ganga","Sugar Industry","Prayagraj"],
-    "pyq":"River interlinking and federalism.",
-    "current":"River conservation projects."
+{
+  "Uttar Pradesh": {
+    "topics": ["Ganga", "Sugar Industry", "Prayagraj"],
+    "pyq": "River interlinking and federalism.",
+    "current": "River conservation projects."
   },
-  {
-    "state":"Assam",
-    "gs":"GS1+GS3",
-    "topics":["Kaziranga","Bodo Accord","Floods"],
-    "pyq":"Northeast insurgency.",
-    "current":"Flood management."
+  "Assam": {
+    "topics": ["Kaziranga", "Bodo Accord", "Floods"],
+    "pyq": "Northeast insurgency.",
+    "current": "Flood management."
   },
-  {
-    "state":"Tamil Nadu",
-    "gs":"GS1+GS2",
-    "topics":["Kaveri","Ports","Dravidian Movement"],
-    "pyq":"Inter-state river disputes.",
-    "current":"Blue Economy."
-  },
-  {
-    "state":"Rajasthan",
-    "gs":"GS1+GS3",
-    "topics":["Thar Desert","Solar Energy","Indira Gandhi Canal"],
-    "pyq":"Desertification.",
-    "current":"Renewable energy."
+  "Rajasthan": {
+    "topics": ["Thar Desert", "Solar Energy", "Indira Gandhi Canal"],
+    "pyq": "Desertification.",
+    "current": "Renewable energy."
   }
-]
+}
