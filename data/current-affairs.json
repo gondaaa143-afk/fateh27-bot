@@ -4,68 +4,68 @@
   "articles": [
     {
       "id": 1,
-      "title": "National Digital Urban Governance Mission: Accelerating Smart Local Bodies",
+      "title": "BIMSTEC Grid Interconnection: Operationalizing Cross-Border Energy Diplomacy",
       "gs": "GS2",
-      "source": "PIB",
-      "summary": "Ministry of Housing and Urban Affairs expands open-source digital architecture to strengthen Tier-2 and Tier-3 Urban Local Bodies.",
+      "source": "The Hindu",
+      "summary": "India accelerates the implementation of the BIMSTEC Energy Grid Interconnection to foster regional trade and renewable energy integration.",
       "prelims": [
-        "National Urban Digital Mission (NUDM) creates citizen-centric digital public infrastructure for urban governance.",
-        "Implements open-source standards for municipal service delivery across local government entities.",
-        "Supports Article 243W (74th Constitutional Amendment Act) by empowering municipal administrative capabilities."
+        "BIMSTEC was established in 1997 through the Bangkok Declaration and is headquartered in Dhaka, Bangladesh.",
+        "The BIMSTEC Grid Interconnection Agreement facilitates cross-border electricity trade and grid integration among member nations.",
+        "Member countries include five from South Asia (Bangladesh, Bhutan, India, Nepal, Sri Lanka) and two from Southeast Asia (Myanmar, Thailand)."
       ],
-      "mains": "Use to illustrate the role of Digital Public Infrastructure (DPI) in administrative decentralization and strengthening democratic local governance."
+      "mains": "Use to analyze regional connectivity, Neighborhood First policy, and energy diplomacy in South Asia and the Bay of Bengal region."
     },
     {
       "id": 2,
-      "title": "Deep Ocean Mission: Samudrayaan Completes Deep-Sea Trials in Central Indian Ocean",
+      "title": "National Green Hydrogen Mission: Standard Operating Guidelines for Green Ammonia Hubs",
       "gs": "GS3",
-      "source": "The Hindu",
-      "summary": "India advances its deep-sea exploration capabilities targeting polymetallic nodules and marine biodiversity mapping.",
+      "source": "PIB",
+      "summary": "The Ministry of New and Renewable Energy introduces comprehensive guidelines for developing green ammonia bunkering and port export infrastructure.",
       "prelims": [
-        "MATSYA 6000 is an indigenously developed crewed submersible designed to operate at 6,000-meter ocean depths.",
-        "Nodal agency is the National Institute of Ocean Technology (NIOT) under the Ministry of Earth Sciences (MoES).",
-        "International Seabed Authority (ISA) has allocated exploration sites to India in the Central Indian Ocean Basin."
+        "Green Hydrogen is produced via water electrolysis powered by renewable energy sources, resulting in zero direct carbon emissions.",
+        "Green Ammonia is synthesized by combining green hydrogen with nitrogen separated from atmospheric air.",
+        "Strategic Interventions for Green Hydrogen Transition (SIGHT) is a key financial component under the National Green Hydrogen Mission."
       ],
-      "mains": "Crucial for analyzing India's resource security, Blue Economy ambitions, and strategic posture in the Indian Ocean Region."
+      "mains": "Relevant for answers on industrial decarbonization, energy transition, clean shipping, and achieving India's Net-Zero by 2070 goal."
     },
     {
       "id": 3,
-      "title": "National Quantum Mission: Deployment of Satellite-Based QKD Network",
+      "title": "GLOF Risk Mitigation: Deployment of Early Warning Systems in High-Altitude Himalayan Lakes",
       "gs": "GS3",
       "source": "Indian Express",
-      "summary": "ISRO and DRDO successfully test secure Quantum Key Distribution (QKD) communications link using low-Earth orbit satellites.",
+      "summary": "The National Disaster Management Authority (NDMA) initiates the installation of automated weather and water-level sensor networks across vulnerable glacial lakes.",
       "prelims": [
-        "Quantum Key Distribution (QKD) utilizes principles of quantum mechanics (superposition and entanglement) for unhackable encryption.",
-        "National Quantum Mission (NQM) is implemented by the Department of Science and Technology (DST).",
-        "Focuses on four thematic hubs: Quantum Computing, Communication, Sensing & Metrology, and Materials."
+        "Glacial Lake Outburst Floods (GLOFs) occur when a natural moraine or ice dam containing a glacial lake collapses rapidly.",
+        "South Lhonak Lake (Sikkim) and Lake Moriri (Ladakh) are prominent high-risk glacial lakes being monitored under the national framework.",
+        "The NDMA is the apex statutory body for disaster management in India, established under the Disaster Management Act, 2005, and chaired by the Prime Minister."
       ],
-      "mains": "Highlight in answers related to national cybersecurity preparedness, defense communication autonomy, and critical technology R&D."
+      "mains": "Directly applicable to questions on climate change adaptation, fragile Himalayan ecology, and proactive disaster risk reduction (DRR)."
     },
     {
       "id": 4,
-      "title": "India-Africa Critical Minerals Partnership Framework Approved",
+      "title": "Digital Public Infrastructure in Agriculture: Scale-Up of AgriStack Registry Framework",
       "gs": "GS2",
-      "source": "Business Standard",
-      "summary": "India strengthens diplomatic ties with African nations to secure strategic supply chains for rare earth elements and energy-transition metals.",
+      "source": "Livemint",
+      "summary": "The Union Government expands the AgriStack platform to enable seamless digital credit access, crop insurance, and target subsidies for smallholder farmers.",
       "prelims": [
-        "Critical minerals include lithium, cobalt, nickel, and graphite, vital for electric mobility and renewable energy storage.",
-        "Khanij Bidesh India Limited (KABIL) is a joint venture of NALCO, HCL, and MECL tasked with acquiring foreign strategic mineral assets.",
-        "Aligns with South-South Cooperation frameworks and the expansion of the African Union within the G20."
+        "AgriStack is a Digital Public Infrastructure (DPI) incorporating three core registries: Farmers' Registry, Geo-referenced Village Maps, and Crop Sown Registry.",
+        "Each farmer is assigned a unique digital identity (Farmer ID) linked to land records for verification.",
+        "The project is implemented by the Ministry of Agriculture and Farmers Welfare in collaboration with state land revenue departments."
       ],
-      "mains": "Useful for questions on India's foreign policy towards Africa, critical mineral diplomacy, and economic supply chain resilience."
+      "mains": "Useful for topics on e-governance, administrative reforms, agricultural credit reform, and leveraging DPI for welfare distribution."
     },
     {
       "id": 5,
-      "title": "Integrated Early Warning System Deployed for Himalayan Glacial Lakes",
-      "gs": "GS3",
-      "source": "Down To Earth",
-      "summary": "NDMA installs automated weather and water-level monitoring stations at high-risk glacial lakes in the Indian Himalayan Region.",
+      "title": "Ethical Framework for Artificial Intelligence in Public Service Delivery",
+      "gs": "GS4",
+      "source": "Business Standard",
+      "summary": "NITI Aayog releases updated guidelines on algorithmic transparency, accountability, and mitigation of bias in AI-driven welfare distribution systems.",
       "prelims": [
-        "Glacial Lake Outburst Floods (GLOF) occur when a moraine-dammed or ice-dammed lake breaches, releasing large volumes of water.",
-        "National Disaster Management Authority (NDMA) guidelines emphasize sensor-based early monitoring and Community-Based Early Warning Systems (CBEWS).",
-        "The Indian Himalayan Region contains over 28,000 glacial bodies vulnerable to climate-induced retreat."
+        "NITI Aayog's 'National Strategy for Artificial Intelligence' outlines the 'AI for All' vision emphasizing ethical AI development.",
+        "Algorithmic bias refers to systematic and unfair outcomes caused by biased training data or flawed model assumptions.",
+        "Core ethical AI principles include Transparency, Explainability, Non-discrimination, Data Privacy, and Human Oversight."
       ],
-      "mains": "Provides concrete evidence for disaster risk reduction (DRR), climate adaptation strategies, and eco-sensitive infrastructure development in mountain ecosystems."
+      "mains": "Serves as standard reference material for GS4 Ethics questions on technology ethics, public accountability, administrative fairness, and digital governance."
     }
   ]
 }
