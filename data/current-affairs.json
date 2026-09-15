@@ -4,68 +4,42 @@
   "articles": [
     {
       "id": 1,
-      "title": "National Urban Governance Reform Framework 2026",
-      "gs": "GS2",
-      "source": "The Hindu",
-      "summary": "Ministry of Housing and Urban Affairs launches updated guidelines to empower Urban Local Bodies (ULBs) under the 74th Constitutional Amendment.",
+      "title": "Mission Mausam",
+      "gs": "GS3",
+      "source": "PIB",
+      "summary": "Weather forecasting infrastructure strengthening.",
       "prelims": [
-        "74th Constitutional Amendment Act mandates local self-governance in urban areas.",
-        "Devolution of 18 functional domain items listed under the 12th Schedule.",
-        "State Finance Commissions (SFCs) review the financial position of municipalities periodically."
+        "Early warning",
+        "Weather infrastructure",
+        "Climate resilience"
       ],
-      "mains": "Use as a contemporary example of structural reforms aimed at fiscal decentralization, municipal cadre capacity building, and strengthening democratic decentralization in India."
+      "mains": "Use in disaster management answers."
     },
     {
       "id": 2,
-      "title": "Deep Ocean Mission: Matsya 6000 Final Deep-Sea Test Trials",
-      "gs": "GS3",
-      "source": "PIB",
-      "summary": "India's indigenous crewed submersible completes crucial deep-sea trial phases, advancing national seabed exploration capabilities.",
+      "title": "Population Challenges",
+      "gs": "GS1",
+      "source": "AI",
+      "summary": "Demographic transition and ageing.",
       "prelims": [
-        "Nodal Ministry: Ministry of Earth Sciences (MoES).",
-        "Designed to carry 3 humans to a depth of 6,000 meters in the ocean.",
-        "Aims to explore Polymetallic Nodules rich in critical minerals like nickel, cobalt, copper, and manganese."
+        "Demographic dividend",
+        "Ageing",
+        "Migration"
       ],
-      "mains": "Cite in answers related to India's Blue Economy policy, critical mineral security, oceanographic research, and indigenous technology development."
+      "mains": "Use in society answers."
     },
     {
       "id": 3,
-      "title": "Implementation Roadmap of India-EFTA Trade and Economic Partnership Agreement",
-      "gs": "GS2",
-      "source": "Business Standard",
-      "summary": "Detailed guidelines released for tracking the $100 billion investment commitment under the India-EFTA TEPA.",
-      "prelims": [
-        "EFTA includes four non-EU European nations: Switzerland, Norway, Iceland, and Liechtenstein.",
-        "First Indian FTA with a target-linked investment and job-creation commitment.",
-        "Sensitive sectors such as domestic agriculture and dairy are excluded from major tariff concessions."
-      ],
-      "mains": "Valuable illustration of modern bilateral Free Trade Agreements (FTAs) that integrate foreign direct investment targets alongside merchandise trade."
-    },
-    {
-      "id": 4,
-      "title": "Climate Mitigation in Agriculture and Methane Footprint Reduction",
+      "title": "Manufacturing Push",
       "gs": "GS3",
-      "source": "Down To Earth",
-      "summary": "ICAR report advocates for System of Rice Intensification (SRI) and alternate wetting and drying to reduce agricultural greenhouse gases.",
+      "source": "AI",
+      "summary": "PLI and MSME competitiveness.",
       "prelims": [
-        "Methane has a short-term Global Warming Potential (GWP) significantly higher than carbon dioxide.",
-        "Global Methane Pledge targets a 30% global reduction in methane emissions by 2030 from 2020 levels.",
-        "India is not a signatory to the Global Methane Pledge to protect smallholder farmer livelihoods."
+        "PLI",
+        "MSME",
+        "Supply Chain"
       ],
-      "mains": "Use to highlight the trade-offs between international climate pledges, national food security, and agrarian sustainable farming methods."
-    },
-    {
-      "id": 5,
-      "title": "RBI Mandatory Climate Risk Disclosure Norms for Regulated Entities",
-      "gs": "GS3",
-      "source": "Financial Express",
-      "summary": "Reserve Bank of India mandates standardized climate-related financial risk disclosures for major banks and NBFCs.",
-      "prelims": [
-        "Applies to Commercial Banks, All-India Financial Institutions (AIFIs), and top-tier NBFCs.",
-        "Framework aligned with global standards set by the Task Force on Climate-related Financial Disclosures (TCFD).",
-        "Focuses on four core pillars: Governance, Strategy, Risk Management, and Metrics/Targets."
-      ],
-      "mains": "Relevant for questions on green banking, systemic macroeconomic stability, ESG compliance, and managing financial transition risks in India."
+      "mains": "Use in economy answers."
     }
   ]
 }
