@@ -4,68 +4,68 @@
   "articles": [
     {
       "id": 1,
-      "title": "Implementation Framework for Data Protection and Digital Public Infrastructure",
+      "title": "National Digital Urban Governance Mission: Accelerating Smart Local Bodies",
       "gs": "GS2",
       "source": "PIB",
-      "summary": "MeitY issues comprehensive operational guidelines integrating privacy-by-design into national Digital Public Infrastructure (DPI) platforms.",
+      "summary": "Ministry of Housing and Urban Affairs expands open-source digital architecture to strengthen Tier-2 and Tier-3 Urban Local Bodies.",
       "prelims": [
-        "Digital Personal Data Protection (DPDP) Act mandates Consent Managers for processing personal data.",
-        "Data Protection Board of India acts as an independent adjudicatory body for grievances.",
-        "India Stack elements include foundational identity (Aadhaar), interoperable payments (UPI), and data-sharing frameworks (Account Aggregator)."
+        "National Urban Digital Mission (NUDM) creates citizen-centric digital public infrastructure for urban governance.",
+        "Implements open-source standards for municipal service delivery across local government entities.",
+        "Supports Article 243W (74th Constitutional Amendment Act) by empowering municipal administrative capabilities."
       ],
-      "mains": "Use in GS-2 Governance and Polity questions related to privacy rights, digital service delivery, and regulatory governance frameworks."
+      "mains": "Use to illustrate the role of Digital Public Infrastructure (DPI) in administrative decentralization and strengthening democratic local governance."
     },
     {
       "id": 2,
-      "title": "International Big Cat Alliance (IBCA) Expands Conservation Footprint",
+      "title": "Deep Ocean Mission: Samudrayaan Completes Deep-Sea Trials in Central Indian Ocean",
       "gs": "GS3",
       "source": "The Hindu",
-      "summary": "India leads international consensus among range countries to standardize transboundary monitoring of big cat species.",
+      "summary": "India advances its deep-sea exploration capabilities targeting polymetallic nodules and marine biodiversity mapping.",
       "prelims": [
-        "IBCA focuses on seven major big cats: Tiger, Lion, Leopard, Snow Leopard, Puma, Jaguar, and Cheetah.",
-        "Headquartered in India, backed by initial grant commitments for capacity building and technology transfer.",
-        "Aims to eliminate illegal wildlife trade and promote ecological corridors across participating nations."
+        "MATSYA 6000 is an indigenously developed crewed submersible designed to operate at 6,000-meter ocean depths.",
+        "Nodal agency is the National Institute of Ocean Technology (NIOT) under the Ministry of Earth Sciences (MoES).",
+        "International Seabed Authority (ISA) has allocated exploration sites to India in the Central Indian Ocean Basin."
       ],
-      "mains": "Cite in GS-3 Environment and Ecology answers regarding global environmental diplomacy, biodiversity protection, and habitat connectivity."
+      "mains": "Crucial for analyzing India's resource security, Blue Economy ambitions, and strategic posture in the Indian Ocean Region."
     },
     {
       "id": 3,
-      "title": "National Deep Tech Startup Policy Framework Operationalized",
+      "title": "National Quantum Mission: Deployment of Satellite-Based QKD Network",
       "gs": "GS3",
       "source": "Indian Express",
-      "summary": "Government launches specialized funding mechanism and fast-track IP filing process for deep-technology ventures.",
+      "summary": "ISRO and DRDO successfully test secure Quantum Key Distribution (QKD) communications link using low-Earth orbit satellites.",
       "prelims": [
-        "Deep Tech refers to innovations based on advanced scientific discoveries in AI, Quantum Computing, and Synthetic Biology.",
-        "Policy establishes a dedicated Deep Tech Fund of Funds managed by SIDBI.",
-        "Overseen by the Office of the Principal Scientific Adviser (PSA) to ensure alignment with national strategic priorities."
+        "Quantum Key Distribution (QKD) utilizes principles of quantum mechanics (superposition and entanglement) for unhackable encryption.",
+        "National Quantum Mission (NQM) is implemented by the Department of Science and Technology (DST).",
+        "Focuses on four thematic hubs: Quantum Computing, Communication, Sensing & Metrology, and Materials."
       ],
-      "mains": "Valuable for GS-3 Science & Technology topics on R&D expenditure, indigenous technology development, and economic self-reliance."
+      "mains": "Highlight in answers related to national cybersecurity preparedness, defense communication autonomy, and critical technology R&D."
     },
     {
       "id": 4,
-      "title": "India-GCC Economic Partnership Momentum",
+      "title": "India-Africa Critical Minerals Partnership Framework Approved",
       "gs": "GS2",
-      "source": "Livemint",
-      "summary": "India and the Gulf Cooperation Council advance talks on a comprehensive economic agreement focusing on trade and energy security.",
+      "source": "Business Standard",
+      "summary": "India strengthens diplomatic ties with African nations to secure strategic supply chains for rare earth elements and energy-transition metals.",
       "prelims": [
-        "GCC consists of six countries: Saudi Arabia, UAE, Qatar, Kuwait, Oman, and Bahrain.",
-        "GCC is a primary foreign trade bloc for India and a crucial source of foreign inward remittances.",
-        "Negotiations encompass trade in goods, services investment regimes, and green energy trade corridors."
+        "Critical minerals include lithium, cobalt, nickel, and graphite, vital for electric mobility and renewable energy storage.",
+        "Khanij Bidesh India Limited (KABIL) is a joint venture of NALCO, HCL, and MECL tasked with acquiring foreign strategic mineral assets.",
+        "Aligns with South-South Cooperation frameworks and the expansion of the African Union within the G20."
       ],
-      "mains": "Direct application in GS-2 International Relations for questions on West Asia diplomacy, diaspora protection, and energy security."
+      "mains": "Useful for questions on India's foreign policy towards Africa, critical mineral diplomacy, and economic supply chain resilience."
     },
     {
       "id": 5,
-      "title": "NDMA Releases Updated Urban Flood Mitigation Strategy",
+      "title": "Integrated Early Warning System Deployed for Himalayan Glacial Lakes",
       "gs": "GS3",
-      "source": "PIB",
-      "summary": "New guidelines prioritize green infrastructure and 'Sponge City' principles for fast-growing metropolitan areas.",
+      "source": "Down To Earth",
+      "summary": "NDMA installs automated weather and water-level monitoring stations at high-risk glacial lakes in the Indian Himalayan Region.",
       "prelims": [
-        "Urban Flooding is categorized as a distinct disaster due to rapid land-use change and impervious surface growth.",
-        "Advocates for 'Sponge City' design elements including permeable pavements, rain gardens, and wetland restoration.",
-        "Mandates integration of Urban Local Bodies (ULBs) with real-time early warning systems."
+        "Glacial Lake Outburst Floods (GLOF) occur when a moraine-dammed or ice-dammed lake breaches, releasing large volumes of water.",
+        "National Disaster Management Authority (NDMA) guidelines emphasize sensor-based early monitoring and Community-Based Early Warning Systems (CBEWS).",
+        "The Indian Himalayan Region contains over 28,000 glacial bodies vulnerable to climate-induced retreat."
       ],
-      "mains": "Essential for GS-3 Disaster Management and GS-1 Urbanization questions on climate resilience and sustainable infrastructure planning."
+      "mains": "Provides concrete evidence for disaster risk reduction (DRR), climate adaptation strategies, and eco-sensitive infrastructure development in mountain ecosystems."
     }
   ]
 }
