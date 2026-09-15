@@ -1,71 +1,71 @@
 {
   "date": "2026-09-15",
-  "brief": "Today's UPSC Intelligence Briefing covering key developments in Polity, Defense, Environment, Economy, and International Relations.",
+  "brief": "Today's UPSC Intelligence Brief",
   "articles": [
     {
       "id": 1,
-      "title": "National Green Hydrogen Mission: Advances in Domestic Electrolyser Manufacturing",
+      "title": "Union Cabinet Approves India Semiconductor Mission Phase-II with Focus on Advanced Packaging and R&D",
       "gs": "GS3",
       "source": "PIB",
-      "summary": "India expands domestic electrolyser manufacturing capacity under the SIGHT scheme to reduce green hydrogen production costs.",
+      "summary": "Phase-II of the India Semiconductor Mission expands financial incentives to cover compound semiconductors, silicon photonics, and domestic equipment manufacturing.",
       "prelims": [
-        "Strategic Interventions for Green Hydrogen Transition (SIGHT) scheme is implemented by MNRE.",
-        "Electrolysers split water into hydrogen and oxygen using renewable electricity.",
-        "India targets producing 5 MMT of Green Hydrogen annually by 2030."
+        "India Semiconductor Mission (ISM) operates under the Digital India Corporation within MeitY.",
+        "Phase-II shifts focus from foundational fab setup to advanced OSAT (Outsourced Semiconductor Assembly and Test) and ATMP facilities.",
+        "Introduces targeted capital subsidies for local R&D institutions developing indigenous Electronic Design Automation (EDA) tools."
       ],
-      "mains": "Use as an example of India's energy transition strategies and industrial policy supporting Net Zero goals by 2070."
+      "mains": "Examine how India's Semiconductor Mission contributes to global supply chain resilience and analyze the key structural bottlenecks in domestic chip manufacturing."
     },
     {
       "id": 2,
-      "title": "High-Level Panel Recommendations on Simultaneous Elections (One Nation, One Election)",
+      "title": "Supreme Court Clarifies Scope of Extraordinary Powers Under Article 142 in Environmental Protection Cases",
       "gs": "GS2",
       "source": "The Hindu",
-      "summary": "Union Cabinet reviews draft constitutional amendments to synchronize Lok Sabha and State Assembly elections.",
+      "summary": "The Supreme Court held that Article 142 cannot bypass statutory environmental impact assessment guidelines set under existing environmental protection acts.",
       "prelims": [
-        "Article 83 and Article 172 govern the duration of Lok Sabha and State Legislative Assemblies respectively.",
-        "Requires Constitutional Amendment under Article 368 with ratification by half of the states.",
-        "Law Commission (170th Report, 1999) first formally recommended simultaneous elections."
+        "Article 142 grants the Supreme Court inherent powers to pass orders necessary for doing 'complete justice' in any cause or matter.",
+        "The Court emphasized that 'complete justice' must align with statutory framework mandates rather than replacing statutory environmental clearance procedures.",
+        "Reinforced the application of the 'Precautionary Principle' and 'Polluter Pays Principle' as part of Article 21 rights."
       ],
-      "mains": "Critical analysis of federalism, electoral expenses, administrative stability, and democratic accountability."
+      "mains": "Critically analyze the delicate balance between judicial activism under Article 142 and the doctrine of separation of powers in environmental governance."
     },
     {
       "id": 3,
-      "title": "Defense Acquisition Council Approves Capital Acquisition for Next-Gen Frigates",
+      "title": "Implementation Framework for Global Goal on Adaptation (GGA) Finalized Ahead of UN Climate Summit",
       "gs": "GS3",
       "source": "Indian Express",
-      "summary": "The DAC clears Acceptance of Necessity (AoN) for indigenous stealth frigates to enhance naval security in the Indian Ocean Region.",
+      "summary": "Developing nations present a unified framework establishing quantifiable indicators for climate adaptation funding and coastal protection resilience.",
       "prelims": [
-        "Defense Acquisition Council (DAC) is chaired by the Union Defense Minister.",
-        "Acceptance of Necessity (AoN) is the initial step in the defense procurement process.",
-        "Focuses on Buy (Indian-Indigenously Designed, Developed, and Manufactured) category."
+        "The Global Goal on Adaptation (GGA) was established under Article 7 of the Paris Agreement to enhance adaptive capacity and resilience.",
+        "The Framework utilizes thematic targets focusing on water security, food production, infrastructure, and ecosystem protection.",
+        "Unlike mitigation metrics (CO2 equivalent), adaptation metrics measure vulnerability reduction and ecosystem stability."
       ],
-      "mains": "Illustrative case study for defense indigenization, Atmanirbhar Bharat in defense technology, and maritime domain awareness in the IOR."
+      "mains": "Discuss the challenges in establishing quantifiable indicators for the Global Goal on Adaptation (GGA) and highlight India's proactive climate adaptation strategies."
     },
     {
       "id": 4,
-      "title": "India-Nordic-Baltic 8 (NB8) Cooperation in Digital Infrastructure and Arctic Research",
+      "title": "Ministry of Labour Issues Draft Rules for Universal Registration of Platform Workers under Social Security Code",
       "gs": "GS2",
-      "source": "PIB",
-      "summary": "India deepens bilateral ties with NB8 nations prioritizing green technology transfer and India's Digital Public Infrastructure (DPI).",
+      "source": "Livemint",
+      "summary": "Draft rules mandate aggregator contribution to a dedicated social security fund to provide health, accident, and disability coverage for gig workers.",
       "prelims": [
-        "NB8 consists of Denmark, Estonia, Finland, Iceland, Latvia, Lithuania, Norway, and Sweden.",
-        "India's Arctic Policy emphasizes sustainable development and climate research.",
-        "Nordic countries are key global leaders in renewable energy, tech innovation, and circular economy models."
+        "The Code on Social Security, 2020 explicitly defines 'gig workers' and 'platform workers' for the first time in Indian statutory law.",
+        "Proposes establishing a Social Security Board chaired by the Union Minister for Labour and Employment.",
+        "Mandates a statutory levy on aggregators ranging between 1% to 2% of their annual turnover for the welfare fund."
       ],
-      "mains": "Useful for international relations questions regarding multi-alignment, Arctic governance, and DPI diplomacy."
+      "mains": "Evaluate the socio-economic impact of the gig economy in India and assess the adequacy of provisions under the Code on Social Security, 2020."
     },
     {
       "id": 5,
-      "title": "Project Dolphin Phase-II: Integrated Conservation Strategy for Freshwater Species",
+      "title": "DRDO Conducts Successful Flight Test of Indigenous Long-Range Anti-Ship Missile (NASM-MR)",
       "gs": "GS3",
-      "source": "Down to Earth",
-      "summary": "MoEFCC rolls out community-led conservation frameworks to protect the Ganges River Dolphin and its habitat.",
+      "source": "Press Information Bureau",
+      "summary": "The Naval Anti-Ship Missile Medium Range (NASM-MR) successfully demonstrated sea-skimming capability and precision targeting during sea trials.",
       "prelims": [
-        "Ganges River Dolphin (Platanista gangetica) is India's National Aquatic Animal.",
-        "IUCN Status: Endangered; listed under Schedule I of the Wildlife Protection Act, 1972.",
-        "Dolphins act as reliable bio-indicators of the overall health of river ecosystems."
+        "NASM-MR is an indigenously developed air-launched anti-ship missile developed by DRDO for naval platform integration.",
+        "Employs an active radar seeker and sea-skimming capabilities to evade hostile shipborne radar defenses.",
+        "Powered by a solid-fuel booster paired with a turbojet engine for sustained high-subsonic cruise velocities."
       ],
-      "mains": "Highlight in questions on biodiversity conservation, eco-restoration, and community-based environmental stewardship."
+      "mains": "Analyze how indigenous defense development enhances India's maritime domain awareness and strategic posture in the Indian Ocean Region (IOR)."
     }
   ]
 }
