@@ -1,71 +1,71 @@
 {
   "date": "2026-09-15",
-  "brief": "Today's UPSC Intelligence Brief - Key developments in Climate Finance, Indo-Pacific Security, Disaster Management, Tribal Welfare, and Deep Ocean Exploration.",
+  "brief": "Today's UPSC Intelligence Brief",
   "articles": [
     {
       "id": 1,
-      "title": "RBI Framework on Climate-Related Financial Risks Operationalised",
+      "title": "RBI Issues Guidelines on Climate-Related Financial Risk Management",
       "gs": "GS3",
-      "source": "The Hindu / RBI",
-      "summary": "The Reserve Bank of India has mandated comprehensive disclosures on climate-related financial risks for regulated financial entities.",
+      "source": "The Hindu",
+      "summary": "The Reserve Bank of India has introduced a standardized framework for Regulated Entities to address climate-induced financial vulnerabilities.",
       "prelims": [
-        "Aligned with recommendations of the Task Force on Climate-related Financial Disclosures (TCFD).",
-        "Applies to all Scheduled Commercial Banks (excluding RRBs) and Tier-4 NBFCs.",
-        "Introduces standardized metrics for green capital adequacy and climate scenario stress testing."
+        "Applies to all Scheduled Commercial Banks, Tier 4 Urban Co-operative Banks, and All-India Financial Institutions.",
+        "Mandates governance structures aligned with Task Force on Climate-related Financial Disclosures (TCFD) recommendations.",
+        "Requires periodic climate scenario analysis and stress testing of asset portfolios."
       ],
-      "mains": "Discuss how integrating climate risk into monetary and regulatory policy frameworks safeguards macroeconomic stability in emerging economies."
+      "mains": "Use to substantiate answers on financial stability, sustainable finance, and India's Panchamrit climate commitments."
     },
     {
       "id": 2,
-      "title": "India-ASEAN Joint Maritime Security Protocol Finalised",
+      "title": "SCO RATS Council Meeting Strengthens Regional Counter-Terror Framework",
       "gs": "GS2",
-      "source": "Indian Express / MEA",
-      "summary": "India and ASEAN member nations finalized a standard operational protocol to enhance maritime domain awareness and counter-piracy operations in the Indo-Pacific.",
+      "source": "Indian Express",
+      "summary": "Member countries of the Shanghai Cooperation Organisation reaffirmed commitments to combat joint security threats and cyber-terrorism.",
       "prelims": [
-        "Supports India's SAGAR (Security and Growth for All in the Region) and the Indo-Pacific Oceans Initiative (IPOI).",
-        "Focuses on securing Sea Lines of Communication (SLOCs) across the Malacca Strait.",
-        "Facilitates real-time information exchange via the Information Fusion Centre – Indian Ocean Region (IFC-IOR)."
+        "Regional Anti-Terrorist Structure (RATS) is a permanent organ of the SCO headquartered in Tashkent, Uzbekistan.",
+        "Focuses on information sharing, joint exercises, and combating the 'three evils': terrorism, separatism, and extremism.",
+        "India became a full member of the SCO during the Astana Summit in 2017."
       ],
-      "mains": "Analyze the strategic significance of ASEAN-India maritime cooperation in upholding international law under UNCLOS and maintaining open trade routes."
+      "mains": "Use as an example of multi-alignment strategy and regional security architecture in Eurasia."
     },
     {
       "id": 3,
-      "title": "Deployment of Automated GLOF Early Warning Systems in the Himalayas",
+      "title": "Deep Ocean Mission: 'Matsya 6000' Prepares for Final Deep-Sea Trials",
       "gs": "GS3",
-      "source": "PIB / NDMA",
-      "summary": "The National Disaster Management Authority (NDMA) has completed the installation of sensor-based Glacial Lake Outburst Flood monitoring systems across vulnerable high-altitude lakes.",
+      "source": "PIB",
+      "summary": "Ministry of Earth Sciences reports significant milestones in the indigenous human submersible program aimed at blue economy exploration.",
       "prelims": [
-        "Monitors high-risk glacial lakes including South Lhonak and Shako Cho in the Eastern Himalayas.",
-        "Integrates Synthetic Aperture Radar (SAR) satellite imagery with water-level automated telemetry.",
-        "Linked directly to the National Emergency Operation Centre (NEOC) for real-time alerting."
+        "Nodal Ministry: Ministry of Earth Sciences (MoES); National Institute of Ocean Technology (NIOT) is the key executing agency.",
+        "Designed to carry 3 humans to a depth of 6,000 meters for polymetallic nodule exploration.",
+        "India holds exclusive rights for polymetallic nodule exploration in the Central Indian Ocean Basin assigned by the International Seabed Authority (ISA)."
       ],
-      "mains": "Examine the role of technology-driven early warning mechanisms in mitigating disaster vulnerabilities across fragile Himalayan mountain ecosystems."
+      "mains": "Use to highlight scientific self-reliance (Atmanirbhar Bharat), energy security, and Sustainable Development Goal 14 (Life Below Water)."
     },
     {
       "id": 4,
-      "title": "Progress Review of PM-PVTG Development Mission",
+      "title": "ECI Proposes Harmonization of Common Electoral Rolls Across States",
       "gs": "GS2",
-      "source": "PIB / Ministry of Tribal Affairs",
-      "summary": "The Ministry of Tribal Affairs released an impact assessment showing expanded infrastructure, health, and education access across 75 Particularly Vulnerable Tribal Groups.",
+      "source": "Livemint",
+      "summary": "The Election Commission of India advocated for a unified voter database to streamline local body and parliamentary elections.",
       "prelims": [
-        "Targets 75 PVTG habitations spread across 18 States and 1 Union Territory.",
-        "Criteria for PVTG identification include declining/stagnant population, pre-agricultural technology, low literacy, and subsistence economy.",
-        "Nodal Ministry: Ministry of Tribal Affairs, implemented via convergence of 9 central ministries."
+        "Article 324 mandates the Election Commission of India to conduct elections to Parliament, State Legislatures, and the offices of President/Vice-President.",
+        "Article 243K and 243ZA vest the power of preparing electoral rolls for local bodies in State Election Commissions (SECs).",
+        "Adoption of a common roll requires amendments to state electoral laws or voluntary adoption by state governments."
       ],
-      "mains": "Critically evaluate the targeted interventions required to balance tribal cultural preservation with modern socio-economic integration."
+      "mains": "Use in questions regarding electoral reforms, administrative efficiency, and cooperative federalism."
     },
     {
       "id": 5,
-      "title": "Ocean Trials Conducted for Indigenous Deep-Sea Mining Crawler",
-      "gs": "GS3",
-      "source": "Down To Earth / MoES",
-      "summary": "India's Deep Ocean Mission achieved a milestone with successful deep-sea trials of a self-propelled mining crawler at depths exceeding 5,000 metres.",
+      "title": "Bhu-Aadhaar (ULPIN) Integration Achieves High Rural Coverage",
+      "gs": "GS1",
+      "source": "Business Standard",
+      "summary": "The Unique Land Parcel Identification Number system enhances land titling accuracy and reduces rural property disputes across states.",
       "prelims": [
-        "Developed by the National Institute of Ocean Technology (NIOT) under the Ministry of Earth Sciences.",
-        "Designed to harvest Polymetallic Nodules containing Nickel, Cobalt, Copper, and Manganese.",
-        "Operations conducted in the Central Indian Ocean Basin (CIOB) site allocated by the International Seabed Authority (ISA)."
+        "ULPIN is a 14-digit alphanumeric identification number assigned to every surveyed parcel of land.",
+        "Part of the Digital India Land Records Modernization Programme (DILRMP) under the Ministry of Rural Development.",
+        "Utilizes longitude and latitude coordinates based on geo-referenced cadastral maps."
       ],
-      "mains": "Assess the strategic and economic importance of deep-sea mining for India's clean energy transition alongside the associated environmental concerns under UNCLOS."
+      "mains": "Use as an illustration of digital spatial governance, reduction of land litigation, and empowerment of agricultural credit access."
     }
   ]
 }
