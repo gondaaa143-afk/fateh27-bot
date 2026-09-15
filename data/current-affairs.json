@@ -4,68 +4,68 @@
   "articles": [
     {
       "id": 1,
-      "title": "India's Push for Global South Digital Public Infrastructure (DPI) Framework",
+      "title": "India and ASEAN Finalize Framework for Digital Public Infrastructure (DPI) Integration",
       "gs": "GS2",
       "source": "The Hindu",
-      "summary": "India advocates for a unified global governance model for Digital Public Infrastructure to enhance financial inclusion across developing nations.",
+      "summary": "India and ASEAN member nations signed a milestone agreement to integrate cross-border digital payment mechanisms and digital identity verification models.",
       "prelims": [
-        "DPI encompasses foundational digital layers: Identity (Aadhaar), Payments (UPI), and Data Exchange (Account Aggregator).",
-        "Global South DPI initiatives focus on open-source, interoperable technology transfers.",
-        "The G20 Framework on DPI serves as the baseline for international adoption and standardized digital architecture."
+        "Cross-border interoperability between UPI and ASEAN payment switches.",
+        "Key pillars of Digital Public Infrastructure (DPI): Identity, Payments, and Data Exchange.",
+        "ASEAN-India Digital Work Plan priorities for regional economic connectivity."
       ],
-      "mains": "Evaluates the role of soft-power diplomacy through technological export in strengthening India's leadership in the Global South."
+      "mains": "Examine how Digital Diplomacy enhances India's Act East Policy and deepens economic integration with Southeast Asian nations."
     },
     {
       "id": 2,
-      "title": "Carbon Credit Trading Scheme (CCTS): Framework for Compliance Market",
+      "title": "RBI Issues Mandatory Climate Risk Disclosures Framework for Commercial Banks",
       "gs": "GS3",
-      "source": "PIB",
-      "summary": "The Ministry of Power details operational guidelines for the compliance carbon market under the Energy Conservation Act.",
+      "source": "Business Standard",
+      "summary": "The Reserve Bank of India has mandated standardized climate-related financial disclosures and stress-testing mechanisms for all Scheduled Commercial Banks.",
       "prelims": [
-        "Bureau of Energy Efficiency (BEE) acts as the administrator for the Carbon Credit Trading Scheme.",
-        "Designated entities receive annual Greenhouse Gas (GHG) emission intensity targets.",
-        "Non-compliant entities must purchase Carbon Credit Certificates (CCCs) to meet their statutory obligations."
+        "Four pillar framework: Governance, Strategy, Risk Management, and Metrics/Targets.",
+        "Concept of Green Taxonomy and transition finance mechanisms.",
+        "Role of the Network for Greening the Financial System (NGFS) in central banking."
       ],
-      "mains": "Analyze how a functional domestic carbon market balances industrial growth with India's Net-Zero 2070 climate commitments."
+      "mains": "Discuss the role of central banks in mitigating financial instability arising from physical and transition risks of climate change."
     },
     {
       "id": 3,
-      "title": "NISAR Earth Observation Satellite: Dual-Frequency Radar Applications",
+      "title": "ISRO Successfully Demonstrates Automated In-Orbit Docking Technology",
       "gs": "GS3",
-      "source": "Indian Express",
-      "summary": "Joint ISRO-NASA mission NISAR delivers high-resolution imagery for monitoring ecosystem changes and natural hazards.",
+      "source": "PIB",
+      "summary": "ISRO achieved a critical technological milestone with the successful automated rendezvous and docking of two experimental satellites under the SPADEX program.",
       "prelims": [
-        "NISAR utilizes dual-frequency Synthetic Aperture Radar: L-band (NASA) and S-band (ISRO).",
-        "It provides global coverage every 12 days to monitor land surface change, crustal deformation, and ice sheet dynamics.",
-        "Operates in a sun-synchronous orbit, delivering all-weather, day-and-night imaging capabilities."
+        "Objectives of the Space Docking Experiment (SPADEX).",
+        "Significance of autonomous docking for the proposed Bharatiya Antariksh Station (BAS).",
+        "Difference between active and passive satellite docking systems."
       ],
-      "mains": "Highlight the significance of international space collaborations in enhancing disaster risk reduction and climate monitoring."
+      "mains": "Evaluate India's technological readiness and strategic imperatives for establishing an autonomous permanent space station."
     },
     {
       "id": 4,
-      "title": "PM-JANMAN Scheme: Welfare Delivery for Particularly Vulnerable Tribal Groups",
+      "title": "Union Health Ministry Expands Financial Coverage for Rare Diseases under PM-JAY",
       "gs": "GS2",
-      "source": "Down To Earth",
-      "summary": "Progress review on critical infrastructure delivery across 75 Particularly Vulnerable Tribal Groups (PVTGs).",
+      "source": "Indian Express",
+      "summary": "The central government extended enhanced financial coverage under PM-JAY to cover treatment for specialized rare diseases across recognized Centres of Excellence.",
       "prelims": [
-        "PVTGs are characterized by stagnant/declining population, pre-agricultural technology, extreme poverty, and low literacy.",
-        "Dhebar Commission (1973) created Primitive Tribal Groups as a distinct category, renamed PVTGs in 2006.",
-        "PM-JANMAN integrates 11 critical interventions across 9 central ministries to address basic amenities."
+        "Classification of Rare Diseases (Group 1, 2, and 3) under the National Policy for Rare Diseases.",
+        "Definition and regulatory provisions for 'Orphan Drugs' in India.",
+        "Role of Designated Centres of Excellence (CoE) in tertiary healthcare."
       ],
-      "mains": "Discuss the structural challenges in executing targeted welfare schemes for geographically isolated indigenous populations."
+      "mains": "Analyze the socio-economic burden of rare diseases in India and assess recent policy measures aimed at improving affordable healthcare access."
     },
     {
       "id": 5,
-      "title": "Sub-Categorization of Scheduled Castes: Operational Framework for States",
-      "gs": "GS2",
-      "source": "LiveLaw",
-      "summary": "States initiate empirical data collection following Supreme Court guidelines on sub-classification within reserved categories.",
+      "title": "NDMA Rolls Out Integrated Early Warning System for High-Risk Himalayan Glacial Lakes",
+      "gs": "GS1",
+      "source": "Down To Earth",
+      "summary": "The National Disaster Management Authority deployed automated sensor networks and satellite monitoring for high-risk glacial lakes across the Himalayan region.",
       "prelims": [
-        "Seven-judge Supreme Court bench affirmed sub-categorization within SC/ST categories under Article 341 and 342.",
-        "Sub-categorization mandates quantifiable and empirical data showing inadequate representation of specific sub-groups.",
-        "The judgment laid down that sub-classification cannot result in 100% reservation for any single sub-group."
+        "Causative factors behind Glacial Lake Outburst Floods (GLOFs).",
+        "Application of Synthetic Aperture Radar (SAR) imagery in monitoring glacial retreat.",
+        "NDMA guidelines on non-structural risk mitigation measures for flash floods."
       ],
-      "mains": "Critically examine the implications of sub-categorization of Scheduled Castes on social equity and affirmative action policies in India."
+      "mains": "Critically analyze the vulnerability of the Himalayan ecosystem to climate-induced disasters and suggest sustainable risk mitigation strategies."
     }
   ]
 }
