@@ -131,24 +131,51 @@ Tap any state.
 <button class="back" onclick="location.href='index.html'">← Back to War Room</button>
 
 <script>
-function showState(name){
-document.getElementById("info").innerHTML=`
-<h2>${name}</h2>
-<div class="badge">UPSC State Dashboard</div>
+let states = {};
 
-**Hot Topics**
-- Geography
-- Economy
-- Environment
-
-**Related PYQ**
-Use this state's PYQs.
-
-**Current Affairs**
-State-specific current affairs yahan dikhenge.
-`;
+async function loadStates() {
+  try {
+    const res = await fetch("./data/states.json?v=3");
+    states = await res.json();
+  } catch (e) {
+    document.getElementById("info").innerHTML =
+      "<h2>Data load failed</h2><p>states.json check karo.</p>";
+  }
 }
-</script>
 
+function showState(name) {
+  const s = states[name];
+
+  if (!s) {
+    document.getElementById("info").innerHTML = `
+      <h2>${name}</h2>
+      <p>Is state ka data abhi add nahi hua.</p>`;
+    return;
+  }
+
+  document.getElementById("info").innerHTML = `
+    <h2>${name}</h2>
+
+    <div class="badge">UPSC State Dashboard</div>
+
+    <div class="card">
+      <h3>🔥 Hot Topics</h3>
+      <p>${s.topics.join(" • ")}</p>
+    </div>
+
+    <div class="card">
+      <h3>📘 Related PYQ</h3>
+      <p>${s.pyq}</p>
+    </div>
+
+    <div class="card">
+      <h3>📰 Current Affairs</h3>
+      <p>${s.current}</p>
+    </div>
+  `;
+}
+
+loadStates();
+</script>
 </body>
 </html>
