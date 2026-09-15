@@ -2,7 +2,7 @@ name: FATEH27 Current Affairs
 
 on:
   schedule:
-    - cron: "30 0 * * *"
+    - cron: "30 13 * * *"   # 7:00 PM IST
   workflow_dispatch:
 
 permissions:
@@ -11,26 +11,21 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
 
-      - name: Install Axios
-        run: npm install axios
+      - name: Install Dependencies
+        run: npm install axios fast-xml-parser
 
-      - name: Generate Current Affairs
+      - name: Update Current Affairs
         run: node scripts/update-current.js
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
-      - name: Commit Changes
+      - name: Commit & Push
         run: |
           git config user.name "FATEH27 Bot"
           git config user.email "bot@fateh27.ai"
