@@ -4,68 +4,68 @@
   "articles": [
     {
       "id": 1,
-      "title": "India Semiconductor Mission 2.0: Strategic Focus on Fabless Ecosystem and Compound Semiconductors",
+      "title": "Deep Ocean Mission: India Prepares for Crewed Submersible MATSYA-6000 Sea Trials",
       "gs": "GS3",
       "source": "PIB",
-      "summary": "The Union Government has announced the expansion of the India Semiconductor Mission (ISM 2.0) to incentivize native fabless chip design, raw material supply chains, and specialized compound semiconductor foundries.",
+      "summary": "Ministry of Earth Sciences advances deep-water qualification tests for MATSYA-6000 to explore polymetallic nodules in the Indian Ocean.",
       "prelims": [
-        "ISM 2.0 is executed under the Ministry of Electronics and Information Technology (MeitY).",
-        "It includes expanded support under the Design Linked Incentive (DLI) scheme to promote IP ownership among domestic startups.",
-        "Compound semiconductors (like GaN and SiC) are essential for high-power electronics, EV powertrains, and 6G telecom networks."
+        "MATSYA-6000 is an indigenous crewed submersible designed to reach ocean depths of 6,000 meters.",
+        "The Deep Ocean Mission is a central sector scheme implemented by the Ministry of Earth Sciences.",
+        "The International Seabed Authority (ISA) has designated exploration areas in the Central Indian Ocean Basin to India for poly-metallic nodules."
       ],
-      "mains": "Use in GS3 Economy and Science & Technology answers to demonstrate India's push for technological sovereignty, industrial upgrade, and global supply chain integration."
+      "mains": "Examine the strategic and economic significance of India's Deep Ocean Mission for critical mineral security and blue economy expansion."
     },
     {
       "id": 2,
-      "title": "India-Africa Maritime Security Framework: Strengthening SAGAR in the Western Indian Ocean",
-      "gs": "GS2",
+      "title": "National Biodiversity Strategy and Action Plan (NBSAP) Alignment with 30x30 Target",
+      "gs": "GS3",
       "source": "The Hindu",
-      "summary": "India expands its defense diplomacy in the Western Indian Ocean through joint hydrographic surveys, anti-piracy patrols, and capacity building under the SAGAR vision.",
+      "summary": "India updates its National Biodiversity Framework to align with the Kunming-Montreal Global Biodiversity Framework goals.",
       "prelims": [
-        "SAGAR stands for 'Security and Growth for All in the Region', introduced in 2015.",
-        "Key focus areas include Maritime Domain Awareness (MDA), Disaster Relief (HADR), and combating illegal, unreported, and unregulated (IUU) fishing.",
-        "Complements initiatives under the Indian Ocean Rim Association (IORA) and Djibouti Code of Conduct."
+        "The 30x30 target seeks to designate 30% of Earth's land and ocean areas as protected zones by 2030.",
+        "NBSAP updates are mandated under the United Nations Convention on Biological Diversity (CBD) commitments.",
+        "Other Effective Area-based Conservation Measures (OECMs) are integrated alongside traditional protected forests."
       ],
-      "mains": "Incorporate into GS2 International Relations answers regarding India's Global South leadership, Indo-Pacific strategy, and Indian Ocean regional security architecture."
+      "mains": "Discuss how integrating Other Effective Area-based Conservation Measures (OECMs) can balance economic development with biodiversity protection in India."
     },
     {
       "id": 3,
-      "title": "National Green Hydrogen Mission: Operationalization of SIGHT Electrolyser Hubs",
-      "gs": "GS3",
-      "source": "Business Standard",
-      "summary": "First commercial-scale electrolyser manufacturing facilities under the Strategic Interventions for Green Hydrogen Transition (SIGHT) scheme have begun operational trials.",
+      "title": "Operationalisation of Chennai-Vladivostok Eastern Maritime Corridor (EMC)",
+      "gs": "GS2",
+      "source": "Indian Express",
+      "summary": "India and Russia streamline maritime operations along the Eastern Maritime Corridor to reduce trans-Eurasian supply chain timelines.",
       "prelims": [
-        "The SIGHT scheme is a sub-component of the National Green Hydrogen Mission, implemented by the Solar Energy Corporation of India (SECI).",
-        "Target: Reaching 5 MMT per annum of green hydrogen production capacity by 2030.",
-        "Electrolyser technology splits water into hydrogen and oxygen using renewable electricity."
+        "EMC connects Chennai Port on India's eastern coast directly to Vladivostok in the Russian Far East.",
+        "The route reduces freight shipping duration between India and Far East Russia from 40 days to approximately 24 days.",
+        "The corridor acts as a complementary route to the International North-South Transport Corridor (INSTC)."
       ],
-      "mains": "Cite in GS3 Environment & Energy answers to address industrial decarbonization, energy security, and Net-Zero 2070 climate goals."
+      "mains": "Analyze the geopolitical and economic implications of the Eastern Maritime Corridor for India's Indo-Pacific strategy and energy security."
     },
     {
       "id": 4,
-      "title": "Integration of Digital Public Infrastructure (DPI) with Panchayati Raj Institutions",
+      "title": "Digital Public Infrastructure (DPI) 2.0 Framework for Interoperable Governance",
       "gs": "GS2",
-      "source": "Indian Express",
-      "summary": "Ministry of Panchayati Raj rolls out integrated e-GramSwaraj 2.0 featuring real-time AI translation via Bhashini for grassroots governance transparency.",
+      "source": "PIB",
+      "summary": "The Ministry of Electronics and Information Technology releases operational guidelines for scaling AgriStack and National Health Stack.",
       "prelims": [
-        "e-GramSwaraj portal was launched to strengthen work-based accounting and planning in Panchayati Raj Institutions (PRIs).",
-        "Bhashini is Digital India's AI-led language translation initiative designed to overcome linguistic barriers.",
-        "Article 243G empowers Panchayats to prepare plans for economic development and social justice."
+        "Digital Public Infrastructure relies on foundational layers: Digital Identity (Aadhaar), Real-time Payments (UPI), and Open Data Access.",
+        "AgriStack introduces unified farmer identification (Farmer ID) integrated with land record registries.",
+        "The G20 New Delhi Leaders' Declaration previously endorsed India's conceptual blueprint for global DPI deployment."
       ],
-      "mains": "Utilize in GS2 Governance answers on democratic decentralization, last-mile delivery of public services, and rural digital inclusion."
+      "mains": "Assess the role of open digital architecture in reducing transaction costs and improving administrative transparency in public service delivery."
     },
     {
       "id": 5,
-      "title": "Deep Ocean Mission: MATSYA 6000 Prepares for Deep-Sea Resource Exploration",
+      "title": "RBI Mandates Disclosure Framework on Climate-Related Financial Risks",
       "gs": "GS3",
-      "source": "The Hindu",
-      "summary": "India's human submersible MATSYA 6000 successfully completes advanced sea trials under the Deep Ocean Mission led by the Ministry of Earth Sciences.",
+      "source": "Livemint",
+      "summary": "Reserve Bank of India mandates regulated financial entities to implement climate risk assessments and green asset stress tests.",
       "prelims": [
-        "MATSYA 6000 is designed to carry three humans to a depth of 6,000 meters.",
-        "India has been allocated exploration rights for Polymetallic Nodules (PMNs) in the Central Indian Ocean Basin by the International Seabed Authority (ISA).",
-        "PMNs contain strategically crucial metals like nickel, cobalt, copper, and manganese."
+        "The RBI framework classifies climate risks into physical risks (weather damage) and transition risks (policy shift impacts).",
+        "Guidelines align with international benchmarks set by the Task Force on Climate-related Financial Disclosures (TCFD).",
+        "Regulated entities must disclose portfolio exposure to carbon-intensive sectors on an annual basis."
       ],
-      "mains": "Apply to GS3 Science & Tech and Resources questions addressing the Blue Economy, sustainable marine extraction, and deep-sea exploration capabilities."
+      "mains": "Evaluate the necessity of regulatory oversight in green financing to safeguard systemic financial stability against climate-induced vulnerabilities."
     }
   ]
 }
