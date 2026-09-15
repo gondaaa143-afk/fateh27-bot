@@ -4,68 +4,68 @@
   "articles": [
     {
       "id": 1,
-      "title": "Expansion of India's Global South Diplomacy through FIPIC 4.0",
+      "title": "Implementation Framework for Data Protection and Digital Public Infrastructure",
       "gs": "GS2",
-      "source": "The Hindu",
-      "summary": "India reinforces its strategic commitment to Pacific Island Countries focusing on climate resilience, digital connectivity, and sustainable maritime infrastructure.",
+      "source": "PIB",
+      "summary": "MeitY issues comprehensive operational guidelines integrating privacy-by-design into national Digital Public Infrastructure (DPI) platforms.",
       "prelims": [
-        "FIPIC (Forum for India-Pacific Islands Cooperation) was launched in 2014, covering 14 Pacific Island nations.",
-        "Aligns with India's SAGAR (Security and Growth for All in the Region) vision and Indo-Pacific ocean initiative.",
-        "Focus areas include healthcare solarization, desalination plants, and disaster-resilient infrastructure."
+        "Digital Personal Data Protection (DPDP) Act mandates Consent Managers for processing personal data.",
+        "Data Protection Board of India acts as an independent adjudicatory body for grievances.",
+        "India Stack elements include foundational identity (Aadhaar), interoperable payments (UPI), and data-sharing frameworks (Account Aggregator)."
       ],
-      "mains": "Examine how India's strategic engagements with Pacific Island countries counter regional power imbalances while advancing sustainable blue economy goals."
+      "mains": "Use in GS-2 Governance and Polity questions related to privacy rights, digital service delivery, and regulatory governance frameworks."
     },
     {
       "id": 2,
-      "title": "Operational Guidelines Issued for National Quantum Mission (NQM) T-Hubs",
+      "title": "International Big Cat Alliance (IBCA) Expands Conservation Footprint",
       "gs": "GS3",
-      "source": "PIB",
-      "summary": "The Department of Science & Technology releases operationalization framework for setting up four thematic hubs to drive quantum technology R&D.",
+      "source": "The Hindu",
+      "summary": "India leads international consensus among range countries to standardize transboundary monitoring of big cat species.",
       "prelims": [
-        "National Quantum Mission (NQM) spans from 2023-24 to 2030-31 under DST.",
-        "Focuses on 4 key domains: Quantum Computing, Quantum Communication, Quantum Sensing & Metrology, and Quantum Materials.",
-        "Aims to develop satellite-based secure quantum communications and high-capacity quantum computers."
+        "IBCA focuses on seven major big cats: Tiger, Lion, Leopard, Snow Leopard, Puma, Jaguar, and Cheetah.",
+        "Headquartered in India, backed by initial grant commitments for capacity building and technology transfer.",
+        "Aims to eliminate illegal wildlife trade and promote ecological corridors across participating nations."
       ],
-      "mains": "Discuss the strategic importance of quantum technology in national security and evaluate how the NQM positions India in global high-tech supply chains."
+      "mains": "Cite in GS-3 Environment and Ecology answers regarding global environmental diplomacy, biodiversity protection, and habitat connectivity."
     },
     {
       "id": 3,
-      "title": "Rollout of Bio-E3 Policy for High-Performance Biomanufacturing",
+      "title": "National Deep Tech Startup Policy Framework Operationalized",
       "gs": "GS3",
       "source": "Indian Express",
-      "summary": "Government launches biomanufacturing hubs to accelerate circular bioeconomy solutions under the Bio-E3 framework.",
+      "summary": "Government launches specialized funding mechanism and fast-track IP filing process for deep-technology ventures.",
       "prelims": [
-        "Bio-E3 stands for Biotechnology for Economy, Environment, and Employment.",
-        "Targeted areas include bio-based products, functional foods, smart proteins, and carbon capture biomanufacturing.",
-        "Spearheaded by the Department of Biotechnology (DBT) to support green transition goals."
+        "Deep Tech refers to innovations based on advanced scientific discoveries in AI, Quantum Computing, and Synthetic Biology.",
+        "Policy establishes a dedicated Deep Tech Fund of Funds managed by SIDBI.",
+        "Overseen by the Office of the Principal Scientific Adviser (PSA) to ensure alignment with national strategic priorities."
       ],
-      "mains": "How can the Bio-E3 policy catalyze India's transition towards a net-zero economy while fostering innovation-led employment?"
+      "mains": "Valuable for GS-3 Science & Technology topics on R&D expenditure, indigenous technology development, and economic self-reliance."
     },
     {
       "id": 4,
-      "title": "Supreme Court Directives on Rights of Forest Dwellers in Eco-Sensitive Zones",
+      "title": "India-GCC Economic Partnership Momentum",
       "gs": "GS2",
-      "source": "Live Law",
-      "summary": "Apex court clarifies that Eco-Sensitive Zone (ESZ) declarations must harmoniously balance environmental conservation with the pre-existing rights under the FRA, 2006.",
+      "source": "Livemint",
+      "summary": "India and the Gulf Cooperation Council advance talks on a comprehensive economic agreement focusing on trade and energy security.",
       "prelims": [
-        "Eco-Sensitive Zones are notified under the Environment (Protection) Act, 1986 around National Parks and Sanctuaries.",
-        "Forest Rights Act (FRA), 2006 recognizes individual and community rights of traditional forest dwellers.",
-        "Activities in ESZs are categorized into Prohibited, Regulated, and Permitted activities."
+        "GCC consists of six countries: Saudi Arabia, UAE, Qatar, Kuwait, Oman, and Bahrain.",
+        "GCC is a primary foreign trade bloc for India and a crucial source of foreign inward remittances.",
+        "Negotiations encompass trade in goods, services investment regimes, and green energy trade corridors."
       ],
-      "mains": "Analyze the potential conflicts between environmental conservation laws and indigenous community rights, suggesting measures for inclusive ecological governance."
+      "mains": "Direct application in GS-2 International Relations for questions on West Asia diplomacy, diaspora protection, and energy security."
     },
     {
       "id": 5,
-      "title": "Global South Framework Endorses India's Digital Public Infrastructure Model",
-      "gs": "GS2",
-      "source": "Business Standard",
-      "summary": "International agencies adopt India's open-source Digital Public Infrastructure (DPI) framework to accelerate SDGs in developing economies.",
+      "title": "NDMA Releases Updated Urban Flood Mitigation Strategy",
+      "gs": "GS3",
+      "source": "PIB",
+      "summary": "New guidelines prioritize green infrastructure and 'Sponge City' principles for fast-growing metropolitan areas.",
       "prelims": [
-        "DPI relies on three foundational pillars: Identity (Aadhaar), Payments (UPI), and Data Sharing (Account Aggregator).",
-        "Built on principles of open APIs, interoperability, and non-proprietary software architecture.",
-        "G20 Framework under India's presidency benchmarked DPI for global financial inclusion."
+        "Urban Flooding is categorized as a distinct disaster due to rapid land-use change and impervious surface growth.",
+        "Advocates for 'Sponge City' design elements including permeable pavements, rain gardens, and wetland restoration.",
+        "Mandates integration of Urban Local Bodies (ULBs) with real-time early warning systems."
       ],
-      "mains": "Evaluate India's potential to leverage Digital Public Infrastructure as an instrument of soft power and digital diplomacy in the Global South."
+      "mains": "Essential for GS-3 Disaster Management and GS-1 Urbanization questions on climate resilience and sustainable infrastructure planning."
     }
   ]
 }
