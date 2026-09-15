@@ -7,47 +7,64 @@
 
 <style>
 body{
-background:#02140b;
-color:white;
-font-family:Arial,sans-serif;
 margin:0;
 padding:20px;
+font-family:Arial,sans-serif;
+background:#02140b;
+color:#fff;
 }
-h1{font-size:42px;margin-bottom:20px}
+
+h1{
+font-size:42px;
+margin-bottom:20px;
+}
+
 #mapWrap{
 position:relative;
-max-width:420px;
+max-width:650px;
 margin:auto;
-border-radius:20px;
+border-radius:24px;
 overflow:hidden;
-border:1px solid #12462d;
+border:1px solid #14462d;
 }
-#mapWrap img{width:100%;display:block}
+
+#mapWrap img{
+width:100%;
+display:block;
+}
+
 .hotspot{
 position:absolute;
+width:22px;
+height:22px;
+background:#2be07a;
+border:3px solid rgba(255,255,255,.85);
 border-radius:50%;
-width:18px;
-height:18px;
-background:#2be07acc;
-border:2px solid white;
-cursor:pointer;
 transform:translate(-50%,-50%);
+cursor:pointer;
+box-shadow:0 0 12px rgba(43,224,122,.45);
 }
-.hotspot:hover{background:#5dff9b}
-.card{
-background:#072317;
-border:1px solid #12462d;
-border-radius:20px;
-padding:18px;
-margin-top:20px;
+
+.hotspot:hover{
+transform:translate(-50%,-50%) scale(1.2);
 }
+
 .badge{
 display:inline-block;
-padding:6px 12px;
-background:#11321f;
+background:#103a24;
+padding:8px 14px;
 border-radius:999px;
-margin-bottom:10px;
+margin:10px 0;
 }
+
+.card{
+background:#072114;
+border:1px solid #14462d;
+padding:18px;
+border-radius:18px;
+margin-top:16px;
+}
+
 .back{
 width:100%;
 padding:16px;
@@ -55,28 +72,59 @@ border:none;
 border-radius:18px;
 background:#2be07a;
 font-weight:bold;
-margin-top:20px;
+margin-top:22px;
+}
+
+.sheet{
+position:fixed;
+left:0;
+right:0;
+bottom:-100%;
+background:#062114;
+border-top-left-radius:26px;
+border-top-right-radius:26px;
+padding:22px;
+transition:.35s;
+max-height:82vh;
+overflow:auto;
+z-index:999;
+border-top:1px solid #1f5a3c;
+}
+
+.sheet.open{
+bottom:0;
+}
+
+.handle{
+width:60px;
+height:6px;
+background:#2be07a;
+border-radius:99px;
+margin:0 auto 18px;
+}
+
+.close{
+float:right;
+font-size:28px;
+cursor:pointer;
 }
 </style>
 </head>
 
 <body>
 
-<h1>🗺 COMMAND MAP</h1>
+<h1>🗺️ COMMAND MAP</h1>
 
 <div id="mapWrap">
-  <img
-    src="./India-map-en.png?v=2"
-    alt="India Political Map"
-    style="width:100%;max-width:420px;display:block;margin:auto;border-radius:18px;"
-  >
 
-  <!-- NORTH -->
-  <div class="hotspot" style="left:34%;top:8%" onclick="showState('Jammu & Kashmir')"></div>
-  <div class="hotspot" style="left:41%;top:14%" onclick="showState('Himachal Pradesh')"></div>
-  <div class="hotspot" style="left:35%;top:17%" onclick="showState('Punjab')"></div>
-  <div class="hotspot" style="left:40%;top:20%" onclick="showState('Haryana')"></div>
-  <div class="hotspot" style="left:46%;top:18%" onclick="showState('Uttarakhand')"></div>
+<img src="./India-map-en.png?v=3">
+
+<!-- NORTH -->
+<div class="hotspot" style="left:34%;top:8%" onclick="showState('Jammu & Kashmir')"></div>
+<div class="hotspot" style="left:41%;top:14%" onclick="showState('Himachal Pradesh')"></div>
+<div class="hotspot" style="left:35%;top:17%" onclick="showState('Punjab')"></div>
+<div class="hotspot" style="left:40%;top:20%" onclick="showState('Haryana')"></div>
+<div class="hotspot" style="left:46%;top:18%" onclick="showState('Uttarakhand')"></div>
 
 <!-- WEST -->
 <div class="hotspot" style="left:20%;top:34%" onclick="showState('Rajasthan')"></div>
@@ -96,86 +144,94 @@ margin-top:20px;
 <div class="hotspot" style="left:61%;top:55%" onclick="showState('Odisha')"></div>
 
 <!-- SOUTH -->
-<div class="hotspot" style="left:43%;top:66%" onclick="showState('Telangana')"></div>
-<div class="hotspot" style="left:47%;top:74%" onclick="showState('Andhra Pradesh')"></div>
-<div class="hotspot" style="left:33%;top:73%" onclick="showState('Karnataka')"></div>
-<div class="hotspot" style="left:36%;top:90%" onclick="showState('Kerala')"></div>
-<div class="hotspot" style="left:46%;top:88%" onclick="showState('Tamil Nadu')"></div>
+<div class="hotspot" style="left:43%;top:63%" onclick="showState('Telangana')"></div>
+<div class="hotspot" style="left:40%;top:73%" onclick="showState('Karnataka')"></div>
+<div class="hotspot" style="left:48%;top:78%" onclick="showState('Andhra Pradesh')"></div>
+<div class="hotspot" style="left:43%;top:89%" onclick="showState('Tamil Nadu')"></div>
+<div class="hotspot" style="left:48%;top:84%" onclick="showState('Kerala')"></div>
 
 <!-- NORTH EAST -->
-<div class="hotspot" style="left:78%;top:23%" onclick="showState('Sikkim')"></div>
-<div class="hotspot" style="left:83%;top:20%" onclick="showState('Arunachal Pradesh')"></div>
-<div class="hotspot" style="left:80%;top:30%" onclick="showState('Assam')"></div>
-<div class="hotspot" style="left:84%;top:33%" onclick="showState('Nagaland')"></div>
-<div class="hotspot" style="left:82%;top:37%" onclick="showState('Manipur')"></div>
-<div class="hotspot" style="left:79%;top:39%" onclick="showState('Mizoram')"></div>
-<div class="hotspot" style="left:74%;top:36%" onclick="showState('Meghalaya')"></div>
-<div class="hotspot" style="left:72%;top:42%" onclick="showState('Tripura')"></div>
+<div class="hotspot" style="left:73%;top:34%" onclick="showState('Assam')"></div>
+<div class="hotspot" style="left:76%;top:30%" onclick="showState('Arunachal Pradesh')"></div>
+<div class="hotspot" style="left:75%;top:40%" onclick="showState('Nagaland')"></div>
+<div class="hotspot" style="left:71%;top:42%" onclick="showState('Meghalaya')"></div>
+<div class="hotspot" style="left:74%;top:46%" onclick="showState('Manipur')"></div>
+<div class="hotspot" style="left:70%;top:47%" onclick="showState('Mizoram')"></div>
+<div class="hotspot" style="left:72%;top:38%" onclick="showState('Tripura')"></div>
+<div class="hotspot" style="left:69%;top:31%" onclick="showState('Sikkim')"></div>
 
-<!-- UTs -->
+<!-- UT -->
 <div class="hotspot" style="left:45%;top:21%" onclick="showState('Delhi')"></div>
 <div class="hotspot" style="left:6%;top:83%" onclick="showState('Lakshadweep')"></div>
 <div class="hotspot" style="left:82%;top:73%" onclick="showState('Andaman & Nicobar')"></div>
 <div class="hotspot" style="left:42%;top:82%" onclick="showState('Puducherry')"></div>
-<div class="hotspot" style="left:14%;top:54%" onclick="showState('Dadra & Nagar Haveli and Daman & Diu')"></div>
+<div class="hotspot" style="left:14%;top:54%" onclick="showState('Dadra and Nagar Haveli and Daman and Diu')"></div>
 <div class="hotspot" style="left:32%;top:13%" onclick="showState('Chandigarh')"></div>
 <div class="hotspot" style="left:28%;top:6%" onclick="showState('Ladakh')"></div>
-<div class="hotspot" style="left:33%;top:14%" onclick="showState('Jammu & Kashmir')"></div>
 
-</div>
-
-<div id="info" class="card">
-  Tap any highlighted state.
 </div>
 
 <button class="back" onclick="location.href='index.html'">← Back to War Room</button>
 
-<script>
-let states = {};
+<div id="sheet" class="sheet">
+<div class="handle"></div>
+<div class="close" onclick="closeSheet()">✕</div>
+<div id="sheetContent"></div>
+</div>
 
-async function loadStates() {
-  try {
-    const res = await fetch("./data/states.json?v=3");
-    states = await res.json();
-  } catch (e) {
-    document.getElementById("info").innerHTML =
-      "<h2>Data load failed</h2><p>states.json check karo.</p>";
-  }
+<script>
+
+let states={};
+
+async function loadStates(){
+const res=await fetch("./data/states.json?v=5");
+states=await res.json();
 }
 
-function showState(name) {
-  const s = states[name];
+function closeSheet(){
+document.getElementById("sheet").classList.remove("open");
+}
 
-  if (!s) {
-    document.getElementById("info").innerHTML = `
-      <h2>${name}</h2>
-      <p>Is state ka data abhi add nahi hua.</p>`;
-    return;
-  }
+function showState(name){
 
-  document.getElementById("info").innerHTML = `
-    <h2>${name}</h2>
+const s=states[name];
 
-    <div class="badge">UPSC State Dashboard</div>
+if(!s){
+document.getElementById("sheetContent").innerHTML=
+`<h2>${name}</h2><p>Data unavailable.</p>`;
+document.getElementById("sheet").classList.add("open");
+return;
+}
 
-    <div class="card">
-      <h3>🔥 Hot Topics</h3>
-      <p>${s.topics.join(" • ")}</p>
-    </div>
+document.getElementById("sheetContent").innerHTML=
+`
+<h2>${name}</h2>
 
-    <div class="card">
-      <h3>📘 Related PYQ</h3>
-      <p>${s.pyq}</p>
-    </div>
+<div class="badge">🏛 Capital: ${s.capital}</div>
 
-    <div class="card">
-      <h3>📰 Current Affairs</h3>
-      <p>${s.current}</p>
-    </div>
-  `;
+<div class="card">
+<h3>🔥 Hot Topics</h3>
+<p>${s.topics.join(" • ")}</p>
+</div>
+
+<div class="card">
+<h3>📘 Related PYQ</h3>
+<p>${s.pyq}</p>
+</div>
+
+<div class="card">
+<h3>📰 Current Affairs</h3>
+<p>${s.current}</p>
+</div>
+`;
+
+document.getElementById("sheet").classList.add("open");
+
 }
 
 loadStates();
+
 </script>
+
 </body>
 </html>
