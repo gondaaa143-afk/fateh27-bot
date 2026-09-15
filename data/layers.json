@@ -1,0 +1,45 @@
+{
+  "GS1":{
+    "Rivers":[
+      {"name":"Ganga","state":"Uttar Pradesh"},
+      {"name":"Brahmaputra","state":"Assam"},
+      {"name":"Narmada","state":"Madhya Pradesh"},
+      {"name":"Kaveri","state":"Tamil Nadu"}
+    ],
+    "National Parks":[
+      {"name":"Kaziranga","state":"Assam"},
+      {"name":"Gir","state":"Gujarat"},
+      {"name":"Jim Corbett","state":"Uttarakhand"},
+      {"name":"Ranthambore","state":"Rajasthan"}
+    ],
+    "UNESCO":[
+      {"name":"Hampi","state":"Karnataka"},
+      {"name":"Khajuraho","state":"Madhya Pradesh"},
+      {"name":"Jaipur City","state":"Rajasthan"}
+    ]
+  },
+  "GS2":{
+    "Border Issues":[
+      {"name":"McMahon Line","state":"Arunachal Pradesh"},
+      {"name":"LoC","state":"Jammu & Kashmir"},
+      {"name":"Sir Creek","state":"Gujarat"}
+    ]
+  },
+  "GS3":{
+    "GI Tags":[
+      {"name":"Darjeeling Tea","state":"West Bengal"},
+      {"name":"Alphonso Mango","state":"Maharashtra"},
+      {"name":"Mysore Silk","state":"Karnataka"}
+    ],
+    "Minerals":[
+      {"name":"Coal","state":"Jharkhand"},
+      {"name":"Iron Ore","state":"Odisha"},
+      {"name":"Bauxite","state":"Chhattisgarh"}
+    ],
+    "Power Projects":[
+      {"name":"Polavaram","state":"Andhra Pradesh"},
+      {"name":"Tehri Dam","state":"Uttarakhand"},
+      {"name":"Bhakra Nangal","state":"Punjab"}
+    ]
+  }
+}
