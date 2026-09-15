@@ -1,42 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FATEH27 Command Map</title>
 
 <style>
 body{
 background:#02140b;
-color:white;
-font-family:Arial;
-padding:20px;
+color:#fff;
+font-family:Arial,sans-serif;
 margin:0;
+padding:24px;
 }
+h1{font-size:48px;margin:0 0 24px}
 select{
 width:100%;
 padding:16px;
-border-radius:18px;
 background:#072317;
+border:1px solid #13452c;
+border-radius:18px;
 color:white;
-margin:20px 0;
+margin-bottom:20px;
 }
 .card{
 background:#072317;
 border:1px solid #12462d;
-border-radius:20px;
-padding:18px;
+border-radius:22px;
+padding:20px;
+margin-top:16px;
 }
 .badge{
 display:inline-block;
 background:#11321f;
 padding:6px 12px;
 border-radius:999px;
-margin:6px 0;
+margin-bottom:12px;
 }
 </style>
-
 </head>
+
 <body>
 
 <h1>COMMAND MAP</h1>
@@ -50,49 +53,64 @@ let states=[];
 
 async function load(){
 
-const res=await fetch("/data/states.json?v="+Date.now());
+try{
+
+const res=await fetch("./data/states.json?v="+Date.now(),{
+cache:"no-store"
+});
+
+if(!res.ok) throw new Error();
 
 states=await res.json();
 
 const s=document.getElementById("stateSelect");
+s.innerHTML="";
 
 states.forEach(x=>{
-s.innerHTML+=`<option>${x.state}</option>`;
+s.innerHTML+=`<option value="${x.state}">${x.state}</option>`;
 });
 
 show();
+
+}catch{
+
+document.getElementById("info").innerHTML=
+`<div class="card">
+<b>states.json load nahi hua.</b>
+</div>`;
+
+}
 
 }
 
 function show(){
 
-const st=states.find(x=>x.state===stateSelect.value)||states[0];
+const value=document.getElementById("stateSelect").value;
 
-info.innerHTML=`
+const st=states.find(x=>x.state===value)||states[0];
+
+if(!st) return;
+
+document.getElementById("info").innerHTML=`
 <div class="card">
-
 <h2>${st.state}</h2>
 
 <div class="badge">${st.gs}</div>
 
 <h3>Hot Topics</h3>
-
 <ul>${st.topics.map(t=>`<li>${t}</li>`).join("")}</ul>
 
 <h3>Related PYQ</h3>
-
 <p>${st.pyq}</p>
 
 <h3>Current Focus</h3>
-
 <p>${st.current}</p>
-
 </div>
 `;
 
 }
 
-stateSelect.onchange=show;
+document.getElementById("stateSelect").addEventListener("change",show);
 
 load();
 </script>
