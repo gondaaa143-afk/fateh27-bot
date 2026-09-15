@@ -22,16 +22,27 @@ function officerCommand() {
   rec.onstart = () => btn.innerHTML = "🎙";
 
   rec.onresult = (e) => {
-    const q = e.results[0][0].transcript.toLowerCase();
-    let text = "Officer, command receive hua. State ka naam bolo.";
+  const q = e.results[0][0].transcript.toLowerCase();
 
-    for (const key in replies) {
-      if (q.includes(key)) text = replies[key];
-    }
+  let text = "Officer, command receive hua.";
 
-    speechSynthesis.speak(new SpeechSynthesisUtterance(text));
-    btn.innerHTML = "🎤";
-  };
+  if (q.includes("assam")) text = replies.assam;
+  else if (q.includes("ladakh")) text = replies.ladakh;
+  else if (q.includes("gujarat")) text = replies.gujarat;
+  else if (q.includes("rajasthan")) text = replies.rajasthan;
+
+  // Debug: pehle screen par dikhao
+  alert("Command: " + q + "\n\n" + text);
+
+  // Phir bolne ki koshish
+  speechSynthesis.cancel();
+  const msg = new SpeechSynthesisUtterance(text);
+  msg.lang = "en-IN";
+  msg.rate = 1;
+  speechSynthesis.speak(msg);
+
+  btn.innerHTML = "🎤";
+};
 
   rec.onerror = () => btn.innerHTML = "🎤";
   rec.onend = () => btn.innerHTML = "🎤";
