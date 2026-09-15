@@ -4,68 +4,68 @@
   "articles": [
     {
       "id": 1,
-      "title": "G4 Nations Revive Push for Text-Based Negotiations on UNSC Reform",
+      "title": "Expanded Maritime Security Cooperation under India-ASEAN Strategic Partnership",
       "gs": "GS2",
-      "source": "The Hindu",
-      "summary": "India alongside G4 members re-emphasizes the urgent necessity for text-based negotiations to overhaul the UN Security Council structural composition.",
+      "source": "The Hindu / PIB",
+      "summary": "India and ASEAN strengthen joint maritime domain awareness and counter-piracy operations across the Indo-Pacific region.",
       "prelims": [
-        "G4 comprises India, Brazil, Germany, and Japan, mutually supporting permanent UNSC seats.",
-        "Text-based negotiations (TBN) refer to working on a unified draft text containing all member states' proposals.",
-        "UNSC expansion requires a two-thirds vote in the UN General Assembly and ratification by two-thirds of member states, including all P5 members."
+        "United Nations Convention on the Law of the Sea (UNCLOS) outlines sovereign rights in Exclusive Economic Zones (EEZ).",
+        "India's SAGAR (Security and Growth for All in the Region) vision anchors its Indo-Pacific strategy.",
+        "The Malacca Strait serves as a strategic maritime chokepoint between the Indian Ocean and the South China Sea."
       ],
-      "mains": "Critically analyze the structural impediments to UN Security Council reforms and evaluate India's strategic leverage in pressing for permanent membership."
+      "mains": "Use in answers evaluating India's Act East Policy, Indo-Pacific geopolitical dynamics, and regional security frameworks."
     },
     {
       "id": 2,
-      "title": "MeitY Releases Draft Guidelines on Ethical AI and Algorithmic Accountability",
-      "gs": "GS2",
-      "source": "PIB",
-      "summary": "The Ministry of Electronics and Information Technology introduces draft frameworks ensuring algorithmic transparency and bias mitigation in public service deployment.",
+      "title": "RBI Expands CBDC-UPI Interoperability Framework for Offline Retail Payments",
+      "gs": "GS3",
+      "source": "Indian Express",
+      "summary": "The Reserve Bank of India introduces offline transaction capabilities for the Digital Rupee to boost financial inclusion in remote regions.",
       "prelims": [
-        "Establishes mandatory algorithmic impact assessments for high-risk AI deployments in governance.",
-        "Complements the Digital Personal Data Protection (DPDP) Act by enforcing data minimisation principles in model training.",
-        "Proposes a National AI Ethics Board under the aegis of the IndiaAI Mission."
+        "Central Bank Digital Currency (CBDC) is sovereign currency issued in digital form by the RBI.",
+        "CBDC is categorized into Retail (CBDC-R) for general public and Wholesale (CBDC-W) for financial institutions.",
+        "Unlike decentralized cryptocurrencies, CBDC represents direct liability of the central bank."
       ],
-      "mains": "Discuss how ethical AI governance balances technological innovation with fundamental constitutional rights under Article 21."
+      "mains": "Useful for analyzing Digital Public Infrastructure (DPI), monetary policy transmission, and financial technology innovations in India."
     },
     {
       "id": 3,
-      "title": "Environment Ministry Introduces National Framework for Biodiversity Credits",
+      "title": "National Carbon Farming Framework Launched to Enhance Soil Organic Carbon",
       "gs": "GS3",
-      "source": "Indian Express",
-      "summary": "India launches a draft framework for biodiversity credits to incentivize private sector investments in ecological restoration and habitat preservation.",
+      "source": "PIB / Down To Earth",
+      "summary": "Ministry of Agriculture introduces standardized guidelines for carbon credit generation through regenerative agricultural practices.",
       "prelims": [
-        "Biodiversity credits are verifiable, measurable, and tradeable units representing specific positive ecological outcomes.",
-        "Aligns with Target 19 of the Kunming-Montreal Global Biodiversity Framework (GBF) on mobilizing financial resources.",
-        "Unlike carbon offsets, biodiversity credits focus primarily on ecosystem restoration and non-equivalence avoidance."
+        "Soil Organic Carbon (SOC) is a critical indicator of soil health and agricultural productivity.",
+        "Regenerative agriculture emphasizes minimal soil disturbance, cover cropping, and crop rotation.",
+        "Carbon farming monetizes carbon sequestration activities carried out by agricultural landholders."
       ],
-      "mains": "Examine the potential and challenges of market-based mechanisms like biodiversity credits in achieving India's targets under the Convention on Biological Diversity (CBD)."
+      "mains": "Ideal for questions regarding climate-resilient agriculture, sustainable farm income, and climate change mitigation strategies."
     },
     {
       "id": 4,
-      "title": "PM Gati Shakti National Master Plan Achieves Inter-Ministerial Spatial Data Integration",
-      "gs": "GS3",
-      "source": "PIB",
-      "summary": "The PM Gati Shakti platform integrates over 1,400 GIS data layers across 44 central ministries to optimize multimodal infrastructure planning and reduce logistics costs.",
+      "title": "Universal Health Interface Integration under Ayushman Bharat Digital Mission",
+      "gs": "GS2",
+      "source": "Livemint",
+      "summary": "National Health Authority expands open-protocol infrastructure to enable seamless teleconsultation and access to health records nationwide.",
       "prelims": [
-        "PM Gati Shakti uses GIS-based spatial planning tools developed by BISAG-N (Bhaskaracharya National Institute for Space Applications and Geo-informatics).",
-        "Aims to reduce India's logistics costs from ~13-14% of GDP to global benchmarks of 8-9%.",
-        "Includes the Empowered Group of Secretaries (EGoS) as the institutional monitoring body."
+        "National Health Authority (NHA) is the apex body responsible for implementing ABDM.",
+        "ABHA (Ayushman Bharat Health Account) assigns a 14-digit unique health identification number to citizens.",
+        "Universal Health Interface (UHI) operates on open network standards similar to UPI for healthcare services."
       ],
-      "mains": "Evaluate the role of spatial data integration under PM Gati Shakti in overcoming legacy infrastructural bottlenecks and enhancing supply chain resilience."
+      "mains": "Use in answers examining digital health interventions, governance in public healthcare, and achieving Universal Health Coverage."
     },
     {
       "id": 5,
-      "title": "IMD Expands Urban Multi-Hazard Early Warning System (MHEWS) across Coastal Cities",
+      "title": "ISRO Upgrades Deep Space Network Infrastructure for Venus Orbiter Mission",
       "gs": "GS3",
-      "source": "Down To Earth",
-      "summary": "The India Meteorological Department expands high-resolution Doppler Weather Radar networks to strengthen urban flood forecasting and coastal disaster management.",
+      "source": "ISRO / Times of India",
+      "summary": "ISRO enhances communication antennas at the Indian Deep Space Network to support upcoming planetary exploration missions.",
       "prelims": [
-        "Multi-Hazard Early Warning Systems (MHEWS) integrate meteorological, hydrological, and oceanographic hazard assessments.",
-        "Operates in conjunction with C-FLOWS (Coastal Flood Warning System) and X-band radar technology.",
-        "Aligns with the Sendai Framework for Disaster Risk Reduction (2015-2030) Target G on early warning availability."
+        "The Venus Orbiter Mission (Shukrayaan) is designed to study the atmosphere and surface radar imagery of Venus.",
+        "Indian Deep Space Network (IDSN) is located at Byalalu, near Bengaluru, Karnataka.",
+        "Venus has a high-density atmosphere dominated primarily by carbon dioxide and thick clouds of sulfuric acid."
       ],
-      "mains": "Detail the imperative for hyper-local early warning systems in Indian coastal metros amidst increasing climate-induced extreme precipitation events."
+      "mains": "Valuable for questions on India's indigenous space technology achievements, deep-space communication capabilities, and scientific research."
     }
   ]
 }
