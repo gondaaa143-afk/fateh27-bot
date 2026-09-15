@@ -4,68 +4,68 @@
   "articles": [
     {
       "id": 1,
-      "title": "Global Digital Public Infrastructure (DPI) Framework and Multi-lateral Governance",
+      "title": "India-ASEAN Maritime Cooperation Framework: Strengthening Indo-Pacific Security Architecture",
       "gs": "GS2",
-      "source": "The Hindu",
-      "summary": "India leads international consensus on adopting interoperable and open-source Digital Public Infrastructure frameworks to accelerate inclusive economic growth in the Global South.",
+      "source": "The Hindu / PIB",
+      "summary": "India and ASEAN countries advance a collaborative maritime security framework focusing on freedom of navigation and supply chain resilience.",
       "prelims": [
-        "India's DPI architecture rests on three core pillars: Digital Identity (Aadhaar), Fast Payment Systems (UPI), and Consent-based Data Sharing (Account Aggregator).",
-        "The Global DPI Repository (GDIR) is a virtual initiative developed under India's G20 Presidency to share institutional practices globally.",
-        "DPI differs from proprietary platforms by utilizing open standards, open APIs, and public oversight to prevent monopoly lock-in."
+        "ASEAN was established in 1967 via the Bangkok Declaration.",
+        "India became a Sectoral Dialogue Partner of ASEAN in 1992 and Full Dialogue Partner in 1996.",
+        "UNCLOS (1982) defines the legal status of Exclusive Economic Zones (EEZ) extending up to 200 nautical miles from baselines."
       ],
-      "mains": "Examine how India's Digital Public Infrastructure model serves as an instrument of soft power and digital diplomacy in advancing Sustainable Development Goals (SDGs)."
+      "mains": "Analyze the geopolitical significance of ASEAN centrality in India's Act East Policy and its strategic implications for maritime security in the Indo-Pacific."
     },
     {
       "id": 2,
-      "title": "National Green Hydrogen Mission: SIGHT Component Expansion & Grid Integration Guidelines",
+      "title": "National Bio-Foundry Network: Accelerating Synthetic Biology under the BioE3 Policy",
       "gs": "GS3",
-      "source": "PIB",
-      "summary": "The Ministry of New and Renewable Energy releases revised operational guidelines for electrolyser manufacturing and green ammonia production under the Strategic Interventions for Green Hydrogen Transition (SIGHT) scheme.",
+      "source": "PIB / Down to Earth",
+      "summary": "The Ministry of Science and Technology operationalizes advanced bio-foundries to foster high-tech biomanufacturing and industrial decarbonization.",
       "prelims": [
-        "The National Green Hydrogen Mission targets at least 5 MMT (Million Metric Tonnes) annual production capacity by 2030.",
-        "SIGHT scheme provides direct financial incentives for domestic electrolyser manufacturing and green hydrogen production.",
-        "Green Hydrogen is produced via water electrolysis using electricity generated entirely from renewable sources, yielding zero direct carbon emissions."
+        "Bio-foundries integrate synthetic biology, automation, and artificial intelligence to design and test biological systems.",
+        "The BioE3 Policy stands for Economy, Environment, and Employment.",
+        "Key focus sectors include bioplastics, precision therapeutics, and enzyme-based industrial synthesis."
       ],
-      "mains": "Discuss the techno-economic hurdles in scaling green hydrogen adoption in energy-intensive sector like steel and fertilizers, and suggest policy remedies."
+      "mains": "Examine how synthetic biology and biomanufacturing can transform India's industrial landscape while aiding its net-zero emissions commitment."
     },
     {
       "id": 3,
-      "title": "Commission for Air Quality Management (CAQM) Enforces Tier-IV Stubble Management Directives",
+      "title": "Critical Minerals Security: KABIL Secures Overseas Exploration Blocks for Lithium and Cobalt",
       "gs": "GS3",
       "source": "Indian Express",
-      "summary": "CAQM issues mandatory ex-situ and in-situ crop residue management targets for NCR states to curtail seasonal air pollution spikes ahead of winter.",
+      "summary": "Khanij Bidesh India Limited expands its overseas footprints in South America to safeguard India's green energy supply chain.",
       "prelims": [
-        "CAQM is a statutory body established under the Commission for Air Quality Management in National Capital Region and Adjoining Areas Act, 2021.",
-        "In-situ stubble management utilizes equipment like Happy Seeder, Smart Seeder, and Pusa Decomposer, while ex-situ focuses on bio-pelletization and thermal power plant co-firing.",
-        "Primary atmospheric pollutants released during paddy stubble burning include particulate matter (PM2.5, PM10), Carbon Monoxide (CO), Methane (CH4), and Oxides of Nitrogen (NOx)."
+        "KABIL is a joint venture of NALCO, HCL, and MECL under the Ministry of Mines.",
+        "The 'Lithium Triangle' consists of Argentina, Bolivia, and Chile.",
+        "Critical minerals like Lithium, Cobalt, and Rare Earth Elements (REEs) are crucial for EV batteries and renewable storage systems."
       ],
-      "mains": "Critically analyze the structural challenges in agricultural residue management in Northern India and evaluate the statutory mandate of CAQM in enforcing compliance."
+      "mains": "Discuss India's strategy to achieve critical mineral security and evaluate its role in mitigating global supply chain vulnerabilities."
     },
     {
       "id": 4,
-      "title": "Constitutional Amendment Framework for Simultaneous Elections in India",
+      "title": "Digital Public Infrastructure in Rural Governance: CAG Report Evaluates Last-Mile Impact",
       "gs": "GS2",
-      "source": "The Hindu",
-      "summary": "High-Level Committee recommendations on 'One Nation, One Election' undergo parliamentary scrutiny regarding necessary constitutional and legal amendments.",
+      "source": "Livemint",
+      "summary": "A CAG audit assesses the effectiveness, transparency, and data privacy compliance of India Stack implementations across Panchayati Raj institutions.",
       "prelims": [
-        "Implementing simultaneous elections requires amending Article 83 (Duration of Houses of Parliament) and Article 172 (Duration of State Legislatures).",
-        "Constitutional amendments affecting federal structures require ratification by at least half of the State Legislatures under Article 368.",
-        "First general elections to the Lok Sabha and all State Legislative Assemblies were held simultaneously in 1951-52, continuing until 1967."
+        "The Comptroller and Auditor General (CAG) is a constitutional authority established under Article 148 of the Indian Constitution.",
+        "India Stack consists of three distinct layers: Identity (Aadhaar), Payments (UPI), and Data Sharing (Account Aggregator framework).",
+        "The Digital Agriculture Mission incorporates the AgriStack platform for unified farmer identification."
       ],
-      "mains": "Evaluate the concept of simultaneous elections in light of India's federal structure, democratic accountability, and administrative expenditure."
+      "mains": "Evaluate the impact of Digital Public Infrastructure (DPI) on enhancing transparency and reducing corruption in rural service delivery."
     },
     {
       "id": 5,
-      "title": "Deep Ocean Mission: Deep-Sea Trials for MATSYA 6000 Human Submersible",
+      "title": "RBI Expands Offline and Cross-Border Functionality of Central Bank Digital Currency (e-₹)",
       "gs": "GS3",
-      "source": "PIB",
-      "summary": "National Institute of Ocean Technology (NIOT) advances deep-water validation tests for MATSYA 6000 under India's flagship Deep Ocean Mission.",
+      "source": "Business Standard",
+      "summary": "The Reserve Bank of India introduces offline transaction protocols and cross-border payment integration for the Digital Rupee.",
       "prelims": [
-        "MATSYA 6000 is a crewed deep-ocean submersible designed to carry 3 personnel to an ocean depth of 6,000 meters.",
-        "The Deep Ocean Mission is an umbrella initiative led by the Ministry of Earth Sciences (MoES) to explore deep-sea resources and ocean biodiversity.",
-        "Central Indian Ocean Basin (CIOB) holds vast reserves of Polymetallic Nodules containing strategic metals like Nickel, Cobalt, Copper, and Manganese."
+        "CBDC is a sovereign currency issued by a central bank in digital form, holding legal tender status equal to physical cash.",
+        "Retail CBDC (e-₹-R) is designed for public use, whereas Wholesale CBDC (e-₹-W) is meant for interbank settlements.",
+        "Offline CBDC implementations rely on Near Field Communication (NFC) and hardware-based secure elements."
       ],
-      "mains": "Highlight the strategic and economic significance of the Deep Ocean Mission for India's Blue Economy and critical mineral security."
+      "mains": "Assess the potential of Central Bank Digital Currency (CBDC) to reduce cash logistics costs and streamline international remittances."
     }
   ]
 }
