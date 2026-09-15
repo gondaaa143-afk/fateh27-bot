@@ -1,71 +1,71 @@
 {
   "date": "2026-09-15",
-  "brief": "Today's UPSC Intelligence Brief",
+  "brief": "Today's UPSC Intelligence Brief covers critical developments in digital trade diplomacy, deep-tech policy frameworks, judicial limits under Article 142, climate resilience in agriculture, and space technology applications.",
   "articles": [
     {
       "id": 1,
-      "title": "Union Cabinet Approves India Semiconductor Mission Phase-II with Focus on Advanced Packaging and R&D",
-      "gs": "GS3",
-      "source": "PIB",
-      "summary": "Phase-II of the India Semiconductor Mission expands financial incentives to cover compound semiconductors, silicon photonics, and domestic equipment manufacturing.",
+      "title": "India and ASEAN Finalize Framework for Cross-Border Real-Time Digital Payments Integration",
+      "gs": "GS2",
+      "source": "The Hindu",
+      "summary": "India and ASEAN member states signed a landmark agreement to interlink fast payment systems like UPI across Southeast Asia to lower transaction costs and enhance trade.",
       "prelims": [
-        "India Semiconductor Mission (ISM) operates under the Digital India Corporation within MeitY.",
-        "Phase-II shifts focus from foundational fab setup to advanced OSAT (Outsourced Semiconductor Assembly and Test) and ATMP facilities.",
-        "Introduces targeted capital subsidies for local R&D institutions developing indigenous Electronic Design Automation (EDA) tools."
+        "Facilitates seamless integration of India's UPI with regional systems like Singapore's PayNow and Thailand's PromptPay.",
+        "Aligns with the RBI's Payment Vision 2025 and India's 'Act East' economic diplomacy.",
+        "Aims to significantly reduce remittance costs, directly aiding cross-border MSME trade and tourism."
       ],
-      "mains": "Examine how India's Semiconductor Mission contributes to global supply chain resilience and analyze the key structural bottlenecks in domestic chip manufacturing."
+      "mains": "Examine how Digital Public Infrastructure (DPI) serves as a potent instrument of soft power and economic integration in India's Act East Policy."
     },
     {
       "id": 2,
-      "title": "Supreme Court Clarifies Scope of Extraordinary Powers Under Article 142 in Environmental Protection Cases",
-      "gs": "GS2",
-      "source": "The Hindu",
-      "summary": "The Supreme Court held that Article 142 cannot bypass statutory environmental impact assessment guidelines set under existing environmental protection acts.",
+      "title": "Cabinet Approves Operational Norms for National Deep Tech Startup Policy (NDTSP)",
+      "gs": "GS3",
+      "source": "PIB",
+      "summary": "The Union Cabinet has released implementation guidelines for the NDTSP to incentivize long-term patient capital, IP creation, and strategic technology commercialization.",
       "prelims": [
-        "Article 142 grants the Supreme Court inherent powers to pass orders necessary for doing 'complete justice' in any cause or matter.",
-        "The Court emphasized that 'complete justice' must align with statutory framework mandates rather than replacing statutory environmental clearance procedures.",
-        "Reinforced the application of the 'Precautionary Principle' and 'Polluter Pays Principle' as part of Article 21 rights."
+        "Establishes a National Deep Tech Advisory Council under the guidance of the Principal Scientific Adviser (PSA).",
+        "Introduces specialized fiscal mechanisms like 'Patient Capital Funds' with extended gestation periods.",
+        "Focuses on dual-use critical technologies including quantum computing, advanced materials, and microelectronics."
       ],
-      "mains": "Critically analyze the delicate balance between judicial activism under Article 142 and the doctrine of separation of powers in environmental governance."
+      "mains": "Discuss the structural bottlenecks faced by deep-tech startups in India and analyze how the National Deep Tech Startup Policy addresses capital and regulatory challenges."
     },
     {
       "id": 3,
-      "title": "Implementation Framework for Global Goal on Adaptation (GGA) Finalized Ahead of UN Climate Summit",
-      "gs": "GS3",
-      "source": "Indian Express",
-      "summary": "Developing nations present a unified framework establishing quantifiable indicators for climate adaptation funding and coastal protection resilience.",
+      "title": "Supreme Court Reaffirms Boundaries of Article 142: Plenary Powers Cannot Override Express Statutory Bars",
+      "gs": "GS2",
+      "source": "The Hindu",
+      "summary": "A Constitution Bench held that while Article 142 provides broad powers to achieve 'complete justice', it cannot be used to bypass express statutory provisions or core legislative schemes.",
       "prelims": [
-        "The Global Goal on Adaptation (GGA) was established under Article 7 of the Paris Agreement to enhance adaptive capacity and resilience.",
-        "The Framework utilizes thematic targets focusing on water security, food production, infrastructure, and ecosystem protection.",
-        "Unlike mitigation metrics (CO2 equivalent), adaptation metrics measure vulnerability reduction and ecosystem stability."
+        "Article 142 empowers the Supreme Court to pass decrees or orders necessary for doing complete justice in any cause or matter.",
+        "The court reiterated that plenary power under Article 142 is curative, not legislative or administrative in nature.",
+        "Clarified that Article 142 cannot be invoked to override fundamental rights or substantive statutory prohibitions."
       ],
-      "mains": "Discuss the challenges in establishing quantifiable indicators for the Global Goal on Adaptation (GGA) and highlight India's proactive climate adaptation strategies."
+      "mains": "Critically evaluate the balance between judicial activism and statutory limits in light of Supreme Court rulings on Article 142 of the Indian Constitution."
     },
     {
       "id": 4,
-      "title": "Ministry of Labour Issues Draft Rules for Universal Registration of Platform Workers under Social Security Code",
-      "gs": "GS2",
-      "source": "Livemint",
-      "summary": "Draft rules mandate aggregator contribution to a dedicated social security fund to provide health, accident, and disability coverage for gig workers.",
+      "title": "UNCCD Global Drought Atlas Highlights High Vulnerability in South Asian Rainfed Belts",
+      "gs": "GS3",
+      "source": "Indian Express",
+      "summary": "A new report by the UNCCD highlights compounding risks of climate-induced droughts on South Asia's dryland ecosystems and food supply chains.",
       "prelims": [
-        "The Code on Social Security, 2020 explicitly defines 'gig workers' and 'platform workers' for the first time in Indian statutory law.",
-        "Proposes establishing a Social Security Board chaired by the Union Minister for Labour and Employment.",
-        "Mandates a statutory levy on aggregators ranging between 1% to 2% of their annual turnover for the welfare fund."
+        "UNCCD is the only legally binding international agreement linking environment and development to sustainable land management.",
+        "Focuses on achieving Land Degradation Neutrality (LDN) by 2030 under SDG 15.",
+        "Highlights that over 50% of India's net sown area remains rainfed and disproportionately exposed to hydrological droughts."
       ],
-      "mains": "Evaluate the socio-economic impact of the gig economy in India and assess the adequacy of provisions under the Code on Social Security, 2020."
+      "mains": "Analyze the socioeconomic impacts of recurring agricultural droughts in India and suggest policy measures for scaling up climate-smart agriculture."
     },
     {
       "id": 5,
-      "title": "DRDO Conducts Successful Flight Test of Indigenous Long-Range Anti-Ship Missile (NASM-MR)",
+      "title": "ISRO and Ministry of Agriculture Launch High-Precision Crop & Soil Portal Driven by NISAR Data",
       "gs": "GS3",
-      "source": "Press Information Bureau",
-      "summary": "The Naval Anti-Ship Missile Medium Range (NASM-MR) successfully demonstrated sea-skimming capability and precision targeting during sea trials.",
+      "source": "PIB",
+      "summary": "ISRO rolled out a real-time agricultural monitoring system utilizing radar remote sensing data from the dual-frequency NISAR satellite mission.",
       "prelims": [
-        "NASM-MR is an indigenously developed air-launched anti-ship missile developed by DRDO for naval platform integration.",
-        "Employs an active radar seeker and sea-skimming capabilities to evade hostile shipborne radar defenses.",
-        "Powered by a solid-fuel booster paired with a turbojet engine for sustained high-subsonic cruise velocities."
+        "NISAR (NASA-ISRO Synthetic Aperture Radar) uses L-band and S-band radar frequencies for Earth observation.",
+        "Provides high-resolution spatial mapping of soil moisture, surface deformation, and canopy biomass regardless of cloud cover.",
+        "Enhances operational capabilities of the Pradhan Mantri Fasal Bima Yojana (PMFBY) through automated damage assessment."
       ],
-      "mains": "Analyze how indigenous defense development enhances India's maritime domain awareness and strategic posture in the Indian Ocean Region (IOR)."
+      "mains": "How can space technology and remote sensing transform precision farming and crop insurance mechanisms in India?"
     }
   ]
 }
