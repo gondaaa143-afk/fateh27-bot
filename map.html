@@ -225,78 +225,134 @@ margin-top:22px;
 </div>
 
 <script>
+let states = {};
+let layers = {};
+let currentLayer = "GS1";
 
-let states={};
-let currentFilter="All";
+// ---------- Load Data ----------
+async function loadData() {
+  try {
+    const [statesRes, layersRes] = await Promise.all([
+      fetch("./data/states.json?v=" + Date.now()),
+      fetch("./data/layers.json?v=" + Date.now())
+    ]);
 
-async function loadStates(){
-const res=await fetch("./data/states.json?v=6");
-states=await res.json();
+    states = await statesRes.json();
+    layers = await layersRes.json();
+  } catch (e) {
+    console.error(e);
+  }
 }
 
-function closeSheet(){
-document.getElementById("sheet").classList.remove("open");
+// ---------- Bottom Sheet ----------
+function closeSheet() {
+  document.getElementById("sheet").classList.remove("open");
 }
 
-function setFilter(f,el){
-currentFilter=f;
-document.querySelectorAll(".chip").forEach(x=>x.classList.remove("active"));
-el.classList.add("active");
+// ---------- GS Filter ----------
+function setFilter(layer, el) {
+  currentLayer = layer;
+
+  document.querySelectorAll(".chip")
+    .forEach(x => x.classList.remove("active"));
+
+  el.classList.add("active");
+
+  renderLayer();
 }
 
-document.getElementById("search").addEventListener("input",()=>{
-const q=document.getElementById("search").value.toLowerCase();
-const found=Object.keys(states).find(x=>x.toLowerCase().includes(q));
-if(found) showState(found);
+// ---------- Render Layer ----------
+function renderLayer() {
+
+  const data = layers[currentLayer];
+
+  if (!data) return;
+
+  let html = `<h2>${currentLayer} Intelligence Layer</h2>`;
+
+  Object.keys(data).forEach(cat => {
+
+    html += `
+      <div class="card">
+        <h3>${cat}</h3>
+        <ul>
+          ${data[cat].map(x =>
+            `<li onclick="showState('${x.state}')"><b>${x.name}</b> — ${x.state}</li>`
+          ).join("")}
+        </ul>
+      </div>
+    `;
+
+  });
+
+  document.getElementById("sheetContent").innerHTML = html;
+  document.getElementById("sheet").classList.add("open");
+}
+
+// ---------- State Dashboard ----------
+function showState(name) {
+
+  const s = states[name];
+
+  if (!s) {
+
+    document.getElementById("sheetContent").innerHTML = `
+      <h2>${name}</h2>
+      <p>Data unavailable.</p>
+    `;
+
+    document.getElementById("sheet").classList.add("open");
+    return;
+  }
+
+  document.getElementById("sheetContent").innerHTML = `
+    <h2>${name}</h2>
+
+    <div class="badge">🏛 Capital: ${s.capital}</div>
+
+    <div class="card">
+      <h3>🔥 Hot Topics</h3>
+      <p>${s.topics.join(" • ")}</p>
+    </div>
+
+    <div class="card">
+      <h3>📘 Related PYQ</h3>
+      <p>${s.pyq}</p>
+    </div>
+
+    <div class="card">
+      <h3>📰 Current Focus</h3>
+      <p>${s.current}</p>
+    </div>
+
+    <div class="card">
+      <h3>⚡ Quick Revision</h3>
+      ${s.topics.map(t => `<span class="badge">${t}</span>`).join("")}
+    </div>
+  `;
+
+  document.getElementById("sheet").classList.add("open");
+}
+
+// ---------- Search ----------
+document.addEventListener("DOMContentLoaded", async () => {
+
+  await loadData();
+
+  const search = document.getElementById("search");
+
+  search.addEventListener("input", () => {
+
+    const q = search.value.toLowerCase();
+
+    const found = Object.keys(states)
+      .find(x => x.toLowerCase().includes(q));
+
+    if (found) showState(found);
+
+  });
+
 });
-
-function showState(name){
-
-const s=states[name];
-
-if(!s){
-document.getElementById("sheetContent").innerHTML=
-`<h2>${name}</h2><p>Data unavailable.</p>`;
-document.getElementById("sheet").classList.add("open");
-return;
-}
-
-document.getElementById("sheetContent").innerHTML=
-`
-<h2>${name}</h2>
-
-<div class="badge">🏛 ${s.capital}</div>
-
-<div class="card">
-<h3>🔥 Hot Topics</h3>
-<p>${s.topics.join(" • ")}</p>
-</div>
-
-<div class="card">
-<h3>📘 PYQ Theme</h3>
-<p>${s.pyq}</p>
-</div>
-
-<div class="card">
-<h3>📰 Current Focus</h3>
-<p>${s.current}</p>
-</div>
-
-<div class="card">
-<h3>⚡ Quick Revision</h3>
-<span class="badge">${s.topics[0]}</span>
-<span class="badge">${s.topics[1]}</span>
-<span class="badge">${s.topics[2]}</span>
-</div>
-`;
-
-document.getElementById("sheet").classList.add("open");
-
-}
-
-loadStates();
-
 </script>
-
 </body>
 </html>
