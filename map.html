@@ -8,111 +8,123 @@
 <style>
 body{
 background:#02140b;
-color:#fff;
+color:white;
 font-family:Arial,sans-serif;
 margin:0;
-padding:24px;
+padding:20px;
 }
-h1{font-size:48px;margin:0 0 24px}
-select{
-width:100%;
-padding:16px;
-background:#072317;
-border:1px solid #13452c;
-border-radius:18px;
-color:white;
-margin-bottom:20px;
+h1{font-size:42px;margin-bottom:20px}
+svg{width:100%;max-width:420px;display:block;margin:auto}
+.state{
+fill:#0b2c1d;
+stroke:#2be07a;
+stroke-width:2;
+cursor:pointer;
+transition:.2s;
 }
+.state:hover,.active{fill:#2be07a}
 .card{
 background:#072317;
 border:1px solid #12462d;
-border-radius:22px;
-padding:20px;
-margin-top:16px;
+border-radius:20px;
+padding:18px;
+margin-top:24px;
 }
 .badge{
 display:inline-block;
 background:#11321f;
 padding:6px 12px;
 border-radius:999px;
-margin-bottom:12px;
+margin-bottom:10px;
 }
+text{pointer-events:none;font-size:9px;fill:white}
 </style>
 </head>
-
 <body>
 
-<h1>COMMAND MAP</h1>
+<h1>🗺 COMMAND MAP</h1>
 
-<select id="stateSelect"></select>
+<svg viewBox="0 0 300 420">
 
-<div id="info"></div>
+<rect id="Rajasthan" class="state" x="60" y="120" width="55" height="70" rx="6"/>
+<text x="70" y="160">RJ</text>
+
+<rect id="Uttar Pradesh" class="state" x="120" y="110" width="70" height="35" rx="6"/>
+<text x="128" y="132">UP</text>
+
+<rect id="Assam" class="state" x="220" y="110" width="50" height="25" rx="6"/>
+<text x="228" y="126">AS</text>
+
+<rect id="Tamil Nadu" class="state" x="135" y="300" width="40" height="60" rx="6"/>
+<text x="140" y="332">TN</text>
+
+</svg>
+
+<div id="info" class="card">
+Tap any highlighted state.
+</div>
 
 <script>
-let states=[];
 
-async function load(){
+const data={
 
-try{
+"Uttar Pradesh":{
+gs:"GS1+GS2",
+topics:["Ganga","Sugar Industry","Prayagraj"],
+pyq:"River interlinking and federalism.",
+current:"River conservation projects."
+},
 
-const res=await fetch("./data/states.json?v="+Date.now(),{
-cache:"no-store"
-});
+"Assam":{
+gs:"GS1+GS3",
+topics:["Kaziranga","Bodo Accord","Floods"],
+pyq:"Northeast insurgency.",
+current:"Flood management."
+},
 
-if(!res.ok) throw new Error();
+"Tamil Nadu":{
+gs:"GS1+GS2",
+topics:["Kaveri","Ports","Dravidian Movement"],
+pyq:"Inter-state river disputes.",
+current:"Blue Economy."
+},
 
-states=await res.json();
-
-const s=document.getElementById("stateSelect");
-s.innerHTML="";
-
-states.forEach(x=>{
-s.innerHTML+=`<option value="${x.state}">${x.state}</option>`;
-});
-
-show();
-
-}catch{
-
-document.getElementById("info").innerHTML=
-`<div class="card">
-<b>states.json load nahi hua.</b>
-</div>`;
-
+"Rajasthan":{
+gs:"GS1+GS3",
+topics:["Thar Desert","Solar Energy","Indira Gandhi Canal"],
+pyq:"Desertification.",
+current:"Renewable energy."
 }
 
-}
+};
 
-function show(){
+document.querySelectorAll(".state").forEach(s=>{
 
-const value=document.getElementById("stateSelect").value;
+s.onclick=()=>{
 
-const st=states.find(x=>x.state===value)||states[0];
+document.querySelectorAll(".state").forEach(x=>x.classList.remove("active"));
+s.classList.add("active");
 
-if(!st) return;
+const d=data[s.id];
 
 document.getElementById("info").innerHTML=`
-<div class="card">
-<h2>${st.state}</h2>
+<h2>${s.id}</h2>
+<div class="badge">${d.gs}</div>
 
-<div class="badge">${st.gs}</div>
+<h3>🔥 Hot Topics</h3>
+<ul>${d.topics.map(t=>`<li>${t}</li>`).join("")}</ul>
 
-<h3>Hot Topics</h3>
-<ul>${st.topics.map(t=>`<li>${t}</li>`).join("")}</ul>
+<h3>📜 Related PYQ</h3>
+<p>${d.pyq}</p>
 
-<h3>Related PYQ</h3>
-<p>${st.pyq}</p>
-
-<h3>Current Focus</h3>
-<p>${st.current}</p>
-</div>
+<h3>📰 Current Focus</h3>
+<p>${d.current}</p>
 `;
 
-}
+};
 
-document.getElementById("stateSelect").addEventListener("change",show);
+});
 
-load();
 </script>
 
 </body>
