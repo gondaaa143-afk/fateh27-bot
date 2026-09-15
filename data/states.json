@@ -1,17 +1,39 @@
 {
-  "Uttar Pradesh": {
-    "topics": ["Ganga", "Sugar Industry", "Prayagraj"],
-    "pyq": "River interlinking and federalism.",
-    "current": "River conservation projects."
-  },
-  "Assam": {
-    "topics": ["Kaziranga", "Bodo Accord", "Floods"],
-    "pyq": "Northeast insurgency.",
-    "current": "Flood management."
-  },
-  "Rajasthan": {
-    "topics": ["Thar Desert", "Solar Energy", "Indira Gandhi Canal"],
-    "pyq": "Desertification.",
-    "current": "Renewable energy."
-  }
+  "Andhra Pradesh":{"capital":"Amaravati","topics":["Polavaram Project","Krishna-Godavari Basin","Sriharikota","Tirupati"],"pyq":"River water disputes & coastal economy.","current":"Andhra-specific current affairs."},
+  "Arunachal Pradesh":{"capital":"Itanagar","topics":["McMahon Line","Tawang","Siang River","Hydropower"],"pyq":"India-China border issues.","current":"Arunachal-specific current affairs."},
+  "Assam":{"capital":"Dispur","topics":["Kaziranga","Brahmaputra Floods","Bodo Accord","Tea Industry"],"pyq":"Northeast insurgency.","current":"Assam-specific current affairs."},
+  "Bihar":{"capital":"Patna","topics":["Nalanda","Mithila","Kosi Floods","Bodh Gaya"],"pyq":"Flood management & migration.","current":"Bihar-specific current affairs."},
+  "Chhattisgarh":{"capital":"Raipur","topics":["Bastar","Iron Ore","Naxalism","Tribal Issues"],"pyq":"Left Wing Extremism.","current":"Chhattisgarh-specific current affairs."},
+  "Goa":{"capital":"Panaji","topics":["Western Ghats","Tourism","Mormugao Port","Biodiversity"],"pyq":"Sustainable tourism.","current":"Goa-specific current affairs."},
+  "Gujarat":{"capital":"Gandhinagar","topics":["Gir Lion","Kutch","GIFT City","White Revolution"],"pyq":"Industrial corridors.","current":"Gujarat-specific current affairs."},
+  "Haryana":{"capital":"Chandigarh","topics":["Green Revolution","NCR","Sports","Groundwater"],"pyq":"Agriculture & urbanization.","current":"Haryana-specific current affairs."},
+  "Himachal Pradesh":{"capital":"Shimla","topics":["Apple Economy","Hydropower","Landslides","Great Himalayan NP"],"pyq":"Mountain ecosystem.","current":"Himachal-specific current affairs."},
+  "Jharkhand":{"capital":"Ranchi","topics":["Coal","Uranium","Tribal Rights","Parasnath"],"pyq":"Mineral economy.","current":"Jharkhand-specific current affairs."},
+  "Karnataka":{"capital":"Bengaluru","topics":["ISRO","Western Ghats","Coffee","Hampi"],"pyq":"IT economy.","current":"Karnataka-specific current affairs."},
+  "Kerala":{"capital":"Thiruvananthapuram","topics":["Backwaters","Spices","Literacy","Wayanad"],"pyq":"Human Development.","current":"Kerala-specific current affairs."},
+  "Madhya Pradesh":{"capital":"Bhopal","topics":["Khajuraho","Sanchi","Tiger Reserves","Narmada"],"pyq":"Forest conservation.","current":"MP-specific current affairs."},
+  "Maharashtra":{"capital":"Mumbai","topics":["RBI","SEBI","Ajanta-Ellora","Mumbai Port"],"pyq":"Urban economy.","current":"Maharashtra-specific current affairs."},
+  "Manipur":{"capital":"Imphal","topics":["Loktak Lake","Sangai","Ethnic Issues","Moreh"],"pyq":"Internal security.","current":"Manipur-specific current affairs."},
+  "Meghalaya":{"capital":"Shillong","topics":["Living Root Bridges","Coal Mining","Sacred Groves","Rainfall"],"pyq":"Environmental governance.","current":"Meghalaya-specific current affairs."},
+  "Mizoram":{"capital":"Aizawl","topics":["Bamboo","Jhum Cultivation","Border Trade","Mizo Accord"],"pyq":"Shifting cultivation.","current":"Mizoram-specific current affairs."},
+  "Nagaland":{"capital":"Kohima","topics":["Hornbill Festival","Insurgency","Tribal Culture","Bamboo"],"pyq":"Peace accords.","current":"Nagaland-specific current affairs."},
+  "Odisha":{"capital":"Bhubaneswar","topics":["Jagannath Temple","Chilika","Minerals","Cyclones"],"pyq":"Disaster management.","current":"Odisha-specific current affairs."},
+  "Punjab":{"capital":"Chandigarh","topics":["Green Revolution","Border Security","Canal Irrigation","Sikh Heritage"],"pyq":"Agricultural sustainability.","current":"Punjab-specific current affairs."},
+  "Rajasthan":{"capital":"Jaipur","topics":["Thar Desert","Solar Energy","Indira Gandhi Canal","Keoladeo"],"pyq":"Desertification.","current":"Rajasthan-specific current affairs."},
+  "Sikkim":{"capital":"Gangtok","topics":["Kanchenjunga","Organic Farming","Teesta","Biodiversity"],"pyq":"Mountain ecology.","current":"Sikkim-specific current affairs."},
+  "Tamil Nadu":{"capital":"Chennai","topics":["Kaveri","Dravidian Movement","Ports","Temple Architecture"],"pyq":"Inter-state river disputes.","current":"Tamil Nadu-specific current affairs."},
+  "Telangana":{"capital":"Hyderabad","topics":["Mission Bhagiratha","IT Hub","Deccan Plateau","Ramappa Temple"],"pyq":"Urban governance.","current":"Telangana-specific current affairs."},
+  "Tripura":{"capital":"Agartala","topics":["Rubber","Bamboo","Border Trade","Tribal Issues"],"pyq":"Border economy.","current":"Tripura-specific current affairs."},
+  "Uttar Pradesh":{"capital":"Lucknow","topics":["Ganga","Kumbh","Sugar Industry","Prayagraj"],"pyq":"Federalism & rivers.","current":"UP-specific current affairs."},
+  "Uttarakhand":{"capital":"Dehradun","topics":["Char Dham","Glaciers","Chipko","Disaster Management"],"pyq":"Himalayan disasters.","current":"Uttarakhand-specific current affairs."},
+  "West Bengal":{"capital":"Kolkata","topics":["Sundarbans","Tea","Hooghly Port","Durga Puja"],"pyq":"Delta ecosystem.","current":"WB-specific current affairs."},
+
+  "Delhi":{"capital":"New Delhi","topics":["Parliament","NCR","Air Pollution","Urban Governance"],"pyq":"Federal structure.","current":"Delhi-specific current affairs."},
+  "Jammu & Kashmir":{"capital":"Srinagar/Jammu","topics":["LoC","Saffron","Tourism","Article 370"],"pyq":"Border security.","current":"J&K-specific current affairs."},
+  "Ladakh":{"capital":"Leh","topics":["Siachen","Pangong","Cold Desert","Solar Energy"],"pyq":"High-altitude ecology.","current":"Ladakh-specific current affairs."},
+  "Chandigarh":{"capital":"Chandigarh","topics":["Le Corbusier","Planned City","Shared Capital","Rock Garden"],"pyq":"Urban planning.","current":"Chandigarh-specific current affairs."},
+  "Puducherry":{"capital":"Puducherry","topics":["French Heritage","Auroville","Coastal Economy","Tourism"],"pyq":"Colonial legacy.","current":"Puducherry-specific current affairs."},
+  "Lakshadweep":{"capital":"Kavaratti","topics":["Coral Reefs","Blue Economy","Fisheries","Marine Ecology"],"pyq":"Island ecosystem.","current":"Lakshadweep-specific current affairs."},
+  "Andaman & Nicobar":{"capital":"Port Blair","topics":["Cellular Jail","Great Nicobar","Leatherback Turtle","Tribal Groups"],"pyq":"Island security.","current":"A&N-specific current affairs."},
+  "Dadra and Nagar Haveli and Daman and Diu":{"capital":"Daman","topics":["Industrial Zone","Portuguese Heritage","Coastal Economy","Tourism"],"pyq":"Union Territory administration.","current":"DNHDD-specific current affairs."}
 }
