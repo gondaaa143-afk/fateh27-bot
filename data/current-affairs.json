@@ -1,71 +1,71 @@
 {
   "date": "2026-09-15",
-  "brief": "Today's UPSC Intelligence Brief covers critical developments in digital trade diplomacy, deep-tech policy frameworks, judicial limits under Article 142, climate resilience in agriculture, and space technology applications.",
+  "brief": "Today's UPSC Intelligence Brief - Key developments in Climate Finance, Indo-Pacific Security, Disaster Management, Tribal Welfare, and Deep Ocean Exploration.",
   "articles": [
     {
       "id": 1,
-      "title": "India and ASEAN Finalize Framework for Cross-Border Real-Time Digital Payments Integration",
-      "gs": "GS2",
-      "source": "The Hindu",
-      "summary": "India and ASEAN member states signed a landmark agreement to interlink fast payment systems like UPI across Southeast Asia to lower transaction costs and enhance trade.",
+      "title": "RBI Framework on Climate-Related Financial Risks Operationalised",
+      "gs": "GS3",
+      "source": "The Hindu / RBI",
+      "summary": "The Reserve Bank of India has mandated comprehensive disclosures on climate-related financial risks for regulated financial entities.",
       "prelims": [
-        "Facilitates seamless integration of India's UPI with regional systems like Singapore's PayNow and Thailand's PromptPay.",
-        "Aligns with the RBI's Payment Vision 2025 and India's 'Act East' economic diplomacy.",
-        "Aims to significantly reduce remittance costs, directly aiding cross-border MSME trade and tourism."
+        "Aligned with recommendations of the Task Force on Climate-related Financial Disclosures (TCFD).",
+        "Applies to all Scheduled Commercial Banks (excluding RRBs) and Tier-4 NBFCs.",
+        "Introduces standardized metrics for green capital adequacy and climate scenario stress testing."
       ],
-      "mains": "Examine how Digital Public Infrastructure (DPI) serves as a potent instrument of soft power and economic integration in India's Act East Policy."
+      "mains": "Discuss how integrating climate risk into monetary and regulatory policy frameworks safeguards macroeconomic stability in emerging economies."
     },
     {
       "id": 2,
-      "title": "Cabinet Approves Operational Norms for National Deep Tech Startup Policy (NDTSP)",
-      "gs": "GS3",
-      "source": "PIB",
-      "summary": "The Union Cabinet has released implementation guidelines for the NDTSP to incentivize long-term patient capital, IP creation, and strategic technology commercialization.",
+      "title": "India-ASEAN Joint Maritime Security Protocol Finalised",
+      "gs": "GS2",
+      "source": "Indian Express / MEA",
+      "summary": "India and ASEAN member nations finalized a standard operational protocol to enhance maritime domain awareness and counter-piracy operations in the Indo-Pacific.",
       "prelims": [
-        "Establishes a National Deep Tech Advisory Council under the guidance of the Principal Scientific Adviser (PSA).",
-        "Introduces specialized fiscal mechanisms like 'Patient Capital Funds' with extended gestation periods.",
-        "Focuses on dual-use critical technologies including quantum computing, advanced materials, and microelectronics."
+        "Supports India's SAGAR (Security and Growth for All in the Region) and the Indo-Pacific Oceans Initiative (IPOI).",
+        "Focuses on securing Sea Lines of Communication (SLOCs) across the Malacca Strait.",
+        "Facilitates real-time information exchange via the Information Fusion Centre – Indian Ocean Region (IFC-IOR)."
       ],
-      "mains": "Discuss the structural bottlenecks faced by deep-tech startups in India and analyze how the National Deep Tech Startup Policy addresses capital and regulatory challenges."
+      "mains": "Analyze the strategic significance of ASEAN-India maritime cooperation in upholding international law under UNCLOS and maintaining open trade routes."
     },
     {
       "id": 3,
-      "title": "Supreme Court Reaffirms Boundaries of Article 142: Plenary Powers Cannot Override Express Statutory Bars",
-      "gs": "GS2",
-      "source": "The Hindu",
-      "summary": "A Constitution Bench held that while Article 142 provides broad powers to achieve 'complete justice', it cannot be used to bypass express statutory provisions or core legislative schemes.",
+      "title": "Deployment of Automated GLOF Early Warning Systems in the Himalayas",
+      "gs": "GS3",
+      "source": "PIB / NDMA",
+      "summary": "The National Disaster Management Authority (NDMA) has completed the installation of sensor-based Glacial Lake Outburst Flood monitoring systems across vulnerable high-altitude lakes.",
       "prelims": [
-        "Article 142 empowers the Supreme Court to pass decrees or orders necessary for doing complete justice in any cause or matter.",
-        "The court reiterated that plenary power under Article 142 is curative, not legislative or administrative in nature.",
-        "Clarified that Article 142 cannot be invoked to override fundamental rights or substantive statutory prohibitions."
+        "Monitors high-risk glacial lakes including South Lhonak and Shako Cho in the Eastern Himalayas.",
+        "Integrates Synthetic Aperture Radar (SAR) satellite imagery with water-level automated telemetry.",
+        "Linked directly to the National Emergency Operation Centre (NEOC) for real-time alerting."
       ],
-      "mains": "Critically evaluate the balance between judicial activism and statutory limits in light of Supreme Court rulings on Article 142 of the Indian Constitution."
+      "mains": "Examine the role of technology-driven early warning mechanisms in mitigating disaster vulnerabilities across fragile Himalayan mountain ecosystems."
     },
     {
       "id": 4,
-      "title": "UNCCD Global Drought Atlas Highlights High Vulnerability in South Asian Rainfed Belts",
-      "gs": "GS3",
-      "source": "Indian Express",
-      "summary": "A new report by the UNCCD highlights compounding risks of climate-induced droughts on South Asia's dryland ecosystems and food supply chains.",
+      "title": "Progress Review of PM-PVTG Development Mission",
+      "gs": "GS2",
+      "source": "PIB / Ministry of Tribal Affairs",
+      "summary": "The Ministry of Tribal Affairs released an impact assessment showing expanded infrastructure, health, and education access across 75 Particularly Vulnerable Tribal Groups.",
       "prelims": [
-        "UNCCD is the only legally binding international agreement linking environment and development to sustainable land management.",
-        "Focuses on achieving Land Degradation Neutrality (LDN) by 2030 under SDG 15.",
-        "Highlights that over 50% of India's net sown area remains rainfed and disproportionately exposed to hydrological droughts."
+        "Targets 75 PVTG habitations spread across 18 States and 1 Union Territory.",
+        "Criteria for PVTG identification include declining/stagnant population, pre-agricultural technology, low literacy, and subsistence economy.",
+        "Nodal Ministry: Ministry of Tribal Affairs, implemented via convergence of 9 central ministries."
       ],
-      "mains": "Analyze the socioeconomic impacts of recurring agricultural droughts in India and suggest policy measures for scaling up climate-smart agriculture."
+      "mains": "Critically evaluate the targeted interventions required to balance tribal cultural preservation with modern socio-economic integration."
     },
     {
       "id": 5,
-      "title": "ISRO and Ministry of Agriculture Launch High-Precision Crop & Soil Portal Driven by NISAR Data",
+      "title": "Ocean Trials Conducted for Indigenous Deep-Sea Mining Crawler",
       "gs": "GS3",
-      "source": "PIB",
-      "summary": "ISRO rolled out a real-time agricultural monitoring system utilizing radar remote sensing data from the dual-frequency NISAR satellite mission.",
+      "source": "Down To Earth / MoES",
+      "summary": "India's Deep Ocean Mission achieved a milestone with successful deep-sea trials of a self-propelled mining crawler at depths exceeding 5,000 metres.",
       "prelims": [
-        "NISAR (NASA-ISRO Synthetic Aperture Radar) uses L-band and S-band radar frequencies for Earth observation.",
-        "Provides high-resolution spatial mapping of soil moisture, surface deformation, and canopy biomass regardless of cloud cover.",
-        "Enhances operational capabilities of the Pradhan Mantri Fasal Bima Yojana (PMFBY) through automated damage assessment."
+        "Developed by the National Institute of Ocean Technology (NIOT) under the Ministry of Earth Sciences.",
+        "Designed to harvest Polymetallic Nodules containing Nickel, Cobalt, Copper, and Manganese.",
+        "Operations conducted in the Central Indian Ocean Basin (CIOB) site allocated by the International Seabed Authority (ISA)."
       ],
-      "mains": "How can space technology and remote sensing transform precision farming and crop insurance mechanisms in India?"
+      "mains": "Assess the strategic and economic importance of deep-sea mining for India's clean energy transition alongside the associated environmental concerns under UNCLOS."
     }
   ]
 }
