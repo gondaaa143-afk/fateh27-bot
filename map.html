@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>FATEH27 Command Map</title>
 
 <style>
@@ -13,46 +13,49 @@ font-family:Arial,sans-serif;
 margin:0;
 padding:20px;
 }
-h1{
-font-size:42px;
-margin-bottom:20px;
-}
+h1{font-size:42px;margin-bottom:20px}
 #mapWrap{
-background:#072317;
-border:1px solid #12462d;
-border-radius:20px;
-padding:12px;
-margin-bottom:22px;
-}
-#mapWrap img{
-width:100%;
+position:relative;
 max-width:420px;
-display:block;
 margin:auto;
-border-radius:18px;
+border-radius:20px;
+overflow:hidden;
+border:1px solid #12462d;
 }
+#mapWrap img{width:100%;display:block}
+.hotspot{
+position:absolute;
+border-radius:50%;
+width:18px;
+height:18px;
+background:#2be07acc;
+border:2px solid white;
+cursor:pointer;
+transform:translate(-50%,-50%);
+}
+.hotspot:hover{background:#5dff9b}
 .card{
 background:#072317;
 border:1px solid #12462d;
 border-radius:20px;
 padding:18px;
-margin-top:18px;
+margin-top:20px;
 }
 .badge{
 display:inline-block;
-background:#11321f;
 padding:6px 12px;
+background:#11321f;
 border-radius:999px;
 margin-bottom:10px;
 }
-button{
+.back{
 width:100%;
 padding:16px;
 border:none;
 border-radius:18px;
 background:#2be07a;
 font-weight:bold;
-margin-top:22px;
+margin-top:20px;
 }
 </style>
 </head>
@@ -62,72 +65,86 @@ margin-top:22px;
 <h1>🗺 COMMAND MAP</h1>
 
 <div id="mapWrap">
-<img src="./India-map-en.png?v=1"
-alt="India Political Map">
+<img src="./India-map-en.png?v=1">
+
+<!-- NORTH -->
+<div class="hotspot" style="left:34%;top:8%" onclick="showState('Jammu & Kashmir')"></div>
+<div class="hotspot" style="left:41%;top:14%" onclick="showState('Himachal Pradesh')"></div>
+<div class="hotspot" style="left:35%;top:17%" onclick="showState('Punjab')"></div>
+<div class="hotspot" style="left:40%;top:20%" onclick="showState('Haryana')"></div>
+<div class="hotspot" style="left:46%;top:18%" onclick="showState('Uttarakhand')"></div>
+
+<!-- WEST -->
+<div class="hotspot" style="left:20%;top:34%" onclick="showState('Rajasthan')"></div>
+<div class="hotspot" style="left:17%;top:47%" onclick="showState('Gujarat')"></div>
+<div class="hotspot" style="left:28%;top:60%" onclick="showState('Maharashtra')"></div>
+<div class="hotspot" style="left:25%;top:75%" onclick="showState('Goa')"></div>
+
+<!-- CENTRAL -->
+<div class="hotspot" style="left:39%;top:43%" onclick="showState('Madhya Pradesh')"></div>
+<div class="hotspot" style="left:47%;top:50%" onclick="showState('Chhattisgarh')"></div>
+
+<!-- EAST -->
+<div class="hotspot" style="left:54%;top:30%" onclick="showState('Uttar Pradesh')"></div>
+<div class="hotspot" style="left:63%;top:35%" onclick="showState('Bihar')"></div>
+<div class="hotspot" style="left:60%;top:46%" onclick="showState('Jharkhand')"></div>
+<div class="hotspot" style="left:67%;top:43%" onclick="showState('West Bengal')"></div>
+<div class="hotspot" style="left:61%;top:55%" onclick="showState('Odisha')"></div>
+
+<!-- SOUTH -->
+<div class="hotspot" style="left:43%;top:66%" onclick="showState('Telangana')"></div>
+<div class="hotspot" style="left:47%;top:74%" onclick="showState('Andhra Pradesh')"></div>
+<div class="hotspot" style="left:33%;top:73%" onclick="showState('Karnataka')"></div>
+<div class="hotspot" style="left:36%;top:90%" onclick="showState('Kerala')"></div>
+<div class="hotspot" style="left:46%;top:88%" onclick="showState('Tamil Nadu')"></div>
+
+<!-- NORTH EAST -->
+<div class="hotspot" style="left:78%;top:23%" onclick="showState('Sikkim')"></div>
+<div class="hotspot" style="left:83%;top:20%" onclick="showState('Arunachal Pradesh')"></div>
+<div class="hotspot" style="left:80%;top:30%" onclick="showState('Assam')"></div>
+<div class="hotspot" style="left:84%;top:33%" onclick="showState('Nagaland')"></div>
+<div class="hotspot" style="left:82%;top:37%" onclick="showState('Manipur')"></div>
+<div class="hotspot" style="left:79%;top:39%" onclick="showState('Mizoram')"></div>
+<div class="hotspot" style="left:74%;top:36%" onclick="showState('Meghalaya')"></div>
+<div class="hotspot" style="left:72%;top:42%" onclick="showState('Tripura')"></div>
+
+<!-- UTs -->
+<div class="hotspot" style="left:45%;top:21%" onclick="showState('Delhi')"></div>
+<div class="hotspot" style="left:6%;top:83%" onclick="showState('Lakshadweep')"></div>
+<div class="hotspot" style="left:82%;top:73%" onclick="showState('Andaman & Nicobar')"></div>
+<div class="hotspot" style="left:42%;top:82%" onclick="showState('Puducherry')"></div>
+<div class="hotspot" style="left:14%;top:54%" onclick="showState('Dadra & Nagar Haveli and Daman & Diu')"></div>
+<div class="hotspot" style="left:32%;top:13%" onclick="showState('Chandigarh')"></div>
+<div class="hotspot" style="left:28%;top:6%" onclick="showState('Ladakh')"></div>
+<div class="hotspot" style="left:33%;top:14%" onclick="showState('Jammu & Kashmir')"></div>
+
 </div>
 
 <div id="info" class="card">
-Tap any highlighted state.
+Tap any state.
 </div>
 
+<button class="back" onclick="location.href='index.html'">← Back to War Room</button>
+
 <script>
-const data={
-
-"Uttar Pradesh":{
-gs:"GS1+GS2",
-topics:["Ganga","Sugar Industry","Prayagraj"],
-pyq:"River interlinking and federalism.",
-current:"River conservation projects."
-},
-
-"Assam":{
-gs:"GS1+GS3",
-topics:["Kaziranga","Bodo Accord","Floods"],
-pyq:"Northeast insurgency.",
-current:"Flood management."
-},
-
-"Tamil Nadu":{
-gs:"GS1+GS2",
-topics:["Kaveri","Ports","Dravidian Movement"],
-pyq:"Inter-state river disputes.",
-current:"Blue Economy."
-},
-
-"Rajasthan":{
-gs:"GS1+GS3",
-topics:["Thar Desert","Solar Energy","Indira Gandhi Canal"],
-pyq:"Desertification.",
-current:"Renewable energy."
-}
-
-};
-
-document.getElementById("mapWrap").onclick=()=>{
-
+function showState(name){
 document.getElementById("info").innerHTML=`
-<h2>Demo State</h2>
+<h2>${name}</h2>
+<div class="badge">UPSC State Dashboard</div>
 
-<div class="badge">GS1+GS2</div>
+**Hot Topics**
+- Geography
+- Economy
+- Environment
 
-<h3>🔥 Hot Topics</h3>
-<ul>
-<li>Ganga</li>
-<li>Sugar Industry</li>
-<li>Prayagraj</li>
-</ul>
+**Related PYQ**
+Use this state's PYQs.
 
-<h3>📜 Related PYQ</h3>
-<p>River interlinking and federalism.</p>
-
-<h3>📰 Current Focus</h3>
-<p>River conservation projects.</p>
+**Current Affairs**
+State-specific current affairs yahan dikhenge.
 `;
-
-};
+}
 </script>
-
-<button onclick="location.href='index.html'">← Back to War Room</button>
 
 </body>
 </html>
