@@ -1,45 +1,62 @@
-export default async function handler(req,res){
+let listening=false;
 
-if(req.method!=="POST")
-return res.status(405).json({error:"Method not allowed"});
+async function officerCommand(){
 
-const API_KEY=process.env.GEMINI_API_KEY;
+const Recognition=
+window.SpeechRecognition||
+window.webkitSpeechRecognition;
 
-const {page,state,query}=req.body;
+if(!Recognition){
+alert("Voice input not supported.");
+return;
+}
 
-const prompt=`
-You are FATEH27 Officer AI.
+const rec=new Recognition();
 
-Current Page: ${page}
-State: ${state||"None"}
+rec.lang="en-IN";
+rec.interimResults=false;
 
-User Command:
-${query}
+rec.start();
 
-Rules:
-- Speak like an IAS mentor.
-- Maximum 120 words.
-- Give UPSC-focused briefing.
-- Mention GS Paper if relevant.
-- End with one revision task.
-`;
+rec.onstart=()=>{
+listening=true;
+document.getElementById("officerBtn").innerHTML="🎙 Listening...";
+};
 
-const r=await fetch(
-`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`,
-{
+rec.onresult=async(e)=>{
+
+const query=e.results[0][0].transcript;
+
+document.getElementById("officerBtn").innerHTML="🧠 Thinking...";
+
+const state=document.getElementById("sheetContent")
+?.querySelector("h2")?.innerText||"";
+
+const res=await fetch("./api/officer",{
 method:"POST",
 headers:{"Content-Type":"application/json"},
 body:JSON.stringify({
-contents:[{parts:[{text:prompt}]}]
+page:document.title,
+state,
+query
 })
-}
-);
+});
 
-const data=await r.json();
+const data=await res.json();
 
-const text=data.candidates?.[0]?.content?.parts?.[0]?.text||
-"Officer briefing unavailable.";
+const msg=new SpeechSynthesisUtterance(data.text);
+msg.lang="en-IN";
+msg.rate=1;
+speechSynthesis.speak(msg);
 
-res.status(200).json({text});
+alert(data.text);
+
+document.getElementById("officerBtn").innerHTML="🎙 Officer";
+
+};
+
+rec.onerror=()=>{
+document.getElementById("officerBtn").innerHTML="🎙 Officer";
+};
 
 }
