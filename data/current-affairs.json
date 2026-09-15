@@ -4,68 +4,68 @@
   "articles": [
     {
       "id": 1,
-      "title": "BIMSTEC Grid Interconnection: Operationalizing Cross-Border Energy Diplomacy",
+      "title": "National Urban Governance Reform Framework 2026",
       "gs": "GS2",
       "source": "The Hindu",
-      "summary": "India accelerates the implementation of the BIMSTEC Energy Grid Interconnection to foster regional trade and renewable energy integration.",
+      "summary": "Ministry of Housing and Urban Affairs launches updated guidelines to empower Urban Local Bodies (ULBs) under the 74th Constitutional Amendment.",
       "prelims": [
-        "BIMSTEC was established in 1997 through the Bangkok Declaration and is headquartered in Dhaka, Bangladesh.",
-        "The BIMSTEC Grid Interconnection Agreement facilitates cross-border electricity trade and grid integration among member nations.",
-        "Member countries include five from South Asia (Bangladesh, Bhutan, India, Nepal, Sri Lanka) and two from Southeast Asia (Myanmar, Thailand)."
+        "74th Constitutional Amendment Act mandates local self-governance in urban areas.",
+        "Devolution of 18 functional domain items listed under the 12th Schedule.",
+        "State Finance Commissions (SFCs) review the financial position of municipalities periodically."
       ],
-      "mains": "Use to analyze regional connectivity, Neighborhood First policy, and energy diplomacy in South Asia and the Bay of Bengal region."
+      "mains": "Use as a contemporary example of structural reforms aimed at fiscal decentralization, municipal cadre capacity building, and strengthening democratic decentralization in India."
     },
     {
       "id": 2,
-      "title": "National Green Hydrogen Mission: Standard Operating Guidelines for Green Ammonia Hubs",
+      "title": "Deep Ocean Mission: Matsya 6000 Final Deep-Sea Test Trials",
       "gs": "GS3",
       "source": "PIB",
-      "summary": "The Ministry of New and Renewable Energy introduces comprehensive guidelines for developing green ammonia bunkering and port export infrastructure.",
+      "summary": "India's indigenous crewed submersible completes crucial deep-sea trial phases, advancing national seabed exploration capabilities.",
       "prelims": [
-        "Green Hydrogen is produced via water electrolysis powered by renewable energy sources, resulting in zero direct carbon emissions.",
-        "Green Ammonia is synthesized by combining green hydrogen with nitrogen separated from atmospheric air.",
-        "Strategic Interventions for Green Hydrogen Transition (SIGHT) is a key financial component under the National Green Hydrogen Mission."
+        "Nodal Ministry: Ministry of Earth Sciences (MoES).",
+        "Designed to carry 3 humans to a depth of 6,000 meters in the ocean.",
+        "Aims to explore Polymetallic Nodules rich in critical minerals like nickel, cobalt, copper, and manganese."
       ],
-      "mains": "Relevant for answers on industrial decarbonization, energy transition, clean shipping, and achieving India's Net-Zero by 2070 goal."
+      "mains": "Cite in answers related to India's Blue Economy policy, critical mineral security, oceanographic research, and indigenous technology development."
     },
     {
       "id": 3,
-      "title": "GLOF Risk Mitigation: Deployment of Early Warning Systems in High-Altitude Himalayan Lakes",
-      "gs": "GS3",
-      "source": "Indian Express",
-      "summary": "The National Disaster Management Authority (NDMA) initiates the installation of automated weather and water-level sensor networks across vulnerable glacial lakes.",
+      "title": "Implementation Roadmap of India-EFTA Trade and Economic Partnership Agreement",
+      "gs": "GS2",
+      "source": "Business Standard",
+      "summary": "Detailed guidelines released for tracking the $100 billion investment commitment under the India-EFTA TEPA.",
       "prelims": [
-        "Glacial Lake Outburst Floods (GLOFs) occur when a natural moraine or ice dam containing a glacial lake collapses rapidly.",
-        "South Lhonak Lake (Sikkim) and Lake Moriri (Ladakh) are prominent high-risk glacial lakes being monitored under the national framework.",
-        "The NDMA is the apex statutory body for disaster management in India, established under the Disaster Management Act, 2005, and chaired by the Prime Minister."
+        "EFTA includes four non-EU European nations: Switzerland, Norway, Iceland, and Liechtenstein.",
+        "First Indian FTA with a target-linked investment and job-creation commitment.",
+        "Sensitive sectors such as domestic agriculture and dairy are excluded from major tariff concessions."
       ],
-      "mains": "Directly applicable to questions on climate change adaptation, fragile Himalayan ecology, and proactive disaster risk reduction (DRR)."
+      "mains": "Valuable illustration of modern bilateral Free Trade Agreements (FTAs) that integrate foreign direct investment targets alongside merchandise trade."
     },
     {
       "id": 4,
-      "title": "Digital Public Infrastructure in Agriculture: Scale-Up of AgriStack Registry Framework",
-      "gs": "GS2",
-      "source": "Livemint",
-      "summary": "The Union Government expands the AgriStack platform to enable seamless digital credit access, crop insurance, and target subsidies for smallholder farmers.",
+      "title": "Climate Mitigation in Agriculture and Methane Footprint Reduction",
+      "gs": "GS3",
+      "source": "Down To Earth",
+      "summary": "ICAR report advocates for System of Rice Intensification (SRI) and alternate wetting and drying to reduce agricultural greenhouse gases.",
       "prelims": [
-        "AgriStack is a Digital Public Infrastructure (DPI) incorporating three core registries: Farmers' Registry, Geo-referenced Village Maps, and Crop Sown Registry.",
-        "Each farmer is assigned a unique digital identity (Farmer ID) linked to land records for verification.",
-        "The project is implemented by the Ministry of Agriculture and Farmers Welfare in collaboration with state land revenue departments."
+        "Methane has a short-term Global Warming Potential (GWP) significantly higher than carbon dioxide.",
+        "Global Methane Pledge targets a 30% global reduction in methane emissions by 2030 from 2020 levels.",
+        "India is not a signatory to the Global Methane Pledge to protect smallholder farmer livelihoods."
       ],
-      "mains": "Useful for topics on e-governance, administrative reforms, agricultural credit reform, and leveraging DPI for welfare distribution."
+      "mains": "Use to highlight the trade-offs between international climate pledges, national food security, and agrarian sustainable farming methods."
     },
     {
       "id": 5,
-      "title": "Ethical Framework for Artificial Intelligence in Public Service Delivery",
-      "gs": "GS4",
-      "source": "Business Standard",
-      "summary": "NITI Aayog releases updated guidelines on algorithmic transparency, accountability, and mitigation of bias in AI-driven welfare distribution systems.",
+      "title": "RBI Mandatory Climate Risk Disclosure Norms for Regulated Entities",
+      "gs": "GS3",
+      "source": "Financial Express",
+      "summary": "Reserve Bank of India mandates standardized climate-related financial risk disclosures for major banks and NBFCs.",
       "prelims": [
-        "NITI Aayog's 'National Strategy for Artificial Intelligence' outlines the 'AI for All' vision emphasizing ethical AI development.",
-        "Algorithmic bias refers to systematic and unfair outcomes caused by biased training data or flawed model assumptions.",
-        "Core ethical AI principles include Transparency, Explainability, Non-discrimination, Data Privacy, and Human Oversight."
+        "Applies to Commercial Banks, All-India Financial Institutions (AIFIs), and top-tier NBFCs.",
+        "Framework aligned with global standards set by the Task Force on Climate-related Financial Disclosures (TCFD).",
+        "Focuses on four core pillars: Governance, Strategy, Risk Management, and Metrics/Targets."
       ],
-      "mains": "Serves as standard reference material for GS4 Ethics questions on technology ethics, public accountability, administrative fairness, and digital governance."
+      "mains": "Relevant for questions on green banking, systemic macroeconomic stability, ESG compliance, and managing financial transition risks in India."
     }
   ]
 }
