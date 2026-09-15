@@ -1,0 +1,23 @@
+[
+  {
+    "topic":"Federalism",
+    "gs":"GS2",
+    "frequency":5,
+    "pyqs":[
+      {"year":2024,"question":"Cooperative federalism in India."},
+      {"year":2021,"question":"Role of Finance Commission in federalism."},
+      {"year":2017,"question":"Challenges to Indian federal structure."}
+    ],
+    "expected":"Fiscal federalism + Governor + GST Council"
+  },
+  {
+    "topic":"Climate Change",
+    "gs":"GS3",
+    "frequency":6,
+    "pyqs":[
+      {"year":2023,"question":"Climate finance."},
+      {"year":2022,"question":"Net Zero commitments."}
+    ],
+    "expected":"Loss & Damage + Adaptation"
+  }
+]
