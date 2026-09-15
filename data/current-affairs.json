@@ -1,71 +1,71 @@
 {
   "date": "2026-09-15",
-  "brief": "Today's UPSC Intelligence Brief",
+  "brief": "Today's UPSC Intelligence Brief covering AI regulation, industrial decarbonization, Indo-Pacific strategy, space technological milestones, and coastal ecosystem preservation.",
   "articles": [
     {
       "id": 1,
-      "title": "India Advances National Data Governance Framework Policy 2026",
+      "title": "National Artificial Intelligence Governance Framework & Regulatory Sandbox",
       "gs": "GS2",
-      "source": "The Hindu",
-      "summary": "MeitY issues revised guidelines to facilitate non-personal data sharing for domestic AI development while protecting sovereign digital assets.",
+      "source": "PIB",
+      "summary": "The Union Government releases official guidelines establishing a risk-tiered regulatory framework for enterprise AI adoption and deployment.",
       "prelims": [
-        "Non-personal data comprises anonymized datasets from which personal identifiers have been removed.",
-        "Establishes the India Data Management Office (IDMO) under MeitY to oversee data access standards.",
-        "Exempts strategic datasets related to national security and defense from public sharing mandates."
+        "Establishes an AI Safety Institute under the Ministry of Electronics and Information Technology (MeitY).",
+        "Categorizes AI systems into Risk Tiers (Unacceptable, High, and Minimal Risk) inspired by global standards.",
+        "Provides a mandatory 'Regulatory Sandbox' for fintech and healthcare AI solutions before public release."
       ],
-      "mains": "Use in GS2 (Governance/E-Governance) to analyze the balance between data democratization, state sovereignty, and privacy rights."
+      "mains": "Use to discuss state regulation vs. technological innovation, ethical governance, and privacy protection in GS-2 (Governance) and GS-3 (Science & Tech)."
     },
     {
       "id": 2,
-      "title": "Cabinet Approves Phase II Expansion of National Quantum Mission",
+      "title": "Strategic Expansion of Hydrogen Valleys under National Green Hydrogen Mission",
       "gs": "GS3",
-      "source": "Indian Express",
-      "summary": "The Union Cabinet approves enhanced funding for quantum communication security protocols and thematic research hubs across top institutes.",
+      "source": "The Hindu",
+      "summary": "Ministry of New and Renewable Energy notifies three new Green Hydrogen Valleys to boost localized production and application in heavy industries.",
       "prelims": [
-        "National Quantum Mission is spearheaded by the Department of Science and Technology (DST).",
-        "Operates through four main Thematic Hubs (T-Hubs): Computation, Communication, Sensing & Metrology, and Materials.",
-        "Aims to construct intermediate-scale quantum computers with 50 to 1,000 physical qubits."
+        "Target to produce 5 Million Metric Tonnes (MMT) of Green Hydrogen annually by 2030.",
+        "Hydrogen Valleys focus on co-locating renewable power generation, electrolyzer infrastructure, and industrial consumers.",
+        "Nodal execution agency is the Solar Energy Corporation of India (SECI)."
       ],
-      "mains": "Crucial for GS3 (Science and Technology) answers on emerging technologies, indigenous R&D capability, and technological self-reliance."
+      "mains": "Incorporate as a critical case study for India's Panchamrit targets, industrial decarbonization, and renewable energy storage solutions."
     },
     {
       "id": 3,
-      "title": "MoEFCC Releases State of Marine Biodiversity Report 2026",
-      "gs": "GS3",
-      "source": "PIB",
-      "summary": "A comprehensive national evaluation highlights resilience strategies for vulnerable coral reef ecosystems in Lakshadweep and the Andaman Sea.",
+      "title": "IORA Coastal Security & Maritime Domain Awareness Initiative",
+      "gs": "GS2",
+      "source": "Indian Express",
+      "summary": "India hosts the Indian Ocean Rim Association workshop to bolster real-time maritime domain awareness and counter non-traditional security threats.",
       "prelims": [
-        "Lakshadweep consists mainly of coral atolls, whereas the Andaman and Nicobar Islands predominantly feature fringing reefs.",
-        "Aligns India's national targets with the Kunming-Montreal Global Biodiversity Framework (30x30 target).",
-        "Integrated Coastal Zone Management Plan (ICZMP) acts as the primary governance mechanism for coastal protection."
+        "IORA was established in 1997 and currently comprises 23 member states bordering the Indian Ocean.",
+        "Secretariat is located in Ebene, Mauritius.",
+        "Focus areas include Maritime Safety, Trade Facilitation, Disaster Risk Management, and Blue Economy."
       ],
-      "mains": "Use in GS3 (Environment & Ecology) questions on coastal ecosystem preservation, ocean warming resilience, and biodiversity conservation."
+      "mains": "Cite when writing answers on India's SAGAR (Security and Growth for All in the Region) vision, net security provider role, and Indo-Pacific diplomacy."
     },
     {
       "id": 4,
-      "title": "Supreme Court Bench Elaborates Guidelines on Sub-Categorisation within Reserved Classes",
-      "gs": "GS2",
-      "source": "LiveLaw",
-      "summary": "The Supreme Court underscores the necessity of empirical data to justify sub-classification among Scheduled Castes to ensure targeted affirmative action.",
+      "title": "ISRO Successfully Tests Spatial Docking Systems for Chandrayaan-4",
+      "gs": "GS3",
+      "source": "PIB",
+      "summary": "ISRO accomplishes crucial autonomous docking trials essential for the upcoming multi-module lunar sample return mission.",
       "prelims": [
-        "Articles 341 and 342 empower the President to notify the list of Scheduled Castes and Scheduled Tribes.",
-        "States can sub-classify SC/ST lists only if backed by quantifiable data of inadequate representation.",
-        "The landmark Indra Sawhney Case (1992) established the 50% cap on total reservations and the concept of the creamy layer."
+        "Chandrayaan-4 is designed as a lunar sample-return mission targeting the South Pole region.",
+        "Requires two LVM3 launch vehicles carrying distinct modules (Transfer, Lander, Ascender, and Re-entry).",
+        "Spatial docking enables autonomous joining of orbiting modules in lunar orbit."
       ],
-      "mains": "High utility in GS2 (Polity and Social Justice) for questions regarding social equity, affirmative action design, and judicial interpretation of constitutional rights."
+      "mains": "Highlight as an example of self-reliance (Atmanirbharta) in advanced space technologies, deep-space operational maturity, and technological spin-offs."
     },
     {
       "id": 5,
-      "title": "RBI Expands Offline Digital Rupee (e₹) Pilots to Rural Sectors",
+      "title": "Integrated Blue Carbon Registry & Coastal Wetland Policy 2026",
       "gs": "GS3",
-      "source": "Financial Express",
-      "summary": "The Reserve Bank of India rolls out network-independent offline functionality for the Central Bank Digital Currency to strengthen last-mile financial inclusion.",
+      "source": "Down To Earth",
+      "summary": "Ministry of Environment releases operational rules for integrating restored coastal mangroves into the national carbon offset market.",
       "prelims": [
-        "Digital Rupee (e₹) is sovereign currency issued by the RBI under amendments to the RBI Act, 1934.",
-        "Offline e₹ transactions utilize Near Field Communication (NFC) and hardware-based secure elements without requiring active internet connectivity.",
-        "Unlike decentralized cryptocurrencies, e₹ represents a direct liability of the central bank with zero credit risk."
+        "Leverages data from the MISHTI (Mangrove Initiative for Shoreline Habitats & Tangible Incomes) scheme.",
+        "Blue Carbon refers to carbon captured and sequestered by ocean and coastal ecosystems.",
+        "Wetlands are declared under the Ramsar Convention based on specific ecological criteria, including endemic biodiversity support."
       ],
-      "mains": "Direct application in GS3 (Indian Economy) regarding monetary policy innovation, digital public infrastructure (DPI), and financial inclusion initiatives."
+      "mains": "Use to answer questions on nature-based solutions for climate adaptation, ecosystem restoration, and sustainable carbon credit markets."
     }
   ]
 }
