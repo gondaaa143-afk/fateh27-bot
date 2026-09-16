@@ -10,20 +10,28 @@ async function loadVoiceData() {
 }
 loadVoiceData();
 function speak(text){
-  if(!("speechSynthesis" in window)) return;
+async function speak(text){
+  try{
+    const res = await fetch("https://fateh27-bot-production.up.railway.app/tts",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({text})
+    });
 
-  speechSynthesis.cancel();
+    if(!res.ok){
+      throw new Error("TTS failed");
+    }
 
-  const msg = new SpeechSynthesisUtterance(text);
-  msg.lang = "hi-IN";
-  msg.rate = 0.9;
-  msg.pitch = 1;
+    const blob = await res.blob();
+    const audio = new Audio(URL.createObjectURL(blob));
+    await audio.play();
 
-  const voices = speechSynthesis.getVoices();
-  const hi = voices.find(v => v.lang.startsWith("hi"));
-  if(hi) msg.voice = hi;
-
-  speechSynthesis.speak(msg);
+  }catch(e){
+    console.log(e);
+    alert("Officer Voice server se connect nahi hua.");
+  }
 }
 
 const aliases = {
