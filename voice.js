@@ -40,11 +40,13 @@ if (q.includes("assam") || q.includes("असम")) {
   alert("Command: " + q + "\n\n" + text);
 
   // Phir bolne ki koshish
+  function speak(text){
   speechSynthesis.cancel();
   const msg = new SpeechSynthesisUtterance(text);
-  msg.lang = "en-IN";
-  msg.rate = 1;
+  msg.lang = "hi-IN";
+  msg.rate = 0.95;
   speechSynthesis.speak(msg);
+  }
 
   btn.innerHTML = "🎤";
 };
