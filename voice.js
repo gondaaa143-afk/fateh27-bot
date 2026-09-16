@@ -12,31 +12,43 @@ async function loadVoiceData() {
 loadVoiceData();
 
 // -------- Gemini Officer Voice --------
-async function speak(text) {
-  const btn = document.getElementById("officerBtn");
-  if (btn) btn.innerHTML = "⏳";
+async function speak(text){
+  const btn=document.getElementById("officerBtn");
+  if(btn) btn.innerHTML="🎙️";
 
-  try {
-    const res = await fetch("https://fateh27-bot-production.up.railway.app/tts", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ text })
+  try{
+    const res=await fetch("https://fateh27-bot-production.up.railway.app/tts",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({text})
     });
 
-    if (!res.ok) {
-      throw new Error("Server " + res.status);
-    }
+    if(!res.ok) throw new Error(await res.text());
 
-    const blob = await res.blob();
-    const url = URL.createObjectURL(blob);
-    const audio = new Audio(url);
+    const blob=await res.blob();
+    const url=URL.createObjectURL(blob);
 
-    audio.onended = () => URL.revokeObjectURL(url);
+    const audio=document.createElement("audio");
+    audio.src=url;
+    audio.autoplay=true;
+    audio.playsInline=true;
+    audio.style.display="none";
 
+    document.body.appendChild(audio);
     await audio.play();
 
+    audio.onended=()=>{
+      URL.revokeObjectURL(url);
+      audio.remove();
+      if(btn) btn.innerHTML="🎤";
+    };
+
+  }catch(e){
+    console.log(e);
+    if(btn) btn.innerHTML="🎤";
+    alert("Officer Voice server se connect nahi hua.");
+  }
+}
   } catch (e) {
     console.log(e);
     alert("Officer Voice Error: " + e.message);
