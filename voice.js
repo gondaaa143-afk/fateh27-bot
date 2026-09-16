@@ -5,32 +5,29 @@ async function loadVoiceData() {
     const res = await fetch("./data/states.json");
     voiceStates = await res.json();
   } catch (e) {
-    console.log(e);
+    console.log("Voice data load failed", e);
   }
 }
-
 loadVoiceData();
 
-function speak(text){
-  if(!("speechSynthesis" in window)) return;
+function speak(text) {
+  if (!("speechSynthesis" in window)) return;
 
   speechSynthesis.cancel();
 
-  const msg=new SpeechSynthesisUtterance(text);
-  msg.lang="hi-IN";
-  msg.rate=0.95;
-  msg.pitch=1;
+  const msg = new SpeechSynthesisUtterance(text);
+  msg.lang = "hi-IN";
+  msg.rate = 0.95;
+  msg.pitch = 1;
 
-  const voices=speechSynthesis.getVoices();
-  const hi=voices.find(v=>v.lang.startsWith("hi"));
-  if(hi) msg.voice=hi;
+  const voices = speechSynthesis.getVoices();
+  const hi = voices.find(v => v.lang.startsWith("hi"));
+  if (hi) msg.voice = hi;
 
-  setTimeout(()=>{
-    speechSynthesis.speak(msg);
-  },300);
+  setTimeout(() => speechSynthesis.speak(msg), 300);
 }
 
-const aliases={
+const aliases = {
   "असम":"Assam","assam":"Assam",
   "उत्तर प्रदेश":"Uttar Pradesh","up":"Uttar Pradesh",
   "राजस्थान":"Rajasthan","rajasthan":"Rajasthan",
@@ -51,20 +48,18 @@ const aliases={
 
 function detectState(text){
   text=text.toLowerCase();
-
   for(const k in aliases){
     if(text.includes(k.toLowerCase())) return aliases[k];
   }
-
   return null;
 }
 
 function officerCommand(){
 
-  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
 
   if(!SR){
-    alert("Voice support nahi hai.");
+    alert("Voice Recognition support nahi hai.");
     return;
   }
 
@@ -76,14 +71,21 @@ function officerCommand(){
   rec.interimResults=false;
   rec.maxAlternatives=1;
 
+  speechSynthesis.getVoices();
+
+  rec.onstart=()=>{
+    btn.innerHTML="🎙";
+  };
+
   rec.onresult=(e)=>{
 
     const spoken=e.results[0][0].transcript;
     const state=detectState(spoken);
 
     if(!state){
-      alert("Officer: State ka naam dobara boliye.");
-      speak("Officer. State ka naam dobara boliye.");
+      const msg="Officer. State ka naam dobara boliye.";
+      alert(msg);
+      speak(msg);
       btn.innerHTML="🎤";
       return;
     }
@@ -151,7 +153,6 @@ ${s.current}.`;
         reply=`Officer. ${state} ka data database me nahi mila.`;
 
       }
-
     }
 
     if(typeof showState==="function"){
@@ -159,10 +160,8 @@ ${s.current}.`;
     }
 
     const info=document.getElementById("info");
-
     if(info){
-
-      info.innerHTML+=`
+      info.innerHTML += `
       <div class="card">
         <h3>🎙 Officer Voice</h3>
         <p>${reply.replace(/\n/g,"<br>")}</p>
@@ -170,15 +169,28 @@ ${s.current}.`;
     }
 
     alert(reply);
-
     speak(reply);
 
     btn.innerHTML="🎤";
   };
 
-  rec.onerror=()=>{
+  rec.onerror=(e)=>{
+
     btn.innerHTML="🎤";
-    alert("Officer: Mic error.");
+
+    if(e.error==="not-allowed"){
+      alert("Mic permission Allow karo.");
+      return;
+    }
+
+    if(e.error==="no-speech"){
+      const msg="Officer. Awaaz sunai nahi di. Dobara boliye.";
+      alert(msg);
+      speak(msg);
+      return;
+    }
+
+    console.log("Speech Error:", e.error);
   };
 
   rec.onend=()=>{
