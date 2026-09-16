@@ -9,6 +9,22 @@ async function loadVoiceData() {
   }
 }
 loadVoiceData();
+function speak(text){
+  if(!("speechSynthesis" in window)) return;
+
+  speechSynthesis.cancel();
+
+  const msg = new SpeechSynthesisUtterance(text);
+  msg.lang = "hi-IN";
+  msg.rate = 0.9;
+  msg.pitch = 1;
+
+  const voices = speechSynthesis.getVoices();
+  const hi = voices.find(v => v.lang.startsWith("hi"));
+  if(hi) msg.voice = hi;
+
+  speechSynthesis.speak(msg);
+}
 
 const aliases = {
   "असम":"Assam","assam":"Assam",
