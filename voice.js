@@ -24,12 +24,17 @@ function officerCommand() {
   rec.onresult = (e) => {
   const q = e.results[0][0].transcript.toLowerCase();
 
-  let text = "Officer, command receive hua.";
+let text = "Officer, command receive hua.";
 
-  if (q.includes("assam")) text = replies.assam;
-  else if (q.includes("ladakh")) text = replies.ladakh;
-  else if (q.includes("gujarat")) text = replies.gujarat;
-  else if (q.includes("rajasthan")) text = replies.rajasthan;
+if (q.includes("assam") || q.includes("असम")) {
+  text = replies.assam;
+} else if (q.includes("ladakh") || q.includes("लद्दाख")) {
+  text = replies.ladakh;
+} else if (q.includes("gujarat") || q.includes("गुजरात")) {
+  text = replies.gujarat;
+} else if (q.includes("rajasthan") || q.includes("राजस्थान")) {
+  text = replies.rajasthan;
+}
 
   // Debug: pehle screen par dikhao
   alert("Command: " + q + "\n\n" + text);
