@@ -2,64 +2,59 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>FATEH27 Command Map</title>
 
 <style>
 
 body{
 margin:0;
-padding:18px;
-background:#02140b;
+background:#001b12;
 color:white;
 font-family:Arial,sans-serif;
+padding:18px;
 }
 
 h1{
-font-size:42px;
-margin:0 0 14px;
+font-size:38px;
+margin-bottom:18px;
 }
 
-.search{
+input{
 width:100%;
-padding:14px;
-border-radius:18px;
-border:1px solid #14553a;
-background:#072317;
+padding:15px;
+border-radius:20px;
+border:1px solid #12462d;
+background:#032418;
 color:white;
-margin-bottom:14px;
+font-size:16px;
 box-sizing:border-box;
 }
 
 .filters{
 display:flex;
-gap:8px;
-overflow:auto;
-margin-bottom:16px;
+gap:10px;
+margin:18px 0;
 }
 
-.chip{
-padding:10px 16px;
+.filters button{
+padding:12px 18px;
+border:none;
 border-radius:999px;
-background:#0b2c1d;
-border:1px solid #14553a;
-white-space:nowrap;
-cursor:pointer;
-}
-
-.chip.active{
-background:#2be07a;
-color:black;
+background:#062d1d;
+color:white;
 }
 
 #mapWrap{
 position:relative;
-max-width:650px;
+width:100%;
+max-width:420px;
 margin:auto;
-border-radius:26px;
+border-radius:22px;
 overflow:hidden;
-border:1px solid #14553a;
-box-shadow:0 0 30px rgba(43,224,122,.12);
+border:1px solid #0d4d30;
+z-index:1;
 }
 
 #mapWrap img{
@@ -73,291 +68,126 @@ width:18px;
 height:18px;
 border-radius:50%;
 background:#2be07a;
-border:2px solid white;
+border:3px solid white;
+box-shadow:0 0 18px rgba(43,224,122,.6);
 transform:translate(-50%,-50%);
 cursor:pointer;
-animation:pulse 2s infinite;
+z-index:5;
 }
 
-@keyframes pulse{
-0%{box-shadow:0 0 0 0 rgba(43,224,122,.7)}
-70%{box-shadow:0 0 0 12px rgba(43,224,122,0)}
-100%{box-shadow:0 0 0 0 rgba(43,224,122,0)}
-}
-
-.sheet{
-position:fixed;
-left:0;
-right:0;
-bottom:-100%;
-background:#062114;
-border-top-left-radius:26px;
-border-top-right-radius:26px;
-padding:22px;
-transition:.35s;
-max-height:82vh;
-overflow:auto;
-z-index:999;
-border-top:1px solid #14553a;
-}
-
-.sheet.open{
-bottom:0;
-}
-
-.handle{
-width:60px;
-height:6px;
-background:#2be07a;
-border-radius:99px;
-margin:0 auto 18px;
-}
-
-.close{
-float:right;
-font-size:26px;
-cursor:pointer;
+.card{
+background:#062d1d;
+border:1px solid #12462d;
+border-radius:20px;
+padding:18px;
+margin-top:18px;
 }
 
 .badge{
 display:inline-block;
-padding:8px 14px;
-background:#103a24;
+padding:6px 12px;
 border-radius:999px;
-margin:8px 6px 0 0;
-}
-
-.card{
-background:#082518;
-border:1px solid #14553a;
-padding:16px;
-border-radius:18px;
-margin-top:16px;
+background:#103925;
+margin:3px;
+font-size:13px;
 }
 
 .back{
 width:100%;
 padding:16px;
+margin-top:18px;
 border:none;
 border-radius:18px;
 background:#2be07a;
 font-weight:bold;
-margin-top:22px;
+font-size:17px;
+}
+
+/* ===== Floating Officer Button ===== */
+
+#officerBtn{
+position:fixed;
+right:18px;
+bottom:22px;
+width:72px;
+height:72px;
+border:none;
+border-radius:50%;
+background:linear-gradient(135deg,#2be07a,#00c853);
+color:white;
+font-size:30px;
+box-shadow:0 8px 28px rgba(43,224,122,.55);
+z-index:999999;
+cursor:pointer;
+pointer-events:auto;
+touch-action:manipulation;
+-webkit-tap-highlight-color:transparent;
+}
+
+#officerBtn:active{
+transform:scale(.94);
 }
 
 </style>
+
 </head>
+
 <body>
 
 <h1>🗺 COMMAND MAP</h1>
 
-<input class="search" id="search" placeholder="Search State...">
+<input id="search" placeholder="Search State...">
 
 <div class="filters">
-<div class="chip active" onclick="setFilter('All',this)">All</div>
-<div class="chip" onclick="setFilter('GS1',this)">GS1</div>
-<div class="chip" onclick="setFilter('GS2',this)">GS2</div>
-<div class="chip" onclick="setFilter('GS3',this)">GS3</div>
+<button>All</button>
+<button>GS1</button>
+<button>GS2</button>
+<button>GS3</button>
 </div>
 
 <div id="mapWrap">
 
-<img src="./India-map-en.png?v=5">
+<img src="./India-map-en.png?v=3" alt="India Map">
 
-<!-- North -->
-<div class="hotspot" style="left:34%;top:8%" onclick="showState('Jammu & Kashmir')"></div>
-<div class="hotspot" style="left:41%;top:14%" onclick="showState('Himachal Pradesh')"></div>
-<div class="hotspot" style="left:35%;top:17%" onclick="showState('Punjab')"></div>
-<div class="hotspot" style="left:40%;top:20%" onclick="showState('Haryana')"></div>
-<div class="hotspot" style="left:46%;top:18%" onclick="showState('Uttarakhand')"></div>
+<!-- Demo hotspots (baaki existing hotspots rehne do) -->
 
-<!-- West -->
-<div class="hotspot" style="left:20%;top:34%" onclick="showState('Rajasthan')"></div>
-<div class="hotspot" style="left:17%;top:47%" onclick="showState('Gujarat')"></div>
-<div class="hotspot" style="left:28%;top:60%" onclick="showState('Maharashtra')"></div>
-<div class="hotspot" style="left:25%;top:75%" onclick="showState('Goa')"></div>
+<div class="hotspot" style="left:66%;top:29%" onclick="showState('Assam')"></div>
 
-<!-- Central -->
+<div class="hotspot" style="left:54%;top:34%" onclick="showState('Uttar Pradesh')"></div>
+
+<div class="hotspot" style="left:24%;top:38%" onclick="showState('Rajasthan')"></div>
+
+<div class="hotspot" style="left:18%;top:50%" onclick="showState('Gujarat')"></div>
+
+<div class="hotspot" style="left:44%;top:82%" onclick="showState('Tamil Nadu')"></div>
+
 <div class="hotspot" style="left:39%;top:43%" onclick="showState('Madhya Pradesh')"></div>
-<div class="hotspot" style="left:47%;top:50%" onclick="showState('Chhattisgarh')"></div>
 
-<!-- East -->
-<div class="hotspot" style="left:54%;top:30%" onclick="showState('Uttar Pradesh')"></div>
-<div class="hotspot" style="left:63%;top:35%" onclick="showState('Bihar')"></div>
-<div class="hotspot" style="left:60%;top:46%" onclick="showState('Jharkhand')"></div>
-<div class="hotspot" style="left:67%;top:43%" onclick="showState('West Bengal')"></div>
-<div class="hotspot" style="left:61%;top:55%" onclick="showState('Odisha')"></div>
-
-<!-- South -->
-<div class="hotspot" style="left:43%;top:63%" onclick="showState('Telangana')"></div>
-<div class="hotspot" style="left:40%;top:73%" onclick="showState('Karnataka')"></div>
-<div class="hotspot" style="left:48%;top:78%" onclick="showState('Andhra Pradesh')"></div>
-<div class="hotspot" style="left:43%;top:89%" onclick="showState('Tamil Nadu')"></div>
-<div class="hotspot" style="left:48%;top:84%" onclick="showState('Kerala')"></div>
-
-<!-- North East -->
-<div class="hotspot" style="left:73%;top:34%" onclick="showState('Assam')"></div>
-<div class="hotspot" style="left:76%;top:30%" onclick="showState('Arunachal Pradesh')"></div>
-<div class="hotspot" style="left:75%;top:40%" onclick="showState('Nagaland')"></div>
-<div class="hotspot" style="left:71%;top:42%" onclick="showState('Meghalaya')"></div>
-<div class="hotspot" style="left:74%;top:46%" onclick="showState('Manipur')"></div>
-<div class="hotspot" style="left:70%;top:47%" onclick="showState('Mizoram')"></div>
-<div class="hotspot" style="left:72%;top:38%" onclick="showState('Tripura')"></div>
-<div class="hotspot" style="left:69%;top:31%" onclick="showState('Sikkim')"></div>
-
-<!-- UT -->
-<div class="hotspot" style="left:45%;top:21%" onclick="showState('Delhi')"></div>
-<div class="hotspot" style="left:6%;top:83%" onclick="showState('Lakshadweep')"></div>
-<div class="hotspot" style="left:82%;top:73%" onclick="showState('Andaman & Nicobar')"></div>
-<div class="hotspot" style="left:42%;top:82%" onclick="showState('Puducherry')"></div>
-<div class="hotspot" style="left:14%;top:54%" onclick="showState('Dadra and Nagar Haveli and Daman and Diu')"></div>
-<div class="hotspot" style="left:32%;top:13%" onclick="showState('Chandigarh')"></div>
-<div class="hotspot" style="left:28%;top:6%" onclick="showState('Ladakh')"></div>
+<div class="hotspot" style="left:46%;top:15%" onclick="showState('Uttarakhand')"></div>
 
 </div>
 
-<button class="back" onclick="location.href='index.html'">← Back to War Room</button>
+<div id="info" class="card">
 
-<div id="sheet" class="sheet">
-<div class="handle"></div>
-<div class="close" onclick="closeSheet()">✕</div>
-<div id="sheetContent"></div>
+Tap any state.
+
 </div>
 
-<script>
-let states = {};
-let layers = {};
-let currentLayer = "GS1";
+<button class="back" onclick="location.href='index.html'">
 
-// ---------- Load Data ----------
-async function loadData() {
-  try {
-    const [statesRes, layersRes] = await Promise.all([
-      fetch("./data/states.json?v=" + Date.now()),
-      fetch("./data/layers.json?v=" + Date.now())
-    ]);
+← Back to War Room
 
-    states = await statesRes.json();
-    layers = await layersRes.json();
-  } catch (e) {
-    console.error(e);
-  }
-}
+</button>
 
-// ---------- Bottom Sheet ----------
-function closeSheet() {
-  document.getElementById("sheet").classList.remove("open");
-}
+<!-- Floating Voice Button -->
 
-// ---------- GS Filter ----------
-function setFilter(layer, el) {
-  currentLayer = layer;
+<button id="officerBtn" onclick="officerCommand()">
 
-  document.querySelectorAll(".chip")
-    .forEach(x => x.classList.remove("active"));
+🎙️
 
-  el.classList.add("active");
-
-  renderLayer();
-}
-
-// ---------- Render Layer ----------
-function renderLayer() {
-
-  const data = layers[currentLayer];
-
-  if (!data) return;
-
-  let html = `<h2>${currentLayer} Intelligence Layer</h2>`;
-
-  Object.keys(data).forEach(cat => {
-
-    html += `
-      <div class="card">
-        <h3>${cat}</h3>
-        <ul>
-          ${data[cat].map(x =>
-            `<li onclick="showState('${x.state}')"><b>${x.name}</b> — ${x.state}</li>`
-          ).join("")}
-        </ul>
-      </div>
-    `;
-
-  });
-
-  document.getElementById("sheetContent").innerHTML = html;
-  document.getElementById("sheet").classList.add("open");
-}
-
-// ---------- State Dashboard ----------
-function showState(name) {
-
-  const s = states[name];
-
-  if (!s) {
-
-    document.getElementById("sheetContent").innerHTML = `
-      <h2>${name}</h2>
-      <p>Data unavailable.</p>
-    `;
-
-    document.getElementById("sheet").classList.add("open");
-    return;
-  }
-
-  document.getElementById("sheetContent").innerHTML = `
-    <h2>${name}</h2>
-
-    <div class="badge">🏛 Capital: ${s.capital}</div>
-
-    <div class="card">
-      <h3>🔥 Hot Topics</h3>
-      <p>${s.topics.join(" • ")}</p>
-    </div>
-
-    <div class="card">
-      <h3>📘 Related PYQ</h3>
-      <p>${s.pyq}</p>
-    </div>
-
-    <div class="card">
-      <h3>📰 Current Focus</h3>
-      <p>${s.current}</p>
-    </div>
-
-    <div class="card">
-      <h3>⚡ Quick Revision</h3>
-      ${s.topics.map(t => `<span class="badge">${t}</span>`).join("")}
-    </div>
-  `;
-
-  document.getElementById("sheet").classList.add("open");
-}
-
-// ---------- Search ----------
-document.addEventListener("DOMContentLoaded", async () => {
-
-  await loadData();
-
-  const search = document.getElementById("search");
-
-  search.addEventListener("input", () => {
-
-    const q = search.value.toLowerCase();
-
-    const found = Object.keys(states)
-      .find(x => x.toLowerCase().includes(q));
-
-    if (found) showState(found);
-
-  });
-
-});
-</script>
+</button>
 
 <script src="./map-pro.js"></script>
-
-<button id="officerBtn" onclick="officerCommand()" style="position:fixed;right:20px;bottom:20px;width:64px;height:64px;border:none;border-radius:50%;background:#2be07a;font-size:26px;box-shadow:0 0 20px rgba(43,224,122,.5);z-index:9999;">🎙</button>
 
 <script src="./voice.js"></script>
 
