@@ -148,7 +148,11 @@ function officerCommand() {
       </div>`;
     }
 
-    await speak(reply);
+  await speak(reply);
+
+setTimeout(() => {
+  alert(`Command: ${spoken}\n\n${reply}`);
+}, 300);
   };
 
   rec.onerror = (e) => {
