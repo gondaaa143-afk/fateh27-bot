@@ -1,58 +1,189 @@
-const replies = {
-  assam: "Officer, Assam GS3 ke liye revise karo. Kaziranga, Brahmaputra Floods aur Bodo Accord important hain.",
-  ladakh: "Officer, Ladakh me LAC, Galwan, Siachen aur Border Infrastructure revise karo.",
-  gujarat: "Officer, Gujarat me Kandla Port, GIFT City aur White Desert revise karo.",
-  rajasthan: "Officer, Rajasthan me Desertification, Aravalli aur Indira Gandhi Canal revise karo."
+let voiceStates = {};
+
+async function loadVoiceData() {
+  try {
+    const res = await fetch("./data/states.json");
+    voiceStates = await res.json();
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+loadVoiceData();
+
+function speak(text){
+  if(!("speechSynthesis" in window)) return;
+
+  speechSynthesis.cancel();
+
+  const msg=new SpeechSynthesisUtterance(text);
+  msg.lang="hi-IN";
+  msg.rate=0.95;
+  msg.pitch=1;
+
+  const voices=speechSynthesis.getVoices();
+  const hi=voices.find(v=>v.lang.startsWith("hi"));
+  if(hi) msg.voice=hi;
+
+  setTimeout(()=>{
+    speechSynthesis.speak(msg);
+  },300);
+}
+
+const aliases={
+  "असम":"Assam","assam":"Assam",
+  "उत्तर प्रदेश":"Uttar Pradesh","up":"Uttar Pradesh",
+  "राजस्थान":"Rajasthan","rajasthan":"Rajasthan",
+  "गुजरात":"Gujarat","gujarat":"Gujarat",
+  "बिहार":"Bihar","bihar":"Bihar",
+  "झारखंड":"Jharkhand","jharkhand":"Jharkhand",
+  "लद्दाख":"Ladakh","ladakh":"Ladakh",
+  "दिल्ली":"Delhi","delhi":"Delhi",
+  "सिक्किम":"Sikkim","sikkim":"Sikkim",
+  "तमिलनाडु":"Tamil Nadu","tamil":"Tamil Nadu",
+  "केरल":"Kerala","kerala":"Kerala",
+  "कर्नाटक":"Karnataka","karnataka":"Karnataka",
+  "महाराष्ट्र":"Maharashtra","maharashtra":"Maharashtra",
+  "पंजाब":"Punjab","punjab":"Punjab",
+  "हरियाणा":"Haryana","haryana":"Haryana",
+  "ओडिशा":"Odisha","odisha":"Odisha"
 };
 
-function officerCommand() {
-  const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+function detectState(text){
+  text=text.toLowerCase();
 
-  if (!Recognition) {
-    alert("Mic support nahi mila.");
+  for(const k in aliases){
+    if(text.includes(k.toLowerCase())) return aliases[k];
+  }
+
+  return null;
+}
+
+function officerCommand(){
+
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+
+  if(!SR){
+    alert("Voice support nahi hai.");
     return;
   }
 
-  const rec = new Recognition();
-  rec.lang = "hi-IN";
-  rec.interimResults = false;
+  const btn=document.getElementById("officerBtn");
+  btn.innerHTML="🎙";
 
-  const btn = document.getElementById("officerBtn");
+  const rec=new SR();
+  rec.lang="hi-IN";
+  rec.interimResults=false;
+  rec.maxAlternatives=1;
 
-  rec.onstart = () => btn.innerHTML = "🎙";
+  rec.onresult=(e)=>{
 
-  rec.onresult = (e) => {
-  const q = e.results[0][0].transcript.toLowerCase();
+    const spoken=e.results[0][0].transcript;
+    const state=detectState(spoken);
 
-let text = "Officer, command receive hua.";
+    if(!state){
+      alert("Officer: State ka naam dobara boliye.");
+      speak("Officer. State ka naam dobara boliye.");
+      btn.innerHTML="🎤";
+      return;
+    }
 
-if (q.includes("assam") || q.includes("असम")) {
-  text = replies.assam;
-} else if (q.includes("ladakh") || q.includes("लद्दाख")) {
-  text = replies.ladakh;
-} else if (q.includes("gujarat") || q.includes("गुजरात")) {
-  text = replies.gujarat;
-} else if (q.includes("rajasthan") || q.includes("राजस्थान")) {
-  text = replies.rajasthan;
-}
+    let reply="";
 
-  // Debug: pehle screen par dikhao
-  alert("Command: " + q + "\n\n" + text);
+    if(state==="Assam"){
 
-  // Phir bolne ki koshish
-  function speak(text){
-  speechSynthesis.cancel();
-  const msg = new SpeechSynthesisUtterance(text);
-  msg.lang = "hi-IN";
-  msg.rate = 0.95;
-  speechSynthesis.speak(msg);
-  }
+      reply=`Officer Briefing.
 
-  btn.innerHTML = "🎤";
-};
+Assam.
 
-  rec.onerror = () => btn.innerHTML = "🎤";
-  rec.onend = () => btn.innerHTML = "🎤";
+North East ka gateway.
+
+Rajdhani Dispur.
+
+Sabse bada shahar Guwahati.
+
+Brahmaputra aur Barak mukhya nadiyan.
+
+Kaziranga UNESCO World Heritage Site.
+
+Manas bhi UNESCO site.
+
+One Horned Rhino.
+
+Tea production me Bharat ka sabse bada yogdan.
+
+Muga Silk ke liye famous.
+
+UPSC Focus.
+
+Kaziranga.
+
+Brahmaputra Floods.
+
+Bodo Accord.
+
+Tea Economy.`;
+
+    }else{
+
+      const s=voiceStates[state];
+
+      if(s){
+
+        reply=`Officer Briefing.
+
+${state}.
+
+Hot Topics.
+
+${s.topics.slice(0,4).join(", ")}.
+
+PYQ.
+
+${s.pyq}.
+
+Current Focus.
+
+${s.current}.`;
+
+      }else{
+
+        reply=`Officer. ${state} ka data database me nahi mila.`;
+
+      }
+
+    }
+
+    if(typeof showState==="function"){
+      showState(state);
+    }
+
+    const info=document.getElementById("info");
+
+    if(info){
+
+      info.innerHTML+=`
+      <div class="card">
+        <h3>🎙 Officer Voice</h3>
+        <p>${reply.replace(/\n/g,"<br>")}</p>
+      </div>`;
+    }
+
+    alert(reply);
+
+    speak(reply);
+
+    btn.innerHTML="🎤";
+  };
+
+  rec.onerror=()=>{
+    btn.innerHTML="🎤";
+    alert("Officer: Mic error.");
+  };
+
+  rec.onend=()=>{
+    btn.innerHTML="🎤";
+  };
 
   rec.start();
 }
