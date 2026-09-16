@@ -9,7 +9,7 @@ async function loadVoiceData() {
   }
 }
 loadVoiceData();
-function speak(text){
+
 async function speak(text){
   try{
     const res = await fetch("https://fateh27-bot-production.up.railway.app/tts",{
