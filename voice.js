@@ -64,34 +64,45 @@ function officerCommand(){
 
   rec.onresult=(e)=>{
 
-    const spoken=e.results[0][0].transcript;
-    const state=detectState(spoken);
+  const spoken=e.results[0][0].transcript;
+  const state=detectState(spoken);
 
-    if(!state){
-      alert(`Command: ${spoken}\n\nState pehchana nahi gaya.`);
-      if(btn) btn.innerHTML="🎤";
-      return;
-    }
-
-    if(typeof showState==="function"){
-      showState(state);
-    }
-
-    let reply="";
-
-    if(state==="Assam"){
-      reply="Officer, Assam GS3 revise karo. Kaziranga, Brahmaputra Floods, Bodo Accord, Muga Silk aur Tea Economy important hain.";
-    }else if(voiceStates[state]){
-      const s=voiceStates[state];
-      reply=`Officer, ${state}. Hot Topics: ${s.topics.slice(0,3).join(", ")}. PYQ: ${s.pyq}. Current Focus: ${s.current}.`;
-    }else{
-      reply=`Officer, ${state} ka data abhi database me nahi hai.`;
-    }
-
-    alert(`Command: ${spoken}\n\n${reply}`);
-
+  if(!state){
+    alert(`Command: ${spoken}\n\nState pehchana nahi gaya.`);
     if(btn) btn.innerHTML="🎤";
-  };
+    return;
+  }
+
+  if(typeof showState==="function"){
+    showState(state);
+  }
+
+  let reply="";
+
+  if(state==="Assam"){
+    reply="Officer, Assam GS3 revise karo. Kaziranga, Brahmaputra Floods, Bodo Accord, Muga Silk aur Tea Economy important hain.";
+  }else if(voiceStates[state]){
+    const s=voiceStates[state];
+    reply=`Officer, ${state}. Hot Topics: ${s.topics.slice(0,3).join(", ")}. PYQ: ${s.pyq}. Current Focus: ${s.current}.`;
+  }else{
+    reply=`Officer, ${state} ka data abhi database me nahi hai.`;
+  }
+
+  const info=document.getElementById("info");
+
+  if(info){
+    info.innerHTML=`
+      <div class="card">
+        <h3>🎙 Officer Voice</h3>
+        <p><b>Command:</b> ${spoken}</p>
+        <p>${reply}</p>
+      </div>`;
+  }
+
+  speak(reply);
+
+  if(btn) btn.innerHTML="🎤";
+};
 
   rec.onerror=(e)=>{
     if(btn) btn.innerHTML="🎤";
