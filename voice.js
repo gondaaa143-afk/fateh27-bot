@@ -5,45 +5,20 @@ async function loadVoiceData() {
     const res = await fetch("./data/states.json");
     voiceStates = await res.json();
   } catch (e) {
-    console.log("Voice data load failed", e);
+    console.log("Voice data load failed");
   }
 }
 loadVoiceData();
-
-function speak(text) {
-  if (!("speechSynthesis" in window)) return;
-
-  speechSynthesis.cancel();
-
-  const msg = new SpeechSynthesisUtterance(text);
-  msg.lang = "hi-IN";
-  msg.rate = 0.95;
-  msg.pitch = 1;
-
-  const voices = speechSynthesis.getVoices();
-  const hi = voices.find(v => v.lang.startsWith("hi"));
-  if (hi) msg.voice = hi;
-
-  setTimeout(() => speechSynthesis.speak(msg), 300);
-}
 
 const aliases = {
   "असम":"Assam","assam":"Assam",
   "उत्तर प्रदेश":"Uttar Pradesh","up":"Uttar Pradesh",
   "राजस्थान":"Rajasthan","rajasthan":"Rajasthan",
-  "गुजरात":"Gujarat","gujarat":"Gujarat",
   "बिहार":"Bihar","bihar":"Bihar",
-  "झारखंड":"Jharkhand","jharkhand":"Jharkhand",
+  "गुजरात":"Gujarat","gujarat":"Gujarat",
   "लद्दाख":"Ladakh","ladakh":"Ladakh",
   "दिल्ली":"Delhi","delhi":"Delhi",
-  "सिक्किम":"Sikkim","sikkim":"Sikkim",
-  "तमिलनाडु":"Tamil Nadu","tamil":"Tamil Nadu",
-  "केरल":"Kerala","kerala":"Kerala",
-  "कर्नाटक":"Karnataka","karnataka":"Karnataka",
-  "महाराष्ट्र":"Maharashtra","maharashtra":"Maharashtra",
-  "पंजाब":"Punjab","punjab":"Punjab",
-  "हरियाणा":"Haryana","haryana":"Haryana",
-  "ओडिशा":"Odisha","odisha":"Odisha"
+  "सिक्किम":"Sikkim","sikkim":"Sikkim"
 };
 
 function detectState(text){
@@ -59,23 +34,17 @@ function officerCommand(){
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
 
   if(!SR){
-    alert("Voice Recognition support nahi hai.");
+    alert("Is device me Voice Recognition support nahi hai.");
     return;
   }
 
   const btn=document.getElementById("officerBtn");
-  btn.innerHTML="🎙";
+  if(btn) btn.innerHTML="🎙️";
 
   const rec=new SR();
   rec.lang="hi-IN";
   rec.interimResults=false;
   rec.maxAlternatives=1;
-
-  speechSynthesis.getVoices();
-
-  rec.onstart=()=>{
-    btn.innerHTML="🎙";
-  };
 
   rec.onresult=(e)=>{
 
@@ -83,118 +52,45 @@ function officerCommand(){
     const state=detectState(spoken);
 
     if(!state){
-      const msg="Officer. State ka naam dobara boliye.";
-      alert(msg);
-      speak(msg);
-      btn.innerHTML="🎤";
+      alert(`Command: ${spoken}\n\nState pehchana nahi gaya.`);
+      if(btn) btn.innerHTML="🎤";
       return;
-    }
-
-    let reply="";
-
-    if(state==="Assam"){
-
-      reply=`Officer Briefing.
-
-Assam.
-
-North East ka gateway.
-
-Rajdhani Dispur.
-
-Sabse bada shahar Guwahati.
-
-Brahmaputra aur Barak mukhya nadiyan.
-
-Kaziranga UNESCO World Heritage Site.
-
-Manas bhi UNESCO site.
-
-One Horned Rhino.
-
-Tea production me Bharat ka sabse bada yogdan.
-
-Muga Silk ke liye famous.
-
-UPSC Focus.
-
-Kaziranga.
-
-Brahmaputra Floods.
-
-Bodo Accord.
-
-Tea Economy.`;
-
-    }else{
-
-      const s=voiceStates[state];
-
-      if(s){
-
-        reply=`Officer Briefing.
-
-${state}.
-
-Hot Topics.
-
-${s.topics.slice(0,4).join(", ")}.
-
-PYQ.
-
-${s.pyq}.
-
-Current Focus.
-
-${s.current}.`;
-
-      }else{
-
-        reply=`Officer. ${state} ka data database me nahi mila.`;
-
-      }
     }
 
     if(typeof showState==="function"){
       showState(state);
     }
 
-    const info=document.getElementById("info");
-    if(info){
-      info.innerHTML += `
-      <div class="card">
-        <h3>🎙 Officer Voice</h3>
-        <p>${reply.replace(/\n/g,"<br>")}</p>
-      </div>`;
+    let reply="";
+
+    if(state==="Assam"){
+      reply="Officer, Assam GS3 revise karo. Kaziranga, Brahmaputra Floods, Bodo Accord, Muga Silk aur Tea Economy important hain.";
+    }else if(voiceStates[state]){
+      const s=voiceStates[state];
+      reply=`Officer, ${state}. Hot Topics: ${s.topics.slice(0,3).join(", ")}. PYQ: ${s.pyq}. Current Focus: ${s.current}.`;
+    }else{
+      reply=`Officer, ${state} ka data abhi database me nahi hai.`;
     }
 
-    alert(reply);
-    speak(reply);
+    alert(`Command: ${spoken}\n\n${reply}`);
 
-    btn.innerHTML="🎤";
+    if(btn) btn.innerHTML="🎤";
   };
 
   rec.onerror=(e)=>{
-
-    btn.innerHTML="🎤";
+    if(btn) btn.innerHTML="🎤";
 
     if(e.error==="not-allowed"){
       alert("Mic permission Allow karo.");
-      return;
+    }else if(e.error==="no-speech"){
+      alert("Awaaz sunai nahi di. Dobara bolo.");
+    }else{
+      alert("Voice Error: "+e.error);
     }
-
-    if(e.error==="no-speech"){
-      const msg="Officer. Awaaz sunai nahi di. Dobara boliye.";
-      alert(msg);
-      speak(msg);
-      return;
-    }
-
-    console.log("Speech Error:", e.error);
   };
 
   rec.onend=()=>{
-    btn.innerHTML="🎤";
+    if(btn) btn.innerHTML="🎤";
   };
 
   rec.start();
