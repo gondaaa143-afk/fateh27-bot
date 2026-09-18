@@ -13,10 +13,11 @@ app.get("/", (req, res) => {
 });
 
 app.get("/health", (req, res) => {
+  res.json({ status: "ok" });
+});
 app.get("/current", (req, res) => {
   res.sendFile(process.cwd() + "/data/current.md");
 });
-
 app.post("/tts", async (req, res) => {
   try {
     const text = req.body?.text || "Officer briefing.";
