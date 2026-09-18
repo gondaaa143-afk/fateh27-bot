@@ -24,24 +24,20 @@ small{color:#7dd3fc}
 
 
 <script>
-fetch("/current?" + Date.now())
-  .then(r => r.text())
-  .then(md => {
-    const lines = md.split("\n");
+async function loadCurrent() {
+  try {
+    const res = await fetch("https://fateh27-bot.onrender.com/current");
+    const d = await res.json();
 
-    document.getElementById("title").innerText =
-      lines[0].replace("# ", "");
+    document.getElementById("title").innerText = d.title;
+    document.getElementById("date").innerText = d.date + " • " + d.source;
+    document.getElementById("summary").innerText = d.summary;
+  } catch (e) {
+    document.getElementById("title").innerText = "Server se connect nahi hua";
+  }
+}
 
-    document.getElementById("date").innerText =
-      lines[2].replace("Updated: ", "");
-
-    document.getElementById("summary").innerHTML =
-      md.replace(lines[0], "").replace(lines[2], "").replace(/\n/g, "<br>");
-  })
-  .catch(() => {
-    document.getElementById("title").innerText = "Current Affairs";
-    document.getElementById("summary").innerText = "Data load nahi hua.";
-  });
+loadCurrent();
 </script>
 </script>
 
