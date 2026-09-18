@@ -23,7 +23,7 @@ jobs:
         run: npm install axios fast-xml-parser
 
       - name: Update Current Affairs
-        - run: node scripts/update-current.cjs
+        - run: node scripts/update-current.mjs
 
       - name: Commit & Push
         run: |
