@@ -26,7 +26,7 @@ small{color:#7dd3fc}
 Telegram.WebApp.ready();
 Telegram.WebApp.expand();
 
-fetch("./data/current.md")
+fetch("/data/current.md?" + Date.now())
   .then(r => r.text())
   .then(md => {
     const lines = md.split("\n");
