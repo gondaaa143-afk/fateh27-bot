@@ -5,7 +5,9 @@ const app = express();
 app.use(express.static("."));
 app.use(cors());
 app.use(express.json());
-
+app.get("/data/current.md", (req, res) => {
+  res.sendFile(process.cwd() + "/data/current.md");
+});
 app.get("/", (req, res) => {
   res.send("FATEH27 Officer Voice Live");
 });
