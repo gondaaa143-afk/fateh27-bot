@@ -20,31 +20,44 @@ Har topic me:
 - PYQ Link Story
 `;
 
-const res = await fetch(
-  "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent",
-  {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "x-goog-api-key": API_KEY
-    },
-    body: JSON.stringify({
-      contents: [
-        {
-          parts: [{ text: prompt }]
-        }
-      ]
-    })
+let res, data;
+
+for (let i = 0; i < 3; i++) {
+  res = await fetch(
+    "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-goog-api-key": API_KEY
+      },
+      body: JSON.stringify({
+        contents: [
+          {
+            parts: [{ text: prompt }]
+          }
+        ]
+      })
+    }
+  );
+
+  data = await res.json();
+
+  if (res.ok && data.candidates?.[0]?.content?.parts?.[0]?.text) break;
+
+  if (res.status === 503) {
+    console.log(`Retry ${i + 1}/3...`);
+    await new Promise(r => setTimeout(r, 5000));
+    continue;
   }
-);
 
-const data = await res.json();
-
-if (!data.candidates?.[0]?.content?.parts?.[0]?.text) {
   console.log(JSON.stringify(data, null, 2));
   throw new Error("Generation failed");
 }
 
+if (!res.ok || !data.candidates?.[0]?.content?.parts?.[0]?.text) {
+  throw new Error("Gemini busy after 3 retries.");
+}
 fs.mkdirSync("data", { recursive: true });
 fs.writeFileSync(
   "data/current.md",
