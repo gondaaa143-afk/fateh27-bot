@@ -1,44 +1,81 @@
 <!DOCTYPE html>
-<html>
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Current Affairs</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FATEH27 Current Affairs</title>
+
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
 <style>
-body{margin:0;background:#07152d;color:white;font-family:Arial;padding:20px}
-.card{background:#0f2348;padding:18px;border-radius:16px;margin-top:15px}
-h1{font-size:24px}
-small{color:#7dd3fc}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  background:#07152d;
+  color:white;
+  font-family:Arial,sans-serif;
+  padding:20px;
+}
+h1{
+  font-size:30px;
+  margin-bottom:18px;
+}
+.card{
+  background:#0f2348;
+  border-radius:18px;
+  padding:18px;
+  margin-top:15px;
+}
+h2{
+  font-size:22px;
+  margin-bottom:8px;
+}
+small{
+  color:#9fb3d9;
+}
+pre{
+  white-space:pre-wrap;
+  word-wrap:break-word;
+  font-family:inherit;
+  font-size:16px;
+  line-height:1.7;
+  margin-top:14px;
+}
 </style>
 </head>
+
 <body>
 
 <h1>📚 Current Affairs</h1>
 
 <div class="card">
-<h2 id="title">Loading...</h2>
-<small id="date"></small>
-<p id="summary"></p>
+  <h2 id="title">Loading...</h2>
+  <small id="date"></small>
+  <pre id="summary"></pre>
 </div>
 
-
 <script>
-async function loadCurrent() {
-  try {
-    const res = await fetch("https://fateh27-bot.onrender.com/current");
-    const d = await res.json();
+Telegram.WebApp.ready();
+Telegram.WebApp.expand();
 
-    document.getElementById("title").innerText = d.title;
-    document.getElementById("date").innerText = d.date + " • " + d.source;
-    document.getElementById("summary").innerText = d.summary;
-  } catch (e) {
-    document.getElementById("title").innerText = "Server se connect nahi hua";
+async function loadCurrent(){
+  try{
+    const res=await fetch(window.location.origin+"/current?"+Date.now());
+
+    if(!res.ok) throw new Error("Server");
+
+    const text=await res.text();
+
+    document.getElementById("title").innerText="Daily Current Affairs";
+    document.getElementById("date").innerText="Auto Updated from GitHub Actions";
+    document.getElementById("summary").innerText=text;
+
+  }catch(e){
+    document.getElementById("title").innerText="Server se connect nahi hua";
+    document.getElementById("summary").innerText="";
   }
 }
 
 loadCurrent();
-</script>
 </script>
 
 </body>
