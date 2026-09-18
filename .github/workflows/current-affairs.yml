@@ -1,4 +1,4 @@
-- name: Generate Current Affairs
+-name: Generate Current Affairs
   run: node scripts/update-current.mjs
   env:
     GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
