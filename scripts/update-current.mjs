@@ -1,8 +1,9 @@
 import fs from "fs";
+import { GoogleGenAI } from "@google/genai";
 
-const API_KEY = process.env.GEMINI_API_KEY;
-
-if (!API_KEY) throw new Error("GEMINI_API_KEY missing");
+const ai = new GoogleGenAI({
+  apiKey: process.env.GEMINI_API_KEY,
+});
 
 const prompt = `
 Aaj ke UPSC Current Affairs Hindi me banao.
@@ -20,48 +21,29 @@ Har topic me:
 - PYQ Link Story
 `;
 
-let res, data;
+let text = "";
 
-for (let i = 0; i < 3; i++) {
-  res = await fetch(
-    "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-goog-api-key": API_KEY
-      },
-      body: JSON.stringify({
-        contents: [
-          {
-            parts: [{ text: prompt }]
-          }
-        ]
-      })
-    }
-  );
+for (let i = 0; i < 5; i++) {
+  try {
+    const res = await ai.models.generateContent({
+      model: "gemini-3.5-flash-lite",
+      contents: prompt,
+    });
 
-  data = await res.json();
+    text = res.text;
 
-  if (res.ok && data.candidates?.[0]?.content?.parts?.[0]?.text) break;
-
-  if (res.status === 503) {
-    console.log(`Retry ${i + 1}/3...`);
-    await new Promise(r => setTimeout(r, 5000));
-    continue;
+    if (text) break;
+  } catch (e) {
+    console.log(`Retry ${i + 1}/5`);
+    await new Promise(r => setTimeout(r, (i + 1) * 15000));
   }
-
-  console.log(JSON.stringify(data, null, 2));
-  throw new Error("Generation failed");
 }
 
-if (!res.ok || !data.candidates?.[0]?.content?.parts?.[0]?.text) {
-  throw new Error("Gemini busy after 3 retries.");
+if (!text) {
+  throw new Error("Gemini busy after 5 retries.");
 }
+
 fs.mkdirSync("data", { recursive: true });
-fs.writeFileSync(
-  "data/current.md",
-  data.candidates[0].content.parts[0].text
-);
+fs.writeFileSync("data/current.md", text);
 
 console.log("Current Affairs Updated Successfully");
