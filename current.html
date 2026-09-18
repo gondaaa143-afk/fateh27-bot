@@ -22,22 +22,21 @@ small{color:#7dd3fc}
 <p id="summary"></p>
 </div>
 
-<script>
-Telegram.WebApp.ready();
-Telegram.WebApp.expand();
 
-fetch("/data/current.md?" + Date.now())
+<script>
+fetch("/current?" + Date.now())
   .then(r => r.text())
   .then(md => {
     const lines = md.split("\n");
+
     document.getElementById("title").innerText =
-      lines[0].replace("# ","");
+      lines[0].replace("# ", "");
+
     document.getElementById("date").innerText =
-      lines[2].replace("Updated: ","");
+      lines[2].replace("Updated: ", "");
 
     document.getElementById("summary").innerHTML =
-      md.replace(lines[0],"").replace(lines[2],"")
-        .replace(/\n/g,"<br>");
+      md.replace(lines[0], "").replace(lines[2], "").replace(/\n/g, "<br>");
   })
   .catch(() => {
     document.getElementById("title").innerText = "Current Affairs";
