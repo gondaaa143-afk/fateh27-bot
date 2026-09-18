@@ -1,10 +1,9 @@
 import fs from "fs";
 
-const text = fs.readFileSync("data/current.md", "utf8");
+const text = fs.readFileSync("current.txt", "utf8");
 const BOT = process.env.TELEGRAM_BOT_TOKEN;
 const CHAT = process.env.TELEGRAM_CHAT_ID;
-
-const LIMIT = 3800; // Telegram safe limit
+const LIMIT = 3800;
 
 async function send(msg) {
   const res = await fetch(
@@ -15,29 +14,24 @@ async function send(msg) {
       body: JSON.stringify({
         chat_id: CHAT,
         text: msg,
-        parse_mode: "HTML",
         disable_web_page_preview: true
       })
     }
   );
 
   const data = await res.json();
-
   if (!data.ok) throw new Error(JSON.stringify(data));
 }
 
 const parts = [];
-
 for (let i = 0; i < text.length; i += LIMIT) {
   parts.push(text.slice(i, i + LIMIT));
 }
 
-await send(
-  `📚 <b>FATEH27 Daily Current Affairs</b>\n📅 ${new Date().toLocaleDateString("en-IN")}\n\nTotal Parts: ${parts.length}`
-);
+await send(`📚 FATEH27 Daily Current Affairs\n📅 ${new Date().toLocaleDateString("en-IN")}\n\nTotal Parts: ${parts.length}`);
 
 for (let i = 0; i < parts.length; i++) {
-  await send(`📖 <b>Part ${i + 1}/${parts.length}</b>\n\n${parts[i]}`);
+  await send(`📖 Part ${i + 1}/${parts.length}\n\n${parts[i]}`);
 }
 
-console.log("Telegram post sent successfully.");
+console.log("Done");
