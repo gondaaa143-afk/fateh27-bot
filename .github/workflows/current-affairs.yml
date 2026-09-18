@@ -15,7 +15,8 @@ jobs:
           curl -L "https://fateh27-bot.onrender.com/current" -o current.txt
 
       - name: Send to Telegram
-        run: |
-          curl -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
-          -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
-          --data-urlencode text@current.txt
+  run: |
+    curl -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
+      -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
+      -d parse_mode=HTML \
+      --data-urlencode text@current.txt
