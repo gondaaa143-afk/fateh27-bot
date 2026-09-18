@@ -22,22 +22,28 @@ small{color:#7dd3fc}
 <p id="summary"></p>
 </div>
 
-<script type="module">
-import { db } from "./firebaseConfig.js";
-import { collection, getDocs, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
-
+<script>
 Telegram.WebApp.ready();
 Telegram.WebApp.expand();
 
-const snap = await getDocs(
-  query(collection(db,"currentAffairs"), orderBy("createdAt","desc"), limit(1))
-);
+fetch("./data/current.md")
+  .then(r => r.text())
+  .then(md => {
+    const lines = md.split("\n");
+    document.getElementById("title").innerText =
+      lines[0].replace("# ","");
+    document.getElementById("date").innerText =
+      lines[2].replace("Updated: ","");
 
-const d = snap.docs[0].data();
-
-document.getElementById("title").innerText = d.title;
-document.getElementById("date").innerText = d.date + " • " + d.source;
-document.getElementById("summary").innerText = d.summary;
+    document.getElementById("summary").innerHTML =
+      md.replace(lines[0],"").replace(lines[2],"")
+        .replace(/\n/g,"<br>");
+  })
+  .catch(() => {
+    document.getElementById("title").innerText = "Current Affairs";
+    document.getElementById("summary").innerText = "Data load nahi hua.";
+  });
+</script>
 </script>
 
 </body>
