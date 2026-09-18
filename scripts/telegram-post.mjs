@@ -1,25 +1,27 @@
+
 import fs from "fs";
 
-const token = process.env.TELEGRAM_BOT_TOKEN;
-const chatId = process.env.TELEGRAM_CHAT_ID;
+const TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+
+if (!TOKEN || !CHAT_ID) {
+  throw new Error("TELEGRAM_BOT_TOKEN ya TELEGRAM_CHAT_ID missing");
+}
 
 const text = fs.readFileSync("current.txt", "utf8");
 
-for (let i = 0; i < text.length; i += 3500) {
-  const part = text.slice(i, i + 3500);
+const chunks = text.match(/[\s\S]{1,3500}/g) || [];
 
-  const res = await fetch(
-    `https://api.telegram.org/bot${token}/sendMessage`,
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        chat_id: chatId,
-        text: part,
-        parse_mode: "HTML",
-      }),
-    }
-  );
+for (const chunk of chunks) {
+  const res = await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      chat_id: CHAT_ID,
+      text: chunk,
+      parse_mode: "HTML",
+    }),
+  });
 
   const data = await res.json();
   if (!data.ok) throw new Error(JSON.stringify(data));
