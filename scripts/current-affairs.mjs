@@ -8,22 +8,43 @@ const feeds = [
   "https://www.thehindu.com/news/national/feeder/default.rss"
 ];
 
-let text = `# Daily Current Affairs\n\nUpdated: ${new Date().toLocaleString("en-IN",{timeZone:"Asia/Kolkata"})}
+let text = `# Daily Current Affairs
+
+Updated: ${new Date().toLocaleString("en-IN", {
+  timeZone: "Asia/Kolkata"
+})}
+
+---
+
+`;
 
 for (const feed of feeds) {
   try {
     const rss = await parser.parseURL(feed);
-    text += `## ${rss.title}\n\n`;
 
-    for (const item of rss.items.slice(0,5)) {
-      text += `### ${item.title}\n`;
-      text += `${item.contentSnippet || item.content || ""}\n\n`;
-      text += `🔗 ${item.link}\n\n---\n\n`;
+    text += `## ${rss.title}
+
+`;
+
+    for (const item of rss.items.slice(0, 5)) {
+      text += `### ${item.title}
+
+`;
+      text += `${item.contentSnippet || item.content || "No summary available."}
+
+`;
+      text += `🔗 ${item.link}
+
+---
+
+`;
     }
-  } catch (e) {
+  } catch (err) {
     console.log("Feed failed:", feed);
   }
 }
 
+fs.mkdirSync("data", { recursive: true });
 fs.writeFileSync("data/current.md", text);
+
 console.log("Current Affairs generated.");
