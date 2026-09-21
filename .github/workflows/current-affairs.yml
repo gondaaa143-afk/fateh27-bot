@@ -14,7 +14,7 @@ jobs:
 
       - name: Get Current Affairs
         run: |
-          curl -L "https://fateh27-bot.onrender.com/current" -o current.txt
+          curl -L "https://fateh27-bot.onrender.com/api/current" -o current.txt
 
       - name: Post to Telegram Split
         env:
