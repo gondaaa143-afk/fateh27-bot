@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/current",
+      "destination": "/current.html"
+    }
+  ]
+}
