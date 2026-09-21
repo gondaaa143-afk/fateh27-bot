@@ -59,8 +59,7 @@ Telegram.WebApp.expand();
 
 async function loadCurrent(){
   try{
-    const res=await fetch(window.location.origin+"/current?"+Date.now());
-
+    const res = await fetch("/data/current.md?" + Date.now());
     if(!res.ok) throw new Error("Server");
 
     const text=await res.text();
