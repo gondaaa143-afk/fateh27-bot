@@ -25,5 +25,5 @@ for (const chunk of chunks) {
 
   const data = await res.json();
   console.log(`https://api.telegram.org/bot${TOKEN}/sendMessage`);
-  if (!data.ok) throw new Error(JSON.stringify(data));
+
 }
