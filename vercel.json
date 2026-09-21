@@ -3,6 +3,10 @@
     {
       "source": "/current",
       "destination": "/current.html"
+    },
+    {
+      "source": "/current-affairs",
+      "destination": "/current-affairs.html"
     }
   ]
 }
