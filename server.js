@@ -11,9 +11,11 @@ app.get("/data/current.md", (req, res) => {
 app.get("/", (req, res) => {
   res.send("FATEH27 Officer Voice Live");
 });
-
 app.get("/health", (req, res) => {
   res.json({ status: "ok" });
+  });
+app.get("/current", (req, res) => {
+  res.sendFile(process.cwd() + "/data/current.md");
 });
 app.get("/api/current", (req, res) => {
   res.sendFile(process.cwd() + "/data/current.md");
