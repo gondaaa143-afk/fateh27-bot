@@ -12,9 +12,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: npm install
+
       - name: Get Current Affairs
         run: |
-   curl -L "https://fateh27-bot.onrender.com/current" -o current.txt
+          mkdir -p data
+          node scripts/current-affairs.mjs
 
       - name: Post to Telegram Split
         env:
