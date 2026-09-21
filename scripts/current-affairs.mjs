@@ -8,7 +8,7 @@ const feeds = [
   "https://www.thehindu.com/news/national/feeder/default.rss"
 ];
 
-let text = `# Daily Current Affairs\n\nUpdated: ${new Date().toISOString().slice(0,10)}\n\n---\n\n`;
+let text = `# Daily Current Affairs\n\nUpdated: ${new Date().toLocaleString("en-IN",{timeZone:"Asia/Kolkata"})}
 
 for (const feed of feeds) {
   try {
