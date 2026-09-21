@@ -8,7 +8,7 @@ if (!TOKEN || !CHAT_ID) {
   throw new Error("TELEGRAM_BOT_TOKEN ya TELEGRAM_CHAT_ID missing");
 }
 
-const text = fs.readFileSync("current.txt", "utf8");
+const text = fs.readFileSync("data/current.md", "utf8");
 
 const chunks = text.match(/[\s\S]{1,3500}/g) || [];
 
