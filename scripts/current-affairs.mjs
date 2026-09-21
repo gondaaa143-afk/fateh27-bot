@@ -4,7 +4,7 @@ import Parser from "rss-parser";
 const parser = new Parser();
 
 const feeds = [
-"https://pib.gov.in/RssMain.aspx?ModId=6&Lang=1&Regid=3"
+  "https://pib.gov.in/RssMain.aspx?ModId=6&Lang=1&Regid=3",
   "https://www.thehindu.com/news/national/feeder/default.rss"
 ];
 
