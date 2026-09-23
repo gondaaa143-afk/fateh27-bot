@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,186 +7,64 @@
 
 <style>
 body{
-  background:#02140b;
-  color:white;
-  font-family:Arial,sans-serif;
-  margin:0;
-  padding:24px;
+background:#07152d;
+color:white;
+font-family:Arial,sans-serif;
+margin:0;
+padding:20px;
 }
-h1{font-size:48px;margin:0}
-.sub{color:#9fb3a8;margin:8px 0 24px}
-.search{
-  width:100%;
-  padding:15px;
-  background:#072317;
-  border:1px solid #14472d;
-  border-radius:18px;
-  color:white;
-  box-sizing:border-box;
+h1{font-size:32px;}
+.tabs{
+display:flex;
+gap:8px;
+margin:18px 0;
+flex-wrap:wrap;
 }
-.filters{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin:20px 0;
+button{
+background:#18d26b;
+color:white;
+border:none;
+padding:10px 16px;
+border-radius:20px;
+font-weight:bold;
 }
-.chip{
-  padding:12px 18px;
-  border:1px solid #175538;
-  border-radius:999px;
-  cursor:pointer;
-}
-.active{
-  background:#2be07a;
-  color:black;
+button.active{
+background:#00a651;
 }
 .card{
-  background:#072317;
-  border:1px solid #12462d;
-  border-radius:22px;
-  padding:20px;
-  margin-bottom:18px;
-}
-.tag{
-  display:inline-block;
-  background:#11321f;
-  padding:6px 12px;
-  border-radius:999px;
-  font-size:12px;
-  margin-right:8px;
-}
-.box{
-  background:#0b2c1d;
-  border-radius:18px;
-  padding:14px;
-  margin-top:14px;
-}
-.back{
-  width:100%;
-  padding:18px;
-  border:none;
-  border-radius:18px;
-  background:#2be07a;
-  color:black;
-  font-weight:bold;
-  margin-top:20px;
+background:#0d2148;
+padding:18px;
+border-radius:18px;
+white-space:pre-wrap;
+line-height:1.7;
 }
 </style>
 </head>
 
 <body>
 
-<h1>CURRENT AFFAIRS</h1>
-<div class="sub">Command Center • <span id="date">Loading...</span></div>
+<h1>📚 Current Affairs</h1>
 
-<input id="search" class="search" placeholder="Search topic, scheme, article...">
-
-<div class="filters">
-  <div class="chip active" onclick="setFilter('All',this)">All</div>
-  <div class="chip" onclick="setFilter('GS1',this)">GS1</div>
-  <div class="chip" onclick="setFilter('GS2',this)">GS2</div>
-  <div class="chip" onclick="setFilter('GS3',this)">GS3</div>
-  <div class="chip" onclick="setFilter('GS4',this)">GS4</div>
+<div class="tabs">
+<button onclick="loadGS('gs1',this)" class="active">GS1</button>
+<button onclick="loadGS('gs2',this)">GS2</button>
+<button onclick="loadGS('gs3',this)">GS3</button>
+<button onclick="loadGS('gs4',this)">GS4</button>
 </div>
 
-<div id="newsContainer"></div>
-
-<button class="back" onclick="location.href='index.html'">← Back to War Room</button>
+<div class="card" id="content">Loading...</div>
 
 <script>
-let articles=[];
-let currentFilter="All";
+async function loadGS(gs,btn){
+document.querySelectorAll("button").forEach(b=>b.classList.remove("active"));
+if(btn)btn.classList.add("active");
 
-async function loadCurrentAffairs(){
-  try{
-
-    const res=await fetch("/data/current-affairs.json?v="+Date.now(),{
-      cache:"no-store"
-    });
-
-    const data=await res.json();
-
-    document.getElementById("date").textContent=data.date||"Today";
-
-    articles=(data.top_5_upsc_current_affairs||[]).map(a=>{
-
-      const m=(a.gs_paper||"").match(/GS Paper (\d)/);
-
-      return{
-        title:a.title,
-        gs:m?"GS"+m[1]:"GS3",
-        source:"AI",
-        points:a.key_points||[],
-        mains:"Use this issue in UPSC Mains value addition."
-      };
-
-    });
-
-    render();
-
-  }catch(e){
-
-    document.getElementById("newsContainer").innerHTML=
-      "<div class='card'>Data load failed.</div>";
-
-  }
+const res=await fetch("/"+gs+"?t="+Date.now());
+const text=await res.text();
+document.getElementById("content").innerText=text;
 }
 
-function render(){
-
-  const q=document.getElementById("search").value.toLowerCase();
-
-  const list=articles.filter(a=>
-    (currentFilter==="All"||a.gs===currentFilter)&&
-    a.title.toLowerCase().includes(q)
-  );
-
-  const c=document.getElementById("newsContainer");
-
-  c.innerHTML="";
-
-  if(!list.length){
-    c.innerHTML="<div class='card'>No articles found.</div>";
-    return;
-  }
-
-  list.forEach(a=>{
-
-    c.innerHTML+=`
-      <div class="card">
-        <h2>${a.title}</h2>
-
-        <div>
-          <span class="tag">${a.gs}</span>
-          <span class="tag">${a.source}</span>
-        </div>
-
-        <div class="box">
-          <b>🎯 Prelims Facts</b>
-          <ul>${a.points.map(p=>`<li>${p}</li>`).join("")}</ul>
-        </div>
-
-        <div class="box">
-          <b>📝 Mains Value Addition</b>
-          <p>${a.mains}</p>
-        </div>
-
-      </div>
-    `;
-  });
-
-}
-
-function setFilter(f,el){
-  currentFilter=f;
-  document.querySelectorAll(".chip").forEach(x=>x.classList.remove("active"));
-  el.classList.add("active");
-  render();
-}
-
-document.getElementById("search").addEventListener("input",render);
-
-window.onload=loadCurrentAffairs;
+loadGS("gs1",document.querySelector("button"));
 </script>
 
 </body>
