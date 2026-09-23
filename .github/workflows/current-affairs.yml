@@ -18,10 +18,11 @@ jobs:
 
       - run: npm install
 
-      - name: Get Current Affairs
-        run: |
-          mkdir -p data
-          node scripts/current-affairs.mjs
+ - name: Get Current Affairs
+  run: |
+    mkdir -p data
+    node scripts/current-affairs.mjs
+
 - name: Commit updated current affairs
   run: |
     git config --global user.name "github-actions[bot]"
@@ -29,9 +30,10 @@ jobs:
     git add data/current.md
     git diff --cached --quiet || git commit -m "Auto update current affairs"
     git push
-      - name: Post to Telegram Split
-        env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: |
-          node scripts/telegram-post.mjs
+
+- name: Post to Telegram Split
+  env:
+    TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+    TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+  run: |
+    node scripts/telegram-post.mjs
