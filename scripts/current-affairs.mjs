@@ -22,29 +22,20 @@ for (const feed of feeds) {
   try {
     const rss = await parser.parseURL(feed);
 
-    text += `## ${rss.title}
-
-`;
+    text += `## ${rss.title}\n\n`;
 
     for (const item of rss.items.slice(0, 5)) {
-      text += `### ${item.title}
-
-`;
-      text += `${item.contentSnippet || item.content || "No summary available."}
-
-`;
-      text += `🔗 ${item.link}
-
----
-
-`;
+      text += `### ${item.title}\n\n`;
+      text += `${item.contentSnippet || "No summary available."}\n\n`;
+      text += `🔗 ${item.link}\n\n---\n\n`;
     }
   } catch (err) {
-    console.log("Feed failed:", feed);
+    text += `## Feed Error\n${feed}\n\n---\n\n`;
+    console.log(err);
   }
 }
 
 fs.mkdirSync("data", { recursive: true });
-fs.writeFileSync("data/current.md", text);
+fs.writeFileSync("data/current.md", text, "utf8");
 
 console.log("Current Affairs generated.");
