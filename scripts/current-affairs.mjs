@@ -70,7 +70,7 @@ let response;
 for (let i = 0; i < 3; i++) {
   try {
     response = await ai.models.generateContent({
-      model: "gemini-3.6-flash-lite",
+      model: "gemini-3.5-flash-lite",
       contents: prompt,
     });
     break;
