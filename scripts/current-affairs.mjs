@@ -10,9 +10,9 @@ const ai = new GoogleGenAI({
 const feeds = [
   "https://pib.gov.in/RssMain.aspx?ModId=6&Lang=1&Regid=3",
   "https://www.thehindu.com/news/national/feeder/default.rss",
+  "https://www.thehindu.com/news/international/feeder/default.rss",
   "https://www.thehindu.com/business/feeder/default.rss",
-  "https://www.thehindu.com/sci-tech/feeder/default.rss",
-  "https://www.thehindu.com/news/international/feeder/default.rss"
+  "https://www.thehindu.com/sci-tech/feeder/default.rss"
 ];
 
 let rawNews = "";
@@ -33,13 +33,13 @@ Summary: ${item.contentSnippet || ""}
 }
 
 const prompt = `
-तुम FATEH27 UPSC Editor हो।
+तुम FATEH27 UPSC Current Affairs Editor हो।
 
-इन खबरों को हिंदी में UPSC Current Affairs में बदलो।
+PIB + The Hindu की खबरों को UPSC के अनुसार हिंदी में व्यवस्थित करो।
 
 सिर्फ VALID JSON लौटाना।
 
-हर सेक्शन में यही format रहे:
+हर सेक्शन का format:
 
 📰 क्या हुआ? (3-4 लाइन)
 
@@ -51,31 +51,40 @@ const prompt = `
 
 🧠 Active Recall (2 प्रश्न)
 
-News:
+Raw News:
 
 ${rawNews}
 
 Output:
 
 {
-  "gs1":"...",
-  "gs2":"...",
-  "gs3":"...",
-  "gs4":"..."
+ "gs1":"...",
+ "gs2":"...",
+ "gs3":"...",
+ "gs4":"..."
 }
 `;
 
-const response = await ai.models.generateContent({
-  model: "gemini-3.6-flash",
-  contents: prompt,
-});
+let response;
+
+for (let i = 0; i < 3; i++) {
+  try {
+    response = await ai.models.generateContent({
+      model: "gemini-3.6-flash-lite",
+      contents: prompt,
+    });
+    break;
+  } catch (e) {
+    if (i === 2) throw e;
+    await new Promise(r => setTimeout(r, 10000));
+  }
+}
 
 let text = response.text.trim();
-
-// Agar Gemini ```json ... ``` de to hata do
 text = text.replace(/```json/g, "").replace(/```/g, "").trim();
 
 const data = JSON.parse(text);
+
 fs.mkdirSync("data", { recursive: true });
 
 fs.writeFileSync("data/gs1.md", data.gs1);
