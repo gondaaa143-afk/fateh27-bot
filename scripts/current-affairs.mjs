@@ -66,17 +66,16 @@ Output:
 `;
 
 const response = await ai.models.generateContent({
-  "models/gemini-3.6-flash"
-  contents: prompt
+  model: "gemini-3.6-flash",
+  contents: prompt,
 });
 
 let text = response.text.trim();
 
-// Markdown fences hata do agar Gemini de
+// Agar Gemini ```json ... ``` de to hata do
 text = text.replace(/```json/g, "").replace(/```/g, "").trim();
 
 const data = JSON.parse(text);
-
 fs.mkdirSync("data", { recursive: true });
 
 fs.writeFileSync("data/gs1.md", data.gs1);
