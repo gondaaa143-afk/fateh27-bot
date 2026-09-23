@@ -1,110 +1,100 @@
-
 import fs from "fs";
 import Parser from "rss-parser";
 import { GoogleGenAI } from "@google/genai";
 
 const parser = new Parser();
-const ai = new GoogleGenAI({
-  apiKey: process.env.GEMINI_API_KEY
-});
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 const feeds = [
   "https://pib.gov.in/RssMain.aspx?ModId=6&Lang=1&Regid=3",
   "https://www.thehindu.com/news/national/feeder/default.rss",
-  "https://www.thehindu.com/business/feeder/default.rss",
-  "https://www.thehindu.com/sci-tech/feeder/default.rss",
   "https://www.thehindu.com/news/international/feeder/default.rss"
 ];
 
-let news = [];
+let rawNews = "";
 
 for (const feed of feeds) {
   try {
     const rss = await parser.parseURL(feed);
-    news.push(...rss.items.slice(0, 4));
-  } catch (e) {}
+
+    for (const item of rss.items.slice(0, 5)) {
+      rawNews += `
+Title: ${item.title}
+Summary: ${item.contentSnippet || ""}
+`;
+    }
+  } catch (e) {
+    console.log("Feed error:", feed);
+  }
 }
 
 const prompt = `
-Tum FATEH27 UPSC Editor ho.
+तुम UPSC 2027 के लिए FATEH27 Current Affairs Editor हो।
 
-Neeche di gayi news ko Hindi me UPSC Current Affairs banao.
+इन खबरों को PIB + The Hindu के आधार पर प्रोसेस करो।
 
-FORMAT STRICTLY:
+OUTPUT सिर्फ हिंदी में दो।
 
-# 📚 FATEH27 Daily Current Affairs
+FORMAT बिल्कुल ऐसा हो:
 
-Date: ${new Date().toLocaleDateString("en-IN",{timeZone:"Asia/Kolkata"})}
+# DAILY CURRENT AFFAIRS
+Updated: ${new Date().toLocaleDateString("en-IN", {
+  timeZone: "Asia/Kolkata"
+})}
 
----
+━━━━━━━━━━━━━━
 
-## GS-1
+# GS1
+(समाज, इतिहास, संस्कृति, भूगोल)
 
-(sirf GS1 wali news)
+हर खबर में:
 
-Format:
+📰 क्या हुआ?
+📍 Prelims Point
+🧠 Active Recall (2 प्रश्न)
+✍️ Mains Linkage
+🔗 PYQ
 
-### News Title
+━━━━━━━━━━━━━━
 
-क्या हुआ? (3-4 line)
+# GS2
+(शासन, संविधान, IR)
 
-Background
+उसी format में।
 
-Prelims Facts (3)
+━━━━━━━━━━━━━━
 
-Mains Linkage
+# GS3
+(अर्थव्यवस्था, पर्यावरण, विज्ञान, सुरक्षा)
 
-PYQ Connection
+उसी format में।
 
-Active Recall (1 Question)
+━━━━━━━━━━━━━━
 
----
+# GS4
+(Ethics)
 
-## GS-2
+यदि खबर लागू होती हो तभी जोड़ो।
 
-Same format
+━━━━━━━━━━━━━━
 
----
+अंत में:
 
-## GS-3
+## ONE PAGE REVISION
+- 10 Keywords
+- 5 Prelims MCQs (Answer सहित)
 
-Same format
+Raw News:
 
----
-
-## GS-4
-
-Same format
-
----
-
-## Reports & Index
-
----
-
-## International Relations
-
----
-
-## War Room Revision
-
-- 5 One-liners
-- 3 PYQs
-- 1 Mains Question
-- 30-second Active Recall
-
-NEWS:
-
-${news.map(n=>`Title:${n.title}
-Snippet:${n.contentSnippet||""}`).join("\n\n")}
+${rawNews}
 `;
 
-const res = await ai.models.generateContent({
-  "models/gemini-3.6-flash"
-  contents:prompt
+const response = await ai.models.generateContent({
+  model: "gemini-3.6-flash",
+  contents: prompt
 });
 
-fs.mkdirSync("data",{recursive:true});
-fs.writeFileSync("data/current.md",res.text,"utf8");
+fs.mkdirSync("data", { recursive: true });
+fs.writeFileSync("data/current.md", response.text);
 
-console.log("AI Current Affairs generated.");
+console.log("Current Affairs generated.");
