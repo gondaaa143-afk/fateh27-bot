@@ -1,14 +1,14 @@
-
 import fs from "fs";
 import Parser from "rss-parser";
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 const parser = new Parser();
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 const feeds = [
   "https://pib.gov.in/RssMain.aspx?ModId=6&Lang=1&Regid=3",
-  "https://www.thehindu.com/news/feeder/default.rss"
+  "https://www.thehindu.com/news/national/feeder/default.rss",
+  "https://www.thehindu.com/news/international/feeder/default.rss"
 ];
 
 let rawNews = "";
@@ -16,103 +16,85 @@ let rawNews = "";
 for (const feed of feeds) {
   try {
     const rss = await parser.parseURL(feed);
-    for (const item of rss.items.slice(0, 8)) {
-      rawNews += `Title: ${item.title}\nSummary: ${item.contentSnippet || ""}\n\n`;
+
+    for (const item of rss.items.slice(0, 5)) {
+      rawNews += `
+Title: ${item.title}
+Summary: ${item.contentSnippet || ""}
+`;
     }
   } catch (e) {
-    console.log("Feed error:", e.message);
+    console.log("Feed error:", feed);
   }
 }
 
 const prompt = `
-Tum UPSC Hindi mentor ho.
+तुम UPSC 2027 के लिए FATEH27 Current Affairs Editor हो।
+
+इन खबरों को PIB + The Hindu के आधार पर प्रोसेस करो।
+
+OUTPUT सिर्फ हिंदी में दो।
+
+FORMAT बिल्कुल ऐसा हो:
+
+# DAILY CURRENT AFFAIRS
+Updated: ${new Date().toLocaleDateString("en-IN", {
+  timeZone: "Asia/Kolkata"
+})}
+
+━━━━━━━━━━━━━━
+
+# GS1
+(समाज, इतिहास, संस्कृति, भूगोल)
+
+हर खबर में:
+
+📰 क्या हुआ?
+📍 Prelims Point
+🧠 Active Recall (2 प्रश्न)
+✍️ Mains Linkage
+🔗 PYQ
+
+━━━━━━━━━━━━━━
+
+# GS2
+(शासन, संविधान, IR)
+
+उसी format में।
+
+━━━━━━━━━━━━━━
+
+# GS3
+(अर्थव्यवस्था, पर्यावरण, विज्ञान, सुरक्षा)
+
+उसी format में।
+
+━━━━━━━━━━━━━━
+
+# GS4
+(Ethics)
+
+यदि खबर लागू होती हो तभी जोड़ो।
+
+━━━━━━━━━━━━━━
+
+अंत में:
+
+## ONE PAGE REVISION
+- 10 Keywords
+- 5 Prelims MCQs (Answer सहित)
 
 Raw News:
+
 ${rawNews}
-
-Is news ko classify karo.
-
-Har GS section me ye format follow karo:
-
-# Topic
-
-## Kya hua?
-## Prelims Point
-## Mains Linkage
-## PYQ Connection
-## Active Recall
-
-Output ONLY valid JSON.
-
-{
-  "gs1":"markdown",
-  "gs2":"markdown",
-  "gs3":"markdown",
-  "gs4":"markdown"
-}
 `;
 
-const models = [
-  "gemini-2.5-flash",
-  "gemini-2.5-pro",
-  "gemini-2.0-flash"
-];
-
-let responseText = null;
-
-for (const model of models) {
-  console.log("Trying", model);
-
-  for (let retry = 1; retry <= 5; retry++) {
-    try {
-      const res = await ai.models.generateContent({
-        model,
-        contents: prompt
-      });
-
-      responseText = res.text;
-      console.log("Success:", model);
-      break;
-    } catch (e) {
-      const code = e?.status || e?.error?.code;
-
-      if (code === 503) {
-        console.log(`Busy (${retry}/5). Waiting...`);
-        await new Promise(r => setTimeout(r, retry * 10000));
-        continue;
-      }
-
-      console.log(`Failed ${model}:`, code);
-      break;
-    }
-  }
-
-  if (responseText) break;
-}
-
-if (!responseText) {
-  throw new Error("Gemini unavailable after retries.");
-}
-
-const data = JSON.parse(responseText);
+const response = await ai.models.generateContent({
+  model: "gemini-3.6-flash",
+  contents: prompt
+});
 
 fs.mkdirSync("data", { recursive: true });
+fs.writeFileSync("data/current.md", response.text);
 
-fs.writeFileSync("data/gs1.md", data.gs1);
-fs.writeFileSync("data/gs2.md", data.gs2);
-fs.writeFileSync("data/gs3.md", data.gs3);
-fs.writeFileSync("data/gs4.md", data.gs4);
-
-fs.writeFileSync(
-  "data/current.md",
-  `# 📚 FATEH27 Daily Current Affairs
-
-Updated: ${new Date().toLocaleDateString("en-IN")}
-
-- GS1 → /gs1
-- GS2 → /gs2
-- GS3 → /gs3
-- GS4 → /gs4`
-);
-
-console.log("Current Affairs generated successfully.");
+console.log("Current Affairs generated.");
