@@ -3,8 +3,10 @@ import Parser from "rss-parser";
 import { GoogleGenAI } from "@google/genai";
 
 const parser = new Parser();
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
-
+const ai = new GoogleGenAI({
+  apiKey: process.env.GEMINI_API_KEY,
+  apiVersion: "v1"
+});
 const feeds = [
   "https://pib.gov.in/RssMain.aspx?ModId=6&Lang=1&Regid=3",
   "https://www.thehindu.com/news/national/feeder/default.rss"
