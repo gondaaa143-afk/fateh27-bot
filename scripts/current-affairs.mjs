@@ -49,10 +49,43 @@ ${rawNews}
 }
 `;
 
-const response = await ai.models.generateContent({
-  model: "gemini-3.5-flash",
-  contents: prompt
-});
+const MODELS = [
+  "gemini-2.5-pro",
+  "gemini-2.5-flash",
+  "gemini-2.5-flash-lite",
+  "gemini-2.0-flash",
+  "gemini-2.0-flash-lite",
+  "gemini-1.5-pro",
+  "gemini-1.5-flash"
+];
+
+let response = null;
+let lastError = null;
+
+for (const model of MODELS) {
+  try {
+    console.log(`Trying ${model}...`);
+
+    response = await ai.models.generateContent({
+      model,
+      contents: prompt
+    });
+
+    console.log(`Success: ${model}`);
+    break;
+  } catch (err) {
+    lastError = err;
+    console.log(`Failed: ${model} (${err.status || err.message})`);
+
+    if (err.status === 503) {
+      await new Promise(r => setTimeout(r, 3000));
+    }
+  }
+}
+
+if (!response) {
+  throw lastError || new Error("All Gemini models failed.");
+}
 
 const json = JSON.parse(response.text);
 
