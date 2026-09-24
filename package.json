@@ -1,10 +1,15 @@
 {
-  "name": "fateh27-voice",
+  "name": "fateh27-bot",
+  "version": "1.0.0",
+  "private": true,
   "type": "module",
   "scripts": {
-    "start": "node server.js"
+    "current": "node scripts/current-affairs.mjs",
+    "post": "node scripts/telegram-post.mjs"
   },
-"dependencies": {
-  "@google/genai": "^1.24.0",
-  "rss-parser": "^3.13.0"
+  "dependencies": {
+    "@google/genai": "^1.22.0",
+    "rss-parser": "^3.13.0",
+    "dotenv": "^16.4.7"
+  }
 }
