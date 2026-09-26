@@ -1,9 +1,11 @@
+
 import fs from "fs";
 import Parser from "rss-parser";
 import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({
-  apiKey: process.env.GEMINI_API_KEY
+  apiKey: process.env.GEMINI_API_KEY,
+  httpOptions: { apiVersion: "v1" }
 });
 
 const parser = new Parser();
@@ -26,7 +28,6 @@ for (const feed of feeds) {
       rawNews += `
 Title: ${item.title}
 Summary: ${item.contentSnippet || ""}
-Link: ${item.link}
 `;
     }
   } catch (e) {
@@ -38,35 +39,59 @@ Link: ${item.link}
 const prompt = `
 Tum FATEH27 ke UPSC mentor ho.
 
+Neeche di gayi raw news ko Hindi me UPSC Current Affairs me convert karo.
+
 Raw News:
 ${rawNews}
 
-Is news ko UPSC perspective se classify karo.
+FINAL FORMAT EXACTLY AISA HO:
 
-Har GS section me ye format follow karna.
+# 📚 FATEH27 Daily Current Affairs
+Updated: (Aaj ki date)
 
-# Topic
+━━━━━━━━━━━━━━━━━━━━
 
-## Kya hua?
+# GS1
 
-## Prelims Point
+Har topic ke liye:
+- क्या हुआ?
+- Prelims Point
+- PYQ Linkage
+- Active Recall
 
-## Mains Linkage
+━━━━━━━━━━━━━━━━━━━━
 
-## PYQ Connection
+# GS2
 
-## Active Recall
+Har topic ke liye:
+- क्या हुआ?
+- Prelims Point
+- Mains Linkage
+- PYQ Linkage
+- Active Recall
 
-Sab Hindi me.
+━━━━━━━━━━━━━━━━━━━━
 
-Output ONLY valid JSON.
+# GS3
 
-{
- "gs1":"markdown",
- "gs2":"markdown",
- "gs3":"markdown",
- "gs4":"markdown"
-}
+Har topic ke liye:
+- क्या हुआ?
+- Prelims Point
+- Mains Linkage
+- PYQ Linkage
+- Active Recall
+
+━━━━━━━━━━━━━━━━━━━━
+
+# GS4
+
+Har topic ke liye:
+- Ethical Angle
+- Case Study Link
+- Active Recall
+
+Sirf markdown return karna.
+Koi JSON nahi.
 `;
 
 // ---------- GEMINI ----------
@@ -77,22 +102,17 @@ const models = [
 
 async function generate() {
   for (const model of models) {
-
     console.log("Trying:", model);
 
     for (let retry = 1; retry <= 5; retry++) {
-
       try {
-
         const res = await ai.models.generateContent({
           model,
           contents: prompt
         });
 
         return res.text;
-
       } catch (e) {
-
         const code = e?.status || e?.error?.code;
 
         console.log(`Attempt ${retry} Failed (${code})`);
@@ -110,36 +130,11 @@ async function generate() {
   throw new Error("All Gemini models failed.");
 }
 
-const responseText = await generate();
+const markdown = await generate();
 
-const data = JSON.parse(responseText);
-
-// ---------- SAVE FILES ----------
+// ---------- SAVE ----------
 fs.mkdirSync("data", { recursive: true });
 
-fs.writeFileSync("data/gs1.md", data.gs1);
-fs.writeFileSync("data/gs2.md", data.gs2);
-fs.writeFileSync("data/gs3.md", data.gs3);
-fs.writeFileSync("data/gs4.md", data.gs4);
-
-fs.writeFileSync(
-  "data/current.md",
-  `# 📚 FATEH27 Daily Current Affairs
-
-Updated: ${new Date().toLocaleString("en-IN", {
-    timeZone: "Asia/Kolkata"
-  })}
-
----
-
-📘 GS1 → /gs1
-
-🏛 GS2 → /gs2
-
-⚙ GS3 → /gs3
-
-🤝 GS4 → /gs4
-`
-);
+fs.writeFileSync("data/current.md", markdown);
 
 console.log("Current Affairs generated successfully.");
