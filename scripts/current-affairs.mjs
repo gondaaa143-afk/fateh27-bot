@@ -1,140 +1,103 @@
-
 import fs from "fs";
 import Parser from "rss-parser";
-import { GoogleGenAI } from "@google/genai";
-
-const ai = new GoogleGenAI({
-  apiKey: process.env.GEMINI_API_KEY,
-  httpOptions: { apiVersion: "v1" }
-});
 
 const parser = new Parser();
+const API_KEY = process.env.GEMINI_API_KEY;
 
 const feeds = [
   "https://pib.gov.in/RssMain.aspx?ModId=6&Lang=1&Regid=3",
   "https://www.thehindu.com/news/feeder/default.rss"
 ];
 
-// ---------- RAW NEWS ----------
 let rawNews = "";
 
 for (const feed of feeds) {
   try {
     const rss = await parser.parseURL(feed);
-
-    rawNews += `\n===== ${rss.title} =====\n`;
-
     for (const item of rss.items.slice(0, 10)) {
-      rawNews += `
-Title: ${item.title}
-Summary: ${item.contentSnippet || ""}
-`;
+      rawNews += `Title: ${item.title}\nSummary: ${item.contentSnippet || ""}\n\n`;
     }
-  } catch (e) {
-    console.log("Feed Error:", e.message);
-  }
+  } catch {}
 }
 
-// ---------- PROMPT ----------
 const prompt = `
-Tum FATEH27 ke UPSC mentor ho.
-
-Neeche di gayi raw news ko Hindi me UPSC Current Affairs me convert karo.
+Tum UPSC Hindi mentor ho.
 
 Raw News:
 ${rawNews}
 
-FINAL FORMAT EXACTLY AISA HO:
+Hindi me Current Affairs banao.
 
-# 📚 FATEH27 Daily Current Affairs
-Updated: (Aaj ki date)
-
-━━━━━━━━━━━━━━━━━━━━
+Format:
 
 # GS1
-
-Har topic ke liye:
-- क्या हुआ?
+- Kya hua
 - Prelims Point
 - PYQ Linkage
 - Active Recall
-
-━━━━━━━━━━━━━━━━━━━━
 
 # GS2
-
-Har topic ke liye:
-- क्या हुआ?
+- Kya hua
 - Prelims Point
 - Mains Linkage
 - PYQ Linkage
 - Active Recall
-
-━━━━━━━━━━━━━━━━━━━━
 
 # GS3
-
-Har topic ke liye:
-- क्या हुआ?
+- Kya hua
 - Prelims Point
 - Mains Linkage
 - PYQ Linkage
 - Active Recall
 
-━━━━━━━━━━━━━━━━━━━━
-
 # GS4
-
-Har topic ke liye:
 - Ethical Angle
-- Case Study Link
+- Case Study
 - Active Recall
 
-Sirf markdown return karna.
-Koi JSON nahi.
+Sirf Markdown return karo.
 `;
 
-// ---------- GEMINI ----------
-const models = [
-  "gemini-2.5-flash",
-  "gemini-2.5-pro"
-];
-
 async function generate() {
-  for (const model of models) {
-    console.log("Trying:", model);
-
-    for (let retry = 1; retry <= 5; retry++) {
-      try {
-        const res = await ai.models.generateContent({
-          model,
-          contents: prompt
-        });
-
-        return res.text;
-      } catch (e) {
-        const code = e?.status || e?.error?.code;
-
-        console.log(`Attempt ${retry} Failed (${code})`);
-
-        if (code === 503) {
-          await new Promise(r => setTimeout(r, retry * 10000));
-          continue;
+  for (let retry = 1; retry <= 5; retry++) {
+    try {
+      const res = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            contents: [
+              {
+                parts: [{ text: prompt }]
+              }
+            ]
+          })
         }
+      );
 
-        break;
+      if (res.status === 503) {
+        await new Promise(r => setTimeout(r, retry * 10000));
+        continue;
       }
+
+      if (!res.ok) throw new Error(await res.text());
+
+      const json = await res.json();
+      return json.candidates[0].content.parts[0].text;
+
+    } catch (e) {
+      if (retry === 5) throw e;
+      await new Promise(r => setTimeout(r, retry * 10000));
     }
   }
-
-  throw new Error("All Gemini models failed.");
 }
 
 const markdown = await generate();
 
-// ---------- SAVE ----------
 fs.mkdirSync("data", { recursive: true });
-
 fs.writeFileSync("data/current.md", markdown);
 
-console.log("Current Affairs generated successfully.");
+console.log("Current Affairs generated.");
