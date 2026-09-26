@@ -7,9 +7,8 @@
     "current": "node scripts/current-affairs.mjs",
     "post": "node scripts/telegram-post.mjs"
   },
-  "dependencies": {
-    "@google/genai": "^1.22.0",
-    "rss-parser": "^3.13.0",
-    "dotenv": "^16.4.7"
-  }
+"dependencies": {
+  "rss-parser": "^3.13.0",
+  "dotenv": "^16.4.7"
+}
 }
