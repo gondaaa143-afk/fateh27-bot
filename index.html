@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -99,9 +98,213 @@ border-radius:50%;
 top:82px;
 right:92px;
 box-shadow:0 0 18px #39FF88;
-animation:pulse 1.5s infinite
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:'Poppins',Arial,sans-serif;
+background:#F4F4F4;
+color:#111;
+overflow-x:hidden;
 }
-@keyframes pulse{50%{transform:scale(1.8)}}
+
+/* Background */
+
+.bg{
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at 20% 20%,rgba(255,255,255,.7),transparent 35%),
+linear-gradient(180deg,#F8F8F8,#ECECEC);
+z-index:-3;
+}
+
+.grid{
+display:none;
+}
+
+.scan{
+display:none;
+}
+
+/* Layout */
+
+.wrap{
+padding:20px;
+padding-bottom:110px;
+}
+
+.panel,
+.card,
+.subject,
+.secretary{
+background:rgba(255,255,255,.72);
+backdrop-filter:blur(20px);
+border:1px solid rgba(0,0,0,.08);
+border-radius:28px;
+box-shadow:0 8px 30px rgba(0,0,0,.08);
+}
+
+.panel{
+padding:22px;
+}
+
+/* Top */
+
+.top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:30px;
+font-weight:900;
+color:#111;
+}
+
+.badge{
+padding:8px 14px;
+border-radius:999px;
+background:#111;
+color:#fff;
+font-size:11px;
+}
+
+/* Profile */
+
+.profile{
+display:flex;
+gap:14px;
+align-items:center;
+margin-top:22px;
+}
+
+.avatar{
+width:68px;
+height:68px;
+border-radius:50%;
+background:#111;
+border:none;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+color:#fff;
+overflow:hidden;
+}
+
+/* ID Card */
+
+.idcard{
+margin-top:22px;
+background:#111;
+color:white;
+border:none;
+border-radius:32px;
+padding:20px;
+position:relative;
+overflow:hidden;
+}
+
+.idcard:after{
+content:"";
+position:absolute;
+top:-40%;
+left:-120%;
+width:120%;
+height:200%;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);
+transform:rotate(18deg);
+animation:shine 5s linear infinite;
+}
+
+@keyframes shine{
+100%{left:160%}
+}
+
+/* Globe */
+
+.globe{
+width:230px;
+height:230px;
+margin:28px auto;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.earth{
+position:absolute;
+width:170px;
+height:170px;
+border-radius:50%;
+background:linear-gradient(135deg,#333,#111);
+box-shadow:0 20px 40px rgba(0,0,0,.18);
+animation:earthRotate 18s linear infinite;
+}
+
+@keyframes earthRotate{
+to{transform:rotate(360deg)}
+}
+
+.orbit{
+position:absolute;
+border:1px solid rgba(0,0,0,.08);
+border-radius:50%;
+}
+
+.orbit1{
+width:210px;
+height:210px;
+animation:spin1 12s linear infinite;
+}
+
+.orbit2{
+width:180px;
+height:180px;
+transform:rotateX(75deg);
+animation:spin2 10s linear infinite;
+}
+
+.orbit3{
+width:150px;
+height:150px;
+transform:rotateY(70deg);
+animation:spin3 16s linear infinite reverse;
+}
+
+@keyframes spin1{
+to{transform:rotate(360deg)}
+}
+
+@keyframes spin2{
+to{transform:rotate(-360deg)}
+}
+
+@keyframes spin3{
+to{transform:rotate(360deg)}
+}
+
+.radarSweep{
+display:none;
+}
+
+.indiaPulse{
+position:absolute;
+width:12px;
+height:12px;
+background:#111;
+border-radius:50%;
+top:82px;
+right:92px;
+box-shadow:0 0 12px rgba(0,0,0,.35);
+animation:pulse 1.8s infinite;
+}
+
+@keyframes pulse{
+50%{transform:scale(1.6)}
+}
 
 .center{
 position:absolute;
@@ -109,52 +312,133 @@ inset:0;
 display:flex;
 flex-direction:column;
 align-items:center;
-justify-content:center
+justify-content:center;
 }
-#xp{font-size:34px;font-weight:900;color:#39FF88}
-#rank{color:#CFFFE1}
 
-.stats,.subjects{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
-.card,.subject{padding:16px}
-.stat{font-size:28px;font-weight:bold;color:#39FF88}
-.section{font-size:20px;font-weight:bold;margin:24px 0 12px}
-.bar{height:7px;background:#173925;border-radius:999px;overflow:hidden;margin-top:8px}
-.fill{height:100%;background:linear-gradient(90deg,#16C47F,#39FF88)}
-.secretary{padding:16px}
-.mission{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+#xp{
+font-size:34px;
+font-weight:900;
+color:#111;
+}
+
+#rank{
+color:#666;
+}
+
+/* Stats */
+
+.stats,
+.subjects{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:14px;
+margin-top:20px;
+}
+
+.card,
+.subject{
+padding:18px;
+}
+
+.stat{
+font-size:28px;
+font-weight:bold;
+color:#111;
+}
+
+.section{
+font-size:22px;
+font-weight:800;
+margin:26px 0 14px;
+color:#111;
+}
+
+/* Progress */
+
+.bar{
+height:8px;
+background:#E2E2E2;
+border-radius:999px;
+overflow:hidden;
+margin-top:10px;
+}
+
+.fill{
+height:100%;
+background:#111;
+}
+
+/* AI Secretary */
+
+.secretary{
+padding:18px;
+}
+
+.mission{
+display:flex;
+justify-content:space-between;
+padding:12px 0;
+border-bottom:1px solid rgba(0,0,0,.05);
+}
+
+#aiTip{
+margin-top:14px;
+padding:14px;
+border-radius:18px;
+background:#F1F1F1;
+border:1px solid rgba(0,0,0,.08);
+color:#111;
+}
+
+/* Buttons */
+
 button{
 width:100%;
-padding:16px;
-margin-top:12px;
+padding:17px;
+margin-top:14px;
 border:none;
-border-radius:18px;
-background:linear-gradient(135deg,#16C47F,#0EA85D);
+border-radius:20px;
+background:#111;
 color:#fff;
 font-size:16px;
-font-weight:bold
+font-weight:700;
+transition:.2s;
 }
+
+button:active{
+transform:scale(.97);
+}
+
+/* Level */
+
 #level{
 position:fixed;
 inset:0;
-background:rgba(2,8,5,.96);
+background:rgba(255,255,255,.96);
 display:none;
 align-items:center;
 justify-content:center;
 flex-direction:column;
-z-index:50
+z-index:50;
+color:#111;
 }
-#level h1{font-size:46px;color:#39FF88}
+
+#level h1{
+font-size:46px;
+}
+
 #toast{
 position:fixed;
 left:50%;
 bottom:120px;
 transform:translateX(-50%);
-background:#16C47F;
+background:#111;
+color:white;
 padding:12px 24px;
 border-radius:999px;
 font-weight:bold;
 opacity:0;
-transition:.35s
+transition:.35s;
 }
 </style>
 </head>
