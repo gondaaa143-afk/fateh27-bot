@@ -1,395 +1,2061 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Commander Map • FATEH27</title>
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>FATEH27</title>
+
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script src="./progress.js"></script>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --bg:#F4F4F4;
-  --card:rgba(255,255,255,.76);
-  --black:#111;
-  --muted:#666;
-  --soft:#E7E7E7;
+
+/* =========================================================
+   FATEH27 PREMIUM THEME
+   ========================================================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
+
+html{
+  scroll-behavior:smooth;
+}
+
 body{
-  font-family:-apple-system,BlinkMacSystemFont,"Poppins","Segoe UI",Arial,sans-serif;
-  background:
-    radial-gradient(circle at 10% 0%,rgba(255,255,255,.96),transparent 35%),
-    radial-gradient(circle at 100% 20%,rgba(220,220,220,.82),transparent 38%),
-    var(--bg);
+  font-family:Arial,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:#F4F4F4;
   color:#111;
-  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* BACKGROUND */
+
+.bg{
+  position:fixed;
+  inset:0;
+  z-index:-3;
+
+  background:
+    radial-gradient(
+      circle at 15% 10%,
+      rgba(0,0,0,.045),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 85% 35%,
+      rgba(0,0,0,.035),
+      transparent 35%
+    ),
+    linear-gradient(
+      180deg,
+      #F7F7F7 0%,
+      #F1F1F1 50%,
+      #ECECEC 100%
+    );
+}
+
+.grid{
+  position:fixed;
+  inset:0;
+  z-index:-2;
+
+  background-image:
+    linear-gradient(
+      rgba(0,0,0,.018) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,.018) 1px,
+      transparent 1px
+    );
+
+  background-size:40px 40px;
+
+  pointer-events:none;
+}
+
+.scan{
+  display:none;
+}
+
+
+/* =========================================================
+   MAIN WRAPPER
+   ========================================================= */
+
+.wrap{
+  width:100%;
+  max-width:620px;
+  margin:auto;
+
   padding:18px;
-  padding-bottom:96px;
+  padding-bottom:115px;
 }
-.wrap{max-width:900px;margin:auto}
-.header{padding:7px 2px 16px}
-.eyebrow{
-  font-size:11px;font-weight:900;letter-spacing:1.5px;color:#777;
-  text-transform:uppercase;margin-bottom:7px
-}
-h1{font-size:30px;letter-spacing:-1px}
-.subtitle{margin-top:7px;color:#666;font-size:14px;line-height:1.45}
 
-.command{
-  margin-top:14px;
-  background:#111;color:#fff;border-radius:22px;padding:16px;
-  box-shadow:0 15px 35px rgba(0,0,0,.16);
-}
-.commandRow{display:flex;justify-content:space-between;gap:12px;align-items:center}
-.commandLabel{font-size:10px;color:#aaa;font-weight:900;letter-spacing:1.5px}
-.mission{font-size:18px;font-weight:850;margin-top:4px}
-.missionSub{font-size:12px;color:#aaa;margin-top:4px}
 
-.stats{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
-.stat{background:#252525;border-radius:10px;padding:7px 9px;font-size:11px;font-weight:800}
+/* =========================================================
+   GLASS PANELS
+   ========================================================= */
 
-.controls{
-  margin-top:14px;
-  background:rgba(255,255,255,.58);
-  backdrop-filter:blur(18px);
-  -webkit-backdrop-filter:blur(18px);
-  border:1px solid rgba(255,255,255,.9);
-  box-shadow:0 12px 35px rgba(0,0,0,.07);
-  border-radius:22px;padding:12px;
-}
-.tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:9px}
-button,select,input{
-  border:0;border-radius:14px;padding:13px;font-size:14px;
-  font-weight:750;outline:none;
-}
-.tab{background:#E7E7E7;color:#555}
-.tab.active{background:#111;color:#fff}
-select,input{width:100%;background:#E7E7E7;color:#111;margin-top:8px}
-.filters{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.filters select{margin-top:0}
+.panel,
+.card,
+.subject,
+.secretary{
 
-#map{
-  height:480px;
-  margin-top:14px;
-  border-radius:24px;
+  background:rgba(255,255,255,.72);
+
+  backdrop-filter:blur(22px);
+  -webkit-backdrop-filter:blur(22px);
+
+  border:1px solid rgba(0,0,0,.055);
+
+  border-radius:26px;
+
+  box-shadow:
+    0 12px 35px rgba(0,0,0,.055),
+    inset 0 1px 0 rgba(255,255,255,.9);
+}
+
+.panel{
+  padding:20px;
+}
+
+
+/* =========================================================
+   TOP
+   ========================================================= */
+
+.top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+}
+
+.logo{
+  font-size:28px;
+  font-weight:900;
+  letter-spacing:-1px;
+}
+
+.badge{
+
+  padding:7px 11px;
+
+  border-radius:999px;
+
+  background:#111;
+  color:#fff;
+
+  font-size:10px;
+  font-weight:800;
+
+  letter-spacing:.5px;
+
+  box-shadow:
+    0 6px 16px rgba(0,0,0,.14);
+}
+
+
+/* =========================================================
+   PROFILE
+   ========================================================= */
+
+.profile{
+  display:flex;
+  gap:14px;
+  align-items:center;
+  margin-top:20px;
+}
+
+.avatar{
+
+  width:62px;
+  height:62px;
+
+  flex-shrink:0;
+
+  border-radius:50%;
+
+  background:#111;
+  color:#fff;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:25px;
+  font-weight:800;
+
   overflow:hidden;
-  border:1px solid rgba(255,255,255,.9);
-  box-shadow:0 14px 38px rgba(0,0,0,.09);
-}
-.leaflet-container{font-family:-apple-system,BlinkMacSystemFont,"Poppins","Segoe UI",Arial,sans-serif}
-.leaflet-popup-content-wrapper,.leaflet-popup-tip{
-  background:#111;color:#fff;border:0;
-}
-.leaflet-popup-content{font-size:13px;line-height:1.5}
-.popupTitle{font-size:15px;font-weight:850;margin-bottom:4px}
-.popupMeta{color:#aaa;font-size:11px}
-.popupBtn{
-  margin-top:9px;background:#fff;color:#111;width:100%;
-  border-radius:10px;padding:8px;font-weight:850;cursor:pointer;
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,.15);
 }
 
-.missionPanel{
+.avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+
+/* =========================================================
+   ID CARD
+   ========================================================= */
+
+.idcard{
+
+  margin-top:18px;
+
+  padding:18px;
+
+  position:relative;
+  overflow:hidden;
+
+  border-radius:23px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #171717,
+      #090909
+    );
+
+  color:#fff;
+
+  box-shadow:
+    0 14px 30px rgba(0,0,0,.18);
+}
+
+.idcard:after{
+
+  content:"";
+
+  position:absolute;
+
+  top:-80%;
+  left:-100%;
+
+  width:70%;
+  height:220%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.12),
+      transparent
+    );
+
+  transform:rotate(20deg);
+
+  animation:holo 6s linear infinite;
+}
+
+@keyframes holo{
+
+  0%{
+    left:-100%;
+  }
+
+  100%{
+    left:160%;
+  }
+
+}
+
+
+/* =========================================================
+   GLOBE / COMMAND CORE
+   ========================================================= */
+
+.globe{
+
+  width:230px;
+  height:230px;
+
+  margin:28px auto;
+
+  position:relative;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.earth{
+
+  position:absolute;
+
+  width:175px;
+  height:175px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      #ffffff,
+      #d8d8d8 45%,
+      #999 100%
+    );
+
+  box-shadow:
+    0 0 35px rgba(0,0,0,.12),
+    inset -20px -20px 35px rgba(0,0,0,.12);
+
+  animation:earthRotate 12s linear infinite;
+}
+
+@keyframes earthRotate{
+
+  to{
+    transform:rotate(360deg);
+  }
+
+}
+
+.orbit{
+
+  position:absolute;
+
+  border:1px solid rgba(0,0,0,.13);
+
+  border-radius:50%;
+}
+
+.orbit1{
+  width:210px;
+  height:210px;
+
+  animation:spin1 8s linear infinite;
+}
+
+.orbit2{
+  width:180px;
+  height:180px;
+
+  transform:rotateX(75deg);
+
+  animation:spin2 6s linear infinite;
+}
+
+.orbit3{
+  width:150px;
+  height:150px;
+
+  transform:rotateY(70deg);
+
+  animation:spin3 12s linear infinite reverse;
+}
+
+@keyframes spin1{
+
+  to{
+    transform:rotate(360deg);
+  }
+
+}
+
+@keyframes spin2{
+
+  to{
+    transform:rotate(-360deg);
+  }
+
+}
+
+@keyframes spin3{
+
+  to{
+    transform:rotate(360deg);
+  }
+
+}
+
+.radarSweep{
+
+  position:absolute;
+
+  width:210px;
+  height:210px;
+
+  border-radius:50%;
+
+  background:
+    conic-gradient(
+      from 0deg,
+      rgba(0,0,0,.10),
+      transparent 45%
+    );
+
+  animation:radar 4s linear infinite;
+}
+
+@keyframes radar{
+
+  to{
+    transform:rotate(360deg);
+  }
+
+}
+
+.indiaPulse{
+
+  position:absolute;
+
+  width:12px;
+  height:12px;
+
+  background:#111;
+
+  border-radius:50%;
+
+  top:82px;
+  right:92px;
+
+  box-shadow:
+    0 0 14px rgba(0,0,0,.35);
+
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+
+  50%{
+    transform:scale(1.7);
+  }
+
+}
+
+.center{
+
+  position:absolute;
+
+  inset:0;
+
+  display:flex;
+  flex-direction:column;
+
+  align-items:center;
+  justify-content:center;
+}
+
+#xp{
+
+  font-size:32px;
+  font-weight:900;
+
+  color:#111;
+
+  letter-spacing:-1px;
+}
+
+#rank{
+
+  color:#666;
+
+  font-size:13px;
+  font-weight:600;
+}
+
+
+/* =========================================================
+   STATS
+   ========================================================= */
+
+.stats{
+
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:12px;
+
+  margin-top:18px;
+}
+
+.card{
+
+  padding:18px;
+}
+
+.stat{
+
+  font-size:28px;
+
+  font-weight:900;
+
+  color:#111;
+
+  margin-bottom:3px;
+}
+
+
+/* =========================================================
+   SECTIONS
+   ========================================================= */
+
+.section{
+
+  font-size:19px;
+
+  font-weight:900;
+
+  margin:25px 0 12px;
+
+  letter-spacing:-.3px;
+}
+
+
+/* =========================================================
+   SUBJECTS
+   ========================================================= */
+
+.subjects{
+
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:12px;
+}
+
+.subject{
+
+  padding:16px;
+
+  min-height:105px;
+}
+
+.subject b{
+
+  font-size:14px;
+
+  display:block;
+
+  margin-bottom:8px;
+}
+
+.bar{
+
+  height:7px;
+
+  background:#dedede;
+
+  border-radius:999px;
+
+  overflow:hidden;
+
+  margin-top:9px;
+}
+
+.fill{
+
+  height:100%;
+
+  background:#111;
+
+  border-radius:999px;
+
+  transition:
+    width .5s ease;
+}
+
+
+/* =========================================================
+   AI SECRETARY
+   ========================================================= */
+
+.secretary{
+
+  padding:17px;
+}
+
+.secretary h3{
+
+  font-size:15px;
+
+  margin-bottom:8px;
+}
+
+.mission{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  gap:15px;
+
+  padding:12px 0;
+
+  border-bottom:
+    1px solid rgba(0,0,0,.06);
+
+  font-size:13px;
+}
+
+.mission span:last-child{
+
+  font-weight:700;
+
+  text-align:right;
+}
+
+#aiTip{
+
   margin-top:14px;
-  background:var(--card);
+
+  padding:13px;
+
+  border-radius:16px;
+
+  background:#111;
+
+  color:#fff;
+
+  font-size:13px;
+
+  line-height:1.45;
+
+}
+
+
+/* =========================================================
+   APPLE MUSIC STYLE QUICK LAUNCH
+   ========================================================= */
+
+.quickLaunch{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  overflow:visible;
+  background:transparent;
+  border:0;
+}
+.quickBtn{
+  width:100%;
+  min-height:112px;
+  margin:0;
+  padding:16px;
+
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+
+  border:1px solid rgba(0,0,0,.055);
+  border-radius:22px;
+
+  background:rgba(255,255,255,.76);
+  color:#111;
+
+  box-shadow:
+    0 8px 24px rgba(0,0,0,.055),
+    inset 0 1px 0 rgba(255,255,255,.9);
+
   backdrop-filter:blur(18px);
   -webkit-backdrop-filter:blur(18px);
-  border:1px solid rgba(255,255,255,.9);
-  box-shadow:0 12px 35px rgba(0,0,0,.07);
-  border-radius:22px;padding:16px;
-}
-.small{font-size:11px;color:#777;font-weight:800;letter-spacing:.8px;text-transform:uppercase}
-.target{font-size:21px;font-weight:900;margin-top:5px}
-.hint{font-size:13px;color:#666;margin-top:4px}
-.missionBtns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
-.action{background:#111;color:#fff}
-.secondary{background:#E7E7E7;color:#111}
-.result{
-  display:none;margin-top:10px;padding:12px;border-radius:14px;
-  background:#E7E7E7;color:#222;font-size:13px;font-weight:700;
-}
-.info{
-  margin-top:14px;background:rgba(255,255,255,.58);
-  border-radius:20px;padding:15px;border:1px solid rgba(255,255,255,.9);
-}
-.info h3{font-size:14px;margin-bottom:7px}
-.info p{font-size:12px;color:#666;line-height:1.55}
 
-#homeBtn{
-  position:fixed;left:18px;right:18px;bottom:16px;max-width:864px;margin:auto;
-  z-index:999;background:#111;color:#fff;
-  box-shadow:0 14px 32px rgba(0,0,0,.2);
+  cursor:pointer;
+  font-family:inherit;
+  position:relative;
+  text-align:left;
+  -webkit-tap-highlight-color:transparent;
+
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    background .18s ease;
+}
+.quickBtn:last-child{border-bottom:0}
+.quickBtn:hover{background:rgba(235,235,235,.82);transform:none}
+.quickBtn:active{background:#e3e3e3;transform:scale(.992)}
+.quickLeft{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  min-width:0;
+  width:100%;
+}
+.quickIcon{width:48px;height:48px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border-radius:12px;background:#111;color:#fff;font-size:21px;box-shadow:0 3px 9px rgba(0,0,0,.12)}
+.quickText{display:flex;flex-direction:column;gap:3px;min-width:0}
+.quickTitle{font-size:15px;line-height:19px;font-weight:700;color:#111}
+.quickSub{font-size:11px;line-height:15px;font-weight:400;color:#777;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.quickArrow{
+  position:absolute;
+  right:13px;
+  bottom:13px;
+
+  width:27px;
+  height:27px;
+  flex-shrink:0;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:#ededed;
+  color:#777;
+
+  font-size:21px;
+  font-weight:300;
+
+  transition:
+    background .18s ease,
+    color .18s ease,
+    transform .18s ease;
+}
+.quickBtn:hover .quickArrow{background:transparent;color:#666;transform:translateX(1px)}
+@media(max-width:420px){.quickLaunch{border-radius:17px}.quickBtn{min-height:68px;padding:9px 5px 9px 7px}.quickIcon{width:45px;height:45px;border-radius:11px;font-size:20px}.quickLeft{gap:12px}.quickTitle{font-size:14px}.quickSub{font-size:10px}.quickArrow{font-size:23px}}
+
+/* =========================================================
+   LEVEL UP
+   ========================================================= */
+
+#level{
+
+  position:fixed;
+
+  inset:0;
+
+  background:
+    rgba(244,244,244,.96);
+
+  backdrop-filter:blur(20px);
+
+  display:none;
+
+  align-items:center;
+
+  justify-content:center;
+
+  flex-direction:column;
+
+  z-index:500;
 }
 
-@media(max-width:600px){
-  body{padding:14px;padding-bottom:90px}
-  h1{font-size:27px}
-  #map{height:430px}
-  .filters{grid-template-columns:1fr}
+#level h1{
+
+  font-size:45px;
+
+  color:#111;
+
+  letter-spacing:-2px;
 }
+
+#levelRank{
+
+  margin-top:8px;
+
+  color:#666;
+
+  font-weight:700;
+}
+
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+#toast{
+
+  position:fixed;
+
+  left:50%;
+
+  bottom:110px;
+
+  transform:
+    translateX(-50%)
+    translateY(10px);
+
+  background:#111;
+
+  color:#fff;
+
+  padding:11px 22px;
+
+  border-radius:999px;
+
+  font-size:13px;
+
+  font-weight:800;
+
+  opacity:0;
+
+  transition:.35s;
+
+  z-index:400;
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,.18);
+}
+
+
+/* =========================================================
+   BOTTOM NAVIGATION
+   ========================================================= */
+
+.bottomNav{
+
+  position:fixed;
+
+  left:50%;
+
+  bottom:17px;
+
+  transform:translateX(-50%);
+
+  width:calc(100% - 34px);
+
+  max-width:480px;
+
+  height:70px;
+
+  padding:7px 9px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-around;
+
+  z-index:200;
+
+  background:
+    rgba(255,255,255,.86);
+
+  backdrop-filter:blur(25px);
+  -webkit-backdrop-filter:blur(25px);
+
+  border:
+    1px solid rgba(0,0,0,.07);
+
+  border-radius:999px;
+
+  box-shadow:
+    0 14px 42px rgba(0,0,0,.10),
+    inset 0 1px 0 rgba(255,255,255,.95);
+}
+
+.navBtn{
+
+  flex:1;
+
+  height:56px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:2px;
+
+  border-radius:999px;
+
+  color:#777;
+
+  text-decoration:none;
+
+  font-size:10px;
+
+  font-weight:600;
+
+  transition:
+    transform .16s ease,
+    background .16s ease,
+    color .16s ease;
+}
+
+.navBtn span{
+
+  font-size:21px;
+
+  line-height:22px;
+
+  filter:grayscale(1);
+}
+
+.navBtn.active{
+
+  color:#111;
+
+  background:#e8e8e8;
+
+  font-weight:800;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.8);
+}
+
+.navBtn:active{
+
+  transform:scale(.91);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media(max-width:420px){
+
+  .wrap{
+    padding:14px;
+    padding-bottom:110px;
+  }
+
+  .panel{
+    padding:16px;
+    border-radius:23px;
+  }
+
+  .logo{
+    font-size:25px;
+  }
+
+  .badge{
+    font-size:9px;
+    padding:6px 9px;
+  }
+
+  .quickBtn{
+    min-height:66px;
+  }
+
+  .quickIcon{
+    width:43px;
+    height:43px;
+  }
+
+  .quickTitle{
+    font-size:13px;
+  }
+
+  .quickSub{
+    font-size:9px;
+  }
+
+}
+
+@supports(padding:max(0px)){
+
+  .bottomNav{
+
+    bottom:max(
+      17px,
+      env(safe-area-inset-bottom)
+    );
+
+  }
+
+}
+
 </style>
+
 </head>
 
+
 <body>
+
+
+<div class="bg"></div>
+<div class="grid"></div>
+<div class="scan"></div>
+
+
+<!-- =========================================================
+     LEVEL UP
+     ========================================================= -->
+
+<div id="level">
+
+  <h1>LEVEL UP</h1>
+
+  <p id="levelRank"></p>
+
+</div>
+
+
 <div class="wrap">
 
-  <div class="header">
-    <div class="eyebrow">FATEH27 • UPSC GEOGRAPHY</div>
-    <h1>Commander Map</h1>
-    <div class="subtitle">Locate. Remember. Command the map.</div>
 
-    <div class="command">
-      <div class="commandRow">
-        <div>
-          <div class="commandLabel">CURRENT MISSION</div>
-          <div class="mission" id="missionTitle">Ready for deployment</div>
-          <div class="missionSub" id="missionSub">Select a mode and start your map drill.</div>
-        </div>
-        <div style="font-size:28px">⌖</div>
-      </div>
-      <div class="stats">
-        <div class="stat">XP <span id="xp">0</span></div>
-        <div class="stat">Streak <span id="streak">0</span></div>
-        <div class="stat">Accuracy <span id="accuracy">—</span></div>
-      </div>
-    </div>
+<!-- =========================================================
+     MAIN PANEL
+     ========================================================= -->
+
+<div class="panel">
+
+
+<!-- TOP -->
+
+<div class="top">
+
+  <div class="logo">
+    FATEH27
   </div>
 
-  <div class="controls">
-    <div class="tabs">
-      <button class="tab active" id="indiaTab">INDIA</button>
-      <button class="tab" id="worldTab">WORLD</button>
-    </div>
-
-    <div class="filters">
-      <select id="category">
-        <option value="all">All Categories</option>
-        <option value="rivers">Rivers</option>
-        <option value="mountains">Mountains & Passes</option>
-        <option value="lakes">Lakes</option>
-        <option value="parks">National Parks</option>
-        <option value="ports">Ports & Coasts</option>
-        <option value="cities">Important Cities</option>
-        <option value="current">Current Affairs Locations</option>
-      </select>
-      <select id="difficulty">
-        <option value="all">All Difficulty</option>
-        <option value="easy">Easy</option>
-        <option value="medium">Medium</option>
-        <option value="hard">Hard</option>
-      </select>
-    </div>
-    <input id="search" placeholder="Search location / feature">
-  </div>
-
-  <div id="map"></div>
-
-  <div class="missionPanel">
-    <div class="small">Locate Mission</div>
-    <div class="target" id="target">Press Start Mission</div>
-    <div class="hint" id="targetHint">You will be asked to locate an UPSC-relevant feature on the map.</div>
-
-    <div class="missionBtns">
-      <button class="action" id="startBtn">Start Mission</button>
-      <button class="secondary" id="nextBtn">Next Mission</button>
-    </div>
-    <div class="result" id="result"></div>
-  </div>
-
-  <div class="info">
-    <h3>Commander Map</h3>
-    <p>
-      This module is designed for UPSC map revision. Use the filters to explore
-      locations, then use Locate Mission to test recall. Map data is kept in this
-      HTML file so the practice set does not depend on a separate CSV.
-    </p>
+  <div class="badge">
+    BETA v1.0 • LIVE
   </div>
 
 </div>
 
-<button id="homeBtn">⌂ Home</button>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<!-- PROFILE -->
+
+<div class="profile">
+
+  <div class="avatar" id="avatar">
+    F
+  </div>
+
+  <div>
+
+    <div
+      style="font-size:24px;font-weight:bold"
+      id="username"
+    >
+      Officer
+    </div>
+
+    <div id="officerId">
+      F27-0001
+    </div>
+
+    <div id="clock"></div>
+
+  </div>
+
+</div>
+
+
+<!-- OFFICER CARD -->
+
+<div class="idcard">
+
+  <div
+    style="
+      font-size:11px;
+      color:#aaa;
+      letter-spacing:1px;
+      font-weight:700;
+    "
+  >
+    OFFICER ACCESS CARD
+  </div>
+
+  <div
+    style="
+      font-size:21px;
+      font-weight:800;
+      margin-top:7px;
+    "
+    id="cardName"
+  >
+    Officer
+  </div>
+
+  <div
+    style="
+      margin-top:11px;
+      color:#fff;
+      font-size:12px;
+      opacity:.7;
+    "
+  >
+    Clearance: ALPHA
+  </div>
+
+</div>
+
+
+<!-- COMMAND CORE -->
+
+<div class="globe">
+
+  <div class="earth"></div>
+
+  <div class="orbit orbit1"></div>
+  <div class="orbit orbit2"></div>
+  <div class="orbit orbit3"></div>
+
+  <div class="radarSweep"></div>
+
+  <div class="indiaPulse"></div>
+
+  <div class="center">
+
+    <div id="xp">
+      0 XP
+    </div>
+
+    <div id="rank">
+      Recruit
+    </div>
+
+  </div>
+
+</div>
+
+
+</div>
+
+
+<!-- =========================================================
+     STATS
+     ========================================================= -->
+
+<div class="stats">
+
+  <div class="card">
+
+    <div
+      class="stat"
+      id="streak"
+    >
+      0
+    </div>
+
+    <div>
+      🔥 Streak
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <div
+      class="stat"
+      id="solved"
+    >
+      0
+    </div>
+
+    <div>
+      ✅ Solved
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     MISSION PROGRESS
+     ========================================================= -->
+
+<div class="section">
+  Mission Progress
+</div>
+
+
+<div class="subjects">
+
+
+  <div class="subject">
+
+    <b>GS1</b>
+
+    <div id="gs1">
+      0
+    </div>
+
+    <div class="bar">
+
+      <div
+        class="fill"
+        id="f1"
+      ></div>
+
+    </div>
+
+  </div>
+
+
+  <div class="subject">
+
+    <b>GS2</b>
+
+    <div id="gs2">
+      0
+    </div>
+
+    <div class="bar">
+
+      <div
+        class="fill"
+        id="f2"
+      ></div>
+
+    </div>
+
+  </div>
+
+
+  <div class="subject">
+
+    <b>GS3</b>
+
+    <div id="gs3">
+      0
+    </div>
+
+    <div class="bar">
+
+      <div
+        class="fill"
+        id="f3"
+      ></div>
+
+    </div>
+
+  </div>
+
+
+  <div class="subject">
+
+    <b>GS4</b>
+
+    <div id="gs4">
+      0
+    </div>
+
+    <div class="bar">
+
+      <div
+        class="fill"
+        id="f4"
+      ></div>
+
+    </div>
+
+  </div>
+
+
+</div>
+
+
+<!-- =========================================================
+     AI SECRETARY
+     ========================================================= -->
+
+<div class="section">
+  AI Secretary
+</div>
+
+
+<div class="secretary">
+
+  <h3>
+    AI SECRETARY
+  </h3>
+
+
+  <div class="mission">
+
+    <span>
+      Current Status
+    </span>
+
+    <span id="statusMsg">
+      Loading...
+    </span>
+
+  </div>
+
+
+  <div class="mission">
+
+    <span>
+      Today's Target
+    </span>
+
+    <span>
+      4 Answers
+    </span>
+
+  </div>
+
+
+  <div class="mission">
+
+    <span>
+      Weak Subject
+    </span>
+
+    <span id="weakSubject">
+      GS3
+    </span>
+
+  </div>
+
+
+  <div class="mission">
+
+    <span>
+      Last Activity
+    </span>
+
+    <span id="recent">
+      None
+    </span>
+
+  </div>
+
+
+  <div id="aiTip">
+
+    Mission loading...
+
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     QUICK LAUNCH
+     ========================================================= -->
+
+<div class="section">
+  Quick Launch
+</div>
+
+
+<div class="quickLaunch">
+
+
+<!-- MAP -->
+
+<button
+  class="quickBtn"
+  onclick="location.href='map.html'"
+>
+
+  <div class="quickLeft">
+
+    <div class="quickIcon">
+      🗺
+    </div>
+
+    <div class="quickText">
+
+      <div class="quickTitle">
+        Command Map
+      </div>
+
+      <div class="quickSub">
+        India • World • Mapping
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="quickArrow">
+    ›
+  </div>
+
+</button>
+
+
+<!-- COMMANDER MAP -->
+
+<button
+  class="quickBtn"
+  onclick="location.href='commander/index.html'"
+>
+
+  <div class="quickLeft">
+
+    <div class="quickIcon">
+      🧭
+    </div>
+
+    <div class="quickText">
+
+      <div class="quickTitle">
+        Commander Map
+      </div>
+
+      <div class="quickSub">
+        India • World • UPSC Mapping
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="quickArrow">
+    ›
+  </div>
+
+</button>
+
+
+<!-- PYQ -->
+
+<button
+  class="quickBtn"
+  onclick="location.href='pyq.html'"
+>
+
+  <div class="quickLeft">
+
+    <div class="quickIcon">
+      🎯
+    </div>
+
+    <div class="quickText">
+
+      <div class="quickTitle">
+        PYQ Intelligence
+      </div>
+
+      <div class="quickSub">
+        UPSC Previous Year Questions
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="quickArrow">
+    ›
+  </div>
+
+</button>
+
+
+<!-- GS1 -->
+
+<button
+  class="quickBtn"
+  onclick="location.href='gs1.html'"
+>
+
+  <div class="quickLeft">
+
+    <div class="quickIcon">
+      📘
+    </div>
+
+    <div class="quickText">
+
+      <div class="quickTitle">
+        GS1
+      </div>
+
+      <div class="quickSub">
+        History • Culture • Geography
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="quickArrow">
+    ›
+  </div>
+
+</button>
+
+
+<!-- GS2 -->
+
+<button
+  class="quickBtn"
+  onclick="location.href='gs2.html'"
+>
+
+  <div class="quickLeft">
+
+    <div class="quickIcon">
+      📗
+    </div>
+
+    <div class="quickText">
+
+      <div class="quickTitle">
+        GS2
+      </div>
+
+      <div class="quickSub">
+        Polity • Governance • IR
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="quickArrow">
+    ›
+  </div>
+
+</button>
+
+
+<!-- GS3 -->
+
+<button
+  class="quickBtn"
+  onclick="location.href='gs3.html'"
+>
+
+  <div class="quickLeft">
+
+    <div class="quickIcon">
+      📙
+    </div>
+
+    <div class="quickText">
+
+      <div class="quickTitle">
+        GS3
+      </div>
+
+      <div class="quickSub">
+        Economy • Environment • S&T
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="quickArrow">
+    ›
+  </div>
+
+</button>
+
+
+<!-- GS4 -->
+
+<button
+  class="quickBtn"
+  onclick="location.href='gs4.html'"
+>
+
+  <div class="quickLeft">
+
+    <div class="quickIcon">
+      📕
+    </div>
+
+    <div class="quickText">
+
+      <div class="quickTitle">
+        GS4
+      </div>
+
+      <div class="quickSub">
+        Ethics • Integrity • Aptitude
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="quickArrow">
+    ›
+  </div>
+
+</button>
+
+
+<!-- AI ANSWER -->
+
+<button
+  class="quickBtn"
+  onclick="location.href='answer.html'"
+>
+
+  <div class="quickLeft">
+
+    <div class="quickIcon">
+      🤖
+    </div>
+
+    <div class="quickText">
+
+      <div class="quickTitle">
+        AI Answer Evaluation
+      </div>
+
+      <div class="quickSub">
+        UPSC Mains Answer Analysis
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="quickArrow">
+    ›
+  </div>
+
+</button>
+
+
+<!-- CURRENT AFFAIRS -->
+
+<button
+  class="quickBtn"
+  onclick="location.href='current.html'"
+>
+
+  <div class="quickLeft">
+
+    <div class="quickIcon">
+      📰
+    </div>
+
+    <div class="quickText">
+
+      <div class="quickTitle">
+        Current Affairs
+      </div>
+
+      <div class="quickSub">
+        UPSC Current Affairs Command Center
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="quickArrow">
+    ›
+  </div>
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+<!-- TOAST -->
+
+<div id="toast">
+  +5 XP
+</div>
+
+
+<!-- =========================================================
+     TELEGRAM + PROGRESS JS
+     ========================================================= -->
+
 <script>
-const tg=window.Telegram&&Telegram.WebApp?Telegram.WebApp:null;
-if(tg){tg.ready();tg.expand();}
 
-const locations=[
-/* INDIA */
-{name:"Delhi",lat:28.6139,lng:77.2090,region:"india",cat:"cities",difficulty:"easy",note:"National Capital Region"},
-{name:"Mumbai",lat:19.0760,lng:72.8777,region:"india",cat:"ports",difficulty:"easy",note:"Arabian Sea coast"},
-{name:"Kolkata",lat:22.5726,lng:88.3639,region:"india",cat:"ports",difficulty:"easy",note:"Hooghly River / Bay of Bengal"},
-{name:"Chennai",lat:13.0827,lng:80.2707,region:"india",cat:"ports",difficulty:"easy",note:"Coromandel Coast"},
-{name:"Kochi",lat:9.9312,lng:76.2673,region:"india",cat:"ports",difficulty:"medium",note:"Malabar Coast"},
-{name:"Guwahati",lat:26.1445,lng:91.7362,region:"india",cat:"cities",difficulty:"medium",note:"Brahmaputra valley"},
-{name:"Srinagar",lat:34.0837,lng:74.7973,region:"india",cat:"cities",difficulty:"medium",note:"Kashmir Valley"},
-{name:"Kanyakumari",lat:8.0883,lng:77.5385,region:"india",cat:"ports",difficulty:"easy",note:"Southern tip of mainland India"},
-{name:"Narmada River",lat:22.0,lng:77.8,region:"india",cat:"rivers",difficulty:"medium",note:"West-flowing peninsular river"},
-{name:"Godavari River",lat:17.0,lng:80.2,region:"india",cat:"rivers",difficulty:"easy",note:"Major east-flowing peninsular river"},
-{name:"Brahmaputra River",lat:27.3,lng:92.4,region:"india",cat:"rivers",difficulty:"medium",note:"Enters India through Arunachal Pradesh"},
-{name:"Ganga River",lat:25.3,lng:83.0,region:"india",cat:"rivers",difficulty:"easy",note:"Major Himalayan river system"},
-{name:"Siachen Glacier",lat:35.42,lng:77.10,region:"india",cat:"mountains",difficulty:"hard",note:"Eastern Karakoram"},
-{name:"Nathu La",lat:27.386,lng:88.83,region:"india",cat:"mountains",difficulty:"hard",note:"Pass in Sikkim"},
-{name:"Rohtang Pass",lat:32.37,lng:77.25,region:"india",cat:"mountains",difficulty:"medium",note:"Himachal Pradesh"},
-{name:"Kaziranga National Park",lat:26.58,lng:93.17,region:"india",cat:"parks",difficulty:"medium",note:"Assam"},
-{name:"Gir National Park",lat:21.12,lng:70.79,region:"india",cat:"parks",difficulty:"medium",note:"Gujarat"},
-{name:"Chilika Lake",lat:19.72,lng:85.32,region:"india",cat:"lakes",difficulty:"easy",note:"Odisha lagoon"},
-{name:"Wular Lake",lat:34.08,lng:74.65,region:"india",cat:"lakes",difficulty:"medium",note:"Jammu & Kashmir"},
-{name:"Loktak Lake",lat:24.55,lng:93.78,region:"india",cat:"lakes",difficulty:"hard",note:"Manipur"},
-{name:"Andaman & Nicobar",lat:11.75,lng:92.65,region:"india",cat:"current",difficulty:"medium",note:"Bay of Bengal archipelago"},
-{name:"Lakshadweep",lat:10.57,lng:72.64,region:"india",cat:"current",difficulty:"medium",note:"Arabian Sea archipelago"},
+const tg = window.Telegram.WebApp;
 
-/* WORLD */
-{name:"Suez Canal",lat:30.5,lng:32.35,region:"world",cat:"current",difficulty:"medium",note:"Mediterranean–Red Sea route"},
-{name:"Strait of Hormuz",lat:26.57,lng:56.25,region:"world",cat:"current",difficulty:"medium",note:"Persian Gulf entrance"},
-{name:"Bab-el-Mandeb",lat:12.58,lng:43.35,region:"world",cat:"current",difficulty:"hard",note:"Red Sea–Gulf of Aden gateway"},
-{name:"Malacca Strait",lat:2.5,lng:101.5,region:"world",cat:"current",difficulty:"medium",note:"Indian Ocean–Pacific maritime route"},
-{name:"Panama Canal",lat:9.08,lng:-79.68,region:"world",cat:"current",difficulty:"medium",note:"Atlantic–Pacific link"},
-{name:"Gibraltar Strait",lat:35.97,lng:-5.6,region:"world",cat:"current",difficulty:"medium",note:"Atlantic–Mediterranean gateway"},
-{name:"Nile River",lat:26.0,lng:31.2,region:"world",cat:"rivers",difficulty:"easy",note:"North-flowing African river"},
-{name:"Amazon River",lat:-3.0,lng:-60.0,region:"world",cat:"rivers",difficulty:"easy",note:"South America"},
-{name:"Danube River",lat:46.0,lng:18.0,region:"world",cat:"rivers",difficulty:"medium",note:"Major European river"},
-{name:"Himalayas",lat:28.0,lng:84.0,region:"world",cat:"mountains",difficulty:"easy",note:"Asia"},
-{name:"Andes",lat:-20.0,lng:-69.0,region:"world",cat:"mountains",difficulty:"medium",note:"Western South America"},
-{name:"Sahara",lat:23.0,lng:13.0,region:"world",cat:"current",difficulty:"easy",note:"North Africa"},
-{name:"Lake Baikal",lat:53.5,lng:108.0,region:"world",cat:"lakes",difficulty:"hard",note:"Russia"},
-{name:"Black Sea",lat:43.0,lng:35.0,region:"world",cat:"lakes",difficulty:"medium",note:"Eurasia"},
-{name:"Arctic Ocean",lat:85,lng:0,region:"world",cat:"current",difficulty:"medium",note:"Northern polar ocean"},
-{name:"Antarctica",lat:-82,lng:0,region:"world",cat:"current",difficulty:"easy",note:"Southern polar continent"}
-];
+tg.ready();
+tg.expand();
 
-let mode="india";
-let map=L.map("map",{worldCopyJump:true,zoomControl:true}).setView([23.5,78.9],5);
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{
-maxZoom:19,attribution:"© OpenStreetMap contributors"
-}).addTo(map);
 
-let markerLayer=L.layerGroup().addTo(map);
-let currentMission=null;
-let missionStarted=false;
-let attempts=0,correct=0,streak=0,xp=0;
+const user =
+  tg.initDataUnsafe?.user;
 
-const indiaTab=document.getElementById("indiaTab");
-const worldTab=document.getElementById("worldTab");
-const category=document.getElementById("category");
-const difficulty=document.getElementById("difficulty");
-const search=document.getElementById("search");
-const target=document.getElementById("target");
-const targetHint=document.getElementById("targetHint");
-const result=document.getElementById("result");
 
-function filtered(){
- const term=search.value.toLowerCase().trim();
- return locations.filter(x=>
-   x.region===mode &&
-   (category.value==="all"||x.cat===category.value) &&
-   (difficulty.value==="all"||x.difficulty===difficulty.value) &&
-   (!term||x.name.toLowerCase().includes(term)||x.note.toLowerCase().includes(term))
- );
+if(user){
+
+  username.textContent =
+    user.first_name || "Officer";
+
+  cardName.textContent =
+    user.first_name || "Officer";
+
+  avatar.textContent =
+    (user.first_name || "F")[0];
+
+
+  if(user.photo_url){
+
+    avatar.innerHTML =
+      '<img src="' +
+      user.photo_url +
+      '">';
+
+  }
+
 }
 
-function draw(){
- markerLayer.clearLayers();
- const list=filtered();
- list.forEach(x=>{
-   const marker=L.circleMarker([x.lat,x.lng],{
-     radius:8,weight:2,color:"#111",fillColor:"#111",fillOpacity:.82
-   }).addTo(markerLayer);
-   marker.bindPopup(`
-     <div class="popupTitle">${x.name}</div>
-     <div class="popupMeta">${x.note}</div>
-     <button class="popupBtn" onclick="selectFromMap('${x.name.replaceAll("'","\\'")}')">Select Location</button>
-   `);
- });
- if(list.length){
-   const bounds=L.latLngBounds(list.map(x=>[x.lat,x.lng]));
-   map.fitBounds(bounds,{padding:[35,35],maxZoom:6});
- }
+
+/* OFFICER ID */
+
+if(!localStorage.officerId){
+
+  localStorage.officerId =
+    "F27-" +
+    Math.floor(
+      1000 +
+      Math.random() * 9000
+    );
+
 }
 
-window.selectFromMap=function(name){
- const loc=locations.find(x=>x.name===name);
- if(!loc)return;
- if(missionStarted&&currentMission){
-   checkMission(loc);
- }else{
-   map.setView([loc.lat,loc.lng],7);
- }
-};
+officerId.textContent =
+  localStorage.officerId;
 
-function setMode(m){
- mode=m;
- indiaTab.classList.toggle("active",m==="india");
- worldTab.classList.toggle("active",m==="world");
- if(m==="india"){
-   map.setView([23.5,78.9],5);
- }else{
-   map.setView([20,0],2);
- }
- draw();
+
+/* RANK */
+
+function rankName(x){
+
+  if(x >= 1500)
+    return "🏆 Officer";
+
+  if(x >= 800)
+    return "⚔ Warrior";
+
+  if(x >= 300)
+    return "🥈 Aspirant";
+
+  return "🟢 Recruit";
+
 }
 
-function updateStats(){
- document.getElementById("xp").textContent=xp;
- document.getElementById("streak").textContent=streak;
- document.getElementById("accuracy").textContent=attempts?Math.round(correct/attempts*100)+"%":"—";
+
+/* PERCENTAGE */
+
+function pct(v){
+
+  return Math.min(
+    100,
+    Math.round(
+      (v / 25) * 100
+    )
+  );
+
 }
 
-function startMission(){
- const list=filtered();
- if(!list.length){
-   result.style.display="block";
-   result.textContent="No locations match the selected filters.";
-   return;
- }
- currentMission=list[Math.floor(Math.random()*list.length)];
- missionStarted=true;
- target.textContent="Locate: "+currentMission.name;
- targetHint.textContent="Find this location on the map and select its marker.";
- result.style.display="none";
- document.getElementById("missionTitle").textContent="Mission Active";
- document.getElementById("missionSub").textContent=currentMission.cat+" • "+currentMission.difficulty.toUpperCase();
- map.setView([currentMission.lat,currentMission.lng],mode==="india"?5:2);
- updateStats();
+
+/* CLOCK */
+
+function tick(){
+
+  clock.textContent =
+    new Date().toLocaleTimeString(
+      [],
+      {
+        hour:"2-digit",
+        minute:"2-digit"
+      }
+    );
+
 }
 
-function checkMission(loc){
- attempts++;
- if(loc.name===currentMission.name){
-   correct++;streak++;xp+=20;
-   result.style.display="block";
-   result.textContent="MISSION COMPLETE • +20 XP • "+currentMission.note;
-   try{
-     if(window.Progress&&typeof Progress.addSolved==="function")
-       Progress.addSolved("MAP",currentMission.name);
-   }catch(e){}
-   missionStarted=false;
-   document.getElementById("missionTitle").textContent="Target secured";
-   document.getElementById("missionSub").textContent="Next location is ready.";
-   L.popup().setLatLng([loc.lat,loc.lng]).setContent("<b>Correct</b><br>"+loc.name).openOn(map);
- }else{
-   streak=0;
-   result.style.display="block";
-   result.textContent="INCORRECT • Target was "+currentMission.name+". Try the next mission.";
- }
- updateStats();
+setInterval(
+  tick,
+  1000
+);
+
+tick();
+
+
+/* LOAD PROGRESS */
+
+function load(){
+
+  const d =
+    (
+      window.Progress &&
+      Progress.get
+    )
+    ?
+    Progress.get()
+    :
+    {
+      xp:0,
+      streak:0,
+      solved:0,
+      gs1:0,
+      gs2:0,
+      gs3:0,
+      gs4:0,
+      lastActivity:"None"
+    };
+
+
+  /* XP */
+
+  xp.textContent =
+    d.xp + " XP";
+
+  rank.textContent =
+    rankName(d.xp);
+
+
+  /* STATS */
+
+  streak.textContent =
+    d.streak || 0;
+
+  solved.textContent =
+    d.solved || 0;
+
+
+  /* GS */
+
+  gs1.textContent =
+    d.gs1 || 0;
+
+  gs2.textContent =
+    d.gs2 || 0;
+
+  gs3.textContent =
+    d.gs3 || 0;
+
+  gs4.textContent =
+    d.gs4 || 0;
+
+
+  /* BARS */
+
+  f1.style.width =
+    pct(d.gs1) + "%";
+
+  f2.style.width =
+    pct(d.gs2) + "%";
+
+  f3.style.width =
+    pct(d.gs3) + "%";
+
+  f4.style.width =
+    pct(d.gs4) + "%";
+
+
+  /* WEAK SUBJECT */
+
+  const arr = [
+
+    {
+      n:"GS1",
+      v:d.gs1
+    },
+
+    {
+      n:"GS2",
+      v:d.gs2
+    },
+
+    {
+      n:"GS3",
+      v:d.gs3
+    },
+
+    {
+      n:"GS4",
+      v:d.gs4
+    }
+
+  ].sort(
+    (a,b) =>
+      a.v - b.v
+  );
+
+
+  weakSubject.textContent =
+    arr[0].n;
+
+
+  /* AI STATUS */
+
+  if(d.streak === 0){
+
+    statusMsg.textContent =
+      "Alert";
+
+    aiTip.textContent =
+      "Aaj kam se kam 1 question solve karo.";
+
+  }
+
+  else if(d.solved < 4){
+
+    statusMsg.textContent =
+      "Mission Pending";
+
+    aiTip.textContent =
+      `${arr[0].n} par focus karo. ${
+        4 - d.solved
+      } answers aur likhne hain.`;
+
+  }
+
+  else{
+
+    statusMsg.textContent =
+      "Excellent";
+
+    aiTip.textContent =
+      "Aaj ka mission complete. Revision mode activate karo.";
+
+  }
+
+
+  /* RECENT */
+
+  recent.textContent =
+    d.lastActivity || "None";
+
+
+  /* XP TOAST */
+
+  const oldXP =
+    Number(
+      localStorage.lastXP || 0
+    );
+
+  const oldRank =
+    localStorage.lastRank ||
+    rankName(oldXP);
+
+  const newRank =
+    rankName(d.xp);
+
+
+  if(d.xp > oldXP){
+
+    toast.textContent =
+      "+" +
+      (d.xp - oldXP) +
+      " XP";
+
+    toast.style.opacity = 1;
+
+    toast.style.transform =
+      "translateX(-50%) translateY(0)";
+
+    setTimeout(
+      () => {
+
+        toast.style.opacity = 0;
+
+        toast.style.transform =
+          "translateX(-50%) translateY(10px)";
+
+      },
+      1500
+    );
+
+  }
+
+
+  /* LEVEL UP */
+
+  if(oldRank !== newRank){
+
+    level.style.display =
+      "flex";
+
+    levelRank.textContent =
+      newRank;
+
+    setTimeout(
+      () => {
+
+        level.style.display =
+          "none";
+
+      },
+      2200
+    );
+
+  }
+
+
+  localStorage.lastXP =
+    d.xp;
+
+  localStorage.lastRank =
+    newRank;
+
 }
 
-document.getElementById("startBtn").onclick=startMission;
-document.getElementById("nextBtn").onclick=startMission;
 
-indiaTab.onclick=()=>setMode("india");
-worldTab.onclick=()=>setMode("world");
-category.onchange=draw;
-difficulty.onchange=draw;
-search.oninput=draw;
+load();
 
-document.getElementById("homeBtn").onclick=()=>location.href="index.html";
-
-draw();
-updateStats();
 </script>
+
+
+<!-- =========================================================
+     BOTTOM NAVIGATION
+     ========================================================= -->
+
+<div class="bottomNav">
+
+
+<a
+  class="navBtn active"
+  href="index.html"
+>
+
+  <span>🏠</span>
+
+  Home
+
+</a>
+
+
+<a
+  class="navBtn"
+  href="current-affairs.html"
+>
+
+  <span>📰</span>
+
+  CA
+
+</a>
+
+
+<a
+  class="navBtn"
+  href="gs1.html"
+>
+
+  <span>📘</span>
+
+  GS
+
+</a>
+
+
+<a
+  class="navBtn"
+  href="answer.html"
+>
+
+  <span>🤖</span>
+
+  AI
+
+</a>
+
+
+</div>
+
+
 </body>
 </html>
