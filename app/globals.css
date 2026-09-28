@@ -1,1 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --bg:#F4F4F4;
+  --surface:#ECECEC;
+  --card:rgba(255,255,255,.72);
+  --text:#111111;
+  --muted:#666666;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html,body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:"Poppins",sans-serif;
+}
+
+body{
+  min-height:100vh;
+}
+
+.glass{
+  background:var(--card);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.45);
+  box-shadow:0 8px 30px rgba(0,0,0,.08);
+}
+
+.hero-card{
+  background:#111111;
+  color:white;
+  border-radius:34px;
+  box-shadow:0 18px 40px rgba(0,0,0,.18);
+}
+
+.premium-btn{
+  background:white;
+  border-radius:22px;
+  border:1px solid rgba(0,0,0,.08);
+  transition:.25s;
+}
+
+.premium-btn:active{
+  transform:scale(.97);
+}
+
+.bottom-pill{
+  background:rgba(255,255,255,.82);
+  backdrop-filter:blur(22px);
+  -webkit-backdrop-filter:blur(22px);
+  border:1px solid rgba(0,0,0,.08);
+}
