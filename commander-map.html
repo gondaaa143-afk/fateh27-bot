@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Commander Map • FATEH27</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script src="./progress.js"></script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#F4F4F4;
+  --card:rgba(255,255,255,.76);
+  --black:#111;
+  --muted:#666;
+  --soft:#E7E7E7;
+}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Poppins","Segoe UI",Arial,sans-serif;
+  background:
+    radial-gradient(circle at 10% 0%,rgba(255,255,255,.96),transparent 35%),
+    radial-gradient(circle at 100% 20%,rgba(220,220,220,.82),transparent 38%),
+    var(--bg);
+  color:#111;
+  min-height:100vh;
+  padding:18px;
+  padding-bottom:96px;
+}
+.wrap{max-width:900px;margin:auto}
+.header{padding:7px 2px 16px}
+.eyebrow{
+  font-size:11px;font-weight:900;letter-spacing:1.5px;color:#777;
+  text-transform:uppercase;margin-bottom:7px
+}
+h1{font-size:30px;letter-spacing:-1px}
+.subtitle{margin-top:7px;color:#666;font-size:14px;line-height:1.45}
+
+.command{
+  margin-top:14px;
+  background:#111;color:#fff;border-radius:22px;padding:16px;
+  box-shadow:0 15px 35px rgba(0,0,0,.16);
+}
+.commandRow{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.commandLabel{font-size:10px;color:#aaa;font-weight:900;letter-spacing:1.5px}
+.mission{font-size:18px;font-weight:850;margin-top:4px}
+.missionSub{font-size:12px;color:#aaa;margin-top:4px}
+
+.stats{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
+.stat{background:#252525;border-radius:10px;padding:7px 9px;font-size:11px;font-weight:800}
+
+.controls{
+  margin-top:14px;
+  background:rgba(255,255,255,.58);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.9);
+  box-shadow:0 12px 35px rgba(0,0,0,.07);
+  border-radius:22px;padding:12px;
+}
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:9px}
+button,select,input{
+  border:0;border-radius:14px;padding:13px;font-size:14px;
+  font-weight:750;outline:none;
+}
+.tab{background:#E7E7E7;color:#555}
+.tab.active{background:#111;color:#fff}
+select,input{width:100%;background:#E7E7E7;color:#111;margin-top:8px}
+.filters{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.filters select{margin-top:0}
+
+#map{
+  height:480px;
+  margin-top:14px;
+  border-radius:24px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.9);
+  box-shadow:0 14px 38px rgba(0,0,0,.09);
+}
+.leaflet-container{font-family:-apple-system,BlinkMacSystemFont,"Poppins","Segoe UI",Arial,sans-serif}
+.leaflet-popup-content-wrapper,.leaflet-popup-tip{
+  background:#111;color:#fff;border:0;
+}
+.leaflet-popup-content{font-size:13px;line-height:1.5}
+.popupTitle{font-size:15px;font-weight:850;margin-bottom:4px}
+.popupMeta{color:#aaa;font-size:11px}
+.popupBtn{
+  margin-top:9px;background:#fff;color:#111;width:100%;
+  border-radius:10px;padding:8px;font-weight:850;cursor:pointer;
+}
+
+.missionPanel{
+  margin-top:14px;
+  background:var(--card);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.9);
+  box-shadow:0 12px 35px rgba(0,0,0,.07);
+  border-radius:22px;padding:16px;
+}
+.small{font-size:11px;color:#777;font-weight:800;letter-spacing:.8px;text-transform:uppercase}
+.target{font-size:21px;font-weight:900;margin-top:5px}
+.hint{font-size:13px;color:#666;margin-top:4px}
+.missionBtns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.action{background:#111;color:#fff}
+.secondary{background:#E7E7E7;color:#111}
+.result{
+  display:none;margin-top:10px;padding:12px;border-radius:14px;
+  background:#E7E7E7;color:#222;font-size:13px;font-weight:700;
+}
+.info{
+  margin-top:14px;background:rgba(255,255,255,.58);
+  border-radius:20px;padding:15px;border:1px solid rgba(255,255,255,.9);
+}
+.info h3{font-size:14px;margin-bottom:7px}
+.info p{font-size:12px;color:#666;line-height:1.55}
+
+#homeBtn{
+  position:fixed;left:18px;right:18px;bottom:16px;max-width:864px;margin:auto;
+  z-index:999;background:#111;color:#fff;
+  box-shadow:0 14px 32px rgba(0,0,0,.2);
+}
+
+@media(max-width:600px){
+  body{padding:14px;padding-bottom:90px}
+  h1{font-size:27px}
+  #map{height:430px}
+  .filters{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <div class="eyebrow">FATEH27 • UPSC GEOGRAPHY</div>
+    <h1>Commander Map</h1>
+    <div class="subtitle">Locate. Remember. Command the map.</div>
+
+    <div class="command">
+      <div class="commandRow">
+        <div>
+          <div class="commandLabel">CURRENT MISSION</div>
+          <div class="mission" id="missionTitle">Ready for deployment</div>
+          <div class="missionSub" id="missionSub">Select a mode and start your map drill.</div>
+        </div>
+        <div style="font-size:28px">⌖</div>
+      </div>
+      <div class="stats">
+        <div class="stat">XP <span id="xp">0</span></div>
+        <div class="stat">Streak <span id="streak">0</span></div>
+        <div class="stat">Accuracy <span id="accuracy">—</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="tabs">
+      <button class="tab active" id="indiaTab">INDIA</button>
+      <button class="tab" id="worldTab">WORLD</button>
+    </div>
+
+    <div class="filters">
+      <select id="category">
+        <option value="all">All Categories</option>
+        <option value="rivers">Rivers</option>
+        <option value="mountains">Mountains & Passes</option>
+        <option value="lakes">Lakes</option>
+        <option value="parks">National Parks</option>
+        <option value="ports">Ports & Coasts</option>
+        <option value="cities">Important Cities</option>
+        <option value="current">Current Affairs Locations</option>
+      </select>
+      <select id="difficulty">
+        <option value="all">All Difficulty</option>
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+    </div>
+    <input id="search" placeholder="Search location / feature">
+  </div>
+
+  <div id="map"></div>
+
+  <div class="missionPanel">
+    <div class="small">Locate Mission</div>
+    <div class="target" id="target">Press Start Mission</div>
+    <div class="hint" id="targetHint">You will be asked to locate an UPSC-relevant feature on the map.</div>
+
+    <div class="missionBtns">
+      <button class="action" id="startBtn">Start Mission</button>
+      <button class="secondary" id="nextBtn">Next Mission</button>
+    </div>
+    <div class="result" id="result"></div>
+  </div>
+
+  <div class="info">
+    <h3>Commander Map</h3>
+    <p>
+      This module is designed for UPSC map revision. Use the filters to explore
+      locations, then use Locate Mission to test recall. Map data is kept in this
+      HTML file so the practice set does not depend on a separate CSV.
+    </p>
+  </div>
+
+</div>
+
+<button id="homeBtn">⌂ Home</button>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const tg=window.Telegram&&Telegram.WebApp?Telegram.WebApp:null;
+if(tg){tg.ready();tg.expand();}
+
+const locations=[
+/* INDIA */
+{name:"Delhi",lat:28.6139,lng:77.2090,region:"india",cat:"cities",difficulty:"easy",note:"National Capital Region"},
+{name:"Mumbai",lat:19.0760,lng:72.8777,region:"india",cat:"ports",difficulty:"easy",note:"Arabian Sea coast"},
+{name:"Kolkata",lat:22.5726,lng:88.3639,region:"india",cat:"ports",difficulty:"easy",note:"Hooghly River / Bay of Bengal"},
+{name:"Chennai",lat:13.0827,lng:80.2707,region:"india",cat:"ports",difficulty:"easy",note:"Coromandel Coast"},
+{name:"Kochi",lat:9.9312,lng:76.2673,region:"india",cat:"ports",difficulty:"medium",note:"Malabar Coast"},
+{name:"Guwahati",lat:26.1445,lng:91.7362,region:"india",cat:"cities",difficulty:"medium",note:"Brahmaputra valley"},
+{name:"Srinagar",lat:34.0837,lng:74.7973,region:"india",cat:"cities",difficulty:"medium",note:"Kashmir Valley"},
+{name:"Kanyakumari",lat:8.0883,lng:77.5385,region:"india",cat:"ports",difficulty:"easy",note:"Southern tip of mainland India"},
+{name:"Narmada River",lat:22.0,lng:77.8,region:"india",cat:"rivers",difficulty:"medium",note:"West-flowing peninsular river"},
+{name:"Godavari River",lat:17.0,lng:80.2,region:"india",cat:"rivers",difficulty:"easy",note:"Major east-flowing peninsular river"},
+{name:"Brahmaputra River",lat:27.3,lng:92.4,region:"india",cat:"rivers",difficulty:"medium",note:"Enters India through Arunachal Pradesh"},
+{name:"Ganga River",lat:25.3,lng:83.0,region:"india",cat:"rivers",difficulty:"easy",note:"Major Himalayan river system"},
+{name:"Siachen Glacier",lat:35.42,lng:77.10,region:"india",cat:"mountains",difficulty:"hard",note:"Eastern Karakoram"},
+{name:"Nathu La",lat:27.386,lng:88.83,region:"india",cat:"mountains",difficulty:"hard",note:"Pass in Sikkim"},
+{name:"Rohtang Pass",lat:32.37,lng:77.25,region:"india",cat:"mountains",difficulty:"medium",note:"Himachal Pradesh"},
+{name:"Kaziranga National Park",lat:26.58,lng:93.17,region:"india",cat:"parks",difficulty:"medium",note:"Assam"},
+{name:"Gir National Park",lat:21.12,lng:70.79,region:"india",cat:"parks",difficulty:"medium",note:"Gujarat"},
+{name:"Chilika Lake",lat:19.72,lng:85.32,region:"india",cat:"lakes",difficulty:"easy",note:"Odisha lagoon"},
+{name:"Wular Lake",lat:34.08,lng:74.65,region:"india",cat:"lakes",difficulty:"medium",note:"Jammu & Kashmir"},
+{name:"Loktak Lake",lat:24.55,lng:93.78,region:"india",cat:"lakes",difficulty:"hard",note:"Manipur"},
+{name:"Andaman & Nicobar",lat:11.75,lng:92.65,region:"india",cat:"current",difficulty:"medium",note:"Bay of Bengal archipelago"},
+{name:"Lakshadweep",lat:10.57,lng:72.64,region:"india",cat:"current",difficulty:"medium",note:"Arabian Sea archipelago"},
+
+/* WORLD */
+{name:"Suez Canal",lat:30.5,lng:32.35,region:"world",cat:"current",difficulty:"medium",note:"Mediterranean–Red Sea route"},
+{name:"Strait of Hormuz",lat:26.57,lng:56.25,region:"world",cat:"current",difficulty:"medium",note:"Persian Gulf entrance"},
+{name:"Bab-el-Mandeb",lat:12.58,lng:43.35,region:"world",cat:"current",difficulty:"hard",note:"Red Sea–Gulf of Aden gateway"},
+{name:"Malacca Strait",lat:2.5,lng:101.5,region:"world",cat:"current",difficulty:"medium",note:"Indian Ocean–Pacific maritime route"},
+{name:"Panama Canal",lat:9.08,lng:-79.68,region:"world",cat:"current",difficulty:"medium",note:"Atlantic–Pacific link"},
+{name:"Gibraltar Strait",lat:35.97,lng:-5.6,region:"world",cat:"current",difficulty:"medium",note:"Atlantic–Mediterranean gateway"},
+{name:"Nile River",lat:26.0,lng:31.2,region:"world",cat:"rivers",difficulty:"easy",note:"North-flowing African river"},
+{name:"Amazon River",lat:-3.0,lng:-60.0,region:"world",cat:"rivers",difficulty:"easy",note:"South America"},
+{name:"Danube River",lat:46.0,lng:18.0,region:"world",cat:"rivers",difficulty:"medium",note:"Major European river"},
+{name:"Himalayas",lat:28.0,lng:84.0,region:"world",cat:"mountains",difficulty:"easy",note:"Asia"},
+{name:"Andes",lat:-20.0,lng:-69.0,region:"world",cat:"mountains",difficulty:"medium",note:"Western South America"},
+{name:"Sahara",lat:23.0,lng:13.0,region:"world",cat:"current",difficulty:"easy",note:"North Africa"},
+{name:"Lake Baikal",lat:53.5,lng:108.0,region:"world",cat:"lakes",difficulty:"hard",note:"Russia"},
+{name:"Black Sea",lat:43.0,lng:35.0,region:"world",cat:"lakes",difficulty:"medium",note:"Eurasia"},
+{name:"Arctic Ocean",lat:85,lng:0,region:"world",cat:"current",difficulty:"medium",note:"Northern polar ocean"},
+{name:"Antarctica",lat:-82,lng:0,region:"world",cat:"current",difficulty:"easy",note:"Southern polar continent"}
+];
+
+let mode="india";
+let map=L.map("map",{worldCopyJump:true,zoomControl:true}).setView([23.5,78.9],5);
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{
+maxZoom:19,attribution:"© OpenStreetMap contributors"
+}).addTo(map);
+
+let markerLayer=L.layerGroup().addTo(map);
+let currentMission=null;
+let missionStarted=false;
+let attempts=0,correct=0,streak=0,xp=0;
+
+const indiaTab=document.getElementById("indiaTab");
+const worldTab=document.getElementById("worldTab");
+const category=document.getElementById("category");
+const difficulty=document.getElementById("difficulty");
+const search=document.getElementById("search");
+const target=document.getElementById("target");
+const targetHint=document.getElementById("targetHint");
+const result=document.getElementById("result");
+
+function filtered(){
+ const term=search.value.toLowerCase().trim();
+ return locations.filter(x=>
+   x.region===mode &&
+   (category.value==="all"||x.cat===category.value) &&
+   (difficulty.value==="all"||x.difficulty===difficulty.value) &&
+   (!term||x.name.toLowerCase().includes(term)||x.note.toLowerCase().includes(term))
+ );
+}
+
+function draw(){
+ markerLayer.clearLayers();
+ const list=filtered();
+ list.forEach(x=>{
+   const marker=L.circleMarker([x.lat,x.lng],{
+     radius:8,weight:2,color:"#111",fillColor:"#111",fillOpacity:.82
+   }).addTo(markerLayer);
+   marker.bindPopup(`
+     <div class="popupTitle">${x.name}</div>
+     <div class="popupMeta">${x.note}</div>
+     <button class="popupBtn" onclick="selectFromMap('${x.name.replaceAll("'","\\'")}')">Select Location</button>
+   `);
+ });
+ if(list.length){
+   const bounds=L.latLngBounds(list.map(x=>[x.lat,x.lng]));
+   map.fitBounds(bounds,{padding:[35,35],maxZoom:6});
+ }
+}
+
+window.selectFromMap=function(name){
+ const loc=locations.find(x=>x.name===name);
+ if(!loc)return;
+ if(missionStarted&&currentMission){
+   checkMission(loc);
+ }else{
+   map.setView([loc.lat,loc.lng],7);
+ }
+};
+
+function setMode(m){
+ mode=m;
+ indiaTab.classList.toggle("active",m==="india");
+ worldTab.classList.toggle("active",m==="world");
+ if(m==="india"){
+   map.setView([23.5,78.9],5);
+ }else{
+   map.setView([20,0],2);
+ }
+ draw();
+}
+
+function updateStats(){
+ document.getElementById("xp").textContent=xp;
+ document.getElementById("streak").textContent=streak;
+ document.getElementById("accuracy").textContent=attempts?Math.round(correct/attempts*100)+"%":"—";
+}
+
+function startMission(){
+ const list=filtered();
+ if(!list.length){
+   result.style.display="block";
+   result.textContent="No locations match the selected filters.";
+   return;
+ }
+ currentMission=list[Math.floor(Math.random()*list.length)];
+ missionStarted=true;
+ target.textContent="Locate: "+currentMission.name;
+ targetHint.textContent="Find this location on the map and select its marker.";
+ result.style.display="none";
+ document.getElementById("missionTitle").textContent="Mission Active";
+ document.getElementById("missionSub").textContent=currentMission.cat+" • "+currentMission.difficulty.toUpperCase();
+ map.setView([currentMission.lat,currentMission.lng],mode==="india"?5:2);
+ updateStats();
+}
+
+function checkMission(loc){
+ attempts++;
+ if(loc.name===currentMission.name){
+   correct++;streak++;xp+=20;
+   result.style.display="block";
+   result.textContent="MISSION COMPLETE • +20 XP • "+currentMission.note;
+   try{
+     if(window.Progress&&typeof Progress.addSolved==="function")
+       Progress.addSolved("MAP",currentMission.name);
+   }catch(e){}
+   missionStarted=false;
+   document.getElementById("missionTitle").textContent="Target secured";
+   document.getElementById("missionSub").textContent="Next location is ready.";
+   L.popup().setLatLng([loc.lat,loc.lng]).setContent("<b>Correct</b><br>"+loc.name).openOn(map);
+ }else{
+   streak=0;
+   result.style.display="block";
+   result.textContent="INCORRECT • Target was "+currentMission.name+". Try the next mission.";
+ }
+ updateStats();
+}
+
+document.getElementById("startBtn").onclick=startMission;
+document.getElementById("nextBtn").onclick=startMission;
+
+indiaTab.onclick=()=>setMode("india");
+worldTab.onclick=()=>setMode("world");
+category.onchange=draw;
+difficulty.onchange=draw;
+search.oninput=draw;
+
+document.getElementById("homeBtn").onclick=()=>location.href="index.html";
+
+draw();
+updateStats();
+</script>
+</body>
+</html>
