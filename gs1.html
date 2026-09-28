@@ -12,37 +12,163 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{
 font-family:Arial,sans-serif;
-background:#07152d;
-color:white;
-padding:20px;
-padding-bottom:90px;
-}
-h1{margin-bottom:18px}
-.card{
-background:#0f2348;
+background:#F4F4F4;
+color:#111;
 padding:18px;
-border-radius:16px;
-margin:12px 0;
-cursor:pointer;
+padding-bottom:110px;
 }
-select,input,button{
+body:before{
+content:"";
+position:fixed;
+inset:0;
+z-index:-2;
+background:
+radial-gradient(circle at 15% 10%,rgba(0,0,0,.045),transparent 32%),
+radial-gradient(circle at 85% 35%,rgba(0,0,0,.035),transparent 35%),
+linear-gradient(180deg,#F7F7F7 0%,#F1F1F1 50%,#ECECEC 100%);
+}
+h1{
+font-size:27px;
+font-weight:900;
+letter-spacing:-.8px;
+margin:4px 0 18px;
+}
+#listView{
+max-width:620px;
+margin:auto;
+}
+.controls{
+background:rgba(255,255,255,.72);
+backdrop-filter:blur(22px);
+-webkit-backdrop-filter:blur(22px);
+border:1px solid rgba(0,0,0,.055);
+border-radius:22px;
+padding:14px;
+box-shadow:0 12px 35px rgba(0,0,0,.055),inset 0 1px 0 rgba(255,255,255,.9);
+margin-bottom:14px;
+}
+select,input{
 width:100%;
-padding:12px;
-margin:10px 0;
-border:none;
-border-radius:12px;
-background:#0f2348;
-color:white;
+padding:14px 15px;
+margin:0 0 9px;
+border:1px solid rgba(0,0,0,.06);
+border-radius:15px;
+background:#e7e7e7;
+color:#111;
 font-size:15px;
+font-weight:600;
+outline:none;
+box-shadow:inset 0 1px 0 rgba(255,255,255,.7);
 }
-#detail{display:none}
+input{margin-bottom:0}
+select:focus,input:focus{
+border-color:rgba(0,0,0,.14);
+background:#e3e3e3;
+box-shadow:0 0 0 3px rgba(0,0,0,.045);
+}
+.card{
+background:rgba(255,255,255,.76);
+backdrop-filter:blur(18px);
+-webkit-backdrop-filter:blur(18px);
+border:1px solid rgba(0,0,0,.055);
+padding:17px;
+border-radius:22px;
+margin:10px 0;
+cursor:pointer;
+box-shadow:0 8px 24px rgba(0,0,0,.055),inset 0 1px 0 rgba(255,255,255,.9);
+transition:transform .16s ease,background .16s ease,box-shadow .16s ease;
+}
+.card:hover{
+transform:translateY(-2px);
+background:rgba(255,255,255,.9);
+box-shadow:0 12px 28px rgba(0,0,0,.08);
+}
+.card:active{transform:scale(.985)}
+.card b{
+display:inline-flex;
+padding:5px 9px;
+border-radius:999px;
+background:#111;
+color:#fff;
+font-size:11px;
+margin-bottom:10px;
+}
+.card p{
+font-size:14px;
+line-height:1.5;
+color:#333;
+}
+#detail{
+display:none;
+max-width:620px;
+margin:0 auto;
+}
+#detail h2{
+line-height:1.35;
+}
+#dQuestion{
+margin-top:13px;
+font-size:16px;
+line-height:1.65;
+color:#333;
+}
+.detailActions{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+margin-top:20px;
+}
+.actionBtn{
+width:100%;
+padding:14px 12px;
+border:0;
+border-radius:16px;
+background:#111;
+color:#fff;
+font-size:14px;
+font-weight:700;
+cursor:pointer;
+box-shadow:0 8px 20px rgba(0,0,0,.13);
+}
+.actionBtn.secondary{
+background:#e7e7e7;
+color:#111;
+box-shadow:none;
+}
+.actionBtn:active{transform:scale(.97)}
+#timer{
+margin-top:18px;
+padding:15px;
+border-radius:17px;
+background:#111;
+color:#fff;
+text-align:center;
+font-size:27px;
+font-weight:900;
+letter-spacing:1px;
+}
 #homeBtn{
 position:fixed;
-left:20px;
-right:20px;
-bottom:20px;
-background:#229ED9;
-font-weight:bold;
+left:18px;
+right:18px;
+bottom:18px;
+width:auto;
+padding:15px;
+border:0;
+border-radius:18px;
+background:#111;
+color:#fff;
+font-weight:800;
+font-size:15px;
+box-shadow:0 12px 30px rgba(0,0,0,.18);
+z-index:20;
+}
+@media(max-width:420px){
+body{padding:14px;padding-bottom:100px}
+h1{font-size:25px}
+.controls{padding:12px;border-radius:20px}
+.card{padding:15px;border-radius:20px}
+.detailActions{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
@@ -53,11 +179,13 @@ font-weight:bold;
 
 <h1>📘 GS1 PYQs</h1>
 
+<div class="controls">
 <select id="year">
 <option value="all">All Years</option>
 </select>
 
 <input id="search" placeholder="Search Topic">
+</div>
 
 <div id="questions"></div>
 
@@ -68,11 +196,12 @@ font-weight:bold;
 <h2 id="dYear"></h2>
 <p id="dQuestion"></p>
 
-<button id="btn7">⏱ 7 Min Timer</button>
-<button id="btn11">⏱ 11 Min Timer</button>
-
-<button id="copyBtn">📋 Copy Question</button>
-<button id="backBtn">⬅ Back</button>
+<div class="detailActions">
+<button class="actionBtn" id="btn7">⏱ 7 Min Timer</button>
+<button class="actionBtn" id="btn11">⏱ 11 Min Timer</button>
+<button class="actionBtn secondary" id="copyBtn">📋 Copy Question</button>
+<button class="actionBtn secondary" id="backBtn">⬅ Back</button>
+</div>
 
 <h2 id="timer"></h2>
 
@@ -103,7 +232,9 @@ async function load(){
 
 const text=await fetch("./pyqs.csv?"+Date.now()).then(r=>r.text());
 
-const rows=text.trim().split(/\r?\n/).slice(1);
+const rows=text.trim().split(/
+?
+/).slice(1);
 
 data=[];
 
