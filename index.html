@@ -3,7 +3,11 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
+>
 
 <title>FATEH27</title>
 
@@ -13,53 +17,60 @@
 <style>
 
 /* =========================================================
-   FATEH27 — PREMIUM GREY UI
+   FATEH27
+   PREMIUM GREY / WHITE / BLACK UI
    ========================================================= */
 
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
 }
 
 html{
+  min-height:100%;
   background:#F4F4F4;
 }
 
 body{
+  min-height:100vh;
+  background:#F4F4F4;
+  color:#111111;
   font-family:
     -apple-system,
     BlinkMacSystemFont,
+    "SF Pro Display",
+    "SF Pro Text",
     "Segoe UI",
     Roboto,
     Helvetica,
     Arial,
     sans-serif;
-
-  background:#F4F4F4;
-  color:#111111;
   overflow-x:hidden;
-  min-height:100vh;
 }
 
-/* ---------- BACKGROUND ---------- */
+/* =========================================================
+   BACKGROUND
+   ========================================================= */
 
 .bg{
   position:fixed;
   inset:0;
-  z-index:-5;
+  z-index:-10;
 
   background:
     radial-gradient(
-      circle at 50% 0%,
-      rgba(255,255,255,.95),
-      transparent 48%
+      circle at 50% -10%,
+      #ffffff 0%,
+      rgba(255,255,255,.85) 25%,
+      transparent 55%
     ),
     linear-gradient(
       180deg,
-      #F7F7F7 0%,
-      #F1F1F1 45%,
-      #E9E9E9 100%
+      #F8F8F8 0%,
+      #F4F4F4 45%,
+      #EAEAEA 100%
     );
 }
 
@@ -68,182 +79,221 @@ body{
   display:none;
 }
 
-/* ---------- PAGE ---------- */
+/* =========================================================
+   MAIN WRAPPER
+   ========================================================= */
 
 .wrap{
   width:100%;
   max-width:520px;
   margin:0 auto;
 
-  padding:18px 18px 120px;
+  padding:
+    18px
+    18px
+    125px;
 }
 
-/* ---------- MAIN PANEL ---------- */
+/* =========================================================
+   MAIN GLASS PANEL
+   ========================================================= */
 
 .panel{
   position:relative;
 
-  background:rgba(255,255,255,.68);
+  background:
+    rgba(255,255,255,.70);
 
   backdrop-filter:blur(24px);
   -webkit-backdrop-filter:blur(24px);
 
-  border:1px solid rgba(0,0,0,.07);
+  border:
+    1px solid rgba(0,0,0,.065);
 
   border-radius:34px;
 
   padding:22px;
 
   box-shadow:
-    0 12px 40px rgba(0,0,0,.07),
-    inset 0 1px 0 rgba(255,255,255,.9);
+    0 18px 50px rgba(0,0,0,.065),
+    inset 0 1px 0 rgba(255,255,255,.95);
 }
 
-/* ---------- TOP ---------- */
+/* =========================================================
+   HEADER
+   ========================================================= */
 
 .top{
   display:flex;
   align-items:center;
   justify-content:space-between;
+
   gap:12px;
 }
 
 .logo{
-  font-size:28px;
+  color:#111111;
+
+  font-size:29px;
   line-height:1;
+
   font-weight:900;
-  letter-spacing:-1.5px;
-  color:#111;
+
+  letter-spacing:-1.7px;
 }
 
 .badge{
-  padding:8px 12px;
+  display:inline-flex;
+  align-items:center;
+
+  padding:
+    8px
+    12px;
 
   border-radius:999px;
 
-  background:#111;
-  color:#fff;
+  background:#111111;
+  color:#ffffff;
 
   font-size:10px;
   font-weight:700;
+
   letter-spacing:.3px;
 
   white-space:nowrap;
 }
 
-/* ---------- PROFILE ---------- */
+/* =========================================================
+   PROFILE
+   ========================================================= */
 
 .profile{
   display:flex;
   align-items:center;
+
   gap:14px;
+
   margin-top:24px;
 }
 
 .avatar{
-  width:64px;
-  height:64px;
+  width:66px;
+  height:66px;
 
   flex-shrink:0;
-
-  border-radius:50%;
-
-  background:#111;
-
-  color:#fff;
 
   display:flex;
   align-items:center;
   justify-content:center;
 
-  font-size:25px;
-  font-weight:800;
-
   overflow:hidden;
 
+  border-radius:50%;
+
+  background:#111111;
+  color:#ffffff;
+
+  font-size:27px;
+  font-weight:800;
+
+  border:
+    3px solid #ffffff;
+
   box-shadow:
-    0 8px 20px rgba(0,0,0,.15);
+    0 8px 25px rgba(0,0,0,.15);
 }
 
 .avatar img{
   width:100%;
   height:100%;
+
   object-fit:cover;
 }
 
 #username{
-  color:#111 !important;
+  color:#111111 !important;
 }
 
 #officerId{
   margin-top:3px;
-  color:#777;
+
+  color:#777777;
+
   font-size:13px;
 }
 
 #clock{
   margin-top:4px;
-  color:#999;
+
+  color:#999999;
+
   font-size:12px;
 }
 
-/* ---------- OFFICER CARD ---------- */
+/* =========================================================
+   OFFICER ACCESS CARD
+   ========================================================= */
 
 .idcard{
   position:relative;
+
   overflow:hidden;
 
-  margin-top:20px;
+  margin-top:21px;
+
+  min-height:112px;
 
   padding:20px;
 
-  min-height:110px;
-
   border-radius:28px;
 
-  background:#111;
+  background:#111111;
 
-  color:#fff;
-
-  border:none;
+  color:#ffffff;
 
   box-shadow:
-    0 16px 32px rgba(0,0,0,.16);
+    0 17px 36px rgba(0,0,0,.16);
 }
 
-.idcard:after{
+.idcard::after{
   content:"";
 
   position:absolute;
 
   width:150%;
-  height:100%;
+  height:150%;
 
-  top:0;
-  left:-160%;
+  top:-25%;
+  left:-170%;
 
   background:
     linear-gradient(
-      100deg,
+      110deg,
       transparent,
-      rgba(255,255,255,.14),
+      rgba(255,255,255,.13),
       transparent
     );
 
-  transform:skewX(-18deg);
+  transform:rotate(-12deg);
 
-  animation:idshine 5s infinite;
+  animation:
+    cardShine 5s ease-in-out infinite;
 }
 
-@keyframes idshine{
+@keyframes cardShine{
+
   0%{
-    left:-160%;
+    left:-170%;
   }
 
-  45%,
-  100%{
-    left:160%;
+  45%{
+    left:170%;
   }
+
+  100%{
+    left:170%;
+  }
+
 }
 
 .idcard > *{
@@ -252,26 +302,31 @@ body{
 }
 
 .idcard div:first-child{
-  color:#aaa !important;
+  color:#AAAAAA !important;
 }
 
 #cardName{
-  color:#fff !important;
+  color:#FFFFFF !important;
 }
 
 .idcard div:last-child{
-  color:#aaa !important;
+  color:#AAAAAA !important;
 }
 
-/* ---------- GLOBE ---------- */
+/* =========================================================
+   ORBIT / XP CORE
+   ========================================================= */
 
 .globe{
-  width:230px;
-  height:230px;
-
-  margin:28px auto 18px;
+  width:235px;
+  height:235px;
 
   position:relative;
+
+  margin:
+    28px
+    auto
+    12px;
 
   display:flex;
   align-items:center;
@@ -288,75 +343,89 @@ body{
 
   background:
     radial-gradient(
-      circle at 32% 28%,
-      #777 0%,
-      #333 38%,
-      #111 72%
+      circle at 30% 25%,
+      #777777 0%,
+      #444444 28%,
+      #222222 58%,
+      #111111 100%
     );
 
   box-shadow:
-    inset -18px -18px 35px rgba(0,0,0,.45),
-    inset 12px 10px 22px rgba(255,255,255,.08),
-    0 18px 40px rgba(0,0,0,.18);
+    inset -25px -20px 38px rgba(0,0,0,.48),
+    inset 15px 12px 28px rgba(255,255,255,.09),
+    0 20px 45px rgba(0,0,0,.18);
 
-  animation:earthRotate 18s linear infinite;
+  animation:
+    earthRotate 18s linear infinite;
 }
 
 @keyframes earthRotate{
+
   to{
     transform:rotate(360deg);
   }
+
 }
 
 .orbit{
   position:absolute;
 
-  border:1px solid rgba(0,0,0,.11);
+  border:
+    1px solid rgba(0,0,0,.10);
 
   border-radius:50%;
 }
 
 .orbit1{
-  width:210px;
-  height:210px;
+  width:214px;
+  height:214px;
 
-  animation:orbit1 12s linear infinite;
+  animation:
+    orbitOne 12s linear infinite;
 }
 
 .orbit2{
-  width:182px;
-  height:182px;
+  width:183px;
+  height:183px;
 
-  transform:rotateX(70deg);
+  transform:rotateX(72deg);
 
-  animation:orbit2 9s linear infinite;
+  animation:
+    orbitTwo 9s linear infinite;
 }
 
 .orbit3{
-  width:150px;
-  height:150px;
+  width:151px;
+  height:151px;
 
   transform:rotateY(70deg);
 
-  animation:orbit3 15s linear infinite reverse;
+  animation:
+    orbitThree 15s linear infinite reverse;
 }
 
-@keyframes orbit1{
+@keyframes orbitOne{
+
   to{
     transform:rotate(360deg);
   }
+
 }
 
-@keyframes orbit2{
+@keyframes orbitTwo{
+
   to{
     transform:rotate(-360deg);
   }
+
 }
 
-@keyframes orbit3{
+@keyframes orbitThree{
+
   to{
     transform:rotate(360deg);
   }
+
 }
 
 .radarSweep{
@@ -369,28 +438,32 @@ body{
   width:11px;
   height:11px;
 
-  top:82px;
-  right:92px;
+  top:84px;
+  right:93px;
 
   border-radius:50%;
 
-  background:#111;
+  background:#111111;
 
   box-shadow:
     0 0 0 5px rgba(17,17,17,.08),
-    0 0 14px rgba(0,0,0,.3);
+    0 0 15px rgba(0,0,0,.25);
 
-  animation:locationPulse 1.8s infinite;
+  animation:
+    locationPulse 1.7s ease-in-out infinite;
 }
 
 @keyframes locationPulse{
+
   50%{
-    transform:scale(1.5);
+    transform:scale(1.55);
   }
+
 }
 
 .center{
   position:absolute;
+
   inset:0;
 
   display:flex;
@@ -398,122 +471,168 @@ body{
 
   align-items:center;
   justify-content:center;
+
+  z-index:5;
 }
 
 #xp{
+  color:#111111;
+
   font-size:31px;
+
   font-weight:900;
-  letter-spacing:-1px;
-  color:#111;
+
+  line-height:1;
+
+  letter-spacing:-1.3px;
 }
 
 #rank{
-  margin-top:2px;
-  color:#666;
+  margin-top:6px;
+
+  color:#666666;
+
   font-size:13px;
+
   font-weight:600;
 }
 
-/* ---------- STATS ---------- */
+/* =========================================================
+   STAT CARDS
+   ========================================================= */
 
 .stats{
   display:grid;
-  grid-template-columns:1fr 1fr;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
 
   gap:12px;
 
-  margin-top:16px;
+  margin-top:17px;
 }
 
 .card{
+  min-height:92px;
+
   padding:18px;
 
-  min-height:90px;
-
-  background:rgba(255,255,255,.74);
+  background:
+    rgba(255,255,255,.76);
 
   backdrop-filter:blur(20px);
   -webkit-backdrop-filter:blur(20px);
 
-  border:1px solid rgba(0,0,0,.07);
+  border:
+    1px solid rgba(0,0,0,.065);
 
-  border-radius:26px;
+  border-radius:27px;
 
   box-shadow:
-    0 8px 24px rgba(0,0,0,.055),
-    inset 0 1px 0 rgba(255,255,255,.8);
+    0 9px 26px rgba(0,0,0,.055),
+    inset 0 1px 0 rgba(255,255,255,.9);
 }
 
 .stat{
+  color:#111111;
+
   font-size:29px;
+
   line-height:1;
+
   font-weight:900;
-  color:#111;
-  margin-bottom:7px;
+
+  margin-bottom:8px;
 }
 
-/* ---------- SECTION ---------- */
+/* =========================================================
+   SECTION HEADINGS
+   ========================================================= */
 
 .section{
-  margin:28px 2px 13px;
+  margin:
+    28px
+    2px
+    13px;
 
-  font-size:20px;
+  color:#111111;
+
+  font-size:21px;
+
   font-weight:800;
 
-  letter-spacing:-.5px;
+  line-height:1.2;
 
-  color:#111;
+  letter-spacing:-.6px;
 }
 
-/* ---------- SUBJECTS ---------- */
+/* =========================================================
+   SUBJECT CARDS
+   ========================================================= */
 
 .subjects{
   display:grid;
-  grid-template-columns:1fr 1fr;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
 
   gap:12px;
 }
 
 .subject{
+  min-height:108px;
+
   padding:17px;
 
-  min-height:105px;
-
-  background:rgba(255,255,255,.70);
+  background:
+    rgba(255,255,255,.72);
 
   backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
 
-  border:1px solid rgba(0,0,0,.07);
+  border:
+    1px solid rgba(0,0,0,.065);
 
-  border-radius:25px;
+  border-radius:26px;
 
   box-shadow:
-    0 7px 22px rgba(0,0,0,.05);
+    0 8px 24px rgba(0,0,0,.05);
 }
 
 .subject b{
+  color:#111111;
+
   font-size:16px;
-}
 
-.subject > div:nth-child(2){
-  margin-top:8px;
-
-  font-size:23px;
   font-weight:800;
 }
 
-/* ---------- PROGRESS BAR ---------- */
+.subject > div:nth-child(2){
+  margin-top:9px;
+
+  color:#111111;
+
+  font-size:23px;
+
+  font-weight:900;
+}
+
+/* =========================================================
+   PROGRESS BAR
+   ========================================================= */
 
 .bar{
+  width:100%;
+
   height:7px;
 
-  margin-top:9px;
+  margin-top:10px;
 
   overflow:hidden;
 
   border-radius:999px;
 
-  background:#E1E1E1;
+  background:#E0E0E0;
 }
 
 .fill{
@@ -522,57 +641,71 @@ body{
 
   border-radius:999px;
 
-  background:#111;
+  background:#111111;
 
   transition:
-    width .7s ease;
+    width .7s cubic-bezier(.22,.61,.36,1);
 }
 
-/* ---------- SECRETARY ---------- */
+/* =========================================================
+   AI SECRETARY
+   ========================================================= */
 
 .secretary{
   padding:19px;
 
-  background:rgba(255,255,255,.72);
+  background:
+    rgba(255,255,255,.74);
 
   backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
 
-  border:1px solid rgba(0,0,0,.07);
+  border:
+    1px solid rgba(0,0,0,.065);
 
-  border-radius:28px;
+  border-radius:29px;
 
   box-shadow:
-    0 9px 28px rgba(0,0,0,.06);
+    0 9px 28px rgba(0,0,0,.055);
 }
 
 .secretary h3{
+  color:#111111;
+
   font-size:16px;
-  letter-spacing:.2px;
-  color:#111;
+
+  font-weight:800;
+
+  letter-spacing:.1px;
 }
 
 .mission{
   display:flex;
 
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
 
   gap:12px;
 
-  padding:13px 0;
+  padding:
+    13px
+    0;
 
-  border-bottom:1px solid rgba(0,0,0,.06);
+  border-bottom:
+    1px solid rgba(0,0,0,.055);
 
   font-size:13px;
 }
 
 .mission span:first-child{
-  color:#777;
+  color:#777777;
 }
 
 .mission span:last-child{
-  color:#111;
+  color:#111111;
+
   font-weight:700;
+
   text-align:right;
 }
 
@@ -581,240 +714,790 @@ body{
 
   padding:14px !important;
 
-  border-radius:
-  <!-- =====================================================
-     STATS
+  border-radius:19px !important;
+
+  background:#F0F0F0 !important;
+
+  border:
+    1px solid rgba(0,0,0,.06) !important;
+
+  color:#222222 !important;
+
+  font-size:13px;
+
+  line-height:1.5;
+}
+
+/* =========================================================
+   QUICK LAUNCH BUTTONS
+   ========================================================= */
+
+button{
+  width:100%;
+
+  min-height:56px;
+
+  padding:
+    16px
+    18px;
+
+  margin-top:12px;
+
+  border:0;
+
+  border-radius:21px;
+
+  background:#111111;
+
+  color:#FFFFFF;
+
+  font-family:inherit;
+
+  font-size:15px;
+
+  font-weight:700;
+
+  line-height:1.2;
+
+  cursor:pointer;
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,.11);
+
+  transition:
+    transform .16s ease,
+    opacity .16s ease,
+    box-shadow .16s ease;
+}
+
+button:active{
+  transform:scale(.965);
+
+  box-shadow:
+    0 4px 12px rgba(0,0,0,.08);
+}
+
+button:hover{
+  opacity:.93;
+}
+
+/* =========================================================
+   LEVEL UP
+   ========================================================= */
+
+#level{
+  position:fixed;
+
+  inset:0;
+
+  z-index:500;
+
+  display:none;
+
+  align-items:center;
+  justify-content:center;
+
+  flex-direction:column;
+
+  background:
+    rgba(244,244,244,.96);
+
+  backdrop-filter:blur(25px);
+  -webkit-backdrop-filter:blur(25px);
+
+  color:#111111;
+}
+
+#level h1{
+  color:#111111;
+
+  font-size:46px;
+
+  font-weight:900;
+
+  line-height:1;
+
+  letter-spacing:-2px;
+}
+
+#levelRank{
+  margin-top:10px;
+
+  color:#666666;
+
+  font-size:15px;
+
+  font-weight:600;
+}
+
+/* =========================================================
+   XP TOAST
+   ========================================================= */
+
+#toast{
+  position:fixed;
+
+  left:50%;
+
+  bottom:112px;
+
+  z-index:450;
+
+  transform:
+    translateX(-50%);
+
+  padding:
+    11px
+    21px;
+
+  border-radius:999px;
+
+  background:#111111;
+
+  color:#FFFFFF;
+
+  font-size:13px;
+
+  font-weight:700;
+
+  opacity:0;
+
+  pointer-events:none;
+
+  transition:
+    opacity .3s ease,
+    transform .3s ease;
+
+  box-shadow:
+    0 10px 28px rgba(0,0,0,.16);
+}
+
+/* =========================================================
+   FLOATING BOTTOM NAV
+   ========================================================= */
+
+.bottomNav{
+  position:fixed;
+
+  left:50%;
+  bottom:17px;
+
+  transform:
+    translateX(-50%);
+
+  z-index:200;
+
+  width:
+    calc(100% - 34px);
+
+  max-width:480px;
+
+  height:70px;
+
+  padding:
+    7px
+    9px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:space-around;
+
+  background:
+    rgba(255,255,255,.84);
+
+  backdrop-filter:blur(25px);
+  -webkit-backdrop-filter:blur(25px);
+
+  border:
+    1px solid rgba(0,0,0,.07);
+
+  border-radius:999px;
+
+  box-shadow:
+    0 14px 42px rgba(0,0,0,.10),
+    inset 0 1px 0 rgba(255,255,255,.95);
+}
+
+.navBtn{
+  flex:1;
+
+  height:56px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+  justify-content:center;
+
+  gap:2px;
+
+  border-radius:999px;
+
+  color:#777777;
+
+  text-decoration:none;
+
+  font-size:10px;
+
+  font-weight:600;
+
+  transition:
+    transform .16s ease,
+    background .16s ease,
+    color .16s ease;
+}
+
+.navBtn span{
+  font-size:21px;
+
+  line-height:22px;
+
+  filter:grayscale(1);
+}
+
+.navBtn.active{
+  color:#111111;
+
+  background:#E8E8E8;
+
+  font-weight:800;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.8);
+}
+
+.navBtn.active span{
+  filter:grayscale(1);
+}
+
+.navBtn:active{
+  transform:scale(.91);
+}
+
+/* =========================================================
+   SMALL SCREEN
+   ========================================================= */
+
+@media(max-width:380px){
+
+  .wrap{
+    padding-left:14px;
+    padding-right:14px;
+  }
+
+  .panel{
+    padding:18px;
+  }
+
+  .logo{
+    font-size:25px;
+  }
+
+  .badge{
+    padding:
+      7px
+      9px;
+
+    font-size:9px;
+  }
+
+  .globe{
+    transform:scale(.91);
+
+    margin-top:17px;
+    margin-bottom:4px;
+  }
+
+  .section{
+    font-size:19px;
+  }
+
+  .subject{
+    padding:15px;
+  }
+
+}
+
+/* =========================================================
+   SAFE AREA
+   ========================================================= */
+
+@supports(padding:max(0px)){
+
+  .wrap{
+    padding-bottom:
+      max(
+        125px,
+        calc(110px + env(safe-area-inset-bottom))
+      );
+  }
+
+  .bottomNav{
+    bottom:
+      max(
+        17px,
+        env(safe-area-inset-bottom)
+      );
+  }
+
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  *,
+  *::before,
+  *::after{
+    animation-duration:.01ms !important;
+
+    animation-iteration-count:1 !important;
+
+    scroll-behavior:auto !important;
+
+    transition-duration:.01ms !important;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<div class="grid"></div>
+
+<div class="scan"></div>
+
+
+<!-- =====================================================
+     LEVEL UP OVERLAY
      ===================================================== -->
 
-<div class="stats">
+<div id="level">
 
-  <div class="card">
+  <h1>LEVEL UP</h1>
 
-    <div class="stat" id="streak">
-      0
-    </div>
-
-    <div>
-      🔥 Streak
-    </div>
-
-  </div>
-
-  <div class="card">
-
-    <div class="stat" id="solved">
-      0
-    </div>
-
-    <div>
-      ✅ Solved
-    </div>
-
-  </div>
+  <p id="levelRank"></p>
 
 </div>
 
 
 <!-- =====================================================
-     MISSION PROGRESS
+     MAIN
      ===================================================== -->
 
-<div class="section">
-  Mission Progress
-</div>
+<div class="wrap">
 
-<div class="subjects">
+  <div class="panel">
 
-  <div class="subject">
 
-    <b>GS1</b>
+    <!-- HEADER -->
 
-    <div id="gs1">
-      0
+    <div class="top">
+
+      <div class="logo">
+        FATEH27
+      </div>
+
+      <div class="badge">
+        BETA v1.0
+      </div>
+
     </div>
 
-    <div class="bar">
-      <div class="fill" id="f1"></div>
+
+    <!-- PROFILE -->
+
+    <div class="profile">
+
+      <div
+        class="avatar"
+        id="avatar"
+      >
+        F
+      </div>
+
+      <div>
+
+        <div
+          style="
+            font-size:23px;
+            font-weight:800;
+          "
+          id="username"
+        >
+          Officer
+        </div>
+
+        <div id="officerId">
+          F27-0001
+        </div>
+
+        <div id="clock"></div>
+
+      </div>
+
+    </div>
+
+
+    <!-- OFFICER CARD -->
+
+    <div class="idcard">
+
+      <div
+        style="
+          font-size:11px;
+          color:#AAAAAA;
+        "
+      >
+        OFFICER ACCESS CARD
+      </div>
+
+      <div
+        id="cardName"
+        style="
+          font-size:20px;
+          font-weight:bold;
+          margin-top:7px;
+          color:#FFFFFF;
+        "
+      >
+        Officer
+      </div>
+
+      <div
+        style="
+          margin-top:11px;
+          color:#AAAAAA;
+        "
+      >
+        Clearance: ALPHA
+      </div>
+
+    </div>
+
+
+    <!-- XP ORBIT -->
+
+    <div class="globe">
+
+      <div class="earth"></div>
+
+      <div class="orbit orbit1"></div>
+
+      <div class="orbit orbit2"></div>
+
+      <div class="orbit orbit3"></div>
+
+      <div class="radarSweep"></div>
+
+      <div class="indiaPulse"></div>
+
+      <div class="center">
+
+        <div id="xp">
+          0 XP
+        </div>
+
+        <div id="rank">
+          Recruit
+        </div>
+
+      </div>
+
     </div>
 
   </div>
 
 
-  <div class="subject">
+  <!-- ===================================================
+       STATS
+       =================================================== -->
 
-    <b>GS2</b>
+  <div class="stats">
 
-    <div id="gs2">
-      0
+    <div class="card">
+
+      <div
+        class="stat"
+        id="streak"
+      >
+        0
+      </div>
+
+      <div>
+        🔥 Streak
+      </div>
+
     </div>
 
-    <div class="bar">
-      <div class="fill" id="f2"></div>
+
+    <div class="card">
+
+      <div
+        class="stat"
+        id="solved"
+      >
+        0
+      </div>
+
+      <div>
+        ✅ Solved
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ===================================================
+       MISSION PROGRESS
+       =================================================== -->
+
+  <div class="section">
+    Mission Progress
+  </div>
+
+
+  <div class="subjects">
+
+
+    <div class="subject">
+
+      <b>GS1</b>
+
+      <div id="gs1">
+        0
+      </div>
+
+      <div class="bar">
+
+        <div
+          class="fill"
+          id="f1"
+        ></div>
+
+      </div>
+
+    </div>
+
+
+    <div class="subject">
+
+      <b>GS2</b>
+
+      <div id="gs2">
+        0
+      </div>
+
+      <div class="bar">
+
+        <div
+          class="fill"
+          id="f2"
+        ></div>
+
+      </div>
+
+    </div>
+
+
+    <div class="subject">
+
+      <b>GS3</b>
+
+      <div id="gs3">
+        0
+      </div>
+
+      <div class="bar">
+
+        <div
+          class="fill"
+          id="f3"
+        ></div>
+
+      </div>
+
+    </div>
+
+
+    <div class="subject">
+
+      <b>GS4</b>
+
+      <div id="gs4">
+        0
+      </div>
+
+      <div class="bar">
+
+        <div
+          class="fill"
+          id="f4"
+        ></div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+  <!-- ===================================================
+       AI SECRETARY
+       =================================================== -->
+
+  <div class="section">
+    AI Secretary
+  </div>
+
+
+  <div class="secretary">
+
+    <h3>
+      AI SECRETARY
+    </h3>
+
+
+    <div class="mission">
+
+      <span>
+        Current Status
+      </span>
+
+      <span id="statusMsg">
+        Loading...
+      </span>
+
+    </div>
+
+
+    <div class="mission">
+
+      <span>
+        Today's Target
+      </span>
+
+      <span>
+        4 Answers
+      </span>
+
+    </div>
+
+
+    <div class="mission">
+
+      <span>
+        Weak Subject
+      </span>
+
+      <span id="weakSubject">
+        GS3
+      </span>
+
+    </div>
+
+
+    <div class="mission">
+
+      <span>
+        Last Activity
+      </span>
+
+      <span id="recent">
+        None
+      </span>
+
+    </div>
+
+
+    <div id="aiTip">
+      Mission loading...
     </div>
 
   </div>
 
 
-  <div class="subject">
+  <!-- ===================================================
+       QUICK LAUNCH
+       =================================================== -->
 
-    <b>GS3</b>
-
-    <div id="gs3">
-      0
-    </div>
-
-    <div class="bar">
-      <div class="fill" id="f3"></div>
-    </div>
-
+  <div class="section">
+    Quick Launch
   </div>
 
 
-  <div class="subject">
+  <button
+    onclick="location.href='map.html'"
+  >
+    🗺️ Command Map
+  </button>
 
-    <b>GS4</b>
 
-    <div id="gs4">
-      0
-    </div>
+  <button
+    onclick="location.href='pyq.html'"
+  >
+    🎯 PYQ Intelligence
+  </button>
 
-    <div class="bar">
-      <div class="fill" id="f4"></div>
-    </div>
 
-  </div>
+  <button
+    onclick="location.href='gs1.html'"
+  >
+    📘 GS1
+  </button>
+
+
+  <button
+    onclick="location.href='gs2.html'"
+  >
+    📗 GS2
+  </button>
+
+
+  <button
+    onclick="location.href='gs3.html'"
+  >
+    📙 GS3
+  </button>
+
+
+  <button
+    onclick="location.href='gs4.html'"
+  >
+    📕 GS4
+  </button>
+
+
+  <button
+    onclick="location.href='answer.html'"
+  >
+    📷 AI Answer Evaluation
+  </button>
+
+
+  <button
+    onclick="location.href='current.html'"
+  >
+    📰 Current Affairs Command Center
+  </button>
+
 
 </div>
 
 
 <!-- =====================================================
-     AI SECRETARY
-     ===================================================== -->
-
-<div class="section">
-  AI Secretary
-</div>
-
-<div class="secretary">
-
-  <h3>
-    AI SECRETARY
-  </h3>
-
-
-  <div class="mission">
-
-    <span>
-      Current Status
-    </span>
-
-    <span id="statusMsg">
-      Loading...
-    </span>
-
-  </div>
-
-
-  <div class="mission">
-
-    <span>
-      Today's Target
-    </span>
-
-    <span>
-      4 Answers
-    </span>
-
-  </div>
-
-
-  <div class="mission">
-
-    <span>
-      Weak Subject
-    </span>
-
-    <span id="weakSubject">
-      GS3
-    </span>
-
-  </div>
-
-
-  <div class="mission">
-
-    <span>
-      Last Activity
-    </span>
-
-    <span id="recent">
-      None
-    </span>
-
-  </div>
-
-
-  <div id="aiTip">
-    Mission loading...
-  </div>
-
-</div>
-
-
-<!-- =====================================================
-     QUICK LAUNCH
-     ===================================================== -->
-
-<div class="section">
-  Quick Launch
-</div>
-
-
-<button onclick="location.href='map.html'">
-  🗺️ Command Map
-</button>
-
-
-<button onclick="location.href='pyq.html'">
-  🎯 PYQ Intelligence
-</button>
-
-
-<button onclick="location.href='gs1.html'">
-  📘 GS1
-</button>
-
-
-<button onclick="location.href='gs2.html'">
-  📗 GS2
-</button>
-
-
-<button onclick="location.href='gs3.html'">
-  📙 GS3
-</button>
-
-
-<button onclick="location.href='gs4.html'">
-  📕 GS4
-</button>
-
-
-<button onclick="location.href='answer.html'">
-  📷 AI Answer Evaluation
-</button>
-
-
-<button onclick="location.href='current.html'">
-  📰 Current Affairs Command Center
-</button>
-
-
-</div>
-
-
-<!-- =====================================================
-     TOAST
+     XP TOAST
      ===================================================== -->
 
 <div id="toast">
@@ -828,13 +1511,17 @@ body{
 
 <script>
 
-const tg = window.Telegram.WebApp;
+const tg =
+  window.Telegram.WebApp;
 
 tg.ready();
+
 tg.expand();
 
 
-/* ---------- TELEGRAM USER ---------- */
+/* =======================================================
+   TELEGRAM USER
+   ======================================================= */
 
 const user =
   tg.initDataUnsafe?.user;
@@ -843,13 +1530,21 @@ const user =
 if(user){
 
   username.textContent =
-    user.first_name || "Officer";
+    user.first_name ||
+    "Officer";
+
 
   cardName.textContent =
-    user.first_name || "Officer";
+    user.first_name ||
+    "Officer";
+
 
   avatar.textContent =
-    (user.first_name || "F")[0];
+    (
+      user.first_name ||
+      "F"
+    )[0];
+
 
   if(user.photo_url){
 
@@ -863,7 +1558,9 @@ if(user){
 }
 
 
-/* ---------- OFFICER ID ---------- */
+/* =======================================================
+   OFFICER ID
+   ======================================================= */
 
 if(!localStorage.officerId){
 
@@ -880,37 +1577,54 @@ officerId.textContent =
   localStorage.officerId;
 
 
-/* ---------- RANK ---------- */
+/* =======================================================
+   RANK SYSTEM
+   ======================================================= */
 
 function rankName(x){
 
-  if(x >= 1500)
+  if(x >= 1500){
+
     return "🏆 Officer";
 
-  if(x >= 800)
+  }
+
+  if(x >= 800){
+
     return "⚔ Warrior";
 
-  if(x >= 300)
+  }
+
+  if(x >= 300){
+
     return "🥈 Aspirant";
+
+  }
 
   return "🟢 Recruit";
 
 }
 
 
-/* ---------- PROGRESS ---------- */
+/* =======================================================
+   PROGRESS %
+   ======================================================= */
 
 function pct(v){
 
   return Math.min(
     100,
-    Math.round((v / 25) * 100)
+    Math.round(
+      (v / 25) * 100
+    )
   );
 
 }
 
 
-/* ---------- CLOCK ---------- */
+/* =======================================================
+   CLOCK
+   ======================================================= */
 
 function tick(){
 
@@ -933,7 +1647,9 @@ setInterval(
 tick();
 
 
-/* ---------- LOAD DATA ---------- */
+/* =======================================================
+   LOAD PROGRESS
+   ======================================================= */
 
 function load(){
 
@@ -975,20 +1691,24 @@ function load(){
   streak.textContent =
     d.streak || 0;
 
+
   solved.textContent =
     d.solved || 0;
 
 
-  /* SUBJECTS */
+  /* GS */
 
   gs1.textContent =
     d.gs1 || 0;
 
+
   gs2.textContent =
     d.gs2 || 0;
 
+
   gs3.textContent =
     d.gs3 || 0;
+
 
   gs4.textContent =
     d.gs4 || 0;
@@ -997,19 +1717,28 @@ function load(){
   /* BARS */
 
   f1.style.width =
-    pct(d.gs1 || 0) + "%";
+    pct(d.gs1 || 0) +
+    "%";
+
 
   f2.style.width =
-    pct(d.gs2 || 0) + "%";
+    pct(d.gs2 || 0) +
+    "%";
+
 
   f3.style.width =
-    pct(d.gs3 || 0) + "%";
+    pct(d.gs3 || 0) +
+    "%";
+
 
   f4.style.width =
-    pct(d.gs4 || 0) + "%";
+    pct(d.gs4 || 0) +
+    "%";
 
 
-  /* WEAK SUBJECT */
+  /* =====================================================
+     FIND WEAKEST SUBJECT
+     ===================================================== */
 
   const arr = [
 
@@ -1034,7 +1763,8 @@ function load(){
     }
 
   ].sort(
-    (a,b) => a.v - b.v
+    (a,b) =>
+      a.v - b.v
   );
 
 
@@ -1042,35 +1772,49 @@ function load(){
     arr[0].n;
 
 
-  /* AI STATUS */
+  /* =====================================================
+     AI STATUS
+     ===================================================== */
 
-  if((d.streak || 0) === 0){
+  if(
+    (d.streak || 0) === 0
+  ){
 
     statusMsg.textContent =
       "Alert";
+
 
     aiTip.textContent =
       "Aaj kam se kam 1 question solve karo.";
 
   }
 
-  else if((d.solved || 0) < 4){
+
+  else if(
+    (d.solved || 0) < 4
+  ){
 
     statusMsg.textContent =
       "Mission Pending";
 
+
     aiTip.textContent =
       arr[0].n +
       " par focus karo. " +
-      (4 - d.solved) +
+      (
+        4 -
+        (d.solved || 0)
+      ) +
       " answers aur likhne hain.";
 
   }
+
 
   else{
 
     statusMsg.textContent =
       "Excellent";
+
 
     aiTip.textContent =
       "Aaj ka mission complete. Revision mode activate karo.";
@@ -1078,16 +1822,21 @@ function load(){
   }
 
 
+  /* LAST ACTIVITY */
+
   recent.textContent =
     d.lastActivity ||
     "None";
 
 
-  /* ---------- XP CHANGE ---------- */
+  /* =====================================================
+     XP CHANGE
+     ===================================================== */
 
   const oldXP =
     Number(
-      localStorage.lastXP || 0
+      localStorage.lastXP ||
+      0
     );
 
 
@@ -1102,19 +1851,30 @@ function load(){
     );
 
 
-  if((d.xp || 0) > oldXP){
+  if(
+    (d.xp || 0) >
+    oldXP
+  ){
 
     toast.textContent =
       "+" +
-      ((d.xp || 0) - oldXP) +
+      (
+        (d.xp || 0) -
+        oldXP
+      ) +
       " XP";
 
+
     toast.style.opacity =
-      1;
+      "1";
+
 
     setTimeout(
       () => {
-        toast.style.opacity = 0;
+
+        toast.style.opacity =
+          "0";
+
       },
       1500
     );
@@ -1122,20 +1882,29 @@ function load(){
   }
 
 
-  /* ---------- LEVEL UP ---------- */
+  /* =====================================================
+     LEVEL UP
+     ===================================================== */
 
-  if(oldRank !== newRank){
+  if(
+    oldRank !==
+    newRank
+  ){
 
     level.style.display =
       "flex";
 
+
     levelRank.textContent =
       newRank;
 
+
     setTimeout(
       () => {
+
         level.style.display =
           "none";
+
       },
       2200
     );
@@ -1146,56 +1915,88 @@ function load(){
   localStorage.lastXP =
     d.xp || 0;
 
+
   localStorage.lastRank =
     newRank;
 
 }
 
 
-/* ---------- START ---------- */
+/* =======================================================
+   INITIALIZE
+   ======================================================= */
 
 load();
 
 </script>
+
+
 <!-- =====================================================
-     BOTTOM NAVIGATION
+     FLOATING BOTTOM NAVIGATION
      ===================================================== -->
 
 <div class="bottomNav">
+
 
   <a
     class="navBtn active"
     href="index.html"
   >
-    <span>🏠</span>
+
+    <span>
+      🏠
+    </span>
+
     Home
+
   </a>
+
 
   <a
     class="navBtn"
     href="current-affairs.html"
   >
-    <span>📰</span>
+
+    <span>
+      📰
+    </span>
+
     CA
+
   </a>
+
 
   <a
     class="navBtn"
     href="gs1.html"
   >
-    <span>📘</span>
+
+    <span>
+      📘
+    </span>
+
     GS
+
   </a>
+
 
   <a
     class="navBtn"
     href="answer.html"
   >
-    <span>🤖</span>
+
+    <span>
+      🤖
+    </span>
+
     AI
+
   </a>
+
 
 </div>
 
+
 </body>
+
 </html>
