@@ -20,7 +20,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Poppins,sans-serif;
 .panel{background:rgba(255,255,255,.78);backdrop-filter:blur(18px);border:1px solid #fff;border-radius:22px;padding:12px;margin-bottom:12px;box-shadow:0 7px 22px #0000000b}
 .tools{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 input,select{width:100%;border:0;outline:0;background:#e7e7e7;border-radius:13px;padding:12px;font-weight:700}
-#map{height:560px;border-radius:25px;overflow:hidden;border:1px solid #ddd;box-shadow:0 10px 28px #00000012}
+#map{height:560px;border-radius:25px;overflow:hidden;border:1px solid #ddd;box-shadow:0 10px 28px #00000012;background:#ececec}
 .info{margin-top:12px}
 .kicker{font-size:11px;color:#777;font-weight:900;text-transform:uppercase;letter-spacing:1px}
 .stateName{font-size:25px;font-weight:900;margin:3px 0}
@@ -76,11 +76,14 @@ input,select{width:100%;border:0;outline:0;background:#e7e7e7;border-radius:13px
   </section>
 
   <div id="map"></div>
+  <div class="legend" style="margin:8px 4px 0;font-weight:700">
+    Tap any State/UT → full short UPSC detail opens below
+  </div>
 
-  <section class="panel info">
-    <div class="kicker">Selected Region</div>
+  <section class="panel info" id="detailPanel">
+    <div class="kicker">STATE DETAIL • UPSC MICRO REVISION</div>
     <div class="stateName" id="stateName">Uttar Pradesh</div>
-    <div class="sub" id="stateSub">Click any state/UT on the map</div>
+    <div class="sub" id="stateSub">Tap any state/UT on the India map</div>
 
     <div class="grid">
       <div class="card"><h3>Rivers / Water</h3><p id="rivers"></p></div>
@@ -151,59 +154,208 @@ const DATA = {
 "Puducherry":{zone:"ut",rivers:"Sankarabharani and Ariyankuppam systems; small coastal drainage.",mountains:"No major mountain system.",parks:"Coastal and wetland ecosystems; Ousteri Lake is important.",minerals:"Not mineral-focused; services, tourism and small industries.",centres:"Puducherry, Karaikal, Mahe, Yanam — geographically non-contiguous.",current:"Coastal erosion, cyclone risk, urbanisation and governance of geographically separated enclaves.",importance:"Unique map fact: four geographically separated enclaves in southern/western India.",tags:["Karaikal","Mahe","Yanam","Ousteri"],q:["Puducherry UT consists of how many geographically separated regions?","Which sea-facing region contains Puducherry and Karaikal?"]}
 };
 
-const geoURL="https://cdn.jsdelivr.net/gh/udit-001/india-maps-data@2884453/geojson/india.geojson";
+const geoURL="https://raw.githubusercontent.com/geohacker/india/master/state/india_state.geojson";
 
-const map=L.map("map",{minZoom:4,maxZoom:7}).setView([22.5,79],5);
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:"© OpenStreetMap"}).addTo(map);
+const INDIA_BOUNDS=[[6.0,67.0],[37.5,98.0]];
+const map=L.map("map",{
+  minZoom:4.2,
+  maxZoom:7,
+  maxBounds:INDIA_BOUNDS,
+  maxBoundsViscosity:1,
+  zoomControl:true
+}).setView([22.5,79],5);
 
 let layer=null, selected="Uttar Pradesh", xp=0, solved=new Set(), recallTotal=0, recallKnown=0;
 let currentQ=0;
 
-function normalize(s){return (s||"").toLowerCase().replace(/&/g,"and").replace(/[^a-z0-9]/g,"")}
+function normalize(s){
+  return (s||"").toLowerCase()
+    .replace(/&/g,"and")
+    .replace(/union territory/g,"")
+    .replace(/state of /g,"")
+    .replace(/[^a-z0-9]/g,"");
+}
+
+const ALIASES={
+  "andhrapradesh":"Andhra Pradesh",
+  "arunachalpradesh":"Arunachal Pradesh",
+  "assam":"Assam",
+  "bihar":"Bihar",
+  "chhattisgarh":"Chhattisgarh",
+  "goa":"Goa",
+  "gujarat":"Gujarat",
+  "haryana":"Haryana",
+  "himachalpradesh":"Himachal Pradesh",
+  "jharkhand":"Jharkhand",
+  "karnataka":"Karnataka",
+  "kerala":"Kerala",
+  "madhyapradesh":"Madhya Pradesh",
+  "maharashtra":"Maharashtra",
+  "manipur":"Manipur",
+  "meghalaya":"Meghalaya",
+  "mizoram":"Mizoram",
+  "nagaland":"Nagaland",
+  "odisha":"Odisha",
+  "orissa":"Odisha",
+  "punjab":"Punjab",
+  "rajasthan":"Rajasthan",
+  "sikkim":"Sikkim",
+  "tamilnadu":"Tamil Nadu",
+  "telangana":"Telangana",
+  "tripura":"Tripura",
+  "uttarpradesh":"Uttar Pradesh",
+  "uttarakhand":"Uttarakhand",
+  "westbengal":"West Bengal",
+  "delhi":"Delhi",
+  "nctofdelhi":"Delhi",
+  "jammuandkashmir":"Jammu and Kashmir",
+  "ladakh":"Ladakh",
+  "andamanandnicobarislands":"Andaman and Nicobar Islands",
+  "andamanandnicobar":"Andaman and Nicobar Islands",
+  "chandigarh":"Chandigarh",
+  "dadraandnagarhavelianddamananddiu":"Dadra and Nagar Haveli and Daman and Diu",
+  "dadraandnagarhaveli":"Dadra and Nagar Haveli and Daman and Diu",
+  "damananddiu":"Dadra and Nagar Haveli and Daman and Diu",
+  "lakshadweep":"Lakshadweep",
+  "puducherry":"Puducherry",
+  "pondicherry":"Puducherry"
+};
+
 function findData(name){
-  if(DATA[name]) return [name,DATA[name]];
   const n=normalize(name);
-  const key=Object.keys(DATA).find(k=>normalize(k)===n || n.includes(normalize(k)) || normalize(k).includes(n));
+  if(DATA[name]) return [name,DATA[name]];
+  if(ALIASES[n] && DATA[ALIASES[n]]) return [ALIASES[n],DATA[ALIASES[n]]];
+  const key=Object.keys(DATA).find(k=>{
+    const nk=normalize(k);
+    return nk===n || n.includes(nk) || nk.includes(n);
+  });
   return key?[key,DATA[key]]:null;
 }
-function styleFeature(f){
-  const name=f.properties?.shapeName||f.properties?.NAME_1||f.properties?.name||f.properties?.State_Name||"";
-  const hit=findData(name);
-  return {color:"#888",weight:1,fillColor:hit&&hit[0]===selected?"#111":"#d9d9d9",fillOpacity:hit&&hit[0]===selected?.74:.65};
+
+function featureName(f){
+  const p=f.properties||{};
+  return p.NAME_1||p.NAME||p.st_nm||p.name||p.State||p.state||p.state_name||"";
 }
-function onEach(f,l){
-  const raw=f.properties?.shapeName||f.properties?.NAME_1||f.properties?.name||f.properties?.State_Name||"";
+
+function stateStyle(feature){
+  const hit=findData(featureName(feature));
+  const isSelected=hit && hit[0]===selected;
+  return {
+    color:"#777",
+    weight:isSelected?2:1,
+    fillColor:isSelected?"#111":"#d8d8d8",
+    fillOpacity:isSelected?.78:.72
+  };
+}
+
+function onEachFeature(feature,leafletLayer){
+  const raw=featureName(feature);
   const hit=findData(raw);
-  const display=hit?hit[0]:raw;
-  l.bindTooltip(display,{sticky:true});
-  l.on("click",()=>{ if(hit) selectState(hit[0]); });
-  l.on("mouseover",()=>l.setStyle({fillColor:"#111",fillOpacity:.8,weight:1.5}));
-  l.on("mouseout",()=>layer&&layer.resetStyle(l));
+  const label=hit?hit[0]:raw;
+
+  leafletLayer.bindTooltip(label,{
+    sticky:true,
+    direction:"top",
+    opacity:.95
+  });
+
+  leafletLayer.on("click",function(){
+    const state=findData(raw);
+    if(state) selectState(state[0]);
+  });
+
+  leafletLayer.on("mouseover",function(){
+    leafletLayer.setStyle({
+      weight:2,
+      color:"#111",
+      fillColor:"#111",
+      fillOpacity:.82
+    });
+    leafletLayer.bringToFront();
+  });
+
+  leafletLayer.on("mouseout",function(){
+    if(layer) layer.resetStyle(leafletLayer);
+  });
 }
-fetch(geoURL).then(r=>r.json()).then(g=>{
-  layer=L.geoJSON(g,{style:styleFeature,onEachFeature:onEach}).addTo(map);
-  map.fitBounds(layer.getBounds(),{padding:[10,10]});
-  selectState(selected);
-}).catch(()=>{
-  selectState(selected);
-});
+
+selectState("Uttar Pradesh");
+
+fetch(geoURL)
+  .then(r=>{
+    if(!r.ok) throw new Error("India boundary data unavailable");
+    return r.json();
+  })
+  .then(geo=>{
+    layer=L.geoJSON(geo,{
+      style:stateStyle,
+      onEachFeature:onEachFeature
+    }).addTo(map);
+
+    const bounds=layer.getBounds();
+    if(bounds.isValid()) map.fitBounds(bounds,{padding:[8,8]});
+    selectState(selected);
+  })
+  .catch(err=>{
+    console.error(err);
+    selectState(selected);
+  });
 
 function selectState(name){
-  if(!DATA[name]) return;
+  const item=DATA[name];
+  if(!item) return;
+
   selected=name;
+
   document.getElementById("stateName").textContent=name;
-  document.getElementById("stateSub").textContent=(DATA[name].zone==="ut"?"Union Territory":"State")+" • UPSC Micro Revision";
-  for(const id of ["rivers","mountains","parks","minerals","centres","current","importance"])
-    document.getElementById(id).textContent=DATA[name][id];
-  document.getElementById("tags").innerHTML=DATA[name].tags.map(x=>`<span class="chip">${x}</span>`).join("");
+  document.getElementById("stateSub").textContent=
+    (item.zone==="ut" ? "Union Territory" : "State") +
+    " • UPSC Micro Revision";
+
+  document.getElementById("rivers").textContent=item.rivers || "Not covered in current dataset.";
+  document.getElementById("mountains").textContent=item.mountains || "Not covered in current dataset.";
+  document.getElementById("parks").textContent=item.parks || "Not covered in current dataset.";
+  document.getElementById("minerals").textContent=item.minerals || "Not covered in current dataset.";
+  document.getElementById("centres").textContent=item.centres || "Not covered in current dataset.";
+  document.getElementById("current").textContent=item.current || "Not covered in current dataset.";
+  document.getElementById("importance").textContent=item.importance || "Not covered in current dataset.";
+
+  document.getElementById("tags").innerHTML =
+    (item.tags||[]).map(x=>`<span class="chip">${x}</span>`).join("");
+
   currentQ=0;
   showQuestion();
+
   solved.add(name);
   document.getElementById("solved").textContent=solved.size;
-  if(layer) layer.setStyle(styleFeature);
-  map.eachLayer(l=>{if(l.setStyle&&l.feature){try{l.setStyle(styleFeature(l.feature))}catch(e){}}});
-  window.scrollTo({top:document.querySelector(".info").offsetTop-8,behavior:"smooth"});
+
+  if(layer){
+    layer.eachLayer(l=>{
+      if(l.feature) l.setStyle(stateStyle(l.feature));
+    });
+
+    // Zoom to the selected state so the clicked state becomes obvious.
+    const selectedLayer=layer.getLayers().find(l=>{
+      const hit=findData(featureName(l.feature));
+      return hit && hit[0]===name;
+    });
+
+    if(selectedLayer){
+      try{
+        map.fitBounds(selectedLayer.getBounds(),{
+          padding:[35,35],
+          maxZoom:6,
+          animate:true
+        });
+        selectedLayer.bringToFront();
+      }catch(e){}
+    }
+  }
+
+  const panel=document.getElementById("detailPanel");
+  panel.scrollIntoView({behavior:"smooth",block:"start"});
 }
+
 function showQuestion(){
   const q=DATA[selected].q[currentQ];
   document.getElementById("question").textContent=q;
