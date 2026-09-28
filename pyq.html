@@ -2,59 +2,338 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FATEH27 PYQ Intelligence</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>FATEH27 • PYQ Intelligence</title>
 <style>
-body{background:#02140b;color:#fff;font-family:Arial,sans-serif;margin:0;padding:20px}
-h1{font-size:40px;margin:0}
-.search{width:100%;padding:14px;border-radius:16px;border:1px solid #1f5f3a;background:#081b11;color:#fff;margin:20px 0;box-sizing:border-box}
-.card{background:#072317;border:1px solid #12462d;border-radius:20px;padding:18px;margin-bottom:16px}
-.badge{display:inline-block;background:#11321f;padding:6px 12px;border-radius:999px;font-size:12px;margin-right:8px}
+*{box-sizing:border-box}
+body{
+ margin:0;padding:18px 16px 100px;
+ background:#f4f4f4;color:#111;
+ font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+.wrap{max-width:760px;margin:auto}
+.header{padding:8px 2px 18px}
+.eyebrow{font-size:11px;font-weight:800;letter-spacing:1.4px;color:#777}
+h1{font-size:30px;margin:7px 0 5px;letter-spacing:-.8px}
+.subtitle{color:#666;font-size:13px;line-height:1.5}
+.hero{
+ margin:8px 0 18px;padding:20px;border-radius:26px;
+ background:#111;color:#fff;box-shadow:0 18px 45px rgba(0,0,0,.12)
+}
+.heroTitle{font-size:21px;font-weight:850}
+.heroSub{font-size:12px;color:#bbb;margin-top:5px;line-height:1.5}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
+.stat{background:#202020;border-radius:15px;padding:11px;text-align:center}
+.stat b{display:block;font-size:17px}.stat span{font-size:10px;color:#aaa}
+.controls{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:12px}
+select,input,button{
+ width:100%;border:0;border-radius:15px;padding:13px 14px;
+ font:inherit;font-size:13px
+}
+select,input{background:#e7e7e7;color:#111;font-weight:650;outline:none}
+select:focus,input:focus{background:#e1e1e1}
+.tabs{display:flex;gap:7px;overflow:auto;margin-bottom:14px;padding-bottom:2px}
+.tab{width:auto;white-space:nowrap;background:#e7e7e7;color:#555;padding:10px 15px}
+.tab.active{background:#111;color:#fff}
+.sectionTitle{font-size:12px;text-transform:uppercase;letter-spacing:1.2px;font-weight:850;color:#777;margin:18px 3px 9px}
+.card{
+ background:rgba(255,255,255,.78);border:1px solid rgba(255,255,255,.9);
+ border-radius:22px;padding:17px;margin:10px 0;
+ box-shadow:0 12px 32px rgba(0,0,0,.055)
+}
+.cardTop{display:flex;justify-content:space-between;gap:8px;align-items:center}
+.badge{background:#111;color:#fff;border-radius:9px;padding:6px 9px;font-size:10px;font-weight:850}
+.meta{font-size:11px;color:#777;font-weight:750}
+.q{font-size:15px;line-height:1.55;font-weight:700;margin:12px 0}
+.topic{display:inline-block;background:#e7e7e7;color:#555;border-radius:9px;padding:6px 9px;font-size:10px;font-weight:800}
+.openBtn{margin-top:12px;background:#111;color:#fff}
+.detail{display:none}
+.back{background:#e7e7e7;color:#111;margin-bottom:10px}
+.intelHero{
+ background:#111;color:#fff;border-radius:24px;padding:19px;margin-bottom:12px
+}
+.intelHero .small{font-size:10px;color:#aaa;text-transform:uppercase;letter-spacing:1px;font-weight:800}
+.intelHero h2{font-size:20px;margin:7px 0;line-height:1.3}
+.intelHero p{font-size:12px;color:#ccc;line-height:1.55;margin:0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.info{
+ background:#fff;border-radius:19px;padding:15px;
+ border:1px solid #eee;box-shadow:0 8px 25px rgba(0,0,0,.045)
+}
+.info.full{grid-column:1/-1}
+.info h3{font-size:12px;margin:0 0 8px}
+.info h3 span{display:block;color:#777;font-size:10px;margin-top:2px;font-weight:650}
+.info p,.info li{font-size:12px;line-height:1.55;color:#444}
+.info ul{padding-left:18px;margin:7px 0 0}
+.memory{
+ background:#ececec;border-radius:16px;padding:13px;margin-top:8px;
+ font-size:12px;line-height:1.55
+}
+.recall{
+ background:#fff;border:1px solid #ddd;border-radius:20px;padding:16px;margin-top:12px
+}
+.recallQ{font-weight:800;font-size:14px;line-height:1.5}
+.answer{display:none;background:#f0f0f0;border-radius:14px;padding:12px;margin-top:10px;font-size:12px;line-height:1.55}
+.actionRow{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.primary{background:#111;color:#fff}
+.secondary{background:#e7e7e7;color:#111}
+.xp{
+ display:inline-block;background:#e8e8e8;border-radius:999px;
+ padding:7px 10px;font-size:10px;font-weight:850;margin-top:9px
+}
+#homeBtn{
+ position:fixed;left:18px;right:18px;bottom:16px;max-width:720px;margin:auto;
+ background:#111;color:#fff;box-shadow:0 12px 30px rgba(0,0,0,.2);z-index:20
+}
+@media(max-width:520px){
+ body{padding:14px 13px 95px}h1{font-size:27px}.grid{grid-template-columns:1fr}
+ .info.full{grid-column:auto}.controls{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
+<div class="wrap">
 
-<h1>PYQ INTELLIGENCE</h1>
+<div id="listView">
+ <div class="header">
+  <div class="eyebrow">FATEH27 • UPSC</div>
+  <h1>PYQ Intelligence</h1>
+  <div class="subtitle">Previous Year Questions → Pattern → Concept → Recall</div>
+ </div>
 
-<input id="search" class="search" placeholder="Search topic...">
+ <div class="hero">
+  <div class="heroTitle">Study the PYQ. Remember the pattern.</div>
+  <div class="heroSub">PYQ ko sirf solve nahi karna — UPSC kis concept ko kis angle se repeat karta hai, woh identify karna hai.</div>
+  <div class="stats">
+   <div class="stat"><b id="seen">0</b><span>PYQs Seen</span></div>
+   <div class="stat"><b id="intel">0</b><span>Insights</span></div>
+   <div class="stat"><b id="recall">0</b><span>Recall XP</span></div>
+  </div>
+ </div>
 
-<div id="list"></div>
+ <div class="controls">
+  <select id="subject">
+   <option value="ALL">All GS</option>
+   <option value="GS1">GS1 • History / Culture / Geography</option>
+   <option value="GS2">GS2 • Polity / Governance / IR</option>
+   <option value="GS3">GS3 • Economy / Environment / S&T</option>
+   <option value="GS4">GS4 • Ethics / Case Studies</option>
+  </select>
+  <select id="mode">
+   <option value="all">All Intelligence</option>
+   <option value="trend">PYQ Trend</option>
+   <option value="theme">Repeated Themes</option>
+   <option value="memory">Must Remember</option>
+   <option value="recall">Active Recall</option>
+  </select>
+ </div>
+
+ <div class="tabs">
+  <button class="tab active" onclick="setTopic('ALL',this)">All</button>
+  <button class="tab" onclick="setTopic('POLITY',this)">Polity</button>
+  <button class="tab" onclick="setTopic('ECONOMY',this)">Economy</button>
+  <button class="tab" onclick="setTopic('ENV',this)">Environment</button>
+  <button class="tab" onclick="setTopic('HISTORY',this)">History</button>
+  <button class="tab" onclick="setTopic('ETHICS',this)">Ethics</button>
+ </div>
+
+ <div id="questions"></div>
+</div>
+
+<div id="detail">
+ <button class="back" onclick="goBack()">← Back to PYQ Intelligence</button>
+ <div id="detailContent"></div>
+</div>
+
+</div>
+
+<button id="homeBtn" onclick="location.href='index.html'">⌂ Home</button>
 
 <script>
-let data=[];
+const items=[
+{
+ id:1,gs:"GS2",topic:"POLITY",year:"2014",
+ q:"What do you understand by the concept “freedom of speech and expression”? Does it cover hate speech also? Why do films in India stand on a slightly different plane from other forms of expression?",
+ title:"Freedom of Speech & Expression",
+ trend:"UPSC repeatedly tests Fundamental Rights through application-based questions rather than only asking Article numbers.",
+ repeated:"Article 19(1)(a) • Reasonable Restrictions • Article 19(2) • Hate Speech • Freedom of Expression",
+ keywords:"Article 19(1)(a), Article 19(2), reasonable restrictions, public order, decency, morality",
+ concept:"Understand the constitutional right + grounds on which the State can impose restrictions + how courts balance liberty and competing interests.",
+ trap:"Freedom of speech is not absolute. Also, every offensive statement is not automatically the same legal category as constitutionally restricted speech.",
+ staticCurrent:"Static: Article 19 and constitutional jurisprudence. Current link: platform regulation, misinformation, digital speech and online intermediary issues.",
+ memory:["Article 19(1)(a) = Freedom of speech and expression","Article 19(2) = Constitutional grounds for reasonable restrictions","Remember the difference between right and restriction","Use one Supreme Court example in Mains answers"],
+ mains:"Use a 3-part structure: constitutional provision → competing rights/public interest → judicial balancing + way forward.",
+ recallQ:"Article 19(1)(a) kis freedom se related hai, aur Article 19(2) kis cheez ko deal karta hai?",
+ recallA:"Article 19(1)(a) freedom of speech and expression deta hai. Article 19(2) reasonable restrictions ke constitutional grounds provide karta hai."
+},
+{
+ id:2,gs:"GS2",topic:"POLITY",year:"2015",
+ q:"Does the right to a clean environment entail legal regulations on burning crackers during Diwali? Discuss in the light of Article 21 and judgments of the Supreme Court.",
+ title:"Right to Clean Environment",
+ trend:"Environment questions can appear inside Polity through Article 21, rights, judicial intervention and public interest.",
+ repeated:"Article 21 • Environmental Rights • Judicial Review • Public Health • Sustainable Development",
+ keywords:"Article 21, clean environment, public health, sustainable development, judicial review",
+ concept:"Connect Fundamental Rights with environmental governance and the role of the judiciary.",
+ trap:"Do not treat environmental protection as a standalone Environment GS3 issue only; UPSC can connect it with rights and governance.",
+ staticCurrent:"Static: Article 21 and environmental jurisprudence. Current link: air pollution, firecracker regulation and public-health measures.",
+ memory:["Article 21 has been judicially expanded through interpretation","Clean environment can be discussed through life and health","Balance individual liberty with public health/environment"],
+ mains:"Frame the answer around rights + regulation + scientific evidence + proportionality + implementation.",
+ recallQ:"Environment ko Article 21 ke saath kaise connect karoge?",
+ recallA:"Article 21 ke broad interpretation mein life and personal liberty ke saath dignified and healthy living conditions ko discuss kiya ja sakta hai; environmental quality is therefore relevant to rights discourse."
+},
+{
+ id:3,gs:"GS3",topic:"ECONOMY",year:"2013",
+ q:"What are the key challenges to inclusive growth in India? Discuss the measures required to make growth more inclusive.",
+ title:"Inclusive Growth",
+ trend:"Inclusive growth connects growth, employment, poverty, inequality, human capital and access to opportunities.",
+ repeated:"Growth vs Development • Employment • Inequality • Financial Inclusion • Human Capital",
+ keywords:"inclusive growth, inequality, employment, financial inclusion, human capital",
+ concept:"Growth becomes inclusive when its benefits reach wider sections and barriers to participation are reduced.",
+ trap:"Inclusive growth is not simply GDP growth. Mention distribution, capabilities, access and quality of employment.",
+ staticCurrent:"Static: development indicators and inclusive growth. Current link: employment, skilling, social protection, digital and financial inclusion.",
+ memory:["Growth ≠ automatically inclusive growth","Employment quality matters","Human capital is a long-term inclusion tool","Financial inclusion improves access, not automatically outcomes"],
+ mains:"Use an input-output framework: capabilities → productive employment → access → social protection → institutional delivery.",
+ recallQ:"GDP growth aur inclusive growth mein basic difference kya hai?",
+ recallA:"GDP growth aggregate output/income ko measure karta hai; inclusive growth mein participation, distribution of opportunities and benefits, employment and social inclusion bhi important hote hain."
+},
+{
+ id:4,gs:"GS3",topic:"ENV",year:"2016",
+ q:"How does biodiversity loss affect ecosystem stability and human well-being? Discuss with examples.",
+ title:"Biodiversity & Ecosystem Stability",
+ trend:"Environment PYQs frequently move from definition to ecosystem services, threats, conservation and human consequences.",
+ repeated:"Ecosystem Services • Habitat Loss • Species Loss • Food/Water Security • Conservation",
+ keywords:"biodiversity, ecosystem services, habitat fragmentation, resilience, conservation",
+ concept:"Biodiversity supports ecosystem resilience and services such as pollination, water regulation, soil fertility and genetic resources.",
+ trap:"Do not write only species names. Link biodiversity to ecosystem function and human welfare.",
+ staticCurrent:"Static: ecosystem services and conservation. Current link: habitat fragmentation, invasive species, climate change and protected-area management.",
+ memory:["Provisioning + regulating + cultural + supporting/ecological functions","Habitat loss is a major biodiversity pressure","Resilience is linked with ecological diversity","Conservation = in-situ + ex-situ"],
+ mains:"Use ecosystem service examples and finish with landscape-level conservation + community participation.",
+ recallQ:"Biodiversity ko ecosystem resilience se kaise connect karoge?",
+ recallA:"Greater ecological diversity can provide functional redundancy and help ecosystems absorb and recover from disturbances, though resilience varies by ecosystem and disturbance."
+},
+{
+ id:5,gs:"GS1",topic:"HISTORY",year:"2018",
+ q:"How did the ideas of nationalism develop in India during the nineteenth century? Discuss their relationship with social and cultural change.",
+ title:"Indian Nationalism",
+ trend:"History PYQs often ask causation + process + social/cultural dimensions rather than isolated dates.",
+ repeated:"Colonialism • Print Culture • Social Reform • Political Associations • National Consciousness",
+ keywords:"nationalism, colonialism, print culture, social reform, political associations",
+ concept:"Nationalism developed through multiple interacting political, economic, social and cultural processes.",
+ trap:"Avoid a single-cause explanation. UPSC expects a layered process.",
+ staticCurrent:"Static: 19th-century socio-political developments. Current link: use only when relevant to constitutional/national identity discussions; do not force current affairs.",
+ memory:["Nationalism was a process, not a single event","Print and associational networks helped political communication","Social reform and political awakening interacted","Regional experiences contributed to broader nationalism"],
+ mains:"Chronology + causes + social/cultural transformation + limitations gives a balanced structure.",
+ recallQ:"Indian nationalism ko single event ki jagah process kyu maana jata hai?",
+ recallA:"Because political associations, social reform, print culture, economic experiences and mass mobilisation developed over time and gradually broadened political consciousness."
+},
+{
+ id:6,gs:"GS4",topic:"ETHICS",year:"2013",
+ q:"The good of an individual is contained in the good of all. What do you understand by this statement? How can this principle be implemented in public life?",
+ title:"Individual Good & Public Good",
+ trend:"Ethics questions frequently test whether a principle can be translated into public-administration behaviour.",
+ repeated:"Public Interest • Welfare • Duty • Empathy • Ethical Governance",
+ keywords:"public interest, welfare, duty, empathy, ethical governance",
+ concept:"Individual welfare and collective welfare can be discussed through public interest, distributive justice and responsible administration.",
+ trap:"Do not reduce ethics answers to slogans. Give an administrative example and an actionable mechanism.",
+ staticCurrent:"Static: public-service values. Current link: welfare delivery, inclusion, citizen-centric administration and conflict of interest.",
+ memory:["Public interest should guide public office","Ethical principle needs institutional implementation","Use stakeholder analysis","Convert values into administrative actions"],
+ mains:"Definition → ethical reasoning → administrative example → safeguards/institutions → conclusion.",
+ recallQ:"Ethics answer mein principle ko administrative action mein kaise convert karoge?",
+ recallA:"Stakeholders identify karke, ethical principle ko decision criteria mein translate karke, transparent procedure, accountability and measurable implementation ke through."
+}
+];
 
-async function load(){
- const res=await fetch("/data/pyq.json?v="+Date.now());
- data=await res.json();
+let topic="ALL", current=null;
+
+function setTopic(t,el){
+ topic=t;
+ document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+ if(el)el.classList.add("active");
  render();
 }
+document.getElementById("subject").onchange=render;
+document.getElementById("mode").onchange=render;
 
 function render(){
- const q=document.getElementById("search").value.toLowerCase();
- const box=document.getElementById("list");
- box.innerHTML="";
-
- data.filter(x=>x.topic.toLowerCase().includes(q)).forEach(t=>{
-   box.innerHTML+=`
-   <div class="card">
-      <h2>${t.topic}</h2>
-      <span class="badge">${t.gs}</span>
-      <span class="badge">${t.frequency} PYQs</span>
-
-      <h3>Previous Questions</h3>
-      <ul>
-        ${t.pyqs.map(p=>`<li><b>${p.year}</b> — ${p.question}</li>`).join("")}
-      </ul>
-
-      <h3>Expected Next Angle</h3>
-      <p>${t.expected}</p>
-   </div>`;
- });
+ const gs=document.getElementById("subject").value;
+ const mode=document.getElementById("mode").value;
+ const box=document.getElementById("questions");
+ const arr=items.filter(x=>(gs==="ALL"||x.gs===gs)&&(topic==="ALL"||x.topic===topic));
+ document.getElementById("seen").textContent=arr.length;
+ document.getElementById("intel").textContent=arr.length*7;
+ box.innerHTML=arr.map(x=>`
+  <div class="card">
+   <div class="cardTop"><span class="badge">${x.gs}</span><span class="meta">${x.year} • ${x.topic}</span></div>
+   <div class="q">${x.q}</div>
+   <span class="topic">${x.title}</span>
+   <button class="openBtn" onclick="openIntel(${x.id})">🧠 PYQ Intelligence →</button>
+  </div>
+ `).join("");
+ if(!arr.length) box.innerHTML='<div class="card">No PYQ found for this filter.</div>';
 }
 
-document.getElementById("search").addEventListener("input",render);
-load();
-</script>
+function openIntel(id){
+ current=items.find(x=>x.id===id);
+ document.getElementById("listView").style.display="none";
+ document.getElementById("detail").style.display="block";
+ document.getElementById("detailContent").innerHTML=`
+  <div class="intelHero">
+   <div class="small">${current.gs} • ${current.year} • ${current.topic}</div>
+   <h2>${current.title}</h2>
+   <p>${current.q}</p>
+   <span class="xp">PYQ Intelligence • 7 layers</span>
+  </div>
 
+  <div class="grid">
+   <div class="info full"><h3>1. PYQ Trend <span>PYQ प्रवृत्ति</span></h3><p>${current.trend}</p></div>
+   <div class="info full"><h3>2. Repeated Themes <span>बार-बार पूछे गए Themes</span></h3><p>${current.repeated}</p></div>
+   <div class="info"><h3>3. UPSC Keywords <span>महत्वपूर्ण शब्द</span></h3><p>${current.keywords}</p></div>
+   <div class="info"><h3>4. PYQ → Concept <span>प्रश्न → Concept</span></h3><p>${current.concept}</p></div>
+   <div class="info"><h3>5. UPSC Trap <span>संभावित भ्रम</span></h3><p>${current.trap}</p></div>
+   <div class="info"><h3>6. Static + Current <span>Static + Current Link</span></h3><p>${current.staticCurrent}</p></div>
+   <div class="info full"><h3>7. Must Remember <span>जरूर याद रखें</span></h3>
+    <ul>${current.memory.map(m=>`<li>${m}</li>`).join("")}</ul>
+   </div>
+   <div class="info full"><h3>8. Mains Angle <span>Mains में उपयोग</span></h3><p>${current.mains}</p></div>
+  </div>
+
+  <div class="recall">
+   <div class="sectionTitle" style="margin-top:0">9. Active Recall • Active Recall</div>
+   <div class="recallQ">${current.recallQ}</div>
+   <div id="ans" class="answer">${current.recallA}</div>
+   <div class="actionRow">
+    <button class="secondary" onclick="document.getElementById('ans').style.display='block'">Reveal Answer</button>
+    <button class="primary" onclick="markRecall()">✓ I Remember +10 XP</button>
+   </div>
+  </div>
+
+  <div class="card">
+   <div class="sectionTitle" style="margin-top:0">10. Revision Cycle • Revision चक्र</div>
+   <div class="memory"><b>Day 1</b> — Understand the concept<br><b>Day 7</b> — Recall without notes<br><b>Day 21</b> — Solve the PYQ again<br><b>Day 45</b> — 30-second micro revision</div>
+   <button class="primary" style="margin-top:10px" onclick="nextIntel()">Next Revision →</button>
+  </div>
+ `;
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function markRecall(){
+ let xp=Number(localStorage.getItem("f27_recall_xp")||0)+10;
+ localStorage.setItem("f27_recall_xp",xp);
+ document.getElementById("recall").textContent=xp;
+ alert("+10 XP • Recall recorded");
+}
+function nextIntel(){
+ const i=items.findIndex(x=>x.id===current.id);
+ openIntel(items[(i+1)%items.length].id);
+}
+function goBack(){
+ document.getElementById("detail").style.display="none";
+ document.getElementById("listView").style.display="block";
+ render();
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+document.getElementById("recall").textContent=localStorage.getItem("f27_recall_xp")||0;
+render();
+</script>
 </body>
 </html>
