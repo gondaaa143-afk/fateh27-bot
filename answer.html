@@ -6,442 +6,76 @@
 <title>FATEH27 • AI Answer Evaluation</title>
 <style>
 *{box-sizing:border-box}
-body{
-  margin:0;padding:18px 15px 100px;
-  background:#f4f4f4;color:#111;
-  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif
-}
-.wrap{max-width:760px;margin:auto}
-.header{padding:8px 2px 18px}
-.eyebrow{font-size:11px;font-weight:850;letter-spacing:1.4px;color:#777}
-h1{font-size:29px;letter-spacing:-.8px;margin:7px 0 5px}
-.subtitle{font-size:13px;color:#666;line-height:1.5}
-.hero{
-  background:#111;color:#fff;border-radius:26px;padding:20px;
-  box-shadow:0 18px 45px rgba(0,0,0,.12);margin-bottom:14px
-}
-.heroTitle{font-size:21px;font-weight:850}
-.heroSub{font-size:12px;color:#bbb;line-height:1.55;margin-top:5px}
-.section{
-  font-size:11px;font-weight:850;letter-spacing:1px;
-  text-transform:uppercase;color:#777;margin:18px 3px 9px
-}
-.card{
-  background:rgba(255,255,255,.78);
-  border:1px solid rgba(255,255,255,.95);
-  border-radius:22px;padding:17px;margin:10px 0;
-  box-shadow:0 12px 32px rgba(0,0,0,.055)
-}
-label{display:block;font-size:11px;font-weight:800;color:#555;margin:0 0 7px}
-select,input,textarea,button{
-  width:100%;border:0;border-radius:15px;
-  padding:13px 14px;font:inherit;font-size:13px
-}
-select,input,textarea{
-  background:#e7e7e7;color:#111;outline:none
-}
-textarea{
-  min-height:260px;resize:vertical;line-height:1.65
-}
-textarea:focus,input:focus,select:focus{background:#e1e1e1}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.questionBox{
-  background:#ececec;border-radius:18px;padding:15px;
-  font-size:14px;line-height:1.6;font-weight:650
-}
-.questionMeta{
-  display:flex;gap:7px;flex-wrap:wrap;margin-bottom:9px
-}
-.badge{
-  background:#111;color:#fff;border-radius:8px;
-  padding:5px 8px;font-size:10px;font-weight:850
-}
-.badge.light{background:#ddd;color:#444}
-.primary{background:#111;color:#fff}
-.secondary{background:#e7e7e7;color:#111}
-.upload{
-  border:1.5px dashed #bbb;background:#ededed;
-  border-radius:18px;padding:18px;text-align:center
-}
-.upload input{display:none}
-.uploadLabel{
-  display:block;cursor:pointer;color:#333;font-weight:800;
-  font-size:12px
-}
-.preview{display:none;margin-top:12px;max-height:300px;width:100%;object-fit:contain;border-radius:15px}
-.evaluate{
-  margin-top:12px;padding:16px;font-size:14px;font-weight:850;
-  box-shadow:0 10px 25px rgba(0,0,0,.12)
-}
-.status{
-  display:none;background:#e8e8e8;border-radius:16px;
-  padding:13px;font-size:12px;font-weight:750;margin-top:10px
-}
-.spinner{
-  display:inline-block;width:13px;height:13px;border:2px solid #aaa;
-  border-top-color:#111;border-radius:50%;animation:spin .7s linear infinite;
-  vertical-align:-2px;margin-right:6px
-}
-@keyframes spin{to{transform:rotate(360deg)}}
-#results{display:none}
-.score{
-  background:#111;color:#fff;border-radius:24px;padding:20px;
-  display:flex;justify-content:space-between;align-items:center
-}
-.score small{color:#aaa;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1px}
-.scoreNum{font-size:42px;font-weight:900;line-height:1}
-.scoreRight{text-align:right}
-.pill{
-  display:inline-block;background:#e7e7e7;border-radius:999px;
-  padding:7px 10px;font-size:10px;font-weight:850;margin-top:7px
-}
-.metric{
-  background:#fff;border-radius:18px;padding:14px;
-  border:1px solid #eee
-}
-.metricTop{display:flex;justify-content:space-between;font-size:11px;font-weight:800}
-.bar{height:7px;background:#e8e8e8;border-radius:99px;margin-top:9px;overflow:hidden}
-.fill{height:100%;width:0;background:#111;border-radius:99px}
-.feedback h3{font-size:13px;margin:0 0 8px}
-.feedback p,.feedback li{font-size:12px;color:#444;line-height:1.6}
-.feedback ul{margin:7px 0;padding-left:18px}
-.feedbackBox{background:#f0f0f0;border-radius:15px;padding:13px;margin-top:9px}
-.historyItem{
-  display:flex;justify-content:space-between;gap:10px;
-  padding:12px 0;border-bottom:1px solid #e7e7e7
-}
-.historyItem:last-child{border-bottom:0}
-.historyTitle{font-size:12px;font-weight:800}
-.historyMeta{font-size:10px;color:#777;margin-top:3px}
-.historyScore{font-weight:900;font-size:13px}
-#homeBtn{
-  position:fixed;left:18px;right:18px;bottom:16px;max-width:720px;
-  margin:auto;background:#111;color:#fff;
-  box-shadow:0 12px 30px rgba(0,0,0,.2);z-index:20
-}
-@media(max-width:520px){
-  body{padding:14px 13px 95px}
-  .grid2{grid-template-columns:1fr}
-  h1{font-size:27px}
-}
+body{margin:0;padding:18px 15px 100px;background:#f4f4f4;color:#111;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.wrap{max-width:760px;margin:auto}.header{padding:8px 2px 18px}.eyebrow{font-size:11px;font-weight:850;letter-spacing:1.4px;color:#777}h1{font-size:29px;letter-spacing:-.8px;margin:7px 0 5px}.subtitle{font-size:13px;color:#666;line-height:1.5}
+.hero{background:#111;color:#fff;border-radius:26px;padding:20px;box-shadow:0 18px 45px rgba(0,0,0,.12);margin-bottom:14px}.heroTitle{font-size:21px;font-weight:850}.heroSub{font-size:12px;color:#bbb;line-height:1.55;margin-top:5px}
+.section{font-size:11px;font-weight:850;letter-spacing:1px;text-transform:uppercase;color:#777;margin:18px 3px 9px}.card{background:rgba(255,255,255,.78);border:1px solid rgba(255,255,255,.95);border-radius:22px;padding:17px;margin:10px 0;box-shadow:0 12px 32px rgba(0,0,0,.055)}
+label{display:block;font-size:11px;font-weight:800;color:#555;margin:0 0 7px}select,input,textarea,button{width:100%;border:0;border-radius:15px;padding:13px 14px;font:inherit;font-size:13px}select,input,textarea{background:#e7e7e7;color:#111;outline:none}textarea{min-height:260px;resize:vertical;line-height:1.65}textarea:focus,input:focus,select:focus{background:#e1e1e1}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.questionBox{background:#ececec;border-radius:18px;padding:15px;font-size:14px;line-height:1.6;font-weight:650}.badge{background:#111;color:#fff;border-radius:8px;padding:5px 8px;font-size:10px;font-weight:850}.primary{background:#111;color:#fff}.secondary{background:#e7e7e7;color:#111}.upload{border:1.5px dashed #bbb;background:#ededed;border-radius:18px;padding:18px;text-align:center}.upload input{display:none}.uploadLabel{display:block;cursor:pointer;color:#333;font-weight:800;font-size:12px}.preview{display:none;margin-top:12px;max-height:300px;width:100%;object-fit:contain;border-radius:15px}.evaluate{margin-top:12px;padding:16px;font-size:14px;font-weight:850;box-shadow:0 10px 25px rgba(0,0,0,.12)}
+.status{display:none;background:#e8e8e8;border-radius:16px;padding:13px;font-size:12px;font-weight:750;margin-top:10px}.spinner{display:inline-block;width:13px;height:13px;border:2px solid #aaa;border-top-color:#111;border-radius:50%;animation:spin .7s linear infinite;vertical-align:-2px;margin-right:6px}@keyframes spin{to{transform:rotate(360deg)}}
+#errorBox{display:none;background:#fff0f0;color:#8b1111;border:1px solid #f0caca;border-radius:16px;padding:13px;margin-top:10px;font-size:12px;line-height:1.5}#results{display:none}.score{background:#111;color:#fff;border-radius:24px;padding:20px;display:flex;justify-content:space-between;align-items:center}.score small{color:#aaa;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1px}.scoreNum{font-size:42px;font-weight:900;line-height:1}.scoreRight{text-align:right}.pill{display:inline-block;background:#e7e7e7;color:#111;border-radius:999px;padding:7px 10px;font-size:10px;font-weight:850;margin-top:7px}
+.metric{background:#fff;border-radius:18px;padding:14px;border:1px solid #eee}.metricTop{display:flex;justify-content:space-between;font-size:11px;font-weight:800}.bar{height:7px;background:#e8e8e8;border-radius:99px;margin-top:9px;overflow:hidden}.fill{height:100%;width:0;background:#111;border-radius:99px}.feedback h3{font-size:13px;margin:0 0 8px}.feedback p,.feedback li{font-size:12px;color:#444;line-height:1.6}.feedback ul{margin:7px 0;padding-left:18px}.feedbackBox{background:#f0f0f0;border-radius:15px;padding:13px;margin-top:9px;white-space:pre-wrap;line-height:1.6;font-size:12px}.metaLine{font-size:11px;color:#777;margin-top:8px}.historyItem{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid #e7e7e7}.historyItem:last-child{border-bottom:0}.historyTitle{font-size:12px;font-weight:800}.historyMeta{font-size:10px;color:#777;margin-top:3px}.historyScore{font-weight:900;font-size:13px}
+#homeBtn{position:fixed;left:18px;right:18px;bottom:16px;max-width:720px;margin:auto;background:#111;color:#fff;box-shadow:0 12px 30px rgba(0,0,0,.2);z-index:20}@media(max-width:520px){body{padding:14px 13px 95px}.grid2{grid-template-columns:1fr}h1{font-size:27px}}
 </style>
 </head>
-
 <body>
 <div class="wrap">
-
-<div class="header">
-  <div class="eyebrow">FATEH27 • UPSC</div>
-  <h1>AI Answer Evaluation</h1>
-  <div class="subtitle">Write • Upload • Evaluate • Improve</div>
-</div>
-
-<div class="hero">
-  <div class="heroTitle">UPSC Mains Answer Evaluator</div>
-  <div class="heroSub">
-    Apna answer submit karo. AI question demand, content, structure,
-    analysis, examples aur conclusion ko evaluate karega.
-  </div>
-</div>
-
+<div class="header"><div class="eyebrow">FATEH27 • UPSC</div><h1>AI Answer Evaluation</h1><div class="subtitle">Write • Upload • Evaluate • Improve</div></div>
+<div class="hero"><div class="heroTitle">UPSC Mains Answer Evaluator</div><div class="heroSub">Real AI evaluation: question demand, content, structure, analysis, examples, missing points and specific improvement.</div></div>
 <div class="card">
-
-  <div class="section" style="margin-top:0">1. Question</div>
-
-  <div class="grid2">
-    <div>
-      <label>GS Paper</label>
-      <select id="gs">
-        <option>GS1</option>
-        <option>GS2</option>
-        <option>GS3</option>
-        <option>GS4</option>
-        <option>Essay</option>
-      </select>
-    </div>
-
-    <div>
-      <label>Maximum Marks</label>
-      <select id="marks">
-        <option value="10">10 Marks</option>
-        <option value="15">15 Marks</option>
-        <option value="20">20 Marks</option>
-      </select>
-    </div>
-  </div>
-
-  <div style="margin-top:12px">
-    <label>Question / प्रश्न</label>
-    <textarea id="question" style="min-height:125px"
-      placeholder="Paste the UPSC question here..."></textarea>
-  </div>
-
+<div class="section" style="margin-top:0">1. Question</div>
+<div class="grid2"><div><label>GS Paper</label><select id="gs"><option>GS1</option><option>GS2</option><option>GS3</option><option>GS4</option><option>Essay</option></select></div><div><label>Maximum Marks</label><select id="marks"><option value="10">10 Marks</option><option value="15">15 Marks</option><option value="20">20 Marks</option></select></div></div>
+<div style="margin-top:12px"><label>Question / प्रश्न</label><textarea id="question" style="min-height:125px" placeholder="Paste the UPSC question here..."></textarea></div>
 </div>
-
 <div class="card">
-
-  <div class="section" style="margin-top:0">2. Your Answer</div>
-
-  <label>Answer / उत्तर</label>
-  <textarea id="answer"
-    placeholder="Yahan apna answer type karo...
-
-Example:
-Introduction
-Body
-• Point 1
-• Point 2
-• Example
-Conclusion"></textarea>
-
-  <div class="section">OR • Handwritten Answer</div>
-
-  <div class="upload">
-    <label for="imageInput" class="uploadLabel">
-      📷 Upload Answer Image
-      <br>
-      <span style="font-weight:600;color:#777">
-        Handwritten answer ki clear photo upload karo
-      </span>
-    </label>
-    <input id="imageInput" type="file" accept="image/*">
-    <img id="preview" class="preview">
-  </div>
-
-  <button id="evaluateBtn" class="primary evaluate">
-    ✦ Evaluate Answer
-  </button>
-
-  <div id="status" class="status">
-    <span class="spinner"></span>
-    AI evaluator is preparing your evaluation...
-  </div>
-
+<div class="section" style="margin-top:0">2. Your Answer</div><label>Answer / उत्तर</label><textarea id="answer" placeholder="Yahan apna answer type karo...\n\nExample:\nIntroduction\nBody\n• Point 1\n• Point 2\n• Example\nConclusion"></textarea>
+<div class="section">OR • Handwritten Answer</div><div class="upload"><label for="imageInput" class="uploadLabel">📷 Upload Answer Image<br><span style="font-weight:600;color:#777">Handwritten answer ki clear photo upload karo</span></label><input id="imageInput" type="file" accept="image/*"><img id="preview" class="preview"></div>
+<button id="evaluateBtn" class="primary evaluate">✦ Evaluate Answer</button><div id="status" class="status"><span class="spinner"></span><span id="statusText">AI evaluator is preparing your evaluation...</span></div><div id="errorBox"></div>
 </div>
-
 <div id="results">
-
-  <div class="section">Evaluation Result • मूल्यांकन</div>
-
-  <div class="score">
-    <div>
-      <small>Estimated UPSC Score</small>
-      <div class="scoreNum" id="score">—</div>
-      <span class="pill" id="scoreLabel">Evaluation</span>
-    </div>
-    <div class="scoreRight">
-      <small>Paper</small>
-      <div id="resultGS" style="font-size:18px;font-weight:850;margin-top:5px">—</div>
-      <small id="resultMarks">—</small>
-    </div>
-  </div>
-
-  <div class="section">Dimension Analysis • आयाम विश्लेषण</div>
-
-  <div class="grid2">
-    <div class="metric">
-      <div class="metricTop"><span>Content • विषय-वस्तु</span><span id="contentVal">—</span></div>
-      <div class="bar"><div class="fill" id="contentBar"></div></div>
-    </div>
-    <div class="metric">
-      <div class="metricTop"><span>Structure • संरचना</span><span id="structureVal">—</span></div>
-      <div class="bar"><div class="fill" id="structureBar"></div></div>
-    </div>
-    <div class="metric">
-      <div class="metricTop"><span>Analysis • विश्लेषण</span><span id="analysisVal">—</span></div>
-      <div class="bar"><div class="fill" id="analysisBar"></div></div>
-    </div>
-    <div class="metric">
-      <div class="metricTop"><span>Examples • उदाहरण</span><span id="examplesVal">—</span></div>
-      <div class="bar"><div class="fill" id="examplesBar"></div></div>
-    </div>
-  </div>
-
-  <div class="card feedback">
-    <h3>Question Demand • प्रश्न की मांग</h3>
-    <div class="feedbackBox" id="demand">—</div>
-  </div>
-
-  <div class="card feedback">
-    <h3>Strong Points • मजबूत पक्ष</h3>
-    <ul id="strengths"></ul>
-  </div>
-
-  <div class="card feedback">
-    <h3>Missing Points • छूटे हुए बिंदु</h3>
-    <ul id="missing"></ul>
-  </div>
-
-  <div class="card feedback">
-    <h3>Weak Areas • कमजोर क्षेत्र</h3>
-    <ul id="weaknesses"></ul>
-  </div>
-
-  <div class="card feedback">
-    <h3>How to Improve • सुधार कैसे करें</h3>
-    <ul id="improvements"></ul>
-  </div>
-
-  <div class="card feedback">
-    <h3>Better Structure • बेहतर संरचना</h3>
-    <div class="feedbackBox" id="structureText">—</div>
-  </div>
-
-  <div class="card feedback">
-    <h3>Model Answer Direction • Model Answer दिशा</h3>
-    <div class="feedbackBox" id="modelDirection">—</div>
-  </div>
-
-  <div class="card">
-    <div class="section" style="margin-top:0">Evaluation History</div>
-    <div id="history"></div>
-  </div>
-
-</div>
-
-</div>
-
+<div class="section">Evaluation Result • मूल्यांकन</div>
+<div class="score"><div><small>Estimated UPSC Score</small><div class="scoreNum" id="score">—</div><span class="pill" id="scoreLabel">Live AI</span></div><div class="scoreRight"><small>Paper</small><div id="resultGS" style="font-size:18px;font-weight:850;margin-top:5px">—</div><small id="resultMarks">—</small></div></div>
+<div class="card"><div class="metaLine"><b>Examiner Note:</b> <span id="examinerNote">—</span></div><div class="metaLine"><b>Word Count:</b> <span id="wordComment">—</span></div><div class="metaLine"><b>Overall:</b> <span id="finalVerdict">—</span></div></div>
+<div class="section">Dimension Analysis • आयाम विश्लेषण</div>
+<div class="grid2"><div class="metric"><div class="metricTop"><span>Content • विषय-वस्तु</span><span id="contentVal">—</span></div><div class="bar"><div class="fill" id="contentBar"></div></div></div><div class="metric"><div class="metricTop"><span>Structure • संरचना</span><span id="structureVal">—</span></div><div class="bar"><div class="fill" id="structureBar"></div></div></div><div class="metric"><div class="metricTop"><span>Analysis • विश्लेषण</span><span id="analysisVal">—</span></div><div class="bar"><div class="fill" id="analysisBar"></div></div></div><div class="metric"><div class="metricTop"><span>Examples • उदाहरण</span><span id="examplesVal">—</span></div><div class="bar"><div class="fill" id="examplesBar"></div></div></div></div>
+<div class="card feedback"><h3>Question Demand • प्रश्न की मांग</h3><div class="feedbackBox" id="demand">—</div></div>
+<div class="card feedback"><h3>Strong Points • मजबूत पक्ष</h3><ul id="strengths"></ul></div>
+<div class="card feedback"><h3>Missing Points • छूटे हुए बिंदु</h3><ul id="missing"></ul></div>
+<div class="card feedback"><h3>Weak Areas • कमजोर क्षेत्र</h3><ul id="weaknesses"></ul></div>
+<div class="card feedback"><h3>How to Improve • सुधार कैसे करें</h3><ul id="improvements"></ul></div>
+<div class="card feedback"><h3>Better Structure • बेहतर संरचना</h3><div class="feedbackBox" id="structureText">—</div></div>
+<div class="card feedback"><h3>Model Answer Direction • Model Answer दिशा</h3><div class="feedbackBox" id="modelDirection">—</div></div>
+<div class="card"><div class="section" style="margin-top:0">Evaluation History</div><div id="history"></div></div>
+</div></div>
 <button id="homeBtn" onclick="location.href='index.html'">⌂ Home</button>
-
 <script>
-const imageInput=document.getElementById("imageInput");
-const preview=document.getElementById("preview");
-const statusBox=document.getElementById("status");
-const results=document.getElementById("results");
+const API_BASE=(window.FATEH27_API_BASE||"https://fateh27-bot.onrender.com").replace(/\/$/,"");
+const imageInput=document.getElementById("imageInput"),preview=document.getElementById("preview"),statusBox=document.getElementById("status"),statusText=document.getElementById("statusText"),results=document.getElementById("results"),errorBox=document.getElementById("errorBox");
+let imageData="";
+imageInput.addEventListener("change",async()=>{const file=imageInput.files[0];if(!file)return;try{imageData=await compressImage(file);preview.src=imageData;preview.style.display="block";errorBox.style.display="none";}catch(e){showError("Image process nahi ho payi. Clear JPG/PNG image upload karo.");}});
+function compressImage(file){return new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>{const img=new Image();img.onload=()=>{const max=1800;let w=img.width,h=img.height;if(w>max||h>max){const s=Math.min(max/w,max/h);w=Math.round(w*s);h=Math.round(h*s)}const c=document.createElement("canvas");c.width=w;c.height=h;const ctx=c.getContext("2d");ctx.drawImage(img,0,0,w,h);resolve(c.toDataURL("image/jpeg",.82));};img.onerror=reject;img.src=r.result;};r.onerror=reject;r.readAsDataURL(file);});}
+function setMetric(name,value){const v=Math.max(0,Math.min(100,Number(value)||0));document.getElementById(name+"Val").textContent=v+"%";document.getElementById(name+"Bar").style.width=v+"%";}
+function list(id,arr){const el=document.getElementById(id);el.innerHTML=(arr||[]).map(x=>"<li>"+escapeHTML(x)+"</li>").join("");if(!arr||!arr.length)el.innerHTML="<li>No specific point returned.</li>";}
+function escapeHTML(s){return String(s??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;");}
+function showError(msg){errorBox.textContent=msg;errorBox.style.display="block";statusBox.style.display="none";document.getElementById("evaluateBtn").disabled=false;document.getElementById("evaluateBtn").textContent="✦ Evaluate Answer";}
+function setLoading(on,msg="AI evaluator is preparing your evaluation..."){statusBox.style.display=on?"block":"none";statusText.textContent=msg;document.getElementById("evaluateBtn").disabled=on;document.getElementById("evaluateBtn").textContent=on?"Evaluating…":"✦ Evaluate Answer";}
 
-imageInput.addEventListener("change",()=>{
-  const file=imageInput.files[0];
-  if(!file)return;
-  const reader=new FileReader();
-  reader.onload=e=>{
-    preview.src=e.target.result;
-    preview.style.display="block";
-  };
-  reader.readAsDataURL(file);
-});
-
-function setMetric(name,value){
-  const v=Math.max(0,Math.min(100,Number(value)||0));
-  document.getElementById(name+"Val").textContent=v+"%";
-  document.getElementById(name+"Bar").style.width=v+"%";
-}
-
-function list(id,arr){
-  const el=document.getElementById(id);
-  el.innerHTML=(arr||[]).map(x=>"<li>"+escapeHTML(x)+"</li>").join("");
-}
-
-function escapeHTML(s){
-  return String(s??"")
-   .replaceAll("&","&amp;").replaceAll("<","&lt;")
-   .replaceAll(">","&gt;").replaceAll('"',"&quot;");
-}
-
-/*
-  FRONTEND DEMO:
-  Abhi backend connected nahi hai.
-  Evaluate button test evaluation render karta hai.
-  Next step me isi function ko /api/evaluate se connect karenge.
-*/
 document.getElementById("evaluateBtn").addEventListener("click",async()=>{
-  const question=document.getElementById("question").value.trim();
-  const answer=document.getElementById("answer").value.trim();
-  const image=imageInput.files[0];
-
-  if(!question){
-    alert("Pehle UPSC question enter karo.");
-    return;
-  }
-  if(!answer && !image){
-    alert("Answer type karo ya handwritten answer image upload karo.");
-    return;
-  }
-
-  statusBox.style.display="block";
-  results.style.display="none";
-
-  await new Promise(r=>setTimeout(r,900));
-
-  const max=Number(document.getElementById("marks").value);
-  const demoScore=max===10?6.5:max===15?9.5:13;
-
-  document.getElementById("score").textContent=demoScore+"/"+max;
-  document.getElementById("scoreLabel").textContent="Demo UI • Live AI next";
-  document.getElementById("resultGS").textContent=document.getElementById("gs").value;
-  document.getElementById("resultMarks").textContent=max+" Marks";
-
-  setMetric("content",72);
-  setMetric("structure",68);
-  setMetric("analysis",58);
-  setMetric("examples",51);
-
-  document.getElementById("demand").textContent=
-    "Question ko directive word aur core demand ke according address karna hoga. Actual AI evaluation backend connect hone ke baad question-specific demand generate karega.";
-
-  list("strengths",[
-    "Answer has a clear attempt at the central theme.",
-    "Basic structure can be retained.",
-    "Relevant arguments can be developed further."
-  ]);
-
-  list("missing",[
-    "Question-specific constitutional / institutional / social / economic dimension.",
-    "At least one precise example, committee, report or case where relevant.",
-    "A sharper analytical link between the arguments."
-  ]);
-
-  list("weaknesses",[
-    "Analysis needs more depth.",
-    "Examples/data need to be more precise.",
-    "Conclusion should directly answer the question demand."
-  ]);
-
-  list("improvements",[
-    "Write a 2–3 line contextual introduction.",
-    "Use 3–5 dimensions in the body.",
-    "Add one strong example or data point.",
-    "End with a concise, question-linked conclusion."
-  ]);
-
-  document.getElementById("structureText").textContent=
-    "Introduction → Core argument → 3–5 dimensions → Examples/Data → Challenges/Counterpoint → Way Forward → Conclusion";
-
-  document.getElementById("modelDirection").textContent=
-    "Backend AI connected hone ke baad yahan question-specific model-answer direction, missing UPSC points aur answer improvement sequence automatically aayega.";
-
-  saveHistory(demoScore,max);
-  renderHistory();
-
-  statusBox.style.display="none";
-  results.style.display="block";
-  results.scrollIntoView({behavior:"smooth"});
+ const question=document.getElementById("question").value.trim(),answer=document.getElementById("answer").value.trim(),gs=document.getElementById("gs").value,marks=Number(document.getElementById("marks").value);
+ if(!question){showError("Pehle UPSC question enter karo.");return} if(!answer&&!imageData){showError("Answer type karo ya handwritten answer image upload karo.");return}
+ errorBox.style.display="none";results.style.display="none";setLoading(true,"Question demand aur answer structure analyse ho raha hai…");
+ try{
+   const payload={gs,marks,question,answer,imageData:imageData||null};
+   const response=await fetch(API_BASE+"/api/evaluate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
+   let data=null;try{data=await response.json()}catch(e){throw new Error("Backend se valid JSON response nahi mila.")}
+   if(!response.ok||!data.success)throw new Error(data?.error||"AI evaluation failed.");
+   renderEvaluation(data.evaluation,data.meta);saveHistory(data.evaluation.estimated_score,marks,gs);renderHistory();
+   setLoading(false);results.style.display="block";results.scrollIntoView({behavior:"smooth"});
+ }catch(err){console.error(err);showError("Evaluation failed: "+(err.message||"Unknown error")+". Backend health check aur Render logs verify karo.");}
 });
-
-function saveHistory(score,max){
-  const h=JSON.parse(localStorage.getItem("f27_eval_history")||"[]");
-  h.unshift({
-    gs:document.getElementById("gs").value,
-    score:score+"/"+max,
-    date:new Date().toLocaleDateString("en-IN")
-  });
-  localStorage.setItem("f27_eval_history",JSON.stringify(h.slice(0,10)));
-}
-
-function renderHistory(){
-  const h=JSON.parse(localStorage.getItem("f27_eval_history")||"[]");
-  const el=document.getElementById("history");
-  if(!h.length){
-    el.innerHTML='<div style="font-size:12px;color:#777">No evaluations yet.</div>';
-    return;
-  }
-  el.innerHTML=h.map(x=>`
-    <div class="historyItem">
-      <div><div class="historyTitle">${escapeHTML(x.gs)} Answer Evaluation</div>
-      <div class="historyMeta">${escapeHTML(x.date)}</div></div>
-      <div class="historyScore">${escapeHTML(x.score)}</div>
-    </div>
-  `).join("");
-}
+function renderEvaluation(e,m){document.getElementById("score").textContent=(e.estimated_score??"—")+"/"+(e.score_out_of??m.marks);document.getElementById("scoreLabel").textContent=e.score_label||"Live AI Evaluation";document.getElementById("resultGS").textContent=m.subject||"—";document.getElementById("resultMarks").textContent=(m.marks||"")+" Marks";setMetric("content",e.content);setMetric("structure",e.structure);setMetric("analysis",e.analysis);setMetric("examples",e.examples);document.getElementById("demand").textContent=e.question_demand||"—";list("strengths",e.strengths);list("missing",e.missing_points);list("weaknesses",e.weak_areas);list("improvements",e.improvements);document.getElementById("structureText").textContent=e.better_structure||"—";document.getElementById("modelDirection").textContent=e.model_answer_direction||"—";document.getElementById("examinerNote").textContent=e.examiner_note||"—";document.getElementById("wordComment").textContent=e.word_count_comment||"—";document.getElementById("finalVerdict").textContent=e.final_verdict||"—";}
+function saveHistory(score,max,gs){const h=JSON.parse(localStorage.getItem("f27_eval_history")||"[]");h.unshift({gs,score:String(score)+"/"+max,date:new Date().toLocaleDateString("en-IN")});localStorage.setItem("f27_eval_history",JSON.stringify(h.slice(0,10)));}
+function renderHistory(){const h=JSON.parse(localStorage.getItem("f27_eval_history")||"[]"),el=document.getElementById("history");if(!h.length){el.innerHTML='<div style="font-size:12px;color:#777">No evaluations yet.</div>';return}el.innerHTML=h.map(x=>`<div class="historyItem"><div><div class="historyTitle">${escapeHTML(x.gs)} Answer Evaluation</div><div class="historyMeta">${escapeHTML(x.date)}</div></div><div class="historyScore">${escapeHTML(x.score)}</div></div>`).join("");}
 renderHistory();
 </script>
 </body>
