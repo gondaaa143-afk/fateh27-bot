@@ -1,894 +1,248 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FATEH27 — Commander Map</title>
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>FATEH27 — Commander India Map</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Poppins,sans-serif;
-  background:#f4f4f4;
-  color:#111;
-  min-height:100vh;
-}
-
-.app{
-  max-width:1200px;
-  margin:auto;
-  padding:18px;
-}
-
-.header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:16px;
-}
-
-.brand{
-  font-size:24px;
-  font-weight:800;
-  letter-spacing:-.5px;
-}
-
-.brand span{
-  color:#666;
-}
-
-.homeBtn{
-  border:none;
-  background:#111;
-  color:#fff;
-  padding:10px 17px;
-  border-radius:14px;
-  font-weight:700;
-  cursor:pointer;
-}
-
-.hero{
-  background:#111;
-  color:#fff;
-  border-radius:26px;
-  padding:24px;
-  margin-bottom:16px;
-  box-shadow:0 12px 30px rgba(0,0,0,.12);
-}
-
-.hero h1{
-  font-size:28px;
-  margin-bottom:6px;
-}
-
-.hero p{
-  color:#bdbdbd;
-  font-size:14px;
-}
-
-.stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:10px;
-  margin-top:18px;
-}
-
-.stat{
-  background:#1c1c1c;
-  border:1px solid #333;
-  border-radius:17px;
-  padding:13px;
-}
-
-.stat small{
-  color:#aaa;
-  display:block;
-  margin-bottom:5px;
-}
-
-.stat strong{
-  font-size:20px;
-}
-
-.controls{
-  background:rgba(255,255,255,.75);
-  backdrop-filter:blur(16px);
-  border:1px solid rgba(255,255,255,.8);
-  border-radius:24px;
-  padding:16px;
-  margin-bottom:16px;
-  box-shadow:0 8px 25px rgba(0,0,0,.06);
-}
-
-.tabs{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:8px;
-  margin-bottom:12px;
-}
-
-.tab{
-  border:none;
-  padding:12px;
-  border-radius:14px;
-  background:#e5e5e5;
-  font-weight:700;
-  cursor:pointer;
-}
-
-.tab.active{
-  background:#111;
-  color:#fff;
-}
-
-.filters{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-}
-
-select,
-input{
-  width:100%;
-  border:none;
-  outline:none;
-  background:#e7e7e7;
-  color:#111;
-  padding:12px 14px;
-  border-radius:14px;
-  font-size:14px;
-  font-weight:600;
-}
-
-#map{
-  height:540px;
-  width:100%;
-  border-radius:26px;
-  overflow:hidden;
-  box-shadow:0 10px 30px rgba(0,0,0,.10);
-  border:1px solid #ddd;
-}
-
-.mission{
-  margin-top:16px;
-  background:rgba(255,255,255,.8);
-  backdrop-filter:blur(16px);
-  border-radius:24px;
-  padding:20px;
-  border:1px solid #fff;
-  box-shadow:0 8px 25px rgba(0,0,0,.06);
-}
-
-.missionLabel{
-  color:#777;
-  font-size:12px;
-  font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:1px;
-  margin-bottom:7px;
-}
-
-.mission h2{
-  font-size:21px;
-  margin-bottom:6px;
-}
-
-.mission p{
-  color:#555;
-  line-height:1.5;
-  font-size:14px;
-}
-
-.missionBtns{
-  display:flex;
-  gap:10px;
-  margin-top:16px;
-}
-
-.primary,
-.secondary{
-  flex:1;
-  border:none;
-  padding:13px;
-  border-radius:15px;
-  font-weight:800;
-  cursor:pointer;
-}
-
-.primary{
-  background:#111;
-  color:#fff;
-}
-
-.secondary{
-  background:#e5e5e5;
-  color:#111;
-}
-
-.leaflet-popup-content-wrapper{
-  border-radius:15px;
-}
-
-.leaflet-popup-content{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-}
-
-@media(max-width:700px){
-  .app{
-    padding:12px;
-  }
-
-  .hero h1{
-    font-size:24px;
-  }
-
-  .stats{
-    grid-template-columns:repeat(3,1fr);
-  }
-
-  .filters{
-    grid-template-columns:1fr;
-  }
-
-  #map{
-    height:440px;
-  }
-}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Poppins,sans-serif;background:#f4f4f4;color:#111}
+.app{max-width:1180px;margin:auto;padding:14px}
+.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.logo{font-size:24px;font-weight:900}.logo span{color:#777}
+.btn{border:0;border-radius:14px;padding:10px 15px;font-weight:800;background:#111;color:#fff;cursor:pointer}
+.hero{background:#111;color:#fff;border-radius:25px;padding:20px;margin-bottom:12px}
+.hero h1{font-size:26px}.hero p{color:#aaa;font-size:13px;margin-top:4px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:15px}
+.stat{background:#1d1d1d;border-radius:15px;padding:10px}.stat small{color:#999;display:block}.stat b{font-size:19px}
+.panel{background:rgba(255,255,255,.78);backdrop-filter:blur(18px);border:1px solid #fff;border-radius:22px;padding:12px;margin-bottom:12px;box-shadow:0 7px 22px #0000000b}
+.tools{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+input,select{width:100%;border:0;outline:0;background:#e7e7e7;border-radius:13px;padding:12px;font-weight:700}
+#map{height:560px;border-radius:25px;overflow:hidden;border:1px solid #ddd;box-shadow:0 10px 28px #00000012}
+.info{margin-top:12px}
+.kicker{font-size:11px;color:#777;font-weight:900;text-transform:uppercase;letter-spacing:1px}
+.stateName{font-size:25px;font-weight:900;margin:3px 0}
+.sub{color:#666;font-size:13px;margin-bottom:12px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.card{background:#f0f0f0;border-radius:16px;padding:12px}
+.card h3{font-size:13px;margin-bottom:5px}.card p{font-size:13px;line-height:1.45;color:#444}
+.full{grid-column:1/-1}
+.recall{background:#111;color:#fff;border-radius:20px;padding:16px;margin-top:12px}
+.recall .kicker{color:#999}
+.q{font-size:17px;font-weight:800;margin:5px 0 10px}
+.answer{display:none;background:#1d1d1d;border-radius:13px;padding:11px;color:#ddd;font-size:13px;line-height:1.45}
+.recallBtns{display:flex;gap:8px;margin-top:10px}.recallBtns button{flex:1}
+.white{background:#fff;color:#111}.grey{background:#333;color:#fff}
+.chiprow{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chip{background:#e4e4e4;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:700}
+.legend{font-size:12px;color:#666;margin-top:8px}
+@media(max-width:700px){.app{padding:10px}.tools,.grid{grid-template-columns:1fr}#map{height:470px}.stats{grid-template-columns:repeat(3,1fr)}}
 </style>
 </head>
-
 <body>
-
 <div class="app">
-
-  <div class="header">
-    <div class="brand">FATEH<span>27</span></div>
-
-    <button class="homeBtn" onclick="location.href='../index.html'">
-      Home
-    </button>
+  <div class="top">
+    <div class="logo">FATEH<span>27</span></div>
+    <button class="btn" onclick="location.href='../index.html'">Home</button>
   </div>
 
   <section class="hero">
-    <h1>Commander Map</h1>
-    <p>India • World • UPSC Mapping Intelligence</p>
-
+    <h1>Commander Map — India</h1>
+    <p>State click → UPSC micro-notes → Active Recall → Revision</p>
     <div class="stats">
-      <div class="stat">
-        <small>XP</small>
-        <strong id="xp">0</strong>
-      </div>
-
-      <div class="stat">
-        <small>Solved</small>
-        <strong id="solved">0</strong>
-      </div>
-
-      <div class="stat">
-        <small>Accuracy</small>
-        <strong id="accuracy">0%</strong>
-      </div>
+      <div class="stat"><small>XP</small><b id="xp">0</b></div>
+      <div class="stat"><small>States Revised</small><b id="solved">0</b></div>
+      <div class="stat"><small>Recall</small><b id="recallScore">0%</b></div>
     </div>
   </section>
 
-  <section class="controls">
-
-    <div class="tabs">
-      <button class="tab active" id="indiaTab" onclick="setRegion('india')">
-        India
-      </button>
-
-      <button class="tab" id="worldTab" onclick="setRegion('world')">
-        World
-      </button>
-    </div>
-
-    <div class="filters">
-
-      <select id="category" onchange="applyFilters()">
-        <option value="all">All Categories</option>
-        <option value="river">Rivers</option>
-        <option value="mountain">Mountains & Passes</option>
-        <option value="lake">Lakes</option>
-        <option value="park">National Parks</option>
-        <option value="port">Ports & Coasts</option>
-        <option value="city">Important Cities</option>
-        <option value="current">Current Affairs Locations</option>
+  <section class="panel">
+    <div class="tools">
+      <select id="filter" onchange="filterStates()">
+        <option value="all">All States / UTs</option>
+        <option value="north">North India</option>
+        <option value="south">South India</option>
+        <option value="east">East India</option>
+        <option value="west">West India</option>
+        <option value="central">Central India</option>
+        <option value="northeast">North-East India</option>
+        <option value="ut">Union Territories</option>
       </select>
-
-      <input
-        id="search"
-        type="text"
-        placeholder="Search location..."
-        oninput="applyFilters()"
-      >
-
+      <input id="search" placeholder="State search..." oninput="filterStates()">
     </div>
-
+    <div class="legend">Map par kisi State/UT par click karo. Uske baad uska UPSC-focused short revision card khulega.</div>
   </section>
 
   <div id="map"></div>
 
-  <section class="mission">
+  <section class="panel info">
+    <div class="kicker">Selected Region</div>
+    <div class="stateName" id="stateName">Uttar Pradesh</div>
+    <div class="sub" id="stateSub">Click any state/UT on the map</div>
 
-    <div class="missionLabel">Current Mission</div>
-
-    <h2 id="missionTitle">Loading mission...</h2>
-
-    <p id="missionText">
-      Select a location on the map and answer the mission.
-    </p>
-
-    <div class="missionBtns">
-
-      <button class="primary" onclick="missionCorrect()">
-        Correct
-      </button>
-
-      <button class="secondary" onclick="nextMission()">
-        Next Mission
-      </button>
-
+    <div class="grid">
+      <div class="card"><h3>Rivers / Water</h3><p id="rivers"></p></div>
+      <div class="card"><h3>Mountains / Passes</h3><p id="mountains"></p></div>
+      <div class="card"><h3>National Parks / Ecology</h3><p id="parks"></p></div>
+      <div class="card"><h3>Minerals / Economy</h3><p id="minerals"></p></div>
+      <div class="card"><h3>Important Places / Centres</h3><p id="centres"></p></div>
+      <div class="card"><h3>UPSC Current-Affairs Lens</h3><p id="current"></p></div>
+      <div class="card full"><h3>Why UPSC Important?</h3><p id="importance"></p></div>
     </div>
 
-  </section>
+    <div class="chiprow" id="tags"></div>
 
+    <div class="recall">
+      <div class="kicker">Active Recall Revision</div>
+      <div class="q" id="question">Select a state to start active recall.</div>
+      <div class="answer" id="answer"></div>
+      <div class="recallBtns">
+        <button class="btn white" onclick="showAnswer()">Reveal</button>
+        <button class="btn grey" onclick="knewIt()">I Knew It +10 XP</button>
+        <button class="btn grey" onclick="newQuestion()">Next</button>
+      </div>
+    </div>
+  </section>
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
 <script>
+const tg=window.Telegram?.WebApp;if(tg){tg.ready();tg.expand();}
 
-const tg = window.Telegram?.WebApp;
+const DATA = {
+"Andhra Pradesh":{zone:"south",rivers:"Godavari, Krishna, Pennar; Polavaram is a major river-valley project.",mountains:"Eastern Ghats; Nallamala Hills.",parks:"Papikonda NP, Sri Venkateswara NP, Coringa mangroves.",minerals:"Barytes, limestone, mica; important coastal aquaculture.",centres:"Visakhapatnam port, Amaravati region, Tirupati.",current:"Polavaram, coastal hazards, cyclone resilience, ports and blue economy.",importance:"River systems + Eastern Ghats + coastal geography + agriculture/ports make it useful for Prelims and GS1/GS3.",tags:["Godavari","Eastern Ghats","Coringa","Polavaram"],q:["Which major river-valley project is associated with Andhra Pradesh?","Name one important mangrove ecosystem of Andhra Pradesh."]},
+"Arunachal Pradesh":{zone:"northeast",rivers:"Siang, Subansiri, Lohit, Dibang, Kameng; major Brahmaputra tributary system.",mountains:"Eastern Himalaya; Sela, Bomdi La and other strategic passes.",parks:"Namdapha NP, Mouling NP; high biodiversity and tribal landscapes.",minerals:"Hydropower potential; oil/gas occurrences and forest resources.",centres:"Tawang, Itanagar, Pasighat; strategic frontier locations.",current:"Border infrastructure, hydropower, Eastern Himalayan ecology and transboundary rivers.",importance:"India's eastern Himalayan frontier; map-based questions often connect passes, rivers, borders and biodiversity.",tags:["Tawang","Siang","Namdapha","Sela"],q:["Siang is associated with which major river system?","Name the famous national park in eastern Arunachal Pradesh known for high biodiversity."]},
+"Assam":{zone:"northeast",rivers:"Brahmaputra and Barak; Majuli is associated with the Brahmaputra system.",mountains:"Karbi Anglong and North Cachar Hills.",parks:"Kaziranga, Manas, Nameri, Orang; rich wetland and grassland ecosystems.",minerals:"Petroleum, natural gas, coal, limestone; tea economy.",centres:"Guwahati, Digboi, Dibrugarh; tea and oil centres.",current:"Floods, erosion, river islands, Kaziranga conservation and Northeast connectivity.",importance:"Brahmaputra geography + floods + biodiversity + oil/tea economy = recurring UPSC themes.",tags:["Brahmaputra","Kaziranga","Tea","Digboi"],q:["Which major river dominates Assam's physical geography?","Kaziranga is especially known for conservation of which flagship species?"]},
+"Bihar":{zone:"east",rivers:"Ganga, Kosi, Gandak, Son, Bagmati, Mahananda; flood-prone northern plains.",mountains:"Mostly alluvial plain; Rajgir hills and Kaimur plateau edge are notable.",parks:"Valmiki Tiger Reserve; Vikramshila Gangetic Dolphin Sanctuary.",minerals:"Limestone, pyrite and minor minerals; agriculture dominates.",centres:"Patna, Gaya, Nalanda, Bhagalpur; major historical-cultural centres.",current:"Kosi/Ganga floods, river management, agriculture, migration, urbanisation and heritage.",importance:"Ganga basin, floods, agriculture, Buddhist heritage and federal/state-development issues give direct GS1/GS3 relevance.",tags:["Ganga","Kosi","Valmiki","Nalanda"],q:["Which river is popularly associated with recurring floods in north Bihar?","Where is Valmiki Tiger Reserve located?"]},
+"Chhattisgarh":{zone:"central",rivers:"Mahanadi, Indravati, Shivnath, Hasdeo.",mountains:"Maikal range and Bastar plateau; dense forest landscapes.",parks:"Indravati NP, Kanger Valley NP, Guru Ghasidas-Tamor Pingla Tiger Reserve.",minerals:"Iron ore, coal, bauxite, limestone; major mineral-based industries.",centres:"Bhilai, Korba, Bailadila, Raipur.",current:"Mining vs forest rights, tribal livelihoods, Maoist-affected areas, industrialisation and energy.",importance:"Mineral geography + tribal areas + forests + internal security makes it highly relevant to GS3.",tags:["Bailadila","Coal","Bastar","Mahanadi"],q:["Bailadila is famous for which mineral?","Name one national park in Bastar region."]},
+"Goa":{zone:"west",rivers:"Mandovi, Zuari and several short west-flowing rivers.",mountains:"Western Ghats; lateritic plateaus and coastal terrain.",parks:"Mollem NP; Bhagwan Mahavir Wildlife Sanctuary.",minerals:"Iron ore historically important; tourism and services dominate.",centres:"Panaji, Mormugao port, mining belt.",current:"Coastal tourism, mining regulation, Western Ghats ecology and coastal management.",importance:"Small-state mapping: Western Ghats + ports + mining + coastal economy.",tags:["Mandovi","Zuari","Mollem","Mormugao"],q:["Name the two principal rivers associated with Goa's estuarine system.","Goa lies on which major mountain chain?"]},
+"Gujarat":{zone:"west",rivers:"Narmada, Tapi, Sabarmati, Mahi; Gulf of Khambhat and Gulf of Kachchh.",mountains:"Aravalli extension; Girnar and coastal ranges.",parks:"Gir NP, Marine NP in Gulf of Kachchh, Blackbuck NP Velavadar.",minerals:"Lignite, bauxite, limestone, petroleum; strong industrial base.",centres:"Ahmedabad, Surat, Vadodara, Kandla/Deendayal, Jamnagar.",current:"Coastal industrialisation, ports, marine ecosystems, renewable energy and lion conservation.",importance:"Longest coastline among states, ports, Gir lions, Narmada/Tapi and industrial geography.",tags:["Gir","Narmada","Kachchh","Ports"],q:["Which famous big cat is protected in Gir?","Which major river flows westward through Gujarat?"]},
+"Haryana":{zone:"north",rivers:"Yamuna forms the eastern boundary; Ghaggar is seasonal.",mountains:"Shivalik foothills in northeast; Aravalli remnants in south.",parks:"Sultanpur NP, Kalesar NP.",minerals:"Limited mineral base; agriculture, manufacturing and services are important.",centres:"Gurugram, Faridabad, Panipat, Hisar.",current:"NCR urbanisation, groundwater stress, stubble burning, industrial corridors.",importance:"Yamuna basin + NCR + agriculture/environment interface are recurring issues.",tags:["Yamuna","NCR","Sultanpur","Panipat"],q:["Which river forms much of Haryana's eastern boundary?","Name Haryana's famous bird-rich national park near NCR."]},
+"Himachal Pradesh":{zone:"north",rivers:"Sutlej, Beas, Ravi, Chenab, Yamuna tributaries.",mountains:"Greater/Lesser Himalaya; Rohtang, Shipki La and high mountain terrain.",parks:"Great Himalayan NP, Pin Valley NP, Khirganga NP.",minerals:"Limestone and slate; hydropower is strategically important.",centres:"Shimla, Manali, Kinnaur, Spiti.",current:"Cloudbursts, landslides, hydropower, tourism carrying capacity and Himalayan ecology.",importance:"Himalayan geomorphology + disasters + hydropower + passes are high-yield.",tags:["Sutlej","Rohtang","Spiti","GHNP"],q:["Name two major rivers of Himachal Pradesh.","Which national park is a UNESCO World Heritage Site?"]},
+"Jharkhand":{zone:"east",rivers:"Damodar, Subarnarekha, Barakar, Koel systems.",mountains:"Chota Nagpur Plateau; Rajmahal Hills.",parks:"Betla NP; Dalma and Palamau landscapes.",minerals:"Coal, iron ore, mica, bauxite, uranium; major mineral belt.",centres:"Jamshedpur, Dhanbad, Bokaro, Ranchi.",current:"Mining, tribal rights, forest conservation, industrial pollution and energy transition.",importance:"India's mineral heartland; excellent for resources + tribal + industry + environment questions.",tags:["Coal","Iron Ore","Chota Nagpur","Jamshedpur"],q:["Which plateau dominates Jharkhand's physiography?","Name two major minerals of Jharkhand."]},
+"Karnataka":{zone:"south",rivers:"Krishna, Tungabhadra, Kaveri, Bhima, Sharavathi.",mountains:"Western Ghats; Nilgiri-Baba Budan ranges.",parks:"Bandipur, Nagarhole, Kudremukh, Kali Tiger Reserve.",minerals:"Iron ore, gold, manganese; IT and manufacturing hubs.",centres:"Bengaluru, Mangaluru, Mysuru, Ballari.",current:"Western Ghats ecology, water-sharing, urbanisation, IT economy and mining.",importance:"Western Ghats + Kaveri/Krishna basins + mineral belt + technology economy.",tags:["Kaveri","Western Ghats","Bandipur","Bengaluru"],q:["Name one major tiger reserve of Karnataka.","Which major river is central to Karnataka–Tamil Nadu water-sharing issues?"]},
+"Kerala":{zone:"south",rivers:"Periyar, Bharathapuzha, Pamba, Chaliyar; numerous short west-flowing rivers.",mountains:"Western Ghats; Anaimalai and Cardamom Hills nearby.",parks:"Periyar, Eravikulam, Silent Valley.",minerals:"Mineral sands, clay and laterite; strong service and plantation economy.",centres:"Kochi, Thiruvananthapuram, Kozhikode; major ports.",current:"Monsoon floods/landslides, Western Ghats, coastal erosion, backwaters and tourism.",importance:"Backwaters + Western Ghats + monsoon disasters + coastal geography.",tags:["Periyar","Silent Valley","Backwaters","Western Ghats"],q:["Which famous national park protects Nilgiri tahr habitat?","Name Kerala's major east-origin river flowing to the Arabian Sea."]},
+"Madhya Pradesh":{zone:"central",rivers:"Narmada, Tapti, Chambal, Betwa, Ken, Son.",mountains:"Vindhya and Satpura ranges; Malwa plateau.",parks:"Kanha, Bandhavgarh, Pench, Satpura, Panna.",minerals:"Diamond, coal, manganese, limestone; agriculture and industry.",centres:"Bhopal, Indore, Jabalpur, Panna.",current:"Tiger conservation, Ken-Betwa river interlinking, forests and water management.",importance:"Central location + major rivers + tiger reserves + river-linking = very high map value.",tags:["Narmada","Satpura","Kanha","Ken-Betwa"],q:["Which river is associated with the Ken-Betwa interlinking project?","Name two tiger reserves of Madhya Pradesh."]},
+"Maharashtra":{zone:"west",rivers:"Godavari, Krishna, Bhima, Tapi; west-flowing short rivers too.",mountains:"Western Ghats/Sahyadri; major passes across the Ghats.",parks:"Tadoba-Andhari, Sanjay Gandhi NP, Pench, Navegaon-Nagzira.",minerals:"Coal, manganese, iron ore; large industrial and financial economy.",centres:"Mumbai, Pune, Nagpur, Nashik, JNPT.",current:"Urbanisation, drought, river basins, coastal hazards and industrial corridors.",importance:"Deccan geography + Western Ghats + ports + urban economy + agriculture.",tags:["Sahyadri","Godavari","Tadoba","JNPT"],q:["Which mountain chain is called Sahyadri in Maharashtra?","Name Maharashtra's famous tiger reserve in Chandrapur region."]},
+"Manipur":{zone:"northeast",rivers:"Imphal, Iril, Thoubal; Loktak basin is crucial.",mountains:"Manipur hills surrounding the central valley.",parks:"Keibul Lamjao NP; unique floating phumdi ecosystem.",minerals:"Limestone and minor minerals; handloom/agriculture important.",centres:"Imphal, Loktak, Moreh border trade point.",current:"Loktak conservation, border connectivity, ethnic conflict and Northeast trade corridors.",importance:"Loktak + unique floating national park + India–Myanmar connectivity.",tags:["Loktak","Keibul Lamjao","Moreh","Imphal"],q:["Which is the world's famous floating national park associated with Manipur?","Which lake is central to Manipur's geography?"]},
+"Meghalaya":{zone:"northeast",rivers:"Umiam, Simsang, Kynshi and many short rivers.",mountains:"Khasi, Jaintia and Garo Hills.",parks:"Nokrek NP, Balpakram NP.",minerals:"Coal, limestone and uranium occurrences; limestone-based industries.",centres:"Shillong, Sohra/Cherrapunji, Dawki.",current:"Mining/environment, extreme rainfall, caves, border trade and tourism.",importance:"Meghalaya plateau + extreme rainfall + limestone/caves + biodiversity.",tags:["Khasi Hills","Sohra","Nokrek","Dawki"],q:["Which hills are associated with Shillong?","Name one national park of Meghalaya."]},
+"Mizoram":{zone:"northeast",rivers:"Tlawng, Tuirial, Kolodyne/Chhimtuipui system.",mountains:"Mizo/Lushai Hills; highly dissected terrain.",parks:"Murlen NP, Phawngpui NP.",minerals:"Limestone, bamboo and forest resources.",centres:"Aizawl, Lunglei, Champhai; Myanmar/Bangladesh frontier.",current:"Border trade, bamboo economy, shifting cultivation and connectivity.",importance:"Hilly frontier state; useful for Northeast mapping, border geography and ecology.",tags:["Mizo Hills","Bamboo","Murlen","Champhai"],q:["Mizoram shares international borders with which two countries?","Name one national park of Mizoram."]},
+"Nagaland":{zone:"northeast",rivers:"Doyang, Dhansiri, Dikhu, Tizu.",mountains:"Naga Hills; Patkai system in the east.",parks:"Intanki (Ntangki) NP.",minerals:"Coal, limestone, chromite and oil/gas potential.",centres:"Kohima, Dimapur; important Northeast gateway.",current:"Border connectivity, tribal institutions, biodiversity and peace process context.",importance:"Naga Hills + Patkai + border geography + tribal governance are useful for GS1/GS2.",tags:["Naga Hills","Patkai","Doyang","Kohima"],q:["Which hill system dominates Nagaland?","Name the major commercial city and transport hub of Nagaland."]},
+"Odisha":{zone:"east",rivers:"Mahanadi, Brahmani, Baitarani, Subarnarekha, Rushikulya.",mountains:"Eastern Ghats; Koraput highlands.",parks:"Similipal, Bhitarkanika, Satkosia.",minerals:"Iron ore, bauxite, chromite, coal; major steel/aluminium base.",centres:"Bhubaneswar, Cuttack, Rourkela, Paradip.",current:"Cyclones, coastal wetlands, mining, tribal areas and ports.",importance:"Mineral belt + cyclones + mangroves + Eastern Ghats + ports.",tags:["Mahanadi","Similipal","Bhitarkanika","Paradip"],q:["Bhitarkanika is famous for which coastal ecosystem?","Name two major minerals of Odisha."]},
+"Punjab":{zone:"north",rivers:"Sutlej, Beas, Ravi; Indus basin geography.",mountains:"Shivalik foothills in northeast.",parks:"Harike wetland is a major Ramsar site; Abohar wildlife area.",minerals:"Limited mineral base; major agricultural economy.",centres:"Ludhiana, Amritsar, Jalandhar, Bathinda.",current:"Groundwater depletion, crop diversification, stubble burning and river-water issues.",importance:"Green Revolution + groundwater + Indus basin + agriculture/environment nexus.",tags:["Sutlej","Beas","Harike","Green Revolution"],q:["Which major river joins the Sutlej at Harike?","What major environmental problem is linked with Punjab's paddy-wheat system?"]},
+"Rajasthan":{zone:"west",rivers:"Luni, Chambal, Banas, Mahi; western drainage is largely inland/seasonal.",mountains:"Aravalli Range; Thar Desert.",parks:"Ranthambore, Sariska, Desert NP, Keoladeo.",minerals:"Lead-zinc, gypsum, marble, sandstone, lignite and copper.",centres:"Jaipur, Jodhpur, Udaipur, Kota, Khetri.",current:"Desertification, solar energy, water scarcity, tiger conservation and mining.",importance:"Largest state by area; Aravalli + Thar + minerals + desert ecology are core map themes.",tags:["Aravalli","Thar","Ranthambore","Khetri"],q:["Which range divides Rajasthan's major physical regions?","Khetri is famous for which mineral?"]},
+"Sikkim":{zone:"northeast",rivers:"Teesta and its tributaries.",mountains:"Eastern Himalaya; Kanchenjunga; Nathu La.",parks:"Khangchendzonga NP.",minerals:"Limited mining; hydropower and tourism are important.",centres:"Gangtok, Nathu La, Namchi.",current:"Glacial hazards, Teesta basin, earthquakes, hydropower and border connectivity.",importance:"Tiny Himalayan state with high-value questions on passes, glaciers, rivers and biodiversity.",tags:["Teesta","Kanchenjunga","Nathu La","Khangchendzonga"],q:["Which major river is associated with Sikkim?","Which famous Himalayan peak is closely associated with Sikkim?"]},
+"Tamil Nadu":{zone:"south",rivers:"Kaveri, Vaigai, Palar, Tamiraparani.",mountains:"Eastern Ghats and Nilgiri/Western Ghats interfaces.",parks:"Mudumalai, Mukurthi, Gulf of Mannar Marine Biosphere Reserve.",minerals:"Lignite, limestone, magnesite and mineral sands; manufacturing base.",centres:"Chennai, Coimbatore, Tuticorin/Thoothukudi, Salem.",current:"Kaveri water-sharing, cyclones, coastal erosion, manufacturing and renewable energy.",importance:"Peninsular rivers + monsoon reversal + coast + industry + marine biodiversity.",tags:["Kaveri","Nilgiri","Gulf of Mannar","Tuticorin"],q:["Which major river is central to Tamil Nadu–Karnataka water issues?","Name the marine biosphere reserve in the Gulf of Mannar."]},
+"Telangana":{zone:"south",rivers:"Godavari, Krishna, Musi, Manjira.",mountains:"Deccan Plateau; Eastern Ghats fringe in east.",parks:"Kawal and Amrabad tiger reserves.",minerals:"Coal, limestone, granite; Hyderabad-led services economy.",centres:"Hyderabad, Warangal, Singareni coalfields.",current:"Godavari/Krishna water management, Hyderabad urbanisation and coal-energy transition.",importance:"Deccan plateau + Krishna/Godavari + coal + urban economy.",tags:["Godavari","Krishna","Amrabad","Singareni"],q:["Which coalfield is a major mining belt of Telangana?","Name Telangana's two important tiger reserves."]},
+"Tripura":{zone:"northeast",rivers:"Gomati, Manu, Khowai, Feni.",mountains:"Low hill ranges: Jampui, Atharamura, Longtharai.",parks:"Clouded Leopard NP, Rajbari NP.",minerals:"Natural gas, rubber and bamboo resources.",centres:"Agartala, Sabroom; Bangladesh-facing connectivity.",current:"India-Bangladesh connectivity, natural gas, rubber economy and border management.",importance:"Small Northeast state with border, connectivity and resource geography.",tags:["Gomati","Jampui","Gas","Bangladesh border"],q:["Which neighbouring country borders Tripura on three sides?","Name one national park of Tripura."]},
+"Uttar Pradesh":{zone:"north",rivers:"Ganga, Yamuna, Ghaghara, Gomti, Rapti, Son; huge Ganga plain.",mountains:"Shivalik foothills in north; Vindhyan/Kaimur uplands in south-east.",parks:"Dudhwa NP; Pilibhit and Ranipur tiger reserves.",minerals:"Limestone, silica sand, coal in Sonbhadra; agriculture dominates.",centres:"Lucknow, Kanpur, Varanasi, Prayagraj, Agra, Noida; industrial/agri centres.",current:"Ganga rejuvenation, expressways, urbanisation, groundwater, agriculture and river floods.",importance:"Largest population state; Ganga-Yamuna geography, agriculture, polity/economy and heritage make it high-yield.",tags:["Ganga","Yamuna","Dudhwa","Sonbhadra"],q:["Which two rivers meet at Prayagraj?","Name Uttar Pradesh's famous tiger reserve in the Terai region."]},
+"Uttarakhand":{zone:"north",rivers:"Ganga system: Bhagirathi, Alaknanda, Yamuna and major tributaries.",mountains:"Greater/Lesser Himalaya; Nanda Devi, Badrinath, Kedarnath; key passes.",parks:"Jim Corbett, Rajaji, Nanda Devi, Valley of Flowers.",minerals:"Limestone, magnesite and forest resources; hydropower/tourism important.",centres:"Dehradun, Haridwar, Rishikesh, Joshimath, Haldwani.",current:"Glacial lakes, landslides, flash floods, hydropower and tourism carrying capacity.",importance:"Source region of major north Indian rivers + Himalayan hazards + biodiversity.",tags:["Alaknanda","Bhagirathi","Corbett","Valley of Flowers"],q:["Bhagirathi and Alaknanda combine to form which river?","Name the national park famous for the Valley of Flowers."]},
+"West Bengal":{zone:"east",rivers:"Ganga-Hooghly, Teesta, Damodar, Mahananda; Sundarbans delta.",mountains:"Darjeeling Himalaya in north; plateau fringe in west.",parks:"Sundarbans NP, Jaldapara, Gorumara, Singalila.",minerals:"Coal, especially Raniganj; tea, jute and industry.",centres:"Kolkata, Haldia, Siliguri, Durgapur, Darjeeling.",current:"Sundarbans climate risk, Ganga delta, cyclones, tea, ports and Himalayan connectivity.",importance:"Delta geography + Sundarbans + tea + coal + eastern Himalayan corridor.",tags:["Sundarbans","Hooghly","Darjeeling","Raniganj"],q:["Which delta is formed by the Ganga-Brahmaputra-Meghna system?","Raniganj is associated with which mineral?"]},
 
-if(tg){
-  tg.ready();
-  tg.expand();
+"Delhi":{zone:"ut",rivers:"Yamuna is the principal river.",mountains:"Aravalli ridge remnants.",parks:"Asola-Bhatti Wildlife Sanctuary and urban biodiversity areas.",minerals:"Not mineral-focused; major services, administration and urban economy.",centres:"New Delhi, Parliament, major institutions and NCR.",current:"Air pollution, Yamuna pollution, urban flooding, heat and groundwater.",importance:"National capital; useful for polity, environment, urban governance and current affairs.",tags:["Yamuna","NCR","Air Pollution"],q:["Which river is central to Delhi's geography and pollution issues?","Delhi is part of which larger urban region?"]},
+"Jammu and Kashmir":{zone:"ut",rivers:"Jhelum, Chenab, Tawi, Indus tributaries.",mountains:"Karakoram/Himalayan systems; Pir Panjal; key passes.",parks:"Dachigam NP, Kishtwar NP, Hemis region is in neighbouring Ladakh.",minerals:"Limestone, gypsum and other minerals; horticulture and hydropower important.",centres:"Srinagar, Jammu, Gulmarg, Pahalgam, Katra.",current:"Border geography, hydropower, tourism, horticulture and Himalayan hazards.",importance:"Strategic frontier + Indus basin + Himalayan passes and ecology.",tags:["Jhelum","Pir Panjal","Dachigam","Kashmir"],q:["Which major river flows through the Kashmir Valley?","Name the national park near Srinagar famous for Hangul habitat."]},
+"Ladakh":{zone:"ut",rivers:"Indus, Shyok, Zanskar, Nubra.",mountains:"Karakoram and Ladakh Range; high-altitude passes.",parks:"Hemis NP; high-altitude cold desert ecosystem.",minerals:"Boron, limestone and other mineral occurrences; limited agriculture.",centres:"Leh, Kargil, Pangong, Siachen region.",current:"High-altitude ecology, glaciers, border infrastructure, water security and tourism.",importance:"Cold desert + high-altitude passes + Indus system + strategic geography.",tags:["Indus","Hemis","Karakoram","Pangong"],q:["Which major river flows through Ladakh?","Name Ladakh's famous national park."]},
+"Andaman and Nicobar Islands":{zone:"ut",rivers:"Short island streams; maritime geography is more important than river systems.",mountains:"Island volcanic/topographic systems; Barren Island is India's active volcano.",parks:"Campbell Bay, Galathea and Mahatma Gandhi Marine NP.",minerals:"Marine resources; fisheries and tourism are important.",centres:"Port Blair/Sri Vijaya Puram, Campbell Bay, Great Nicobar.",current:"Great Nicobar infrastructure, blue economy, coral/marine conservation and strategic sea lanes.",importance:"Bay of Bengal strategic location + marine biodiversity + volcano + island geography.",tags:["Barren Island","Great Nicobar","Marine NP"],q:["Where is India's only active volcano located?","Which oceanic region contains the Andaman and Nicobar Islands?"]},
+"Chandigarh":{zone:"ut",rivers:"Sukhna and seasonal drainage; Shivalik foothill setting.",mountains:"Shivalik foothills nearby.",parks:"Sukhna Lake and urban ecological areas.",minerals:"Not mineral-focused; planned urban economy.",centres:"Chandigarh planned city; shared capital of Punjab and Haryana.",current:"Urban planning, water, air quality and regional governance.",importance:"Important for polity/urban planning and Punjab-Haryana regional geography.",tags:["Sukhna","Planned City"],q:["Chandigarh serves as the capital of which two states?","Which lake is a major geographic landmark of Chandigarh?"]},
+"Dadra and Nagar Haveli and Daman and Diu":{zone:"ut",rivers:"Daman Ganga is important in the Daman area.",mountains:"Western Ghats/foothill influence in Dadra and Nagar Haveli.",parks:"Dudhni and forested tribal landscapes; coastal ecology in Daman-Diu.",minerals:"Industrial estates, fisheries and tourism are important.",centres:"Silvassa, Daman, Diu.",current:"Coastal management, industrialisation, tribal development and tourism.",importance:"Useful for mapping India's western coastal UTs and industrial geography.",tags:["Daman Ganga","Silvassa","Diu"],q:["Which river is associated with Daman?","Name the capital/administrative centre of the UT."]},
+"Lakshadweep":{zone:"ut",rivers:"No major rivers; coral-island hydrology and lagoons dominate.",mountains:"Coral atolls, no major mountain system.",parks:"Marine and coral reef ecosystems; conservation is central.",minerals:"Marine resources and fisheries; tourism important.",centres:"Kavaratti, Minicoy, Agatti.",current:"Coral bleaching, sea-level rise, fisheries, blue economy and island carrying capacity.",importance:"Coral atoll geography + Arabian Sea + marine ecology are classic Prelims map topics.",tags:["Coral Atoll","Arabian Sea","Kavaratti"],q:["Lakshadweep is located in which sea?","What type of islands are characteristic of Lakshadweep?"]},
+"Puducherry":{zone:"ut",rivers:"Sankarabharani and Ariyankuppam systems; small coastal drainage.",mountains:"No major mountain system.",parks:"Coastal and wetland ecosystems; Ousteri Lake is important.",minerals:"Not mineral-focused; services, tourism and small industries.",centres:"Puducherry, Karaikal, Mahe, Yanam — geographically non-contiguous.",current:"Coastal erosion, cyclone risk, urbanisation and governance of geographically separated enclaves.",importance:"Unique map fact: four geographically separated enclaves in southern/western India.",tags:["Karaikal","Mahe","Yanam","Ousteri"],q:["Puducherry UT consists of how many geographically separated regions?","Which sea-facing region contains Puducherry and Karaikal?"]}
+};
+
+const geoURL="https://cdn.jsdelivr.net/gh/udit-001/india-maps-data@2884453/geojson/india.geojson";
+
+const map=L.map("map",{minZoom:4,maxZoom:7}).setView([22.5,79],5);
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:"© OpenStreetMap"}).addTo(map);
+
+let layer=null, selected="Uttar Pradesh", xp=0, solved=new Set(), recallTotal=0, recallKnown=0;
+let currentQ=0;
+
+function normalize(s){return (s||"").toLowerCase().replace(/&/g,"and").replace(/[^a-z0-9]/g,"")}
+function findData(name){
+  if(DATA[name]) return [name,DATA[name]];
+  const n=normalize(name);
+  const key=Object.keys(DATA).find(k=>normalize(k)===n || n.includes(normalize(k)) || normalize(k).includes(n));
+  return key?[key,DATA[key]]:null;
 }
-
-const locations = [
-
-/* INDIA */
-
-{
- name:"New Delhi",
- lat:28.6139,
- lng:77.2090,
- region:"india",
- category:"city",
- info:"National Capital of India."
-},
-
-{
- name:"Mumbai",
- lat:19.0760,
- lng:72.8777,
- region:"india",
- category:"port",
- info:"Major west coast port and financial centre."
-},
-
-{
- name:"Kolkata",
- lat:22.5726,
- lng:88.3639,
- region:"india",
- category:"port",
- info:"Major eastern port city on the Hooghly River."
-},
-
-{
- name:"Chennai",
- lat:13.0827,
- lng:80.2707,
- region:"india",
- category:"port",
- info:"Major port on the Coromandel Coast."
-},
-
-{
- name:"Kochi",
- lat:9.9312,
- lng:76.2673,
- region:"india",
- category:"port",
- info:"Important port on the Malabar Coast."
-},
-
-{
- name:"Guwahati",
- lat:26.1445,
- lng:91.7362,
- region:"india",
- category:"city",
- info:"Important city on the Brahmaputra."
-},
-
-{
- name:"Srinagar",
- lat:34.0837,
- lng:74.7973,
- region:"india",
- category:"city",
- info:"Important Himalayan city in Kashmir."
-},
-
-{
- name:"Kanyakumari",
- lat:8.0883,
- lng:77.5385,
- region:"india",
- category:"port",
- info:"Southern tip of mainland India."
-},
-
-{
- name:"Narmada River",
- lat:22.0,
- lng:75.7,
- region:"india",
- category:"river",
- info:"Major west-flowing peninsular river."
-},
-
-{
- name:"Godavari River",
- lat:17.0,
- lng:81.8,
- region:"india",
- category:"river",
- info:"Major east-flowing peninsular river."
-},
-
-{
- name:"Brahmaputra River",
- lat:26.0,
- lng:92.0,
- region:"india",
- category:"river",
- info:"Major transboundary Himalayan river."
-},
-
-{
- name:"Ganga River",
- lat:25.3,
- lng:83.0,
- region:"india",
- category:"river",
- info:"One of India's major river systems."
-},
-
-{
- name:"Siachen Glacier",
- lat:35.421,
- lng:77.109,
- region:"india",
- category:"mountain",
- info:"High-altitude glacier in the eastern Karakoram."
-},
-
-{
- name:"Nathu La",
- lat:27.386,
- lng:88.827,
- region:"india",
- category:"mountain",
- info:"Mountain pass in Sikkim connecting India and Tibet."
-},
-
-{
- name:"Rohtang Pass",
- lat:32.37,
- lng:77.25,
- region:"india",
- category:"mountain",
- info:"Important pass in Himachal Pradesh."
-},
-
-{
- name:"Kaziranga National Park",
- lat:26.5775,
- lng:93.1711,
- region:"india",
- category:"park",
- info:"Famous for the one-horned rhinoceros."
-},
-
-{
- name:"Gir National Park",
- lat:21.124,
- lng:70.824,
- region:"india",
- category:"park",
- info:"Important habitat of Asiatic lions."
-},
-
-{
- name:"Chilika Lake",
- lat:19.7,
- lng:85.3,
- region:"india",
- category:"lake",
- info:"Large brackish water lagoon on India's east coast."
-},
-
-{
- name:"Wular Lake",
- lat:34.37,
- lng:74.59,
- region:"india",
- category:"lake",
- info:"Major freshwater lake in Kashmir."
-},
-
-{
- name:"Loktak Lake",
- lat:24.55,
- lng:93.78,
- region:"india",
- category:"lake",
- info:"Famous for floating phumdis in Manipur."
-},
-
-{
- name:"Andaman & Nicobar",
- lat:11.7401,
- lng:92.6586,
- region:"india",
- category:"current",
- info:"Strategically important island group in the Bay of Bengal."
-},
-
-{
- name:"Lakshadweep",
- lat:10.57,
- lng:72.64,
- region:"india",
- category:"current",
- info:"Coral island group in the Arabian Sea."
-},
-
-/* WORLD */
-
-{
- name:"Suez Canal",
- lat:30.5852,
- lng:32.2654,
- region:"world",
- category:"current",
- info:"Artificial waterway connecting Mediterranean Sea and Red Sea."
-},
-
-{
- name:"Strait of Hormuz",
- lat:26.5667,
- lng:56.25,
- region:"world",
- category:"current",
- info:"Strategic waterway connecting Persian Gulf with Gulf of Oman."
-},
-
-{
- name:"Bab-el-Mandeb",
- lat:12.6,
- lng:43.35,
- region:"world",
- category:"current",
- info:"Strategic strait connecting Red Sea and Gulf of Aden."
-},
-
-{
- name:"Malacca Strait",
- lat:2.5,
- lng:101.0,
- region:"world",
- category:"current",
- info:"Major maritime route between Indian and Pacific Ocean regions."
-},
-
-{
- name:"Panama Canal",
- lat:9.08,
- lng:-79.68,
- region:"world",
- category:"current",
- info:"Major artificial waterway connecting Atlantic and Pacific oceans."
-},
-
-{
- name:"Strait of Gibraltar",
- lat:35.98,
- lng:-5.5,
- region:"world",
- category:"current",
- info:"Connects Atlantic Ocean with Mediterranean Sea."
-},
-
-{
- name:"Nile River",
- lat:25.0,
- lng:31.0,
- region:"world",
- category:"river",
- info:"Major river system of northeastern Africa."
-},
-
-{
- name:"Amazon River",
- lat:-3.1,
- lng:-60.0,
- region:"world",
- category:"river",
- info:"Major river system of South America."
-},
-
-{
- name:"Danube River",
- lat:48.2,
- lng:16.4,
- region:"world",
- category:"river",
- info:"Major European transboundary river."
-},
-
-{
- name:"Himalayas",
- lat:28.0,
- lng:84.0,
- region:"world",
- category:"mountain",
- info:"Major mountain system of South Asia."
-},
-
-{
- name:"Andes",
- lat:-15.0,
- lng:-70.0,
- region:"world",
- category:"mountain",
- info:"Major mountain system along western South America."
-},
-
-{
- name:"Sahara",
- lat:23.5,
- lng:13.0,
- region:"world",
- category:"current",
- info:"Largest hot desert region."
-},
-
-{
- name:"Lake Baikal",
- lat:53.5,
- lng:108.0,
- region:"world",
- category:"lake",
- info:"Ancient and very deep freshwater lake in Russia."
-},
-
-{
- name:"Black Sea",
- lat:43.0,
- lng:35.0,
- region:"world",
- category:"lake",
- info:"Important semi-enclosed sea between Europe and Asia."
-},
-
-{
- name:"Arctic Ocean",
- lat:82.0,
- lng:0,
- region:"world",
- category:"current",
- info:"Smallest and northernmost ocean."
-},
-
-{
- name:"Antarctica",
- lat:-82,
- lng:0,
- region:"world",
- category:"current",
- info:"Southernmost continent surrounding the South Pole."
+function styleFeature(f){
+  const name=f.properties?.shapeName||f.properties?.NAME_1||f.properties?.name||f.properties?.State_Name||"";
+  const hit=findData(name);
+  return {color:"#888",weight:1,fillColor:hit&&hit[0]===selected?"#111":"#d9d9d9",fillOpacity:hit&&hit[0]===selected?.74:.65};
 }
-
-];
-
-let region="india";
-let filtered=[];
-let markers=[];
-let currentMission=null;
-let xp=0;
-let solved=0;
-let correct=0;
-let attempts=0;
-
-const map=L.map("map").setView([22.5,78.9],5);
-
-L.tileLayer(
-  "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-  {
-    maxZoom:19,
-    attribution:"© OpenStreetMap"
-  }
-).addTo(map);
-
-function setRegion(r){
-
-  region=r;
-
-  document.getElementById("indiaTab")
-    .classList.toggle("active",r==="india");
-
-  document.getElementById("worldTab")
-    .classList.toggle("active",r==="world");
-
-  if(r==="india"){
-    map.setView([22.5,78.9],5);
-  }else{
-    map.setView([20,10],2);
-  }
-
-  applyFilters();
+function onEach(f,l){
+  const raw=f.properties?.shapeName||f.properties?.NAME_1||f.properties?.name||f.properties?.State_Name||"";
+  const hit=findData(raw);
+  const display=hit?hit[0]:raw;
+  l.bindTooltip(display,{sticky:true});
+  l.on("click",()=>{ if(hit) selectState(hit[0]); });
+  l.on("mouseover",()=>l.setStyle({fillColor:"#111",fillOpacity:.8,weight:1.5}));
+  l.on("mouseout",()=>layer&&layer.resetStyle(l));
 }
+fetch(geoURL).then(r=>r.json()).then(g=>{
+  layer=L.geoJSON(g,{style:styleFeature,onEachFeature:onEach}).addTo(map);
+  map.fitBounds(layer.getBounds(),{padding:[10,10]});
+  selectState(selected);
+}).catch(()=>{
+  selectState(selected);
+});
 
-function applyFilters(){
-
-  const category=
-    document.getElementById("category").value;
-
-  const search=
-    document.getElementById("search").value
-    .toLowerCase()
-    .trim();
-
-  filtered=locations.filter(x=>{
-
-    const regionMatch=x.region===region;
-
-    const categoryMatch=
-      category==="all" || x.category===category;
-
-    const searchMatch=
-      !search ||
-      x.name.toLowerCase().includes(search) ||
-      x.info.toLowerCase().includes(search);
-
-    return regionMatch && categoryMatch && searchMatch;
-
-  });
-
-  renderMarkers();
-
-  if(filtered.length){
-    selectMission(filtered[0]);
-  }else{
-    document.getElementById("missionTitle").textContent=
-      "No location found";
-
-    document.getElementById("missionText").textContent=
-      "Try another category or search term.";
-
-    currentMission=null;
-  }
+function selectState(name){
+  if(!DATA[name]) return;
+  selected=name;
+  document.getElementById("stateName").textContent=name;
+  document.getElementById("stateSub").textContent=(DATA[name].zone==="ut"?"Union Territory":"State")+" • UPSC Micro Revision";
+  for(const id of ["rivers","mountains","parks","minerals","centres","current","importance"])
+    document.getElementById(id).textContent=DATA[name][id];
+  document.getElementById("tags").innerHTML=DATA[name].tags.map(x=>`<span class="chip">${x}</span>`).join("");
+  currentQ=0;
+  showQuestion();
+  solved.add(name);
+  document.getElementById("solved").textContent=solved.size;
+  if(layer) layer.setStyle(styleFeature);
+  map.eachLayer(l=>{if(l.setStyle&&l.feature){try{l.setStyle(styleFeature(l.feature))}catch(e){}}});
+  window.scrollTo({top:document.querySelector(".info").offsetTop-8,behavior:"smooth"});
 }
-
-function renderMarkers(){
-
-  markers.forEach(m=>map.removeLayer(m));
-  markers=[];
-
-  filtered.forEach(location=>{
-
-    const marker=L.marker([
-      location.lat,
-      location.lng
-    ]).addTo(map);
-
-    marker.bindPopup(`
-      <strong>${location.name}</strong>
-      <br>
-      <span>${location.info}</span>
-    `);
-
-    marker.on("click",()=>{
-      selectMission(location);
-    });
-
-    markers.push(marker);
-
-  });
+function showQuestion(){
+  const q=DATA[selected].q[currentQ];
+  document.getElementById("question").textContent=q;
+  document.getElementById("answer").style.display="none";
+  document.getElementById("answer").textContent="";
 }
-
-function selectMission(location){
-
-  currentMission=location;
-
-  document.getElementById("missionTitle").textContent=
-    location.name;
-
-  document.getElementById("missionText").textContent=
-    location.info;
-
+function showAnswer(){
+  const q=DATA[selected].q[currentQ];
+  const answers=[
+    DATA[selected].rivers,
+    DATA[selected].parks+" "+DATA[selected].importance
+  ];
+  document.getElementById("answer").textContent=answers[currentQ%answers.length];
+  document.getElementById("answer").style.display="block";
 }
-
-function missionCorrect(){
-
-  if(!currentMission) return;
-
-  attempts++;
-  correct++;
-  xp+=20;
-  solved++;
-
-  updateStats();
-
-  alert(
-    "Mission Complete!\n+20 XP"
-  );
-
-  nextMission();
-}
-
-function nextMission(){
-
-  if(!filtered.length) return;
-
-  const index=
-    Math.floor(Math.random()*filtered.length);
-
-  selectMission(filtered[index]);
-
-  map.flyTo(
-    [filtered[index].lat,filtered[index].lng],
-    region==="india"?6:3,
-    {duration:1}
-  );
-
-}
-
-function updateStats(){
-
+function knewIt(){
+  recallTotal++;
+  recallKnown++;
+  xp+=10;
   document.getElementById("xp").textContent=xp;
-
-  document.getElementById("solved").textContent=solved;
-
-  const acc=
-    attempts===0
-    ?0
-    :Math.round((correct/attempts)*100);
-
-  document.getElementById("accuracy").textContent=
-    acc+"%";
-
-  try{
-
-    if(window.Progress){
-
-      Progress.addSolved(
-        "MAP",
-        currentMission?.name || "Commander Map"
-      );
-
-    }
-
-  }catch(e){}
-
+  document.getElementById("recallScore").textContent=Math.round(recallKnown/recallTotal*100)+"%";
+  newQuestion();
 }
-
-applyFilters();
-
+function newQuestion(){
+  currentQ=(currentQ+1)%DATA[selected].q.length;
+  showQuestion();
+}
+function filterStates(){
+  const f=document.getElementById("filter").value;
+  const s=document.getElementById("search").value.toLowerCase();
+  if(layer) layer.setStyle(feature=>{
+    const raw=feature.properties?.shapeName||feature.properties?.NAME_1||feature.properties?.name||feature.properties?.State_Name||"";
+    const hit=findData(raw);
+    if(!hit)return {color:"#aaa",weight:1,fillColor:"#eee",fillOpacity:.2};
+    const d=DATA[hit[0]];
+    const ok=(f==="all"||d.zone===f)&&(!s||hit[0].toLowerCase().includes(s));
+    return {color:"#888",weight:1,fillColor:ok?"#d2d2d2":"#f1f1f1",fillOpacity:ok?.72:.15};
+  });
+}
 </script>
-
 </body>
 </html>
