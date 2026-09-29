@@ -1568,6 +1568,13 @@ html.f27-access-blocked .bottomNav{
 
 </div>
 
+<!-- OWNER ADMIN BUTTON — rendered inside the profile block -->
+<div id="ownerAdminButton" style="display:none;margin-top:10px">
+  <button type="button" onclick="location.href='/admin'" style="border:0;border-radius:12px;background:#111;color:#fff;padding:9px 12px;font:700 11px Arial;cursor:pointer;white-space:nowrap">
+    ⚙ Admin • Members
+  </button>
+</div>
+
 
 <!-- OFFICER CARD -->
 
@@ -1616,19 +1623,6 @@ html.f27-access-blocked .bottomNav{
     style="width:100%;border:0;border-radius:16px;background:#111;color:#fff;padding:13px 15px;font:700 13px Arial;cursor:pointer"
   >
     ✦ Open AI Secretary →
-  </button>
-</div>
-
-<!-- OWNER ADMIN ACCESS
-     Hidden for everyone except the FATEH27 owner.
--->
-<div id="ownerAdminButton" style="display:none;margin-top:12px">
-  <button
-    type="button"
-    onclick="location.href='/admin'"
-    style="width:100%;border:0;border-radius:16px;background:#111;color:#fff;padding:13px 15px;font:700 13px Arial;cursor:pointer"
-  >
-    ⚙ Owner Admin • Members & Approvals →
   </button>
 </div>
 
@@ -1988,6 +1982,7 @@ if(tg){
 async function showOwnerAdminButton(){
   const adminButton = document.getElementById("ownerAdminButton");
   if(!adminButton) return;
+  adminButton.style.display = "none";
 
   const user = tg?.initDataUnsafe?.user || null;
 
