@@ -126,11 +126,9 @@ function fromFirestoreValue(value) {
 
 async function getAccessState(userId) {
   const id = encodeURIComponent(String(userId));
-  const userDoc = await firestoreRequest("users/" + id);
-  if (userDoc) {
-    return { status: "approved", source: "existing_user" };
-  }
 
+  // Explicit accessRequests status is authoritative. This prevents a
+  // previously-created users/{id} document from silently granting access.
   const requestDoc = await firestoreRequest("accessRequests/" + id);
   const status = String(fromFirestoreValue(requestDoc?.fields?.status) || "").toLowerCase();
 
@@ -138,6 +136,12 @@ async function getAccessState(userId) {
   if (status === "rejected") return { status: "rejected", source: "request" };
   if (status === "pending") return { status: "pending", source: "request" };
 
+  // Owner is the only account that can enter without an access request.
+  if (String(userId) === ADMIN_ID) {
+    return { status: "approved", source: "owner" };
+  }
+
+  // A users document alone is NOT proof of approval.
   return { status: "not_requested", source: null };
 }
 
