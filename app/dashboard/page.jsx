@@ -47,6 +47,12 @@ export default function Dashboard() {
         const data = await response.json();
         if (!response.ok) throw new Error(data?.detail || data?.error || "User sync failed");
 
+        if (data?.user?.progress && typeof window !== "undefined") {
+          try {
+            window.localStorage.setItem("FATEH27_PROGRESS", JSON.stringify(data.user.progress));
+          } catch {}
+        }
+
         if (!cancelled) {
           setUser(data.user);
           setSyncStatus("synced");
