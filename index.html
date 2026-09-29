@@ -722,6 +722,19 @@ body{
 .quickBtn:hover .quickArrow{background:transparent;color:#666;transform:translateX(1px)}
 @media(max-width:420px){.quickLaunch{border-radius:17px}.quickBtn{min-height:68px;padding:9px 5px 9px 7px}.quickIcon{width:45px;height:45px;border-radius:11px;font-size:20px}.quickLeft{gap:12px}.quickTitle{font-size:14px}.quickSub{font-size:10px}.quickArrow{font-size:23px}}
 
+/* OWNER ACCESS CONTROL */
+#ownerAccessBtn{
+  display:flex !important;
+  visibility:visible !important;
+  opacity:1 !important;
+}
+
+@media (max-width:767px){
+  #ownerAccessBtn{
+    min-height:92px;
+  }
+}
+
 /* =========================================================
    LEVEL UP
    ========================================================= */
@@ -1864,15 +1877,38 @@ body {
 </button>
 
 <!-- OWNER ACCESS CONTROL -->
-<button id="ownerAccessBtn" class="quickBtn" onclick="location.href='/admin'" style="display:none">
+
+<button
+  id="ownerAccessBtn"
+  class="quickBtn"
+  onclick="location.href='/admin'"
+  type="button"
+>
+
   <div class="quickLeft">
-    <div class="quickIcon">🔐</div>
-    <div class="quickText">
-      <div class="quickTitle">Access Control</div>
-      <div class="quickSub">Members • Requests • Approvals</div>
+
+    <div class="quickIcon">
+      🔐
     </div>
+
+    <div class="quickText">
+
+      <div class="quickTitle">
+        Access Control
+      </div>
+
+      <div class="quickSub">
+        Members • Requests • Approvals
+      </div>
+
+    </div>
+
   </div>
-  <div class="quickArrow">›</div>
+
+  <div class="quickArrow">
+    ›
+  </div>
+
 </button>
 
 </div>
@@ -1914,16 +1950,18 @@ if(tg){
 
 async function showOwnerAdminButton(){
   const adminButton = document.getElementById("ownerAdminButton");
-  const accessButton = document.getElementById("ownerAccessBtn");
-  if(adminButton) adminButton.style.display = "none";
-  if(accessButton) accessButton.style.display = "none";
+  if(!adminButton) return;
+  adminButton.style.display = "none";
 
   const user = tg?.initDataUnsafe?.user || null;
 
+  // Fast local check so the owner sees the button immediately.
   if(user && String(user.id) === "5496422260"){
-    if(accessButton) accessButton.style.display = "flex";
+    adminButton.style.display = "block";
   }
 
+  // Server-side verification is the source of truth.
+  // This also handles Telegram WebApp data becoming available slightly later.
   const initData = tg?.initData || "";
   if(!initData) return;
 
@@ -1932,8 +1970,8 @@ async function showOwnerAdminButton(){
       headers:{"x-telegram-init-data":initData}
     });
 
-    if(response.ok && accessButton){
-      accessButton.style.display = "flex";
+    if(response.ok){
+      adminButton.style.display = "block";
     }
   }catch(error){
     console.warn("FATEH27 owner admin check:", error);
