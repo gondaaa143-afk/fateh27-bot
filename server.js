@@ -1178,7 +1178,7 @@ Give:
             "input_image",
 
           image_url:
-            image
+            evaluationImage
 
         });
 
