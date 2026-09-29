@@ -391,6 +391,7 @@ app.post(
   "/api/translate",
   rateLimit("translate", RATE_LIMITS.translate),
   async (req, res) => {
+    if (!(await enforceDailyAiQuota(req, res, "translate"))) return;
 
     try {
 
@@ -655,6 +656,7 @@ app.post(
   "/api/evaluate",
   rateLimit("evaluate", RATE_LIMITS.evaluate),
   async (req, res) => {
+    if (!(await enforceDailyAiQuota(req, res, "evaluate"))) return;
 
     try {
 
@@ -1248,6 +1250,7 @@ app.post(
   "/api/secretary",
   rateLimit("secretary", RATE_LIMITS.secretary),
   async (req, res) => {
+    if (!(await enforceDailyAiQuota(req, res, "secretary"))) return;
     try {
       const message = cleanText(req.body?.message);
 
@@ -1354,6 +1357,7 @@ app.post(
   "/api/secretary/tts",
   rateLimit("tts", RATE_LIMITS.tts),
   async (req, res) => {
+    if (!(await enforceDailyAiQuota(req, res, "tts"))) return;
     try {
       if (!openai) {
         return res.status(500).json({
