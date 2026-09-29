@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FATEH27 • Revision Engine</title>
+<style>
+:root{--bg:#f3f3f3;--card:rgba(255,255,255,.78);--line:rgba(0,0,0,.08);--text:#111;--muted:#707070;--black:#0d0d0d}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#f7f7f7,#e9e9e9);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Poppins",Arial,sans-serif;color:var(--text)}
+.wrap{max-width:1100px;margin:auto;padding:22px 18px 105px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.brand{font-weight:800;letter-spacing:-.5px}.back{border:1px solid var(--line);background:#fff;padding:9px 14px;border-radius:999px;font-weight:700}
+.hero{background:#0e0e0e;color:white;border-radius:30px;padding:28px;margin-bottom:16px;box-shadow:0 18px 45px #0002}.eyebrow{font-size:12px;letter-spacing:1.5px;opacity:.6}.hero h1{font-size:34px;margin:8px 0}.hero p{margin:0;color:#bdbdbd;line-height:1.5}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.stat,.card{background:var(--card);border:1px solid var(--line);backdrop-filter:blur(18px);border-radius:22px;padding:18px;box-shadow:0 10px 30px #0000000b}.stat b{display:block;font-size:27px}.stat span{font-size:12px;color:var(--muted)}
+.section{margin-top:18px}.section h2{font-size:20px;margin:0 0 12px}.actions{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.action{cursor:pointer;text-align:left;border:1px solid var(--line);background:var(--card);border-radius:20px;padding:18px;font-weight:800}.action small{display:block;color:var(--muted);font-weight:500;margin-top:5px}
+.filters{display:flex;gap:8px;flex-wrap:wrap}.filter{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 14px;cursor:pointer}.filter.active{background:#111;color:#fff}
+.progress{height:9px;background:#ddd;border-radius:99px;overflow:hidden}.bar{height:100%;width:0;background:#111;border-radius:99px}
+.topic{display:flex;justify-content:space-between;align-items:center;padding:15px 0;border-bottom:1px solid var(--line)}.topic:last-child{border:0}.topic b{font-size:14px}.pill{font-size:11px;padding:6px 9px;border-radius:999px;background:#eee}.due{background:#111;color:#fff}.weak{background:#e5e5e5}
+.recall{display:none;text-align:center}.recall.show{display:block}.recallBox{padding:30px;border-radius:25px;background:#111;color:#fff}.question{font-size:22px;line-height:1.4;margin:20px 0}.answer{display:none;color:#ddd;line-height:1.6}.answer.show{display:block}.recall button,.primary{border:0;background:#fff;color:#111;padding:12px 18px;border-radius:999px;font-weight:800;cursor:pointer;margin:4px}.forgot{background:#555!important;color:#fff!important}.got{background:#fff!important}
+.nav{position:fixed;bottom:15px;left:50%;transform:translateX(-50%);background:#111;color:white;border-radius:999px;padding:8px;display:flex;gap:4px;box-shadow:0 12px 35px #0005;z-index:10}.nav button{border:0;background:transparent;color:#bbb;padding:10px 14px;border-radius:999px;cursor:pointer}.nav button.active{background:#fff;color:#111}
+@media(max-width:760px){.grid,.actions{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:28px}.wrap{padding:15px 13px 100px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="top"><div class="brand">FATEH27</div><button class="back" onclick="location.href='index.html'">Home</button></div>
+
+<section class="hero">
+<div class="eyebrow">UPSC • REVISION ENGINE</div>
+<h1>Revise smarter.</h1>
+<p>Active recall + spaced repetition. Jo padha hai, usko retain karne ke liye.</p>
+</section>
+
+<div class="grid">
+<div class="stat"><b id="due">12</b><span>Revision Due</span></div>
+<div class="stat"><b id="recalled">0</b><span>Recalled Today</span></div>
+<div class="stat"><b id="xp">0</b><span>XP Earned</span></div>
+<div class="stat"><b id="streak">1</b><span>Day Streak</span></div>
+</div>
+
+<div class="section">
+<h2>Quick Revision</h2>
+<div class="actions">
+<button class="action" onclick="startRecall('due')">⚡ Due Now<small>Today's pending revisions</small></button>
+<button class="action" onclick="startRecall('weak')">◉ Weak Topics<small>Frequently forgotten</small></button>
+<button class="action" onclick="startRecall('random')">⌁ Quick Recall<small>Random active recall</small></button>
+<button class="action" onclick="showProgress()">◌ Progress<small>Revision performance</small></button>
+</div>
+</div>
+
+<div class="section">
+<h2>Subject Progress</h2>
+<div class="filters" id="filters">
+<button class="filter active" onclick="setFilter('ALL',this)">All</button>
+<button class="filter" onclick="setFilter('GS1',this)">GS1</button>
+<button class="filter" onclick="setFilter('GS2',this)">GS2</button>
+<button class="filter" onclick="setFilter('GS3',this)">GS3</button>
+<button class="filter" onclick="setFilter('GS4',this)">GS4</button>
+</div>
+<div class="card" style="margin-top:12px" id="topics"></div>
+</div>
+
+<div class="section recall" id="recall">
+<div class="recallBox">
+<div class="eyebrow">ACTIVE RECALL</div>
+<div class="question" id="question"></div>
+<div class="answer" id="answer"></div>
+<button class="primary" id="reveal" onclick="reveal()">Reveal Answer</button>
+<div id="decision" style="display:none">
+<button class="forgot" onclick="mark(false)">Forgot it</button>
+<button class="got" onclick="mark(true)">Got it +10 XP</button>
+</div>
+</div>
+</div>
+
+<div class="section card" id="progressBox" style="display:none">
+<h2>Revision Performance</h2>
+<p style="color:var(--muted)">Overall retention progress</p>
+<div class="progress"><div class="bar" id="overallBar"></div></div>
+<p id="progressText" style="font-weight:800"></p>
+</div>
+</div>
+
+<div class="nav">
+<button class="active" onclick="location.href='index.html'">⌂ Home</button>
+<button onclick="location.href='current-affairs.html'">CA</button>
+<button onclick="location.href='pyq.html'">PYQ</button>
+<button onclick="location.href='answer.html'">AI</button>
+</div>
+
+<script>
+const data=[
+{g:'GS1',n:'Indian Heritage & Culture',p:72,s:'Strong'},
+{g:'GS1',n:'Modern Indian History',p:61,s:'Moderate'},
+{g:'GS1',n:'World History',p:48,s:'Weak'},
+{g:'GS1',n:'Indian Society',p:67,s:'Moderate'},
+{g:'GS2',n:'Constitution & Polity',p:78,s:'Strong'},
+{g:'GS2',n:'Governance',p:54,s:'Moderate'},
+{g:'GS2',n:'International Relations',p:42,s:'Weak'},
+{g:'GS3',n:'Indian Economy',p:69,s:'Moderate'},
+{g:'GS3',n:'Environment & Ecology',p:57,s:'Moderate'},
+{g:'GS3',n:'Science & Technology',p:46,s:'Weak'},
+{g:'GS3',n:'Internal Security',p:63,s:'Moderate'},
+{g:'GS4',n:'Ethics & Thinkers',p:74,s:'Strong'},
+{g:'GS4',n:'Case Studies',p:51,s:'Moderate'}
+];
+const cards=[
+['GS2','What is the basic structure doctrine?','It holds that Parliament may amend the Constitution, but cannot alter its basic structure.'],
+['GS3','What is fiscal deficit?','The excess of total expenditure over total receipts excluding borrowings.'],
+['GS1','What was the objective of the Government of India Act, 1935?','It introduced provincial autonomy and proposed an all-India federation, among other provisions.'],
+['GS4','What is the difference between integrity and honesty?','Honesty concerns truthfulness; integrity involves consistency between values, principles and conduct.'],
+['GS3','What is the difference between mitigation and adaptation in climate policy?','Mitigation reduces causes of climate change; adaptation reduces vulnerability to its impacts.']
+];
+let current=0,queue=[],xp=Number(localStorage.f27revxp||0),recalled=Number(localStorage.f27recalled||0);
+
+function render(filter='ALL'){
+let rows=data.filter(x=>filter==='ALL'||x.g===filter);
+document.getElementById('topics').innerHTML=rows.map(x=>`<div class="topic"><div><b>${x.g} • ${x.n}</b><div class="progress" style="width:220px;margin-top:8px"><div class="bar" style="width:${x.p}%"></div></div></div><span class="pill ${x.s==='Weak'?'weak':''}">${x.s} • ${x.p}%</span></div>`).join('');
+}
+function setFilter(g,el){document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));el.classList.add('active');render(g)}
+function startRecall(type){
+queue=type==='weak'?cards.filter(x=>x[0]==='GS3'||x[0]==='GS1'):type==='random'?[...cards].sort(()=>Math.random()-.5):[...cards];
+current=0;document.getElementById('recall').classList.add('show');loadCard();scrollTo({top:document.body.scrollHeight,behavior:'smooth'});
+}
+function loadCard(){
+if(!queue.length)return;
+document.getElementById('question').textContent=queue[current][1];
+document.getElementById('answer').textContent=queue[current][2];
+document.getElementById('answer').classList.remove('show');
+document.getElementById('reveal').style.display='inline-block';
+document.getElementById('decision').style.display='none';
+}
+function reveal(){document.getElementById('answer').classList.add('show');document.getElementById('reveal').style.display='none';document.getElementById('decision').style.display='block'}
+function mark(ok){
+if(ok){xp+=10;recalled++;localStorage.f27revxp=xp;localStorage.f27recalled=recalled}
+document.getElementById('xp').textContent=xp;document.getElementById('recalled').textContent=recalled;
+current++;
+if(current<queue.length)loadCard();else{document.getElementById('question').textContent='Session complete';document.getElementById('answer').textContent='Aaj ka recall complete. Kal next interval par topics dobara aayenge.';document.getElementById('answer').classList.add('show');document.getElementById('decision').style.display='none'}}
+function showProgress(){
+document.getElementById('progressBox').style.display='block';
+let avg=Math.round(data.reduce((a,b)=>a+b.p,0)/data.length);
+document.getElementById('overallBar').style.width=avg+'%';
+document.getElementById('progressText').textContent=avg+'% overall revision strength';
+document.getElementById('progressBox').scrollIntoView({behavior:'smooth'})
+}
+document.getElementById('xp').textContent=xp;document.getElementById('recalled').textContent=recalled;render();
+</script>
+</body>
+</html>
