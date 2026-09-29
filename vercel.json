@@ -1,12 +1,18 @@
 {
   "rewrites": [
-    {
-      "source": "/current",
-      "destination": "/current.html"
-    },
-    {
-      "source": "/current-affairs",
-      "destination": "/current-affairs.html"
-    }
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/dashboard", "destination": "/dashboard" },
+    { "source": "/gs1", "destination": "/gs1.html" },
+    { "source": "/gs2", "destination": "/gs2.html" },
+    { "source": "/gs3", "destination": "/gs3.html" },
+    { "source": "/gs4", "destination": "/gs4.html" },
+    { "source": "/pyq", "destination": "/pyq.html" },
+    { "source": "/answer", "destination": "/answer.html" },
+    { "source": "/ai", "destination": "/ai-secretary.html" },
+    { "source": "/ai-secretary", "destination": "/ai-secretary.html" },
+    { "source": "/current", "destination": "/current.html" },
+    { "source": "/current-affairs", "destination": "/current-affairs.html" },
+    { "source": "/revision", "destination": "/revision.html" },
+    { "source": "/command-map", "destination": "/commander/index.html" }
   ]
 }
