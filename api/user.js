@@ -120,13 +120,80 @@ function firestoreValue(value) {
   return { stringValue: clean(value) };
 }
 
+async function readUserDocument(user) {
+  const { projectId } = getFirebaseConfig();
+  const token = await getGoogleAccessToken();
+  const documentId = String(user.id);
+
+  const url =
+    "https://firestore.googleapis.com/v1/projects/" +
+    encodeURIComponent(projectId) +
+    "/databases/(default)/documents/users/" +
+    encodeURIComponent(documentId);
+
+  const response = await fetch(url, {
+    headers: { authorization: "Bearer " + token }
+  });
+
+  if (response.status === 404) return null;
+  if (!response.ok) {
+    const detail = await response.text();
+    throw new Error("Firestore user read failed: " + detail.slice(0, 500));
+  }
+
+  return await response.json();
+}
+
+function fromFirestoreValue(value) {
+  if (!value) return null;
+  if (value.integerValue !== undefined) return Number(value.integerValue);
+  if (value.doubleValue !== undefined) return Number(value.doubleValue);
+  if (value.booleanValue !== undefined) return Boolean(value.booleanValue);
+  if (value.timestampValue !== undefined) return value.timestampValue;
+  if (value.stringValue !== undefined) return value.stringValue;
+  return null;
+}
+
+function parseStoredProgress(fields) {
+  try {
+    const raw = fromFirestoreValue(fields?.progressJson);
+    if (raw) return JSON.parse(raw);
+  } catch {}
+  return {};
+}
+
+function mergeProgress(existing, incoming) {
+  const oldProgress = existing && typeof existing === "object" ? existing : {};
+  const newProgress = incoming && typeof incoming === "object" ? incoming : {};
+
+  const merged = {
+    ...oldProgress,
+    ...newProgress,
+    xp: Math.max(Number(oldProgress.xp) || 0, Number(newProgress.xp) || 0),
+    streak: Math.max(Number(oldProgress.streak) || 0, Number(newProgress.streak) || 0),
+    solved: Math.max(Number(oldProgress.solved) || 0, Number(newProgress.solved) || 0),
+    gs1: Math.max(Number(oldProgress.gs1) || 0, Number(newProgress.gs1) || 0),
+    gs2: Math.max(Number(oldProgress.gs2) || 0, Number(newProgress.gs2) || 0),
+    gs3: Math.max(Number(oldProgress.gs3) || 0, Number(newProgress.gs3) || 0),
+    gs4: Math.max(Number(oldProgress.gs4) || 0, Number(newProgress.gs4) || 0),
+    done: { ...(oldProgress.done || {}), ...(newProgress.done || {}) },
+    badges: [...new Set([...(oldProgress.badges || []), ...(newProgress.badges || [])])],
+    lastActivity: newProgress.lastActivity || oldProgress.lastActivity || ""
+  };
+
+  return merged;
+}
+
 async function writeUserDocument(user, body) {
   const { projectId } = getFirebaseConfig();
   const token = await getGoogleAccessToken();
   const documentId = String(user.id);
 
   const profile = body?.profile && typeof body.profile === "object" ? body.profile : {};
-  const progress = profile.progress && typeof profile.progress === "object" ? profile.progress : {};
+  const incomingProgress = profile.progress && typeof profile.progress === "object" ? profile.progress : {};
+  const existingDocument = await readUserDocument(user);
+  const existingFields = existingDocument?.fields || {};
+  const progress = mergeProgress(parseStoredProgress(existingFields), incomingProgress);
   const now = new Date().toISOString();
 
   const fields = {
@@ -144,6 +211,7 @@ async function writeUserDocument(user, body) {
     gs2: firestoreValue(progress.gs2 || 0),
     gs3: firestoreValue(progress.gs3 || 0),
     gs4: firestoreValue(progress.gs4 || 0),
+    progressJson: firestoreValue(JSON.stringify(progress)),
     lastActivity: firestoreValue(profile.lastActivity || now),
     updatedAt: firestoreValue(now)
   };
@@ -202,7 +270,8 @@ async function writeUserDocument(user, body) {
     name: [user.first_name, user.last_name].filter(Boolean).join(" "),
     username: user.username || null,
     plan: profile.plan || "free",
-    syncedAt: now
+    syncedAt: now,
+    progress
   };
 }
 
