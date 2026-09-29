@@ -1,17 +1,108 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "/index.html" },
-    { "source": "/gs1", "destination": "/gs1.html" },
-    { "source": "/gs2", "destination": "/gs2.html" },
-    { "source": "/gs3", "destination": "/gs3.html" },
-    { "source": "/gs4", "destination": "/gs4.html" },
-    { "source": "/pyq", "destination": "/pyq.html" },
-    { "source": "/answer", "destination": "/answer.html" },
-    { "source": "/ai", "destination": "/ai-secretary.html" },
-    { "source": "/ai-secretary", "destination": "/ai-secretary.html" },
-    { "source": "/current", "destination": "/current.html" },
-    { "source": "/current-affairs", "destination": "/current-affairs.html" },
-    { "source": "/revision", "destination": "/revision.html" },
-    { "source": "/command-map", "destination": "/commander/index.html" }
+    {
+      "source": "/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/gs1",
+      "destination": "/gs1.html"
+    },
+    {
+      "source": "/gs2",
+      "destination": "/gs2.html"
+    },
+    {
+      "source": "/gs3",
+      "destination": "/gs3.html"
+    },
+    {
+      "source": "/gs4",
+      "destination": "/gs4.html"
+    },
+    {
+      "source": "/pyq",
+      "destination": "/pyq.html"
+    },
+    {
+      "source": "/answer",
+      "destination": "/answer.html"
+    },
+    {
+      "source": "/ai",
+      "destination": "/ai-secretary.html"
+    },
+    {
+      "source": "/ai-secretary",
+      "destination": "/ai-secretary.html"
+    },
+    {
+      "source": "/current",
+      "destination": "/current.html"
+    },
+    {
+      "source": "/current-affairs",
+      "destination": "/current-affairs.html"
+    },
+    {
+      "source": "/revision",
+      "destination": "/revision.html"
+    },
+    {
+      "source": "/command-map",
+      "destination": "/commander/index.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/gs1.html",
+      "destination": "/gs1",
+      "permanent": false
+    },
+    {
+      "source": "/gs2.html",
+      "destination": "/gs2",
+      "permanent": false
+    },
+    {
+      "source": "/gs3.html",
+      "destination": "/gs3",
+      "permanent": false
+    },
+    {
+      "source": "/gs4.html",
+      "destination": "/gs4",
+      "permanent": false
+    },
+    {
+      "source": "/pyq.html",
+      "destination": "/pyq",
+      "permanent": false
+    },
+    {
+      "source": "/answer.html",
+      "destination": "/answer",
+      "permanent": false
+    },
+    {
+      "source": "/current-affairs.html",
+      "destination": "/current-affairs",
+      "permanent": false
+    },
+    {
+      "source": "/revision.html",
+      "destination": "/revision",
+      "permanent": false
+    },
+    {
+      "source": "/ai-secretary.html",
+      "destination": "/ai-secretary",
+      "permanent": false
+    },
+    {
+      "source": "/commander/index.html",
+      "destination": "/command-map",
+      "permanent": false
+    }
   ]
 }
