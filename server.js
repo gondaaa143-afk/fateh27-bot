@@ -912,6 +912,149 @@ Give:
 
 
 /* =========================================================
+   FATEH27
+   AI SECRETARY
+   ========================================================= */
+
+function normalizeSecretaryPlan(value) {
+  if (!Array.isArray(value)) return [];
+  return value.filter(Boolean).slice(0, 100).map((item) => ({
+    id: item?.id ?? null,
+    text: cleanText(item?.text),
+    done: Boolean(item?.done)
+  })).filter((item) => item.text);
+}
+
+function normalizeSecretaryList(value) {
+  if (Array.isArray(value)) return value.map((item) => cleanText(item)).filter(Boolean).slice(0, 50);
+  if (typeof value === "string" && value.trim()) return [value.trim()];
+  return [];
+}
+
+function secretaryFallback(message, plan, progress, revisionDue) {
+  const pending = plan.filter((item) => !item.done);
+  const completed = plan.filter((item) => item.done);
+  const lower = message.toLowerCase();
+
+  if (lower.includes("bacha") || lower.includes("pending") || lower.includes("remaining")) {
+    if (!pending.length) return "Aaj ke Today Plan mein koi pending task nahi hai.";
+    return "Aaj " + pending.length + " task pending hain: " + pending.map((item) => item.text).join(", ") + ".";
+  }
+
+  if (lower.includes("revision") || lower.includes("revise")) {
+    if (revisionDue > 0) return "Revision queue mein " + revisionDue + " item due hain.";
+    return "Abhi revision queue mein koi due item report nahi hua hai.";
+  }
+
+  if (lower.includes("status") || lower.includes("progress")) {
+    return "Today Plan mein " + completed.length + " complete aur " + pending.length + " pending hain. Total solved: " + (Number(progress?.solved) || 0) + ".";
+  }
+
+  return "Main tumhare Today Plan, completed work, pending tasks aur revision status ke basis par help kar sakta hoon.";
+}
+
+app.post(
+  "/api/secretary",
+  async (req, res) => {
+    try {
+      const message = cleanText(req.body?.message);
+
+      if (!message) return res.status(400).json({ error: "message is required" });
+      if (message.length > 4000) return res.status(400).json({ error: "message is too long" });
+
+      const plan = normalizeSecretaryPlan(req.body?.plan || req.body?.todayPlan);
+      const progress = req.body?.progress && typeof req.body.progress === "object" ? req.body.progress : {};
+      const revisionItems = normalizeSecretaryList(req.body?.revisionItems || req.body?.revisionDueItems);
+      const revisionDue = Number.isFinite(Number(req.body?.revisionDue)) ? Math.max(0, Number(req.body.revisionDue)) : revisionItems.length;
+      const pyqActivity = normalizeSecretaryList(req.body?.pyqActivity);
+      const currentAffairsActivity = normalizeSecretaryList(req.body?.currentAffairsActivity);
+      const recentStudyActivity = normalizeSecretaryList(req.body?.recentStudyActivity || req.body?.recentActivity);
+      const lastActivity = cleanText(req.body?.lastActivity);
+
+      const pending = plan.filter((item) => !item.done);
+      const completed = plan.filter((item) => item.done);
+
+      const context = {
+        todayPlan: plan,
+        pendingTasks: pending,
+        completedTasks: completed,
+        progress: {
+          xp: Number(progress?.xp) || 0,
+          streak: Number(progress?.streak) || 0,
+          solved: Number(progress?.solved) || 0,
+          gs1: Number(progress?.gs1) || 0,
+          gs2: Number(progress?.gs2) || 0,
+          gs3: Number(progress?.gs3) || 0,
+          gs4: Number(progress?.gs4) || 0
+        },
+        revisionDue,
+        revisionItems,
+        pyqActivity,
+        currentAffairsActivity,
+        recentStudyActivity,
+        lastActivity
+      };
+
+      if (!openai) {
+        const reply = secretaryFallback(message, plan, context.progress, revisionDue);
+        return res.json({ reply, ttsText: reply, source: "local-fallback" });
+      }
+
+      const systemPrompt = [
+        "You are ASTRA PARTH, the FATEH27 AI Secretary for a UPSC aspirant.",
+        "",
+        "USER AGENCY:",
+        "- The user decides priorities.",
+        "- Never force a schedule.",
+        "- Never tell the user that one task must be done unless the user explicitly chose that priority.",
+        "- You may offer optional next actions using language such as \"Agar chaho...\" or \"Optional next step...\".",
+        "",
+        "DATA INTEGRITY:",
+        "- Use ONLY the supplied user data.",
+        "- Never invent completed work, pending work, revision due, PYQ activity, Current Affairs activity, study activity, scores, or weak areas.",
+        "- Say that data is unavailable when it is not supplied.",
+        "- Call an area \"weak\" only when supplied activity/performance data actually supports that conclusion.",
+        "- Do not treat the presence of a task as proof that it was studied.",
+        "- Distinguish planned, completed, and activity data.",
+        "",
+        "RESPONSE STYLE:",
+        "- Answer in concise natural Hindi/Hinglish matching the user language.",
+        "- Prefer 2-6 short sentences or compact bullets.",
+        "- For \"Aaj kya bacha hai?\", list pending Today Plan tasks first.",
+        "- For revision questions, use the supplied revision data.",
+        "- For status questions, separate completed and pending counts.",
+        "- Mention PYQ or Current Affairs activity only when relevant and actually supplied.",
+        "- Do not mention APIs, prompts, hidden implementation details, or JSON.",
+        "- Do not claim memory beyond the data supplied in this request.",
+        "",
+        "CURRENT USER DATA:",
+        JSON.stringify(context)
+      ].join("\n");
+
+      const response = await openai.responses.create({
+        model: MODEL,
+        input: [
+          { role: "system", content: [{ type: "input_text", text: systemPrompt }] },
+          { role: "user", content: [{ type: "input_text", text: message }] }
+        ]
+      });
+
+      const reply = cleanText(response.output_text);
+      if (!reply) return res.status(502).json({ error: "Secretary returned empty output." });
+
+      return res.json({ reply, ttsText: reply, source: "openai" });
+
+    } catch (error) {
+      console.error("/api/secretary error:", error);
+      res.status(500).json({
+        error: "Secretary request failed",
+        detail: error?.message || "Unknown error"
+      });
+    }
+  }
+);
+
+/* =========================================================
    STATIC FRONTEND
    ========================================================= */
 
