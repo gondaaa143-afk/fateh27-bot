@@ -550,8 +550,8 @@ app.post(
         return res.status(503).json({ error: "Premium price is not configured correctly" });
       }
 
-      const phone = String(req.body?.phone || "").replace(/\\D/g, "");
-      if (!/^\\d{10}$/.test(phone)) {
+      const phone = String(req.body?.phone || "").replace(/\D/g, "");
+      if (!/^\d{10}$/.test(phone)) {
         return res.status(400).json({ error: "Valid 10-digit mobile number is required for payment" });
       }
 
