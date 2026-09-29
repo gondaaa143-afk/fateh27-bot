@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FATEH27 Current Affairs</title>
+
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  background:#07152d;
+  color:white;
+  font-family:Arial,sans-serif;
+  padding:20px;
+}
+h1{
+  font-size:30px;
+  margin-bottom:18px;
+}
+.card{
+  background:#0f2348;
+  border-radius:18px;
+  padding:18px;
+  margin-top:15px;
+}
+h2{
+  font-size:22px;
+  margin-bottom:8px;
+}
+small{
+  color:#9fb3d9;
+}
+pre{
+  white-space:pre-wrap;
+  word-wrap:break-word;
+  font-family:inherit;
+  font-size:16px;
+  line-height:1.7;
+  margin-top:14px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>📚 Current Affairs</h1>
+
+<div class="card">
+  <h2 id="title">Loading...</h2>
+  <small id="date"></small>
+  <pre id="summary"></pre>
+</div>
+
+<script>
+Telegram.WebApp.ready();
+Telegram.WebApp.expand();
+
+async function loadCurrent(){
+  try{
+    const res = await fetch("/data/current.md?" + Date.now());
+    if(!res.ok) throw new Error("Server");
+
+    const text=await res.text();
+
+    document.getElementById("title").innerText="Daily Current Affairs";
+    document.getElementById("date").innerText="Auto Updated from GitHub Actions";
+    document.getElementById("summary").innerText=text;
+
+  }catch(e){
+    document.getElementById("title").innerText="Server se connect nahi hua";
+    document.getElementById("summary").innerText="";
+  }
+}
+
+loadCurrent();
+</script>
+
+</body>
+</html>
