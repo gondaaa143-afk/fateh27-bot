@@ -1010,6 +1010,9 @@ app.post(
         image =
           null,
 
+        imageData =
+          null,
+
         language =
           "English"
 
@@ -1035,9 +1038,11 @@ app.post(
       }
 
 
+      const evaluationImage = image || imageData || null;
+
       if (
         !cleanText(answer) &&
-        !image
+        !evaluationImage
       ) {
 
         return res.status(400).json({
@@ -1165,7 +1170,7 @@ Give:
          HANDWRITTEN IMAGE
          ----------------------------------------------- */
 
-      if (image) {
+      if (evaluationImage) {
 
         content.push({
 
