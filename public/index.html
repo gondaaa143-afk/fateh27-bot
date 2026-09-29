@@ -1410,12 +1410,92 @@ body {
   }
 }
 
+
+/* =========================================================
+   ACCESS APPROVAL GATE
+   ========================================================= */
+#accessGate{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  padding:24px;
+  align-items:center;
+  justify-content:center;
+  background:rgba(244,244,244,.96);
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+}
+html.f27-access-checking #accessGate,
+html.f27-access-blocked #accessGate{
+  display:flex;
+}
+html.f27-access-checking .wrap,
+html.f27-access-checking .bottomNav,
+html.f27-access-blocked .wrap,
+html.f27-access-blocked .bottomNav{
+  visibility:hidden;
+}
+.accessCard{
+  width:min(100%,420px);
+  padding:25px;
+  border-radius:25px;
+  background:rgba(255,255,255,.86);
+  border:1px solid rgba(0,0,0,.07);
+  box-shadow:0 18px 55px rgba(0,0,0,.12);
+  text-align:center;
+}
+.accessLogo{
+  font-size:27px;
+  font-weight:900;
+  letter-spacing:-1px;
+}
+.accessTitle{
+  margin-top:17px;
+  font-size:20px;
+  font-weight:900;
+}
+.accessText{
+  margin-top:9px;
+  color:#666;
+  font-size:13px;
+  line-height:1.55;
+}
+.accessBtn{
+  width:100%;
+  margin-top:18px;
+  border:0;
+  border-radius:14px;
+  padding:13px 15px;
+  background:#111;
+  color:#fff;
+  font:800 13px Arial,sans-serif;
+  cursor:pointer;
+}
+.accessBtn:disabled{opacity:.55;cursor:default}
+.accessStatus{
+  margin-top:11px;
+  color:#777;
+  font-size:11px;
+}
+
 </style>
 
 </head>
 
 
 <body>
+<script>document.documentElement.classList.add("f27-access-checking");</script>
+
+<div id="accessGate">
+  <div class="accessCard">
+    <div class="accessLogo">FATEH27</div>
+    <div class="accessTitle" id="accessTitle">Checking Access…</div>
+    <div class="accessText" id="accessText">Your Telegram account is being verified.</div>
+    <button class="accessBtn" id="accessRequestBtn" style="display:none">Request Access</button>
+    <div class="accessStatus" id="accessStatus"></div>
+  </div>
+</div>
 
 
 <div class="bg"></div>
@@ -2347,6 +2427,126 @@ load();
 
 </div>
 
+
+
+<script>
+(function(){
+  const root=document.documentElement;
+  const gate=document.getElementById("accessGate");
+  const title=document.getElementById("accessTitle");
+  const text=document.getElementById("accessText");
+  const btn=document.getElementById("accessRequestBtn");
+  const status=document.getElementById("accessStatus");
+
+  function openApp(){
+    root.classList.remove("f27-access-checking","f27-access-blocked");
+    if(gate) gate.style.display="none";
+  }
+
+  function blocked(t,d,showButton){
+    root.classList.remove("f27-access-checking");
+    root.classList.add("f27-access-blocked");
+    title.textContent=t;
+    text.textContent=d;
+    btn.style.display=showButton ? "block" : "none";
+    status.textContent="";
+  }
+
+  async function checkAccess(){
+    const tg=window.Telegram?.WebApp;
+    const initData=tg?.initData;
+    if(!initData){
+      // Keep normal browser access intact; Telegram approval applies inside the Mini App.
+      openApp();
+      return;
+    }
+
+    try{
+      const response=await fetch("/api/access",{
+        headers:{"x-telegram-init-data":initData}
+      });
+      const data=await response.json().catch(()=>({}));
+
+      if(data.status==="approved"){
+        openApp();
+        return;
+      }
+
+      if(data.status==="pending"){
+        blocked(
+          "Approval Pending",
+          "Your request has been received. FATEH27 admin approval is required before you can enter.",
+          false
+        );
+        return;
+      }
+
+      if(data.status==="rejected"){
+        blocked(
+          "Access Not Approved",
+          "Your FATEH27 access request was not approved. Contact the administrator.",
+          false
+        );
+        return;
+      }
+
+      blocked(
+        "Access Required",
+        "Request access first. Your account will enter only after FATEH27 admin approval.",
+        true
+      );
+    }catch(error){
+      console.error("FATEH27 access check:",error);
+      blocked(
+        "Access Check Failed",
+        "Server se verification nahi ho paayi. Please try again.",
+        true
+      );
+      status.textContent="Network / server error";
+    }
+  }
+
+  btn.addEventListener("click",async function(){
+    const tg=window.Telegram?.WebApp;
+    const initData=tg?.initData;
+    if(!initData) return;
+
+    btn.disabled=true;
+    btn.textContent="Sending Request…";
+    status.textContent="Request submit ho rahi hai…";
+
+    try{
+      const response=await fetch("/api/access",{
+        method:"POST",
+        headers:{
+          "content-type":"application/json",
+          "x-telegram-init-data":initData
+        },
+        body:JSON.stringify({action:"request"})
+      });
+      const data=await response.json().catch(()=>({}));
+
+      if(data.status==="pending"){
+        blocked(
+          "Approval Pending",
+          "Request sent successfully. Admin approval ke baad app automatically allow ho jayega.",
+          false
+        );
+      }else if(data.status==="approved"){
+        openApp();
+      }else{
+        throw new Error(data.detail || data.error || "Request failed");
+      }
+    }catch(error){
+      btn.disabled=false;
+      btn.textContent="Request Access";
+      status.textContent=error.message || "Request failed";
+    }
+  });
+
+  checkAccess();
+})();
+</script>
 
 </body>
 </html>
