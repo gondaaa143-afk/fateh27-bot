@@ -11,11 +11,10 @@ from datetime import datetime, timezone, timedelta
 
 # =========================================================
 # FATEH27 DAILY CURRENT AFFAIRS
-# FINAL STABLE SOURCE + AI ENGINE
+# FINAL — 15 TO 25 ARTICLES
 # =========================================================
 
 IST = timezone(timedelta(hours=5, minutes=30))
-
 TODAY = datetime.now(IST).strftime("%d %B %Y")
 
 
@@ -27,7 +26,11 @@ MAX_SOURCE_ITEMS_PER_SOURCE = 5
 
 MAX_AI_INPUT_ITEMS = 30
 
-MAX_FINAL_ITEMS = 15
+MIN_FINAL_ITEMS = 15
+
+TARGET_FINAL_ITEMS = 20
+
+MAX_FINAL_ITEMS = 25
 
 REQUEST_DELAY = 3
 
@@ -69,7 +72,7 @@ ALLOWED_DOMAINS = {
 
 
 # =========================================================
-# GOOGLE NEWS RSS URL
+# GOOGLE NEWS RSS
 # =========================================================
 
 def google_news_url(query, days=2):
@@ -89,9 +92,6 @@ def google_news_url(query, days=2):
 
 # =========================================================
 # SOURCE GROUPS
-#
-# Only 4 requests are made.
-# This greatly reduces rate-limit risk.
 # =========================================================
 
 SOURCES = [
@@ -134,7 +134,7 @@ SOURCES = [
 
 
 # =========================================================
-# DOMAIN
+# NORMALIZE DOMAIN
 # =========================================================
 
 def normalize_domain(url):
@@ -144,9 +144,7 @@ def normalize_domain(url):
 
     try:
 
-        parsed = urllib.parse.urlparse(
-            url
-        )
+        parsed = urllib.parse.urlparse(url)
 
         domain = parsed.netloc.lower()
 
@@ -173,9 +171,7 @@ def detect_source(url):
         if (
             domain == allowed_domain
             or
-            domain.endswith(
-                "." + allowed_domain
-            )
+            domain.endswith("." + allowed_domain)
         ):
 
             return source_name
@@ -184,7 +180,7 @@ def detect_source(url):
 
 
 # =========================================================
-# FETCH URL
+# FETCH
 # =========================================================
 
 def fetch_url(
@@ -195,16 +191,12 @@ def fetch_url(
 
     last_error = None
 
-    for attempt in range(
-        1,
-        retries + 1
-    ):
+    for attempt in range(1, retries + 1):
 
         try:
 
             print(
-                f"    Fetch attempt "
-                f"{attempt}/{retries}"
+                f"    Fetch attempt {attempt}/{retries}"
             )
 
             request = urllib.request.Request(
@@ -229,7 +221,6 @@ def fetch_url(
                 }
             )
 
-
             with urllib.request.urlopen(
                 request,
                 timeout=timeout
@@ -237,24 +228,14 @@ def fetch_url(
 
                 return response.read()
 
-
         except urllib.error.HTTPError as error:
 
             last_error = error
 
-
-            # -----------------------------------------
-            # RATE LIMIT
-            # -----------------------------------------
-
             if error.code == 429:
 
-                wait_time = (
-                    15 * attempt
-                )
-
                 wait_time = min(
-                    wait_time,
+                    15 * attempt,
                     60
                 )
 
@@ -263,16 +244,9 @@ def fetch_url(
                     f"Waiting {wait_time}s..."
                 )
 
-                time.sleep(
-                    wait_time
-                )
+                time.sleep(wait_time)
 
                 continue
-
-
-            # -----------------------------------------
-            # TEMPORARY SERVER ERROR
-            # -----------------------------------------
 
             if error.code in (
                 500,
@@ -281,25 +255,16 @@ def fetch_url(
                 504
             ):
 
-                wait_time = (
-                    5 * attempt
-                )
+                wait_time = 5 * attempt
 
                 print(
                     f"    HTTP {error.code}. "
                     f"Waiting {wait_time}s..."
                 )
 
-                time.sleep(
-                    wait_time
-                )
+                time.sleep(wait_time)
 
                 continue
-
-
-            # -----------------------------------------
-            # 403 / OTHER
-            # -----------------------------------------
 
             print(
                 f"    HTTP {error.code}: "
@@ -308,7 +273,6 @@ def fetch_url(
 
             break
 
-
         except (
             urllib.error.URLError,
             TimeoutError
@@ -316,35 +280,26 @@ def fetch_url(
 
             last_error = error
 
-            wait_time = (
-                4 * attempt
-            )
+            wait_time = 4 * attempt
 
             print(
-                f"    Network error: "
-                f"{error}"
+                f"    Network error: {error}"
             )
 
-            time.sleep(
-                wait_time
-            )
-
+            time.sleep(wait_time)
 
         except Exception as error:
 
             last_error = error
 
             print(
-                f"    Unexpected error: "
-                f"{error}"
+                f"    Unexpected error: {error}"
             )
 
             break
 
-
     print(
-        f"    Source failed: "
-        f"{last_error}"
+        f"    Source failed: {last_error}"
     )
 
     return None
@@ -393,29 +348,21 @@ def parse_rss(
     if not raw:
         return []
 
-
     try:
 
-        root = ET.fromstring(
-            raw
-        )
+        root = ET.fromstring(raw)
 
     except Exception as error:
 
         print(
-            f"    XML parse failed: "
-            f"{error}"
+            f"    XML parse failed: {error}"
         )
 
         return []
 
-
     results = []
 
-
-    for item in root.findall(
-        ".//item"
-    ):
+    for item in root.findall(".//item"):
 
         title = clean_text(
             item.findtext(
@@ -433,14 +380,12 @@ def parse_rss(
             ""
         ).strip()
 
-
         description = clean_text(
             item.findtext(
                 "description",
                 ""
             )
         )
-
 
         pub_date = (
             item.findtext(
@@ -451,31 +396,21 @@ def parse_rss(
             ""
         ).strip()
 
-
         if not title:
             continue
-
-
-        # -----------------------------------------
-        # GOOGLE NEWS SOURCE
-        # -----------------------------------------
 
         source_element = item.find(
             "source"
         )
 
-
         publisher_name = ""
 
         publisher_url = ""
 
-
         if source_element is not None:
 
             publisher_name = clean_text(
-                source_element.text
-                or
-                ""
+                source_element.text or ""
             )
 
             publisher_url = (
@@ -485,32 +420,19 @@ def parse_rss(
                 )
             )
 
-
         actual_source = detect_source(
             publisher_url
         )
 
-
-        # -----------------------------------------
-        # IMPORTANT:
-        # Only accept known domains from grouped
-        # official-source queries.
-        # -----------------------------------------
-
         if group_name != "The Hindu":
 
-            if (
-                group_name
-                in (
-                    "Indian Government Sources",
-                    "International Institutions"
-                )
+            if group_name in (
+                "Indian Government Sources",
+                "International Institutions"
             ):
 
                 if not actual_source:
-
                     continue
-
 
         if actual_source:
 
@@ -524,26 +446,19 @@ def parse_rss(
 
             final_source = group_name
 
-
         results.append({
 
-            "source":
-            final_source,
+            "source": final_source,
 
-            "title":
-            title,
+            "title": title,
 
-            "link":
-            link,
+            "link": link,
 
-            "description":
-            description,
+            "description": description,
 
-            "date":
-            pub_date
+            "date": pub_date
 
         })
-
 
     return results
 
@@ -552,64 +467,74 @@ def parse_rss(
 # COLLECT SOURCE
 # =========================================================
 
-def collect_source(
-    source
-):
+def collect_source(source):
 
     name = source["name"]
 
     print("")
-    print(
-        "------------------------------------------"
-    )
-
-    print(
-        f"SOURCE: {name}"
-    )
-
-    print(
-        "------------------------------------------"
-    )
-
+    print("-" * 60)
+    print(f"SOURCE: {name}")
+    print("-" * 60)
 
     raw = fetch_url(
         source["url"]
     )
-
 
     items = parse_rss(
         raw,
         name
     )
 
-
     print(
-        f"    Raw items: "
-        f"{len(items)}"
+        f"    Raw items: {len(items)}"
     )
-
 
     return items
 
 
 # =========================================================
-# SOURCE BALANCING
-#
-# This is important.
-#
-# We do NOT send:
-# The Hindu 100 + International 100
-#
-# Instead:
-# max 5 items per actual source.
+# DEDUPLICATION
 # =========================================================
 
-def balance_sources(
-    items
-):
+def deduplicate(items):
+
+    seen = set()
+
+    unique = []
+
+    for item in items:
+
+        title = item.get(
+            "title",
+            ""
+        )
+
+        key = re.sub(
+            r"[^a-z0-9]+",
+            "",
+            title.lower()
+        )
+
+        if not key:
+            continue
+
+        if key in seen:
+            continue
+
+        seen.add(key)
+
+        unique.append(item)
+
+    return unique
+
+
+# =========================================================
+# BALANCE SOURCES
+# =========================================================
+
+def balance_sources(items):
 
     buckets = {}
-
 
     for item in items:
 
@@ -618,11 +543,8 @@ def balance_sources(
             "Unknown"
         )
 
-
         if source not in buckets:
-
             buckets[source] = []
-
 
         if len(
             buckets[source]
@@ -632,20 +554,13 @@ def balance_sources(
                 item
             )
 
-
     balanced = []
-
-
-    # -----------------------------------------
-    # Round-robin source selection
-    # -----------------------------------------
 
     while len(
         balanced
     ) < MAX_AI_INPUT_ITEMS:
 
         added = False
-
 
         for source_name in list(
             buckets.keys()
@@ -655,7 +570,6 @@ def balance_sources(
                 source_name
             ]
 
-
             if bucket:
 
                 balanced.append(
@@ -664,68 +578,16 @@ def balance_sources(
 
                 added = True
 
-
             if len(
                 balanced
             ) >= MAX_AI_INPUT_ITEMS:
 
                 break
 
-
         if not added:
-
             break
 
-
     return balanced
-
-
-# =========================================================
-# DEDUPLICATION
-# =========================================================
-
-def deduplicate(
-    items
-):
-
-    seen = set()
-
-    unique = []
-
-
-    for item in items:
-
-        title = item.get(
-            "title",
-            ""
-        )
-
-
-        key = re.sub(
-            r"[^a-z0-9]+",
-            "",
-            title.lower()
-        )
-
-
-        if not key:
-            continue
-
-
-        if key in seen:
-            continue
-
-
-        seen.add(
-            key
-        )
-
-        unique.append(
-            item
-        )
-
-
-    return unique
 
 
 # =========================================================
@@ -736,12 +598,12 @@ def collect_news():
 
     raw_items = []
 
-
     print("")
     print("=" * 65)
-    print("FATEH27 CURRENT AFFAIRS SOURCE COLLECTION")
+    print(
+        "FATEH27 CURRENT AFFAIRS SOURCE COLLECTION"
+    )
     print("=" * 65)
-
 
     for index, source in enumerate(
         SOURCES
@@ -751,44 +613,34 @@ def collect_news():
             source
         )
 
-
         raw_items.extend(
             items
         )
 
-
-        if index < len(
-            SOURCES
-        ) - 1:
+        if index < len(SOURCES) - 1:
 
             print(
-                "    Waiting "
-                f"{REQUEST_DELAY}s..."
+                f"    Waiting {REQUEST_DELAY}s..."
             )
 
             time.sleep(
                 REQUEST_DELAY
             )
 
-
     unique_items = deduplicate(
         raw_items
     )
 
-
     selected_items = balance_sources(
         unique_items
     )
-
 
     print("")
     print("=" * 65)
     print("SOURCE SUMMARY")
     print("=" * 65)
 
-
     source_counts = {}
-
 
     for item in unique_items:
 
@@ -797,7 +649,6 @@ def collect_news():
             "Unknown"
         )
 
-
         source_counts[source] = (
             source_counts.get(
                 source,
@@ -805,28 +656,21 @@ def collect_news():
             ) + 1
         )
 
-
-    for source, count in (
-        sorted(
-            source_counts.items()
-        )
+    for source, count in sorted(
+        source_counts.items()
     ):
 
         print(
-            f"{source}: "
-            f"{count}"
+            f"{source}: {count}"
         )
-
 
     print("")
     print(
-        f"RAW ITEMS: "
-        f"{len(raw_items)}"
+        f"RAW ITEMS: {len(raw_items)}"
     )
 
     print(
-        f"UNIQUE ITEMS: "
-        f"{len(unique_items)}"
+        f"UNIQUE ITEMS: {len(unique_items)}"
     )
 
     print(
@@ -835,7 +679,6 @@ def collect_news():
     )
 
     print("=" * 65)
-
 
     return selected_items
 
@@ -856,13 +699,11 @@ def call_openai(
         "OPENAI_MODEL"
     )
 
-
     if not api_key:
 
         raise RuntimeError(
             "OPENAI_API_KEY is missing."
         )
-
 
     if not model:
 
@@ -870,17 +711,11 @@ def call_openai(
             "OPENAI_MODEL is missing."
         )
 
-
     source_data = json.dumps(
         news_items,
         ensure_ascii=False,
         indent=2
     )
-
-
-    # =====================================================
-    # PROMPT
-    # =====================================================
 
     prompt = f"""
 You are the Senior UPSC CSE Current Affairs
@@ -891,16 +726,37 @@ DATE:
 
 
 ====================================================
-MISSION
+PRIMARY OBJECTIVE
 ====================================================
 
-Create a high-quality UPSC Current Affairs
-digest from the supplied news.
+Create a DAILY UPSC CURRENT AFFAIRS digest.
 
-Generate approximately
-{MAX_FINAL_ITEMS} important items.
+Generate between:
 
-Do not add items merely to increase the count.
+MINIMUM: {MIN_FINAL_ITEMS}
+TARGET: {TARGET_FINAL_ITEMS}
+MAXIMUM: {MAX_FINAL_ITEMS}
+
+Prefer around {TARGET_FINAL_ITEMS} items when the
+source material supports them.
+
+
+====================================================
+VERY IMPORTANT
+====================================================
+
+The output MUST contain at least
+{MIN_FINAL_ITEMS} items if the supplied source
+material contains enough distinct relevant news.
+
+Do NOT stop at 8, 9, 10, 11, 12, 13 or 14 items
+when additional relevant supplied material exists.
+
+Select additional relevant UPSC items from the
+supplied source data until at least
+{MIN_FINAL_ITEMS} are reached.
+
+Do NOT create fake news merely to reach the minimum.
 
 
 ====================================================
@@ -911,35 +767,18 @@ Use ONLY the supplied information.
 
 Never invent:
 
-- facts
-- statistics
-- dates
-- schemes
-- reports
-- government decisions
-- quotations
-- PYQ years
-- legal provisions
+• facts
+• statistics
+• dates
+• schemes
+• reports
+• government decisions
+• quotations
+• PYQ years
+• legal provisions
 
 
-Keep the actual source name.
-
-Examples:
-
-The Hindu
-PIB
-RBI
-MEA
-PRS India
-MoSPI
-NITI Aayog
-ISRO
-MoEFCC
-CPCB
-United Nations
-IMF
-World Bank
-WTO
+Preserve the actual source name.
 
 
 ====================================================
@@ -956,13 +795,26 @@ If information is limited, say:
 
 
 ====================================================
+SOURCE DIVERSITY
+====================================================
+
+When relevant material exists, distribute coverage
+across available sources.
+
+Do not select 15–20 items from only one source if
+other relevant source material is supplied.
+
+
+====================================================
 LANGUAGE
 ====================================================
 
 Primary language:
+
 Hindi
 
 Technical terms:
+
 Hindi + English in brackets.
 
 
@@ -972,24 +824,24 @@ UPSC FOCUS
 
 Prioritize:
 
-Prelims
-GS1
-GS2
-GS3
-GS4
-International Relations
-Economy
-Environment
-Science & Technology
-Polity
-Governance
-Security
-Agriculture
-Government Schemes
-Reports
-Indices
-Social Issues
-Essay
+• Prelims
+• GS1
+• GS2
+• GS3
+• GS4
+• International Relations
+• Economy
+• Environment
+• Science & Technology
+• Polity
+• Governance
+• Security
+• Agriculture
+• Government Schemes
+• Reports
+• Indices
+• Social Issues
+• Essay
 
 
 ====================================================
@@ -1013,10 +865,8 @@ ESSAY
 
 
 ====================================================
-EACH ITEM
+EACH ITEM MUST CONTAIN
 ====================================================
-
-Provide:
 
 headline
 
@@ -1060,20 +910,20 @@ Give concise factual points useful for MCQs.
 MAINS
 ====================================================
 
-Give analytical points:
+Give analytical dimensions:
 
-Causes
-Impacts
-Challenges
-Government response
-Way forward
+• Causes
+• Impacts
+• Challenges
+• Government response
+• Way forward
 
 
 ====================================================
 PYQ
 ====================================================
 
-Do not invent an exact PYQ.
+Do NOT invent an exact PYQ.
 
 If exact PYQ cannot be established:
 
@@ -1111,6 +961,12 @@ SOURCE DATA
 
                 "type":
                 "array",
+
+                "minItems":
+                MIN_FINAL_ITEMS,
+
+                "maxItems":
+                MAX_FINAL_ITEMS,
 
                 "items": {
 
@@ -1256,7 +1112,7 @@ SOURCE DATA
         prompt,
 
         "max_output_tokens":
-        12000,
+        16000,
 
         "text": {
 
@@ -1279,7 +1135,7 @@ SOURCE DATA
 
 
     # =====================================================
-    # OPENAI RETRIES
+    # OPENAI RETRY
     # =====================================================
 
     for attempt in range(
@@ -1291,15 +1147,13 @@ SOURCE DATA
 
             print("")
             print(
-                f"OPENAI ATTEMPT "
-                f"{attempt}/3"
+                f"OPENAI ATTEMPT {attempt}/3"
             )
 
             print(
                 f"AI INPUT ITEMS: "
                 f"{len(news_items)}"
             )
-
 
             request = urllib.request.Request(
 
@@ -1323,7 +1177,6 @@ SOURCE DATA
                 method="POST"
             )
 
-
             with urllib.request.urlopen(
                 request,
                 timeout=300
@@ -1337,31 +1190,19 @@ SOURCE DATA
                     )
                 )
 
-
             result = json.loads(
                 response_text
             )
 
-
-            # -----------------------------------------
-            # OUTPUT TEXT
-            # -----------------------------------------
-
             output_text = result.get(
                 "output_text"
             )
-
 
             if output_text:
 
                 return json.loads(
                     output_text
                 )
-
-
-            # -----------------------------------------
-            # FALLBACK OUTPUT PARSER
-            # -----------------------------------------
 
             for output in result.get(
                 "output",
@@ -1386,18 +1227,15 @@ SOURCE DATA
                             ""
                         )
 
-
                         if text:
 
                             return json.loads(
                                 text
                             )
 
-
             raise RuntimeError(
                 "OpenAI returned no usable JSON."
             )
-
 
         except urllib.error.HTTPError as error:
 
@@ -1413,9 +1251,7 @@ SOURCE DATA
                 )
 
             except Exception:
-
                 pass
-
 
             print("")
             print(
@@ -1429,19 +1265,10 @@ SOURCE DATA
                     error_body[:2000]
                 )
 
-
-            # -----------------------------------------
-            # RATE LIMIT
-            # -----------------------------------------
-
             if error.code == 429:
 
-                wait_time = (
-                    15 * (2 ** (attempt - 1))
-                )
-
                 wait_time = min(
-                    wait_time,
+                    15 * (2 ** (attempt - 1)),
                     60
                 )
 
@@ -1456,11 +1283,6 @@ SOURCE DATA
 
                 continue
 
-
-            # -----------------------------------------
-            # SERVER ERRORS
-            # -----------------------------------------
-
             if error.code in (
                 500,
                 502,
@@ -1468,9 +1290,7 @@ SOURCE DATA
                 504
             ):
 
-                wait_time = (
-                    10 * attempt
-                )
+                wait_time = 10 * attempt
 
                 print(
                     f"OpenAI server error. "
@@ -1483,18 +1303,13 @@ SOURCE DATA
 
                 continue
 
-
             raise
-
 
         except Exception as error:
 
-            print("")
             print(
-                f"OPENAI ERROR: "
-                f"{error}"
+                f"OPENAI ERROR: {error}"
             )
-
 
             if attempt < 3:
 
@@ -1504,9 +1319,7 @@ SOURCE DATA
 
                 continue
 
-
             raise
-
 
     raise RuntimeError(
         "OpenAI failed after retries."
@@ -1514,7 +1327,7 @@ SOURCE DATA
 
 
 # =========================================================
-# MARKDOWN BUILDER
+# MARKDOWN
 # =========================================================
 
 def build_markdown(
@@ -1523,21 +1336,17 @@ def build_markdown(
 
     lines = []
 
-
     lines.append(
         "# FATEH27 DAILY CURRENT AFFAIRS"
     )
 
     lines.append("")
 
-
     lines.append(
-        f"## "
-        f"{data.get('date', TODAY)}"
+        f"## {data.get('date', TODAY)}"
     )
 
     lines.append("")
-
 
     lines.append(
         "> UPSC CSE • Prelims + Mains • "
@@ -1547,12 +1356,10 @@ def build_markdown(
 
     lines.append("")
 
-
     items = data.get(
         "items",
         []
     )
-
 
     lines.append(
         f"**Total Important Items:** "
@@ -1564,7 +1371,6 @@ def build_markdown(
     lines.append("---")
 
     lines.append("")
-
 
     for index, item in enumerate(
         items,
@@ -1581,23 +1387,17 @@ def build_markdown(
 
         lines.append("")
 
-
         lines.append(
             f"**Source:** "
-            f"{item.get(
-                'source',
-                ''
-            )}"
+            f"{item.get('source', '')}"
         )
 
         lines.append("")
-
 
         source_url = item.get(
             "source_url",
             ""
         ).strip()
-
 
         if source_url:
 
@@ -1608,28 +1408,19 @@ def build_markdown(
 
             lines.append("")
 
-
         lines.append(
             f"**Category:** "
-            f"{item.get(
-                'category',
-                ''
-            )}"
+            f"{item.get('category', '')}"
         )
 
         lines.append("")
-
 
         lines.append(
             f"**Priority:** "
-            f"{item.get(
-                'priority',
-                ''
-            )}"
+            f"{item.get('priority', '')}"
         )
 
         lines.append("")
-
 
         sections = [
 
@@ -1679,7 +1470,6 @@ def build_markdown(
             )
         ]
 
-
         for title, key in sections:
 
             lines.append(
@@ -1694,7 +1484,6 @@ def build_markdown(
             )
 
             lines.append("")
-
 
         lines.append(
             "### Active Recall"
@@ -1714,7 +1503,6 @@ def build_markdown(
 
         lines.append("")
 
-
     return "\n".join(
         lines
     )
@@ -1732,7 +1520,7 @@ def main():
         "FATEH27 DAILY CURRENT AFFAIRS"
     )
     print(
-        "FINAL STABLE ENGINE"
+        "FINAL 15-25 ARTICLE ENGINE"
     )
     print("=" * 65)
 
@@ -1742,13 +1530,11 @@ def main():
 
     print("")
 
-
-    # =====================================================
+    # -----------------------------------------------------
     # COLLECT
-    # =====================================================
+    # -----------------------------------------------------
 
     news = collect_news()
-
 
     if not news:
 
@@ -1756,11 +1542,10 @@ def main():
             "No usable current-affairs data collected."
         )
 
-
     print("")
     print(
-        "OPENAI INPUT LIMIT:"
-        f" {MAX_AI_INPUT_ITEMS}"
+        f"OPENAI INPUT LIMIT: "
+        f"{MAX_AI_INPUT_ITEMS}"
     )
 
     print(
@@ -1768,35 +1553,67 @@ def main():
         f"{len(news)}"
     )
 
-
-    # =====================================================
+    # -----------------------------------------------------
     # AI
-    # =====================================================
+    # -----------------------------------------------------
 
     data = call_openai(
         news
     )
 
+    # -----------------------------------------------------
+    # SAFETY CHECK
+    # -----------------------------------------------------
 
-    # =====================================================
-    # MARKDOWN
-    # =====================================================
+    final_count = len(
+        data.get(
+            "items",
+            []
+        )
+    )
+
+    print("")
+    print(
+        f"AI FINAL ITEMS: "
+        f"{final_count}"
+    )
+
+    if final_count < MIN_FINAL_ITEMS:
+
+        raise RuntimeError(
+            f"AI returned only "
+            f"{final_count} items. "
+            f"Minimum required is "
+            f"{MIN_FINAL_ITEMS}."
+        )
+
+    if final_count > MAX_FINAL_ITEMS:
+
+        data["items"] = data["items"][
+            :MAX_FINAL_ITEMS
+        ]
+
+        print(
+            f"Trimmed to maximum "
+            f"{MAX_FINAL_ITEMS} items."
+        )
+
+    # -----------------------------------------------------
+    # BUILD MARKDOWN
+    # -----------------------------------------------------
 
     markdown = build_markdown(
         data
     )
-
 
     os.makedirs(
         "data",
         exist_ok=True
     )
 
-
     output_file = (
         "data/current.md"
     )
-
 
     with open(
         output_file,
@@ -1807,7 +1624,6 @@ def main():
         file.write(
             markdown
         )
-
 
     print("")
     print("=" * 65)
@@ -1821,12 +1637,7 @@ def main():
 
     print(
         f"Final UPSC items: "
-        f"{len(
-            data.get(
-                'items',
-                []
-            )
-        )}"
+        f"{len(data.get('items', []))}"
     )
 
     print("=" * 65)
