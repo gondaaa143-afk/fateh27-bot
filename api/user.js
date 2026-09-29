@@ -173,7 +173,11 @@ async function writeUserDocument(user, body) {
   const existingDocument = await readUserDocument(user);
   const existingFields = existingDocument?.fields || {};
   const existingPlan = fromFirestoreValue(existingFields.plan);
+  const existingSubscriptionStatus = fromFirestoreValue(existingFields.subscriptionStatus);
+  const existingSubscriptionEndsAt = fromFirestoreValue(existingFields.subscriptionEndsAt);
   const plan = existingPlan || "free";
+  const subscriptionStatus = existingSubscriptionStatus || "free";
+  const subscriptionEndsAt = existingSubscriptionEndsAt || "";
   const progress = mergeProgress(parseStoredProgress(existingFields), incomingProgress);
   const now = new Date().toISOString();
 
@@ -185,6 +189,8 @@ async function writeUserDocument(user, body) {
     languageCode: firestoreValue(user.language_code),
     isPremiumTelegram: firestoreValue(Boolean(user.is_premium)),
     plan: firestoreValue(plan),
+    subscriptionStatus: firestoreValue(subscriptionStatus),
+    subscriptionEndsAt: firestoreValue(subscriptionEndsAt),
     xp: firestoreValue(progress.xp || 0),
     streak: firestoreValue(progress.streak || 0),
     solved: firestoreValue(progress.solved || 0),
@@ -242,6 +248,8 @@ async function writeUserDocument(user, body) {
     name: [user.first_name, user.last_name].filter(Boolean).join(" "),
     username: user.username || null,
     plan,
+    subscriptionStatus,
+    subscriptionEndsAt,
     syncedAt: now,
     progress
   };
