@@ -328,7 +328,10 @@ app.use(rateLimit("general", RATE_LIMITS.general));
 
 app.use(
   express.json({
-    limit: "8mb"
+    limit: "8mb",
+    verify: (req, res, buf) => {
+      req.rawBody = buf.toString();
+    }
   })
 );
 
@@ -381,6 +384,295 @@ app.get(
   }
 );
 
+
+
+/* =========================================================
+   FATEH27
+   CASHFREE PAYMENTS
+   ========================================================= */
+
+const CASHFREE_API_VERSION = process.env.CASHFREE_API_VERSION || "2025-01-01";
+const CASHFREE_ENV = process.env.CASHFREE_ENV || "production";
+const CASHFREE_BASE_URL =
+  CASHFREE_ENV === "sandbox"
+    ? "https://sandbox.cashfree.com"
+    : "https://api.cashfree.com";
+
+const PREMIUM_PRICE_INR = Number(process.env.PREMIUM_PRICE_INR || 499);
+const PREMIUM_DURATION_DAYS = Number(process.env.PREMIUM_DURATION_DAYS || 30);
+const PUBLIC_API_URL = String(process.env.PUBLIC_API_URL || "https://fateh27-bot.onrender.com").replace(/\/$/, "");
+const PUBLIC_APP_URL = String(process.env.PUBLIC_APP_URL || "").replace(/\/$/, "");
+
+function getCashfreeConfig() {
+  const clientId = process.env.CASHFREE_CLIENT_ID;
+  const clientSecret = process.env.CASHFREE_CLIENT_SECRET;
+  if (!clientId || !clientSecret) return null;
+  return { clientId, clientSecret };
+}
+
+async function firestoreDocument(documentPath, options = {}) {
+  const config = getFirebaseConfigForUsage();
+  if (!config) throw new Error("Firebase server credentials are not configured");
+  const token = await getFirebaseAccessTokenForUsage();
+  if (!token) throw new Error("Firebase access token unavailable");
+
+  const url = "https://firestore.googleapis.com/v1/projects/" +
+    encodeURIComponent(config.projectId) +
+    "/databases/(default)/documents/" + documentPath;
+
+  const response = await fetch(url, {
+    method: options.method || "GET",
+    headers: {
+      authorization: "Bearer " + token,
+      "content-type": "application/json"
+    },
+    body: options.body ? JSON.stringify(options.body) : undefined
+  });
+
+  if (!response.ok) {
+    const detail = await response.text().catch(() => "");
+    throw new Error("Firestore request failed: " + response.status + " " + detail.slice(0, 300));
+  }
+
+  return response.status === 204 ? null : response.json();
+}
+
+function firestoreFieldsForPaymentOrder({ orderId, telegramUserId, amount, status }) {
+  return {
+    orderId: { stringValue: orderId },
+    telegramUserId: { stringValue: telegramUserId },
+    amount: { doubleValue: amount },
+    currency: { stringValue: "INR" },
+    status: { stringValue: status },
+    createdAt: { timestampValue: new Date().toISOString() },
+    updatedAt: { timestampValue: new Date().toISOString() }
+  };
+}
+
+async function createCashfreeOrder({ orderId, telegramUserId, phone }) {
+  const config = getCashfreeConfig();
+  if (!config) throw new Error("Cashfree credentials are not configured");
+
+  const response = await fetch(CASHFREE_BASE_URL + "/pg/orders", {
+    method: "POST",
+    headers: {
+      "x-client-id": config.clientId,
+      "x-client-secret": config.clientSecret,
+      "x-api-version": CASHFREE_API_VERSION,
+      "content-type": "application/json",
+      "accept": "application/json"
+    },
+    body: JSON.stringify({
+      order_id: orderId,
+      order_amount: PREMIUM_PRICE_INR,
+      order_currency: "INR",
+      customer_details: {
+        customer_id: "tg_" + telegramUserId,
+        customer_phone: phone
+      },
+      order_meta: {
+        return_url: PUBLIC_APP_URL
+          ? PUBLIC_APP_URL + "/premium?payment=return&order_id={order_id}"
+          : undefined,
+        notify_url: PUBLIC_API_URL + "/api/payments/cashfree/webhook"
+      },
+      order_note: "FATEH27 Premium " + PREMIUM_DURATION_DAYS + " days"
+    })
+  });
+
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    throw new Error(data?.message || data?.error_description || "Cashfree order creation failed");
+  }
+  return data;
+}
+
+app.post(
+  "/api/payments/create-order",
+  rateLimit("payment-create", 10),
+  async (req, res) => {
+    try {
+      const initData = String(req.headers["x-telegram-init-data"] || "").trim();
+      const telegramUserId = getTelegramUserId(req);
+
+      if (!initData || !telegramUserId) {
+        return res.status(401).json({ error: "Telegram authentication is required" });
+      }
+
+      const config = getCashfreeConfig();
+      if (!config) {
+        return res.status(503).json({ error: "Payment gateway is not configured yet" });
+      }
+
+      if (!Number.isFinite(PREMIUM_PRICE_INR) || PREMIUM_PRICE_INR <= 0) {
+        return res.status(503).json({ error: "Premium price is not configured correctly" });
+      }
+
+      const phone = String(req.body?.phone || "").replace(/\\D/g, "");
+      if (!/^\\d{10}$/.test(phone)) {
+        return res.status(400).json({ error: "Valid 10-digit mobile number is required for payment" });
+      }
+
+      const orderId =
+        "F27_" +
+        telegramUserId +
+        "_" +
+        Date.now().toString(36) +
+        "_" +
+        crypto.randomBytes(4).toString("hex");
+
+      const order = await createCashfreeOrder({ orderId, telegramUserId, phone });
+
+      await firestoreDocument(
+        "paymentOrders/" + encodeURIComponent(orderId),
+        {
+          method: "PATCH",
+          body: {
+            fields: firestoreFieldsForPaymentOrder({
+              orderId,
+              telegramUserId,
+              amount: PREMIUM_PRICE_INR,
+              status: "CREATED"
+            })
+          }
+        }
+      );
+
+      return res.json({
+        orderId,
+        paymentSessionId: order?.payment_session_id || null,
+        amount: PREMIUM_PRICE_INR,
+        currency: "INR",
+        durationDays: PREMIUM_DURATION_DAYS,
+        environment: CASHFREE_ENV
+      });
+    } catch (error) {
+      console.error("/api/payments/create-order error:", error);
+      return res.status(500).json({
+        error: "Payment order creation failed",
+        detail: error?.message || "Unknown error"
+      });
+    }
+  }
+);
+
+function verifyCashfreeWebhook(req) {
+  const secret = process.env.CASHFREE_CLIENT_SECRET;
+  const signature = String(req.headers["x-webhook-signature"] || "");
+  const timestamp = String(req.headers["x-webhook-timestamp"] || "");
+  const rawBody = String(req.rawBody || "");
+
+  if (!secret || !signature || !timestamp || !rawBody) return false;
+
+  const expected = crypto
+    .createHmac("sha256", secret)
+    .update(timestamp + rawBody)
+    .digest("base64");
+
+  const received = Buffer.from(signature);
+  const calculated = Buffer.from(expected);
+
+  return received.length === calculated.length &&
+    crypto.timingSafeEqual(received, calculated);
+}
+
+app.post(
+  "/api/payments/cashfree/webhook",
+  async (req, res) => {
+    try {
+      if (!verifyCashfreeWebhook(req)) {
+        return res.status(401).json({ error: "Invalid webhook signature" });
+      }
+
+      const payload = req.body || {};
+      const orderId = String(payload?.data?.order?.order_id || "");
+      const paymentStatus = String(payload?.data?.payment?.payment_status || "");
+      const paymentAmount = Number(payload?.data?.payment?.payment_amount || 0);
+
+      if (!orderId) return res.status(400).json({ error: "Missing order id" });
+
+      const orderDoc = await firestoreDocument("paymentOrders/" + encodeURIComponent(orderId));
+      const orderFields = orderDoc?.fields || {};
+      const telegramUserId = String(orderFields?.telegramUserId?.stringValue || "");
+      const expectedAmount = Number(
+        orderFields?.amount?.doubleValue ??
+        orderFields?.amount?.integerValue ??
+        0
+      );
+
+      if (!telegramUserId || !expectedAmount) {
+        return res.status(404).json({ error: "Payment order not found" });
+      }
+
+      if (paymentStatus === "SUCCESS") {
+        if (paymentAmount !== expectedAmount) {
+          return res.status(400).json({ error: "Payment amount mismatch" });
+        }
+
+        const endsAt = new Date(
+          Date.now() + PREMIUM_DURATION_DAYS * 24 * 60 * 60 * 1000
+        ).toISOString();
+
+        await firestoreDocument(
+          "users/" + encodeURIComponent(telegramUserId),
+          {
+            method: "PATCH",
+            body: {
+              updateMask: {
+                fieldPaths: ["plan", "subscriptionStatus", "subscriptionEndsAt"]
+              },
+              fields: {
+                plan: { stringValue: "premium" },
+                subscriptionStatus: { stringValue: "active" },
+                subscriptionEndsAt: { timestampValue: endsAt }
+              }
+            }
+          }
+        );
+
+        await firestoreDocument(
+          "paymentOrders/" + encodeURIComponent(orderId),
+          {
+            method: "PATCH",
+            body: {
+              updateMask: {
+                fieldPaths: ["status", "paymentId", "updatedAt"]
+              },
+              fields: {
+                status: { stringValue: "PAID" },
+                paymentId: {
+                  stringValue: String(payload?.data?.payment?.cf_payment_id || "")
+                },
+                updatedAt: { timestampValue: new Date().toISOString() }
+              }
+            }
+          }
+        );
+      } else {
+        await firestoreDocument(
+          "paymentOrders/" + encodeURIComponent(orderId),
+          {
+            method: "PATCH",
+            body: {
+              updateMask: {
+                fieldPaths: ["status", "updatedAt"]
+              },
+              fields: {
+                status: { stringValue: paymentStatus || "UNKNOWN" },
+                updatedAt: { timestampValue: new Date().toISOString() }
+              }
+            }
+          }
+        );
+      }
+
+      return res.json({ received: true });
+    } catch (error) {
+      console.error("/api/payments/cashfree/webhook error:", error);
+      return res.status(500).json({ error: "Webhook processing failed" });
+    }
+  }
+);
 
 /* =========================================================
    FATEH27
