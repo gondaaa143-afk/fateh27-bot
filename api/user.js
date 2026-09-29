@@ -1,6 +1,7 @@
 import crypto from "crypto";
 
 const MAX_AGE_SECONDS = 24 * 60 * 60;
+const ADMIN_ID = String(process.env.FATEH27_ADMIN_ID || "5496422260");
 
 function clean(value) {
   return String(value ?? "").trim();
@@ -268,33 +269,32 @@ export default async function handler(req, res) {
 
     const user = verifyTelegramInitData(initData);
 
-    // New Telegram users must be approved before a user document/progress is created.
-    const accessId = encodeURIComponent(String(user.id));
-    const accessUrl = "https://firestore.googleapis.com/v1/projects/" +
-      encodeURIComponent(getFirebaseConfig().projectId) +
-      "/databases/(default)/documents/accessRequests/" + accessId;
-    const accessToken = await getGoogleAccessToken();
-    const accessResponse = await fetch(accessUrl, {
-      headers: { authorization: "Bearer " + accessToken }
-    });
+    // Explicit access approval is required before any user/progress write.
+    // The owner is the only account allowed without an access request.
+    if (String(user.id) !== ADMIN_ID) {
+      const accessId = encodeURIComponent(String(user.id));
+      const accessUrl = "https://firestore.googleapis.com/v1/projects/" +
+        encodeURIComponent(getFirebaseConfig().projectId) +
+        "/databases/(default)/documents/accessRequests/" + accessId;
+      const accessToken = await getGoogleAccessToken();
+      const accessResponse = await fetch(accessUrl, {
+        headers: { authorization: "Bearer " + accessToken }
+      });
 
-    if (accessResponse.status === 404) {
-      const existingUser = await readUserDocument(user);
-      if (!existingUser) {
+      if (!accessResponse.ok) {
         return res.status(403).json({
           error: "Access approval required",
-          status: "not_approved"
+          status: accessResponse.status === 404 ? "not_requested" : "unknown"
         });
       }
-    } else if (accessResponse.ok) {
+
       const accessDoc = await accessResponse.json();
       const accessStatus = String(fromFirestoreValue(accessDoc?.fields?.status) || "").toLowerCase();
-      const existingUser = await readUserDocument(user);
 
-      if (!existingUser && accessStatus !== "approved") {
+      if (accessStatus !== "approved") {
         return res.status(403).json({
           error: "Access approval required",
-          status: accessStatus || "pending"
+          status: accessStatus || "not_requested"
         });
       }
     }
