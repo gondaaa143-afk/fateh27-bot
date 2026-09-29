@@ -1,0 +1,1 @@
+// Legacy admin.js retained for compatibility. The active admin dashboard is public/admin.html and uses /api/access with Telegram authentication.
