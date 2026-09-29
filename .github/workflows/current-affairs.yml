@@ -33,13 +33,22 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/current.md
+          git add data/current.md public/data/current.md
           git diff --cached --quiet || git commit -m "Auto update current affairs"
           git push
 
-      - name: Post to Telegram Split
+      - name: Post to Telegram Channel
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           node scripts/telegram-post.mjs
+
+      - name: Notify all approved FATEH27 users
+        env:
+          FATEH27_NOTIFY_SECRET: ${{ secrets.FATEH27_NOTIFY_SECRET }}
+        run: |
+          curl -fsS -X POST "https://fateh27-bot.onrender.com/api/notifications/current-affairs" \
+            -H "Content-Type: application/json" \
+            -H "x-fateh27-notify-secret: $FATEH27_NOTIFY_SECRET" \
+            --data '{"sourceUrl":"https://fateh27-bot.vercel.app/data/current.md"}'
