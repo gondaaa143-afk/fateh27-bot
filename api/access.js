@@ -141,6 +141,27 @@ async function getAccessState(userId) {
   return { status: "not_requested", source: null };
 }
 
+async function notifyAdminAccessRequest(user) {
+  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const adminId = String(process.env.FATEH27_ADMIN_ID || "5496422260");
+  if (!token || !adminId) return;
+
+  const name = [user.first_name, user.last_name].filter(Boolean).join(" ") || "Unknown User";
+  const username = user.username ? "@" + user.username : "—";
+  const text =
+    "🔔 FATEH27 Access Request\\n\\n" +
+    "Name: " + name + "\\n" +
+    "Username: " + username + "\\n" +
+    "Telegram ID: " + String(user.id) + "\\n\\n" +
+    "Approve / Reject request from the FATEH27 Admin panel.";
+
+  await fetch("https://api.telegram.org/bot" + token + "/sendMessage", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ chat_id: adminId, text })
+  }).catch(() => {});
+}
+
 async function saveAccessRequest(user) {
   const id = encodeURIComponent(String(user.id));
   const existing = await firestoreRequest("accessRequests/" + id);
