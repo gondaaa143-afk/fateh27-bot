@@ -1863,6 +1863,18 @@ body {
 
 </button>
 
+<!-- OWNER ACCESS CONTROL -->
+<button id="ownerAccessBtn" class="quickBtn" onclick="location.href='/admin'" style="display:none">
+  <div class="quickLeft">
+    <div class="quickIcon">🔐</div>
+    <div class="quickText">
+      <div class="quickTitle">Access Control</div>
+      <div class="quickSub">Members • Requests • Approvals</div>
+    </div>
+  </div>
+  <div class="quickArrow">›</div>
+</button>
+
 </div>
 
 
@@ -1902,18 +1914,16 @@ if(tg){
 
 async function showOwnerAdminButton(){
   const adminButton = document.getElementById("ownerAdminButton");
-  if(!adminButton) return;
-  adminButton.style.display = "none";
+  const accessButton = document.getElementById("ownerAccessBtn");
+  if(adminButton) adminButton.style.display = "none";
+  if(accessButton) accessButton.style.display = "none";
 
   const user = tg?.initDataUnsafe?.user || null;
 
-  // Fast local check so the owner sees the button immediately.
   if(user && String(user.id) === "5496422260"){
-    adminButton.style.display = "block";
+    if(accessButton) accessButton.style.display = "flex";
   }
 
-  // Server-side verification is the source of truth.
-  // This also handles Telegram WebApp data becoming available slightly later.
   const initData = tg?.initData || "";
   if(!initData) return;
 
@@ -1922,8 +1932,8 @@ async function showOwnerAdminButton(){
       headers:{"x-telegram-init-data":initData}
     });
 
-    if(response.ok){
-      adminButton.style.display = "block";
+    if(response.ok && accessButton){
+      accessButton.style.display = "flex";
     }
   }catch(error){
     console.warn("FATEH27 owner admin check:", error);
