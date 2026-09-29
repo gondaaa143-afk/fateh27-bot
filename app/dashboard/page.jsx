@@ -107,7 +107,10 @@ export default function Dashboard() {
             <div className="f27-clearance">{premium ? "Clearance: PREMIUM" : "Clearance: ALPHA"}</div>
           </div>
 
-          <button className="f27-action" onClick={() => router.push("/ai-secretary.html")}>✦ Open AI Secretary →</button>
+          <div style={{display:"grid",gap:"8px"}}>
+            <button className="f27-action" onClick={() => router.push("/ai-secretary.html")}>✦ Open AI Secretary →</button>
+            <button className="f27-action" onClick={() => router.push("/ai-secretary.html")} style={{background:"#111",color:"#fff",borderColor:"#111"}}>🎙 Voice Secretary →</button>
+          </div>
 
           <div className="f27-membership">
             <div className="f27-membership-row">
