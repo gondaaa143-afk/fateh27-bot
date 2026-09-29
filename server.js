@@ -581,6 +581,17 @@ app.post(
   async (req, res) => {
     try {
       if (!verifyCashfreeWebhook(req)) {
+        const signature = String(req.headers["x-webhook-signature"] || "");
+        const timestamp = String(req.headers["x-webhook-timestamp"] || "");
+
+        // Cashfree's dashboard sandbox probe can arrive without webhook
+        // signature headers. Acknowledge only this unsigned sandbox probe;
+        // never process it as a payment and never grant premium access.
+        if (CASHFREE_ENV === "sandbox" && !signature && !timestamp) {
+          console.warn("Cashfree sandbox webhook probe acknowledged without signature.");
+          return res.json({ received: true, test: true });
+        }
+
         return res.status(401).json({ error: "Invalid webhook signature" });
       }
 
