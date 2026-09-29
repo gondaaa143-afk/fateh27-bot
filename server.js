@@ -35,11 +35,61 @@ const openai =
    MIDDLEWARE
    ========================================================= */
 
+app.set("trust proxy", 1);
+
+const RATE_WINDOW_MS = 15 * 60 * 1000;
+const rateBuckets = new Map();
+const RATE_LIMITS = { general: 120, translate: 20, evaluate: 10, secretary: 30, tts: 15 };
+
+function rateLimit(bucket, limit) {
+  return (req, res, next) => {
+    const now = Date.now();
+    const ip = req.ip || req.socket?.remoteAddress || "unknown";
+    const key = bucket + ":" + ip;
+    let entry = rateBuckets.get(key);
+
+    if (!entry || now - entry.startedAt >= RATE_WINDOW_MS) {
+      entry = { startedAt: now, count: 0 };
+    }
+
+    entry.count += 1;
+    rateBuckets.set(key, entry);
+
+    if (rateBuckets.size > 10000) {
+      for (const [storedKey, stored] of rateBuckets) {
+        if (now - stored.startedAt >= RATE_WINDOW_MS) rateBuckets.delete(storedKey);
+      }
+    }
+
+    const remaining = Math.max(0, limit - entry.count);
+    res.setHeader("X-RateLimit-Limit", String(limit));
+    res.setHeader("X-RateLimit-Remaining", String(remaining));
+
+    if (entry.count > limit) {
+      const retryAfter = Math.max(1, Math.ceil((RATE_WINDOW_MS - (now - entry.startedAt)) / 1000));
+      res.setHeader("Retry-After", String(retryAfter));
+      return res.status(429).json({ error: "Too many requests. Please try again later." });
+    }
+
+    next();
+  };
+}
+
+app.disable("x-powered-by");
+
+app.use((req, res, next) => {
+  res.setHeader("X-Content-Type-Options", "nosniff");
+  res.setHeader("X-Frame-Options", "DENY");
+  res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
+  next();
+});
+
 app.use(cors());
+app.use(rateLimit("general", RATE_LIMITS.general));
 
 app.use(
   express.json({
-    limit: "12mb"
+    limit: "8mb"
   })
 );
 
@@ -100,6 +150,7 @@ app.get(
 
 app.post(
   "/api/translate",
+  rateLimit("translate", RATE_LIMITS.translate),
   async (req, res) => {
 
     try {
@@ -363,6 +414,7 @@ Output ONLY the Hindi translation.
 
 app.post(
   "/api/evaluate",
+  rateLimit("evaluate", RATE_LIMITS.evaluate),
   async (req, res) => {
 
     try {
@@ -955,6 +1007,7 @@ function secretaryFallback(message, plan, progress, revisionDue) {
 
 app.post(
   "/api/secretary",
+  rateLimit("secretary", RATE_LIMITS.secretary),
   async (req, res) => {
     try {
       const message = cleanText(req.body?.message);
@@ -1060,6 +1113,7 @@ app.post(
 
 app.post(
   "/api/secretary/tts",
+  rateLimit("tts", RATE_LIMITS.tts),
   async (req, res) => {
     try {
       if (!openai) {
