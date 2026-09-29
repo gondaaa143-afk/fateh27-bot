@@ -1055,6 +1055,64 @@ app.post(
 );
 
 /* =========================================================
+   AI SECRETARY TEXT-TO-SPEECH
+   ========================================================= */
+
+app.post(
+  "/api/secretary/tts",
+  async (req, res) => {
+    try {
+      if (!openai) {
+        return res.status(500).json({
+          error: "OPENAI_API_KEY is not configured."
+        });
+      }
+
+      const text = cleanText(req.body?.text);
+
+      if (!text) {
+        return res.status(400).json({
+          error: "text is required"
+        });
+      }
+
+      if (text.length > 4096) {
+        return res.status(400).json({
+          error: "text is too long for speech generation"
+        });
+      }
+
+      const speech = await openai.audio.speech.create({
+        model: process.env.OPENAI_TTS_MODEL || "gpt-4o-mini-tts",
+        voice: process.env.OPENAI_TTS_VOICE || "marin",
+        input: text,
+        instructions: "Speak naturally in clear Indian Hindi/Hinglish. Calm, concise and helpful study-assistant tone.",
+        response_format: "mp3",
+        speed: 0.95
+      });
+
+      const buffer = Buffer.from(await speech.arrayBuffer());
+
+      res.set({
+        "Content-Type": "audio/mpeg",
+        "Content-Length": String(buffer.length),
+        "Cache-Control": "no-store"
+      });
+
+      return res.send(buffer);
+
+    } catch (error) {
+      console.error("/api/secretary/tts error:", error);
+
+      return res.status(500).json({
+        error: "Speech generation failed",
+        detail: error?.message || "Unknown error"
+      });
+    }
+  }
+);
+
+/* =========================================================
    STATIC FRONTEND
    ========================================================= */
 
