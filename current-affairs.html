@@ -2,69 +2,1107 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FATEH27 Current Affairs</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+<title>FATEH27 — Current Affairs</title>
+
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
 
 <style>
+:root{
+  --bg:#f4f4f4;
+  --card:rgba(255,255,255,.78);
+  --text:#111;
+  --muted:#707070;
+  --line:rgba(0,0,0,.08);
+  --black:#111;
+  --white:#fff;
+}
+
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+
 body{
-background:#07152d;
-color:white;
-font-family:Arial,sans-serif;
-margin:0;
-padding:20px;
+  margin:0;
+  background:
+    radial-gradient(circle at 10% 0%,rgba(0,0,0,.045),transparent 30%),
+    radial-gradient(circle at 90% 20%,rgba(0,0,0,.035),transparent 30%),
+    var(--bg);
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",
+              "SF Pro Text","Segoe UI",Arial,sans-serif;
+  min-height:100vh;
 }
-h1{font-size:32px;}
-.tabs{
-display:flex;
-gap:8px;
-margin:18px 0;
-flex-wrap:wrap;
+
+.container{
+  width:min(1100px,100%);
+  margin:auto;
+  padding:22px 18px 110px;
 }
-button{
-background:#18d26b;
-color:white;
-border:none;
-padding:10px 16px;
-border-radius:20px;
-font-weight:bold;
+
+/* HEADER */
+
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
 }
-button.active{
-background:#00a651;
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
 }
-.card{
-background:#0d2148;
-padding:18px;
-border-radius:18px;
-white-space:pre-wrap;
-line-height:1.7;
+
+.brandIcon{
+  width:48px;
+  height:48px;
+  border-radius:16px;
+  background:#111;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  box-shadow:0 10px 25px rgba(0,0,0,.12);
+}
+
+.brandTitle{
+  font-size:24px;
+  font-weight:800;
+  letter-spacing:-.5px;
+}
+
+.brandSub{
+  color:var(--muted);
+  font-size:12px;
+  margin-top:2px;
+}
+
+/* HERO */
+
+.hero{
+  background:#111;
+  color:white;
+  border-radius:28px;
+  padding:24px;
+  margin-bottom:18px;
+  box-shadow:0 18px 40px rgba(0,0,0,.13);
+}
+
+.heroTop{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  align-items:flex-start;
+}
+
+.heroTitle{
+  font-size:28px;
+  font-weight:800;
+  letter-spacing:-.7px;
+}
+
+.heroSub{
+  color:#aaa;
+  margin-top:6px;
+  font-size:14px;
+}
+
+.datePill{
+  background:#292929;
+  border:1px solid rgba(255,255,255,.1);
+  padding:8px 12px;
+  border-radius:999px;
+  font-size:12px;
+  white-space:nowrap;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-top:22px;
+}
+
+.stat{
+  background:#1b1b1b;
+  border-radius:18px;
+  padding:13px;
+}
+
+.statValue{
+  font-size:20px;
+  font-weight:800;
+}
+
+.statLabel{
+  color:#999;
+  font-size:11px;
+  margin-top:3px;
+}
+
+/* SEARCH */
+
+.searchBox{
+  background:var(--card);
+  border:1px solid var(--line);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-radius:20px;
+  padding:12px 15px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:14px;
+  box-shadow:0 8px 25px rgba(0,0,0,.04);
+}
+
+.searchBox span{
+  font-size:18px;
+}
+
+.searchBox input{
+  width:100%;
+  border:0;
+  outline:0;
+  background:transparent;
+  font-size:15px;
+  color:var(--text);
+}
+
+/* FILTERS */
+
+.filters{
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding-bottom:5px;
+  margin-bottom:18px;
+  scrollbar-width:none;
+}
+
+.filters::-webkit-scrollbar{
+  display:none;
+}
+
+.filter{
+  flex:0 0 auto;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.75);
+  color:#555;
+  padding:9px 14px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.filter.active{
+  background:#111;
+  color:#fff;
+  border-color:#111;
+}
+
+/* CONTENT */
+
+#content{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.article{
+  background:var(--card);
+  border:1px solid var(--line);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-radius:24px;
+  padding:20px;
+  box-shadow:0 8px 25px rgba(0,0,0,.04);
+}
+
+.articleTop{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:flex-start;
+}
+
+.articleNumber{
+  width:32px;
+  height:32px;
+  border-radius:11px;
+  background:#111;
+  color:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:12px;
+  font-weight:800;
+  flex:none;
+}
+
+.articleTitle{
+  flex:1;
+  font-size:18px;
+  font-weight:800;
+  line-height:1.35;
+  letter-spacing:-.2px;
+}
+
+.priority{
+  padding:6px 9px;
+  border-radius:999px;
+  font-size:10px;
+  font-weight:800;
+  background:#eee;
+  color:#444;
+}
+
+.priority.high{
+  background:#111;
+  color:#fff;
+}
+
+.meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin:12px 0 15px 44px;
+}
+
+.tag{
+  background:#ededed;
+  padding:6px 9px;
+  border-radius:999px;
+  font-size:10px;
+  font-weight:700;
+  color:#555;
+}
+
+.section{
+  border-top:1px solid var(--line);
+  padding-top:13px;
+  margin-top:13px;
+}
+
+.sectionTitle{
+  font-size:12px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+  color:#555;
+  margin-bottom:6px;
+}
+
+.sectionText{
+  font-size:14px;
+  line-height:1.7;
+  color:#222;
+  white-space:pre-wrap;
+}
+
+.recall{
+  background:#111;
+  color:#fff;
+  border-radius:18px;
+  padding:15px;
+  margin-top:15px;
+}
+
+.recallTitle{
+  font-size:11px;
+  color:#aaa;
+  font-weight:800;
+  text-transform:uppercase;
+  margin-bottom:7px;
+}
+
+.recallQuestion{
+  font-size:14px;
+  line-height:1.6;
+  font-weight:600;
+}
+
+/* ACTIONS */
+
+.actions{
+  display:flex;
+  gap:8px;
+  margin-top:15px;
+}
+
+.actionBtn{
+  border:0;
+  background:#eee;
+  color:#111;
+  padding:10px 13px;
+  border-radius:13px;
+  font-size:11px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.actionBtn.revised{
+  background:#111;
+  color:white;
+}
+
+/* LOADING */
+
+.loading{
+  background:white;
+  border-radius:22px;
+  padding:30px;
+  text-align:center;
+  color:#777;
+}
+
+.error{
+  background:#111;
+  color:white;
+  border-radius:22px;
+  padding:24px;
+  line-height:1.6;
+}
+
+/* BOTTOM NAV */
+
+.bottomNav{
+  position:fixed;
+  bottom:15px;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(520px,calc(100% - 28px));
+  background:rgba(255,255,255,.88);
+  backdrop-filter:blur(25px);
+  -webkit-backdrop-filter:blur(25px);
+  border:1px solid rgba(0,0,0,.08);
+  box-shadow:0 15px 35px rgba(0,0,0,.14);
+  border-radius:28px;
+  padding:7px;
+  display:flex;
+  justify-content:space-around;
+  z-index:100;
+}
+
+.navBtn{
+  border:0;
+  background:transparent;
+  color:#777;
+  padding:8px 18px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.navBtn.active{
+  background:#111;
+  color:#fff;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+  .container{
+    padding:16px 13px 100px;
+  }
+
+  .hero{
+    padding:20px;
+    border-radius:24px;
+  }
+
+  .heroTitle{
+    font-size:23px;
+  }
+
+  .datePill{
+    font-size:10px;
+  }
+
+  .stats{
+    gap:7px;
+  }
+
+  .stat{
+    padding:11px;
+  }
+
+  .statValue{
+    font-size:17px;
+  }
+
+  .article{
+    padding:17px;
+    border-radius:21px;
+  }
+
+  .articleTitle{
+    font-size:16px;
+  }
+
+  .meta{
+    margin-left:0;
+  }
+
+  .sectionText{
+    font-size:13px;
+  }
+
 }
 </style>
 </head>
 
 <body>
 
-<h1>📚 Current Affairs</h1>
+<div class="container">
 
-<div class="tabs">
-<button onclick="loadGS('gs1',this)" class="active">GS1</button>
-<button onclick="loadGS('gs2',this)">GS2</button>
-<button onclick="loadGS('gs3',this)">GS3</button>
-<button onclick="loadGS('gs4',this)">GS4</button>
+  <div class="header">
+    <div class="brand">
+      <div class="brandIcon">📚</div>
+      <div>
+        <div class="brandTitle">Current Affairs</div>
+        <div class="brandSub">FATEH27 • UPSC Command Center</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero">
+
+    <div class="heroTop">
+
+      <div>
+        <div class="heroTitle">
+          Daily UPSC Intelligence
+        </div>
+
+        <div class="heroSub">
+          The Hindu • PIB • UPSC Prelims + Mains
+        </div>
+      </div>
+
+      <div class="datePill" id="date">
+        TODAY
+      </div>
+
+    </div>
+
+    <div class="stats">
+
+      <div class="stat">
+        <div class="statValue" id="articleCount">—</div>
+        <div class="statLabel">Important Items</div>
+      </div>
+
+      <div class="stat">
+        <div class="statValue" id="revisedCount">0</div>
+        <div class="statLabel">Revised</div>
+      </div>
+
+      <div class="stat">
+        <div class="statValue" id="xpCount">0</div>
+        <div class="statLabel">XP Earned</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="searchBox">
+    <span>⌕</span>
+    <input
+      id="search"
+      type="search"
+      placeholder="Search current affairs..."
+      oninput="renderArticles()"
+    >
+  </div>
+
+  <div class="filters">
+
+    <button class="filter active"
+      onclick="setFilter('ALL',this)">
+      TODAY
+    </button>
+
+    <button class="filter"
+      onclick="setFilter('GS1',this)">
+      GS1
+    </button>
+
+    <button class="filter"
+      onclick="setFilter('GS2',this)">
+      GS2
+    </button>
+
+    <button class="filter"
+      onclick="setFilter('GS3',this)">
+      GS3
+    </button>
+
+    <button class="filter"
+      onclick="setFilter('GS4',this)">
+      GS4
+    </button>
+
+    <button class="filter"
+      onclick="setFilter('IR',this)">
+      IR
+    </button>
+
+    <button class="filter"
+      onclick="setFilter('ECONOMY',this)">
+      Economy
+    </button>
+
+    <button class="filter"
+      onclick="setFilter('ENVIRONMENT',this)">
+      Environment
+    </button>
+
+    <button class="filter"
+      onclick="setFilter('SCIENCE',this)">
+      Science
+    </button>
+
+    <button class="filter"
+      onclick="setFilter('REPORTS',this)">
+      Reports
+    </button>
+
+  </div>
+
+  <div id="content">
+    <div class="loading">
+      Loading today's UPSC current affairs...
+    </div>
+  </div>
+
 </div>
 
-<div class="card" id="content">Loading...</div>
+
+<div class="bottomNav">
+
+  <button class="navBtn"
+    onclick="location.href='index.html'">
+    🏠<br>Home
+  </button>
+
+  <button class="navBtn active">
+    📰<br>CA
+  </button>
+
+  <button class="navBtn"
+    onclick="location.href='pyq.html'">
+    🎯<br>PYQ
+  </button>
+
+  <button class="navBtn"
+    onclick="location.href='answer.html'">
+    🤖<br>AI
+  </button>
+
+</div>
+
 
 <script>
-async function loadGS(gs,btn){
-document.querySelectorAll("button").forEach(b=>b.classList.remove("active"));
-if(btn)btn.classList.add("active");
 
-const res=await fetch("/"+gs+"?t="+Date.now());
-const text=await res.text();
-document.getElementById("content").innerText=text;
+Telegram.WebApp.ready();
+Telegram.WebApp.expand();
+
+let articles = [];
+let currentFilter = "ALL";
+
+let revised = JSON.parse(
+  localStorage.getItem("fateh27_ca_revised") || "[]"
+);
+
+let xp = Number(
+  localStorage.getItem("fateh27_ca_xp") || 0
+);
+
+
+/* ---------------------------------------
+   LOAD CURRENT AFFAIRS
+--------------------------------------- */
+
+async function loadCurrentAffairs(){
+
+  try{
+
+    const response = await fetch(
+      "/data/current.md?t=" + Date.now()
+    );
+
+    if(!response.ok){
+      throw new Error("Current affairs file not found");
+    }
+
+    const markdown = await response.text();
+
+    parseMarkdown(markdown);
+
+    renderArticles();
+
+  }catch(error){
+
+    console.error(error);
+
+    document.getElementById("content").innerHTML = `
+      <div class="error">
+        <strong>Current Affairs load नहीं हो पाया.</strong>
+        <br><br>
+        GitHub Actions से
+        <code>data/current.md</code>
+        generate होना चाहिए।
+      </div>
+    `;
+
+  }
+
 }
 
-loadGS("gs1",document.querySelector("button"));
+
+/* ---------------------------------------
+   MARKDOWN PARSER
+--------------------------------------- */
+
+function parseMarkdown(text){
+
+  articles = [];
+
+  const blocks = text.split(/\n---\n/);
+
+  blocks.forEach(block => {
+
+    if(!block.includes("### Why in News?")){
+      return;
+    }
+
+    const titleMatch =
+      block.match(/##\s+\d+\.\s+(.+)/);
+
+    if(!titleMatch){
+      return;
+    }
+
+    const article = {
+
+      title:titleMatch[1].trim(),
+
+      source:getSection(block,"Source:"),
+
+      url:getSection(block,"Source URL:"),
+
+      category:getSection(block,"Category:"),
+
+      priority:getSection(block,"Priority:"),
+
+      why:getSection(block,"Why in News?"),
+
+      what:getSection(block,"What Happened?"),
+
+      background:getSection(block,"Background"),
+
+      prelims:getSection(block,"Prelims Focus"),
+
+      mains:getSection(block,"Mains Focus"),
+
+      syllabus:getSection(block,"UPSC Syllabus Link"),
+
+      staticLink:getSection(block,"Static Connection"),
+
+      pyq:getSection(block,"PYQ Connection"),
+
+      revision:getSection(block,"30-Second Revision"),
+
+      recall:getSection(block,"Active Recall")
+
+    };
+
+    articles.push(article);
+
+  });
+
+  document.getElementById("articleCount").innerText =
+    articles.length;
+
+  updateStats();
+
+  const dateMatch =
+    text.match(/##\s+(\d{1,2}\s+\w+\s+\d{4})/);
+
+  if(dateMatch){
+
+    document.getElementById("date").innerText =
+      dateMatch[1];
+
+  }
+
+}
+
+
+/* ---------------------------------------
+   SECTION EXTRACTOR
+--------------------------------------- */
+
+function getSection(text,label){
+
+  const escaped =
+    label.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+
+  const regex =
+    new RegExp(
+      escaped +
+      "\\s*\\n?([\\s\\S]*?)(?=\\n###|\\n##|$)"
+    );
+
+  const match = text.match(regex);
+
+  if(!match){
+    return "";
+  }
+
+  return match[1]
+    .replace(/^\s+|\s+$/g,"")
+    .trim();
+
+}
+
+
+/* ---------------------------------------
+   FILTER
+--------------------------------------- */
+
+function setFilter(filter,button){
+
+  currentFilter = filter;
+
+  document.querySelectorAll(".filter")
+    .forEach(b => b.classList.remove("active"));
+
+  button.classList.add("active");
+
+  renderArticles();
+
+}
+
+
+/* ---------------------------------------
+   RENDER
+--------------------------------------- */
+
+function renderArticles(){
+
+  const search =
+    document.getElementById("search")
+      .value
+      .toLowerCase()
+      .trim();
+
+  const filtered =
+    articles.filter((article,index) => {
+
+      const filterMatch =
+        currentFilter === "ALL" ||
+        article.category
+          .toUpperCase()
+          .includes(currentFilter);
+
+      const text = (
+        article.title + " " +
+        article.source + " " +
+        article.category + " " +
+        article.why + " " +
+        article.what + " " +
+        article.prelims + " " +
+        article.mains
+      ).toLowerCase();
+
+      const searchMatch =
+        !search || text.includes(search);
+
+      return filterMatch && searchMatch;
+
+    });
+
+  if(filtered.length === 0){
+
+    document.getElementById("content").innerHTML = `
+      <div class="loading">
+        इस filter में कोई current affair नहीं मिला।
+      </div>
+    `;
+
+    return;
+  }
+
+  document.getElementById("content").innerHTML =
+    filtered.map((article) => {
+
+      const originalIndex =
+        articles.indexOf(article);
+
+      return createArticle(
+        article,
+        originalIndex
+      );
+
+    }).join("");
+
+}
+
+
+/* ---------------------------------------
+   ARTICLE CARD
+--------------------------------------- */
+
+function createArticle(article,index){
+
+  const isRevised =
+    revised.includes(index);
+
+  const priorityClass =
+    article.priority.toUpperCase() === "HIGH"
+      ? "priority high"
+      : "priority";
+
+  return `
+
+    <article class="article">
+
+      <div class="articleTop">
+
+        <div class="articleNumber">
+          ${index + 1}
+        </div>
+
+        <div class="articleTitle">
+          ${escapeHtml(article.title)}
+        </div>
+
+        <div class="${priorityClass}">
+          ${escapeHtml(article.priority || "UPSC")}
+        </div>
+
+      </div>
+
+
+      <div class="meta">
+
+        <div class="tag">
+          ${escapeHtml(article.category || "UPSC")}
+        </div>
+
+        <div class="tag">
+          ${escapeHtml(article.source || "Source")}
+        </div>
+
+      </div>
+
+
+      ${sectionHTML(
+        "Why in News?",
+        article.why
+      )}
+
+      ${sectionHTML(
+        "What Happened?",
+        article.what
+      )}
+
+      ${sectionHTML(
+        "Background",
+        article.background
+      )}
+
+      ${sectionHTML(
+        "Prelims Focus",
+        article.prelims
+      )}
+
+      ${sectionHTML(
+        "Mains Focus",
+        article.mains
+      )}
+
+      ${sectionHTML(
+        "UPSC Syllabus",
+        article.syllabus
+      )}
+
+      ${sectionHTML(
+        "Static Connection",
+        article.staticLink
+      )}
+
+      ${sectionHTML(
+        "PYQ Connection",
+        article.pyq
+      )}
+
+      ${sectionHTML(
+        "30-Second Revision",
+        article.revision
+      )}
+
+
+      <div class="recall">
+
+        <div class="recallTitle">
+          Active Recall
+        </div>
+
+        <div class="recallQuestion">
+          ${escapeHtml(article.recall || "Revise this topic.")}
+        </div>
+
+      </div>
+
+
+      <div class="actions">
+
+        <button
+          class="actionBtn ${isRevised ? "revised" : ""}"
+          onclick="markRevised(${index})">
+
+          ${isRevised ? "✓ Revised +10 XP" : "Mark Revised +10 XP"}
+
+        </button>
+
+        ${
+          article.url
+          ?
+          `<button
+             class="actionBtn"
+             onclick="window.open('${escapeAttr(article.url)}','_blank')">
+             Source ↗
+           </button>`
+          :
+          ""
+        }
+
+      </div>
+
+    </article>
+
+  `;
+
+}
+
+
+/* ---------------------------------------
+   SECTION HTML
+--------------------------------------- */
+
+function sectionHTML(title,text){
+
+  if(!text){
+    return "";
+  }
+
+  return `
+
+    <div class="section">
+
+      <div class="sectionTitle">
+        ${title}
+      </div>
+
+      <div class="sectionText">
+        ${escapeHtml(text)}
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+/* ---------------------------------------
+   REVISED
+--------------------------------------- */
+
+function markRevised(index){
+
+  if(revised.includes(index)){
+    return;
+  }
+
+  revised.push(index);
+
+  xp += 10;
+
+  localStorage.setItem(
+    "fateh27_ca_revised",
+    JSON.stringify(revised)
+  );
+
+  localStorage.setItem(
+    "fateh27_ca_xp",
+    xp
+  );
+
+  updateStats();
+
+  renderArticles();
+
+}
+
+
+/* ---------------------------------------
+   STATS
+--------------------------------------- */
+
+function updateStats(){
+
+  document.getElementById("revisedCount").innerText =
+    revised.length;
+
+  document.getElementById("xpCount").innerText =
+    xp;
+
+}
+
+
+/* ---------------------------------------
+   SECURITY
+--------------------------------------- */
+
+function escapeHtml(value){
+
+  return String(value || "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+function escapeAttr(value){
+
+  return String(value || "")
+    .replace(/'/g,"%27")
+    .replace(/"/g,"%22");
+
+}
+
+
+/* ---------------------------------------
+   START
+--------------------------------------- */
+
+loadCurrentAffairs();
+
 </script>
 
 </body>
