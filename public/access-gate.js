@@ -1,13 +1,17 @@
 (function(){
   "use strict";
-  const tg=window.Telegram?.WebApp;
-  if(!tg?.initData) return;
+
+  function boot(){
+    const tg=window.Telegram?.WebApp;
+    if(!tg?.initData) return;
+    if(document.getElementById("f27AccessGate")) return;
 
   const style=document.createElement("style");
   style.textContent=".f27Gate{position:fixed;inset:0;z-index:999999;display:flex;align-items:center;justify-content:center;padding:22px;background:rgba(244,244,244,.97);backdrop-filter:blur(24px);font-family:Arial,sans-serif}.f27GateCard{width:min(100%,420px);padding:25px;border-radius:24px;background:#fff;border:1px solid #ddd;box-shadow:0 18px 55px rgba(0,0,0,.12);text-align:center}.f27GateTitle{font-size:22px;font-weight:900}.f27GateText{margin-top:9px;color:#666;font-size:13px;line-height:1.55}.f27GateBtn{width:100%;margin-top:17px;border:0;border-radius:13px;padding:13px;background:#111;color:#fff;font-weight:800}.f27GateStatus{margin-top:10px;color:#777;font-size:11px}";
   document.head.appendChild(style);
 
   const gate=document.createElement("div");
+  gate.id="f27AccessGate";
   gate.className="f27Gate";
   gate.innerHTML='<div class="f27GateCard"><div class="f27GateTitle">FATEH27</div><div class="f27GateText" id="f27GateText">Checking access…</div><button class="f27GateBtn" id="f27GateBtn" style="display:none">Request Access</button><div class="f27GateStatus" id="f27GateStatus"></div></div>';
   document.body.appendChild(gate);
@@ -43,4 +47,11 @@
 
   try{tg.ready();tg.expand();}catch{}
   check();
+  }
+
+  if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", boot, { once:true });
+  }else{
+    boot();
+  }
 })();
