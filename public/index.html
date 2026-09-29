@@ -1480,6 +1480,14 @@ html.f27-access-blocked .bottomNav{
   font-size:11px;
 }
 
+
+/* ACCESS CONTROL ENTRY — always visible on the home Quick Launch */
+#ownerAccessBtn{
+  display:flex !important;
+  visibility:visible !important;
+  opacity:1 !important;
+}
+
 </style>
 
 </head>
@@ -1637,6 +1645,18 @@ html.f27-access-blocked .bottomNav{
 
 
 <div class="quickLaunch">
+
+<!-- OWNER ACCESS CONTROL -->
+<button id="ownerAccessBtn" class="quickBtn" onclick="location.href='/admin'">
+  <div class="quickLeft">
+    <div class="quickIcon">🔐</div>
+    <div class="quickText">
+      <div class="quickTitle">Access Control</div>
+      <div class="quickSub">Members • Requests • Approvals</div>
+    </div>
+  </div>
+  <div class="quickArrow">›</div>
+</button>
    
 
 
@@ -1941,18 +1961,6 @@ html.f27-access-blocked .bottomNav{
     ›
   </div>
 
-</button>
-
-<!-- OWNER ACCESS CONTROL -->
-<button id="ownerAccessBtn" class="quickBtn" onclick="location.href='/admin'" style="display:none">
-  <div class="quickLeft">
-    <div class="quickIcon">🔐</div>
-    <div class="quickText">
-      <div class="quickTitle">Access Control</div>
-      <div class="quickSub">Members • Requests • Approvals</div>
-    </div>
-  </div>
-  <div class="quickArrow">›</div>
 </button>
 
 </div>
