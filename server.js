@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import OpenAI from "openai";
+import crypto from "crypto";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -41,11 +42,45 @@ const RATE_WINDOW_MS = 15 * 60 * 1000;
 const rateBuckets = new Map();
 const RATE_LIMITS = { general: 120, translate: 20, evaluate: 10, secretary: 30, tts: 15 };
 
+function getTelegramUserId(req) {
+  const initData = String(req.headers["x-telegram-init-data"] || "").trim();
+  if (!initData) return null;
+
+  try {
+    const params = new URLSearchParams(initData);
+    const hash = params.get("hash");
+    const authDate = Number(params.get("auth_date"));
+    const botToken = process.env.TELEGRAM_BOT_TOKEN;
+    if (!hash || !authDate || !botToken) return null;
+
+    if (Math.abs(Math.floor(Date.now() / 1000) - authDate) > 24 * 60 * 60) return null;
+
+    const dataCheckString = [...params.entries()]
+      .filter(([key]) => key !== "hash")
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([key, value]) => key + "=" + value)
+      .join("\n");
+
+    const secretKey = crypto.createHmac("sha256", "WebAppData").update(botToken).digest();
+    const expectedHash = crypto.createHmac("sha256", secretKey).update(dataCheckString).digest("hex");
+    const received = Buffer.from(hash, "hex");
+    const expected = Buffer.from(expectedHash, "hex");
+
+    if (received.length !== expected.length || !crypto.timingSafeEqual(received, expected)) return null;
+
+    const user = JSON.parse(params.get("user") || "{}");
+    return user?.id ? String(user.id) : null;
+  } catch {
+    return null;
+  }
+}
+
 function rateLimit(bucket, limit) {
   return (req, res, next) => {
     const now = Date.now();
+    const telegramUserId = getTelegramUserId(req);
     const ip = req.ip || req.socket?.remoteAddress || "unknown";
-    const key = bucket + ":" + ip;
+    const key = bucket + ":" + (telegramUserId ? "tg:" + telegramUserId : "ip:" + ip);
     let entry = rateBuckets.get(key);
 
     if (!entry || now - entry.startedAt >= RATE_WINDOW_MS) {
