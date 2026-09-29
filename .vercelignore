@@ -1,0 +1,5 @@
+# Keep the legacy API files in GitHub, but do not deploy them as Vercel Serverless Functions.
+# The active Next.js deployment only needs these two authenticated endpoints.
+api/*
+!api/user.js
+!api/access.js
