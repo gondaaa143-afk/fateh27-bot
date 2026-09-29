@@ -1539,6 +1539,19 @@ body {
   </button>
 </div>
 
+<!-- OWNER ADMIN ACCESS
+     Hidden for everyone except the FATEH27 owner.
+-->
+<div id="ownerAdminButton" style="display:none;margin-top:12px">
+  <button
+    type="button"
+    onclick="location.href='/admin'"
+    style="width:100%;border:0;border-radius:16px;background:#111;color:#fff;padding:13px 15px;font:700 13px Arial;cursor:pointer"
+  >
+    ⚙ Owner Admin Panel →
+  </button>
+</div>
+
 <!-- =========================================================
      QUICK LAUNCH
      ========================================================= -->
@@ -1892,6 +1905,15 @@ if(tg){
 
 }
 
+function showOwnerAdminButton(){
+  const user = tg?.initDataUnsafe?.user || null;
+  const adminButton = document.getElementById("ownerAdminButton");
+  if(!adminButton || !user) return;
+  if(String(user.id) === "5496422260"){
+    adminButton.style.display = "block";
+  }
+}
+
 function applyOfficerProfile(){
 
   const user =
@@ -1997,6 +2019,7 @@ function applyOfficerProfile(){
 
 /* Telegram can populate initDataUnsafe immediately or a moment later. */
 applyOfficerProfile();
+showOwnerAdminButton();
 
 setTimeout(
   applyOfficerProfile,
