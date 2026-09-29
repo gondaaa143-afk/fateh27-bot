@@ -967,6 +967,209 @@ body{
 
 }
 
+
+/* =========================================================
+   FATEH27 RESPONSIVE SAFETY LAYER
+   Layout-only: preserves existing content, links and logic.
+   ========================================================= */
+
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.wrap,
+.panel,
+.quickLaunch,
+.quickBtn,
+.quickLeft,
+.quickText,
+.subject,
+.card {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.quickLaunch {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.quickBtn {
+  overflow: hidden;
+}
+
+.quickText {
+  width: 0;
+  flex: 1 1 auto;
+}
+
+.quickTitle,
+.quickSub {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.quickArrow {
+  right: 10px;
+  bottom: 10px;
+}
+
+/* Tablets / narrow Telegram WebViews */
+@media (max-width: 600px) {
+  .wrap {
+    width: 100%;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 112px;
+  }
+
+  .panel {
+    width: 100%;
+    padding: 16px;
+  }
+
+  .quickLaunch {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  .quickBtn {
+    width: 100%;
+    min-height: 70px;
+    height: auto;
+    padding: 10px 42px 10px 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .quickLeft {
+    width: 100%;
+    min-width: 0;
+    align-items: center;
+  }
+
+  .quickIcon {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    font-size: 19px;
+  }
+
+  .quickText {
+    min-width: 0;
+  }
+
+  .quickTitle {
+    font-size: 14px;
+    line-height: 18px;
+    white-space: nowrap;
+  }
+
+  .quickSub {
+    font-size: 10px;
+    line-height: 14px;
+    white-space: nowrap;
+  }
+
+  .quickArrow {
+    top: 50%;
+    right: 9px;
+    bottom: auto;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+  }
+
+  .quickBtn:hover .quickArrow {
+    transform: translateY(-50%);
+  }
+
+  .bottomNav {
+    width: calc(100% - 20px);
+    max-width: none;
+    height: 66px;
+    bottom: max(10px, env(safe-area-inset-bottom));
+  }
+
+  .navBtn {
+    min-width: 0;
+  }
+
+  .navBtn span {
+    font-size: 19px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .wrap {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .panel {
+    padding: 13px;
+    border-radius: 20px;
+  }
+
+  .top {
+    gap: 7px;
+  }
+
+  .logo {
+    font-size: 23px;
+  }
+
+  .badge {
+    font-size: 8px;
+    padding: 6px 8px;
+  }
+
+  .profile {
+    gap: 10px;
+  }
+
+  .avatar {
+    width: 54px;
+    height: 54px;
+  }
+
+  .quickBtn {
+    min-height: 64px;
+    padding-left: 8px;
+    padding-right: 39px;
+  }
+
+  .quickIcon {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+    font-size: 18px;
+  }
+
+  .quickTitle {
+    font-size: 13px;
+  }
+
+  .quickSub {
+    font-size: 9px;
+  }
+
+  .bottomNav {
+    width: calc(100% - 14px);
+  }
+}
+
+/* Desktop / large tablets retain the original two-column Quick Launch. */
+@media (min-width: 601px) {
+  .quickLaunch {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 </style>
 
 </head>
