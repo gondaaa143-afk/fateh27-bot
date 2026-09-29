@@ -75,6 +75,210 @@ function getTelegramUserId(req) {
   }
 }
 
+
+const DAILY_AI_LIMITS = {
+  translate: Number(process.env.AI_DAILY_TRANSLATE_LIMIT || 50),
+  evaluate: Number(process.env.AI_DAILY_EVALUATE_LIMIT || 20),
+  secretary: Number(process.env.AI_DAILY_SECRETARY_LIMIT || 50),
+  tts: Number(process.env.AI_DAILY_TTS_LIMIT || 30)
+};
+
+function getFirebaseConfigForUsage() {
+  const projectId = process.env.FIREBASE_PROJECT_ID;
+  const clientEmail = process.env.FIREBASE_CLIENT_EMAIL;
+  const privateKey = process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, "\n");
+  if (!projectId || !clientEmail || !privateKey) return null;
+  return { projectId, clientEmail, privateKey };
+}
+
+async function getFirebaseAccessTokenForUsage() {
+  const config = getFirebaseConfigForUsage();
+  if (!config) return null;
+
+  const now = Math.floor(Date.now() / 1000);
+  const b64 = (value) => Buffer.from(JSON.stringify(value)).toString("base64")
+    .replace(/=/g, "").replace(/\\+/g, "-").replace(/\\//g, "_");
+  const unsigned = b64({ alg: "RS256", typ: "JWT" }) + "." + b64({
+    iss: config.clientEmail,
+    scope: "https://www.googleapis.com/auth/datastore",
+    aud: "https://oauth2.googleapis.com/token",
+    iat: now,
+    exp: now + 3600
+  });
+  const signer = crypto.createSign("RSA-SHA256");
+  signer.update(unsigned);
+  signer.end();
+  const signature = signer.sign(config.privateKey).toString("base64")
+    .replace(/=/g, "").replace(/\\+/g, "-").replace(/\\//g, "_");
+
+  const response = await fetch("https://oauth2.googleapis.com/token", {
+    method: "POST",
+    headers: { "content-type": "application/x-www-form-urlencoded" },
+    body: "grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=" +
+      encodeURIComponent(unsigned + "." + signature)
+  });
+  if (!response.ok) return null;
+  const data = await response.json();
+  return data.access_token || null;
+}
+
+async function consumeDailyAiQuota(req, bucket) {
+  const telegramUserId = getTelegramUserId(req);
+  const limit = DAILY_AI_LIMITS[bucket];
+
+  if (!telegramUserId || !Number.isFinite(limit) || limit <= 0) {
+    return { allowed: true, tracked: false };
+  }
+
+  const config = getFirebaseConfigForUsage();
+  if (!config) {
+    return { allowed: true, tracked: false };
+  }
+
+  const token = await getFirebaseAccessTokenForUsage();
+  if (!token) {
+    return { allowed: true, tracked: false };
+  }
+
+  const dateKey = new Date().toISOString().slice(0, 10);
+  const documentId = encodeURIComponent(telegramUserId + "_" + dateKey);
+  const baseUrl = "https://firestore.googleapis.com/v1/projects/" +
+    encodeURIComponent(config.projectId) +
+    "/databases/(default)/documents/aiUsage/" + documentId;
+
+  const begin = await fetch(
+    "https://firestore.googleapis.com/v1/projects/" +
+      encodeURIComponent(config.projectId) +
+      "/databases/(default)/documents:beginTransaction",
+    {
+      method: "POST",
+      headers: {
+        authorization: "Bearer " + token,
+        "content-type": "application/json"
+      },
+      body: JSON.stringify({ options: {} })
+    }
+  );
+
+  if (!begin.ok) {
+    return { allowed: true, tracked: false };
+  }
+
+  const transaction = (await begin.json()).transaction;
+  if (!transaction) return { allowed: true, tracked: false };
+
+  const read = await fetch(baseUrl + "?transaction=" + encodeURIComponent(transaction), {
+    headers: { authorization: "Bearer " + token }
+  });
+
+  let current = 0;
+  let exists = false;
+
+  if (read.ok) {
+    const doc = await read.json();
+    exists = true;
+    current = Number(doc?.fields?.[bucket]?.integerValue || 0);
+  } else if (read.status !== 404) {
+    return { allowed: true, tracked: false };
+  }
+
+  if (current >= limit) {
+    await fetch(
+      "https://firestore.googleapis.com/v1/projects/" +
+        encodeURIComponent(config.projectId) +
+        "/databases/(default)/documents:rollback",
+      {
+        method: "POST",
+        headers: {
+          authorization: "Bearer " + token,
+          "content-type": "application/json"
+        },
+        body: JSON.stringify({ transaction })
+      }
+    ).catch(() => {});
+
+    const tomorrow = new Date();
+    tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
+    tomorrow.setUTCHours(0, 0, 0, 0);
+
+    return {
+      allowed: false,
+      tracked: true,
+      limit,
+      used: current,
+      retryAt: tomorrow.toISOString()
+    };
+  }
+
+  const fields = {
+    telegramUserId: { stringValue: telegramUserId },
+    date: { stringValue: dateKey },
+    [bucket]: { integerValue: String(current + 1) },
+    updatedAt: { timestampValue: new Date().toISOString() }
+  };
+
+  const commit = await fetch(
+    "https://firestore.googleapis.com/v1/projects/" +
+      encodeURIComponent(config.projectId) +
+      "/databases/(default)/documents:commit",
+    {
+      method: "POST",
+      headers: {
+        authorization: "Bearer " + token,
+        "content-type": "application/json"
+      },
+      body: JSON.stringify({
+        transaction,
+        writes: [{
+          update: {
+            name: "projects/" + config.projectId + "/databases/(default)/documents/aiUsage/" + documentId,
+            fields
+          },
+          ...(exists ? {} : {})
+        }]
+      })
+    }
+  );
+
+  if (!commit.ok) {
+    return { allowed: true, tracked: false };
+  }
+
+  return {
+    allowed: true,
+    tracked: true,
+    limit,
+    used: current + 1,
+    remaining: Math.max(0, limit - current - 1)
+  };
+}
+
+async function enforceDailyAiQuota(req, res, bucket) {
+  try {
+    const result = await consumeDailyAiQuota(req, bucket);
+    if (result.tracked) {
+      res.setHeader("X-AI-Daily-Limit", String(result.limit));
+      res.setHeader("X-AI-Daily-Used", String(result.used));
+      res.setHeader("X-AI-Daily-Remaining", String(Math.max(0, result.remaining || 0)));
+    }
+
+    if (!result.allowed) {
+      if (result.retryAt) res.setHeader("X-AI-Daily-Retry-At", result.retryAt);
+      return res.status(429).json({
+        error: "Daily AI limit reached.",
+        limit: result.limit,
+        used: result.used,
+        retryAt: result.retryAt
+      });
+    }
+
+    return true;
+  } catch (error) {
+    console.error("Daily AI quota check failed:", error);
+    return true;
+  }
+}
+
 function rateLimit(bucket, limit) {
   return (req, res, next) => {
     const now = Date.now();
