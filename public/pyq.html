@@ -2073,6 +2073,246 @@ function showList(){$('detailPanel').classList.remove('show');$('listPanel').sty
 
   `;
 
+
+    /* FATEH27 responsive safety layer — layout only, existing logic preserved */
+    .wrap,
+    .panel,
+    .detail,
+    .f27AdvancedIntelligence,
+    .practiceBox,
+    .practiceEvaluation {
+      min-width: 0;
+    }
+
+    img, video, canvas {
+      max-width: 100%;
+      height: auto;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      max-width: 100%;
+    }
+
+    .q,
+    .sub,
+    .detail p,
+    .relatedQuestion,
+    .practiceHint,
+    .practiceStatus,
+    .evalVerdict,
+    .evalSection,
+    .conceptCard,
+    .demandBox,
+    .examinerCard,
+    .practiceBox {
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .filters select,
+    .filters input {
+      min-width: 0;
+    }
+
+    .practiceActions {
+      min-width: 0;
+    }
+
+    .practiceActions .upgradeBtn {
+      white-space: normal;
+      min-height: 42px;
+    }
+
+    @media (max-width: 900px) {
+      .wrap {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      .hero {
+        padding: 20px;
+      }
+
+      .filters {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .frequencyBox {
+        grid-template-columns: 80px 80px minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        padding: 12px 10px 100px;
+      }
+
+      .hero {
+        border-radius: 20px;
+        padding: 17px;
+      }
+
+      .hero h1 {
+        font-size: clamp(21px, 7vw, 27px);
+        line-height: 1.15;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .panel {
+        border-radius: 19px;
+        padding: 12px;
+      }
+
+      .filters {
+        grid-template-columns: 1fr;
+      }
+
+      .qcard {
+        padding: 14px;
+        border-radius: 18px;
+      }
+
+      .detail h2 {
+        font-size: clamp(18px, 6vw, 21px);
+      }
+
+      .two,
+      .upgradeGrid {
+        grid-template-columns: 1fr;
+      }
+
+      .frequencyBox {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .frequencyBox .years {
+        grid-column: 1 / -1;
+      }
+
+      .frameworkRow {
+        grid-template-columns: 1fr;
+        gap: 5px;
+      }
+
+      .practiceBox {
+        padding: 13px;
+        border-radius: 18px;
+      }
+
+      .practiceTop {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .timer {
+        width: 100%;
+      }
+
+      .answerBox {
+        min-height: 145px;
+        font-size: 14px;
+      }
+
+      .practiceBottom {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .practiceActions {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+      }
+
+      .practiceActions .upgradeBtn {
+        width: 100%;
+      }
+
+      .handwrittenUpload {
+        min-height: 58px;
+        padding: 11px;
+      }
+
+      .handwrittenPreview {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .handwrittenThumb img {
+        height: 150px;
+      }
+
+      .evalHeader {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .bottom {
+        max-width: calc(100vw - 20px);
+        width: max-content;
+        gap: 8px;
+        padding: 9px 11px;
+      }
+
+      .bottom button {
+        padding: 7px 9px;
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .wrap {
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+
+      .hero {
+        padding: 14px;
+      }
+
+      .stat {
+        padding: 10px;
+      }
+
+      .stat b {
+        font-size: 17px;
+      }
+
+      .qcard {
+        padding: 12px;
+      }
+
+      .frequencyBox {
+        grid-template-columns: 1fr;
+      }
+
+      .frequencyBox .years {
+        grid-column: auto;
+      }
+
+      .handwrittenPreview {
+        grid-template-columns: 1fr;
+      }
+
+      .handwrittenThumb img {
+        height: 190px;
+      }
+
+      .practiceActions .upgradeBtn {
+        font-size: 12px;
+        padding: 10px;
+      }
+    }
+
   document.head.appendChild(
     style
   );
