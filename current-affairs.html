@@ -16,7 +16,6 @@
   --muted:#707070;
   --line:rgba(0,0,0,.08);
   --black:#111;
-  --white:#fff;
 }
 
 *{
@@ -32,14 +31,38 @@ body{
     var(--bg);
   color:var(--text);
   font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",
-              "SF Pro Text","Segoe UI",Arial,sans-serif;
+  "SF Pro Text","Segoe UI",Arial,sans-serif;
   min-height:100vh;
 }
 
 .container{
   width:min(1100px,100%);
   margin:auto;
-  padding:22px 18px 110px;
+  padding:14px 18px 110px;
+}
+
+/* BACK */
+
+.backBtn{
+  position:sticky;
+  top:10px;
+  z-index:200;
+  border:1px solid rgba(0,0,0,.08);
+  background:rgba(255,255,255,.88);
+  color:#111;
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  padding:10px 16px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:800;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+  cursor:pointer;
+  margin-bottom:16px;
+}
+
+.backBtn:active{
+  transform:scale(.96);
 }
 
 /* HEADER */
@@ -411,7 +434,7 @@ body{
 @media(max-width:600px){
 
   .container{
-    padding:16px 13px 100px;
+    padding:12px 13px 100px;
   }
 
   .hero{
@@ -464,21 +487,45 @@ body{
 
 <div class="container">
 
+  <!-- BACK BUTTON -->
+  <button class="backBtn" onclick="goBack()">
+    ← Back
+  </button>
+
+  <!-- HEADER -->
   <div class="header">
+
     <div class="brand">
-      <div class="brandIcon">📚</div>
-      <div>
-        <div class="brandTitle">Current Affairs</div>
-        <div class="brandSub">FATEH27 • UPSC Command Center</div>
+
+      <div class="brandIcon">
+        📚
       </div>
+
+      <div>
+
+        <div class="brandTitle">
+          Current Affairs
+        </div>
+
+        <div class="brandSub">
+          FATEH27 • UPSC Command Center
+        </div>
+
+      </div>
+
     </div>
+
   </div>
+
+
+  <!-- HERO -->
 
   <div class="hero">
 
     <div class="heroTop">
 
       <div>
+
         <div class="heroTitle">
           Daily UPSC Intelligence
         </div>
@@ -486,6 +533,7 @@ body{
         <div class="heroSub">
           The Hindu • PIB • UPSC Prelims + Mains
         </div>
+
       </div>
 
       <div class="datePill" id="date">
@@ -494,36 +542,58 @@ body{
 
     </div>
 
+
     <div class="stats">
 
       <div class="stat">
-        <div class="statValue" id="articleCount">—</div>
-        <div class="statLabel">Important Items</div>
+        <div class="statValue" id="articleCount">
+          —
+        </div>
+        <div class="statLabel">
+          Important Items
+        </div>
       </div>
 
       <div class="stat">
-        <div class="statValue" id="revisedCount">0</div>
-        <div class="statLabel">Revised</div>
+        <div class="statValue" id="revisedCount">
+          0
+        </div>
+        <div class="statLabel">
+          Revised
+        </div>
       </div>
 
       <div class="stat">
-        <div class="statValue" id="xpCount">0</div>
-        <div class="statLabel">XP Earned</div>
+        <div class="statValue" id="xpCount">
+          0
+        </div>
+        <div class="statLabel">
+          XP Earned
+        </div>
       </div>
 
     </div>
 
   </div>
 
+
+  <!-- SEARCH -->
+
   <div class="searchBox">
+
     <span>⌕</span>
+
     <input
       id="search"
       type="search"
       placeholder="Search current affairs..."
       oninput="renderArticles()"
     >
+
   </div>
+
+
+  <!-- FILTERS -->
 
   <div class="filters">
 
@@ -579,14 +649,21 @@ body{
 
   </div>
 
+
+  <!-- CONTENT -->
+
   <div id="content">
+
     <div class="loading">
       Loading today's UPSC current affairs...
     </div>
+
   </div>
 
 </div>
 
+
+<!-- BOTTOM NAV -->
 
 <div class="bottomNav">
 
@@ -614,10 +691,54 @@ body{
 
 <script>
 
-Telegram.WebApp.ready();
-Telegram.WebApp.expand();
+/* ---------------------------------------
+   TELEGRAM
+--------------------------------------- */
+
+if(window.Telegram && Telegram.WebApp){
+
+  Telegram.WebApp.ready();
+
+  Telegram.WebApp.expand();
+
+  if(Telegram.WebApp.BackButton){
+
+    Telegram.WebApp.BackButton.show();
+
+    Telegram.WebApp.BackButton.onClick(function(){
+      goBack();
+    });
+
+  }
+
+}
+
+
+/* ---------------------------------------
+   BACK
+--------------------------------------- */
+
+function goBack(){
+
+  if(window.history.length > 1){
+
+    window.history.back();
+
+  }else{
+
+    location.href="index.html";
+
+  }
+
+}
+
+
+/* ---------------------------------------
+   VARIABLES
+--------------------------------------- */
 
 let articles = [];
+
 let currentFilter = "ALL";
 
 let revised = JSON.parse(
@@ -642,10 +763,15 @@ async function loadCurrentAffairs(){
     );
 
     if(!response.ok){
-      throw new Error("Current affairs file not found");
+
+      throw new Error(
+        "current.md not found"
+      );
+
     }
 
-    const markdown = await response.text();
+    const markdown =
+      await response.text();
 
     parseMarkdown(markdown);
 
@@ -656,13 +782,21 @@ async function loadCurrentAffairs(){
     console.error(error);
 
     document.getElementById("content").innerHTML = `
+
       <div class="error">
-        <strong>Current Affairs load नहीं हो पाया.</strong>
+
+        <strong>
+          Current Affairs load नहीं हो पाया।
+        </strong>
+
         <br><br>
+
         GitHub Actions से
         <code>data/current.md</code>
         generate होना चाहिए।
+
       </div>
+
     `;
 
   }
@@ -678,7 +812,8 @@ function parseMarkdown(text){
 
   articles = [];
 
-  const blocks = text.split(/\n---\n/);
+  const blocks =
+    text.split(/\n---\n/);
 
   blocks.forEach(block => {
 
@@ -693,56 +828,104 @@ function parseMarkdown(text){
       return;
     }
 
-    const article = {
+    articles.push({
 
       title:titleMatch[1].trim(),
 
-      source:getSection(block,"Source:"),
+      source:getSection(
+        block,
+        "Source:"
+      ),
 
-      url:getSection(block,"Source URL:"),
+      url:getSection(
+        block,
+        "Source URL:"
+      ),
 
-      category:getSection(block,"Category:"),
+      category:getSection(
+        block,
+        "Category:"
+      ),
 
-      priority:getSection(block,"Priority:"),
+      priority:getSection(
+        block,
+        "Priority:"
+      ),
 
-      why:getSection(block,"Why in News?"),
+      why:getSection(
+        block,
+        "Why in News?"
+      ),
 
-      what:getSection(block,"What Happened?"),
+      what:getSection(
+        block,
+        "What Happened?"
+      ),
 
-      background:getSection(block,"Background"),
+      background:getSection(
+        block,
+        "Background"
+      ),
 
-      prelims:getSection(block,"Prelims Focus"),
+      prelims:getSection(
+        block,
+        "Prelims Focus"
+      ),
 
-      mains:getSection(block,"Mains Focus"),
+      mains:getSection(
+        block,
+        "Mains Focus"
+      ),
 
-      syllabus:getSection(block,"UPSC Syllabus Link"),
+      syllabus:getSection(
+        block,
+        "UPSC Syllabus Link"
+      ),
 
-      staticLink:getSection(block,"Static Connection"),
+      staticLink:getSection(
+        block,
+        "Static Connection"
+      ),
 
-      pyq:getSection(block,"PYQ Connection"),
+      pyq:getSection(
+        block,
+        "PYQ Connection"
+      ),
 
-      revision:getSection(block,"30-Second Revision"),
+      revision:getSection(
+        block,
+        "30-Second Revision"
+      ),
 
-      recall:getSection(block,"Active Recall")
+      recall:getSection(
+        block,
+        "Active Recall"
+      )
 
-    };
-
-    articles.push(article);
+    });
 
   });
 
-  document.getElementById("articleCount").innerText =
-    articles.length;
+
+  document.getElementById(
+    "articleCount"
+  ).innerText = articles.length;
+
 
   updateStats();
 
+
   const dateMatch =
-    text.match(/##\s+(\d{1,2}\s+\w+\s+\d{4})/);
+    text.match(
+      /##\s+(\d{1,2}\s+\w+\s+\d{4})/
+    );
+
 
   if(dateMatch){
 
-    document.getElementById("date").innerText =
-      dateMatch[1];
+    document.getElementById(
+      "date"
+    ).innerText = dateMatch[1];
 
   }
 
@@ -756,7 +939,10 @@ function parseMarkdown(text){
 function getSection(text,label){
 
   const escaped =
-    label.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+    label.replace(
+      /[.*+?^${}()|[\]\\]/g,
+      "\\$&"
+    );
 
   const regex =
     new RegExp(
@@ -764,7 +950,8 @@ function getSection(text,label){
       "\\s*\\n?([\\s\\S]*?)(?=\\n###|\\n##|$)"
     );
 
-  const match = text.match(regex);
+  const match =
+    text.match(regex);
 
   if(!match){
     return "";
@@ -785,8 +972,11 @@ function setFilter(filter,button){
 
   currentFilter = filter;
 
-  document.querySelectorAll(".filter")
-    .forEach(b => b.classList.remove("active"));
+  document
+    .querySelectorAll(".filter")
+    .forEach(b =>
+      b.classList.remove("active")
+    );
 
   button.classList.add("active");
 
@@ -802,13 +992,15 @@ function setFilter(filter,button){
 function renderArticles(){
 
   const search =
-    document.getElementById("search")
-      .value
-      .toLowerCase()
-      .trim();
+    document.getElementById(
+      "search"
+    ).value
+    .toLowerCase()
+    .trim();
+
 
   const filtered =
-    articles.filter((article,index) => {
+    articles.filter(article => {
 
       const filterMatch =
         currentFilter === "ALL" ||
@@ -816,7 +1008,9 @@ function renderArticles(){
           .toUpperCase()
           .includes(currentFilter);
 
+
       const text = (
+
         article.title + " " +
         article.source + " " +
         article.category + " " +
@@ -824,28 +1018,48 @@ function renderArticles(){
         article.what + " " +
         article.prelims + " " +
         article.mains
+
       ).toLowerCase();
 
-      const searchMatch =
-        !search || text.includes(search);
 
-      return filterMatch && searchMatch;
+      const searchMatch =
+        !search ||
+        text.includes(search);
+
+
+      return (
+        filterMatch &&
+        searchMatch
+      );
 
     });
 
+
   if(filtered.length === 0){
 
-    document.getElementById("content").innerHTML = `
+    document.getElementById(
+      "content"
+    ).innerHTML = `
+
       <div class="loading">
-        इस filter में कोई current affair नहीं मिला।
+
+        इस filter में कोई
+        current affair नहीं मिला।
+
       </div>
+
     `;
 
     return;
+
   }
 
-  document.getElementById("content").innerHTML =
-    filtered.map((article) => {
+
+  document.getElementById(
+    "content"
+  ).innerHTML =
+
+    filtered.map(article => {
 
       const originalIndex =
         articles.indexOf(article);
@@ -861,7 +1075,7 @@ function renderArticles(){
 
 
 /* ---------------------------------------
-   ARTICLE CARD
+   ARTICLE
 --------------------------------------- */
 
 function createArticle(article,index){
@@ -869,10 +1083,13 @@ function createArticle(article,index){
   const isRevised =
     revised.includes(index);
 
+
   const priorityClass =
-    article.priority.toUpperCase() === "HIGH"
+    article.priority
+      .toUpperCase() === "HIGH"
       ? "priority high"
       : "priority";
+
 
   return `
 
@@ -889,7 +1106,9 @@ function createArticle(article,index){
         </div>
 
         <div class="${priorityClass}">
-          ${escapeHtml(article.priority || "UPSC")}
+          ${escapeHtml(
+            article.priority || "UPSC"
+          )}
         </div>
 
       </div>
@@ -898,11 +1117,15 @@ function createArticle(article,index){
       <div class="meta">
 
         <div class="tag">
-          ${escapeHtml(article.category || "UPSC")}
+          ${escapeHtml(
+            article.category || "UPSC"
+          )}
         </div>
 
         <div class="tag">
-          ${escapeHtml(article.source || "Source")}
+          ${escapeHtml(
+            article.source || "Source"
+          )}
         </div>
 
       </div>
@@ -961,7 +1184,10 @@ function createArticle(article,index){
         </div>
 
         <div class="recallQuestion">
-          ${escapeHtml(article.recall || "Revise this topic.")}
+          ${escapeHtml(
+            article.recall ||
+            "Revise this topic."
+          )}
         </div>
 
       </div>
@@ -973,18 +1199,30 @@ function createArticle(article,index){
           class="actionBtn ${isRevised ? "revised" : ""}"
           onclick="markRevised(${index})">
 
-          ${isRevised ? "✓ Revised +10 XP" : "Mark Revised +10 XP"}
+          ${
+            isRevised
+            ? "✓ Revised +10 XP"
+            : "Mark Revised +10 XP"
+          }
 
         </button>
+
 
         ${
           article.url
           ?
-          `<button
-             class="actionBtn"
-             onclick="window.open('${escapeAttr(article.url)}','_blank')">
-             Source ↗
-           </button>`
+          `
+          <button
+            class="actionBtn"
+            onclick="window.open(
+              '${escapeAttr(article.url)}',
+              '_blank'
+            )">
+
+            Source ↗
+
+          </button>
+          `
           :
           ""
         }
@@ -1037,19 +1275,23 @@ function markRevised(index){
     return;
   }
 
+
   revised.push(index);
 
   xp += 10;
+
 
   localStorage.setItem(
     "fateh27_ca_revised",
     JSON.stringify(revised)
   );
 
+
   localStorage.setItem(
     "fateh27_ca_xp",
     xp
   );
+
 
   updateStats();
 
@@ -1064,17 +1306,20 @@ function markRevised(index){
 
 function updateStats(){
 
-  document.getElementById("revisedCount").innerText =
-    revised.length;
+  document.getElementById(
+    "revisedCount"
+  ).innerText = revised.length;
 
-  document.getElementById("xpCount").innerText =
-    xp;
+
+  document.getElementById(
+    "xpCount"
+  ).innerText = xp;
 
 }
 
 
 /* ---------------------------------------
-   SECURITY
+   ESCAPE
 --------------------------------------- */
 
 function escapeHtml(value){
@@ -1087,6 +1332,7 @@ function escapeHtml(value){
     .replace(/'/g,"&#039;");
 
 }
+
 
 function escapeAttr(value){
 
