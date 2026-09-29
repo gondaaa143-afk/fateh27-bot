@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GS1 • FATEH27</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script src="./progress.js"></script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --bg:#F4F4F4;
+  --surface:#ECECEC;
+  --card:rgba(255,255,255,.72);
+  --text:#111;
+  --muted:#666;
+  --black:#111;
+  --line:rgba(0,0,0,.08);
+}
+
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Poppins","Segoe UI",Arial,sans-serif;
+  background:
+    radial-gradient(circle at 10% 0%,rgba(255,255,255,.95),transparent 35%),
+    radial-gradient(circle at 100% 20%,rgba(220,220,220,.8),transparent 38%),
+    var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  padding:20px;
+  padding-bottom:100px;
+}
+
+.wrap{max-width:760px;margin:0 auto}
+
+.header{padding:8px 2px 18px}
+.eyebrow{
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:1.4px;
+  color:#777;
+  text-transform:uppercase;
+  margin-bottom:7px;
+}
+h1{font-size:30px;line-height:1.1;letter-spacing:-1px}
+.subtitle{margin-top:7px;color:var(--muted);font-size:14px}
+
+.controls{
+  background:rgba(255,255,255,.55);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.85);
+  box-shadow:0 12px 35px rgba(0,0,0,.07);
+  border-radius:24px;
+  padding:14px;
+  margin-bottom:16px;
+}
+
+select,input{
+  width:100%;
+  padding:14px 15px;
+  margin:0 0 10px;
+  border:1px solid rgba(0,0,0,.05);
+  border-radius:15px;
+  background:#e7e7e7;
+  color:#111;
+  font-size:15px;
+  font-weight:600;
+  outline:none;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.7);
+}
+input{margin-bottom:0}
+select:focus,input:focus{background:#e3e3e3}
+
+.count{
+  color:#777;
+  font-size:12px;
+  font-weight:700;
+  margin:0 4px 12px;
+}
+
+.card{
+  background:var(--card);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,.9);
+  box-shadow:0 12px 35px rgba(0,0,0,.07);
+  border-radius:22px;
+  padding:18px;
+  margin:11px 0;
+  cursor:pointer;
+  transition:.18s ease;
+}
+.card:active{transform:scale(.985)}
+
+.cardTop{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:10px;
+}
+.year{
+  background:#111;
+  color:#fff;
+  padding:6px 10px;
+  border-radius:10px;
+  font-size:12px;
+  font-weight:800;
+}
+.meta{
+  color:#777;
+  font-size:12px;
+  font-weight:700;
+}
+.question{
+  font-size:15px;
+  line-height:1.55;
+  font-weight:650;
+}
+.topic{
+  display:inline-block;
+  margin-top:12px;
+  background:#e7e7e7;
+  color:#555;
+  padding:6px 9px;
+  border-radius:9px;
+  font-size:11px;
+  font-weight:700;
+}
+
+#detail{display:none}
+
+.detailCard{cursor:default}
+
+.detailQuestion{
+  font-size:17px;
+  line-height:1.65;
+  margin:15px 0 20px;
+  font-weight:600;
+}
+
+.detailMeta{
+  color:#777;
+  font-size:13px;
+  margin-top:8px;
+}
+
+button{
+  width:100%;
+  padding:14px;
+  margin:6px 0;
+  border:0;
+  border-radius:15px;
+  font-size:14px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.primary{background:#111;color:#fff}
+.secondary{background:#e7e7e7;color:#111}
+
+.timerBox{
+  margin-top:16px;
+  background:#111;
+  color:#fff;
+  border-radius:20px;
+  padding:18px;
+  text-align:center;
+}
+.timerLabel{font-size:11px;color:#aaa;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+#timer{font-size:34px;font-weight:800;margin-top:5px}
+
+#homeBtn{
+  position:fixed;
+  left:20px;
+  right:20px;
+  bottom:18px;
+  max-width:720px;
+  margin:auto;
+  background:#111;
+  color:#fff;
+  box-shadow:0 12px 30px rgba(0,0,0,.2);
+  z-index:20;
+}
+
+@media(max-width:520px){
+  body{padding:15px;padding-bottom:92px}
+  h1{font-size:27px}
+  .card{padding:16px}
+}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+
+  <div id="listView">
+    <div class="header">
+      <div class="eyebrow">FATEH27 • UPSC</div>
+      <h1>GS1 PYQs</h1>
+      <div class="subtitle">History • Society • Culture • Geography</div>
+    </div>
+
+    <div class="controls">
+      <select id="year">
+        <option value="all">All Years</option>
+      </select>
+      <input id="search" placeholder="Search Topic or Question">
+    </div>
+
+    <div id="count" class="count"></div>
+    <div id="questions"></div>
+  </div>
+
+  <div id="detail">
+    <div class="card detailCard">
+      <div class="cardTop">
+        <span class="year" id="dYear"></span>
+        <span class="meta" id="dMarks"></span>
+      </div>
+
+      <div class="detailMeta" id="dTopic"></div>
+      <div class="detailQuestion" id="dQuestion"></div>
+
+      <button class="primary" id="btn7">⏱ 7 Min Timer</button>
+      <button class="primary" id="btn11">⏱ 11 Min Timer</button>
+      <button class="secondary" id="copyBtn">📋 Copy Question</button>
+      <button class="secondary" id="backBtn">← Back</button>
+
+      <div class="timerBox">
+        <div class="timerLabel">Answer Writing Timer</div>
+        <div id="timer">00:00</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<button id="homeBtn">⌂ Home</button>
+
+<script>
+const tg = window.Telegram && Telegram.WebApp ? Telegram.WebApp : null;
+if(tg){
+  tg.ready();
+  tg.expand();
+}
+
+const year = document.getElementById("year");
+const search = document.getElementById("search");
+const box = document.getElementById("questions");
+const count = document.getElementById("count");
+
+const listView = document.getElementById("listView");
+const detail = document.getElementById("detail");
+const dYear = document.getElementById("dYear");
+const dQuestion = document.getElementById("dQuestion");
+const dTopic = document.getElementById("dTopic");
+const dMarks = document.getElementById("dMarks");
+const timer = document.getElementById("timer");
+
+let currentQuestion = "";
+let interval = null;
+
+const data = [{"year": "2013", "paper": "GS1", "question": "Chola architecture represents a high watermark in the evolution of temple architecture. Discuss.", "topic": "Architecture", "marks": "5"}, {"year": "2013", "paper": "GS1", "question": "Discuss the Tandava dance as recorded in the early Indian inscriptions.", "topic": "Dance", "marks": "5"}, {"year": "2013", "paper": "GS1", "question": "Though not very useful from the point of view of a connected political history of South India, the Sangam literature portrays the social and economic conditions of its time with remarkable vividness. Comment.", "topic": "Literature", "marks": "10"}, {"year": "2014", "paper": "GS1", "question": "Sufis and medieval mystic saints failed to modify either the religious ideas and practices or the outward structure of Hindu / Muslim societies to any appreciable extent. Comment.", "topic": "Religious practice", "marks": "10"}, {"year": "2014", "paper": "GS1", "question": "Taxila university was one of the oldest universities of the world with which were associated a number of renowned learned personalities of different disciplines. Its strategic location caused its fame to flourish, but unlike Nalanda, it is not considered as a university in the modern sense. Discuss.", "topic": "University", "marks": "10"}, {"year": "2014", "paper": "GS1", "question": "Gandhara sculpture owed as much to the Romans as to the Greeks. Explain.", "topic": "Sculpture", "marks": "10"}, {"year": "2014", "paper": "GS1", "question": "To what extent has the urban planning and culture of the Indus Valley Civilization provided inputs to the present day urbanization? Discuss.", "topic": "Civilisation", "marks": "10"}, {"year": "2015", "paper": "GS1", "question": "Mesolithic rock cut architecture of India not only reflects the cultural life of the times but also a fine aesthetic sense comparable to modern painting. Critically evaluate this comment.", "topic": "Architecture", "marks": "12.5"}, {"year": "2015", "paper": "GS1", "question": "The ancient civilization in Indian sub-continent differed from those of Egypt, Mesopotamia and Greece in that its culture and traditions have been preserved without a breakdown to the present day. Comment.", "topic": "Civilisation", "marks": "12.5"}, {"year": "2016", "paper": "GS1", "question": "Krishnadeva Raya, the King of Vijayanagar, was not only an accomplished scholar himself but was also a great patron of learning and literature. Discuss.", "topic": "Individual", "marks": "12.5"}, {"year": "2016", "paper": "GS1", "question": "Early Buddhist Stupa-art, while depicting folk motifs and narratives successfully expounds Buddhist ideals. Elucidate", "topic": "Buddhism", "marks": "12.5"}, {"year": "2017", "paper": "GS1", "question": "How do you justify the view that the level of excellence of Gupta numismatic art is not at all noticeable in later times?", "topic": "Numismatic", "marks": "10"}, {"year": "2018", "paper": "GS1", "question": "The Bhakti movement received a remarkable re-orientation with the advent of Sri Chaitanya Mahaprabhu. Discuss.", "topic": "Individual", "marks": "15"}, {"year": "2018", "paper": "GS1", "question": "Assess the importance of the accounts of the Chinese and Arab travellers in the reconstruction of the history of India.", "topic": "Traveller's Account", "marks": "10"}, {"year": "2018", "paper": "GS1", "question": "Safeguarding the Indian art heritage is the need of the moment. Discuss.", "topic": "Misc", "marks": "10"}, {"year": "2019", "paper": "GS1", "question": "Highlight the Central Asian and Greco -Bactrian elements in Gandhara art.", "topic": "Influence of art", "marks": "10"}, {"year": "2020", "paper": "GS1", "question": "Persian literary sources of medieval India reflect the spirit of the age. Comment.", "topic": "Literature", "marks": "15"}, {"year": "2020", "paper": "GS1", "question": "Indian philosophy and tradition played a significant role in conceiving and shaping the monuments and their art in India. Discuss.", "topic": "Philosophy", "marks": "15"}, {"year": "2020", "paper": "GS1", "question": "Pala period is the most significant phase in the history of Buddhism in India. Enumerate.", "topic": "Buddhism", "marks": "10"}, {"year": "2020", "paper": "GS1", "question": "The rock-cut architecture represents one of the most important sources of our knowledge of early Indian art and history. Discuss.", "topic": "Architecture", "marks": "10"}, {"year": "2021", "paper": "GS1", "question": "Evaluate the nature of the Bhakti literature and its contribution to Indian culture.", "topic": "Literature", "marks": "10"}, {"year": "2022", "paper": "GS1", "question": "How will you explain that medieval Indian temple sculptures represent the social life of those days?", "topic": "Sculpture", "marks": "10"}, {"year": "2022", "paper": "GS1", "question": "Discuss the main contributions of Gupta period and Chola period to Indian heritage and culture.", "topic": "Contribution", "marks": "15"}, {"year": "2022", "paper": "GS1", "question": "Discuss the significance of the lion and bull figures in Indian mythology, art and architecture.", "topic": "Architecture", "marks": "15"}, {"year": "2023", "paper": "GS1", "question": "Explain the role of geographical factors towards the development of Ancient India.", "topic": "Civilisation", "marks": "10"}, {"year": "2023", "paper": "GS1", "question": "What were the major technological changes introduced during the Sultanate period? How did those technological changes influence the Indian society ?", "topic": "Technology", "marks": "15"}, {"year": "2013", "paper": "GS1", "question": "In many ways, Lord Dalhousie was the founder of modern India. Elaborate.", "topic": "Personality", "marks": "10"}, {"year": "2013", "paper": "GS1", "question": "Several foreigners made India their homeland and participated in various movements. Analyze their role in the Indian struggle for freedom.", "topic": "Movements", "marks": "10"}, {"year": "2013", "paper": "GS1", "question": "Defying the barriers of age, gender and religion, the Indian women became the torch bearer during the struggle for freedom in India. Discuss.", "topic": "Women", "marks": "10"}, {"year": "2014", "paper": "GS1", "question": "In what ways did the naval mutiny prove to be the last nail in the coffin of British colonial aspirations in India?", "topic": "Event", "marks": "10"}, {"year": "2014", "paper": "GS1", "question": "Examine critically the various facets of economic policies of the British in India from mid- eighteenth century till independence.", "topic": "Policies", "marks": "10"}, {"year": "2014", "paper": "GS1", "question": "The third battle of Panipat was fought in 1761. Why were so many empire-shaking battles fought at Panipat?", "topic": "Event", "marks": "10"}, {"year": "2015", "paper": "GS1", "question": "It would have been difficult for the Constituent Assembly to complete its historic task of drafting the Constitution for Independent India in just three years but for the experience gained with the Government of India Act, 1935. Discuss.", "topic": "Policies", "marks": "12.5"}, {"year": "2015", "paper": "GS1", "question": "How different would have been the achievement of Indian independence without Mahatma Gandhi? Discuss.", "topic": "Personality", "marks": "12.5"}, {"year": "2016", "paper": "GS1", "question": "Highlight the differences in the approach of Subhash Chandra Bose and Mahatma Gandhi in the struggle for freedom.", "topic": "Comparison Personality", "marks": "12.5"}, {"year": "2016", "paper": "GS1", "question": "Discuss the role of women in the freedom struggle especially during the Gandhian phase.", "topic": "Women", "marks": "12.5"}, {"year": "2016", "paper": "GS1", "question": "Explain how the Uprising of 1857 constitutes an important watershed in the evolution of British policies towards colonial India.", "topic": "Event", "marks": "12.5"}, {"year": "2017", "paper": "GS1", "question": "Highlight the importance of the new objectives that got added to the vision of Indian independence since twenties of the last century.", "topic": "Event", "marks": "15"}, {"year": "2017", "paper": "GS1", "question": "The women’s questions arose in modern India as a part of the 19th century social reform movement. What were the major issues and debates concerning women in that period?", "topic": "Women", "marks": "15"}, {"year": "2017", "paper": "GS1", "question": "Examine how the decline of traditional artisanal industry in colonial India crippled the rural economy.", "topic": "Issues", "marks": "15"}, {"year": "2017", "paper": "GS1", "question": "Why did the ‘Moderates’ fail to carry conviction with the nation about their proclaimed ideology and political goals by the end of the nineteenth century?", "topic": "Contribution", "marks": "10"}, {"year": "2017", "paper": "GS1", "question": "Clarify how mid-eighteenth century India was beset with the spectre of a fragmented polity.", "topic": "Policies", "marks": "10"}, {"year": "2018", "paper": "GS1", "question": "Throw light on the significance of the thoughts of Mahatma Gandhi in the present times.", "topic": "Personality", "marks": "10"}, {"year": "2019", "paper": "GS1", "question": "Assess the role of British imperial power in complicating the process of transfer of power during the 1940s.", "topic": "Policies", "marks": "10"}, {"year": "2019", "paper": "GS1", "question": "Many voices had strengthened and enriched the nationalist movement during the Gandhian phase. Elaborate.", "topic": "Contribution", "marks": "15"}, {"year": "2019", "paper": "GS1", "question": "Examine the linkages between 19th centuries ‘Indian Renaissance’ and the emergence of national identity.", "topic": "Event", "marks": "10"}, {"year": "2019", "paper": "GS1", "question": "The 1857 Uprising was the culmination the recurrent big and small local rebellions that had occurred in the preceding hundred years of British rule. Elucidate.", "topic": "Contribution", "marks": "10"}, {"year": "2020", "paper": "GS1", "question": "Since the decade of the 1920s, the national movement acquired various ideological strands and thereby expanded its social base. Discuss.", "topic": "Event", "marks": "15"}, {"year": "2020", "paper": "GS1", "question": "Evaluate the policies of Lord Curzon and their long term implications on the national movement.", "topic": "Policies", "marks": "10"}, {"year": "2021", "paper": "GS1", "question": "Trace the rise and growth of socio--religious reform movements with special reference to young Bengal and Brahmo Samaj.", "topic": "Event", "marks": "10"}, {"year": "2013", "paper": "GS1", "question": "Critically discuss the objectives of Bhoodan and Gramdan movements initiated by Acharya Vinoba Bhave and their success.", "topic": "Movements", "marks": "10"}, {"year": "2013", "paper": "GS1", "question": "Write a critical note on the evolution and significance of the slogan “Jai Jawana Jai Kisan”.", "topic": "Movements", "marks": "10"}, {"year": "2013", "paper": "GS1", "question": "Discuss the contribution of Maulana Abul Kalam Azad to pre-and post-independent India.", "topic": "Contribution", "marks": "10"}, {"year": "2013", "paper": "GS1", "question": "Analyze the circumstances that led to Tashkent Agreement in 1966. Discuss the highlights of the agreement.", "topic": "Agreements", "marks": "10"}, {"year": "2013", "paper": "GS1", "question": "Critically examine the compulsions which prompted India to play a decisive roles in the emergence of Bangladesh.", "topic": "Event", "marks": "10"}, {"year": "2021", "paper": "GS1", "question": "Access the main administrative issues and socio –cultural problems in the integration process of Indian princely states.", "topic": "Consolidation", "marks": "10"}, {"year": "2022", "paper": "GS1", "question": "The political and administrative reorganization of states and territories has been a continuous ongoing process since the mid-nineteenth century. Discuss with examples.", "topic": "Reorganisation", "marks": "15"}, {"year": "2013", "paper": "GS1", "question": "What policy instruments were deployed to contain the great economic depression?", "topic": "Event", "marks": "10"}, {"year": "2013", "paper": "GS1", "question": "American Revolution was an economic revolt against mercantilism. Substantiate.", "topic": "American Revolution", "marks": "10"}, {"year": "2013", "paper": "GS1", "question": "Africa was chopped into states artificially created by accident of European competition. Analyse.", "topic": "Colonisation", "marks": "10"}, {"year": "2013", "paper": "GS1", "question": "“Latecomer” Industrial revolution in Japan involved certain factors that were markedly different from what west had experience.", "topic": "Industrial Revolution.", "marks": "10"}, {"year": "2014", "paper": "GS1", "question": "The New Economic Policy – 1921 of Lenin had influenced the policies adopted by India soon after independence. Evaluate.", "topic": "Effect Policy", "marks": "10"}, {"year": "2014", "paper": "GS1", "question": "What were the events that led to the Suez Crisis in 1956? How did it deal a final blow to Britain’s self-image as a world power?", "topic": "Event", "marks": "10"}, {"year": "2014", "paper": "GS1", "question": "What were the major political, economic and social developments in the world which motivated the anti-colonial struggle in India?", "topic": "Decolonisation", "marks": "10"}, {"year": "2015", "paper": "GS1", "question": "To what extent can Germany be held responsible for causing the two World Wars? Discuss critically", "topic": "WW", "marks": "12.5"}, {"year": "2015", "paper": "GS1", "question": "Why did the industrial revolution first occur in England? Discuss the quality of life of the people there during the industrialization. How does it compare with that in India at present?", "topic": "Industrial Revolution.", "marks": "12.5"}, {"year": "2016", "paper": "GS1", "question": "The anti-colonial struggles in West Africa were led by the new elite of Western-educated Africans. Examine.", "topic": "Decolonisation", "marks": "12.5"}, {"year": "2017", "paper": "GS1", "question": "What problems were germane to the decolonization process of Malay Peninsula.", "topic": "Decolonisation", "marks": "10"}, {"year": "2018", "paper": "GS1", "question": "Why indentured labour was taken by the British from India to other colonies? Have they been able to preserve their cultural identity over there?", "topic": "Colonisation", "marks": "15"}, {"year": "2013", "paper": "GS1", "question": "Growing feeling of regionalism is an important factor in the generation of demand for a separate state. Discuss.", "topic": "Regionalism", "marks": "10"}, {"year": "2014", "paper": "GS1", "question": "How do the Indian debates on secularism differ from the debates in the West?", "topic": "Secularism", "marks": "10"}, {"year": "2015", "paper": "GS1", "question": "Debate the issue of whether and how contemporary movements for assertion of Dalit identity work towards annihilation of caste.", "topic": "Caste", "marks": "12.5"}, {"year": "2015", "paper": "GS1", "question": "Describe any four cultural elements of diversity in India and rate their relative significance in building a national identity.", "topic": "Diversity", "marks": "12.5"}, {"year": "2015", "paper": "GS1", "question": "Mahatma Gandhi and Dr. B.R. Ambedkar, despite having divergent approaches and strategies, had a common goal of amelioration of the downtrodden. Elucidate.", "topic": "Caste", "marks": "12.5"}, {"year": "2016", "paper": "GS1", "question": "What is the basis of regionalism? Is it that unequal distribution of benefits of development on regional basis eventually promotes regionalism? Substantiate your answer.", "topic": "Regionalism", "marks": "12.5"}, {"year": "2016", "paper": "GS1", "question": "Why are the tribals in India referred to as the Scheduled Tribes? Indicate the major provisions enshrined in the Constitution of India for their upliftment.", "topic": "Empowerment", "marks": "12.5"}, {"year": "2016", "paper": "GS1", "question": "Has the formation of linguistic States strengthened the cause of Indian Unity?", "topic": "Unity", "marks": "12.5"}, {"year": "2017", "paper": "GS1", "question": "What are the two major legal initiatives by the State since Independence, addressing discrimination against Scheduled Tribes (STs)?", "topic": "Empowerment", "marks": "10"}, {"year": "2017", "paper": "GS1", "question": "In the context of diversity of India, can it be said that the regions form cultural units rather than the States? Give reasons with examples for your viewpoint.", "topic": "Diversity", "marks": "10"}, {"year": "2017", "paper": "GS1", "question": "Distinguish between religiousness/religiosity and communalism giving one example of how the former has got transformed into the latter in independent India.", "topic": "Communalism", "marks": "15"}, {"year": "2017", "paper": "GS1", "question": "The spirit tolerance and love is not only an interesting feature of Indian society from very early times, but it is also playing an important part at the present. Elaborate.", "topic": "Unity", "marks": "15"}, {"year": "2018", "paper": "GS1", "question": "‘Communalism arises either due to power struggle or relative deprivation. Argue by giving suitable illustrations.", "topic": "Communalism", "marks": "15"}, {"year": "2018", "paper": "GS1", "question": "How the Indian concept of secularism is different from the western model of secularism? Discuss.", "topic": "Secularism", "marks": "10"}, {"year": "2018", "paper": "GS1", "question": "“Caste system is assuming new identities and associational forms. Hence, caste system cannot be eradicated in India.” Comment.", "topic": "Caste", "marks": "10"}, {"year": "2019", "paper": "GS1", "question": "What are the challenges to our cultural practices in the name of secularism.", "topic": "Secularism", "marks": "10"}, {"year": "2019", "paper": "GS1", "question": "Do we have cultural pockets of small India all over the nation? Elaborate with examples.", "topic": "Unity", "marks": "15"}, {"year": "2019", "paper": "GS1", "question": "What makes Indian society unique in sustaining its culture? Discuss.", "topic": "Tradition", "marks": "10"}, {"year": "2020", "paper": "GS1", "question": "Customs and traditions suppress reason leading to obscurantism. Do you agree?", "topic": "Tradition", "marks": "15"}, {"year": "2020", "paper": "GS1", "question": "Do you agree that regionalism in India appears to be a consequence of rising cultural assertiveness? Argue.", "topic": "Regionalism", "marks": "10"}, {"year": "2020", "paper": "GS1", "question": "Is diversity and pluralism in India under threat due to globalisation? Justify your answer.", "topic": "Diversity", "marks": "15"}, {"year": "2020", "paper": "GS1", "question": "Has caste lost its relevance in understanding the multi-cultural Indian Society? Elaborate your answer with illustrations.", "topic": "Caste", "marks": "10"}, {"year": "2021", "paper": "GS1", "question": "Examine the uniqueness of tribal knowledge system when compared with mainstream knowledge and cultural systems.", "topic": "Tribal", "marks": "10"}, {"year": "2021", "paper": "GS1", "question": "How does Indian Society maintain continuity in traditional social values? Enumerate the changes taking place in it.", "topic": "Tradition", "marks": "15"}, {"year": "2022", "paper": "GS1", "question": "Given the diversities among tribal communities in India, in which specific contexts should they be considered as a single category?", "topic": "Tribal", "marks": "10"}, {"year": "2022", "paper": "GS1", "question": "Analyse the salience of ‘sect’ in Indian society vis-a-vis caste, region and religion.", "topic": "Caste", "marks": "15"}, {"year": "2014", "paper": "GS1", "question": "The life cycle of a joint family depends on economic factors rather than social values. Discuss.", "topic": "Family", "marks": "10"}, {"year": "2015", "paper": "GS1", "question": "Discuss the changes in the trends of labour migration within and outside India in the last four decades.", "topic": "Development issues", "marks": "12.5"}, {"year": "2015", "paper": "GS1", "question": "Critically examine whether growing population is the cause of poverty OR poverty is the main cause of population increase in India.", "topic": "Population", "marks": "12.5"}, {"year": "2016", "paper": "GS1", "question": "“An essential condition to eradicate poverty is to liberate the poor from deprivation.” Substantiate this statement with suitable examples", "topic": "Poverty", "marks": "12.5"}, {"year": "2018", "paper": "GS1", "question": "Mention core strategies for the transformation of aspirational districts in India and explain the nature of convergence, collaboration and competition for its success.", "topic": "Development issues", "marks": "15"}, {"year": "2018", "paper": "GS1", "question": "Discuss whether formation of new states in recent times is beneficial or not for the economy of India.", "topic": "Development issues", "marks": "15"}, {"year": "2018", "paper": "GS1", "question": "‘Despite implementation of various programmes for eradication of poverty by the government in India, poverty is still existing.’ Explain by giving reasons.", "topic": "Poverty", "marks": "10"}, {"year": "2020", "paper": "GS1", "question": "How have digital initiatives in India contributed to the functioning of the educational system in the country? Elaborate your answer.", "topic": "Development issues", "marks": "15"}, {"year": "2020", "paper": "GS1", "question": "COVID-19 pandemic accelerated class inequalities and poverty in India. Comment.", "topic": "Poverty", "marks": "10"}, {"year": "2021", "paper": "GS1", "question": "Discuss the main objectives of Population Education and point out the measures to achieve them in India in detail.", "topic": "Population", "marks": "15"}, {"year": "2021", "paper": "GS1", "question": "What is Cryptocurrency? How does it affect global security? Has it been affecting Indian society also?", "topic": "Development issues", "marks": "15"}, {"year": "2023", "paper": "GS1", "question": "Child cuddling is now being replaced by mobile phones. Discuss its impact on the socialization of children.", "topic": "Family", "marks": "10"}, {"year": "2023", "paper": "GS1", "question": "Why did human development fail to keep pace with economic development in India?", "topic": "Development issues", "marks": "15"}, {"year": "2013", "paper": "GS1", "question": "Discussion the various social problems which originated out of the speedy process of urbanization in India.", "topic": "Social Problems", "marks": "10"}, {"year": "2015", "paper": "GS1", "question": "Smart cities in India cannot sustain without smart villages. Discuss this statement in the backdrop of rural urban integration.", "topic": "Integration", "marks": "12.5"}, {"year": "2015", "paper": "GS1", "question": "Mumbai, Delhi and Kolkata are the three mega cities of the country but the air pollution is much more serious problem in Delhi as compared to the other two. Why is this so?", "topic": "Pollution", "marks": "12.5"}, {"year": "2016", "paper": "GS1", "question": "Major cities of India are becoming more vulnerable to flood conditions. Discuss.", "topic": "Flood", "marks": "12.5"}, {"year": "2016", "paper": "GS1", "question": "With a brief background of quality of urban life in India, introduce the objectives and strategy of the ‘Smart City Programme’.", "topic": "Programme", "marks": "12.5"}, {"year": "2017", "paper": "GS1", "question": "The growth of cities as I.T. hubs has opened up new avenues employment but has also created new problems. Substantiate this statement with examples. Urbanization", "topic": "Social Problems", "marks": "15"}, {"year": "2018", "paper": "GS1", "question": "“The ideal solution of depleting ground water resources in India is water harvesting system.” How can it be made effective in urban areas?", "topic": "Resource", "marks": "15"}, {"year": "2019", "paper": "GS1", "question": "How is efficient and affordable urban mass transport key to the rapid economic development of India?", "topic": "Transport", "marks": "15"}, {"year": "2020", "paper": "GS1", "question": "Account for the huge flooding of million cities in India including the smart ones like Hyderabad and Pune. Suggest lasting remedial measures.", "topic": "Flood", "marks": "15"}, {"year": "2021", "paper": "GS1", "question": "What are the main socio-economic implications arising out of development of IT industries in major cities of India", "topic": "Social Problems", "marks": "15"}, {"year": "2013", "paper": "GS1", "question": "Critically examine the effects of globalization on the aged population in India.", "topic": "Aged", "marks": "10"}, {"year": "2016", "paper": "GS1", "question": "To what extent globalization has influenced the core of cultural diversity in India? Explain.", "topic": "Culture", "marks": "12.5"}, {"year": "2015", "paper": "GS1", "question": "Discuss the positive and negative effects of globalization on women in India.", "topic": "Women", "marks": "12.5"}, {"year": "2018", "paper": "GS1", "question": "‘Globalization is generally said to promote cultural homogenization but due to this cultural specificities appear to be strengthened in the Indian Society. Elucidate.", "topic": "Culture", "marks": "15"}, {"year": "2019", "paper": "GS1", "question": "Are we losing our local identity for the global identity? Discuss.", "topic": "Identity", "marks": "15"}, {"year": "2022", "paper": "GS1", "question": "Explore and evaluate the impact of ‘Work From Home’ on family relationships.", "topic": "Relationship", "marks": "10"}, {"year": "2022", "paper": "GS1", "question": "Elucidate the relationship between globalization and new technology in a world of scarce resources, with special reference to India.", "topic": "Technology", "marks": "15"}, {"year": "2013", "paper": "GS1", "question": "Male membership needs to be encouraged in order to make women’s organization free from gender bias. Comment.", "topic": "Bias", "marks": "10"}, {"year": "2014", "paper": "GS1", "question": "Why do some of the most prosperous regions of India have an adverse sex ratio for women? Give your arguments.", "topic": "Sex ratio", "marks": "10"}, {"year": "2014", "paper": "GS1", "question": "Discuss the various economic and socio-cultural forces that are driving increasing feminization of agriculture in India.", "topic": "Feminization", "marks": "10"}, {"year": "2014", "paper": "GS1", "question": "How does patriarchy impact the position of a middle class working woman in India?", "topic": "Work", "marks": "10"}, {"year": "2015", "paper": "GS1", "question": "How do you explain the statistics that show that the sex ratio in Tribes in India is more favourable to women than the sex ratio among Scheduled Castes?", "topic": "Sex ratio", "marks": "12.5"}, {"year": "2018", "paper": "GS1", "question": "‘Women’s movement in India has not addressed the issues of women of lower social strata. Substantiate your view.", "topic": "Movements", "marks": "15"}, {"year": "2019", "paper": "GS1", "question": "What are the continued challenges for women in India against time and space?", "topic": "Challenges", "marks": "15"}, {"year": "2019", "paper": "GS1", "question": "“Empowering women is the key to control population growth”. Discuss", "topic": "Empowerment", "marks": "10"}, {"year": "2021", "paper": "GS1", "question": "Examine the role of ‘Gig Economy’ in the process of empowerment of women in India.", "topic": "Work", "marks": "10"}, {"year": "2023", "paper": "GS1", "question": "Explain why suicide among young women is increasing in Indian society.", "topic": "Suicide", "marks": "10"}, {"year": "2013", "paper": "GS1", "question": "Bring out the causes for more frequent landslides in the Himalayas than in Western Ghats", "topic": "Landslide", "marks": "5"}, {"year": "2013", "paper": "GS1", "question": "Major hot deserts in northern hemisphere are located between 20-30 degree north and on the western side of the continents. Why?", "topic": "Phenomena", "marks": "10"}, {"year": "2013", "paper": "GS1", "question": "There is no formation of deltas by rivers of the Western Ghat. Why?", "topic": "Phenomena", "marks": "5"}, {"year": "2013", "paper": "GS1", "question": "The recent cyclone on the east coast of India was called “Phailin”. How are the tropical cyclones named across the world?", "topic": "Cyclone", "marks": "5"}, {"year": "2013", "paper": "GS1", "question": "What do you understand by the theory of continental drift? Discuss the prominent evidences in its support.", "topic": "Concept", "marks": "5"}, {"year": "2014", "paper": "GS1", "question": "Why are the world’s fold mountain systems located along the margins of continents? Bring out the association between the global distribution of Fold Mountains and the earthquakes and volcanoes.", "topic": "Phenomena", "marks": "10"}];
+
+[...new Set(data.map(x => x.year))]
+  .sort((a,b) => Number(b)-Number(a))
+  .forEach(y => {
+    year.innerHTML += `<option value="${y}">${y}</option>`;
+  });
+
+function render(){
+  box.innerHTML = "";
+
+  const term = search.value.toLowerCase().trim();
+
+  const filtered = data.filter(q =>
+    (year.value === "all" || q.year === year.value) &&
+    (
+      q.question.toLowerCase().includes(term) ||
+      q.topic.toLowerCase().includes(term)
+    )
+  );
+
+  count.textContent = `${filtered.length} Questions`;
+
+  filtered.forEach(q => {
+    const card = document.createElement("div");
+    card.className = "card";
+
+    card.innerHTML = `
+      <div class="cardTop">
+        <span class="year">${q.year}</span>
+        <span class="meta">${q.marks} Marks</span>
+      </div>
+      <div class="question">${escapeHtml(q.question)}</div>
+      <span class="topic">${escapeHtml(q.topic)}</span>
+    `;
+
+    card.onclick = () => openQuestion(q);
+    box.appendChild(card);
+  });
+
+  if(!filtered.length){
+    box.innerHTML = `
+      <div class="card" style="text-align:center;color:#777;cursor:default">
+        No question found
+      </div>`;
+  }
+}
+
+function escapeHtml(value){
+  return String(value)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+
+function openQuestion(q){
+  clearInterval(interval);
+
+  currentQuestion = q.question;
+  dYear.textContent = q.year;
+  dMarks.textContent = `${q.marks} Marks`;
+  dTopic.textContent = q.topic;
+  dQuestion.textContent = q.question;
+  timer.textContent = "00:00";
+
+  try{
+    if(window.Progress && typeof Progress.addSolved === "function"){
+      Progress.addSolved("GS1", q.year + "_" + q.question);
+    }
+  }catch(e){}
+
+  listView.style.display = "none";
+  detail.style.display = "block";
+  window.scrollTo(0,0);
+}
+
+document.getElementById("backBtn").onclick = () => {
+  clearInterval(interval);
+  timer.textContent = "00:00";
+  detail.style.display = "none";
+  listView.style.display = "block";
+  window.scrollTo(0,0);
+};
+
+document.getElementById("copyBtn").onclick = async () => {
+  try{
+    await navigator.clipboard.writeText(currentQuestion);
+    if(tg) tg.showAlert("Question Copied");
+    else alert("Question Copied");
+  }catch(e){
+    if(tg) tg.showAlert("Copy Failed");
+    else alert("Copy Failed");
+  }
+};
+
+function startTimer(min){
+  clearInterval(interval);
+
+  let sec = min * 60;
+  timer.textContent = `${min}:00`;
+
+  interval = setInterval(() => {
+    sec--;
+
+    timer.textContent =
+      Math.floor(sec/60) + ":" + String(sec%60).padStart(2,"0");
+
+    if(sec <= 0){
+      clearInterval(interval);
+
+      try{
+        if(window.Progress && typeof Progress.timerCompleted === "function"){
+          Progress.timerCompleted();
+        }
+      }catch(e){}
+
+      if(tg) tg.showAlert("Time Up (+10 XP)");
+      else alert("Time Up (+10 XP)");
+
+      timer.textContent = "00:00";
+    }
+  },1000);
+}
+
+document.getElementById("btn7").onclick = () => startTimer(7);
+document.getElementById("btn11").onclick = () => startTimer(11);
+
+document.getElementById("homeBtn").onclick = () => {
+  window.location.href = "index.html";
+};
+
+year.onchange = render;
+search.oninput = render;
+
+render();
+</script>
+</body>
+</html>
