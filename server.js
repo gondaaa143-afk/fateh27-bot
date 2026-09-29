@@ -576,6 +576,13 @@ function verifyCashfreeWebhook(req) {
     crypto.timingSafeEqual(received, calculated);
 }
 
+// Cashfree dashboard sandbox endpoint validation may use GET/HEAD.
+if (CASHFREE_ENV === "sandbox") {
+  app.get("/api/payments/cashfree/webhook", (req, res) => {
+    return res.json({ ok: true, service: "fateh27-cashfree-webhook", environment: "sandbox" });
+  });
+}
+
 app.post(
   "/api/payments/cashfree/webhook",
   async (req, res) => {
