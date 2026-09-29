@@ -33,12 +33,16 @@ button{border:0;border-radius:11px;padding:9px 12px;font-weight:800;cursor:point
     <div class="stats">
       <div class="stat"><b id="total">0</b><span>Total Requests</span></div>
       <div class="stat"><b id="pending">0</b><span>Pending</span></div>
-      <div class="stat"><b id="approved">0</b><span>Approved</span></div>
+      <div class="stat"><b id="membersCount">0</b><span>Approved Members</span></div>
     </div>
   </div>
   <div class="card">
     <div class="top"><strong>Join Requests</strong><button id="refresh">Refresh</button></div>
     <div id="list" class="empty">Loading…</div>
+  </div>
+  <div class="card">
+    <div class="top"><strong>Approved Members</strong><span class="meta">Who is currently added to FATEH27</span></div>
+    <div id="membersList" class="empty">Loading…</div>
   </div>
 </div>
 <script>
@@ -48,7 +52,8 @@ button{border:0;border-radius:11px;padding:9px 12px;font-weight:800;cursor:point
  const list=document.getElementById("list");
  const total=document.getElementById("total");
  const pending=document.getElementById("pending");
- const approved=document.getElementById("approved");
+ const membersCount=document.getElementById("membersCount");
+ const membersList=document.getElementById("membersList");
 
  function esc(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));}
  function fmt(v){try{return v?new Date(v).toLocaleString():"—"}catch{return "—"}}
@@ -62,9 +67,10 @@ button{border:0;border-radius:11px;padding:9px 12px;font-weight:800;cursor:point
      const d=await r.json();
      if(!r.ok) throw new Error(d.detail||d.error||"Admin access denied");
      const requests=d.requests||[];
+     const members=d.members||[];
      total.textContent=requests.length;
      pending.textContent=requests.filter(x=>x.status==="pending").length;
-     approved.textContent=requests.filter(x=>x.status==="approved").length;
+     membersCount.textContent=members.length;
      if(!requests.length){list.innerHTML='<div class="empty">No join requests yet.</div>';return;}
      list.innerHTML=requests.map(x=>{
        const name=[x.firstName,x.lastName].filter(Boolean).join(" ")||"Unknown User";
