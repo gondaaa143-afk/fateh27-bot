@@ -1161,6 +1161,9 @@ app.post(
         imageData =
           null,
 
+        images =
+          null,
+
         language =
           "English"
 
@@ -1186,11 +1189,20 @@ app.post(
       }
 
 
-      const evaluationImage = image || imageData || null;
+      const evaluationImages = Array.isArray(images)
+        ? images.filter(Boolean)
+        : [];
+
+      const evaluationImage =
+        image ||
+        imageData ||
+        evaluationImages[0] ||
+        null;
 
       if (
         !cleanText(answer) &&
-        !evaluationImage
+        !evaluationImage &&
+        !evaluationImages.length
       ) {
 
         return res.status(400).json({
@@ -1318,18 +1330,16 @@ Give:
          HANDWRITTEN IMAGE
          ----------------------------------------------- */
 
-      if (evaluationImage) {
+      /* Accept one or many handwritten pages. */
+      const imageList = evaluationImages.length
+        ? evaluationImages
+        : (evaluationImage ? [evaluationImage] : []);
 
+      for (const imageDataUrl of imageList) {
         content.push({
-
-          type:
-            "input_image",
-
-          image_url:
-            evaluationImage
-
+          type: "input_image",
+          image_url: imageDataUrl
         });
-
       }
 
 
