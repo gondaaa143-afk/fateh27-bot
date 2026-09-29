@@ -5,6 +5,7 @@ import OpenAI from "openai";
 import crypto from "crypto";
 import path from "path";
 import { fileURLToPath } from "url";
+import accessHandler from "./api/access.js";
 
 dotenv.config();
 
@@ -1815,6 +1816,19 @@ app.post(
     }
   }
 );
+
+/* =========================================================
+   ACCESS CONTROL / OWNER ADMIN
+   =========================================================
+   Render runs server.js directly, so the Vercel-style api/access.js
+   handler must be mounted explicitly here as an Express route.
+   ========================================================= */
+
+app.all(
+  "/api/access",
+  (req, res) => accessHandler(req, res)
+);
+
 
 /* =========================================================
    STATIC FRONTEND
