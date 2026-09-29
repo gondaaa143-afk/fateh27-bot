@@ -65,4 +65,1535 @@ window.scrollTo({top:0,behavior:'smooth'})}
 function markRecall(){if(!selected)return;const k=key(selected);if(!recalled.includes(k)){recalled.push(k);recallXP+=10;localStorage.setItem('fateh27_pqi_done',JSON.stringify(recalled));localStorage.setItem('fateh27_pqi_xp',recallXP)}openQ(DATA.indexOf(selected))}
 function showList(){$('detailPanel').classList.remove('show');$('listPanel').style.display='block';window.scrollTo({top:0,behavior:'smooth'})}
 ['year','marks','topic','search'].forEach(id=>$(id).addEventListener('input',refresh));setup();
-</script></body></html>
+</script>
+ <script>
+/* =========================================================
+   FATEH27 PYQ INTELLIGENCE — ADVANCED UPSC UPGRADE
+   Works on existing 797-PYQ system
+   ========================================================= */
+
+(function () {
+
+  /* -------------------------------------------------------
+     SAVE ORIGINAL OPEN FUNCTION
+     ------------------------------------------------------- */
+
+  const originalOpenQ = window.openQ;
+
+  if (typeof originalOpenQ !== "function") {
+    console.error("FATEH27: original openQ() not found.");
+    return;
+  }
+
+
+  /* -------------------------------------------------------
+     UPSC DIRECTIVE DETECTOR
+     ------------------------------------------------------- */
+
+  function getDirective(question) {
+
+    const q = String(question || "").toLowerCase();
+
+    const directives = [
+      "critically examine",
+      "critically evaluate",
+      "to what extent",
+      "differentiate",
+      "compare",
+      "analyse",
+      "analyze",
+      "evaluate",
+      "assess",
+      "discuss",
+      "comment",
+      "examine",
+      "elucidate",
+      "justify",
+      "explain",
+      "enumerate",
+      "highlight",
+      "substantiate",
+      "clarify"
+    ];
+
+    for (const d of directives) {
+      if (q.includes(d)) {
+        return d;
+      }
+    }
+
+    return "conceptual";
+  }
+
+
+  /* -------------------------------------------------------
+     DIRECTIVE MEANING
+     ------------------------------------------------------- */
+
+  function directiveMeaning(d) {
+
+    const map = {
+
+      "discuss":
+        "Multiple dimensions mein issue ko explain karo. Sirf description nahi; relevant arguments, examples aur balanced conclusion do.",
+
+      "analyse":
+        "Issue ko components mein todkar causes, mechanism, linkages aur consequences establish karo.",
+
+      "analyze":
+        "Issue ko components mein todkar causes, mechanism, linkages aur consequences establish karo.",
+
+      "critically examine":
+        "Arguments ke saath counter-arguments/limitations bhi do aur balanced judgement tak pahucho.",
+
+      "critically evaluate":
+        "Positive aur negative dimensions ko evidence ke saath weigh karke reasoned judgement do.",
+
+      "evaluate":
+        "Importance/effectiveness ko clear criteria par assess karo aur final judgement do.",
+
+      "assess":
+        "Relative importance, impact aur limitations ko weigh karke conclusion do.",
+
+      "examine":
+        "Issue ke different components ko evidence aur implications ke saath examine karo.",
+
+      "comment":
+        "Statement ko explain karo, supporting arguments do aur reasoned concluding view do.",
+
+      "elucidate":
+        "Concept ko clearly explain karo aur suitable examples se clarify karo.",
+
+      "justify":
+        "Statement ke support mein logical arguments aur evidence do; relevant limitations acknowledge karo.",
+
+      "explain":
+        "Concept/process ko why/how ke saath clear karo; sirf facts list mat karo.",
+
+      "enumerate":
+        "Major points ko systematically identify aur organise karo.",
+
+      "compare":
+        "Common dimensions par similarities aur differences point-to-point show karo.",
+
+      "differentiate":
+        "Clear criteria ke basis par dono concepts ko distinguish karo.",
+
+      "highlight":
+        "Question ke most significant aspects ko focused manner mein bring out karo.",
+
+      "substantiate":
+        "Claim ko concrete evidence, examples aur arguments se establish karo.",
+
+      "clarify":
+        "Concept ko ambiguity ke bina simple logical structure mein explain karo.",
+
+      "to what extent":
+        "Statement ki validity/impact kitni extent tak hai, usko weigh karke balanced judgement do.",
+
+      "conceptual":
+        "Question ke central concept ko define karke relevant dimensions aur examples ke through answer build karo."
+
+    };
+
+    return map[d] || map["conceptual"];
+  }
+
+
+  /* -------------------------------------------------------
+     CORE QUESTION DEMAND
+     ------------------------------------------------------- */
+
+  function getDemand(q) {
+
+    const directive = getDirective(q.question);
+
+    return {
+      directive: directive,
+      meaning: directiveMeaning(directive),
+      topic: q.topic || "General",
+      marks: q.marks || "10"
+    };
+  }
+
+
+  /* -------------------------------------------------------
+     RELATED PYQS
+     ------------------------------------------------------- */
+
+  function getRelated(q) {
+
+    if (!Array.isArray(window.DATA)) {
+      return [];
+    }
+
+    return window.DATA
+      .filter(x =>
+        x !== q &&
+        x.paper === q.paper &&
+        String(x.topic || "").toLowerCase() ===
+        String(q.topic || "").toLowerCase()
+      )
+      .slice(0, 6);
+  }
+
+
+  /* -------------------------------------------------------
+     THEME FREQUENCY
+     ------------------------------------------------------- */
+
+  function getThemeData(q) {
+
+    if (!Array.isArray(window.DATA)) {
+      return {
+        count: 1,
+        years: [q.year]
+      };
+    }
+
+    const same = window.DATA.filter(x =>
+      x.paper === q.paper &&
+      String(x.topic || "").toLowerCase() ===
+      String(q.topic || "").toLowerCase()
+    );
+
+    return {
+      count: same.length,
+      years: [...new Set(
+        same.map(x => x.year)
+      )].sort()
+    };
+  }
+
+
+  /* -------------------------------------------------------
+     COMMON MISTAKES
+     ------------------------------------------------------- */
+
+  function getMistakes(q) {
+
+    const d = getDirective(q.question);
+
+    const mistakes = [
+      "Directive ko ignore karke generic answer likhna.",
+      "Question ki exact demand se bahar chale jana.",
+      "Sirf facts list karna, analysis nahi dena.",
+      "Specific examples/evidence na dena.",
+      "Introduction bahut lamba kar dena.",
+      "Body ko headings/dimensions mein organise na karna."
+    ];
+
+    if (
+      d === "critically examine" ||
+      d === "critically evaluate" ||
+      d === "evaluate" ||
+      d === "assess"
+    ) {
+      mistakes.push(
+        "Balanced judgement ke bina answer conclude karna."
+      );
+    }
+
+    if (
+      d === "compare" ||
+      d === "differentiate"
+    ) {
+      mistakes.push(
+        "Point-to-point comparison ke बजाय dono topics ko separately describe karna."
+      );
+    }
+
+    return mistakes;
+  }
+
+
+  /* -------------------------------------------------------
+     PRELIMS CONNECTION
+     ------------------------------------------------------- */
+
+  function prelimsConnection(q) {
+
+    const topic = q.topic || "this topic";
+
+    return `
+      <div class="upgrade-list">
+        <div>• <b>Definition / Term:</b> ${escapeHTML(topic)} se जुड़े core terms revise karo.</div>
+        <div>• <b>Features:</b> Important characteristics aur classifications.</div>
+        <div>• <b>Persons / Institutions:</b> Relevant personalities, organisations ya institutions.</div>
+        <div>• <b>Places / Map:</b> Location-based facts where applicable.</div>
+        <div>• <b>Chronology:</b> Important sequence/events where applicable.</div>
+        <div>• <b>Prelims Trap:</b> Similar-looking concepts ke differences revise karo.</div>
+      </div>
+    `;
+  }
+
+
+  /* -------------------------------------------------------
+     MAINS FRAMEWORK
+     ------------------------------------------------------- */
+
+  function mainsFramework(q) {
+
+    const d = getDemand(q);
+
+    return `
+      <div class="framework">
+
+        <div class="frameworkRow">
+          <b>INTRODUCTION</b>
+          <span>
+            2–3 lines mein definition, context ya direct answer to the theme.
+          </span>
+        </div>
+
+        <div class="frameworkRow">
+          <b>BODY — 1</b>
+          <span>
+            Core concept / background / major features.
+          </span>
+        </div>
+
+        <div class="frameworkRow">
+          <b>BODY — 2</b>
+          <span>
+            3–5 relevant dimensions according to the directive.
+          </span>
+        </div>
+
+        <div class="frameworkRow">
+          <b>BODY — 3</b>
+          <span>
+            Specific examples, evidence, thinkers, institutions,
+            case studies or data where relevant.
+          </span>
+        </div>
+
+        <div class="frameworkRow">
+          <b>COUNTER VIEW</b>
+          <span>
+            Limitation / opposing dimension where the question demands it.
+          </span>
+        </div>
+
+        <div class="frameworkRow">
+          <b>CONCLUSION</b>
+          <span>
+            Balanced, forward-looking conclusion directly linked to the demand.
+          </span>
+        </div>
+
+      </div>
+
+      <div class="demandBox">
+        <b>Directive:</b> ${escapeHTML(d.directive)}
+        <br>
+        <b>What UPSC expects:</b>
+        ${escapeHTML(d.meaning)}
+      </div>
+    `;
+  }
+
+
+  /* -------------------------------------------------------
+     EXAMINER LENS
+     ------------------------------------------------------- */
+
+  function examinerLens(q) {
+
+    const d = getDemand(q);
+
+    return `
+      <div class="upgrade-list">
+
+        <div>
+          <b>1. Exact Demand</b><br>
+          ${escapeHTML(d.meaning)}
+        </div>
+
+        <div>
+          <b>2. Conceptual Clarity</b><br>
+          Core concept ko accurately explain karo.
+        </div>
+
+        <div>
+          <b>3. Dimensions</b><br>
+          Question ke demand ke according multiple dimensions.
+        </div>
+
+        <div>
+          <b>4. Evidence</b><br>
+          Relevant examples, facts, reports, thinkers ya case studies.
+        </div>
+
+        <div>
+          <b>5. Structure</b><br>
+          Clear introduction → body → conclusion.
+        </div>
+
+      </div>
+    `;
+  }
+
+
+  /* -------------------------------------------------------
+     MAP CONNECTION
+     ------------------------------------------------------- */
+
+  function mapConnection(q) {
+
+    const topic = String(
+      q.topic || ""
+    ).toLowerCase();
+
+    const mapTopics = [
+      "architecture",
+      "civilisation",
+      "sculpture",
+      "buddhism",
+      "temple",
+      "geography",
+      "river",
+      "mountain",
+      "empire",
+      "colonisation",
+      "war",
+      "world"
+    ];
+
+    const applicable = mapTopics.some(
+      x => topic.includes(x)
+    );
+
+    if (!applicable) {
+
+      return `
+        <div class="mutedBox">
+          इस PYQ के लिए direct map linkage आवश्यक नहीं है।
+          Map connection तभी जोड़ें जब location genuinely relevant हो।
+        </div>
+      `;
+    }
+
+    return `
+      <div class="mapBox">
+        <b>Map Revision</b>
+
+        <p>
+          इस topic से जुड़े important locations को India/World map पर revise करें।
+        </p>
+
+        <button
+          class="upgradeBtn"
+          onclick="location.href='commander/index.html'"
+        >
+          Open Commander Map →
+        </button>
+      </div>
+    `;
+  }
+
+
+  /* -------------------------------------------------------
+     ACTIVE RECALL
+     ------------------------------------------------------- */
+
+  function activeRecall(q) {
+
+    return `
+      <div class="activeBox">
+
+        <div class="activeTitle">
+          ACTIVE RECALL
+        </div>
+
+        <p>
+          बिना notes देखे इस PYQ का answer structure
+          mentally बनाइए।
+        </p>
+
+        <div class="recallQuestion">
+          ${escapeHTML(q.question)}
+        </div>
+
+        <button
+          class="upgradeBtn"
+          onclick="window.scrollTo({
+            top:document.body.scrollHeight,
+            behavior:'smooth'
+          })"
+        >
+          Recall First →
+        </button>
+
+      </div>
+    `;
+  }
+
+
+  /* -------------------------------------------------------
+     7 MINUTE ANSWER PRACTICE
+     ------------------------------------------------------- */
+
+  let practiceTimer = null;
+
+  function answerPractice(q) {
+
+    const marks = q.marks || "10";
+
+    return `
+      <div class="practiceBox">
+
+        <div class="practiceTop">
+
+          <div>
+            <b>7-Minute Answer Practice</b>
+
+            <div class="mutedSmall">
+              ${escapeHTML(marks)} marks • UPSC Mains
+            </div>
+          </div>
+
+          <div
+            id="f27Timer"
+            class="timer"
+          >
+            07:00
+          </div>
+
+        </div>
+
+        <textarea
+          id="f27Answer"
+          class="answerBox"
+          placeholder="Yahin apna Mains answer likho..."
+        ></textarea>
+
+        <div class="practiceBottom">
+
+          <span>
+            Words:
+            <b id="f27Words">0</b>
+          </span>
+
+          <button
+            class="upgradeBtn"
+            onclick="startFatehTimer()"
+          >
+            Start 7-Min Timer
+          </button>
+
+        </div>
+
+        <div class="practiceHint">
+          Target: Introduction → 3–5 dimensions →
+          examples/evidence → balanced conclusion.
+        </div>
+
+      </div>
+    `;
+  }
+
+
+  /* -------------------------------------------------------
+     GLOBAL TIMER
+     ------------------------------------------------------- */
+
+  window.startFatehTimer = function () {
+
+    if (practiceTimer) {
+      clearInterval(practiceTimer);
+    }
+
+    let seconds = 420;
+
+    const timer =
+      document.getElementById("f27Timer");
+
+    const update = () => {
+
+      const min =
+        Math.floor(seconds / 60);
+
+      const sec =
+        String(seconds % 60)
+          .padStart(2, "0");
+
+      if (timer) {
+        timer.textContent =
+          `${String(min).padStart(2, "0")}:${sec}`;
+      }
+
+      if (seconds <= 0) {
+
+        clearInterval(
+          practiceTimer
+        );
+
+        if (timer) {
+          timer.textContent =
+            "TIME UP";
+        }
+
+        return;
+      }
+
+      seconds--;
+    };
+
+    update();
+
+    practiceTimer =
+      setInterval(
+        update,
+        1000
+      );
+  };
+
+
+  /* -------------------------------------------------------
+     WORD COUNTER
+     ------------------------------------------------------- */
+
+  document.addEventListener(
+    "input",
+    function (e) {
+
+      if (
+        e.target &&
+        e.target.id === "f27Answer"
+      ) {
+
+        const text =
+          e.target.value.trim();
+
+        const count =
+          text
+            ? text.split(/\s+/).length
+            : 0;
+
+        const output =
+          document.getElementById(
+            "f27Words"
+          );
+
+        if (output) {
+          output.textContent =
+            count;
+        }
+      }
+
+    }
+  );
+
+
+  /* -------------------------------------------------------
+     HTML ESCAPE
+     ------------------------------------------------------- */
+
+  function escapeHTML(value) {
+
+    return String(
+      value || ""
+    ).replace(
+      /[&<>"']/g,
+      function (m) {
+
+        return {
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;"
+        }[m];
+
+      }
+    );
+  }
+
+
+  /* -------------------------------------------------------
+     NEW OPENQ
+     ------------------------------------------------------- */
+
+  window.openQ = function (index) {
+
+    /* Original PYQ screen first */
+    originalOpenQ(index);
+
+    setTimeout(
+      function () {
+
+        const q =
+          window.DATA &&
+          window.DATA[index];
+
+        if (!q) return;
+
+        const detail =
+          document.getElementById(
+            "detail"
+          );
+
+        if (!detail) return;
+
+
+        /* Prevent duplicate injection */
+
+        if (
+          detail.querySelector(
+            ".f27AdvancedIntelligence"
+          )
+        ) {
+          return;
+        }
+
+
+        const demand =
+          getDemand(q);
+
+        const theme =
+          getThemeData(q);
+
+        const related =
+          getRelated(q);
+
+        const mistakes =
+          getMistakes(q);
+
+
+        /* Find insertion point */
+
+        const recall =
+          detail.querySelector(
+            ".recall"
+          );
+
+
+        const container =
+          document.createElement(
+            "div"
+          );
+
+        container.className =
+          "f27AdvancedIntelligence";
+
+
+        container.innerHTML = `
+
+          <!-- QUESTION DECONSTRUCTION -->
+
+          <div class="upgradeSection">
+
+            <div class="upgradeHeading">
+              Question Deconstruction
+              <span>प्रश्न का विश्लेषण</span>
+            </div>
+
+            <div class="upgradeGrid">
+
+              <div class="upgradeCard">
+
+                <div class="label">
+                  DIRECTIVE
+                </div>
+
+                <div class="bigValue">
+                  ${escapeHTML(
+                    demand.directive
+                  )}
+                </div>
+
+              </div>
+
+
+              <div class="upgradeCard">
+
+                <div class="label">
+                  CORE TOPIC
+                </div>
+
+                <div class="bigValue">
+                  ${escapeHTML(
+                    demand.topic
+                  )}
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="demandBox">
+
+              <b>Exact Demand</b>
+
+              <p>
+                ${escapeHTML(
+                  demand.meaning
+                )}
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- CORE CONCEPT -->
+
+          <div class="upgradeSection">
+
+            <div class="upgradeHeading">
+              Core Concept — Deep Notes
+              <span>मूल अवधारणा</span>
+            </div>
+
+            <div class="conceptCard">
+
+              <b>
+                ${escapeHTML(
+                  q.topic ||
+                  "Core Concept"
+                )}
+              </b>
+
+              <p>
+                Definition/meaning →
+                background →
+                major features →
+                dimensions →
+                examples →
+                significance.
+              </p>
+
+              <p>
+                Notes ko PYQ ki exact demand
+                ke according organise karo.
+                Unrelated facts avoid karo.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- RELATED CONCEPTS -->
+
+          <div class="upgradeSection">
+
+            <div class="upgradeHeading">
+              Related Concepts
+              <span>संबंधित अवधारणाएँ</span>
+            </div>
+
+            <div class="conceptPath">
+
+              ${escapeHTML(
+                q.topic ||
+                "Core Topic"
+              )}
+
+              <span>→</span>
+
+              Background
+
+              <span>→</span>
+
+              Features
+
+              <span>→</span>
+
+              Examples
+
+              <span>→</span>
+
+              Significance
+
+            </div>
+
+          </div>
+
+
+          <!-- THEME FREQUENCY -->
+
+          <div class="upgradeSection">
+
+            <div class="upgradeHeading">
+              Theme Frequency
+              <span>Theme कितनी बार पूछा गया?</span>
+            </div>
+
+            <div class="frequencyBox">
+
+              <div>
+
+                <strong>
+                  ${theme.count}
+                </strong>
+
+                <span>
+                  PYQs
+                </span>
+
+              </div>
+
+
+              <div>
+
+                <strong>
+                  ${theme.years.length}
+                </strong>
+
+                <span>
+                  Years
+                </span>
+
+              </div>
+
+
+              <div class="years">
+
+                ${theme.years
+                  .map(
+                    y =>
+                      `<span>${escapeHTML(y)}</span>`
+                  )
+                  .join("")}
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- PRELIMS -->
+
+          <div class="upgradeSection">
+
+            <div class="upgradeHeading">
+              Prelims Connection
+              <span>Prelims Link</span>
+            </div>
+
+            <div class="conceptCard">
+
+              ${prelimsConnection(q)}
+
+            </div>
+
+          </div>
+
+
+          <!-- MAP -->
+
+          <div class="upgradeSection">
+
+            <div class="upgradeHeading">
+              Map Connection
+              <span>Map Link</span>
+            </div>
+
+            ${mapConnection(q)}
+
+          </div>
+
+
+          <!-- COMMON MISTAKES -->
+
+          <div class="upgradeSection">
+
+            <div class="upgradeHeading">
+              Common Mistakes
+              <span>सामान्य गलतियाँ</span>
+            </div>
+
+            <div class="mistakeList">
+
+              ${mistakes
+                .map(
+                  (m, i) =>
+                    `<div>
+                      <b>${i + 1}.</b>
+                      ${escapeHTML(m)}
+                    </div>`
+                )
+                .join("")}
+
+            </div>
+
+          </div>
+
+
+          <!-- EXAMINER -->
+
+          <div class="upgradeSection">
+
+            <div class="upgradeHeading">
+              UPSC Examiner Lens
+              <span>Examiner क्या देखता है?</span>
+            </div>
+
+            <div class="examinerCard">
+
+              ${examinerLens(q)}
+
+            </div>
+
+          </div>
+
+
+          <!-- MAINS FRAMEWORK -->
+
+          <div class="upgradeSection">
+
+            <div class="upgradeHeading">
+              Mains Answer Framework
+              <span>उत्तर का Framework</span>
+            </div>
+
+            ${mainsFramework(q)}
+
+          </div>
+
+
+          <!-- MODEL SKELETON -->
+
+          <div class="upgradeSection">
+
+            <div class="upgradeHeading">
+              Model Answer Skeleton
+              <span>उत्तर की संरचना</span>
+            </div>
+
+            <div class="skeleton">
+
+              <div>
+                <b>INTRO</b>
+                <span>
+                  Definition / context / direct opening
+                </span>
+              </div>
+
+              <div>
+                <b>BODY 1</b>
+                <span>
+                  Core concept / background
+                </span>
+              </div>
+
+              <div>
+                <b>BODY 2</b>
+                <span>
+                  3–5 dimensions according to demand
+                </span>
+              </div>
+
+              <div>
+                <b>BODY 3</b>
+                <span>
+                  Examples / evidence / case studies
+                </span>
+              </div>
+
+              <div>
+                <b>CONCLUSION</b>
+                <span>
+                  Balanced + forward-looking
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- RELATED PYQ -->
+
+          <div class="upgradeSection">
+
+            <div class="upgradeHeading">
+              Related PYQs
+              <span>संबंधित प्रश्न</span>
+            </div>
+
+            <div class="advancedRelated">
+
+              ${
+                related.length
+                ?
+                related.map(
+                  r => `
+                    <div class="relatedAdvanced">
+
+                      <div class="relatedMeta">
+
+                        ${escapeHTML(r.year)}
+                        •
+                        ${escapeHTML(r.marks)} marks
+
+                      </div>
+
+                      <div class="relatedQuestion">
+
+                        ${escapeHTML(
+                          r.question
+                        )}
+
+                      </div>
+
+                    </div>
+                  `
+                ).join("")
+                :
+                `
+                  <div class="mutedBox">
+                    Same-topic related PYQ नहीं मिला।
+                  </div>
+                `
+              }
+
+            </div>
+
+          </div>
+
+
+          <!-- ACTIVE RECALL -->
+
+          <div class="upgradeSection">
+
+            ${activeRecall(q)}
+
+          </div>
+
+
+          <!-- ANSWER PRACTICE -->
+
+          <div class="upgradeSection">
+
+            <div class="upgradeHeading">
+              Answer Writing Practice
+              <span>उत्तर लेखन अभ्यास</span>
+            </div>
+
+            ${answerPractice(q)}
+
+          </div>
+
+        `;
+
+
+        if (recall) {
+
+          recall.parentNode.insertBefore(
+            container,
+            recall
+          );
+
+        } else {
+
+          detail.appendChild(
+            container
+          );
+
+        }
+
+      },
+      30
+    );
+
+  };
+
+
+  /* -------------------------------------------------------
+     ADD CSS
+     ------------------------------------------------------- */
+
+  const style =
+    document.createElement(
+      "style"
+    );
+
+  style.textContent = `
+
+    .f27AdvancedIntelligence {
+      margin-top: 8px;
+    }
+
+    .upgradeSection {
+      border-top: 1px solid #dedede;
+      padding: 18px 0;
+    }
+
+    .upgradeHeading {
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .upgradeHeading span {
+      display: block;
+      font-size: 11px;
+      color: #777;
+      font-weight: 600;
+      margin-top: 3px;
+    }
+
+    .upgradeGrid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .upgradeCard {
+      background: #f0f0f0;
+      border-radius: 17px;
+      padding: 14px;
+    }
+
+    .label {
+      font-size: 10px;
+      color: #777;
+      font-weight: 800;
+      letter-spacing: .5px;
+      margin-bottom: 7px;
+    }
+
+    .bigValue {
+      font-size: 15px;
+      font-weight: 800;
+      text-transform: capitalize;
+    }
+
+    .demandBox {
+      background: #111;
+      color: #fff;
+      border-radius: 18px;
+      padding: 15px;
+      margin-top: 10px;
+    }
+
+    .demandBox p {
+      color: #ddd !important;
+      margin-top: 7px !important;
+    }
+
+    .conceptCard {
+      background: #f0f0f0;
+      border-radius: 17px;
+      padding: 15px;
+      line-height: 1.7;
+    }
+
+    .conceptCard p {
+      margin-top: 8px !important;
+    }
+
+    .conceptPath {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 7px;
+      background: #f0f0f0;
+      border-radius: 17px;
+      padding: 14px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .conceptPath span {
+      color: #999;
+    }
+
+    .frequencyBox {
+      display: grid;
+      grid-template-columns: 90px 90px 1fr;
+      gap: 12px;
+      align-items: center;
+      background: #111;
+      color: #fff;
+      border-radius: 19px;
+      padding: 15px;
+    }
+
+    .frequencyBox strong {
+      display: block;
+      font-size: 25px;
+    }
+
+    .frequencyBox span {
+      font-size: 10px;
+      color: #aaa;
+    }
+
+    .years {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .years span {
+      background: #fff;
+      color: #111;
+      border-radius: 999px;
+      padding: 6px 9px;
+      font-weight: 800;
+    }
+
+    .upgrade-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .upgrade-list div {
+      background: #f0f0f0;
+      border-radius: 14px;
+      padding: 11px;
+      line-height: 1.55;
+    }
+
+    .mistakeList {
+      display: grid;
+      gap: 8px;
+    }
+
+    .mistakeList div {
+      background: #f0f0f0;
+      border-radius: 13px;
+      padding: 11px;
+      line-height: 1.55;
+    }
+
+    .examinerCard {
+      background: #111;
+      color: #fff;
+      border-radius: 19px;
+      padding: 15px;
+    }
+
+    .examinerCard .upgrade-list div {
+      background: #222;
+      color: #eee;
+    }
+
+    .examinerCard .upgrade-list b {
+      color: #fff;
+    }
+
+    .framework {
+      display: grid;
+      gap: 8px;
+    }
+
+    .frameworkRow {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 12px;
+      background: #f0f0f0;
+      border-radius: 14px;
+      padding: 12px;
+      line-height: 1.5;
+    }
+
+    .frameworkRow b {
+      font-size: 10px;
+      letter-spacing: .5px;
+    }
+
+    .frameworkRow span {
+      font-size: 12px;
+    }
+
+    .skeleton {
+      display: grid;
+      gap: 8px;
+    }
+
+    .skeleton div {
+      background: #f0f0f0;
+      border-radius: 14px;
+      padding: 12px;
+    }
+
+    .skeleton b {
+      display: block;
+      font-size: 10px;
+      margin-bottom: 5px;
+    }
+
+    .skeleton span {
+      font-size: 12px;
+    }
+
+    .advancedRelated {
+      display: grid;
+      gap: 9px;
+    }
+
+    .relatedAdvanced {
+      background: #f0f0f0;
+      border-radius: 15px;
+      padding: 12px;
+    }
+
+    .relatedMeta {
+      font-size: 10px;
+      font-weight: 800;
+      color: #777;
+      margin-bottom: 6px;
+    }
+
+    .relatedQuestion {
+      font-size: 12px;
+      line-height: 1.55;
+      font-weight: 650;
+    }
+
+    .activeBox {
+      background: #111;
+      color: #fff;
+      border-radius: 21px;
+      padding: 17px;
+    }
+
+    .activeTitle {
+      font-size: 11px;
+      letter-spacing: 1px;
+      font-weight: 900;
+      color: #aaa;
+    }
+
+    .recallQuestion {
+      margin: 12px 0;
+      font-size: 14px;
+      line-height: 1.65;
+      font-weight: 700;
+    }
+
+    .practiceBox {
+      background: #111;
+      color: #fff;
+      border-radius: 21px;
+      padding: 17px;
+    }
+
+    .practiceTop {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .mutedSmall {
+      color: #aaa;
+      font-size: 10px;
+      margin-top: 4px;
+    }
+
+    .timer {
+      background: #fff;
+      color: #111;
+      border-radius: 12px;
+      padding: 9px 12px;
+      font-weight: 900;
+      min-width: 65px;
+      text-align: center;
+    }
+
+    .answerBox {
+      width: 100%;
+      min-height: 170px;
+      margin-top: 14px;
+      border: 0;
+      border-radius: 15px;
+      padding: 13px;
+      resize: vertical;
+      font: inherit;
+      outline: none;
+      background: #f4f4f4;
+      color: #111;
+    }
+
+    .practiceBottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 10px;
+      color: #ccc;
+      font-size: 11px;
+    }
+
+    .upgradeBtn {
+      border: 0;
+      background: #fff;
+      color: #111;
+      border-radius: 12px;
+      padding: 10px 13px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .practiceHint {
+      margin-top: 10px;
+      color: #aaa;
+      font-size: 10px;
+      line-height: 1.5;
+    }
+
+    .mapBox {
+      background: #f0f0f0;
+      border-radius: 17px;
+      padding: 15px;
+    }
+
+    .mutedBox {
+      background: #f0f0f0;
+      border-radius: 15px;
+      padding: 13px;
+      color: #666;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    @media(max-width:720px) {
+
+      .upgradeGrid {
+        grid-template-columns: 1fr;
+      }
+
+      .frequencyBox {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .years {
+        grid-column: 1 / -1;
+      }
+
+      .frameworkRow {
+        grid-template-columns: 1fr;
+        gap: 5px;
+      }
+
+      .practiceBottom {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .upgradeBtn {
+        width: 100%;
+      }
+
+    }
+
+  `;
+
+  document.head.appendChild(
+    style
+  );
+
+
+})();
+</script> 
+</body>
+</html>
