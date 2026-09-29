@@ -242,6 +242,60 @@ async function listRequests() {
   });
 }
 
+async function listApprovedMembers() {
+  const { projectId } = getFirebaseConfig();
+  const token = await getGoogleAccessToken();
+
+  const members = [];
+  let pageToken = "";
+
+  // Read all user pages so the owner can see everyone who has actually
+  // been approved and synced into the FATEH27 app.
+  for (let page = 0; page < 20; page++) {
+    const url =
+      "https://firestore.googleapis.com/v1/projects/" +
+      encodeURIComponent(projectId) +
+      "/databases/(default)/documents/users?pageSize=100" +
+      (pageToken ? "&pageToken=" + encodeURIComponent(pageToken) : "");
+
+    const response = await fetch(url, {
+      headers: { authorization: "Bearer " + token }
+    });
+
+    if (!response.ok) {
+      const detail = await response.text().catch(() => "");
+      throw new Error("Approved member list failed: " + detail.slice(0, 300));
+    }
+
+    const data = await response.json();
+
+    for (const doc of data.documents || []) {
+      const f = doc.fields || {};
+      members.push({
+        id: doc.name.split("/").pop(),
+        telegramId: fromFirestoreValue(f.telegramId) || doc.name.split("/").pop(),
+        firstName: fromFirestoreValue(f.firstName) || "",
+        lastName: fromFirestoreValue(f.lastName) || "",
+        username: fromFirestoreValue(f.username) || "",
+        languageCode: fromFirestoreValue(f.languageCode) || "",
+        plan: fromFirestoreValue(f.plan) || "free",
+        subscriptionStatus: fromFirestoreValue(f.subscriptionStatus) || "free",
+        updatedAt: fromFirestoreValue(f.updatedAt) || null,
+        lastActivity: fromFirestoreValue(f.lastActivity) || null,
+        xp: fromFirestoreValue(f.xp) || 0,
+        solved: fromFirestoreValue(f.solved) || 0
+      });
+    }
+
+    pageToken = data.nextPageToken || "";
+    if (!pageToken) break;
+  }
+
+  return members.sort((a, b) =>
+    String(b.updatedAt || "").localeCompare(String(a.updatedAt || ""))
+  );
+}
+
 async function updateRequest(userId, status) {
   const id = encodeURIComponent(String(userId));
   const existing = await firestoreRequest("accessRequests/" + id);
@@ -277,7 +331,8 @@ export default async function handler(req, res) {
       if (String(req.query?.admin || "") === "1") {
         await requireAdmin(req);
         const requests = await listRequests();
-        return res.status(200).json({ success: true, requests });
+        const members = await listApprovedMembers();
+        return res.status(200).json({ success: true, requests, members });
       }
 
       const state = await getAccessState(user.id);
