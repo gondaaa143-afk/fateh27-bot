@@ -410,6 +410,47 @@ function getCashfreeConfig() {
   return { clientId, clientSecret };
 }
 
+async function listApprovedTelegramUsers() {
+  const { projectId } = getFirebaseConfigForUsage() || {};
+  if (!projectId) throw new Error("Firebase server credentials are not configured");
+  const token = await getFirebaseAccessTokenForUsage();
+  if (!token) throw new Error("Firebase access token unavailable");
+
+  const url = "https://firestore.googleapis.com/v1/projects/" +
+    encodeURIComponent(projectId) +
+    "/databases/(default)/documents/users?pageSize=100";
+  const response = await fetch(url, { headers: { authorization: "Bearer " + token } });
+  if (!response.ok) throw new Error("Approved user list failed");
+  const data = await response.json();
+  return (data.documents || []).map((doc) => {
+    const f = doc.fields || {};
+    return String(f.telegramId?.stringValue || doc.name.split("/").pop());
+  }).filter(Boolean);
+}
+
+async function sendTelegramMessage(chatId, text) {
+  const token = process.env.TELEGRAM_BOT_TOKEN;
+  if (!token) throw new Error("TELEGRAM_BOT_TOKEN is not configured");
+  const response = await fetch("https://api.telegram.org/bot" + token + "/sendMessage", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ chat_id: String(chatId), text: String(text).slice(0, 4096) })
+  });
+  const data = await response.json().catch(() => ({}));
+  return { ok: response.ok && data.ok !== false, error: data?.description || null };
+}
+
+async function broadcastToApprovedUsers(text) {
+  const users = await listApprovedTelegramUsers();
+  let sent = 0, failed = 0;
+  for (const userId of users) {
+    const result = await sendTelegramMessage(userId, text);
+    if (result.ok) sent++;
+    else failed++;
+  }
+  return { total: users.length, sent, failed };
+}
+
 async function firestoreDocument(documentPath, options = {}) {
   const config = getFirebaseConfigForUsage();
   if (!config) throw new Error("Firebase server credentials are not configured");
@@ -691,6 +732,34 @@ app.post(
     }
   }
 );
+
+app.post("/api/notifications/current-affairs", rateLimit("notifications", 10), async (req, res) => {
+  try {
+    const secret = String(process.env.FATEH27_NOTIFY_SECRET || "");
+    const supplied = String(req.headers["x-fateh27-notify-secret"] || "");
+    if (!secret || !supplied || supplied !== secret) {
+      return res.status(401).json({ error: "Notification authorization failed" });
+    }
+
+    let content = cleanText(req.body?.content);
+    if (!content) {
+      const sourceUrl = String(req.body?.sourceUrl || "").trim();
+      if (!sourceUrl) return res.status(400).json({ error: "content or sourceUrl is required" });
+      const response = await fetch(sourceUrl);
+      if (!response.ok) throw new Error("Current affairs source fetch failed");
+      content = await response.text();
+    }
+
+    const result = await broadcastToApprovedUsers(
+      "📚 FATEH27 — Daily Current Affairs\\n\\n" + content
+    );
+
+    return res.json({ success: true, ...result });
+  } catch (error) {
+    console.error("/api/notifications/current-affairs error:", error);
+    return res.status(500).json({ error: "Notification broadcast failed", detail: error?.message || "Unknown error" });
+  }
+});
 
 /* =========================================================
    FATEH27
