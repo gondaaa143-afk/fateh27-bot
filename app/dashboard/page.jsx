@@ -7,6 +7,7 @@ export default function Dashboard() {
   const router = useRouter();
   const [user, setUser] = useState(null);
   const [syncStatus, setSyncStatus] = useState("syncing");
+  const [premium, setPremium] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -57,6 +58,16 @@ export default function Dashboard() {
           setUser(data.user);
           setSyncStatus("synced");
         }
+
+        try {
+          const accessResponse = await fetch("/api/access", {
+            headers: { "x-telegram-init-data": initData }
+          });
+          const accessData = await accessResponse.json();
+          if (!cancelled) setPremium(Boolean(accessData?.premium));
+        } catch (accessError) {
+          console.error("FATEH27 access check:", accessError);
+        }
       } catch (error) {
         console.error("FATEH27 user sync:", error);
         if (!cancelled) setSyncStatus("error");
@@ -103,6 +114,24 @@ export default function Dashboard() {
           <div className="grid grid-cols-2 gap-3 mt-6">
             <div className="bg-white/10 rounded-2xl p-4"><p className="text-white/60 text-xs">Streak</p><h3 className="text-2xl font-bold">1</h3></div>
             <div className="bg-white/10 rounded-2xl p-4"><p className="text-white/60 text-xs">XP</p><h3 className="text-2xl font-bold">0</h3></div>
+          </div>
+        </div>
+
+        <div className="mt-6 glass rounded-[28px] p-5">
+          <div className="flex items-center justify-between gap-3">
+            <div>
+              <p className="text-xs text-[#666]">Membership</p>
+              <h2 className="text-lg font-black mt-1">{premium ? "Premium Active" : "Free Plan"}</h2>
+              <p className="text-xs text-[#666] mt-1">
+                {premium ? "Premium access is enabled." : "Unlock premium study content and features."}
+              </p>
+            </div>
+            <button
+              onClick={() => router.push("/premium")}
+              className="bg-black text-white rounded-[16px] px-4 py-2 text-sm font-semibold"
+            >
+              {premium ? "Manage" : "Get Premium"}
+            </button>
           </div>
         </div>
 
