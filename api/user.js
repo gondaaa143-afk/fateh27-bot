@@ -25,16 +25,8 @@ function verifyTelegramInitData(initData) {
     .map(([key, value]) => key + "=" + value)
     .join("\n");
 
-  const secretKey = crypto
-    .createHmac("sha256", "WebAppData")
-    .update(botToken)
-    .digest();
-
-  const expectedHash = crypto
-    .createHmac("sha256", secretKey)
-    .update(dataCheckString)
-    .digest("hex");
-
+  const secretKey = crypto.createHmac("sha256", "WebAppData").update(botToken).digest();
+  const expectedHash = crypto.createHmac("sha256", secretKey).update(dataCheckString).digest("hex");
   const received = Buffer.from(hash, "hex");
   const expected = Buffer.from(expectedHash, "hex");
 
@@ -65,44 +57,32 @@ function getFirebaseConfig() {
 
 async function getGoogleAccessToken() {
   const { clientEmail, privateKey } = getFirebaseConfig();
-
   const now = Math.floor(Date.now() / 1000);
-  const header = { alg: "RS256", typ: "JWT" };
-  const claim = {
+
+  const base64url = (value) =>
+    Buffer.from(JSON.stringify(value)).toString("base64")
+      .replace(/=/g, "").replace(/\+/g, "-").replace(/\//g, "_");
+
+  const unsigned = base64url({ alg: "RS256", typ: "JWT" }) + "." + base64url({
     iss: clientEmail,
     scope: "https://www.googleapis.com/auth/datastore",
     aud: "https://oauth2.googleapis.com/token",
     iat: now,
     exp: now + 3600
-  };
+  });
 
-  const base64url = (value) =>
-    Buffer.from(JSON.stringify(value))
-      .toString("base64")
-      .replace(/=/g, "")
-      .replace(/\+/g, "-")
-      .replace(/\//g, "_");
-
-  const unsigned = base64url(header) + "." + base64url(claim);
   const signer = crypto.createSign("RSA-SHA256");
   signer.update(unsigned);
   signer.end();
 
-  const signature = signer
-    .sign(privateKey)
-    .toString("base64")
-    .replace(/=/g, "")
-    .replace(/\+/g, "-")
-    .replace(/\//g, "_");
-
-  const assertion = unsigned + "." + signature;
+  const signature = signer.sign(privateKey).toString("base64")
+    .replace(/=/g, "").replace(/\+/g, "-").replace(/\//g, "_");
 
   const response = await fetch("https://oauth2.googleapis.com/token", {
     method: "POST",
     headers: { "content-type": "application/x-www-form-urlencoded" },
-    body:
-      "grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=" +
-      encodeURIComponent(assertion)
+    body: "grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=" +
+      encodeURIComponent(unsigned + "." + signature)
   });
 
   if (!response.ok) {
@@ -110,13 +90,14 @@ async function getGoogleAccessToken() {
     throw new Error("Google OAuth failed: " + detail.slice(0, 500));
   }
 
-  const data = await response.json();
-  return data.access_token;
+  return (await response.json()).access_token;
 }
 
 function firestoreValue(value) {
   if (typeof value === "boolean") return { booleanValue: value };
-  if (typeof value === "number" && Number.isFinite(value)) return { integerValue: String(Math.trunc(value)) };
+  if (typeof value === "number" && Number.isFinite(value)) {
+    return { integerValue: String(Math.trunc(value)) };
+  }
   return { stringValue: clean(value) };
 }
 
@@ -125,11 +106,8 @@ async function readUserDocument(user) {
   const token = await getGoogleAccessToken();
   const documentId = String(user.id);
 
-  const url =
-    "https://firestore.googleapis.com/v1/projects/" +
-    encodeURIComponent(projectId) +
-    "/databases/(default)/documents/users/" +
-    encodeURIComponent(documentId);
+  const url = "https://firestore.googleapis.com/v1/projects/" + encodeURIComponent(projectId) +
+    "/databases/(default)/documents/users/" + encodeURIComponent(documentId);
 
   const response = await fetch(url, {
     headers: { authorization: "Bearer " + token }
@@ -166,7 +144,7 @@ function mergeProgress(existing, incoming) {
   const oldProgress = existing && typeof existing === "object" ? existing : {};
   const newProgress = incoming && typeof incoming === "object" ? incoming : {};
 
-  const merged = {
+  return {
     ...oldProgress,
     ...newProgress,
     xp: Math.max(Number(oldProgress.xp) || 0, Number(newProgress.xp) || 0),
@@ -180,8 +158,6 @@ function mergeProgress(existing, incoming) {
     badges: [...new Set([...(oldProgress.badges || []), ...(newProgress.badges || [])])],
     lastActivity: newProgress.lastActivity || oldProgress.lastActivity || ""
   };
-
-  return merged;
 }
 
 async function writeUserDocument(user, body) {
@@ -190,9 +166,14 @@ async function writeUserDocument(user, body) {
   const documentId = String(user.id);
 
   const profile = body?.profile && typeof body.profile === "object" ? body.profile : {};
-  const incomingProgress = profile.progress && typeof profile.progress === "object" ? profile.progress : {};
+  const incomingProgress = profile.progress && typeof profile.progress === "object"
+    ? profile.progress
+    : {};
+
   const existingDocument = await readUserDocument(user);
   const existingFields = existingDocument?.fields || {};
+  const existingPlan = fromFirestoreValue(existingFields.plan);
+  const plan = existingPlan || "free";
   const progress = mergeProgress(parseStoredProgress(existingFields), incomingProgress);
   const now = new Date().toISOString();
 
@@ -203,7 +184,7 @@ async function writeUserDocument(user, body) {
     username: firestoreValue(user.username),
     languageCode: firestoreValue(user.language_code),
     isPremiumTelegram: firestoreValue(Boolean(user.is_premium)),
-    plan: firestoreValue(profile.plan || "free"),
+    plan: firestoreValue(plan),
     xp: firestoreValue(progress.xp || 0),
     streak: firestoreValue(progress.streak || 0),
     solved: firestoreValue(progress.solved || 0),
@@ -224,11 +205,8 @@ async function writeUserDocument(user, body) {
     createdAt: firestoreValue(now)
   };
 
-  const userUrl =
-    "https://firestore.googleapis.com/v1/projects/" +
-    encodeURIComponent(projectId) +
-    "/databases/(default)/documents/users/" +
-    encodeURIComponent(documentId);
+  const userUrl = "https://firestore.googleapis.com/v1/projects/" + encodeURIComponent(projectId) +
+    "/databases/(default)/documents/users/" + encodeURIComponent(documentId);
 
   const response = await fetch(userUrl, {
     method: "PATCH",
@@ -244,13 +222,7 @@ async function writeUserDocument(user, body) {
     throw new Error("Firestore user write failed: " + detail.slice(0, 500));
   }
 
-  const activityUrl =
-    "https://firestore.googleapis.com/v1/projects/" +
-    encodeURIComponent(projectId) +
-    "/databases/(default)/documents/users/" +
-    encodeURIComponent(documentId) +
-    "/activity";
-
+  const activityUrl = userUrl + "/activity";
   const activityResponse = await fetch(activityUrl, {
     method: "POST",
     headers: {
@@ -269,7 +241,7 @@ async function writeUserDocument(user, body) {
     id: documentId,
     name: [user.first_name, user.last_name].filter(Boolean).join(" "),
     username: user.username || null,
-    plan: profile.plan || "free",
+    plan,
     syncedAt: now,
     progress
   };
