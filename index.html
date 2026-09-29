@@ -1548,7 +1548,7 @@ body {
     onclick="location.href='/admin'"
     style="width:100%;border:0;border-radius:16px;background:#111;color:#fff;padding:13px 15px;font:700 13px Arial;cursor:pointer"
   >
-    ⚙ Owner Admin Panel →
+    ⚙ Owner Admin • Members & Approvals →
   </button>
 </div>
 
@@ -1905,12 +1905,32 @@ if(tg){
 
 }
 
-function showOwnerAdminButton(){
-  const user = tg?.initDataUnsafe?.user || null;
+async function showOwnerAdminButton(){
   const adminButton = document.getElementById("ownerAdminButton");
-  if(!adminButton || !user) return;
-  if(String(user.id) === "5496422260"){
+  if(!adminButton) return;
+
+  const user = tg?.initDataUnsafe?.user || null;
+
+  // Fast local check so the owner sees the button immediately.
+  if(user && String(user.id) === "5496422260"){
     adminButton.style.display = "block";
+  }
+
+  // Server-side verification is the source of truth.
+  // This also handles Telegram WebApp data becoming available slightly later.
+  const initData = tg?.initData || "";
+  if(!initData) return;
+
+  try{
+    const response = await fetch("/api/access?admin=1",{
+      headers:{"x-telegram-init-data":initData}
+    });
+
+    if(response.ok){
+      adminButton.style.display = "block";
+    }
+  }catch(error){
+    console.warn("FATEH27 owner admin check:", error);
   }
 }
 
@@ -2020,6 +2040,8 @@ function applyOfficerProfile(){
 /* Telegram can populate initDataUnsafe immediately or a moment later. */
 applyOfficerProfile();
 showOwnerAdminButton();
+setTimeout(showOwnerAdminButton, 500);
+setTimeout(showOwnerAdminButton, 1500);
 
 setTimeout(
   applyOfficerProfile,
