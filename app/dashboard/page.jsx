@@ -12,7 +12,7 @@ export default function Dashboard() {
     { title: "GS4", icon: "📕", route: "/gs4" },
     { title: "Current Affairs", icon: "📰", route: "/current" },
     { title: "PYQ", icon: "🎯", route: "/pyq" },
-    { title: "AI", icon: "🤖", route: "/ai" },
+    { title: "AI Secretary", icon: "🤖", route: "/ai-secretary.html" },
     { title: "Command", icon: "🗺️", route: "/command-map" },
   ];
 
@@ -107,7 +107,7 @@ export default function Dashboard() {
 
             <button onClick={() => router.push("/gs1")}>📘</button>
 
-            <button onClick={() => router.push("/ai")}>🤖</button>
+            <button onClick={() => router.push("/ai-secretary.html")}>🤖</button>
 
           </div>
         </div>
