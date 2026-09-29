@@ -267,6 +267,38 @@ export default async function handler(req, res) {
     }
 
     const user = verifyTelegramInitData(initData);
+
+    // New Telegram users must be approved before a user document/progress is created.
+    const accessId = encodeURIComponent(String(user.id));
+    const accessUrl = "https://firestore.googleapis.com/v1/projects/" +
+      encodeURIComponent(getFirebaseConfig().projectId) +
+      "/databases/(default)/documents/accessRequests/" + accessId;
+    const accessToken = await getGoogleAccessToken();
+    const accessResponse = await fetch(accessUrl, {
+      headers: { authorization: "Bearer " + accessToken }
+    });
+
+    if (accessResponse.status === 404) {
+      const existingUser = await readUserDocument(user);
+      if (!existingUser) {
+        return res.status(403).json({
+          error: "Access approval required",
+          status: "not_approved"
+        });
+      }
+    } else if (accessResponse.ok) {
+      const accessDoc = await accessResponse.json();
+      const accessStatus = String(fromFirestoreValue(accessDoc?.fields?.status) || "").toLowerCase();
+      const existingUser = await readUserDocument(user);
+
+      if (!existingUser && accessStatus !== "approved") {
+        return res.status(403).json({
+          error: "Access approval required",
+          status: accessStatus || "pending"
+        });
+      }
+    }
+
     const result = await writeUserDocument(user, req.body || {});
 
     return res.status(200).json({
