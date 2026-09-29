@@ -1489,9 +1489,32 @@ Give:
          SEND RESULT
          ----------------------------------------------- */
 
-      res.json(
-        result
-      );
+      res.json({
+        success: true,
+        evaluation: {
+          estimated_score: result.score,
+          score_out_of: result.max_score,
+          score_label: result.verdict,
+          question_demand: result.demand_coverage,
+          content: result.structure_feedback,
+          structure: result.structure_feedback,
+          analysis: result.demand_coverage,
+          examples: result.examples_data,
+          strengths: result.strengths,
+          missing_points: result.missing_points,
+          weak_areas: result.weaknesses,
+          improvements: result.improvement_plan,
+          better_structure: result.model_answer_skeleton.join("\n"),
+          model_answer_direction: result.model_answer_skeleton.join("\n"),
+          examiner_note: result.examiner_note,
+          word_count_comment: result.factual_accuracy,
+          final_verdict: result.verdict
+        },
+        meta: {
+          subject: paper,
+          marks: marks
+        }
+      });
 
 
     } catch (error) {
