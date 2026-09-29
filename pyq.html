@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
 <title>FATEH27 • PYQ Intelligence</title>
+<meta name="fateh27-pyq-version" content="advanced-v2">
 <style>
 :root{--bg:#f4f4f4;--card:rgba(255,255,255,.78);--text:#111;--muted:#686868;--line:#dedede}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Poppins,Inter,Arial,sans-serif;color:var(--text)}
@@ -65,14 +66,18 @@ window.scrollTo({top:0,behavior:'smooth'})}
 function markRecall(){if(!selected)return;const k=key(selected);if(!recalled.includes(k)){recalled.push(k);recallXP+=10;localStorage.setItem('fateh27_pqi_done',JSON.stringify(recalled));localStorage.setItem('fateh27_pqi_xp',recallXP)}openQ(DATA.indexOf(selected))}
 function showList(){$('detailPanel').classList.remove('show');$('listPanel').style.display='block';window.scrollTo({top:0,behavior:'smooth'})}
 ['year','marks','topic','search'].forEach(id=>$(id).addEventListener('input',refresh));setup();
-</script>
- <script>
+
+
+
 /* =========================================================
    FATEH27 PYQ INTELLIGENCE — ADVANCED UPSC UPGRADE
    Works on existing 797-PYQ system
    ========================================================= */
 
 (function () {
+
+  if (window.__F27_PYQ_ADVANCED_LOADED__) return;
+  window.__F27_PYQ_ADVANCED_LOADED__ = true;
 
   /* -------------------------------------------------------
      SAVE ORIGINAL OPEN FUNCTION
@@ -223,11 +228,11 @@ function showList(){$('detailPanel').classList.remove('show');$('listPanel').sty
 
   function getRelated(q) {
 
-    if (!Array.isArray(window.DATA)) {
+    if (!Array.isArray(DATA)) {
       return [];
     }
 
-    return window.DATA
+    return DATA
       .filter(x =>
         x !== q &&
         x.paper === q.paper &&
@@ -244,14 +249,14 @@ function showList(){$('detailPanel').classList.remove('show');$('listPanel').sty
 
   function getThemeData(q) {
 
-    if (!Array.isArray(window.DATA)) {
+    if (!Array.isArray(DATA)) {
       return {
         count: 1,
         years: [q.year]
       };
     }
 
-    const same = window.DATA.filter(x =>
+    const same = DATA.filter(x =>
       x.paper === q.paper &&
       String(x.topic || "").toLowerCase() ===
       String(q.topic || "").toLowerCase()
@@ -724,8 +729,8 @@ function showList(){$('detailPanel').classList.remove('show');$('listPanel').sty
       function () {
 
         const q =
-          window.DATA &&
-          window.DATA[index];
+          DATA &&
+          DATA[index];
 
         if (!q) return;
 
@@ -1594,6 +1599,7 @@ function showList(){$('detailPanel').classList.remove('show');$('listPanel').sty
 
 
 })();
-</script> 
+</script>
+  
 </body>
 </html>
