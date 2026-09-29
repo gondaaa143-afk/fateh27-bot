@@ -1424,6 +1424,14 @@ body {
   }
 }
 
+
+/* ACCESS CONTROL ENTRY — always visible on the home Quick Launch */
+#ownerAccessBtn{
+  display:flex !important;
+  visibility:visible !important;
+  opacity:1 !important;
+}
+
 </style>
 
 </head>
@@ -1570,6 +1578,18 @@ body {
 
 
 <div class="quickLaunch">
+
+<!-- OWNER ACCESS CONTROL -->
+<button id="ownerAccessBtn" class="quickBtn" onclick="location.href='/admin'">
+  <div class="quickLeft">
+    <div class="quickIcon">🔐</div>
+    <div class="quickText">
+      <div class="quickTitle">Access Control</div>
+      <div class="quickSub">Members • Requests • Approvals</div>
+    </div>
+  </div>
+  <div class="quickArrow">›</div>
+</button>
    
 
 
@@ -1864,41 +1884,6 @@ body {
 
       <div class="quickSub">
         Active Recall • Spaced Revision • Weak Topics
-      </div>
-
-    </div>
-
-  </div>
-
-  <div class="quickArrow">
-    ›
-  </div>
-
-</button>
-
-<!-- OWNER ACCESS CONTROL -->
-
-<button
-  id="ownerAccessBtn"
-  class="quickBtn"
-  onclick="location.href='/admin'"
-  type="button"
->
-
-  <div class="quickLeft">
-
-    <div class="quickIcon">
-      🔐
-    </div>
-
-    <div class="quickText">
-
-      <div class="quickTitle">
-        Access Control
-      </div>
-
-      <div class="quickSub">
-        Members • Requests • Approvals
       </div>
 
     </div>
