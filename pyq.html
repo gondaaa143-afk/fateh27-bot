@@ -1601,5 +1601,78 @@ function showList(){$('detailPanel').classList.remove('show');$('listPanel').sty
 })();
 </script>
   
+
+
+<style id="f27-bilingual-style">
+.f27-bilingual-question{background:#fff;border:1px solid #dedede;border-radius:20px;padding:16px;margin:0 0 16px;box-shadow:0 8px 24px #00000008}
+.f27-q-head{font-size:12px;font-weight:900;letter-spacing:.4px;margin-bottom:12px}
+.f27-q-en,.f27-q-hi{border-radius:15px;padding:13px;margin-top:9px}
+.f27-q-en{background:#f1f1f1}
+.f27-q-hi{background:#111;color:#fff}
+.f27-q-en span,.f27-q-hi span{font-size:10px;font-weight:900;letter-spacing:.8px;opacity:.72;text-transform:uppercase}
+.f27-q-en p,.f27-q-hi p{margin:7px 0 0;font-size:14px;line-height:1.7;font-weight:650}
+.f27-q-hi p{color:#f2f2f2}
+</style>
+
+<script>
+(function(){
+  if(window.__F27_BILINGUAL_V1__) return;
+  window.__F27_BILINGUAL_V1__ = true;
+  const previousOpenQ = window.openQ;
+
+  function escHtml(s){
+    return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  function cacheKey(q){ return 'f27_pyq_hi_v1_'+btoa(unescape(encodeURIComponent(q))).replace(/=+$/,''); }
+
+  async function translateQuestion(text){
+    const ck=cacheKey(text);
+    const cached=localStorage.getItem(ck);
+    if(cached) return cached;
+    try{
+      const res=await fetch('/api/translate',{
+        method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({text,source:'en',target:'hi'})
+      });
+      if(res.ok){
+        const data=await res.json();
+        if(data.translation){
+          localStorage.setItem(ck,data.translation);
+          return data.translation;
+        }
+      }
+    }catch(e){ console.warn('FATEH27 Hindi translation API unavailable',e); }
+    return '';
+  }
+
+  window.openQ = async function(i){
+    previousOpenQ(i);
+    const q=DATA[i];
+    if(!q) return;
+    const detail=document.getElementById('detail');
+    if(!detail) return;
+
+    const old=detail.querySelector('.f27-bilingual-question');
+    if(old) old.remove();
+
+    const box=document.createElement('div');
+    box.className='f27-bilingual-question';
+    box.innerHTML=`
+      <div class="f27-q-head">Question • प्रश्न</div>
+      <div class="f27-q-en"><span>English</span><p>${escHtml(q.question)}</p></div>
+      <div class="f27-q-hi"><span>हिंदी</span><p id="f27HindiText">हिंदी अनुवाद तैयार हो रहा है…</p></div>
+    `;
+    const h2=detail.querySelector('h2');
+    if(h2) h2.insertAdjacentElement('beforebegin',box); else detail.prepend(box);
+
+    const hi=await translateQuestion(q.question);
+    const target=box.querySelector('#f27HindiText');
+    if(!target) return;
+    target.textContent=hi || 'हिंदी अनुवाद अभी उपलब्ध नहीं है। कृपया दोबारा प्रश्न खोलें।';
+  };
+})();
+
+</script>
 </body>
 </html>
