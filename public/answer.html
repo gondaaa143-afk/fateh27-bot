@@ -49,6 +49,14 @@ label{display:block;font-size:11px;font-weight:800;color:#555;margin:0 0 7px}sel
 </div></div>
 <button id="homeBtn" onclick="location.href='index.html'">⌂ Home</button>
 <script>
+const f27Telegram=window.Telegram?.WebApp;
+if(f27Telegram){f27Telegram.ready();f27Telegram.expand();}
+function f27TelegramHeaders(){
+  const initData=f27Telegram?.initData||"";
+  return initData
+    ? {"Content-Type":"application/json","x-telegram-init-data":initData}
+    : {"Content-Type":"application/json"};
+}
 const API_BASE=(window.FATEH27_API_BASE||"https://fateh27-bot.onrender.com").replace(/\/$/,"");
 const imageInput=document.getElementById("imageInput"),preview=document.getElementById("preview"),statusBox=document.getElementById("status"),statusText=document.getElementById("statusText"),results=document.getElementById("results"),errorBox=document.getElementById("errorBox");
 let imageData="";
@@ -66,7 +74,7 @@ document.getElementById("evaluateBtn").addEventListener("click",async()=>{
  errorBox.style.display="none";results.style.display="none";setLoading(true,"Question demand aur answer structure analyse ho raha hai…");
  try{
    const payload={gs,marks,question,answer,imageData:imageData||null};
-   const response=await fetch(API_BASE+"/api/evaluate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
+   const response=await fetch(API_BASE+"/api/evaluate",{method:"POST",headers:f27TelegramHeaders(),body:JSON.stringify(payload)});
    let data=null;try{data=await response.json()}catch(e){throw new Error("Backend se valid JSON response nahi mila.")}
    if(!response.ok||!data.success)throw new Error(data?.error||"AI evaluation failed.");
    renderEvaluation(data.evaluation,data.meta);saveHistory(data.evaluation.estimated_score,marks,gs);renderHistory();
