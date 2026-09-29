@@ -1874,55 +1874,139 @@ body {
 
 <script>
 
-const tg = window.Telegram.WebApp;
+/* =========================================================
+   TELEGRAM OFFICER PROFILE
+   ========================================================= */
 
-tg.ready();
-tg.expand();
+const tg =
+  window.Telegram?.WebApp || null;
 
+if(tg){
 
-const user =
-  tg.initDataUnsafe?.user;
-
-
-if(user){
-
-  username.textContent =
-    user.first_name || "Officer";
-
-  cardName.textContent =
-    user.first_name || "Officer";
-
-  avatar.textContent =
-    (user.first_name || "F")[0];
-
-
-  if(user.photo_url){
-
-    avatar.innerHTML =
-      '<img src="' +
-      user.photo_url +
-      '">';
-
+  try{
+    tg.ready();
+    tg.expand();
+  }catch(error){
+    console.warn("Telegram WebApp init:", error);
   }
 
 }
 
+function applyOfficerProfile(){
 
-/* OFFICER ID */
+  const user =
+    tg?.initDataUnsafe?.user || null;
 
-if(!localStorage.officerId){
+  const nameEl =
+    document.getElementById("username");
 
-  localStorage.officerId =
-    "F27-" +
-    Math.floor(
-      1000 +
-      Math.random() * 9000
-    );
+  const cardNameEl =
+    document.getElementById("cardName");
+
+  const avatarEl =
+    document.getElementById("avatar");
+
+  const officerIdEl =
+    document.getElementById("officerId");
+
+  if(!nameEl || !cardNameEl || !avatarEl || !officerIdEl){
+    return false;
+  }
+
+  if(user){
+
+    const fullName =
+      [user.first_name, user.last_name]
+        .filter(Boolean)
+        .join(" ")
+        .trim();
+
+    const displayName =
+      fullName || user.username || "Officer";
+
+    nameEl.textContent =
+      displayName;
+
+    cardNameEl.textContent =
+      displayName;
+
+    avatarEl.textContent =
+      (user.first_name || displayName || "F")[0]
+        .toUpperCase();
+
+    if(user.photo_url){
+
+      avatarEl.innerHTML =
+        '<img src="' +
+        String(user.photo_url).replace(/"/g, "&quot;") +
+        '" alt="Profile">';
+
+    }
+
+    /* Keep the old F27-XXXX style, but make the ID stable per Telegram user. */
+    const storageKey =
+      "f27OfficerId_" + String(user.id);
+
+    if(!localStorage.getItem(storageKey)){
+
+      localStorage.setItem(
+        storageKey,
+        "F27-" +
+        Math.floor(
+          1000 +
+          Math.random() * 9000
+        )
+      );
+
+    }
+
+    officerIdEl.textContent =
+      localStorage.getItem(storageKey);
+
+    return true;
+
+  }
+
+  /* Outside Telegram, keep the old fallback behaviour. */
+  if(!localStorage.officerId){
+
+    localStorage.officerId =
+      "F27-" +
+      Math.floor(
+        1000 +
+        Math.random() * 9000
+      );
+
+  }
+
+  nameEl.textContent =
+    "Officer";
+
+  cardNameEl.textContent =
+    "Officer";
+
+  avatarEl.textContent =
+    "F";
+
+  officerIdEl.textContent =
+    localStorage.officerId;
+
+  return false;
 
 }
 
-officerId.textContent =
-  localStorage.officerId;
+/* Telegram can populate initDataUnsafe immediately or a moment later. */
+applyOfficerProfile();
+
+setTimeout(
+  applyOfficerProfile,
+  300
+);
+
+setTimeout(
+  applyOfficerProfile,
+  1000
+);
 
 
 /* RANK */
