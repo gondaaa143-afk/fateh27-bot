@@ -1914,9 +1914,14 @@ body {
 
 <script>
 
-function openF27AnswerEvaluator(){
+async function openF27AnswerEvaluator(){
   const webApp = window.Telegram?.WebApp || null;
-  const data = webApp?.initData || "";
+  try{webApp?.ready();webApp?.expand();}catch(e){}
+  let data = webApp?.initData || "";
+  for(let i=0;i<20 && !data;i++){
+    await new Promise(resolve=>setTimeout(resolve,250));
+    data = window.Telegram?.WebApp?.initData || "";
+  }
   if(data){
     try{sessionStorage.setItem("f27_tg_init_data",data);}catch(e){}
     location.href = "answer.html?tgWebAppData=" + encodeURIComponent(data);
