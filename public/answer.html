@@ -5,20 +5,345 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <script src="https://telegram.org/js/telegram-web-app.js?63"></script>
 <title>FATEH27 • AI Answer Evaluation</title>
+
 <style>
 *{box-sizing:border-box}
-body{margin:0;padding:18px 15px 100px;background:#f4f4f4;color:#111;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-.wrap{max-width:760px;margin:auto}.header{padding:8px 2px 18px}.eyebrow{font-size:11px;font-weight:850;letter-spacing:1.4px;color:#777}h1{font-size:29px;letter-spacing:-.8px;margin:7px 0 5px}.subtitle{font-size:13px;color:#666;line-height:1.5}
-.hero{background:#111;color:#fff;border-radius:26px;padding:20px;box-shadow:0 18px 45px rgba(0,0,0,.12);margin-bottom:14px}.heroTitle{font-size:21px;font-weight:850}.heroSub{font-size:12px;color:#bbb;line-height:1.55;margin-top:5px}
-.section{font-size:11px;font-weight:850;letter-spacing:1px;text-transform:uppercase;color:#777;margin:18px 3px 9px}.card{background:rgba(255,255,255,.78);border:1px solid rgba(255,255,255,.95);border-radius:22px;padding:17px;margin:10px 0;box-shadow:0 12px 32px rgba(0,0,0,.055)}
-label{display:block;font-size:11px;font-weight:800;color:#555;margin:0 0 7px}select,input,textarea,button{width:100%;border:0;border-radius:15px;padding:13px 14px;font:inherit;font-size:13px}select,input,textarea{background:#e7e7e7;color:#111;outline:none}textarea{min-height:260px;resize:vertical;line-height:1.65}textarea:focus,input:focus,select:focus{background:#e1e1e1}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.questionBox{background:#ececec;border-radius:18px;padding:15px;font-size:14px;line-height:1.6;font-weight:650}.badge{background:#111;color:#fff;border-radius:8px;padding:5px 8px;font-size:10px;font-weight:850}.primary{background:#111;color:#fff}.secondary{background:#e7e7e7;color:#111}.upload{border:1.5px dashed #bbb;background:#ededed;border-radius:18px;padding:18px;text-align:center}.upload input{display:none}.uploadLabel{display:block;cursor:pointer;color:#333;font-weight:800;font-size:12px}.preview{display:none;margin-top:12px;max-height:300px;width:100%;object-fit:contain;border-radius:15px}.evaluate{margin-top:12px;padding:16px;font-size:14px;font-weight:850;box-shadow:0 10px 25px rgba(0,0,0,.12)}
-.status{display:none;background:#e8e8e8;border-radius:16px;padding:13px;font-size:12px;font-weight:750;margin-top:10px}.spinner{display:inline-block;width:13px;height:13px;border:2px solid #aaa;border-top-color:#111;border-radius:50%;animation:spin .7s linear infinite;vertical-align:-2px;margin-right:6px}@keyframes spin{to{transform:rotate(360deg)}}
-#errorBox{display:none;background:#fff0f0;color:#8b1111;border:1px solid #f0caca;border-radius:16px;padding:13px;margin-top:10px;font-size:12px;line-height:1.5}#results{display:none}.score{background:#111;color:#fff;border-radius:24px;padding:20px;display:flex;justify-content:space-between;align-items:center}.score small{color:#aaa;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1px}.scoreNum{font-size:42px;font-weight:900;line-height:1}.scoreRight{text-align:right}.pill{display:inline-block;background:#e7e7e7;color:#111;border-radius:999px;padding:7px 10px;font-size:10px;font-weight:850;margin-top:7px}
-.metric{background:#fff;border-radius:18px;padding:14px;border:1px solid #eee}.metricTop{display:flex;justify-content:space-between;font-size:11px;font-weight:800}.bar{height:7px;background:#e8e8e8;border-radius:99px;margin-top:9px;overflow:hidden}.fill{height:100%;width:0;background:#111;border-radius:99px}.feedback h3{font-size:13px;margin:0 0 8px}.feedback p,.feedback li{font-size:12px;color:#444;line-height:1.6}.feedback ul{margin:7px 0;padding-left:18px}.feedbackBox{background:#f0f0f0;border-radius:15px;padding:13px;margin-top:9px;white-space:pre-wrap;line-height:1.6;font-size:12px}.metaLine{font-size:11px;color:#777;margin-top:8px}.historyItem{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid #e7e7e7}.historyItem:last-child{border-bottom:0}.historyTitle{font-size:12px;font-weight:800}.historyMeta{font-size:10px;color:#777;margin-top:3px}.historyScore{font-weight:900;font-size:13px}
-#homeBtn{position:fixed;left:18px;right:18px;bottom:16px;max-width:720px;margin:auto;background:#111;color:#fff;box-shadow:0 12px 30px rgba(0,0,0,.2);z-index:20}@media(max-width:520px){body{padding:14px 13px 95px}.grid2{grid-template-columns:1fr}h1{font-size:27px}}
+
+body{
+margin:0;
+padding:18px 15px 100px;
+background:#f4f4f4;
+color:#111;
+font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif
+}
+
+.wrap{max-width:760px;margin:auto}
+.header{padding:8px 2px 18px}
+.eyebrow{font-size:11px;font-weight:850;letter-spacing:1.4px;color:#777}
+h1{font-size:29px;letter-spacing:-.8px;margin:7px 0 5px}
+.subtitle{font-size:13px;color:#666;line-height:1.5}
+
+.hero{
+background:#111;
+color:#fff;
+border-radius:26px;
+padding:20px;
+box-shadow:0 18px 45px rgba(0,0,0,.12);
+margin-bottom:14px
+}
+
+.heroTitle{font-size:21px;font-weight:850}
+.heroSub{font-size:12px;color:#bbb;line-height:1.55;margin-top:5px}
+
+.section{
+font-size:11px;
+font-weight:850;
+letter-spacing:1px;
+text-transform:uppercase;
+color:#777;
+margin:18px 3px 9px
+}
+
+.card{
+background:rgba(255,255,255,.78);
+border:1px solid rgba(255,255,255,.95);
+border-radius:22px;
+padding:17px;
+margin:10px 0;
+box-shadow:0 12px 32px rgba(0,0,0,.055)
+}
+
+label{
+display:block;
+font-size:11px;
+font-weight:800;
+color:#555;
+margin:0 0 7px
+}
+
+select,input,textarea,button{
+width:100%;
+border:0;
+border-radius:15px;
+padding:13px 14px;
+font:inherit;
+font-size:13px
+}
+
+select,input,textarea{
+background:#e7e7e7;
+color:#111;
+outline:none
+}
+
+textarea{
+min-height:260px;
+resize:vertical;
+line-height:1.65
+}
+
+textarea:focus,input:focus,select:focus{
+background:#e1e1e1
+}
+
+.grid2{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px
+}
+
+.primary{
+background:#111;
+color:#fff;
+cursor:pointer;
+position:relative;
+z-index:10;
+pointer-events:auto
+}
+
+.secondary{
+background:#e7e7e7;
+color:#111
+}
+
+.upload{
+border:1.5px dashed #bbb;
+background:#ededed;
+border-radius:18px;
+padding:18px;
+text-align:center;
+position:relative;
+z-index:5
+}
+
+.upload input{
+display:none
+}
+
+.uploadLabel{
+display:block;
+cursor:pointer;
+color:#333;
+font-weight:800;
+font-size:12px
+}
+
+.preview{
+display:none;
+margin:12px auto 0;
+max-height:300px;
+max-width:100%;
+width:auto;
+object-fit:contain;
+border-radius:15px;
+background:#ddd
+}
+
+.evaluate{
+margin-top:12px;
+padding:16px;
+font-size:14px;
+font-weight:850;
+box-shadow:0 10px 25px rgba(0,0,0,.12)
+}
+
+.evaluate:disabled{
+opacity:.65;
+cursor:not-allowed
+}
+
+.status{
+display:none;
+background:#e8e8e8;
+border-radius:16px;
+padding:13px;
+font-size:12px;
+font-weight:750;
+margin-top:10px
+}
+
+.spinner{
+display:inline-block;
+width:13px;
+height:13px;
+border:2px solid #aaa;
+border-top-color:#111;
+border-radius:50%;
+animation:spin .7s linear infinite;
+vertical-align:-2px;
+margin-right:6px
+}
+
+@keyframes spin{
+to{transform:rotate(360deg)}
+}
+
+#errorBox{
+display:none;
+background:#fff0f0;
+color:#8b1111;
+border:1px solid #f0caca;
+border-radius:16px;
+padding:13px;
+margin-top:10px;
+font-size:12px;
+line-height:1.5
+}
+
+#results{display:none}
+
+.score{
+background:#111;
+color:#fff;
+border-radius:24px;
+padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center
+}
+
+.score small{
+color:#aaa;
+font-size:10px;
+font-weight:800;
+text-transform:uppercase;
+letter-spacing:1px
+}
+
+.scoreNum{
+font-size:42px;
+font-weight:900;
+line-height:1
+}
+
+.scoreRight{text-align:right}
+
+.pill{
+display:inline-block;
+background:#e7e7e7;
+color:#111;
+border-radius:999px;
+padding:7px 10px;
+font-size:10px;
+font-weight:850;
+margin-top:7px
+}
+
+.metric{
+background:#fff;
+border-radius:18px;
+padding:14px;
+border:1px solid #eee
+}
+
+.metricTop{
+display:flex;
+justify-content:space-between;
+font-size:11px;
+font-weight:800
+}
+
+.bar{
+height:7px;
+background:#e8e8e8;
+border-radius:99px;
+margin-top:9px;
+overflow:hidden
+}
+
+.fill{
+height:100%;
+width:0;
+background:#111;
+border-radius:99px
+}
+
+.feedback h3{
+font-size:13px;
+margin:0 0 8px
+}
+
+.feedback p,.feedback li{
+font-size:12px;
+color:#444;
+line-height:1.6
+}
+
+.feedback ul{
+margin:7px 0;
+padding-left:18px
+}
+
+.feedbackBox{
+background:#f0f0f0;
+border-radius:15px;
+padding:13px;
+margin-top:9px;
+white-space:pre-wrap;
+line-height:1.6;
+font-size:12px
+}
+
+.metaLine{
+font-size:11px;
+color:#777;
+margin-top:8px
+}
+
+.historyItem{
+display:flex;
+justify-content:space-between;
+gap:10px;
+padding:12px 0;
+border-bottom:1px solid #e7e7e7
+}
+
+.historyItem:last-child{border-bottom:0}
+
+.historyTitle{
+font-size:12px;
+font-weight:800
+}
+
+.historyMeta{
+font-size:10px;
+color:#777;
+margin-top:3px
+}
+
+.historyScore{
+font-weight:900;
+font-size:13px
+}
+
+#homeBtn{
+position:fixed;
+left:18px;
+right:18px;
+bottom:16px;
+max-width:720px;
+margin:auto;
+background:#111;
+color:#fff;
+box-shadow:0 12px 30px rgba(0,0,0,.2);
+z-index:20;
+cursor:pointer
+}
+
+@media(max-width:520px){
+body{
+padding:14px 13px 95px
+}
+
+.grid2{
+grid-template-columns:1fr
+}
+
+h1{
+font-size:27px
+}
+}
 </style>
-<script src="/access-gate.js" defer></script>
 </head>
 
 <body>
@@ -33,17 +358,22 @@ label{display:block;font-size:11px;font-weight:800;color:#555;margin:0 0 7px}sel
 
 <div class="hero">
 <div class="heroTitle">UPSC Mains Answer Evaluator</div>
-<div class="heroSub">Real AI evaluation: question demand, content, structure, analysis, examples, missing points and specific improvement.</div>
+<div class="heroSub">
+Real AI evaluation: question demand, content, structure, analysis, examples, missing points and specific improvement.
+</div>
 </div>
 
 <div class="card">
 
-<div class="section" style="margin-top:0">1. Question</div>
+<div class="section" style="margin-top:0">
+1. Question
+</div>
 
 <div class="grid2">
 
 <div>
 <label>GS Paper</label>
+
 <select id="gs">
 <option>GS1</option>
 <option>GS2</option>
@@ -55,6 +385,7 @@ label{display:block;font-size:11px;font-weight:800;color:#555;margin:0 0 7px}sel
 
 <div>
 <label>Maximum Marks</label>
+
 <select id="marks">
 <option value="10">10 Marks</option>
 <option value="15">15 Marks</option>
@@ -65,19 +396,30 @@ label{display:block;font-size:11px;font-weight:800;color:#555;margin:0 0 7px}sel
 </div>
 
 <div style="margin-top:12px">
+
 <label>Question / प्रश्न</label>
-<textarea id="question" style="min-height:125px" placeholder="Paste the UPSC question here..."></textarea>
+
+<textarea
+id="question"
+style="min-height:125px"
+placeholder="Paste the UPSC question here..."
+></textarea>
+
 </div>
 
 </div>
 
 <div class="card">
 
-<div class="section" style="margin-top:0">2. Your Answer</div>
+<div class="section" style="margin-top:0">
+2. Your Answer
+</div>
 
 <label>Answer / उत्तर</label>
 
-<textarea id="answer" placeholder="Yahan apna answer type karo...
+<textarea
+id="answer"
+placeholder="Yahan apna answer type karo...
 
 Example:
 Introduction
@@ -85,31 +427,56 @@ Body
 • Point 1
 • Point 2
 • Example
-Conclusion"></textarea>
+Conclusion"
+></textarea>
 
-<div class="section">OR • Handwritten Answer</div>
+<div class="section">
+OR • Handwritten Answer
+</div>
 
 <div class="upload">
 
-<label for="imageInput" class="uploadLabel">
+<label
+for="imageInput"
+class="uploadLabel"
+>
 📷 Upload Answer Image
 <br>
-<span style="font-weight:600;color:#777">Handwritten answer ki clear photo upload karo</span>
+<span style="font-weight:600;color:#777">
+Handwritten answer ki clear photo upload karo
+</span>
 </label>
 
-<input id="imageInput" type="file" accept="image/*">
+<input
+id="imageInput"
+type="file"
+accept="image/*"
+>
 
-<img id="preview" class="preview">
+<img
+id="preview"
+class="preview"
+alt="Answer preview"
+>
 
 </div>
 
-<button id="evaluateBtn" class="primary evaluate">
+<button
+id="evaluateBtn"
+class="primary evaluate"
+type="button"
+>
 ✦ Evaluate Answer
 </button>
 
-<div id="status" class="status">
+<div
+id="status"
+class="status"
+>
 <span class="spinner"></span>
-<span id="statusText">AI evaluator is preparing your evaluation...</span>
+<span id="statusText">
+AI evaluator is preparing your evaluation...
+</span>
 </div>
 
 <div id="errorBox"></div>
@@ -118,20 +485,47 @@ Conclusion"></textarea>
 
 <div id="results">
 
-<div class="section">Evaluation Result • मूल्यांकन</div>
+<div class="section">
+Evaluation Result • मूल्यांकन
+</div>
 
 <div class="score">
 
 <div>
+
 <small>Estimated UPSC Score</small>
-<div class="scoreNum" id="score">—</div>
-<span class="pill" id="scoreLabel">Live AI</span>
+
+<div
+class="scoreNum"
+id="score"
+>
+—
+</div>
+
+<span
+class="pill"
+id="scoreLabel"
+>
+Live AI
+</span>
+
 </div>
 
 <div class="scoreRight">
+
 <small>Paper</small>
-<div id="resultGS" style="font-size:18px;font-weight:850;margin-top:5px">—</div>
-<small id="resultMarks">—</small>
+
+<div
+id="resultGS"
+style="font-size:18px;font-weight:850;margin-top:5px"
+>
+—
+</div>
+
+<small id="resultMarks">
+—
+</small>
+
 </div>
 
 </div>
@@ -155,7 +549,9 @@ Conclusion"></textarea>
 
 </div>
 
-<div class="section">Dimension Analysis • आयाम विश्लेषण</div>
+<div class="section">
+Dimension Analysis • आयाम विश्लेषण
+</div>
 
 <div class="grid2">
 
@@ -203,7 +599,12 @@ Conclusion"></textarea>
 
 <div class="card feedback">
 <h3>Question Demand • प्रश्न की मांग</h3>
-<div class="feedbackBox" id="demand">—</div>
+<div
+class="feedbackBox"
+id="demand"
+>
+—
+</div>
 </div>
 
 <div class="card feedback">
@@ -228,17 +629,34 @@ Conclusion"></textarea>
 
 <div class="card feedback">
 <h3>Better Structure • बेहतर संरचना</h3>
-<div class="feedbackBox" id="structureText">—</div>
+
+<div
+class="feedbackBox"
+id="structureText"
+>
+—
+</div>
+
 </div>
 
 <div class="card feedback">
 <h3>Model Answer Direction • Model Answer दिशा</h3>
-<div class="feedbackBox" id="modelDirection">—</div>
+
+<div
+class="feedbackBox"
+id="modelDirection"
+>
+—
+</div>
+
 </div>
 
 <div class="card">
 
-<div class="section" style="margin-top:0">
+<div
+class="section"
+style="margin-top:0"
+>
 Evaluation History
 </div>
 
@@ -250,150 +668,172 @@ Evaluation History
 
 </div>
 
-<button id="homeBtn" onclick="location.href='index.html'">
+<button
+id="homeBtn"
+type="button"
+>
 ⌂ Home
 </button>
+
 
 <script>
 
 /* =========================================================
-   FATEH27 TELEGRAM AUTH
+   FATEH27 — TELEGRAM INITIALIZATION
    ========================================================= */
 
 function getF27Telegram(){
-  return window.Telegram?.WebApp || null;
+
+return window.Telegram &&
+window.Telegram.WebApp
+? window.Telegram.WebApp
+: null;
+
 }
 
-function saveF27InitData(initData){
 
-  if(!initData) return false;
+function initializeTelegram(){
 
-  try{
-    sessionStorage.setItem(
-      "f27TelegramInitData",
-      initData
-    );
-  }catch(e){}
+const tg=getF27Telegram();
 
-  return true;
+if(!tg) return;
+
+try{
+tg.ready();
+}catch(e){}
+
+try{
+tg.expand();
+}catch(e){}
+
+try{
+
+if(tg.initData){
+
+sessionStorage.setItem(
+"f27TelegramInitData",
+tg.initData
+);
+
 }
 
-function getF27InitData(){
-
-  const tg=getF27Telegram();
-
-  try{
-
-    if(tg){
-
-      try{
-        tg.ready();
-        tg.expand();
-      }catch(e){}
-
-      const liveInitData=tg.initData||"";
-
-      if(liveInitData){
-
-        saveF27InitData(liveInitData);
-
-        return liveInitData;
-      }
-
-    }
-
-  }catch(e){}
-
-  try{
-
-    const savedInitData=
-      sessionStorage.getItem("f27TelegramInitData")||"";
-
-    if(savedInitData){
-
-      return savedInitData;
-    }
-
-  }catch(e){}
-
-  return "";
-}
-
-async function getF27AuthHeaders(){
-
-  for(let attempt=0;attempt<24;attempt++){
-
-    const tg=getF27Telegram();
-
-    if(tg){
-
-      try{
-        tg.ready();
-        tg.expand();
-      }catch(e){}
-
-      try{
-
-        if(tg.initData){
-
-          saveF27InitData(tg.initData);
-
-        }
-
-      }catch(e){}
-
-    }
-
-    const initData=getF27InitData();
-
-    if(initData){
-
-      return {
-        "Content-Type":"application/json",
-        "x-telegram-init-data":initData
-      };
-
-    }
-
-    await new Promise(
-      resolve=>setTimeout(resolve,250)
-    );
-
-  }
-
-  throw new Error(
-    "Telegram authentication data nahi mila. FATEH27 ko Telegram Mini App ke andar se open karo."
-  );
+}catch(e){}
 
 }
 
 
 /* =========================================================
-   INITIAL TELEGRAM SETUP
+   TELEGRAM AUTH DATA
    ========================================================= */
 
-(function initF27Telegram(){
+function getF27InitData(){
 
-  const tg=getF27Telegram();
+const tg=getF27Telegram();
 
-  if(!tg) return;
+try{
 
-  try{
-    tg.ready();
-    tg.expand();
-  }catch(e){}
+if(tg){
 
-  try{
+try{
+tg.ready();
+}catch(e){}
 
-    if(tg.initData){
+try{
+tg.expand();
+}catch(e){}
 
-      saveF27InitData(tg.initData);
+if(tg.initData){
 
-    }
+try{
 
-  }catch(e){}
+sessionStorage.setItem(
+"f27TelegramInitData",
+tg.initData
+);
 
-})();
+}catch(e){}
+
+return tg.initData;
+
+}
+
+}
+
+}catch(e){}
+
+
+try{
+
+const saved=
+sessionStorage.getItem(
+"f27TelegramInitData"
+)||"";
+
+if(saved){
+
+return saved;
+
+}
+
+}catch(e){}
+
+
+return "";
+
+}
+
+
+/* =========================================================
+   AUTH HEADERS
+   ========================================================= */
+
+async function getF27AuthHeaders(){
+
+for(
+let attempt=0;
+attempt<24;
+attempt++
+){
+
+initializeTelegram();
+
+const initData=
+getF27InitData();
+
+if(initData){
+
+return{
+
+"Content-Type":"application/json",
+
+"x-telegram-init-data":
+initData
+
+};
+
+}
+
+await new Promise(
+resolve=>setTimeout(
+resolve,
+250
+)
+);
+
+}
+
+throw new Error(
+"Telegram authentication data nahi mila. FATEH27 ko Telegram Mini App ke andar se open karo."
+);
+
+}
+
+
+/* =========================================================
+   START TELEGRAM
+   ========================================================= */
+
+initializeTelegram();
 
 
 /* =========================================================
@@ -401,69 +841,152 @@ async function getF27AuthHeaders(){
    ========================================================= */
 
 const API_BASE=
-  (window.FATEH27_API_BASE||
-  "https://fateh27-bot.onrender.com")
-  .replace(/\/$/,"");
+(
+window.FATEH27_API_BASE||
+"https://fateh27-bot.onrender.com"
+).replace(/\/$/,"");
 
 
 /* =========================================================
-   DOM
+   ELEMENTS
    ========================================================= */
 
 const imageInput=
-  document.getElementById("imageInput");
+document.getElementById(
+"imageInput"
+);
 
 const preview=
-  document.getElementById("preview");
+document.getElementById(
+"preview"
+);
 
 const statusBox=
-  document.getElementById("status");
+document.getElementById(
+"status"
+);
 
 const statusText=
-  document.getElementById("statusText");
+document.getElementById(
+"statusText"
+);
 
 const results=
-  document.getElementById("results");
+document.getElementById(
+"results"
+);
 
 const errorBox=
-  document.getElementById("errorBox");
+document.getElementById(
+"errorBox"
+);
 
+const evaluateBtn=
+document.getElementById(
+"evaluateBtn"
+);
+
+const homeBtn=
+document.getElementById(
+"homeBtn"
+);
 
 let imageData="";
 
 
 /* =========================================================
-   IMAGE UPLOAD
+   HOME
+   ========================================================= */
+
+homeBtn.addEventListener(
+"click",
+function(){
+
+window.location.href="index.html";
+
+}
+);
+
+
+/* =========================================================
+   IMAGE SELECT
    ========================================================= */
 
 imageInput.addEventListener(
-  "change",
-  async()=>{
+"change",
+async function(){
 
-    const file=imageInput.files[0];
+const file=
+this.files &&
+this.files[0];
 
-    if(!file) return;
+if(!file){
 
-    try{
+imageData="";
 
-      imageData=await compressImage(file);
+preview.removeAttribute("src");
+preview.style.display="none";
 
-      preview.src=imageData;
+return;
 
-      preview.style.display="block";
+}
 
-      errorBox.style.display="none";
 
-    }catch(e){
+/* Image validation */
 
-      showError(
-        "Image process nahi ho payi. Clear JPG/PNG image upload karo."
-      );
+if(!file.type.startsWith("image/")){
 
-    }
-
-  }
+showError(
+"Sirf image file upload karo."
 );
+
+this.value="";
+
+return;
+
+}
+
+
+try{
+
+imageData=
+await compressImage(file);
+
+
+/* Show image immediately */
+
+preview.src=imageData;
+
+preview.style.display="block";
+
+preview.onload=function(){
+
+preview.style.display="block";
+
+};
+
+errorBox.style.display="none";
+
+
+}catch(error){
+
+console.error(
+"Image error:",
+error
+);
+
+imageData="";
+
+preview.removeAttribute("src");
+preview.style.display="none";
+
+showError(
+"Image process nahi ho payi. Clear JPG/PNG image upload karo."
+);
+
+}
+
+});
 
 
 /* =========================================================
@@ -472,70 +995,160 @@ imageInput.addEventListener(
 
 function compressImage(file){
 
-  return new Promise(
-    (resolve,reject)=>{
+return new Promise(
+function(resolve,reject){
 
-      const r=new FileReader();
+const reader=
+new FileReader();
 
-      r.onload=()=>{
+reader.onload=function(){
 
-        const img=new Image();
+const img=
+new Image();
 
-        img.onload=()=>{
+img.onload=function(){
 
-          const max=1800;
+const max=1800;
 
-          let w=img.width;
-          let h=img.height;
+let width=
+img.naturalWidth||
+img.width;
 
-          if(w>max||h>max){
+let height=
+img.naturalHeight||
+img.height;
 
-            const s=Math.min(
-              max/w,
-              max/h
-            );
 
-            w=Math.round(w*s);
-            h=Math.round(h*s);
+if(!width||!height){
 
-          }
+reject(
+new Error(
+"Invalid image dimensions"
+)
+);
 
-          const c=document.createElement("canvas");
+return;
 
-          c.width=w;
-          c.height=h;
+}
 
-          const ctx=c.getContext("2d");
 
-          ctx.drawImage(
-            img,
-            0,
-            0,
-            w,
-            h
-          );
+if(
+width>max||
+height>max
+){
 
-          resolve(
-            c.toDataURL(
-              "image/jpeg",
-              .82
-            )
-          );
+const scale=
+Math.min(
+max/width,
+max/height
+);
 
-        };
+width=
+Math.round(
+width*scale
+);
 
-        img.onerror=reject;
+height=
+Math.round(
+height*scale
+);
 
-        img.src=r.result;
+}
 
-      };
 
-      r.onerror=reject;
+const canvas=
+document.createElement(
+"canvas"
+);
 
-      r.readAsDataURL(file);
+canvas.width=width;
+canvas.height=height;
 
-    }
-  );
+
+const ctx=
+canvas.getContext(
+"2d"
+);
+
+if(!ctx){
+
+reject(
+new Error(
+"Canvas unavailable"
+)
+);
+
+return;
+
+}
+
+
+ctx.drawImage(
+img,
+0,
+0,
+width,
+height
+);
+
+
+const output=
+canvas.toDataURL(
+"image/jpeg",
+0.82
+);
+
+
+if(!output){
+
+reject(
+new Error(
+"Image conversion failed"
+)
+);
+
+return;
+
+}
+
+
+resolve(output);
+
+};
+
+
+img.onerror=function(){
+
+reject(
+new Error(
+"Image could not be loaded"
+)
+);
+
+};
+
+
+img.src=
+reader.result;
+
+};
+
+
+reader.onerror=function(){
+
+reject(
+new Error(
+"File could not be read"
+)
+);
+
+};
+
+
+reader.readAsDataURL(file);
+
+}
+);
 
 }
 
@@ -544,23 +1157,34 @@ function compressImage(file){
    METRICS
    ========================================================= */
 
-function setMetric(name,value){
+function setMetric(
+name,
+value
+){
 
-  const v=Math.max(
-    0,
-    Math.min(
-      100,
-      Number(value)||0
-    )
-  );
+const numeric=
+Number(value)||0;
 
-  document.getElementById(
-    name+"Val"
-  ).textContent=v+"%";
+const v=
+Math.max(
+0,
+Math.min(
+100,
+numeric
+)
+);
 
-  document.getElementById(
-    name+"Bar"
-  ).style.width=v+"%";
+
+document.getElementById(
+name+"Val"
+).textContent=
+v+"%";
+
+
+document.getElementById(
+name+"Bar"
+).style.width=
+v+"%";
 
 }
 
@@ -569,41 +1193,66 @@ function setMetric(name,value){
    LIST
    ========================================================= */
 
-function list(id,arr){
+function list(
+id,
+arr
+){
 
-  const el=
-    document.getElementById(id);
+const element=
+document.getElementById(id);
 
-  el.innerHTML=
-    (arr||[])
-    .map(
-      x=>"<li>"+
-      escapeHTML(x)+
-      "</li>"
-    )
-    .join("");
+element.innerHTML=
+(Array.isArray(arr)?arr:[])
+.map(function(item){
 
-  if(!arr||!arr.length){
+return(
+"<li>"+
+escapeHTML(item)+
+"</li>"
+);
 
-    el.innerHTML=
-      "<li>No specific point returned.</li>";
+})
+.join("");
 
-  }
+
+if(
+!Array.isArray(arr)||
+!arr.length
+){
+
+element.innerHTML=
+"<li>No specific point returned.</li>";
+
+}
 
 }
 
 
 /* =========================================================
-   HTML ESCAPE
+   ESCAPE HTML
    ========================================================= */
 
-function escapeHTML(s){
+function escapeHTML(value){
 
-  return String(s??"")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;");
+return String(
+value??""
+)
+.replaceAll(
+"&",
+"&amp;"
+)
+.replaceAll(
+"<",
+"&lt;"
+)
+.replaceAll(
+">",
+"&gt;"
+)
+.replaceAll(
+'"',
+"&quot;"
+);
 
 }
 
@@ -612,21 +1261,24 @@ function escapeHTML(s){
    ERROR
    ========================================================= */
 
-function showError(msg){
+function showError(
+message
+){
 
-  errorBox.textContent=msg;
+errorBox.textContent=
+message;
 
-  errorBox.style.display="block";
+errorBox.style.display=
+"block";
 
-  statusBox.style.display="none";
+statusBox.style.display=
+"none";
 
-  document.getElementById(
-    "evaluateBtn"
-  ).disabled=false;
+evaluateBtn.disabled=
+false;
 
-  document.getElementById(
-    "evaluateBtn"
-  ).textContent="✦ Evaluate Answer";
+evaluateBtn.textContent=
+"✦ Evaluate Answer";
 
 }
 
@@ -636,25 +1288,29 @@ function showError(msg){
    ========================================================= */
 
 function setLoading(
-  on,
-  msg="AI evaluator is preparing your evaluation..."
+loading,
+message
 ){
 
-  statusBox.style.display=
-    on?"block":"none";
+statusBox.style.display=
+loading
+?"block"
+:"none";
 
-  statusText.textContent=msg;
+if(message){
 
-  document.getElementById(
-    "evaluateBtn"
-  ).disabled=on;
+statusText.textContent=
+message;
 
-  document.getElementById(
-    "evaluateBtn"
-  ).textContent=
-    on
-    ?"Evaluating…"
-    :"✦ Evaluate Answer";
+}
+
+evaluateBtn.disabled=
+loading;
+
+evaluateBtn.textContent=
+loading
+?"Evaluating…"
+:"✦ Evaluate Answer";
 
 }
 
@@ -663,203 +1319,214 @@ function setLoading(
    EVALUATE
    ========================================================= */
 
-document
-.getElementById("evaluateBtn")
-.addEventListener(
-  "click",
-  async()=>{
+evaluateBtn.addEventListener(
+"click",
+async function(){
 
-    const question=
-      document
-      .getElementById("question")
-      .value
-      .trim();
+const question=
+document.getElementById(
+"question"
+).value.trim();
 
-    const answer=
-      document
-      .getElementById("answer")
-      .value
-      .trim();
+const answer=
+document.getElementById(
+"answer"
+).value.trim();
 
-    const gs=
-      document
-      .getElementById("gs")
-      .value;
+const gs=
+document.getElementById(
+"gs"
+).value;
 
-    const marks=
-      Number(
-        document
-        .getElementById("marks")
-        .value
-      );
+const marks=
+Number(
+document.getElementById(
+"marks"
+).value
+);
 
 
-    if(!question){
+if(!question){
 
-      showError(
-        "Pehle UPSC question enter karo."
-      );
+showError(
+"Pehle UPSC question enter karo."
+);
 
-      return;
+return;
 
-    }
+}
 
 
-    if(!answer&&!imageData){
+if(
+!answer &&
+!imageData
+){
 
-      showError(
-        "Answer type karo ya handwritten answer image upload karo."
-      );
+showError(
+"Answer type karo ya handwritten answer image upload karo."
+);
 
-      return;
+return;
 
-    }
+}
 
 
-    errorBox.style.display="none";
+errorBox.style.display=
+"none";
 
-    results.style.display="none";
+results.style.display=
+"none";
 
-    setLoading(
-      true,
-      "Question demand aur answer structure analyse ho raha hai…"
-    );
+setLoading(
+true,
+"Question demand aur answer structure analyse ho raha hai…"
+);
 
 
-    try{
+try{
 
-      /* -------------------------------------------------
-         COMPLETE EVALUATION PAYLOAD
-         ------------------------------------------------- */
+/* -----------------------------------------------
+   PAYLOAD
+   ----------------------------------------------- */
 
-      const payload={
+const payload={
 
-        exam:"UPSC CSE",
+exam:"UPSC CSE",
 
-        paper:gs,
+paper:gs,
 
-        marks:marks,
+marks:marks,
 
-        question:question,
+question:question,
 
-        answer:answer,
+answer:answer,
 
-        imageData:imageData||null,
+imageData:
+imageData||
+null,
 
-        image:imageData||null,
+image:
+imageData||
+null,
 
-        images:
-          imageData
-          ?[imageData]
-          :[],
+images:
+imageData
+?[imageData]
+:[],
 
-        language:"Hindi"
+language:"Hindi"
 
-      };
+};
 
 
-      /* -------------------------------------------------
-         VERIFIED TELEGRAM AUTH
-         ------------------------------------------------- */
+/* -----------------------------------------------
+   TELEGRAM AUTH
+   ----------------------------------------------- */
 
-      const authHeaders=
-        await getF27AuthHeaders();
+const headers=
+await getF27AuthHeaders();
 
 
-      /* -------------------------------------------------
-         BACKEND REQUEST
-         ------------------------------------------------- */
+/* -----------------------------------------------
+   API REQUEST
+   ----------------------------------------------- */
 
-      const response=
-        await fetch(
-          API_BASE+"/api/evaluate",
-          {
-            method:"POST",
+const response=
+await fetch(
+API_BASE+"/api/evaluate",
+{
+method:"POST",
+headers:headers,
+body:JSON.stringify(
+payload
+)
+}
+);
 
-            headers:authHeaders,
 
-            body:
-              JSON.stringify(payload)
-          }
-        );
+/* -----------------------------------------------
+   RESPONSE
+   ----------------------------------------------- */
 
+let data=null;
 
-      let data=null;
+try{
 
+data=
+await response.json();
 
-      try{
+}catch(e){
 
-        data=await response.json();
+throw new Error(
+"Backend se valid JSON response nahi mila."
+);
 
-      }catch(e){
+}
 
-        throw new Error(
-          "Backend se valid JSON response nahi mila."
-        );
 
-      }
+if(
+!response.ok||
+!data||
+!data.success
+){
 
+throw new Error(
+data&&data.error
+?data.error
+:"AI evaluation failed."
+);
 
-      if(
-        !response.ok||
-        !data.success
-      ){
+}
 
-        throw new Error(
-          data?.error||
-          "AI evaluation failed."
-        );
 
-      }
+/* -----------------------------------------------
+   RESULT
+   ----------------------------------------------- */
 
+renderEvaluation(
+data.evaluation,
+data.meta
+);
 
-      /* -------------------------------------------------
-         RESULT
-         ------------------------------------------------- */
 
-      renderEvaluation(
-        data.evaluation,
-        data.meta
-      );
+saveHistory(
+data.evaluation.estimated_score,
+marks,
+gs
+);
 
 
-      saveHistory(
-        data.evaluation.estimated_score,
-        marks,
-        gs
-      );
+renderHistory();
 
 
-      renderHistory();
+setLoading(false);
 
+results.style.display=
+"block";
 
-      setLoading(false);
+results.scrollIntoView({
+behavior:"smooth"
+});
 
-      results.style.display="block";
 
-      results.scrollIntoView({
-        behavior:"smooth"
-      });
+}catch(error){
 
+console.error(
+"FATEH27 AI Evaluation Error:",
+error
+);
 
-    }catch(err){
+showError(
+"Evaluation failed: "+
+(
+error.message||
+"Unknown error"
+)
+);
 
-      console.error(
-        "FATEH27 AI Evaluation Error:",
-        err
-      );
+}
 
-      showError(
-        "Evaluation failed: "+
-        (
-          err.message||
-          "Unknown error"
-        )
-      );
-
-    }
-
-  }
+}
 );
 
 
@@ -867,115 +1534,140 @@ document
    RENDER EVALUATION
    ========================================================= */
 
-function renderEvaluation(e,m){
+function renderEvaluation(
+evaluation,
+meta
+){
 
-  document.getElementById(
-    "score"
-  ).textContent=
-    (e.estimated_score??"—")+
-    "/"+
-    (e.score_out_of??m.marks);
+const e=
+evaluation||{};
 
-
-  document.getElementById(
-    "scoreLabel"
-  ).textContent=
-    e.score_label||
-    "Live AI Evaluation";
+const m=
+meta||{};
 
 
-  document.getElementById(
-    "resultGS"
-  ).textContent=
-    m.subject||"—";
+document.getElementById(
+"score"
+).textContent=
+(
+e.estimated_score??
+"—"
+)+
+"/"+
+(
+e.score_out_of??
+m.marks??
+"—"
+);
 
 
-  document.getElementById(
-    "resultMarks"
-  ).textContent=
-    (m.marks||"")+
-    " Marks";
+document.getElementById(
+"scoreLabel"
+).textContent=
+e.score_label||
+"Live AI Evaluation";
 
 
-  setMetric(
-    "content",
-    e.content
-  );
-
-  setMetric(
-    "structure",
-    e.structure
-  );
-
-  setMetric(
-    "analysis",
-    e.analysis
-  );
-
-  setMetric(
-    "examples",
-    e.examples
-  );
+document.getElementById(
+"resultGS"
+).textContent=
+m.subject||
+m.paper||
+"—";
 
 
-  document.getElementById(
-    "demand"
-  ).textContent=
-    e.question_demand||"—";
+document.getElementById(
+"resultMarks"
+).textContent=
+(
+m.marks??
+""
+)+
+" Marks";
 
 
-  list(
-    "strengths",
-    e.strengths
-  );
+setMetric(
+"content",
+e.content
+);
+
+setMetric(
+"structure",
+e.structure
+);
+
+setMetric(
+"analysis",
+e.analysis
+);
+
+setMetric(
+"examples",
+e.examples
+);
 
 
-  list(
-    "missing",
-    e.missing_points
-  );
+document.getElementById(
+"demand"
+).textContent=
+e.question_demand||
+"—";
 
 
-  list(
-    "weaknesses",
-    e.weak_areas
-  );
+list(
+"strengths",
+e.strengths
+);
+
+list(
+"missing",
+e.missing_points
+);
+
+list(
+"weaknesses",
+e.weak_areas
+);
+
+list(
+"improvements",
+e.improvements
+);
 
 
-  list(
-    "improvements",
-    e.improvements
-  );
+document.getElementById(
+"structureText"
+).textContent=
+e.better_structure||
+"—";
 
 
-  document.getElementById(
-    "structureText"
-  ).textContent=
-    e.better_structure||"—";
+document.getElementById(
+"modelDirection"
+).textContent=
+e.model_answer_direction||
+"—";
 
 
-  document.getElementById(
-    "modelDirection"
-  ).textContent=
-    e.model_answer_direction||"—";
+document.getElementById(
+"examinerNote"
+).textContent=
+e.examiner_note||
+"—";
 
 
-  document.getElementById(
-    "examinerNote"
-  ).textContent=
-    e.examiner_note||"—";
+document.getElementById(
+"wordComment"
+).textContent=
+e.word_count_comment||
+"—";
 
 
-  document.getElementById(
-    "wordComment"
-  ).textContent=
-    e.word_count_comment||"—";
-
-
-  document.getElementById(
-    "finalVerdict"
-  ).textContent=
-    e.final_verdict||"—";
+document.getElementById(
+"finalVerdict"
+).textContent=
+e.final_verdict||
+"—";
 
 }
 
@@ -985,96 +1677,147 @@ function renderEvaluation(e,m){
    ========================================================= */
 
 function saveHistory(
-  score,
-  max,
-  gs
+score,
+max,
+gs
 ){
 
-  const h=
-    JSON.parse(
-      localStorage.getItem(
-        "f27_eval_history"
-      )||"[]"
-    );
+let history=[];
 
+try{
 
-  h.unshift({
+history=
+JSON.parse(
+localStorage.getItem(
+"f27_eval_history"
+)||"[]"
+);
 
-    gs,
+if(!Array.isArray(history)){
+history=[];
+}
 
-    score:
-      String(score)+
-      "/"+
-      max,
+}catch(e){
 
-    date:
-      new Date()
-      .toLocaleDateString(
-        "en-IN"
-      )
-
-  });
-
-
-  localStorage.setItem(
-    "f27_eval_history",
-    JSON.stringify(
-      h.slice(0,10)
-    )
-  );
+history=[];
 
 }
 
+
+history.unshift({
+
+gs:gs,
+
+score:
+String(score)+
+"/"+
+max,
+
+date:
+new Date()
+.toLocaleDateString(
+"en-IN"
+)
+
+});
+
+
+try{
+
+localStorage.setItem(
+"f27_eval_history",
+JSON.stringify(
+history.slice(0,10)
+)
+);
+
+}catch(e){}
+
+}
+
+
+/* =========================================================
+   RENDER HISTORY
+   ========================================================= */
 
 function renderHistory(){
 
-  const h=
-    JSON.parse(
-      localStorage.getItem(
-        "f27_eval_history"
-      )||"[]"
-    );
+let history=[];
 
+try{
 
-  const el=
-    document.getElementById(
-      "history"
-    );
+history=
+JSON.parse(
+localStorage.getItem(
+"f27_eval_history"
+)||"[]"
+);
 
+if(!Array.isArray(history)){
+history=[];
+}
 
-  if(!h.length){
+}catch(e){
 
-    el.innerHTML=
-      '<div style="font-size:12px;color:#777">No evaluations yet.</div>';
-
-    return;
-
-  }
-
-
-  el.innerHTML=
-    h.map(
-      x=>
-        <div class="historyItem">
-          <div>
-            <div class="historyTitle">
-              ${escapeHTML(x.gs)}
-              Answer Evaluation
-            </div>
-            <div class="historyMeta">
-              ${escapeHTML(x.date)}
-            </div>
-          </div>
-
-          <div class="historyScore">
-            ${escapeHTML(x.score)}
-          </div>
-        </div>
-      
-    ).join("");
+history=[];
 
 }
 
+
+const element=
+document.getElementById(
+"history"
+);
+
+
+if(!history.length){
+
+element.innerHTML=
+'<div style="font-size:12px;color:#777">No evaluations yet.</div>';
+
+return;
+
+}
+
+
+element.innerHTML=
+history
+.map(function(item){
+
+return`
+
+<div class="historyItem">
+
+<div>
+
+<div class="historyTitle">
+${escapeHTML(item.gs)}
+Answer Evaluation
+</div>
+
+<div class="historyMeta">
+${escapeHTML(item.date)}
+</div>
+
+</div>
+
+<div class="historyScore">
+${escapeHTML(item.score)}
+</div>
+
+</div>
+
+`;
+
+})
+.join("");
+
+}
+
+
+/* =========================================================
+   INITIAL HISTORY
+   ========================================================= */
 
 renderHistory();
 
