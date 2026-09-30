@@ -2622,5 +2622,23 @@ load();
 })();
 </script>
 
+
+<script>
+(function(){
+  function getInit(){
+    try{return window.Telegram?.WebApp?.initData||sessionStorage.getItem("f27_tg_init_data")||"";}catch(e){return window.Telegram?.WebApp?.initData||"";}
+  }
+  document.addEventListener("click",function(e){
+    const link=e.target.closest && e.target.closest('a[href="answer.html"],a[href="/answer"],a[href="answer"]');
+    if(!link)return;
+    const init=getInit();
+    if(init){
+      e.preventDefault();
+      const base=link.getAttribute("href");
+      location.href=base+(base.includes("?")?"&":"?")+"tgWebAppData="+encodeURIComponent(init);
+    }
+  },true);
+})();
+</script>
 </body>
 </html>
