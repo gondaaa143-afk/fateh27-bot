@@ -683,7 +683,7 @@ body{
   </button>
 
   <button class="navBtn"
-    onclick="openF27AnswerEvaluator()">
+    onclick="location.href='answer.html?tgWebAppData='+encodeURIComponent(window.Telegram?.WebApp?.initData||sessionStorage.getItem('f27_tg_init_data')||'')">
     🤖<br>AI
   </button>
 
