@@ -1575,18 +1575,6 @@ body {
 
 <div class="quickLaunch">
 
-<!-- OWNER ACCESS CONTROL -->
-<button id="ownerAccessBtn" class="quickBtn" style="display:none !important" onclick="location.href='/admin'">
-  <div class="quickLeft">
-    <div class="quickIcon">🔐</div>
-    <div class="quickText">
-      <div class="quickTitle">Access Control</div>
-      <div class="quickSub">Members • Requests • Approvals</div>
-    </div>
-  </div>
-  <div class="quickArrow">›</div>
-</button>
-
 <!-- PREMIUM MEMBERSHIP -->
 <button
   class="quickBtn"
@@ -1946,13 +1934,11 @@ if(tg){
 
 async function showOwnerAdminButton(){
   const adminButton = document.getElementById("ownerAdminButton");
-  const accessButton = document.getElementById("ownerAccessBtn");
-
-  // Defense-in-depth: both owner controls start hidden and are only
-  // revealed after the server confirms the Telegram account is the owner.
   if(adminButton) adminButton.style.display = "none";
-  if(accessButton) accessButton.style.display = "none";
 
+  // Access Control is intentionally NOT present in the HTML by default.
+  // It is created only after the server verifies the current Telegram user
+  // is the FATEH27 owner. This prevents non-owner accounts from seeing it.
   const initData = tg?.initData || "";
   if(!initData) return;
 
@@ -1961,10 +1947,30 @@ async function showOwnerAdminButton(){
       headers:{"x-telegram-init-data":initData}
     });
 
-    if(response.ok){
-      if(adminButton) adminButton.style.display = "block";
-      if(accessButton) accessButton.style.display = "flex";
-    }
+    if(!response.ok) return;
+
+    if(adminButton) adminButton.style.display = "block";
+
+    const quickLaunch = document.querySelector(".quickLaunch");
+    if(!quickLaunch || document.getElementById("ownerAccessBtn")) return;
+
+    const accessButton = document.createElement("button");
+    accessButton.id = "ownerAccessBtn";
+    accessButton.className = "quickBtn";
+    accessButton.type = "button";
+    accessButton.innerHTML =
+      '<div class="quickLeft">' +
+        '<div class="quickIcon">🔐</div>' +
+        '<div class="quickText">' +
+          '<div class="quickTitle">Access Control</div>' +
+          '<div class="quickSub">Members • Requests • Approvals</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="quickArrow">›</div>';
+    accessButton.addEventListener("click", function(){
+      location.href = "/admin";
+    });
+    quickLaunch.prepend(accessButton);
   }catch(error){
     console.warn("FATEH27 owner admin check:", error);
   }
