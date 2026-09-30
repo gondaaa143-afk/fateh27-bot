@@ -801,11 +801,10 @@ function showList(){$('detailPanel').classList.remove('show');$('listPanel').sty
     setPracticeStatus("AI answer evaluate kar raha hai…", false);
 
     try {
-      // Backend currently accepts one image per evaluation. For multiple pages,
-      // send the first page; the UI still allows page selection for future multi-page support.
-      const image = f27HandwrittenImages.length
-        ? f27HandwrittenImages[0].data
-        : null;
+      // Send all selected handwritten pages so the evaluator can assess
+      // the complete answer instead of only the first page.
+      const images = f27HandwrittenImages.map(item => item.data);
+      const image = images[0] || null;
 
       const response = await fetch("https://fateh27-bot.onrender.com/api/evaluate", {
         method: "POST",
@@ -817,6 +816,7 @@ function showList(){$('detailPanel').classList.remove('show');$('listPanel').sty
           question: q.question || "",
           answer: typedAnswer,
           image,
+          images,
           language: "English"
         })
       });
