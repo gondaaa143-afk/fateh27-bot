@@ -15,7 +15,7 @@ const app = express();
 const PORT = process.env.PORT || 10000;
 
 const MODEL =
-  process.env.OPENAI_MODEL || "gpt-6-luna";
+  process.env.OPENAI_MODEL || "gpt-5.6-luna";
 
 const API_KEY =
   process.env.OPENAI_API_KEY;
@@ -99,7 +99,7 @@ async function getFirebaseAccessTokenForUsage() {
 
   const now = Math.floor(Date.now() / 1000);
   const b64 = (value) => Buffer.from(JSON.stringify(value)).toString("base64")
-    .replace(/=/g, "").replace(/\\+/g, "-").replace(/\\//g, "_");
+    .replace(/=/g, "").replace(/\+/g, "-").replace(/\//g, "_");
   const unsigned = b64({ alg: "RS256", typ: "JWT" }) + "." + b64({
     iss: config.clientEmail,
     scope: "https://www.googleapis.com/auth/datastore",
@@ -111,7 +111,7 @@ async function getFirebaseAccessTokenForUsage() {
   signer.update(unsigned);
   signer.end();
   const signature = signer.sign(config.privateKey).toString("base64")
-    .replace(/=/g, "").replace(/\\+/g, "-").replace(/\\//g, "_");
+    .replace(/=/g, "").replace(/\+/g, "-").replace(/\//g, "_");
 
   const response = await fetch("https://oauth2.googleapis.com/token", {
     method: "POST",
