@@ -3,3 +3,4 @@
 api/*
 !api/user.js
 !api/access.js
+!api/webhook.js
