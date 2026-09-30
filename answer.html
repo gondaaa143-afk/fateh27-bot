@@ -55,6 +55,7 @@ if(f27Telegram){try{f27Telegram.ready();f27Telegram.expand();}catch(e){}}
 function getF27InitData(){
   let initData=f27Telegram?.initData||window.Telegram?.WebApp?.initData||"";
   if(initData) return initData;
+  try{initData=sessionStorage.getItem("f27_tg_init_data")||"";if(initData)return initData;}catch(e){}
   try{
     const params=new URLSearchParams(window.location.search);
     initData=params.get("tgWebAppData")||"";
