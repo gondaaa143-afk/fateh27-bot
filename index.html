@@ -1800,7 +1800,7 @@ body {
 
 <button
   class="quickBtn"
-  onclick="location.href='answer.html'"
+  onclick="openF27AnswerEvaluator()"
 >
 
   <div class="quickLeft">
@@ -1913,6 +1913,16 @@ body {
      ========================================================= -->
 
 <script>
+
+function openF27AnswerEvaluator(){
+  const webApp = window.Telegram?.WebApp || null;
+  const data = webApp?.initData || "";
+  if(data){
+    location.href = "answer.html?tgWebAppData=" + encodeURIComponent(data);
+    return;
+  }
+  location.href = "answer.html";
+}
 
 /* =========================================================
    TELEGRAM OFFICER PROFILE
