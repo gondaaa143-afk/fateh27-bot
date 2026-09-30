@@ -820,7 +820,7 @@ async function getF27AuthHeaders(){
 
 let initData=getF27InitData();
 
-if(!initData && window.Telegram?.WebApp){
+if(!initData && (window.Telegram?.WebApp||f27Telegram)){
 
 try{
 window.Telegram.WebApp.ready();
