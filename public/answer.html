@@ -51,11 +51,20 @@ label{display:block;font-size:11px;font-weight:800;color:#555;margin:0 0 7px}sel
 </div></div>
 <button id="homeBtn" onclick="location.href='index.html'">⌂ Home</button>
 <script>
-const f27Telegram=window.Telegram?.WebApp || null;
-if(f27Telegram){try{f27Telegram.ready();f27Telegram.expand();}catch(e){}}
+function getF27Telegram(){
+  return window.Telegram?.WebApp || null;
+}
 function getF27InitData(){
-  let initData=f27Telegram?.initData||window.Telegram?.WebApp?.initData||"";
-  if(initData) return initData;
+  const tg=getF27Telegram();
+  let initData=tg?.initData||"";
+  if(initData){
+    try{sessionStorage.setItem("f27TelegramInitData",initData);}catch(e){}
+    return initData;
+  }
+  try{
+    initData=sessionStorage.getItem("f27TelegramInitData")||"";
+    if(initData) return initData;
+  }catch(e){}
   try{
     const params=new URLSearchParams(window.location.search);
     initData=params.get("tgWebAppData")||"";
@@ -71,15 +80,13 @@ function getF27InitData(){
 }
 async function getF27AuthHeaders(){
   let initData=getF27InitData();
-  if(!initData && f27Telegram){
-    try{
-      f27Telegram.ready();
-      f27Telegram.expand();
-    }catch(e){}
-    for(let i=0;i<20 && !initData;i++){
-      await new Promise(resolve=>setTimeout(resolve,250));
-      initData=getF27InitData();
+  for(let i=0;i<24 && !initData;i++){
+    const tg=getF27Telegram();
+    if(tg){
+      try{tg.ready();tg.expand();}catch(e){}
     }
+    await new Promise(resolve=>setTimeout(resolve,250));
+    initData=getF27InitData();
   }
   if(!initData) throw new Error("Telegram authentication data nahi mila. FATEH27 ko Telegram Mini App ke andar se open karo.");
   return {"Content-Type":"application/json","x-telegram-init-data":initData};
@@ -100,7 +107,7 @@ document.getElementById("evaluateBtn").addEventListener("click",async()=>{
  if(!question){showError("Pehle UPSC question enter karo.");return} if(!answer&&!imageData){showError("Answer type karo ya handwritten answer image upload karo.");return}
  errorBox.style.display="none";results.style.display="none";setLoading(true,"Question demand aur answer structure analyse ho raha hai…");
  try{
-   const payload={gs,marks,question,answer,imageData:imageData||null};
+   const payload={exam:"UPSC CSE",paper:gs,marks,question,answer,imageData:imageData||null,image:imageData||null,images:imageData?[imageData]:[],language:"Hindi"};
    const response=await fetch(API_BASE+"/api/evaluate",{method:"POST",headers:await getF27AuthHeaders(),body:JSON.stringify(payload)});
    let data=null;try{data=await response.json()}catch(e){throw new Error("Backend se valid JSON response nahi mila.")}
    if(!response.ok||!data.success)throw new Error(data?.error||"AI evaluation failed.");
