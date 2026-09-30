@@ -50,10 +50,27 @@ label{display:block;font-size:11px;font-weight:800;color:#555;margin:0 0 7px}sel
 </div></div>
 <button id="homeBtn" onclick="location.href='index.html'">⌂ Home</button>
 <script>
-const f27Telegram=window.Telegram?.WebApp || null;
+let f27Telegram=window.Telegram?.WebApp || null;
+
+function f27SyncTelegram(){
+  f27Telegram=window.Telegram?.WebApp || f27Telegram || null;
+  try{
+    const d=f27Telegram?.initData||"";
+    if(d){
+      sessionStorage.setItem("f27_tg_init_data",d);
+      sessionStorage.setItem("f27TelegramInitData",d);
+      return d;
+    }
+  }catch(e){}
+  return "";
+}
+
+f27SyncTelegram();
+setTimeout(f27SyncTelegram,300);
+setTimeout(f27SyncTelegram,1000);
 if(f27Telegram){try{f27Telegram.ready();f27Telegram.expand();}catch(e){}}
 function getF27InitData(){
-  let initData=f27Telegram?.initData||window.Telegram?.WebApp?.initData||"";
+  let initData=f27SyncTelegram()||f27Telegram?.initData||window.Telegram?.WebApp?.initData||"";
   if(initData) return initData;
   try{initData=sessionStorage.getItem("f27_tg_init_data")||"";if(initData)return initData;}catch(e){}
   try{
@@ -71,14 +88,14 @@ function getF27InitData(){
 }
 async function getF27AuthHeaders(){
   let initData=getF27InitData();
-  if(!initData && window.Telegram?.WebApp){
+  if(!initData && (window.Telegram?.WebApp||f27Telegram)){
     try{window.Telegram.WebApp.ready();window.Telegram.WebApp.expand();}catch(e){}
   }
   for(let i=0;i<40 && !initData;i++){
     await new Promise(resolve=>setTimeout(resolve,250));
     initData=getF27InitData();
   }
-  if(!initData) throw new Error("Telegram authentication data nahi mila. Is page ko Telegram Mini App ke Main/Menu button se open karo.");
+  if(!initData) throw new Error("Telegram authentication data nahi mila. FATEH27 ko Telegram ke Open FATEH27 / Mini App button se open karo.");
   return {"Content-Type":"application/json","x-telegram-init-data":initData};
 }
 const API_BASE=(window.FATEH27_API_BASE||"https://fateh27-bot.onrender.com").replace(/\/$/,"");
