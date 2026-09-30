@@ -70,17 +70,14 @@ function getF27InitData(){
 }
 async function getF27AuthHeaders(){
   let initData=getF27InitData();
-  if(!initData && f27Telegram){
-    try{
-      f27Telegram.ready();
-      f27Telegram.expand();
-    }catch(e){}
-    for(let i=0;i<20 && !initData;i++){
-      await new Promise(resolve=>setTimeout(resolve,250));
-      initData=getF27InitData();
-    }
+  if(!initData && window.Telegram?.WebApp){
+    try{window.Telegram.WebApp.ready();window.Telegram.WebApp.expand();}catch(e){}
   }
-  if(!initData) throw new Error("Telegram authentication data nahi mila. FATEH27 ko Telegram Mini App ke andar se open karo.");
+  for(let i=0;i<40 && !initData;i++){
+    await new Promise(resolve=>setTimeout(resolve,250));
+    initData=getF27InitData();
+  }
+  if(!initData) throw new Error("Telegram authentication data nahi mila. Is page ko Telegram Mini App ke Main/Menu button se open karo.");
   return {"Content-Type":"application/json","x-telegram-init-data":initData};
 }
 const API_BASE=(window.FATEH27_API_BASE||"https://fateh27-bot.onrender.com").replace(/\/$/,"");
