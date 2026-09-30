@@ -18,107 +18,1067 @@ label{display:block;font-size:11px;font-weight:800;color:#555;margin:0 0 7px}sel
 .metric{background:#fff;border-radius:18px;padding:14px;border:1px solid #eee}.metricTop{display:flex;justify-content:space-between;font-size:11px;font-weight:800}.bar{height:7px;background:#e8e8e8;border-radius:99px;margin-top:9px;overflow:hidden}.fill{height:100%;width:0;background:#111;border-radius:99px}.feedback h3{font-size:13px;margin:0 0 8px}.feedback p,.feedback li{font-size:12px;color:#444;line-height:1.6}.feedback ul{margin:7px 0;padding-left:18px}.feedbackBox{background:#f0f0f0;border-radius:15px;padding:13px;margin-top:9px;white-space:pre-wrap;line-height:1.6;font-size:12px}.metaLine{font-size:11px;color:#777;margin-top:8px}.historyItem{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid #e7e7e7}.historyItem:last-child{border-bottom:0}.historyTitle{font-size:12px;font-weight:800}.historyMeta{font-size:10px;color:#777;margin-top:3px}.historyScore{font-weight:900;font-size:13px}
 #homeBtn{position:fixed;left:18px;right:18px;bottom:16px;max-width:720px;margin:auto;background:#111;color:#fff;box-shadow:0 12px 30px rgba(0,0,0,.2);z-index:20}@media(max-width:520px){body{padding:14px 13px 95px}.grid2{grid-template-columns:1fr}h1{font-size:27px}}
 </style>
-  <script src="/access-gate.js" defer></script>
+<script src="/access-gate.js" defer></script>
 </head>
+
 <body>
+
 <div class="wrap">
-<div class="header"><div class="eyebrow">FATEH27 • UPSC</div><h1>AI Answer Evaluation</h1><div class="subtitle">Write • Upload • Evaluate • Improve</div></div>
-<div class="hero"><div class="heroTitle">UPSC Mains Answer Evaluator</div><div class="heroSub">Real AI evaluation: question demand, content, structure, analysis, examples, missing points and specific improvement.</div></div>
+
+<div class="header">
+<div class="eyebrow">FATEH27 • UPSC</div>
+<h1>AI Answer Evaluation</h1>
+<div class="subtitle">Write • Upload • Evaluate • Improve</div>
+</div>
+
+<div class="hero">
+<div class="heroTitle">UPSC Mains Answer Evaluator</div>
+<div class="heroSub">Real AI evaluation: question demand, content, structure, analysis, examples, missing points and specific improvement.</div>
+</div>
+
 <div class="card">
+
 <div class="section" style="margin-top:0">1. Question</div>
-<div class="grid2"><div><label>GS Paper</label><select id="gs"><option>GS1</option><option>GS2</option><option>GS3</option><option>GS4</option><option>Essay</option></select></div><div><label>Maximum Marks</label><select id="marks"><option value="10">10 Marks</option><option value="15">15 Marks</option><option value="20">20 Marks</option></select></div></div>
-<div style="margin-top:12px"><label>Question / प्रश्न</label><textarea id="question" style="min-height:125px" placeholder="Paste the UPSC question here..."></textarea></div>
+
+<div class="grid2">
+
+<div>
+<label>GS Paper</label>
+<select id="gs">
+<option>GS1</option>
+<option>GS2</option>
+<option>GS3</option>
+<option>GS4</option>
+<option>Essay</option>
+</select>
 </div>
+
+<div>
+<label>Maximum Marks</label>
+<select id="marks">
+<option value="10">10 Marks</option>
+<option value="15">15 Marks</option>
+<option value="20">20 Marks</option>
+</select>
+</div>
+
+</div>
+
+<div style="margin-top:12px">
+<label>Question / प्रश्न</label>
+<textarea id="question" style="min-height:125px" placeholder="Paste the UPSC question here..."></textarea>
+</div>
+
+</div>
+
 <div class="card">
-<div class="section" style="margin-top:0">2. Your Answer</div><label>Answer / उत्तर</label><textarea id="answer" placeholder="Yahan apna answer type karo...\n\nExample:\nIntroduction\nBody\n• Point 1\n• Point 2\n• Example\nConclusion"></textarea>
-<div class="section">OR • Handwritten Answer</div><div class="upload"><label for="imageInput" class="uploadLabel">📷 Upload Answer Image<br><span style="font-weight:600;color:#777">Handwritten answer ki clear photo upload karo</span></label><input id="imageInput" type="file" accept="image/*"><img id="preview" class="preview"></div>
-<button id="evaluateBtn" class="primary evaluate">✦ Evaluate Answer</button><div id="status" class="status"><span class="spinner"></span><span id="statusText">AI evaluator is preparing your evaluation...</span></div><div id="errorBox"></div>
+
+<div class="section" style="margin-top:0">2. Your Answer</div>
+
+<label>Answer / उत्तर</label>
+
+<textarea id="answer" placeholder="Yahan apna answer type karo...
+
+Example:
+Introduction
+Body
+• Point 1
+• Point 2
+• Example
+Conclusion"></textarea>
+
+<div class="section">OR • Handwritten Answer</div>
+
+<div class="upload">
+
+<label for="imageInput" class="uploadLabel">
+📷 Upload Answer Image
+<br>
+<span style="font-weight:600;color:#777">Handwritten answer ki clear photo upload karo</span>
+</label>
+
+<input id="imageInput" type="file" accept="image/*">
+
+<img id="preview" class="preview">
+
 </div>
+
+<button id="evaluateBtn" class="primary evaluate">
+✦ Evaluate Answer
+</button>
+
+<div id="status" class="status">
+<span class="spinner"></span>
+<span id="statusText">AI evaluator is preparing your evaluation...</span>
+</div>
+
+<div id="errorBox"></div>
+
+</div>
+
 <div id="results">
+
 <div class="section">Evaluation Result • मूल्यांकन</div>
-<div class="score"><div><small>Estimated UPSC Score</small><div class="scoreNum" id="score">—</div><span class="pill" id="scoreLabel">Live AI</span></div><div class="scoreRight"><small>Paper</small><div id="resultGS" style="font-size:18px;font-weight:850;margin-top:5px">—</div><small id="resultMarks">—</small></div></div>
-<div class="card"><div class="metaLine"><b>Examiner Note:</b> <span id="examinerNote">—</span></div><div class="metaLine"><b>Word Count:</b> <span id="wordComment">—</span></div><div class="metaLine"><b>Overall:</b> <span id="finalVerdict">—</span></div></div>
+
+<div class="score">
+
+<div>
+<small>Estimated UPSC Score</small>
+<div class="scoreNum" id="score">—</div>
+<span class="pill" id="scoreLabel">Live AI</span>
+</div>
+
+<div class="scoreRight">
+<small>Paper</small>
+<div id="resultGS" style="font-size:18px;font-weight:850;margin-top:5px">—</div>
+<small id="resultMarks">—</small>
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="metaLine">
+<b>Examiner Note:</b>
+<span id="examinerNote">—</span>
+</div>
+
+<div class="metaLine">
+<b>Word Count:</b>
+<span id="wordComment">—</span>
+</div>
+
+<div class="metaLine">
+<b>Overall:</b>
+<span id="finalVerdict">—</span>
+</div>
+
+</div>
+
 <div class="section">Dimension Analysis • आयाम विश्लेषण</div>
-<div class="grid2"><div class="metric"><div class="metricTop"><span>Content • विषय-वस्तु</span><span id="contentVal">—</span></div><div class="bar"><div class="fill" id="contentBar"></div></div></div><div class="metric"><div class="metricTop"><span>Structure • संरचना</span><span id="structureVal">—</span></div><div class="bar"><div class="fill" id="structureBar"></div></div></div><div class="metric"><div class="metricTop"><span>Analysis • विश्लेषण</span><span id="analysisVal">—</span></div><div class="bar"><div class="fill" id="analysisBar"></div></div></div><div class="metric"><div class="metricTop"><span>Examples • उदाहरण</span><span id="examplesVal">—</span></div><div class="bar"><div class="fill" id="examplesBar"></div></div></div></div>
-<div class="card feedback"><h3>Question Demand • प्रश्न की मांग</h3><div class="feedbackBox" id="demand">—</div></div>
-<div class="card feedback"><h3>Strong Points • मजबूत पक्ष</h3><ul id="strengths"></ul></div>
-<div class="card feedback"><h3>Missing Points • छूटे हुए बिंदु</h3><ul id="missing"></ul></div>
-<div class="card feedback"><h3>Weak Areas • कमजोर क्षेत्र</h3><ul id="weaknesses"></ul></div>
-<div class="card feedback"><h3>How to Improve • सुधार कैसे करें</h3><ul id="improvements"></ul></div>
-<div class="card feedback"><h3>Better Structure • बेहतर संरचना</h3><div class="feedbackBox" id="structureText">—</div></div>
-<div class="card feedback"><h3>Model Answer Direction • Model Answer दिशा</h3><div class="feedbackBox" id="modelDirection">—</div></div>
-<div class="card"><div class="section" style="margin-top:0">Evaluation History</div><div id="history"></div></div>
-</div></div>
-<button id="homeBtn" onclick="location.href='index.html'">⌂ Home</button>
+
+<div class="grid2">
+
+<div class="metric">
+<div class="metricTop">
+<span>Content • विषय-वस्तु</span>
+<span id="contentVal">—</span>
+</div>
+<div class="bar">
+<div class="fill" id="contentBar"></div>
+</div>
+</div>
+
+<div class="metric">
+<div class="metricTop">
+<span>Structure • संरचना</span>
+<span id="structureVal">—</span>
+</div>
+<div class="bar">
+<div class="fill" id="structureBar"></div>
+</div>
+</div>
+
+<div class="metric">
+<div class="metricTop">
+<span>Analysis • विश्लेषण</span>
+<span id="analysisVal">—</span>
+</div>
+<div class="bar">
+<div class="fill" id="analysisBar"></div>
+</div>
+</div>
+
+<div class="metric">
+<div class="metricTop">
+<span>Examples • उदाहरण</span>
+<span id="examplesVal">—</span>
+</div>
+<div class="bar">
+<div class="fill" id="examplesBar"></div>
+</div>
+</div>
+
+</div>
+
+<div class="card feedback">
+<h3>Question Demand • प्रश्न की मांग</h3>
+<div class="feedbackBox" id="demand">—</div>
+</div>
+
+<div class="card feedback">
+<h3>Strong Points • मजबूत पक्ष</h3>
+<ul id="strengths"></ul>
+</div>
+
+<div class="card feedback">
+<h3>Missing Points • छूटे हुए बिंदु</h3>
+<ul id="missing"></ul>
+</div>
+
+<div class="card feedback">
+<h3>Weak Areas • कमजोर क्षेत्र</h3>
+<ul id="weaknesses"></ul>
+</div>
+
+<div class="card feedback">
+<h3>How to Improve • सुधार कैसे करें</h3>
+<ul id="improvements"></ul>
+</div>
+
+<div class="card feedback">
+<h3>Better Structure • बेहतर संरचना</h3>
+<div class="feedbackBox" id="structureText">—</div>
+</div>
+
+<div class="card feedback">
+<h3>Model Answer Direction • Model Answer दिशा</h3>
+<div class="feedbackBox" id="modelDirection">—</div>
+</div>
+
+<div class="card">
+
+<div class="section" style="margin-top:0">
+Evaluation History
+</div>
+
+<div id="history"></div>
+
+</div>
+
+</div>
+
+</div>
+
+<button id="homeBtn" onclick="location.href='index.html'">
+⌂ Home
+</button>
+
 <script>
+
+/* =========================================================
+   FATEH27 TELEGRAM AUTH
+   ========================================================= */
+
 function getF27Telegram(){
   return window.Telegram?.WebApp || null;
 }
+
+function saveF27InitData(initData){
+
+  if(!initData) return false;
+
+  try{
+    sessionStorage.setItem(
+      "f27TelegramInitData",
+      initData
+    );
+  }catch(e){}
+
+  return true;
+}
+
 function getF27InitData(){
+
   const tg=getF27Telegram();
-  let initData=tg?.initData||"";
-  if(initData){
-    try{sessionStorage.setItem("f27TelegramInitData",initData);}catch(e){}
-    return initData;
-  }
+
   try{
-    initData=sessionStorage.getItem("f27TelegramInitData")||"";
-    if(initData) return initData;
+
+    if(tg){
+
+      try{
+        tg.ready();
+        tg.expand();
+      }catch(e){}
+
+      const liveInitData=tg.initData||"";
+
+      if(liveInitData){
+
+        saveF27InitData(liveInitData);
+
+        return liveInitData;
+      }
+
+    }
+
   }catch(e){}
+
   try{
-    const params=new URLSearchParams(window.location.search);
-    initData=params.get("tgWebAppData")||"";
-    if(initData) return decodeURIComponent(initData);
+
+    const savedInitData=
+      sessionStorage.getItem("f27TelegramInitData")||"";
+
+    if(savedInitData){
+
+      return savedInitData;
+    }
+
   }catch(e){}
-  try{
-    const hash=window.location.hash||"";
-    const params=new URLSearchParams(hash.replace(/^#/,""));
-    initData=params.get("tgWebAppData")||"";
-    if(initData) return decodeURIComponent(initData);
-  }catch(e){}
+
   return "";
 }
-async function getF27AuthHeaders(){
-  let initData=getF27InitData();
-  for(let i=0;i<24 && !initData;i++){
-    const tg=getF27Telegram();
-    if(tg){
-      try{tg.ready();tg.expand();}catch(e){}
-    }
-    await new Promise(resolve=>setTimeout(resolve,250));
-    initData=getF27InitData();
-  }
-  if(!initData) throw new Error("Telegram authentication data nahi mila. FATEH27 ko Telegram Mini App ke andar se open karo.");
-  return {"Content-Type":"application/json","x-telegram-init-data":initData};
-}
-const API_BASE=(window.FATEH27_API_BASE||"https://fateh27-bot.onrender.com").replace(/\/$/,"");
-const imageInput=document.getElementById("imageInput"),preview=document.getElementById("preview"),statusBox=document.getElementById("status"),statusText=document.getElementById("statusText"),results=document.getElementById("results"),errorBox=document.getElementById("errorBox");
-let imageData="";
-imageInput.addEventListener("change",async()=>{const file=imageInput.files[0];if(!file)return;try{imageData=await compressImage(file);preview.src=imageData;preview.style.display="block";errorBox.style.display="none";}catch(e){showError("Image process nahi ho payi. Clear JPG/PNG image upload karo.");}});
-function compressImage(file){return new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>{const img=new Image();img.onload=()=>{const max=1800;let w=img.width,h=img.height;if(w>max||h>max){const s=Math.min(max/w,max/h);w=Math.round(w*s);h=Math.round(h*s)}const c=document.createElement("canvas");c.width=w;c.height=h;const ctx=c.getContext("2d");ctx.drawImage(img,0,0,w,h);resolve(c.toDataURL("image/jpeg",.82));};img.onerror=reject;img.src=r.result;};r.onerror=reject;r.readAsDataURL(file);});}
-function setMetric(name,value){const v=Math.max(0,Math.min(100,Number(value)||0));document.getElementById(name+"Val").textContent=v+"%";document.getElementById(name+"Bar").style.width=v+"%";}
-function list(id,arr){const el=document.getElementById(id);el.innerHTML=(arr||[]).map(x=>"<li>"+escapeHTML(x)+"</li>").join("");if(!arr||!arr.length)el.innerHTML="<li>No specific point returned.</li>";}
-function escapeHTML(s){return String(s??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;");}
-function showError(msg){errorBox.textContent=msg;errorBox.style.display="block";statusBox.style.display="none";document.getElementById("evaluateBtn").disabled=false;document.getElementById("evaluateBtn").textContent="✦ Evaluate Answer";}
-function setLoading(on,msg="AI evaluator is preparing your evaluation..."){statusBox.style.display=on?"block":"none";statusText.textContent=msg;document.getElementById("evaluateBtn").disabled=on;document.getElementById("evaluateBtn").textContent=on?"Evaluating…":"✦ Evaluate Answer";}
 
-document.getElementById("evaluateBtn").addEventListener("click",async()=>{
- const question=document.getElementById("question").value.trim(),answer=document.getElementById("answer").value.trim(),gs=document.getElementById("gs").value,marks=Number(document.getElementById("marks").value);
- if(!question){showError("Pehle UPSC question enter karo.");return} if(!answer&&!imageData){showError("Answer type karo ya handwritten answer image upload karo.");return}
- errorBox.style.display="none";results.style.display="none";setLoading(true,"Question demand aur answer structure analyse ho raha hai…");
- try{
-   const payload={exam:"UPSC CSE",paper:gs,marks,question,answer,imageData:imageData||null,image:imageData||null,images:imageData?[imageData]:[],language:"Hindi"};
-   const response=await fetch(API_BASE+"/api/evaluate",{method:"POST",headers:await getF27AuthHeaders(),body:JSON.stringify(payload)});
-   let data=null;try{data=await response.json()}catch(e){throw new Error("Backend se valid JSON response nahi mila.")}
-   if(!response.ok||!data.success)throw new Error(data?.error||"AI evaluation failed.");
-   renderEvaluation(data.evaluation,data.meta);saveHistory(data.evaluation.estimated_score,marks,gs);renderHistory();
-   setLoading(false);results.style.display="block";results.scrollIntoView({behavior:"smooth"});
- }catch(err){console.error(err);showError("Evaluation failed: "+(err.message||"Unknown error")+". Backend health check aur Render logs verify karo.");}
-});
-function renderEvaluation(e,m){document.getElementById("score").textContent=(e.estimated_score??"—")+"/"+(e.score_out_of??m.marks);document.getElementById("scoreLabel").textContent=e.score_label||"Live AI Evaluation";document.getElementById("resultGS").textContent=m.subject||"—";document.getElementById("resultMarks").textContent=(m.marks||"")+" Marks";setMetric("content",e.content);setMetric("structure",e.structure);setMetric("analysis",e.analysis);setMetric("examples",e.examples);document.getElementById("demand").textContent=e.question_demand||"—";list("strengths",e.strengths);list("missing",e.missing_points);list("weaknesses",e.weak_areas);list("improvements",e.improvements);document.getElementById("structureText").textContent=e.better_structure||"—";document.getElementById("modelDirection").textContent=e.model_answer_direction||"—";document.getElementById("examinerNote").textContent=e.examiner_note||"—";document.getElementById("wordComment").textContent=e.word_count_comment||"—";document.getElementById("finalVerdict").textContent=e.final_verdict||"—";}
-function saveHistory(score,max,gs){const h=JSON.parse(localStorage.getItem("f27_eval_history")||"[]");h.unshift({gs,score:String(score)+"/"+max,date:new Date().toLocaleDateString("en-IN")});localStorage.setItem("f27_eval_history",JSON.stringify(h.slice(0,10)));}
-function renderHistory(){const h=JSON.parse(localStorage.getItem("f27_eval_history")||"[]"),el=document.getElementById("history");if(!h.length){el.innerHTML='<div style="font-size:12px;color:#777">No evaluations yet.</div>';return}el.innerHTML=h.map(x=>`<div class="historyItem"><div><div class="historyTitle">${escapeHTML(x.gs)} Answer Evaluation</div><div class="historyMeta">${escapeHTML(x.date)}</div></div><div class="historyScore">${escapeHTML(x.score)}</div></div>`).join("");}
+async function getF27AuthHeaders(){
+
+  for(let attempt=0;attempt<24;attempt++){
+
+    const tg=getF27Telegram();
+
+    if(tg){
+
+      try{
+        tg.ready();
+        tg.expand();
+      }catch(e){}
+
+      try{
+
+        if(tg.initData){
+
+          saveF27InitData(tg.initData);
+
+        }
+
+      }catch(e){}
+
+    }
+
+    const initData=getF27InitData();
+
+    if(initData){
+
+      return {
+        "Content-Type":"application/json",
+        "x-telegram-init-data":initData
+      };
+
+    }
+
+    await new Promise(
+      resolve=>setTimeout(resolve,250)
+    );
+
+  }
+
+  throw new Error(
+    "Telegram authentication data nahi mila. FATEH27 ko Telegram Mini App ke andar se open karo."
+  );
+
+}
+
+
+/* =========================================================
+   INITIAL TELEGRAM SETUP
+   ========================================================= */
+
+(function initF27Telegram(){
+
+  const tg=getF27Telegram();
+
+  if(!tg) return;
+
+  try{
+    tg.ready();
+    tg.expand();
+  }catch(e){}
+
+  try{
+
+    if(tg.initData){
+
+      saveF27InitData(tg.initData);
+
+    }
+
+  }catch(e){}
+
+})();
+
+
+/* =========================================================
+   API
+   ========================================================= */
+
+const API_BASE=
+  (window.FATEH27_API_BASE||
+  "https://fateh27-bot.onrender.com")
+  .replace(/\/$/,"");
+
+
+/* =========================================================
+   DOM
+   ========================================================= */
+
+const imageInput=
+  document.getElementById("imageInput");
+
+const preview=
+  document.getElementById("preview");
+
+const statusBox=
+  document.getElementById("status");
+
+const statusText=
+  document.getElementById("statusText");
+
+const results=
+  document.getElementById("results");
+
+const errorBox=
+  document.getElementById("errorBox");
+
+
+let imageData="";
+
+
+/* =========================================================
+   IMAGE UPLOAD
+   ========================================================= */
+
+imageInput.addEventListener(
+  "change",
+  async()=>{
+
+    const file=imageInput.files[0];
+
+    if(!file) return;
+
+    try{
+
+      imageData=await compressImage(file);
+
+      preview.src=imageData;
+
+      preview.style.display="block";
+
+      errorBox.style.display="none";
+
+    }catch(e){
+
+      showError(
+        "Image process nahi ho payi. Clear JPG/PNG image upload karo."
+      );
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   IMAGE COMPRESSION
+   ========================================================= */
+
+function compressImage(file){
+
+  return new Promise(
+    (resolve,reject)=>{
+
+      const r=new FileReader();
+
+      r.onload=()=>{
+
+        const img=new Image();
+
+        img.onload=()=>{
+
+          const max=1800;
+
+          let w=img.width;
+          let h=img.height;
+
+          if(w>max||h>max){
+
+            const s=Math.min(
+              max/w,
+              max/h
+            );
+
+            w=Math.round(w*s);
+            h=Math.round(h*s);
+
+          }
+
+          const c=document.createElement("canvas");
+
+          c.width=w;
+          c.height=h;
+
+          const ctx=c.getContext("2d");
+
+          ctx.drawImage(
+            img,
+            0,
+            0,
+            w,
+            h
+          );
+
+          resolve(
+            c.toDataURL(
+              "image/jpeg",
+              .82
+            )
+          );
+
+        };
+
+        img.onerror=reject;
+
+        img.src=r.result;
+
+      };
+
+      r.onerror=reject;
+
+      r.readAsDataURL(file);
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   METRICS
+   ========================================================= */
+
+function setMetric(name,value){
+
+  const v=Math.max(
+    0,
+    Math.min(
+      100,
+      Number(value)||0
+    )
+  );
+
+  document.getElementById(
+    name+"Val"
+  ).textContent=v+"%";
+
+  document.getElementById(
+    name+"Bar"
+  ).style.width=v+"%";
+
+}
+
+
+/* =========================================================
+   LIST
+   ========================================================= */
+
+function list(id,arr){
+
+  const el=
+    document.getElementById(id);
+
+  el.innerHTML=
+    (arr||[])
+    .map(
+      x=>"<li>"+
+      escapeHTML(x)+
+      "</li>"
+    )
+    .join("");
+
+  if(!arr||!arr.length){
+
+    el.innerHTML=
+      "<li>No specific point returned.</li>";
+
+  }
+
+}
+
+
+/* =========================================================
+   HTML ESCAPE
+   ========================================================= */
+
+function escapeHTML(s){
+
+  return String(s??"")
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;");
+
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+function showError(msg){
+
+  errorBox.textContent=msg;
+
+  errorBox.style.display="block";
+
+  statusBox.style.display="none";
+
+  document.getElementById(
+    "evaluateBtn"
+  ).disabled=false;
+
+  document.getElementById(
+    "evaluateBtn"
+  ).textContent="✦ Evaluate Answer";
+
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+function setLoading(
+  on,
+  msg="AI evaluator is preparing your evaluation..."
+){
+
+  statusBox.style.display=
+    on?"block":"none";
+
+  statusText.textContent=msg;
+
+  document.getElementById(
+    "evaluateBtn"
+  ).disabled=on;
+
+  document.getElementById(
+    "evaluateBtn"
+  ).textContent=
+    on
+    ?"Evaluating…"
+    :"✦ Evaluate Answer";
+
+}
+
+
+/* =========================================================
+   EVALUATE
+   ========================================================= */
+
+document
+.getElementById("evaluateBtn")
+.addEventListener(
+  "click",
+  async()=>{
+
+    const question=
+      document
+      .getElementById("question")
+      .value
+      .trim();
+
+    const answer=
+      document
+      .getElementById("answer")
+      .value
+      .trim();
+
+    const gs=
+      document
+      .getElementById("gs")
+      .value;
+
+    const marks=
+      Number(
+        document
+        .getElementById("marks")
+        .value
+      );
+
+
+    if(!question){
+
+      showError(
+        "Pehle UPSC question enter karo."
+      );
+
+      return;
+
+    }
+
+
+    if(!answer&&!imageData){
+
+      showError(
+        "Answer type karo ya handwritten answer image upload karo."
+      );
+
+      return;
+
+    }
+
+
+    errorBox.style.display="none";
+
+    results.style.display="none";
+
+    setLoading(
+      true,
+      "Question demand aur answer structure analyse ho raha hai…"
+    );
+
+
+    try{
+
+      /* -------------------------------------------------
+         COMPLETE EVALUATION PAYLOAD
+         ------------------------------------------------- */
+
+      const payload={
+
+        exam:"UPSC CSE",
+
+        paper:gs,
+
+        marks:marks,
+
+        question:question,
+
+        answer:answer,
+
+        imageData:imageData||null,
+
+        image:imageData||null,
+
+        images:
+          imageData
+          ?[imageData]
+          :[],
+
+        language:"Hindi"
+
+      };
+
+
+      /* -------------------------------------------------
+         VERIFIED TELEGRAM AUTH
+         ------------------------------------------------- */
+
+      const authHeaders=
+        await getF27AuthHeaders();
+
+
+      /* -------------------------------------------------
+         BACKEND REQUEST
+         ------------------------------------------------- */
+
+      const response=
+        await fetch(
+          API_BASE+"/api/evaluate",
+          {
+            method:"POST",
+
+            headers:authHeaders,
+
+            body:
+              JSON.stringify(payload)
+          }
+        );
+
+
+      let data=null;
+
+
+      try{
+
+        data=await response.json();
+
+      }catch(e){
+
+        throw new Error(
+          "Backend se valid JSON response nahi mila."
+        );
+
+      }
+
+
+      if(
+        !response.ok||
+        !data.success
+      ){
+
+        throw new Error(
+          data?.error||
+          "AI evaluation failed."
+        );
+
+      }
+
+
+      /* -------------------------------------------------
+         RESULT
+         ------------------------------------------------- */
+
+      renderEvaluation(
+        data.evaluation,
+        data.meta
+      );
+
+
+      saveHistory(
+        data.evaluation.estimated_score,
+        marks,
+        gs
+      );
+
+
+      renderHistory();
+
+
+      setLoading(false);
+
+      results.style.display="block";
+
+      results.scrollIntoView({
+        behavior:"smooth"
+      });
+
+
+    }catch(err){
+
+      console.error(
+        "FATEH27 AI Evaluation Error:",
+        err
+      );
+
+      showError(
+        "Evaluation failed: "+
+        (
+          err.message||
+          "Unknown error"
+        )
+      );
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   RENDER EVALUATION
+   ========================================================= */
+
+function renderEvaluation(e,m){
+
+  document.getElementById(
+    "score"
+  ).textContent=
+    (e.estimated_score??"—")+
+    "/"+
+    (e.score_out_of??m.marks);
+
+
+  document.getElementById(
+    "scoreLabel"
+  ).textContent=
+    e.score_label||
+    "Live AI Evaluation";
+
+
+  document.getElementById(
+    "resultGS"
+  ).textContent=
+    m.subject||"—";
+
+
+  document.getElementById(
+    "resultMarks"
+  ).textContent=
+    (m.marks||"")+
+    " Marks";
+
+
+  setMetric(
+    "content",
+    e.content
+  );
+
+  setMetric(
+    "structure",
+    e.structure
+  );
+
+  setMetric(
+    "analysis",
+    e.analysis
+  );
+
+  setMetric(
+    "examples",
+    e.examples
+  );
+
+
+  document.getElementById(
+    "demand"
+  ).textContent=
+    e.question_demand||"—";
+
+
+  list(
+    "strengths",
+    e.strengths
+  );
+
+
+  list(
+    "missing",
+    e.missing_points
+  );
+
+
+  list(
+    "weaknesses",
+    e.weak_areas
+  );
+
+
+  list(
+    "improvements",
+    e.improvements
+  );
+
+
+  document.getElementById(
+    "structureText"
+  ).textContent=
+    e.better_structure||"—";
+
+
+  document.getElementById(
+    "modelDirection"
+  ).textContent=
+    e.model_answer_direction||"—";
+
+
+  document.getElementById(
+    "examinerNote"
+  ).textContent=
+    e.examiner_note||"—";
+
+
+  document.getElementById(
+    "wordComment"
+  ).textContent=
+    e.word_count_comment||"—";
+
+
+  document.getElementById(
+    "finalVerdict"
+  ).textContent=
+    e.final_verdict||"—";
+
+}
+
+
+/* =========================================================
+   HISTORY
+   ========================================================= */
+
+function saveHistory(
+  score,
+  max,
+  gs
+){
+
+  const h=
+    JSON.parse(
+      localStorage.getItem(
+        "f27_eval_history"
+      )||"[]"
+    );
+
+
+  h.unshift({
+
+    gs,
+
+    score:
+      String(score)+
+      "/"+
+      max,
+
+    date:
+      new Date()
+      .toLocaleDateString(
+        "en-IN"
+      )
+
+  });
+
+
+  localStorage.setItem(
+    "f27_eval_history",
+    JSON.stringify(
+      h.slice(0,10)
+    )
+  );
+
+}
+
+
+function renderHistory(){
+
+  const h=
+    JSON.parse(
+      localStorage.getItem(
+        "f27_eval_history"
+      )||"[]"
+    );
+
+
+  const el=
+    document.getElementById(
+      "history"
+    );
+
+
+  if(!h.length){
+
+    el.innerHTML=
+      '<div style="font-size:12px;color:#777">No evaluations yet.</div>';
+
+    return;
+
+  }
+
+
+  el.innerHTML=
+    h.map(
+      x=>
+        <div class="historyItem">
+          <div>
+            <div class="historyTitle">
+              ${escapeHTML(x.gs)}
+              Answer Evaluation
+            </div>
+            <div class="historyMeta">
+              ${escapeHTML(x.date)}
+            </div>
+          </div>
+
+          <div class="historyScore">
+            ${escapeHTML(x.score)}
+          </div>
+        </div>
+      
+    ).join("");
+
+}
+
+
 renderHistory();
+
 </script>
+
 </body>
 </html>
