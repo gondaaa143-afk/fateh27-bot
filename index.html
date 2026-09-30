@@ -1946,14 +1946,17 @@ if(tg){
 
 async function showOwnerAdminButton(){
   const adminButton = document.getElementById("ownerAdminButton");
+  const accessButton = document.getElementById("ownerAccessBtn");
   if(!adminButton) return;
   adminButton.style.display = "none";
+  if(accessButton) accessButton.style.display = "none";
 
   const user = tg?.initDataUnsafe?.user || null;
 
   // Fast local check so the owner sees the button immediately.
   if(user && String(user.id) === "5496422260"){
     adminButton.style.display = "block";
+    if(accessButton) accessButton.style.display = "flex";
   }
 
   // Server-side verification is the source of truth.
@@ -1968,6 +1971,7 @@ async function showOwnerAdminButton(){
 
     if(response.ok){
       adminButton.style.display = "block";
+      if(accessButton) accessButton.style.display = "flex";
     }
   }catch(error){
     console.warn("FATEH27 owner admin check:", error);
