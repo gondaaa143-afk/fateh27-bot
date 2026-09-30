@@ -734,23 +734,14 @@ try{
 
 if(tg){
 
-try{
-tg.ready();
-}catch(e){}
-
-try{
-tg.expand();
-}catch(e){}
+try{ tg.ready(); }catch(e){}
+try{ tg.expand(); }catch(e){}
 
 if(tg.initData){
 
 try{
-
-sessionStorage.setItem(
-"f27TelegramInitData",
-tg.initData
-);
-
+sessionStorage.setItem("f27_tg_init_data",tg.initData);
+sessionStorage.setItem("f27TelegramInitData",tg.initData);
 }catch(e){}
 
 return tg.initData;
@@ -761,22 +752,60 @@ return tg.initData;
 
 }catch(e){}
 
-
 try{
 
 const saved=
-sessionStorage.getItem(
-"f27TelegramInitData"
-)||"";
+sessionStorage.getItem("f27_tg_init_data")||
+sessionStorage.getItem("f27TelegramInitData")||
+"";
 
-if(saved){
+if(saved) return saved;
 
-return saved;
+}catch(e){}
+
+try{
+
+const params=new URLSearchParams(window.location.search);
+
+const fromQuery=
+params.get("tgWebAppData")||"";
+
+if(fromQuery){
+
+try{
+sessionStorage.setItem("f27_tg_init_data",fromQuery);
+}catch(e){}
+
+return fromQuery;
 
 }
 
 }catch(e){}
 
+try{
+
+const hash=
+window.location.hash||"";
+
+const params=
+new URLSearchParams(
+hash.replace(/^#/,"")
+);
+
+const fromHash=
+params.get("tgWebAppData")||"";
+
+if(fromHash){
+
+try{
+sessionStorage.setItem("f27_tg_init_data",fromHash);
+}catch(e){}
+
+return fromHash;
+
+}
+
+}catch(e){}
 
 return "";
 
@@ -789,18 +818,34 @@ return "";
 
 async function getF27AuthHeaders(){
 
-for(
-let attempt=0;
-attempt<24;
-attempt++
-){
+let initData=getF27InitData();
 
-initializeTelegram();
+if(!initData && window.Telegram?.WebApp){
 
-const initData=
-getF27InitData();
+try{
+window.Telegram.WebApp.ready();
+window.Telegram.WebApp.expand();
+}catch(e){}
 
-if(initData){
+}
+
+for(let attempt=0;attempt<40 && !initData;attempt++){
+
+await new Promise(
+resolve=>setTimeout(resolve,250)
+);
+
+initData=getF27InitData();
+
+}
+
+if(!initData){
+
+throw new Error(
+"Telegram authentication data nahi mila. FATEH27 ko Telegram Mini App ke Main/Menu button se open karo."
+);
+
+}
 
 return{
 
@@ -812,29 +857,6 @@ initData
 };
 
 }
-
-await new Promise(
-resolve=>setTimeout(
-resolve,
-250
-)
-);
-
-}
-
-throw new Error(
-"Telegram authentication data nahi mila. FATEH27 ko Telegram Mini App ke andar se open karo."
-);
-
-}
-
-
-/* =========================================================
-   START TELEGRAM
-   ========================================================= */
-
-initializeTelegram();
-
 
 /* =========================================================
    API
