@@ -97,7 +97,7 @@ document.getElementById("evaluateBtn").addEventListener("click",async()=>{
  if(!question){showError("Pehle UPSC question enter karo.");return} if(!answer&&!imageData){showError("Answer type karo ya handwritten answer image upload karo.");return}
  errorBox.style.display="none";results.style.display="none";setLoading(true,"Question demand aur answer structure analyse ho raha hai…");
  try{
-   const payload={gs,marks,question,answer,imageData:imageData||null};
+   const payload={exam:"UPSC CSE",paper:gs,gs,marks,question,answer,imageData:imageData||null,image:imageData||null,images:imageData?[imageData]:[],language:"Hindi"};
    const response=await fetch(API_BASE+"/api/evaluate",{method:"POST",headers:await getF27AuthHeaders(),body:JSON.stringify(payload)});
    let data=null;try{data=await response.json()}catch(e){throw new Error("Backend se valid JSON response nahi mila.")}
    if(!response.ok||!data.success)throw new Error(data?.error||"AI evaluation failed.");
