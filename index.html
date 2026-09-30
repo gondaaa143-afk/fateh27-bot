@@ -1947,20 +1947,12 @@ if(tg){
 async function showOwnerAdminButton(){
   const adminButton = document.getElementById("ownerAdminButton");
   const accessButton = document.getElementById("ownerAccessBtn");
-  if(!adminButton) return;
-  adminButton.style.display = "none";
+
+  // Defense-in-depth: both owner controls start hidden and are only
+  // revealed after the server confirms the Telegram account is the owner.
+  if(adminButton) adminButton.style.display = "none";
   if(accessButton) accessButton.style.display = "none";
 
-  const user = tg?.initDataUnsafe?.user || null;
-
-  // Fast local check so the owner sees the button immediately.
-  if(user && String(user.id) === "5496422260"){
-    adminButton.style.display = "block";
-    if(accessButton) accessButton.style.display = "flex";
-  }
-
-  // Server-side verification is the source of truth.
-  // This also handles Telegram WebApp data becoming available slightly later.
   const initData = tg?.initData || "";
   if(!initData) return;
 
@@ -1970,7 +1962,7 @@ async function showOwnerAdminButton(){
     });
 
     if(response.ok){
-      adminButton.style.display = "block";
+      if(adminButton) adminButton.style.display = "block";
       if(accessButton) accessButton.style.display = "flex";
     }
   }catch(error){
