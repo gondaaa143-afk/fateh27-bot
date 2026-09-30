@@ -1918,6 +1918,7 @@ function openF27AnswerEvaluator(){
   const webApp = window.Telegram?.WebApp || null;
   const data = webApp?.initData || "";
   if(data){
+    try{sessionStorage.setItem("f27_tg_init_data",data);}catch(e){}
     location.href = "answer.html?tgWebAppData=" + encodeURIComponent(data);
     return;
   }
