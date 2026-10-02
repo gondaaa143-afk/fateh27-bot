@@ -480,6 +480,72 @@ body{
   }
 
 }
+
+/* FINAL CURRENT-AFFAIRS UX */
+.analysisTools{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:15px;
+}
+.analysisBtn,.utilityBtn{
+  border:1px solid var(--line);
+  background:#f1f1f1;
+  color:#111;
+  padding:10px 13px;
+  border-radius:13px;
+  font-size:11px;
+  font-weight:800;
+  cursor:pointer;
+  transition:transform .16s ease,background .16s ease;
+}
+.analysisBtn:active,.utilityBtn:active{transform:scale(.97)}
+.analysisBtn.open{
+  background:#111;
+  color:#fff;
+  border-color:#111;
+}
+.utilityBtn.active{
+  background:#111;
+  color:#fff;
+  border-color:#111;
+}
+.analysisPanel{
+  display:none;
+  margin-top:12px;
+  padding:15px;
+  border-radius:18px;
+  background:rgba(245,245,245,.9);
+  border:1px solid var(--line);
+  animation:analysisIn .18s ease;
+}
+.analysisPanel.open{display:block}
+.analysisHeader{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:4px;
+}
+.analysisHeading{
+  font-size:13px;
+  font-weight:900;
+}
+.analysisHint{
+  font-size:10px;
+  color:#777;
+}
+@keyframes analysisIn{
+  from{opacity:0;transform:translateY(-4px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.articleFooter{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:15px;
+}
+
 </style>
 </head>
 
@@ -647,6 +713,17 @@ body{
       Reports
     </button>
 
+    <button class="filter"
+      onclick="setFilter('IMPORTANT',this)">
+      Important
+    </button>
+
+    <button class="filter"
+      onclick="setFilter('SAVED',this)">
+      Saved
+    </button>
+
+
   </div>
 
 
@@ -747,6 +824,14 @@ let revised = JSON.parse(
 
 let xp = Number(
   localStorage.getItem("fateh27_ca_xp") || 0
+);
+
+let important = JSON.parse(
+  localStorage.getItem("fateh27_ca_important") || "[]"
+);
+
+let bookmarked = JSON.parse(
+  localStorage.getItem("fateh27_ca_bookmarked") || "[]"
 );
 
 
@@ -1004,6 +1089,8 @@ function renderArticles(){
 
       const filterMatch =
         currentFilter === "ALL" ||
+        (currentFilter === "IMPORTANT" && important.includes(articles.indexOf(article))) ||
+        (currentFilter === "SAVED" && bookmarked.includes(articles.indexOf(article))) ||
         article.category
           .toUpperCase()
           .includes(currentFilter);
@@ -1080,20 +1167,19 @@ function renderArticles(){
 
 function createArticle(article,index){
 
-  const isRevised =
-    revised.includes(index);
-
+  const isRevised = revised.includes(index);
+  const isImportant = important.includes(index);
+  const isBookmarked = bookmarked.includes(index);
 
   const priorityClass =
-    article.priority
-      .toUpperCase() === "HIGH"
+    String(article.priority || "").toUpperCase() === "HIGH"
       ? "priority high"
       : "priority";
 
+  const analysisId = "analysis-" + index;
 
   return `
-
-    <article class="article">
+    <article class="article" id="article-${index}">
 
       <div class="articleTop">
 
@@ -1106,135 +1192,162 @@ function createArticle(article,index){
         </div>
 
         <div class="${priorityClass}">
-          ${escapeHtml(
-            article.priority || "UPSC"
-          )}
+          ${escapeHtml(article.priority || "UPSC")}
         </div>
 
       </div>
-
 
       <div class="meta">
-
         <div class="tag">
-          ${escapeHtml(
-            article.category || "UPSC"
-          )}
+          ${escapeHtml(article.category || "UPSC")}
         </div>
-
         <div class="tag">
-          ${escapeHtml(
-            article.source || "Source"
-          )}
+          ${escapeHtml(article.source || "Source")}
         </div>
+      </div>
+
+      <div class="analysisTools">
+
+        <button
+          class="analysisBtn"
+          id="analysisBtn-${index}"
+          onclick="toggleAnalysis(${index})"
+          aria-expanded="false"
+          aria-controls="${analysisId}">
+          Read Analysis
+        </button>
+
+        <button
+          class="utilityBtn ${isImportant ? "active" : ""}"
+          onclick="toggleImportant(${index})">
+          ${isImportant ? "★ Important" : "☆ Important"}
+        </button>
+
+        <button
+          class="utilityBtn ${isBookmarked ? "active" : ""}"
+          onclick="toggleBookmark(${index})">
+          ${isBookmarked ? "✓ Saved" : "＋ Save"}
+        </button>
 
       </div>
 
+      <div class="analysisPanel" id="${analysisId}">
 
-      ${sectionHTML(
-        "Why in News?",
-        article.why
-      )}
+        <div class="analysisHeader">
+          <div class="analysisHeading">UPSC Analysis</div>
+          <div class="analysisHint">Prelims + Mains</div>
+        </div>
 
-      ${sectionHTML(
-        "What Happened?",
-        article.what
-      )}
+        ${sectionHTML("Why in News?",article.why)}
+        ${sectionHTML("What Happened?",article.what)}
+        ${sectionHTML("Background",article.background)}
+        ${sectionHTML("Prelims Focus",article.prelims)}
+        ${sectionHTML("Mains Focus",article.mains)}
+        ${sectionHTML("UPSC Syllabus",article.syllabus)}
+        ${sectionHTML("Static Connection",article.staticLink)}
+        ${sectionHTML("PYQ Connection",article.pyq)}
+        ${sectionHTML("30-Second Revision",article.revision)}
 
-      ${sectionHTML(
-        "Background",
-        article.background
-      )}
-
-      ${sectionHTML(
-        "Prelims Focus",
-        article.prelims
-      )}
-
-      ${sectionHTML(
-        "Mains Focus",
-        article.mains
-      )}
-
-      ${sectionHTML(
-        "UPSC Syllabus",
-        article.syllabus
-      )}
-
-      ${sectionHTML(
-        "Static Connection",
-        article.staticLink
-      )}
-
-      ${sectionHTML(
-        "PYQ Connection",
-        article.pyq
-      )}
-
-      ${sectionHTML(
-        "30-Second Revision",
-        article.revision
-      )}
-
+      </div>
 
       <div class="recall">
-
         <div class="recallTitle">
           Active Recall
         </div>
-
         <div class="recallQuestion">
           ${escapeHtml(
-            article.recall ||
-            "Revise this topic."
+            article.recall || "Revise this topic."
           )}
         </div>
-
       </div>
 
-
-      <div class="actions">
+      <div class="articleFooter">
 
         <button
           class="actionBtn ${isRevised ? "revised" : ""}"
           onclick="markRevised(${index})">
-
-          ${
-            isRevised
-            ? "✓ Revised +10 XP"
-            : "Mark Revised +10 XP"
-          }
-
+          ${isRevised ? "✓ Revised +10 XP" : "Mark Revised +10 XP"}
         </button>
-
 
         ${
           article.url
-          ?
-          `
+          ? `
           <button
             class="actionBtn"
-            onclick="window.open(
-              '${escapeAttr(article.url)}',
-              '_blank'
-            )">
-
+            onclick="window.open('${escapeAttr(article.url)}','_blank')">
             Source ↗
-
           </button>
           `
-          :
-          ""
+          : ""
         }
 
       </div>
 
     </article>
-
   `;
+}
+
+/* ---------------------------------------
+   INLINE ANALYSIS
+--------------------------------------- */
+
+function toggleAnalysis(index){
+
+  const panel = document.getElementById("analysis-" + index);
+  const button = document.getElementById("analysisBtn-" + index);
+
+  if(!panel || !button) return;
+
+  const willOpen = !panel.classList.contains("open");
+
+  panel.classList.toggle("open",willOpen);
+  button.classList.toggle("open",willOpen);
+  button.setAttribute("aria-expanded",String(willOpen));
+  button.innerText = willOpen ? "Hide Analysis" : "Read Analysis";
 
 }
 
+/* ---------------------------------------
+   IMPORTANT
+--------------------------------------- */
+
+function toggleImportant(index){
+
+  if(important.includes(index)){
+    important = important.filter(i => i !== index);
+  }else{
+    important.push(index);
+  }
+
+  localStorage.setItem(
+    "fateh27_ca_important",
+    JSON.stringify(important)
+  );
+
+  renderArticles();
+
+}
+
+/* ---------------------------------------
+   BOOKMARK
+--------------------------------------- */
+
+function toggleBookmark(index){
+
+  if(bookmarked.includes(index)){
+    bookmarked = bookmarked.filter(i => i !== index);
+  }else{
+    bookmarked.push(index);
+  }
+
+  localStorage.setItem(
+    "fateh27_ca_bookmarked",
+    JSON.stringify(bookmarked)
+  );
+
+  renderArticles();
+
+}
 
 /* ---------------------------------------
    SECTION HTML
@@ -1337,8 +1450,9 @@ function escapeHtml(value){
 function escapeAttr(value){
 
   return String(value || "")
-    .replace(/'/g,"%27")
-    .replace(/"/g,"%22");
+    .replace(/\\/g,"\\\\")
+    .replace(/'/g,"\\'")
+    .replace(/"/g,"&quot;");
 
 }
 
