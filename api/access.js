@@ -341,9 +341,29 @@ export default async function handler(req, res) {
     if (req.method === "GET") {
       if (String(req.query?.admin || "") === "1") {
         await requireAdmin(req);
-        const requests = await listRequests();
-        const members = await listApprovedMembers();
-        return res.status(200).json({ success: true, requests, members });
+
+        // Owner authentication must not fail just because one Firestore
+        // collection is temporarily unavailable. Load each admin dataset
+        // independently and return partial data with warnings.
+        const warnings = [];
+        let requests = [];
+        let members = [];
+
+        try {
+          requests = await listRequests();
+        } catch (error) {
+          console.error("Admin access request list error:", error);
+          warnings.push("Access requests could not be loaded.");
+        }
+
+        try {
+          members = await listApprovedMembers();
+        } catch (error) {
+          console.error("Admin member list error:", error);
+          warnings.push("Joined users could not be loaded.");
+        }
+
+        return res.status(200).json({ success: true, requests, members, warnings });
       }
 
       const state = await getAccessState(user.id);
