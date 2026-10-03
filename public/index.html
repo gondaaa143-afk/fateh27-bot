@@ -1483,9 +1483,9 @@ html.f27-access-blocked .bottomNav{
 
 /* ACCESS CONTROL ENTRY — always visible on the home Quick Launch */
 #ownerAccessBtn{
-  display:flex !important;
-  visibility:visible !important;
-  opacity:1 !important;
+  display:none !important;
+  visibility:hidden !important;
+  opacity:0 !important;
 }
 
 </style>
@@ -2531,8 +2531,11 @@ load();
     const tg=window.Telegram?.WebApp;
     const initData=tg?.initData;
     if(!initData){
-      // Keep normal browser access intact; Telegram approval applies inside the Mini App.
-      openApp();
+      blocked(
+        "Telegram Login Required",
+        "FATEH27 access is available only through the authenticated Telegram Mini App.",
+        false
+      );
       return;
     }
 
