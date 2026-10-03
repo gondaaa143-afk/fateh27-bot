@@ -1,140 +1,140 @@
 # FATEH27 DAILY CURRENT AFFAIRS
 
-## 02 October 2026
+## 03 October 2026
 
 > UPSC CSE • Prelims + Mains • The Hindu + PIB + RBI + Government + International Institutions
 
-**Total Important Items:** 18
+**Total Important Items:** 15
 
 ---
 
-## 1. कैबिनेट ने बैटरी ऊर्जा भंडारण सहित ग्रीन एनर्जी कॉरिडोर चरण-III को मंजूरी दी
+## 1. GOBARdhan Scheme को compressed biogas क्षेत्र को गति देने के लिए लॉन्च किया गया
 
 **Source:** PIB
 
-**Source URL:** https://news.google.com/rss/articles/CBMifkFVX3lxTE9xaTZYeVhpS2lTZ2xXTDIwRkpPX2RaRVN2SE90WC1WZHQ3cmpzMEZ0ZVB2Rk1qN0J0dGlzaThZSFVocGk2OFBxdC1MekcwV2dvRHdOWkxrUmhZV3MyM0FvOGxMS3BhTXplc0c2dC1MS19ZOGVHS0RZdzVPVTdjdw?oc=5
+**Source URL:** https://news.google.com/rss/articles/CBMifkFVX3lxTFBpalFjbjBzTm04WVhxdzlUMHNwMzRxTHJMeHBEM2VCOGYxX2hkZVJIdjBKNS1uTVBhYURrUV92djMzSHBuWnR6ZEt0OVpCU2ZDS2QtanNaZkQxZHh1UGZxSENqRmZtdkF3bGV5VmhoMDliYU00eDZ6UG9YYWpXQQ?oc=5
 
 **Category:** ENVIRONMENT
 
 **Priority:** उच्च
 
 ### Why in News?
-PIB के अनुसार, कैबिनेट ने अंतर-राज्यीय नहीं बल्कि राज्य के भीतर विद्युत पारेषण प्रणाली के विकास और बैटरी ऊर्जा भंडारण प्रणालियों (BESS) से जुड़ी ग्रीन एनर्जी कॉरिडोर चरण-III योजना को मंजूरी दी।
+PIB के अनुसार पेट्रोलियम एवं प्राकृतिक गैस मंत्री ने भारत के compressed biogas क्षेत्र के विकास को तेज करने के लिए GOBARdhan Scheme लॉन्च की।
 
 ### What Happened?
-योजना का घोषित फोकस intra-state transmission system का विकास और battery energy storage systems का समावेश है। उपलब्ध सूचना में वित्तीय आवंटन, राज्यों या क्षमता का विवरण नहीं है।
+उपलब्ध headline-level information के आधार पर, योजना का उद्देश्य compressed biogas (CBG) क्षेत्र के विकास को गति देना है। इससे आगे योजना के घटकों का विवरण उपलब्ध नहीं है।
 
 ### Background
-नवीकरणीय ऊर्जा के उत्पादन और उपयोग के बीच समय तथा स्थान का अंतर पारेषण नेटवर्क और भंडारण की जरूरत पैदा करता है।
+यह खबर जैव-ऊर्जा, कचरा प्रबंधन और ऊर्जा संक्रमण के परस्पर संबंधों पर ध्यान आकर्षित करती है।
 
 ### Prelims Focus
-योजना का नाम: Green Energy Corridor Phase-III। शीर्षक में intra-state transmission system और BESS का उल्लेख है।
+योजना का नाम: GOBARdhan Scheme; संबंधित क्षेत्र: compressed biogas। विस्तृत प्रावधान स्रोत headline में नहीं दिए गए हैं।
 
 ### Mains Focus
-कारण: नवीकरणीय बिजली के एकीकरण के लिए पारेषण एवं भंडारण जरूरी। प्रभाव: आपूर्ति प्रबंधन और ऊर्जा संक्रमण में मदद की संभावना। चुनौतियाँ: लागत, ग्रिड समन्वय और भंडारण का संचालन। आगे: पारदर्शी क्रियान्वयन तथा पारेषण-उत्पादन-भंडारण का समन्वय।
+जैव-ऊर्जा से ऊर्जा स्रोतों का विविधीकरण और कचरे के उपयोग को प्रोत्साहन मिल सकता है। चुनौतियों में परियोजना-स्तर पर क्रियान्वयन, कच्चे माल की उपलब्धता और बाजार से जुड़ाव शामिल हो सकते हैं। आगे स्पष्ट क्रियान्वयन ढाँचे और परिणामों की निगरानी पर बल दिया जा सकता है।
 
 ### UPSC Syllabus Link
-GS3: ऊर्जा, अवसंरचना और पर्यावरण संरक्षण।
+GS3: ऊर्जा, पर्यावरण संरक्षण, जैव-प्रौद्योगिकी/स्वच्छ ऊर्जा; कृषि-अवशेष एवं अपशिष्ट प्रबंधन
 
 ### Static Connection
-नवीकरणीय ऊर्जा एकीकरण; विद्युत पारेषण; ऊर्जा भंडारण।
+जैव-ऊर्जा, बायोगैस और circular economy
 
 ### PYQ Connection
 Theme connection only — exact PYQ not established.
 
 ### 30-Second Revision
-ग्रीन एनर्जी कॉरिडोर चरण-III: राज्य के भीतर पारेषण प्रणाली + बैटरी ऊर्जा भंडारण।
+GOBARdhan Scheme को CBG क्षेत्र के विकास में तेजी लाने के उद्देश्य से लॉन्च किया गया।
 
 ### Active Recall
-**Q. नवीकरणीय ऊर्जा के विस्तार में पारेषण और ऊर्जा भंडारण की क्या भूमिका है?**
+**Q. कचरे से ऊर्जा उत्पादन भारत के ऊर्जा संक्रमण और अपशिष्ट प्रबंधन—दोनों में किस प्रकार योगदान दे सकता है?**
 
 ---
 
-## 2. दिल्ली में वास्तविक-समय यातायात प्रबंधन के लिए ‘वन नेटवर्क’ पहल को मंजूरी
+## 2. PM E-DRIVE Scheme
 
 **Source:** PIB
 
-**Source URL:** https://news.google.com/rss/articles/CBMifEFVX3lxTFBMQTFERnM4cDY5Q1NJU2M5NlVVN2cwTGVVOXVxVkJKVlVHODdhQzF6SnRkMkVDSG1fV3didEJlS3o5UWpzSEk0TnN1aXJzM0J2eXBWVjZKRVg1SDVjdlcxZE5qRFp5R3ZiYTloOXNpSm5wc2YxaWh1MFlRQkg?oc=5
+**Source URL:** https://news.google.com/rss/articles/CBMid0FVX3lxTE13MEFTN0pLemIzRGt5MjdDQk5laklqeHd1WEhsQjFTb3FhWHUxVTQ1U0ZoeXZpeVE5TkNZZmFFWDhGZzJfVm90SzZlQWN2bEQ3NFlsWVBJWkxCc2RLOUphMjJvUHA5WUdNUnRlNUtfOUtzdGNEN3FN?oc=5
 
-**Category:** GOVERNANCE
+**Category:** SCIENCE
+
+**Priority:** मध्यम
+
+### Why in News?
+PIB की सामग्री में PM E-DRIVE Scheme का उल्लेख है। उपलब्ध headline में योजना के नए निर्णय या घटकों का विवरण नहीं है।
+
+### What Happened?
+उपलब्ध headline-level information के आधार पर, यह PIB की PM E-DRIVE Scheme संबंधी सामग्री है; इससे योजना की ताजा स्थिति या विवरण स्थापित नहीं होते।
+
+### Background
+यह विषय इलेक्ट्रिक मोबिलिटी और परिवहन क्षेत्र के ऊर्जा संक्रमण से जुड़ता है।
+
+### Prelims Focus
+योजना का नाम: PM E-DRIVE Scheme। इसके लक्ष्य, अवधि, लाभार्थी और वित्तीय प्रावधान इस स्रोत headline में नहीं दिए गए हैं।
+
+### Mains Focus
+इलेक्ट्रिक मोबिलिटी से उत्सर्जन घटाने और ऊर्जा सुरक्षा में संभावित योगदान पर चर्चा की जा सकती है। चुनौतियों में चार्जिंग अवसंरचना, लागत, बैटरी आपूर्ति और क्रियान्वयन शामिल हैं; नीति-निर्माण में इन आयामों का संतुलन जरूरी है।
+
+### UPSC Syllabus Link
+GS3: विज्ञान एवं प्रौद्योगिकी, पर्यावरण, ऊर्जा और अवसंरचना
+
+### Static Connection
+इलेक्ट्रिक वाहन, बैटरी और परिवहन का डीकार्बोनाइजेशन
+
+### PYQ Connection
+Theme connection only — exact PYQ not established.
+
+### 30-Second Revision
+PIB ने PM E-DRIVE Scheme संबंधी सामग्री प्रकाशित की; उपलब्ध headline से अतिरिक्त प्रावधान पुष्ट नहीं होते।
+
+### Active Recall
+**Q. इलेक्ट्रिक वाहनों को बढ़ावा देने की नीति में मांग, चार्जिंग नेटवर्क और स्वच्छ बिजली की उपलब्धता को साथ में क्यों देखना चाहिए?**
+
+---
+
+## 3. ICAR और FCI ने सुरक्षित एवं टिकाऊ खाद्यान्न भंडारण के लिए MoU पर हस्ताक्षर किए
+
+**Source:** PIB
+
+**Source URL:** https://news.google.com/rss/articles/CBMifkFVX3lxTE40TGNxMDBuMF9od01FbWg4UmdPdnE5TUQwcUo3ZEduWUJnYTkxcnlNM21nNzJ0THEzUnJPYUpfdkVHVDBBWG1uODBFRFhYUFNqSWFFMEN4UkJ3c1pqWDc4ekJCYTJJUHNtZ1dFQWNiaW9ZTTFrYUhVWnZhU0tEdw?oc=5
+
+**Category:** GS3
 
 **Priority:** उच्च
 
 ### Why in News?
-PIB शीर्षक के अनुसार, कैबिनेट ने दिल्ली में real-time traffic management के लिए ‘One Network’ पहल को मंजूरी दी।
+PIB के अनुसार ICAR और Food Corporation of India (FCI) ने सुरक्षित तथा टिकाऊ खाद्यान्न भंडारण के लिए समझौता ज्ञापन (MoU) किया।
 
 ### What Happened?
-घोषित उद्देश्य यातायात प्रबंधन को नेटवर्क के माध्यम से वास्तविक समय में संचालित करना है। उपलब्ध सूचना में तकनीकी संरचना, एजेंसियों या क्रियान्वयन समयरेखा का विवरण नहीं है।
+MoU का घोषित विषय खाद्यान्न भंडारण को सुरक्षित और टिकाऊ बनाना है। headline में सहयोग के तकनीकी या वित्तीय विवरण उपलब्ध नहीं हैं।
 
 ### Background
-शहरी यातायात प्रबंधन में विभिन्न प्रणालियों और एजेंसियों के बीच समन्वय महत्वपूर्ण होता है।
+खाद्यान्न भंडारण कृषि आपूर्ति-श्रृंखला और खाद्य सुरक्षा का महत्त्वपूर्ण हिस्सा है।
 
 ### Prelims Focus
-स्थान: दिल्ली। घोषित पहल: One Network, Smarter Traffic। उद्देश्य: real-time traffic management।
+MoU करने वाले संस्थान: Indian Council of Agricultural Research (ICAR) और Food Corporation of India (FCI); विषय: सुरक्षित एवं टिकाऊ खाद्यान्न भंडारण।
 
 ### Mains Focus
-कारण: शहरी यातायात दबाव और समन्वित प्रबंधन की जरूरत। संभावित लाभ: बेहतर सूचना-साझाकरण और यातायात संचालन। चुनौतियाँ: डेटा एकीकरण, निजता, साइबर सुरक्षा और संस्थागत समन्वय। आगे: जवाबदेही, डेटा-सुरक्षा और सार्वजनिक परिवहन के साथ एकीकरण।
+बेहतर भंडारण से खाद्य आपूर्ति की स्थिरता और फसलोत्तर प्रबंधन को समर्थन मिल सकता है। चुनौतियों में भंडारण क्षमता, तकनीक, रखरखाव और विभिन्न क्षेत्रों में गुणवत्ता का अंतर शामिल हैं। अनुसंधान और परिचालन संस्थानों के बीच सहयोग को परिणाम-आधारित बनाया जाना चाहिए।
 
 ### UPSC Syllabus Link
-GS2: शासन और ई-गवर्नेंस; GS3: शहरीकरण एवं अवसंरचना।
+GS3: कृषि, खाद्य सुरक्षा, भंडारण, परिवहन और विपणन
 
 ### Static Connection
-स्मार्ट शहरी शासन; यातायात प्रबंधन; डिजिटल सार्वजनिक अवसंरचना।
+कृषि आपूर्ति-श्रृंखला और फसलोत्तर प्रबंधन
 
 ### PYQ Connection
 Theme connection only — exact PYQ not established.
 
 ### 30-Second Revision
-दिल्ली की ‘One Network’ पहल का घोषित लक्ष्य वास्तविक-समय यातायात प्रबंधन है।
+ICAR–FCI MoU का घोषित लक्ष्य सुरक्षित और टिकाऊ खाद्यान्न भंडारण है।
 
 ### Active Recall
-**Q. शहरी यातायात के डिजिटल प्रबंधन में दक्षता और नागरिकों की निजता के बीच संतुलन कैसे बनाया जा सकता है?**
+**Q. खाद्यान्न भंडारण में अनुसंधान संस्थानों और खरीद/भंडारण संस्थाओं का सहयोग क्यों महत्त्वपूर्ण है?**
 
 ---
 
-## 3. रबी विपणन सत्र 2027-28 के लिए न्यूनतम समर्थन मूल्य मंजूर
-
-**Source:** PIB
-
-**Source URL:** https://news.google.com/rss/articles/CBMifkFVX3lxTFB3dHVRWnNhXzFnRjFmb3hEZ2VIOHl1TllXckNXNEtDWlRTVF9zU21tamVPc0w1bHhvSzQ5X29EVHpVTktSNUFyemNIdjlLRWZ4TzZoNjNTa2xYc0J5YjlNTzRCNkVPdXBNWkUzWEktVlZicVdWMG1vU1VVOHo3dw?oc=5
-
-**Category:** ECONOMY
-
-**Priority:** उच्च
-
-### Why in News?
-PIB ने रबी फसलों के विपणन सत्र 2027-28 के लिए न्यूनतम समर्थन मूल्य (MSP) की कैबिनेट मंजूरी की सूचना दी है।
-
-### What Happened?
-MSP मंजूर किए जाने की घोषणा हुई। उपलब्ध सामग्री में फसलवार दरें, वृद्धि या लागत-आधारित गणना का विवरण नहीं दिया गया है।
-
-### Background
-MSP कृषि मूल्य नीति का एक साधन है; इसकी घोषणा और किसानों तक वास्तविक लाभ पहुँचने के बीच खरीद व्यवस्था की भूमिका रहती है।
-
-### Prelims Focus
-संबंधित सत्र: Rabi Marketing Season 2027-28। घोषणा: रबी फसलों के MSP को कैबिनेट मंजूरी। स्रोत सामग्री में दरें उपलब्ध नहीं हैं।
-
-### Mains Focus
-कारण: कृषि आय और मूल्य जोखिम से जुड़ी चिंताएँ। प्रभाव: घोषित समर्थन किसानों की बुवाई और बाजार अपेक्षाओं को प्रभावित कर सकता है। चुनौतियाँ: खरीद की पहुँच, फसल विविधीकरण और राजकोषीय/भंडारण दबाव। आगे: क्षेत्रानुसार खरीद क्षमता और टिकाऊ कृषि प्रोत्साहनों के साथ समन्वय।
-
-### UPSC Syllabus Link
-GS3: कृषि, MSP, खाद्य सुरक्षा और कृषि विपणन।
-
-### Static Connection
-न्यूनतम समर्थन मूल्य; कृषि मूल्य नीति; सरकारी खरीद।
-
-### PYQ Connection
-Theme connection only — exact PYQ not established.
-
-### 30-Second Revision
-कैबिनेट ने रबी विपणन सत्र 2027-28 के लिए MSP को मंजूरी दी; उपलब्ध स्रोत में फसलवार दरें नहीं हैं।
-
-### Active Recall
-**Q. MSP की घोषणा को किसानों की आय और फसल विविधीकरण से जोड़ने में कौन-सी नीतिगत चुनौतियाँ हैं?**
-
----
-
-## 4. त्योहारी मौसम में जमाखोरी रोकने और आपूर्ति बनाए रखने के लिए चीनी स्टॉक नियमों में संशोधन
+## 4. त्योहारी मौसम में आपूर्ति सुचारु रखने के लिए चीनी के stock-holding norms में संशोधन
 
 **Source:** PIB
 
@@ -142,545 +142,41 @@ Theme connection only — exact PYQ not established.
 
 **Category:** ECONOMY
 
-**Priority:** उच्च
-
-### Why in News?
-PIB के अनुसार, सरकार ने उपभोक्ताओं को सुचारु आपूर्ति सुनिश्चित करने और जमाखोरी रोकने के उद्देश्य से चीनी स्टॉक रखने के नियम संशोधित किए।
-
-### What Happened?
-घोषित उद्देश्य त्योहारी मौसम के दौरान चीनी की उपलब्धता बनाए रखना है। नियमों में हुए विशिष्ट बदलाव और सीमा का विवरण उपलब्ध शीर्षक में नहीं है।
-
-### Background
-आवश्यक वस्तुओं के बाजार में स्टॉक और आपूर्ति की निगरानी का उपयोग उपलब्धता तथा कीमतों के प्रबंधन के लिए किया जा सकता है।
-
-### Prelims Focus
-वस्तु: चीनी। कदम: stock holding norms में संशोधन। घोषित उद्देश्य: जमाखोरी रोकना और त्योहारी मौसम में आपूर्ति बनाए रखना।
-
-### Mains Focus
-कारण: मौसमी मांग और आपूर्ति प्रबंधन। संभावित प्रभाव: उपभोक्ता उपलब्धता में सुधार। चुनौती: बाजार निगरानी और उत्पादकों/व्यापारियों पर अनुपालन का बोझ। आगे: नियमों का पारदर्शी प्रवर्तन और वास्तविक बाजार स्थिति के आधार पर समीक्षा।
-
-### UPSC Syllabus Link
-GS3: भारतीय अर्थव्यवस्था, खाद्य आपूर्ति और कृषि विपणन।
-
-### Static Connection
-आवश्यक वस्तुओं का बाजार प्रबंधन; स्टॉक नियंत्रण; उपभोक्ता हित।
-
-### PYQ Connection
-Theme connection only — exact PYQ not established.
-
-### 30-Second Revision
-चीनी स्टॉक मानदंड बदले गए; घोषित मकसद जमाखोरी रोकना और त्योहारी मौसम में आपूर्ति बनाए रखना है।
-
-### Active Recall
-**Q. स्टॉक रखने के नियम उपभोक्ता हित और बाजार की स्वतंत्रता के बीच संतुलन कैसे बना सकते हैं?**
-
----
-
-## 5. तमिलनाडु के मुख्यमंत्री ने खादी और ग्राम उत्पाद खरीदने का आग्रह किया
-
-**Source:** The Hindu
-
-**Source URL:** https://news.google.com/rss/articles/CBMizAFBVV95cUxPWTlxMzBKSWlXNzNZMnNQRTIwZUhTXzA2VS1vNE1yNzRJUk1LUkNxV2FQSlFnSGUxOUlTR2VwNFdZaTZiUTdya1dxeVJlOEt2M0lEZ3QwRng0dlB4Ym9zT1hMOUg2QjVHZHhDa0xtYmQ2TWlYUTdVNzFvQVYtNnRnczNwZTYzT1hEVk9OaXpob3d2NDRyOXc1U3hLN0toU3dNM3FWU1FOd2RuODhpb1VDdC1MTndiZUxCdVBfenMwS19MWFlOMzRMaWYyd3rSAdMBQVVfeXFMUDRuejlIY2FldHdaWWpmZnBtZlQtLTZHVDJEeldYX3psdjFyMjhyWUIwMjVfZXJBeXk1MHVCbkl0bmdaOTRPZHhfMUlQNmZRWlNhMko0MGZ4X1dyazdMSEhjUzhtUG5aUnBtTHNKa0dhNWpPT2tBdjVXMUJFY3VVVjVlZzh0ZlBRRWw0TlZPUVFOajdnVmotTDJJSHZkWGlVUVNUeXFMM05RTEhqRWJCcUIxWHc5WFI3NS1td29odDU1QXd1SjJrZ0NQQWhoWkVhTko2UQ?oc=5
-
-**Category:** ECONOMY
-
 **Priority:** मध्यम
 
 ### Why in News?
-The Hindu की headline के अनुसार, तमिलनाडु के मुख्यमंत्री विजय ने लोगों से खादी और ग्राम उत्पाद खरीदने का आग्रह किया।
+PIB के अनुसार सरकार ने जमाखोरी रोकने और त्योहारी मौसम में उपभोक्ताओं को सुचारु आपूर्ति सुनिश्चित करने के लिए चीनी के stock-holding norms संशोधित किए।
 
 ### What Happened?
-उपलब्ध headline-level information के आधार पर, मुख्यमंत्री ने खादी एवं ग्राम उत्पादों की खरीद को प्रोत्साहित किया; अपील का संदर्भ और संबंधित कार्यक्रम का विवरण उपलब्ध नहीं है।
+घोषित उद्देश्य चीनी की जमाखोरी रोकना और उपभोक्ता आपूर्ति बनाए रखना है। संशोधित सीमा या लागू शर्तें headline में नहीं दी गई हैं।
 
 ### Background
-खादी और ग्राम उत्पादों को स्थानीय उत्पादन तथा ग्रामीण उद्यमिता से जोड़कर देखा जा सकता है।
+आवश्यक वस्तुओं के भंडार संबंधी नियम बाजार में उपलब्धता और कीमतों के प्रबंधन का एक नीतिगत साधन हैं।
 
 ### Prelims Focus
-समाचार का विषय: खादी और ग्राम उत्पादों की खरीद को प्रोत्साहन। स्रोत: The Hindu; जानकारी headline-level है।
+वस्तु: चीनी; कार्रवाई: stock-holding norms में संशोधन; घोषित उद्देश्य: जमाखोरी रोकना और त्योहारी मौसम में सुचारु आपूर्ति।
 
 ### Mains Focus
-संभावित उद्देश्य: स्थानीय उत्पादों की मांग और ग्रामीण आजीविका को समर्थन। चुनौतियाँ: गुणवत्ता, बाजार पहुँच, प्रतिस्पर्धा और स्थिर मांग। आगे: उत्पादक समूहों को बाजार, कौशल और उपभोक्ता तक पहुँच से जोड़ना।
+भंडार-नियमन से अल्पकाल में उपलब्धता और उपभोक्ता हितों को समर्थन मिल सकता है। अत्यधिक या अनिश्चित नियंत्रण उत्पादकों और बाजार-आपूर्ति पर असर डाल सकते हैं। पारदर्शी नियम, समयबद्ध समीक्षा और प्रभावी निगरानी संतुलित नीति के लिए जरूरी हैं।
 
 ### UPSC Syllabus Link
-GS3: ग्रामीण अर्थव्यवस्था, रोजगार और लघु उद्यम।
+GS3: भारतीय अर्थव्यवस्था, कृषि विपणन, खाद्य प्रबंधन और महँगाई
 
 ### Static Connection
-ग्रामीण उद्योग; खादी; स्थानीय उत्पादन और बाजार संपर्क।
+आवश्यक वस्तुओं का बाजार-नियमन और खाद्य मूल्य स्थिरता
 
 ### PYQ Connection
 Theme connection only — exact PYQ not established.
 
 ### 30-Second Revision
-तमिलनाडु के मुख्यमंत्री की अपील खादी और ग्राम उत्पादों की खरीद को प्रोत्साहित करने पर केंद्रित है।
+चीनी stock-holding norms में संशोधन का घोषित लक्ष्य जमाखोरी रोकना और उपभोक्ता आपूर्ति बनाए रखना है।
 
 ### Active Recall
-**Q. स्थानीय उत्पादों को बढ़ावा देने के लिए केवल उपभोक्ता अपील से आगे कौन-से कदम जरूरी हैं?**
+**Q. आवश्यक वस्तुओं के भंडार पर नियंत्रण और बाजार में उत्पादकों के प्रोत्साहन के बीच संतुलन कैसे बनाया जा सकता है?**
 
 ---
 
-## 6. 60 से अधिक इकाइयों में बायोफिल्टर-आधारित जल उपचार के परिणाम
-
-**Source:** NITI Aayog
-
-**Source URL:** https://news.google.com/rss/articles/CBMivwFBVV95cUxOQXc4OC1OUkw3VzJZTzlTTVlzS3o3ZUZGVXUxUHVoTGtPLXJ1NzRjLUNUTUJ3OWxqbW81cWNGS1VmaEZtN0JLU19QWklIRTRHYUJOb2N5LW5rb0FNM25FTEJEVHI2MXlhZ0FCV1VoY0FFN3hFT3lJVWs0Um5LUlhRMTBOeUJjMEFOYUU3QWxUd09DY2hqTW4xTDVjOUtBTlVqeU96eHJBekNJM3JRNWFJSERybjZPakVuMENUVHVubw?oc=5
-
-**Category:** ENVIRONMENT
-
-**Priority:** उच्च
-
-### Why in News?
-NITI Aayog के Frontier Tech शीर्षक में भारत में 60 से अधिक इकाइयों में बायोफिल्टर-आधारित जल उपचार के परिणामों का उल्लेख है।
-
-### What Happened?
-शीर्षक तकनीक के 60+ units में उपयोग/परिणाम की ओर संकेत करता है। जल स्रोत, प्रदूषक, उपचार दक्षता और स्थानों का विवरण उपलब्ध नहीं है।
-
-### Background
-जल उपचार तकनीकों का मूल्यांकन जल की गुणवत्ता, स्थानीय परिस्थितियों और संचालन-रखरखाव की जरूरतों के आधार पर किया जाता है।
-
-### Prelims Focus
-तकनीक: biofilter-based water treatment। शीर्षक में 60 से अधिक इकाइयों का उल्लेख। इससे आगे की तकनीकी विशिष्टताएँ उपलब्ध नहीं हैं।
-
-### Mains Focus
-संभावित महत्त्व: जल उपचार के विकल्प और स्थानीय स्तर पर समाधान। चुनौतियाँ: तकनीक की उपयुक्तता, गुणवत्ता की नियमित जाँच, रखरखाव और विस्तार। आगे: स्वतंत्र प्रभाव-मूल्यांकन तथा उपचारित जल की सुरक्षा की निगरानी।
-
-### UPSC Syllabus Link
-GS3: पर्यावरण, जल संसाधन और विज्ञान एवं प्रौद्योगिकी।
-
-### Static Connection
-जल उपचार; जैव-आधारित तकनीक; जल गुणवत्ता निगरानी।
-
-### PYQ Connection
-Theme connection only — exact PYQ not established.
-
-### 30-Second Revision
-NITI Aayog के शीर्षक में 60+ इकाइयों में biofilter-आधारित जल उपचार का उल्लेख है; तकनीकी विवरण स्रोत में नहीं दिए गए।
-
-### Active Recall
-**Q. किसी जल उपचार तकनीक को बड़े स्तर पर अपनाने से पहले किन गुणवत्ता और शासन संबंधी कसौटियों की जाँच करनी चाहिए?**
-
----
-
-## 7. 80 जिलों के खेतों में फसल स्वास्थ्य जोखिम का पूर्वानुमान करने वाला प्लेटफॉर्म
-
-**Source:** NITI Aayog
-
-**Source URL:** https://news.google.com/rss/articles/CBMixgFBVV95cUxPY1NhUk9relNxOVF1SnN2N25Xd1NCRHVsb1VOSDZtVU9iY2J4bm5KN3pXeDVIQnZFRE1FTDNNcUxFal8wa2QtTHVnQS1pU2N6bUEyTl9QOU5rOTVZNHlzSy1sSGF4cXljc3d4a1dJWjc4ODZIYmt4LVVEY0V5M0hJSzNRUklmTE9tb3RSWktBUk9BVllNRUhHdzFMYkRvLU1QeFJmbTVOeTB1MGVObHhfeDAtZklRa3JnWnhBNFpNdDdWUFhpT0E?oc=5
-
-**Category:** SCIENCE
-
-**Priority:** उच्च
-
-### Why in News?
-NITI Aayog के शीर्षक में 80 जिलों के खेतों के लिए फसल स्वास्थ्य जोखिम का पूर्वानुमान करने वाले प्लेटफॉर्म का उल्लेख है।
-
-### What Happened?
-प्लेटफॉर्म का घोषित काम खेतों के crop health risks का अनुमान लगाना है। उपयोग किए गए डेटा, जोखिमों के प्रकार और परिणामों की सटीकता की जानकारी उपलब्ध नहीं है।
-
-### Background
-कृषि में समय पर जोखिम-सूचना किसानों और संबंधित संस्थाओं को निर्णय लेने में सहायता कर सकती है।
-
-### Prelims Focus
-प्लेटफॉर्म का विषय: crop health risk prediction। घोषित कवरेज: 80 जिले। तकनीकी पद्धति का विवरण उपलब्ध नहीं।
-
-### Mains Focus
-संभावित लाभ: जोखिम की पूर्व चेतावनी और कृषि निर्णयों में सहायता। चुनौतियाँ: डेटा की गुणवत्ता, स्थानीय स्तर पर सटीकता, डिजिटल पहुँच और किसानों तक सलाह पहुँचाना। आगे: पारदर्शी मॉडल, स्थानीय सत्यापन और उपयोगी कृषि परामर्श से जोड़ना।
-
-### UPSC Syllabus Link
-GS3: कृषि, विज्ञान एवं प्रौद्योगिकी और आपदा/जोखिम प्रबंधन।
-
-### Static Connection
-कृषि में डिजिटल तकनीक; पूर्वानुमान आधारित कृषि सलाह; डेटा शासन।
-
-### PYQ Connection
-Theme connection only — exact PYQ not established.
-
-### 30-Second Revision
-NITI Aayog शीर्षक: फसल स्वास्थ्य जोखिम पूर्वानुमान प्लेटफॉर्म, 80 जिलों के खेतों के लिए।
-
-### Active Recall
-**Q. कृषि जोखिम पूर्वानुमान प्लेटफॉर्म को किसानों के लिए विश्वसनीय और उपयोगी बनाने हेतु किन शर्तों की जरूरत है?**
-
----
-
-## 8. सटीक किण्वन तीन उद्योगों में उत्पादन को बदल रहा है
-
-**Source:** NITI Aayog
-
-**Source URL:** https://news.google.com/rss/articles/CBMivwFBVV95cUxPaHRublJhVFBORDZaZWkwczJuWnRjVnNSdFZIR0c1cm5QMWhQQ2hLWXpZbEdVUG15aEZ0Z3hneWtWZk1BVkNHSkhOSWc3X0tOZFV1S2EzVjIydGpnMEVibjV5eVBhdC1FSWVQQ00xcEw5M25OWFRDZHV2S2lNSTdKRXhIWUNSVkVUdTRrTVpyVDNwbDh5TVVIRjRYM05zX04zOFNVY1c0YkU1Ykl4NjJ3MXktb0dMc3Fac1p4TDBRTQ?oc=5
-
-**Category:** SCIENCE
-
-**Priority:** मध्यम
-
-### Why in News?
-NITI Aayog के Frontier Tech शीर्षक ने precision fermentation के तीन उद्योगों में उत्पादन पर प्रभाव की चर्चा की है।
-
-### What Happened?
-शीर्षक तकनीक को तीन उद्योगों में उत्पादन बदलने वाली बताता है, लेकिन उन उद्योगों, उत्पादों या प्रभाव के माप का विवरण उपलब्ध नहीं है।
-
-### Background
-Precision fermentation जैव-प्रौद्योगिकी और उत्पादन प्रक्रियाओं से जुड़ा विषय है; किसी विशिष्ट उपयोग का दावा उपलब्ध सामग्री से स्थापित नहीं होता।
-
-### Prelims Focus
-समाचार का तकनीकी विषय: precision fermentation। शीर्षक में तीन उद्योगों का उल्लेख है; उद्योगों के नाम स्रोत विवरण में नहीं हैं।
-
-### Mains Focus
-संभावित अवसर: उत्पादन प्रक्रियाओं में नवाचार और नए उत्पादों का विकास। चुनौतियाँ: सुरक्षा-मूल्यांकन, नियमन, लागत, बौद्धिक संपदा और सामाजिक स्वीकार्यता। आगे: साक्ष्य-आधारित नियमन और पारदर्शी जोखिम-संचार।
-
-### UPSC Syllabus Link
-GS3: जैव-प्रौद्योगिकी, विज्ञान एवं प्रौद्योगिकी और औद्योगिक विकास।
-
-### Static Connection
-जैव-प्रौद्योगिकी; किण्वन; उभरती उत्पादन तकनीकें।
-
-### PYQ Connection
-Theme connection only — exact PYQ not established.
-
-### 30-Second Revision
-Precision fermentation पर NITI Aayog का लेख तीन उद्योगों में उत्पादन बदलाव की चर्चा करता है; उद्योगों के नाम दिए गए स्रोत में नहीं हैं।
-
-### Active Recall
-**Q. उभरती जैव-उत्पादन तकनीकों के नियमन में नवाचार और सार्वजनिक सुरक्षा का संतुलन कैसे किया जा सकता है?**
-
----
-
-## 9. अपशिष्ट-आधारित सामग्री कंक्रीट में सीमेंट के 40% से अधिक हिस्से का विकल्प बनती है
-
-**Source:** NITI Aayog
-
-**Source URL:** https://news.google.com/rss/articles/CBMisAFBVV95cUxNS203aU01ZWpLRDlIRnYyY0xzYjdQWG1IdkNSY2wwTm9remVRNGJ4Q0IxYkp1cW9LSGJRWlhiN2xnZzBKbXZrTU1vdk1qLUQyclNQMmxhaG52eS1JeGxaa3NxR1AzYVlJZTNMTDk3NlZBQXN2MkMybUs4bjVqYVIwd1QzeWQ2ZS13ckRtQ0ZwOUZiTktxQUYwblJ2bUR6UmhSNlY4QVB2OTByT3NWRk5DaQ?oc=5
-
-**Category:** ENVIRONMENT
-
-**Priority:** उच्च
-
-### Why in News?
-NITI Aayog के शीर्षक में एक अपशिष्ट-आधारित सामग्री द्वारा कंक्रीट में सीमेंट के 40% से अधिक हिस्से के प्रतिस्थापन का उल्लेख है।
-
-### What Happened?
-शीर्षक सामग्री को cement replacement के रूप में प्रस्तुत करता है। सामग्री का प्रकार, परीक्षण परिस्थितियाँ और पर्यावरणीय/इंजीनियरिंग परिणाम उपलब्ध विवरण में नहीं हैं।
-
-### Background
-निर्माण सामग्री में अपशिष्ट का उपयोग संसाधन दक्षता और परिपत्र अर्थव्यवस्था के दृष्टिकोण से प्रासंगिक है।
-
-### Prelims Focus
-विषय: waste-based material और concrete। शीर्षक में सीमेंट के 40% से अधिक प्रतिस्थापन का दावा है; सामग्री का नाम नहीं दिया गया।
-
-### Mains Focus
-संभावित लाभ: अपशिष्ट का उपयोग और निर्माण क्षेत्र में संसाधन दक्षता। चुनौतियाँ: संरचनात्मक सुरक्षा, मानकीकरण, गुणवत्ता नियंत्रण और बड़े पैमाने पर उपलब्धता। आगे: स्वतंत्र परीक्षण, मानक निर्धारण और जीवन-चक्र मूल्यांकन।
-
-### UPSC Syllabus Link
-GS3: पर्यावरण, अपशिष्ट प्रबंधन और अवसंरचना।
-
-### Static Connection
-परिपत्र अर्थव्यवस्था; निर्माण एवं विध्वंस अपशिष्ट; टिकाऊ निर्माण।
-
-### PYQ Connection
-Theme connection only — exact PYQ not established.
-
-### 30-Second Revision
-NITI Aayog शीर्षक: अपशिष्ट-आधारित सामग्री कंक्रीट में सीमेंट के >40% हिस्से का विकल्प; विशिष्ट सामग्री का विवरण नहीं।
-
-### Active Recall
-**Q. निर्माण में अपशिष्ट-आधारित विकल्प अपनाने से पहले किन सुरक्षा और पर्यावरणीय मानकों का मूल्यांकन होना चाहिए?**
-
----
-
-## 10. मद्रास उच्च न्यायालय ने तमिलनाडु में स्थानों के नामों से जाति-सूचक उपनाम हटाने पर स्वतः संज्ञान PIL लिया
-
-**Source:** The Hindu
-
-**Source URL:** https://news.google.com/rss/articles/CBMipwJBVV95cUxQN0dJVTdJR1NlNGJxajBiSjlrXzktNW9lSFdJbzQtcjREQU51TjNydDlHNllQRG54N1lkRkJsbzI1Wjd3VnhKWjFVc0todG1GM3R2UVVIRWlHS3B5NjJLcWl2ME1LMDR6Ymd4eHdxYnVjVFpSY3ZhQlZ5dWFVc2pyNHdYeVhBZ0VvU2JVOUd3UTNOa1FWVFI0RTZUYnhINWZ4elpydWtUS1MzQktGZGlrcUR5VUozVUxVNklLMV90cDN2eWRaYi1EUFFDSXB0dnZqeWtTd3NyU25XY0FtMGhzREZwTk1yLUlsQWpmbnJWeGFEb0s5a1pySkQ5amlIMG1FbGJRQ29FMkxSMkhuY2tseWxlYTBQS3ZaSlhWMy1KS3VpcUdZaXdr0gGuAkFVX3lxTE0wZHE1QnpURVhSYzkzd2l0QkJOa0tNR2lRRUszaThjTlBOYjh0RXpubUphcTZtZVRYcE91T3R5aFRPZTdaOHBPYmlkSFMtMll0OExIWDdxVkpRTTNaVU8zUFhjUERLNVRKV0p1YmpQeFlob0F1NmN0STdrMzllSlJBd1NIZ0xVVFlPazVUSVV4QmtmNngwNExWbFdYeWJBdDJydWE4Tk5jeWJMNUd2aW14NkR3eVk1UlEyY0ktNkhFcmVreWlva1pQV2N1RlRzYXMtYnpyNGdLRHp5VUg0TExpZk5QN28wNzlheWtmOFR3QlJwbWVwSzhzejk1TzRLcW9BMFlBRXFMblI0elJGMU1NTWxBSE9Bb0U0QnJYd2dfdEh0QlRZRUM4dVJhYlBB?oc=5
-
-**Category:** GS2
-
-**Priority:** उच्च
-
-### Why in News?
-The Hindu की headline के अनुसार, मद्रास उच्च न्यायालय ने तमिलनाडु में सड़कों, मार्गों और स्थानीय क्षेत्रों के नामों से जाति-सूचक appellations हटाने के लिए suo motu PIL लिया।
-
-### What Happened?
-उपलब्ध headline-level information के आधार पर, अदालत ने इस विषय पर स्वतः संज्ञान जनहित याचिका उठाई है। सुनवाई के निर्देश या न्यायालय के निष्कर्षों का विवरण उपलब्ध नहीं है।
-
-### Background
-सार्वजनिक स्थानों के नाम सामाजिक पहचान, सम्मान और समानता से जुड़े सार्वजनिक विमर्श का हिस्सा हो सकते हैं।
-
-### Prelims Focus
-न्यायालय: Madras High Court। प्रक्रिया: suo motu PIL। विषय: तमिलनाडु में सड़कों, मार्गों और localities के नामों से caste appellations हटाना।
-
-### Mains Focus
-कारण: सार्वजनिक स्थानों में जाति-आधारित पहचान के प्रश्न। प्रभाव: सामाजिक समावेशन और समान नागरिक पहचान पर विमर्श। चुनौतियाँ: ऐतिहासिक संदर्भ, स्थानीय सहमति और नाम बदलने की प्रशासनिक प्रक्रिया। आगे: संवैधानिक मूल्यों के अनुरूप, सहभागी और गैर-भेदभावपूर्ण निर्णय।
-
-### UPSC Syllabus Link
-GS2: न्यायपालिका, मौलिक अधिकार, सामाजिक न्याय और समानता।
-
-### Static Connection
-जनहित याचिका; न्यायिक सक्रियता; समानता और सामाजिक न्याय।
-
-### PYQ Connection
-Theme connection only — exact PYQ not established.
-
-### 30-Second Revision
-Madras High Court ने जाति-सूचक स्थान-नामों के विषय पर suo motu PIL लिया; उपलब्ध जानकारी headline-level है।
-
-### Active Recall
-**Q. सार्वजनिक स्थानों के नामकरण में समानता और ऐतिहासिक-सामुदायिक संदर्भ का संतुलन कैसे किया जा सकता है?**
-
----
-
-## 11. सत्तारूढ़ UDF में केरल सरकार की कार्यशैली को लेकर मतभेद उभरे
-
-**Source:** The Hindu
-
-**Source URL:** https://news.google.com/rss/articles/CBMi8wFBVV95cUxPLUhDNV9uVElFUkp6TjktT0NWSUdsSGhKYlRraUZub1J4bXVTU0VQWTZHemFxRG5ZaW5fMGhHeEJkb0RiTFdDVV90RVFjM2RadjBlVkViX0JfQ04zaXY4X19QanRHcXY5OXRiUjlQZjJFS0xJWWNiOEgyYlNRZnJkb0tkUE1HUXVkQWc4aDhvbWhiRmxZZ3JmYmQwT2dfYVdneUt4ZklycUtqeHM5djZabW05OUNjakNacE1jZDlZSk5tMFpkS29rM3NXSEZtd09lTjY0Z0trUGZwQktHM1B5dUcxSVhfX3daVUdSTUZsSXp6N2vSAfoBQVVfeXFMTUJEM0gwSHJqc1h5UVQ5cmFLYkpNNzFsZWNWaDZpRXZ6YkdmVFp4WWJrUFRvZ2JiZExKS0RQZmNoWUU1Q3diaWtBT1FXcWljRlFfV0hnWnY5em16WXBsS0hjYWlXVTQ1ekdKbi0wUjljX2JadEExaUwzMVlKSnNueWtFaXk2X1lHSmRGem5xbTNRZmRXR3ZzQ1YtcWY1TnNESC1DM2pqUTZOUW9JcVJxRXZrazNIZWZQazBSUEVDZ2J4dktpcnd3clB3Szc1M3dBdmt5a3dFLWMxSHlpM3hSWWJoZGxIczRUVHlrQXgxLU9sMU5YQVRXODFjQQ?oc=5
-
-**Category:** GS2
-
-**Priority:** मध्यम
-
-### Why in News?
-The Hindu की headline में सत्तारूढ़ UDF के भीतर कांग्रेस नेताओं द्वारा केरल सरकार की कार्यशैली पर आपत्ति जताने से मतभेद बढ़ने की बात है।
-
-### What Happened?
-उपलब्ध headline-level information के आधार पर, गठबंधन के भीतर सरकार के कामकाज को लेकर सार्वजनिक असहमति की खबर है। विवाद के विशिष्ट मुद्दे या राजनीतिक परिणाम उपलब्ध नहीं हैं।
-
-### Background
-गठबंधन सरकारों में सहयोगी दलों और दलों के भीतर समन्वय शासन की निरंतरता तथा जवाबदेही को प्रभावित कर सकता है।
-
-### Prelims Focus
-राज्य: केरल। headline में सत्तारूढ़ UDF और कांग्रेस नेताओं के बीच सरकार की कार्यशैली को लेकर मतभेद का उल्लेख है।
-
-### Mains Focus
-कारण: नेतृत्व, नीति या कार्यशैली से जुड़े मतभेद—विशिष्ट कारण स्रोत में स्थापित नहीं। प्रभाव: गठबंधन समन्वय और प्रशासनिक स्थिरता पर असर की संभावना। चुनौती: राजनीतिक संवाद और साझा कार्यक्रम बनाए रखना। आगे: संस्थागत गठबंधन संवाद तथा पारदर्शी निर्णय-प्रक्रिया।
-
-### UPSC Syllabus Link
-GS2: राज्य शासन, राजनीतिक दल और गठबंधन राजनीति।
-
-### Static Connection
-गठबंधन सरकार; राजनीतिक जवाबदेही; संघीय लोकतंत्र।
-
-### PYQ Connection
-Theme connection only — exact PYQ not established.
-
-### 30-Second Revision
-The Hindu headline के अनुसार, केरल के सत्तारूढ़ UDF में सरकार की कार्यशैली पर मतभेद उभरे; विवरण headline-level है।
-
-### Active Recall
-**Q. गठबंधन सरकार में आंतरिक मतभेदों और प्रभावी प्रशासन के बीच संतुलन कैसे बनाया जा सकता है?**
-
----
-
-## 12. जापान के विदेश मंत्री ने विश्व में गहरे संरचनात्मक बदलावों की बात कही
-
-**Source:** The Hindu
-
-**Source URL:** https://news.google.com/rss/articles/CBMi1AFBVV95cUxPUjBhdXljOVJmRlZnSHFjVkJCM1lST2xKOTVaT2ZHUWNVZlFweXNpd1duVFJiMVh2Q2xTZ3diMzh4QW1JSUxJcWZDeWFXamNKaV9FcVY2UFU1NkdHbmxEMUJuVU9KLVF2VE8wN3Nkd2lzdmhiREgxQTU2WmFKV2h0OUw5Ukc5bUVFM2FVQlFmNDBRVEo0TlJ5T2pBZkVsQS1KYmNJVUF1MTBtZ1k3ZkhUNmIwOWVDVGoxOHhXZHFzbnVBU0hWVHFEOHc0NmJLNlF0anpGVNIB2wFBVV95cUxPck5iSkRIX2JKU3AxdzJtLUx5X3RiLVJlSkhOQm1BOHFfeThDMjVneFkxUnVETmhuNFR6S2hadzVaZ0FUVFNCeEhmQmc5dW1mOVQ0eFBydHBZczIzMVNNVmZpUzdDTFktemRRRVNvbjNoWmE1YXlmSVBfUVdlbW42V1RLMnlDaWZPM2lSQ3dsLVVVcndMNUFzTk1yNmFMTzlNQ25QNVlkNTZYcmFoQ3puUjg1YnBJdXhmbjVCM2Q2aHJnNXlDVDVQZktSWi1RWGtOQkJxWUx2d2x4Ymc?oc=5
-
-**Category:** IR
-
-**Priority:** मध्यम
-
-### Why in News?
-The Hindu की headline के अनुसार, जापान के विदेश मंत्री Motegi ने कहा कि विश्व गहरे संरचनात्मक बदलावों से गुजर रहा है।
-
-### What Happened?
-उपलब्ध headline-level information में यह वक्तव्य दर्ज है; बदलावों के विशिष्ट आयाम या प्रस्तावित नीतियों का विवरण उपलब्ध नहीं है।
-
-### Background
-वैश्विक शक्ति-संतुलन, अर्थव्यवस्था और बहुपक्षीय सहयोग में बदलाव अंतरराष्ट्रीय संबंधों के अध्ययन के प्रमुख विषय हैं।
-
-### Prelims Focus
-व्यक्ति: जापान के विदेश मंत्री Motegi। headline का केंद्रीय कथन: विश्व में profound structural changes हो रहे हैं।
-
-### Mains Focus
-विश्लेषण के आयाम: शक्ति-संतुलन, आर्थिक परस्पर निर्भरता और बहुपक्षीय संस्थाओं की भूमिका। भारत के लिए अवसर: विविध साझेदारियों और रणनीतिक स्वायत्तता का उपयोग। चुनौतियाँ: अनिश्चितता और प्रतिस्पर्धी हित। आगे: नियम-आधारित सहयोग और लचीली कूटनीति।
-
-### UPSC Syllabus Link
-GS2: अंतरराष्ट्रीय संबंध और वैश्विक व्यवस्था।
-
-### Static Connection
-वैश्विक शक्ति-संतुलन; बहुध्रुवीयता; भारत की विदेश नीति।
-
-### PYQ Connection
-Theme connection only — exact PYQ not established.
-
-### 30-Second Revision
-जापानी विदेश मंत्री Motegi का वक्तव्य: विश्व गहरे संरचनात्मक बदलावों से गुजर रहा है; विशिष्ट कारण headline में नहीं हैं।
-
-### Active Recall
-**Q. वैश्विक संरचनात्मक बदलाव भारत की विदेश नीति के विकल्पों और चुनौतियों को कैसे प्रभावित कर सकते हैं?**
-
----
-
-## 13. भारत और बुल्गारिया के बीच 7वें विदेश कार्यालय परामर्श आयोजित
-
-**Source:** MEA
-
-**Source URL:** https://news.google.com/rss/articles/CBMimgFBVV95cUxPSkZSbEhQWEExaWhScFZieE8xT3BWMFZBLVYtUy0wN1JQNnFPTHBVUlh1bmhPbUJ2bEFtWDFLdDl4alBPVHIxUnQxY3UzZEdzV2NQaWg0YnB3ektITVQ5aFBCYVlrdUVwZ1hoY1k3LUtxaUJXWnc5QUREWXhFV2ZUU3V5aDVLdzdVaDBFYjREdjh6NWs4NklHLWd3?oc=5
-
-**Category:** IR
-
-**Priority:** मध्यम
-
-### Why in News?
-MEA ने भारत-बुल्गारिया के 7वें Foreign Office Consultations की सूचना जारी की।
-
-### What Happened?
-परामर्श की बैठक की घोषणा/सूचना उपलब्ध है। चर्चा के विषय, सहमतियों या प्रतिनिधिमंडलों का विवरण दिए गए शीर्षक में नहीं है।
-
-### Background
-विदेश कार्यालय परामर्श द्विपक्षीय संवाद का एक माध्यम है; इस विशेष बैठक के एजेंडे पर उपलब्ध स्रोत से निष्कर्ष नहीं निकाला जा सकता।
-
-### Prelims Focus
-देश: भारत और बुल्गारिया। बैठक: 7th Foreign Office Consultations। विशिष्ट परिणाम उपलब्ध शीर्षक में नहीं हैं।
-
-### Mains Focus
-संभावित महत्त्व: नियमित कूटनीतिक संवाद और द्विपक्षीय सहयोग की समीक्षा। चुनौतियाँ: प्राथमिकताओं को ठोस परियोजनाओं तथा निरंतर संवाद में बदलना। आगे: घोषित परिणामों और सहयोग क्षेत्रों के आधार पर प्रगति का आकलन।
-
-### UPSC Syllabus Link
-GS2: भारत के द्विपक्षीय संबंध और विदेश नीति।
-
-### Static Connection
-भारत-यूरोप संबंध; द्विपक्षीय कूटनीति; विदेश कार्यालय परामर्श।
-
-### PYQ Connection
-Theme connection only — exact PYQ not established.
-
-### 30-Second Revision
-MEA: भारत-बुल्गारिया 7वां Foreign Office Consultations; एजेंडा और परिणाम उपलब्ध शीर्षक में नहीं दिए गए।
-
-### Active Recall
-**Q. द्विपक्षीय विदेश कार्यालय परामर्श किसी देश के कूटनीतिक संबंधों को आगे बढ़ाने में कैसे सहायक हो सकते हैं?**
-
----
-
-## 14. डीआर कांगो के शिविर में ट्रांजिट सेंटर जलने से इबोला प्रतिक्रिया को झटका
-
-**Source:** United Nations
-
-**Source URL:** https://news.google.com/rss/articles/CBMiV0FVX3lxTE1PZ2VIV0hFZTltNGhYMFZETEhWZFU1VVktbzZxVnpQZXRXNXRXclROd04zd194U2laMG9aazNwS2JoTWhGTTBVWkswNHV2eGMzS0U4TU9Sdw?oc=5
-
-**Category:** GS2
-
-**Priority:** उच्च
-
-### Why in News?
-UN News की headline के अनुसार, डीआर कांगो के एक शिविर में ट्रांजिट सेंटर जल गया, जिससे इबोला प्रतिक्रिया को झटका लगा।
-
-### What Happened?
-उपलब्ध headline-level information में आग और प्रतिक्रिया पर उसके नकारात्मक असर का उल्लेख है। आग के कारण, क्षति या प्रभावित लोगों का विवरण उपलब्ध नहीं है।
-
-### Background
-संक्रामक रोग नियंत्रण में उपचार/पृथक्करण से जुड़े केंद्रों और स्वास्थ्य सेवाओं की निरंतरता महत्त्वपूर्ण हो सकती है।
-
-### Prelims Focus
-रोग: Ebola। स्थान: Democratic Republic of the Congo (DR Congo) के एक camp का transit centre। headline में आग से response setback का उल्लेख है।
-
-### Mains Focus
-प्रभाव: स्वास्थ्य प्रतिक्रिया और सेवा-निरंतरता बाधित होने की आशंका। चुनौतियाँ: प्रभावित केंद्रों की बहाली, रोग नियंत्रण और मानवीय सहायता का समन्वय। आगे: सुरक्षित स्वास्थ्य अवसंरचना, आकस्मिक योजना और स्थानीय/अंतरराष्ट्रीय समन्वय।
-
-### UPSC Syllabus Link
-GS2: स्वास्थ्य; अंतरराष्ट्रीय संस्थाएँ। GS3: आपदा प्रबंधन।
-
-### Static Connection
-महामारी प्रतिक्रिया; स्वास्थ्य आपातकालीन तैयारी; मानवीय सहायता।
-
-### PYQ Connection
-Theme connection only — exact PYQ not established.
-
-### 30-Second Revision
-UN News headline: डीआर कांगो के शिविर में transit centre आग से नष्ट/प्रभावित; इससे Ebola response को झटका लगा।
-
-### Active Recall
-**Q. महामारी के दौरान स्वास्थ्य केंद्रों की निरंतरता और सुरक्षा सुनिश्चित करने के लिए कौन-से आपदा-तैयारी उपाय जरूरी हैं?**
-
----
-
-## 15. सोमालिया में हिंसा के बीच परिवारों का खाद्य संकट और गंभीर
-
-**Source:** United Nations
-
-**Source URL:** https://news.google.com/rss/articles/CBMiV0FVX3lxTFAxcW1yWUU2NF9NVklHdDZhUUpUd2pQSW0zZzB1RjdkYXRpU00xTDE4RjV2NnFSS0MydllQeVZubUJsSkFFQzZkajExZmtBQnd6b2hPSjlzcw?oc=5
-
-**Category:** IR
-
-**Priority:** उच्च
-
-### Why in News?
-UN News की headline ने सोमाली परिवारों के सामने नए सिरे से हिंसा और बिगड़ते भूख संकट को रेखांकित किया।
-
-### What Happened?
-उपलब्ध headline-level information के अनुसार, हिंसा और खाद्य संकट साथ-साथ गंभीर हो रहे हैं। प्रभावित क्षेत्रों, कारणों और मानवीय सहायता के आंकड़ों का विवरण उपलब्ध नहीं है।
-
-### Background
-संघर्ष और खाद्य असुरक्षा एक-दूसरे को बढ़ा सकते हैं तथा नागरिकों की आजीविका और सहायता तक पहुँच को प्रभावित कर सकते हैं।
-
-### Prelims Focus
-देश: Somalia। headline में renewed violence और worsening hunger crisis का उल्लेख है। विशिष्ट आँकड़े उपलब्ध नहीं हैं।
-
-### Mains Focus
-कारण: headline हिंसा और भूख संकट को साथ रखती है, पर विशिष्ट कारण उपलब्ध नहीं। प्रभाव: विस्थापन, आजीविका और पोषण पर संभावित दबाव। चुनौतियाँ: मानवीय पहुँच और सहायता का सुरक्षित वितरण। आगे: संघर्ष-प्रभावित नागरिकों की सुरक्षा, मानवीय सहायता और दीर्घकालीन खाद्य-लचीलापन।
-
-### UPSC Syllabus Link
-GS2: अंतरराष्ट्रीय संबंध, मानवीय सहायता और सामाजिक क्षेत्र।
-
-### Static Connection
-खाद्य सुरक्षा; संघर्ष और मानवीय संकट; संयुक्त राष्ट्र की भूमिका।
-
-### PYQ Connection
-Theme connection only — exact PYQ not established.
-
-### 30-Second Revision
-UN headline: सोमालिया में परिवारों को renewed violence और worsening hunger crisis का सामना।
-
-### Active Recall
-**Q. संघर्ष-प्रभावित क्षेत्रों में खाद्य सहायता को प्रभावी और सुरक्षित बनाने की प्रमुख चुनौतियाँ क्या हैं?**
-
----
-
-## 16. कृत्रिम बुद्धिमत्ता का स्वरूप कौन तय करेगा? संयुक्त राष्ट्र बहस में शक्ति, विश्वास और समावेशन पर जोर
-
-**Source:** United Nations
-
-**Source URL:** https://news.google.com/rss/articles/CBMiV0FVX3lxTE11NHU5N2RZUTVzRHlJbC1idnVfVFlmaEh6dG43cG96SzBsRmFaMy10WWJuRHVSakpvSlBLdXZ2WXFCYTJabkU4RTV2Y0pxRFRGTzVUcDVlTQ?oc=5
-
-**Category:** SCIENCE
-
-**Priority:** उच्च
-
-### Why in News?
-UN News की headline के अनुसार, AI को कौन आकार देगा, इस बहस में शक्ति, विश्वास और समावेशन प्रमुख विषय रहे।
-
-### What Happened?
-शीर्षक संयुक्त राष्ट्र बहस के मुख्य विषय बताता है। चर्चा में शामिल पक्षों, प्रस्तावों या किसी निर्णय का विवरण उपलब्ध नहीं है।
-
-### Background
-AI शासन में तकनीकी विकास के साथ जवाबदेही, समावेशन और भरोसे जैसे प्रश्न जुड़े हैं।
-
-### Prelims Focus
-विषय: AI governance। headline में तीन केंद्रीय आयाम: power, trust और inclusion। किसी निर्णय का उल्लेख उपलब्ध नहीं।
-
-### Mains Focus
-कारण: AI के विकास और प्रभाव पर नियंत्रण तथा प्रतिनिधित्व के प्रश्न। संभावित प्रभाव: नियमों और तकनीकी लाभों तक पहुँच का वितरण। चुनौतियाँ: वैश्विक असमानताएँ, जवाबदेही और भरोसा। आगे: समावेशी बहुपक्षीय संवाद, पारदर्शिता और जिम्मेदार नवाचार।
-
-### UPSC Syllabus Link
-GS2: वैश्विक शासन और अंतरराष्ट्रीय संस्थाएँ। GS3: विज्ञान एवं प्रौद्योगिकी, AI और साइबर/डेटा शासन।
-
-### Static Connection
-कृत्रिम बुद्धिमत्ता का शासन; तकनीकी नैतिकता; डिजिटल समावेशन।
-
-### PYQ Connection
-Theme connection only — exact PYQ not established.
-
-### 30-Second Revision
-UN बहस की headline: AI के भविष्य को कौन आकार देगा—बहस के केंद्र में शक्ति, विश्वास और समावेशन।
-
-### Active Recall
-**Q. वैश्विक AI शासन को समावेशी और भरोसेमंद बनाने के लिए किन सिद्धांतों को प्राथमिकता दी जानी चाहिए?**
-
----
-
-## 17. IFFI 2026: मीडिया प्रतिनिधियों के लिए गोवा में आमंत्रण और मान्यता प्रक्रिया खुली
+## 5. IFFI 2026 ने गोवा में मीडिया प्रतिनिधियों को आमंत्रित किया; accreditation खुला
 
 **Source:** PIB
 
@@ -688,78 +184,456 @@ UN बहस की headline: AI के भविष्य को कौन आ�
 
 **Category:** GS1
 
-**Priority:** मध्यम
+**Priority:** निम्न
 
 ### Why in News?
-PIB ने IFFI 2026 के लिए मीडिया प्रतिनिधियों को आमंत्रित करने और मीडिया accreditation खुलने की सूचना दी।
+PIB ने International Film Festival of India (IFFI) 2026 के लिए गोवा में मीडिया accreditation खुलने की सूचना दी।
 
 ### What Happened?
-शीर्षक में आयोजन का स्थान गोवा और मीडिया मान्यता प्रक्रिया खुलने की बात है। कार्यक्रम की तिथियों, फिल्मों या भाग लेने वाले देशों का विवरण उपलब्ध नहीं है।
+उपलब्ध headline के अनुसार IFFI 2026 मीडिया प्रतिनिधियों को आमंत्रित कर रहा है और accreditation प्रक्रिया खुली है।
 
 ### Background
-अंतरराष्ट्रीय फिल्म समारोह सांस्कृतिक आदान-प्रदान और सिनेमा के माध्यम से वैश्विक संवाद का मंच हो सकते हैं।
+अंतरराष्ट्रीय फिल्म आयोजन संस्कृति और वैश्विक संवाद के मंच हो सकते हैं।
 
 ### Prelims Focus
-पूरा नाम: International Film Festival of India (IFFI)। वर्ष: 2026। स्थान: गोवा। PIB शीर्षक के अनुसार मीडिया accreditation खुला है।
+IFFI 2026; स्थान: गोवा; खबर का विषय: मीडिया आमंत्रण और accreditation।
 
 ### Mains Focus
-संभावित महत्त्व: सांस्कृतिक आदान-प्रदान और भारत की सांस्कृतिक कूटनीति। चुनौतियाँ: विविधता का प्रतिनिधित्व, पहुँच और आयोजन प्रबंधन। आगे: भारतीय तथा वैश्विक सिनेमा के सार्थक संवाद को बढ़ावा।
+फिल्म समारोह सांस्कृतिक आदान-प्रदान और भारत की सांस्कृतिक उपस्थिति को बढ़ावा दे सकते हैं। समावेशी प्रतिनिधित्व, भाषाई विविधता और आयोजन की व्यापक पहुँच पर ध्यान देना उपयोगी होगा।
 
 ### UPSC Syllabus Link
-GS1: भारतीय संस्कृति; GS2: सांस्कृतिक कूटनीति।
+GS1: भारतीय संस्कृति; GS2: सांस्कृतिक संबंध और संस्थाएँ
 
 ### Static Connection
-सिनेमा; सांस्कृतिक आदान-प्रदान; सॉफ्ट पावर।
+सिनेमा, सांस्कृतिक कूटनीति और soft power
 
 ### PYQ Connection
 Theme connection only — exact PYQ not established.
 
 ### 30-Second Revision
-IFFI 2026 गोवा में; PIB ने मीडिया आमंत्रण और accreditation खुलने की सूचना दी।
+IFFI 2026 के लिए गोवा में मीडिया accreditation खुला होने की PIB ने सूचना दी।
 
 ### Active Recall
-**Q. अंतरराष्ट्रीय सांस्कृतिक आयोजनों का भारत की सॉफ्ट पावर और सांस्कृतिक संवाद में क्या योगदान हो सकता है?**
+**Q. अंतरराष्ट्रीय फिल्म समारोह सांस्कृतिक कूटनीति और भारत की soft power में कैसे योगदान दे सकते हैं?**
 
 ---
 
-## 18. रूस यात्रा करने वाले भारतीयों के लिए MEA की सलाह
+## 6. FCRA Amendment पर लोकसभा की संयुक्त समिति से संबंधित press communiqué
+
+**Source:** PRS India
+
+**Source URL:** https://news.google.com/rss/articles/CBMilAFBVV95cUxPVG5Qd0ZvdmZNbnhmSW5Id0pITG9qOUJwOUhSY3ZVMEhqWnBnVVFBOURRY1hyZjdnLWM2em5VVktkTmlDaVpvQkdyM0phRHRJYm9IcXpyNDRJT0JmX0ljd0VTbllPWDg4YlAwLWpuTHhsZVBhS1Q5SkZHcm1BWFlFZWp1WWVsdHFRMkViaEt2QlJCMnd6?oc=5
+
+**Category:** GS2
+
+**Priority:** उच्च
+
+### Why in News?
+PRS India के headline में Foreign Contribution (Regulation) Amendment से जुड़ी लोकसभा की संयुक्त समिति का press communiqué दर्ज है।
+
+### What Happened?
+उपलब्ध headline केवल संयुक्त समिति और press communiqué के अस्तित्व की पुष्टि करता है; समिति की सिफारिशों या संशोधन के प्रावधानों का विवरण नहीं देता।
+
+### Background
+विदेशी योगदान का नियमन नागरिक समाज, जवाबदेही और राष्ट्रीय नीति के बीच संतुलन से जुड़ा सार्वजनिक नीति-विषय है।
+
+### Prelims Focus
+विषय: Foreign Contribution (Regulation) Amendment; headline में लोकसभा की संयुक्त समिति का उल्लेख है। किसी विशेष सिफारिश या कानूनी बदलाव की पुष्टि उपलब्ध नहीं है।
+
+### Mains Focus
+नीति-निर्माण में पारदर्शिता और जवाबदेही के साथ नागरिक समाज की स्वतंत्र भूमिका का संतुलन महत्त्वपूर्ण है। संभावित चुनौतियों में नियमन की स्पष्टता, अनुपालन का बोझ और वैध गतिविधियों पर प्रभाव शामिल हैं। संसदीय विचार-विमर्श और स्पष्ट नियम बेहतर रास्ता हो सकते हैं।
+
+### UPSC Syllabus Link
+GS2: संसद, शासन, गैर-सरकारी संगठन और नियामक ढाँचा
+
+### Static Connection
+संसदीय समितियाँ और नागरिक समाज का नियमन
+
+### PYQ Connection
+Theme connection only — exact PYQ not established.
+
+### 30-Second Revision
+FCRA Amendment विषय पर लोकसभा की संयुक्त समिति का communiqué दर्ज है; इसकी सामग्री headline से ज्ञात नहीं होती।
+
+### Active Recall
+**Q. विदेशी योगदान के नियमन में जवाबदेही और नागरिक समाज की स्वतंत्रता के बीच संतुलन कैसे बनाया जा सकता है?**
+
+---
+
+## 7. स्विस परिसंघ के राष्ट्रपति की भारत की राजकीय यात्रा 5–7 अक्टूबर 2026 को
 
 **Source:** MEA
 
-**Source URL:** https://news.google.com/rss/articles/CBMikgFBVV95cUxNdVRVLTBFNmh4X21CMDlMWS1xU1Rtc1pBLV93VGVKblVKbi12VDRlZmg4U1RVeU9sQUJ2dzBIY3NmaUpGNkRoelVFdVpzR2dIZjd6OGIyWlhyYk55SWIxSHRIaElISjVPa3EwQ0libkNBVkNXVHFmVXFHSFF0Tm1MNERKaE1jS19PUzBkR2V0SEt3Zw?oc=5
+**Source URL:** https://news.google.com/rss/articles/CBMiW0FVX3lxTFB4VWMtZ3Mtc3BRemJHSDluR2h6MFNzRjlwRk5ZdVo0aXZXVUlVWVJvNkFHeTdYMXlLWWUyNG5wME16MlAzVTFSUlFDQ3JYU1NWMWc0cXNQQnJVaTQ?oc=5
+
+**Category:** IR
+
+**Priority:** उच्च
+
+### Why in News?
+MEA ने स्विस परिसंघ के राष्ट्रपति की भारत की राजकीय यात्रा की तारीखें 5–7 अक्टूबर 2026 घोषित कीं।
+
+### What Happened?
+MEA की सूचना के अनुसार राष्ट्रपति की भारत यात्रा 5 से 7 अक्टूबर 2026 तक निर्धारित है। बातचीत के विषय या परिणाम इस headline में उपलब्ध नहीं हैं।
+
+### Background
+उच्चस्तरीय यात्राएँ द्विपक्षीय संवाद और सहयोग के एजेंडे को आगे बढ़ाने का माध्यम होती हैं।
+
+### Prelims Focus
+यात्रा: स्विस परिसंघ के राष्ट्रपति की भारत यात्रा; तारीख: 5–7 अक्टूबर 2026; स्रोत: MEA।
+
+### Mains Focus
+राजकीय यात्राएँ राजनीतिक संवाद और संभावित सहयोग को मजबूत कर सकती हैं। वास्तविक आकलन के लिए वार्ता के परिणाम, संस्थागत अनुवर्ती कार्रवाई और पारस्परिक हितों की स्पष्टता देखनी होगी।
+
+### UPSC Syllabus Link
+GS2: भारत के द्विपक्षीय संबंध और अंतरराष्ट्रीय संबंध
+
+### Static Connection
+भारत की विदेश नीति और द्विपक्षीय राजकीय यात्राएँ
+
+### PYQ Connection
+Theme connection only — exact PYQ not established.
+
+### 30-Second Revision
+MEA के अनुसार स्विस परिसंघ के राष्ट्रपति की भारत यात्रा 5–7 अक्टूबर 2026 को निर्धारित है।
+
+### Active Recall
+**Q. उच्चस्तरीय राजकीय यात्राओं को ठोस और दीर्घकालिक द्विपक्षीय सहयोग में बदलने के लिए किन बातों पर ध्यान देना चाहिए?**
+
+---
+
+## 8. WHO के अनुसार वैश्विक जीवन प्रत्याशा महामारी-पूर्व स्तरों के करीब लौटी
+
+**Source:** United Nations
+
+**Source URL:** https://news.google.com/rss/articles/CBMiV0FVX3lxTE81TEVFeXRXMVlVX1NBY0p0ZThQOVhnUHFlMk5GaWNqbXh6ejhFSUd0SFQySkxOcVV5LXFuYXM1UXpjNTdxZzlnUXRMS1RPc3BHR2RRMDVKQQ?oc=5
+
+**Category:** REPORTS
+
+**Priority:** उच्च
+
+### Why in News?
+UN News की रिपोर्ट के headline के अनुसार WHO ने बताया कि वैश्विक जीवन प्रत्याशा महामारी-पूर्व स्तरों के करीब वापस आई है।
+
+### What Happened?
+उपलब्ध headline वैश्विक जीवन प्रत्याशा में सुधार का संकेत देता है। आँकड़े, क्षेत्रीय अंतर और कारण headline में नहीं दिए गए हैं।
+
+### Background
+जीवन प्रत्याशा जनस्वास्थ्य और जनसंख्या के स्वास्थ्य-परिणामों का एक व्यापक संकेतक है।
+
+### Prelims Focus
+रिपोर्ट में उद्धृत संस्था: WHO; संकेतक: global life expectancy; headline का निष्कर्ष: स्तर महामारी-पूर्व के करीब। कोई संख्यात्मक आँकड़ा उपलब्ध नहीं।
+
+### Mains Focus
+जीवन प्रत्याशा में सुधार स्वास्थ्य प्रणालियों की पुनर्बहाली का संकेत हो सकता है, लेकिन वैश्विक औसत देशीय और सामाजिक असमानताओं को छिपा सकता है। आगे सार्वजनिक स्वास्थ्य सेवाओं की मजबूती, असमानताओं की पहचान और तुलनीय आँकड़ों पर ध्यान जरूरी है।
+
+### UPSC Syllabus Link
+GS2: स्वास्थ्य, सामाजिक क्षेत्र और मानव विकास
+
+### Static Connection
+जनस्वास्थ्य संकेतक: जीवन प्रत्याशा और स्वास्थ्य परिणाम
+
+### PYQ Connection
+Theme connection only — exact PYQ not established.
+
+### 30-Second Revision
+WHO के हवाले से UN News ने वैश्विक जीवन प्रत्याशा के महामारी-पूर्व स्तरों के करीब आने की सूचना दी; headline में आँकड़े नहीं हैं।
+
+### Active Recall
+**Q. जीवन प्रत्याशा को स्वास्थ्य नीति का संकेतक मानने की सीमाएँ और उपयोगिता क्या हैं?**
+
+---
+
+## 9. यमन में बढ़ती लड़ाई से खाद्य सुरक्षा संकट गहराया
+
+**Source:** United Nations
+
+**Source URL:** https://news.google.com/rss/articles/CBMiV0FVX3lxTE5DN1drQmNjbS1VN0h0TjNqakFiUjdPejBKa1EtRmxfWnI0eHlaejZEdW9XZVdKMGRsLWxlMTN3aUJGNUZnUlV3RVRDb0RyLW1vdEREbkpiQQ?oc=5
+
+**Category:** IR
+
+**Priority:** उच्च
+
+### Why in News?
+UN News ने रिपोर्ट किया कि यमन में बढ़ते संघर्ष से खाद्य सुरक्षा संकट और गहरा रहा है।
+
+### What Happened?
+उपलब्ध headline के अनुसार लड़ाई बढ़ने और खाद्य सुरक्षा संकट के गहराने के बीच संबंध बताया गया है। प्रभावित लोगों की संख्या या विशिष्ट कारणों का विवरण उपलब्ध नहीं है।
+
+### Background
+संघर्ष मानवीय सहायता, खाद्य आपूर्ति और नागरिकों की आजीविका को प्रभावित कर सकते हैं।
+
+### Prelims Focus
+देश: यमन; headline का विषय: बढ़ती लड़ाई और गहराता खाद्य सुरक्षा संकट।
+
+### Mains Focus
+संघर्ष खाद्य आपूर्ति और लोगों की पहुँच को बाधित कर सकता है, जिससे मानवीय संकट बढ़ता है। सहायता पहुँचाने में सुरक्षा और पहुँच संबंधी चुनौतियाँ हो सकती हैं। संघर्ष-विराम प्रयास, मानवीय पहुँच और खाद्य सहायता का समन्वय महत्त्वपूर्ण है।
+
+### UPSC Syllabus Link
+GS2: अंतरराष्ट्रीय संबंध, मानवीय सहायता और वैश्विक खाद्य सुरक्षा
+
+### Static Connection
+संघर्ष और खाद्य असुरक्षा का संबंध
+
+### PYQ Connection
+Theme connection only — exact PYQ not established.
+
+### 30-Second Revision
+UN News के अनुसार यमन में बढ़ती लड़ाई खाद्य सुरक्षा संकट को और गहरा रही है।
+
+### Active Recall
+**Q. सशस्त्र संघर्ष खाद्य सुरक्षा के अलग-अलग आयामों—उपलब्धता, पहुँच और स्थिरता—को कैसे प्रभावित कर सकता है?**
+
+---
+
+## 10. सर्दियों से पहले गाज़ा में बड़े पैमाने पर सहायता पहुँचाने की WHO की अपील
+
+**Source:** United Nations
+
+**Source URL:** https://news.google.com/rss/articles/CBMiV0FVX3lxTE9FczQ2LVpZZ3U1TFp5VFBUaGJHZVdqMm9Kak9YdG12TXBfcnZwMk1iMEZnOUdHVWVhbV82NWZScks0d0t5cEZGdmF4UVY1TlZoamRtSU1WWQ?oc=5
+
+**Category:** IR
+
+**Priority:** उच्च
+
+### Why in News?
+UN News के अनुसार WHO ने सर्दियों से पहले गाज़ा में बड़े पैमाने पर सहायता पहुँचाने की अपील की।
+
+### What Happened?
+headline में WHO की सहायता-वृद्धि संबंधी अपील दर्ज है। सहायता की मात्रा, सामग्री या वितरण की स्थिति का विवरण उपलब्ध नहीं है।
+
+### Background
+संघर्ष की परिस्थितियों में मानवीय सहायता तक सुरक्षित और समयबद्ध पहुँच एक अहम चुनौती होती है।
+
+### Prelims Focus
+अपील करने वाली संस्था: WHO; स्थान: गाज़ा; समय-संदर्भ: सर्दियों से पहले; माँग: बड़े पैमाने पर सहायता का प्रवाह।
+
+### Mains Focus
+समय पर सहायता जीवन और स्वास्थ्य पर संकट के प्रभाव को कम करने में सहायक हो सकती है। पहुँच, सुरक्षा, आपूर्ति-श्रृंखला और समन्वय प्रमुख चुनौतियाँ हैं। मानवीय सहायता के सुरक्षित, निरंतर और निष्पक्ष वितरण पर बल दिया जाना चाहिए।
+
+### UPSC Syllabus Link
+GS2: अंतरराष्ट्रीय संगठन, मानवीय सहायता और अंतरराष्ट्रीय मानवीय मुद्दे
+
+### Static Connection
+WHO की भूमिका और मानवीय आपात स्थितियों में सहायता
+
+### PYQ Connection
+Theme connection only — exact PYQ not established.
+
+### 30-Second Revision
+WHO ने सर्दियों से पहले गाज़ा में बड़े पैमाने पर सहायता पहुँचाने की अपील की।
+
+### Active Recall
+**Q. संघर्ष-प्रभावित क्षेत्रों में मानवीय सहायता की प्रभावी और निष्पक्ष पहुँच सुनिश्चित करने में कौन-सी चुनौतियाँ आती हैं?**
+
+---
+
+## 11. ईरान पर सुरक्षा परिषद के हालिया veto पर UN सदस्य देशों में विचार-विमर्श
+
+**Source:** United Nations
+
+**Source URL:** https://news.google.com/rss/articles/CBMiV0FVX3lxTE1seXlUdi1SdjkxUUZoVVI2REo0ZlJUS2hCYTZvV2ZRb0w0UUlTNThzQ1NYbmxqSl9ScVpTQU5Pd3VKajhHYU56RS1vS0d5SUpIS2poQ1hBMA?oc=5
 
 **Category:** IR
 
 **Priority:** मध्यम
 
 ### Why in News?
-MEA ने रूस यात्रा करने वाले भारतीयों के लिए advisory जारी की।
+UN News ने ईरान से संबंधित सुरक्षा परिषद के हालिया veto पर सदस्य देशों के विचार-विमर्श की रिपोर्ट दी।
 
 ### What Happened?
-उपलब्ध शीर्षक यात्रा-संबंधी सलाह जारी होने की पुष्टि करता है। सलाह की सामग्री, यात्रा प्रतिबंध या विशेष सुरक्षा निर्देश उपलब्ध नहीं हैं।
+उपलब्ध headline के अनुसार सदस्य देशों ने veto पर विचार किया। प्रस्ताव, veto देने वाले सदस्य या मतदान-विवरण की पुष्टि headline से नहीं होती।
 
 ### Background
-विदेश यात्रा पर नागरिकों को आधिकारिक यात्रा सलाह और संबंधित दूतावास/वाणिज्य-दूतावास की सूचना देखनी चाहिए।
+सुरक्षा परिषद में veto एक प्रमुख संस्थागत प्रक्रिया है और अंतरराष्ट्रीय निर्णय-प्रक्रिया पर इसका प्रभाव पड़ता है।
 
 ### Prelims Focus
-जारीकर्ता: Ministry of External Affairs (MEA)। लक्षित समूह: रूस यात्रा करने वाले भारतीय। सलाह के विशिष्ट निर्देश स्रोत शीर्षक में नहीं हैं।
+मंच: संयुक्त राष्ट्र सुरक्षा परिषद; विषय: ईरान से संबंधित हालिया veto पर सदस्य देशों का विचार-विमर्श। प्रस्ताव और मतदान का विवरण उपलब्ध नहीं।
 
 ### Mains Focus
-महत्त्व: विदेश में नागरिकों की सुरक्षा और कांसुलर सहायता। चुनौतियाँ: समय पर सूचना पहुँचाना और तेजी से बदलती परिस्थितियों में सलाह अद्यतन रखना। आगे: आधिकारिक स्रोतों की नियमित जाँच और नागरिकों तक स्पष्ट संचार।
+Veto सुरक्षा परिषद के निर्णयों को प्रभावित कर सकता है और परिषद की प्रतिनिधिकता तथा प्रभावशीलता पर बहस को जन्म देता है। सुधार पर चर्चा में जवाबदेही, व्यापक प्रतिनिधित्व और संकटों में निर्णय क्षमता को साथ देखना चाहिए।
 
 ### UPSC Syllabus Link
-GS2: भारत की विदेश नीति और कांसुलर संबंध।
+GS2: संयुक्त राष्ट्र, सुरक्षा परिषद और अंतरराष्ट्रीय संस्थाओं में सुधार
 
 ### Static Connection
-कांसुलर कूटनीति; विदेश में भारतीय नागरिकों की सुरक्षा।
+UN Security Council की संरचना और veto व्यवस्था
 
 ### PYQ Connection
 Theme connection only — exact PYQ not established.
 
 ### 30-Second Revision
-MEA ने रूस जाने वाले भारतीयों के लिए advisory जारी की; उपलब्ध सामग्री में सलाह के विशिष्ट निर्देश नहीं हैं।
+ईरान से संबंधित सुरक्षा परिषद veto पर UN सदस्य देशों के विचार-विमर्श की खबर है; विशिष्ट मतदान-विवरण उपलब्ध नहीं।
 
 ### Active Recall
-**Q. विदेश यात्रा सलाह नागरिक सुरक्षा और कांसुलर कूटनीति का प्रभावी साधन कैसे बन सकती है?**
+**Q. सुरक्षा परिषद में veto की व्यवस्था के पक्ष और विपक्ष में क्या तर्क दिए जा सकते हैं?**
+
+---
+
+## 12. मणिपुर जातीय संघर्ष के बाद 2023 से लापता 49 लोगों के परिजनों को ₹10 लाख प्रति परिवार
+
+**Source:** The Hindu
+
+**Source URL:** https://news.google.com/rss/articles/CBMi4AFBVV95cUxNb3dFQk5QVDBlT0Zya2czME0yU3kyVDFTb25JRU9jQ1lfTTU4QWxOdXpjZkdKeHpPZ21FUUpVazdQX3dzdUIxZTF4UmN3Yzk1REVqNDdKZUJtR1JMYXFQX0xoRE9sOE41dVpleFJPUlZWM1hRSFNzVFZHbUJQTGRHV3BrZUIzajdkYTVrN0JYNVlHQXZTRnBGeXpJek1Nd1hNQnlMNnh6OUd6dUJzZXFJR2ZhWTBzWDc2VDBDZ0JrdVFlNngweEZOUWdtU3p5bnRGVDBVU1VESnlONXNJTTVFMdIB5wFBVV95cUxNaXAtaTVyUGZoNk15cnZQcGFONzRsa2dNaF9EU2RDS3J4TklsaTFUQk80dVFJc3RmdzhTUFBMbG9SS211ZmlMeVZGR3JWYXdVUFVHVWFGdDRXRHhUdmdTb0l5dEVKVEdOaUdoNEUyai1uampnMW9xakU5ejQ1NTlGcTRRMm91SGtvcXlWZWVXeFVMcVRqLWctRlNSQ1hlNnhTY3YzaElrYS1nam4ydnhqMmJlZVR4Wk0tdS1xLTBsZUFyaTFxWHV2TUZVRGt6VVdFcmVOVXN1ZE5ORWMzUW1LZkJ6R1FxU0U?oc=5
+
+**Category:** GS2
+
+**Priority:** उच्च
+
+### Why in News?
+The Hindu की headline के अनुसार मणिपुर में 2023 के जातीय संघर्ष के बाद से लापता 49 लोगों के परिजनों को ₹10 लाख प्रत्येक देने की बात है।
+
+### What Happened?
+उपलब्ध headline-level information के आधार पर, लापता लोगों के परिजनों के लिए प्रति परिवार ₹10 लाख की सहायता का उल्लेख है। पात्रता, प्रक्रिया और निर्णय लेने वाली संस्था का विवरण headline में नहीं है।
+
+### Background
+यह खबर संघर्ष-प्रभावित परिवारों की सहायता, लापता व्यक्तियों से जुड़े मानवीय प्रश्न और सामाजिक विश्वास की बहाली से जुड़ती है।
+
+### Prelims Focus
+स्थान: मणिपुर; लापता लोगों की संख्या: 49; headline में बताई गई सहायता: ₹10 लाख प्रत्येक परिवार को।
+
+### Mains Focus
+आर्थिक सहायता प्रभावित परिवारों की तात्कालिक कठिनाइयों को कम कर सकती है, लेकिन लापता व्यक्तियों का पता लगाने, पारदर्शी सूचना और जवाबदेही की जरूरत बनी रहती है। संवेदनशील प्रक्रिया, भरोसेमंद सत्यापन और समुदायों के बीच विश्वास-निर्माण पर ध्यान देना चाहिए।
+
+### UPSC Syllabus Link
+GS2: शासन, आंतरिक संघर्ष, मानवाधिकार और कमजोर वर्गों की सुरक्षा
+
+### Static Connection
+आंतरिक संघर्ष के मानवीय प्रभाव और पुनर्वास
+
+### PYQ Connection
+Theme connection only — exact PYQ not established.
+
+### 30-Second Revision
+The Hindu headline में मणिपुर संघर्ष के बाद 2023 से लापता 49 लोगों के परिजनों को ₹10 लाख प्रति परिवार देने का उल्लेख है।
+
+### Active Recall
+**Q. संघर्ष-प्रभावित परिवारों के पुनर्वास में आर्थिक सहायता के साथ किन संस्थागत उपायों की जरूरत होती है?**
+
+---
+
+## 13. पंजाब में BSF ने दो संदिग्ध पाकिस्तानी घुसपैठियों को मार गिराया
+
+**Source:** The Hindu
+
+**Source URL:** https://news.google.com/rss/articles/CBMiuwFBVV95cUxPZ3JWdnVFWXd3ZlFKc0tTVmNjLVgzN2lGQm5MRWVJM1I0Nm1Zc01Zb3hhbHFuM1UzdlZsb0tkekQ4cUIzT2FaeGt2bmFFWjlycjFsbC02azJMSm9pWVF3c24wSXlGd25zYlNCcWNKNFpkbHdBZEhuTk5RdFl6dWJmakpvRTdoc2NNSW9xOXlURmI2RzBqVzMyYkF5OFBZMHRPcnE3eGc3QjFyRXpoUlJMSkFja2JXQUJmRl800gHCAUFVX3lxTE5mOThuV0JZQzJNTm41ZTB0R1N6YzdJSnJwWU9qdkt0ZXhUQkFDQjJpRmYtemwzV3JZc0NZOFlJMWZiM0tHa3lIZXNNbnV3X1N3aTBRSW5aVGZfc0FfaEdoZG5Yb3ZPTWZ0MEY3SXdlMWRrd3phUlllc2pfT3ZraGVkNmFPMEFPQXV4RF9hOFoxRGw4TUtGbDZ1d0c5MXNBLVdjVm8zQ1JhdlpyLUtDVndZWThmMGlUS2VWbjZ6bk9tX1h3?oc=5
+
+**Category:** SECURITY
+
+**Priority:** उच्च
+
+### Why in News?
+The Hindu की headline के अनुसार पंजाब में सीमा सुरक्षा बल (BSF) ने दो संदिग्ध पाकिस्तानी घुसपैठियों को मार गिराया।
+
+### What Happened?
+उपलब्ध headline-level information के आधार पर, घटना पंजाब में हुई और व्यक्तियों को संदिग्ध पाकिस्तानी घुसपैठिए बताया गया है। घटना के अन्य विवरण उपलब्ध नहीं हैं।
+
+### Background
+सीमा प्रबंधन में निगरानी, सुरक्षा बलों की कार्रवाई और नागरिक सुरक्षा के बीच समन्वय की आवश्यकता होती है।
+
+### Prelims Focus
+बल: Border Security Force (BSF); स्थान: पंजाब; headline में बताए गए व्यक्ति: दो संदिग्ध पाकिस्तानी घुसपैठिए।
+
+### Mains Focus
+सीमा-पार घुसपैठ सीमा सुरक्षा और स्थानीय सुरक्षा संबंधी चुनौतियाँ पैदा कर सकती है। प्रभावी निगरानी के साथ संचालन में जवाबदेही, उचित प्रक्रिया और नागरिकों की सुरक्षा भी महत्त्वपूर्ण हैं। सीमा प्रबंधन में तकनीक और संस्थागत समन्वय को मजबूत करना उपयोगी है।
+
+### UPSC Syllabus Link
+GS3: आंतरिक सुरक्षा, सीमा प्रबंधन और सुरक्षा बल
+
+### Static Connection
+भारत की सीमा सुरक्षा और BSF की भूमिका
+
+### PYQ Connection
+Theme connection only — exact PYQ not established.
+
+### 30-Second Revision
+The Hindu के अनुसार पंजाब में BSF ने दो संदिग्ध पाकिस्तानी घुसपैठियों को मार गिराया।
+
+### Active Recall
+**Q. सीमा प्रबंधन में सुरक्षा प्रभावशीलता और जवाबदेही को एक साथ कैसे सुनिश्चित किया जा सकता है?**
+
+---
+
+## 14. अमेरिका के Pentagon में Religious Affairs Office की स्थापना
+
+**Source:** The Hindu
+
+**Source URL:** https://news.google.com/rss/articles/CBMixwFBVV95cUxOMm1Ea0RfeV9XQmtxVHNLRHh5ZnlUalZCUE1KSS1WcEJ5WTVFblVYeTFpRFo2QVZVejd4UGVpQkxvQ3cwS2ROcGxCNmNVNFV0M1BiVkdrY3N2aVFPVUMzRnIzWFRIOWlrVi1YdV9zY21ZRWJEMloyVHA3NFgzNkdOQmhYQklwcXRDWXpPSmYxN01tRkFsaG1iTDg1OWFKOVc2OFFzY1JxcUxiYU9WdWJ2MXhtN0htVkNjNUdSbmwwYjRUSXV4OVhZ0gHOAUFVX3lxTE14NFR6dGdRT1NMZ2xPd21raTgyQ3hrSFlYcUtZb0g3UVl4aHdQNnRURmNXZWVSQml6MlZpc2hrZmNjaWNqb3d1TF9lbVY3UFpONFVYSVhhUmlheE9yUWgtTy1SMWU1ajhobzFZVzhGOHpoZzBUYnU5dWRWczE5b0JNTkNxSlZfMjgwaE5NNmFhWllZdDF0anJiN0g4cWt5VUhHSGx4c3R2NGR4Rjd0VGJjY3U1WDJ6QXZ5OGpkX1l0R3BMcFB6dmwtMnVRT09R?oc=5
+
+**Category:** GS2
+
+**Priority:** मध्यम
+
+### Why in News?
+The Hindu की headline के अनुसार Pete Hegseth ने faith-related reforms के हिस्से के रूप में Pentagon में Office of Religious Affairs बनाया।
+
+### What Happened?
+उपलब्ध headline-level information के आधार पर, अमेरिका के रक्षा विभाग के मुख्यालय Pentagon में Religious Affairs Office स्थापित किया गया है। इसके कार्यक्षेत्र का विस्तृत विवरण headline में नहीं है।
+
+### Background
+यह खबर रक्षा संस्थानों, धर्म-संबंधी मामलों और सार्वजनिक संस्थाओं की भूमिका पर चर्चा से जुड़ती है।
+
+### Prelims Focus
+स्थान: Pentagon, अमेरिका; headline में बताया गया कदम: Office of Religious Affairs की स्थापना; इसे faith-related reforms से जोड़ा गया है।
+
+### Mains Focus
+संस्थागत बदलावों का आकलन उनके उद्देश्य, कार्यक्षेत्र और अधिकारों पर प्रभाव के आधार पर होना चाहिए। धार्मिक स्वतंत्रता, संस्थागत तटस्थता और प्रशासनिक जवाबदेही जैसे आयामों को साथ देखना उपयोगी है।
+
+### UPSC Syllabus Link
+GS2: शासन, संस्थाएँ, अधिकार और तुलनात्मक राजनीति
+
+### Static Connection
+राज्य, धर्म और सार्वजनिक संस्थाओं की भूमिका
+
+### PYQ Connection
+Theme connection only — exact PYQ not established.
+
+### 30-Second Revision
+The Hindu headline के अनुसार अमेरिकी Pentagon में faith-related reforms के हिस्से के रूप में Religious Affairs Office बनाया गया।
+
+### Active Recall
+**Q. धर्म-संबंधी मामलों के लिए सरकारी संस्थागत व्यवस्था बनाते समय तटस्थता और अधिकारों की रक्षा कैसे सुनिश्चित की जा सकती है?**
+
+---
+
+## 15. PRS India ने सितंबर 2026 का Monthly Policy Review प्रकाशित किया
+
+**Source:** PRS India
+
+**Source URL:** https://news.google.com/rss/articles/CBMitwFBVV95cUxPbWtNencyRmJBWE5oVzlrczhfYzJPWXdLcVFUaThfeTRjSXN6bFlMR290VWdNcEppZ0VNVDJsX2VpdkM3S0FUVHlMdGZ5bHJzXzdJcnVHdzhmcDMwdE5SOVphUmctWTM1SmVxQy1ZSFJKRkVsYkpjbW5hSjBDdk5GczFGeERVNllKWFNRZ0oxVEFZWm5JbExwMlpOcGhxQ3NhTzBPemhQeW03bGtUWl80Z2VrQ3JSVjA?oc=5
+
+**Category:** GOVERNANCE
+
+**Priority:** मध्यम
+
+### Why in News?
+PRS India ने सितंबर 2026 का Monthly Policy Review प्रकाशित किया।
+
+### What Happened?
+उपलब्ध headline में समीक्षा का प्रकाशन दर्ज है, लेकिन उसमें शामिल नीतियों, विधेयकों या निर्णयों का विवरण नहीं दिया गया है।
+
+### Background
+मासिक नीति समीक्षा शासन और नीति-निर्माण से जुड़ी घटनाओं को समेकित रूप में देखने का माध्यम है।
+
+### Prelims Focus
+प्रकाशक: PRS India; दस्तावेज़: Monthly Policy Review; अवधि: सितंबर 2026। headline से समीक्षा की विषय-सूची स्थापित नहीं होती।
+
+### Mains Focus
+नीति समीक्षा से विभिन्न निर्णयों और विधायी गतिविधियों को जोड़कर देखने में मदद मिल सकती है। विश्लेषण में नीति के उद्देश्य, क्रियान्वयन क्षमता, जवाबदेही और प्रभावित समूहों पर प्रभाव की जाँच करनी चाहिए।
+
+### UPSC Syllabus Link
+GS2: शासन, नीति-निर्माण और संसद; GS3: आर्थिक एवं सामाजिक विकास
+
+### Static Connection
+सार्वजनिक नीति-चक्र: निर्माण, क्रियान्वयन और मूल्यांकन
+
+### PYQ Connection
+Theme connection only — exact PYQ not established.
+
+### 30-Second Revision
+PRS India का सितंबर 2026 Monthly Policy Review प्रकाशित हुआ; उपलब्ध headline में इसकी विषय-वस्तु नहीं दी गई है।
+
+### Active Recall
+**Q. किसी सार्वजनिक नीति का मूल्यांकन करते समय केवल उसके घोषित उद्देश्य के बजाय किन क्रियान्वयन और परिणाम-संबंधी पहलुओं को देखना चाहिए?**
 
 ---
