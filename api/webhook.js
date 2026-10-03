@@ -515,17 +515,7 @@ export default async function handler(req, res) {
           `🔐 FATEH27 ACCESS\n\n` +
           `Hello ${getUserName(user)}.\n\n` +
           "FATEH27 join karne ke liye owner approval required hai.\n\n" +
-          "Access request owner ko bhej di gayi hai.\n\nApproval ke baad FATEH27 open hoga.",
-        reply_markup: {
-          inline_keyboard: [
-            [
-              {
-                text: "🔓 Request Access",
-                callback_data: "f27_request_access"
-              }
-            ]
-          ]
-        }
+          "Access request owner ko bhej di gayi hai.\n\nApproval ke baad FATEH27 open hoga."
       });
 
       return res.status(200).send("OK");
