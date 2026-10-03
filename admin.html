@@ -86,7 +86,8 @@
   </style>
 </head>
 <body>
-<div class="app">
+<div id="adminLock">Checking owner access…</div>
+<div id="adminApp" class="app">
   <header class="top">
     <div class="brand">
       <div class="logo">F27</div>
@@ -144,15 +145,23 @@
 
 <script>
 (function(){
-  "use strict";
-
-  const tg = window.Telegram?.WebApp || null;
-  if(tg){
+  const tg=window.Telegram?.WebApp||null;
+  async function verifyOwner(){
     try{
-      tg.ready();
-      tg.expand();
-    }catch(e){}
+      if(!tg?.initData) throw new Error("Open Admin inside the authenticated FATEH27 Telegram Mini App.");
+      try{tg.ready();tg.expand();}catch(e){}
+      const r=await fetch("/api/access?admin=1",{headers:{"x-telegram-init-data":tg.initData}});
+      const d=await r.json().catch(()=>({}));
+      if(!r.ok || d.success!==true) throw new Error(d.error||d.detail||"Owner access required.");
+      document.getElementById("adminLock").style.display="none";
+      document.getElementById("adminApp").style.display="block";
+      load();
+    }catch(e){
+      document.getElementById("adminLock").textContent=e.message||"Owner access required.";
+    }
   }
+
+  "use strict";
 
   const $ = (id) => document.getElementById(id);
 
@@ -370,7 +379,8 @@
     updateAccess(button.dataset.action, button.dataset.id);
   });
 
-  load();
+  // Owner verification performs the first load.
+  verifyOwner();
 })();
 </script>
 </body>
