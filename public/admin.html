@@ -94,11 +94,19 @@
 <script>
 (function(){
   const tg=window.Telegram?.WebApp||null;
+  const BACKEND="https://fateh27-bot.onrender.com";
+  function initData(){return tg?.initData||new URLSearchParams(location.search).get("tgWebAppData")||sessionStorage.getItem("f27_tg_init_data")||"";}
   async function verifyOwner(){
     try{
-      if(!tg?.initData) throw new Error("Open Admin inside the authenticated FATEH27 Telegram Mini App.");
+      if(!initData()) throw new Error("Open Admin inside the authenticated FATEH27 Telegram Mini App.");
       try{tg.ready();tg.expand();}catch(e){}
-      const r=await fetch("/api/access?admin=1",{headers:{"x-telegram-init-data":tg.initData}});
+      let r;
+      try{
+        r=await fetch("/api/access?admin=1",{headers:{"x-telegram-init-data":initData()}});
+        if(r.status>=500) throw new Error("backend");
+      }catch(_){
+        r=await fetch(BACKEND+"/api/access?admin=1",{headers:{"x-telegram-init-data":initData()}});
+      }
       const d=await r.json().catch(()=>({}));
       if(!r.ok || d.success!==true) throw new Error(d.error||d.detail||"Owner access required.");
       document.getElementById("adminLock").style.display="none";
