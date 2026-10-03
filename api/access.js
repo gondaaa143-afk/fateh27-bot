@@ -127,6 +127,13 @@ function fromFirestoreValue(value) {
 async function getAccessState(userId) {
   const id = encodeURIComponent(String(userId));
 
+  // Owner access is independent of Firebase approval state.
+  // The owner must be able to enter FATEH27 and use the Admin panel
+  // even if Firebase credentials are temporarily unavailable.
+  if (String(userId) === ADMIN_ID) {
+    return { status: "approved", source: "owner" };
+  }
+
   // Explicit accessRequests status is authoritative. This prevents a
   // previously-created users/{id} document from silently granting access.
   const requestDoc = await firestoreRequest("accessRequests/" + id);
