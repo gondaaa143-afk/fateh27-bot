@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script src="/access-gate.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
@@ -480,6 +482,72 @@ body{
   }
 
 }
+
+/* FINAL CURRENT-AFFAIRS UX */
+.analysisTools{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:15px;
+}
+.analysisBtn,.utilityBtn{
+  border:1px solid var(--line);
+  background:#f1f1f1;
+  color:#111;
+  padding:10px 13px;
+  border-radius:13px;
+  font-size:11px;
+  font-weight:800;
+  cursor:pointer;
+  transition:transform .16s ease,background .16s ease;
+}
+.analysisBtn:active,.utilityBtn:active{transform:scale(.97)}
+.analysisBtn.open{
+  background:#111;
+  color:#fff;
+  border-color:#111;
+}
+.utilityBtn.active{
+  background:#111;
+  color:#fff;
+  border-color:#111;
+}
+.analysisPanel{
+  display:none;
+  margin-top:12px;
+  padding:15px;
+  border-radius:18px;
+  background:rgba(245,245,245,.9);
+  border:1px solid var(--line);
+  animation:analysisIn .18s ease;
+}
+.analysisPanel.open{display:block}
+.analysisHeader{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:4px;
+}
+.analysisHeading{
+  font-size:13px;
+  font-weight:900;
+}
+.analysisHint{
+  font-size:10px;
+  color:#777;
+}
+@keyframes analysisIn{
+  from{opacity:0;transform:translateY(-4px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.articleFooter{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:15px;
+}
+
 /* HINDI TRANSLATION */
 .translationPanel{display:none;margin-top:12px;padding:15px;border-radius:18px;background:#f7f7f7;border:1px solid var(--line)}
 .translationPanel.open{display:block}
@@ -487,7 +555,6 @@ body{
 .translationLoading{font-size:12px;color:#777}
 .translationError{font-size:12px;color:#a11;font-weight:700}
 </style>
-  <script src="/access-gate.js" defer></script>
 </head>
 
 <body>
@@ -654,6 +721,17 @@ body{
       Reports
     </button>
 
+    <button class="filter"
+      onclick="setFilter('IMPORTANT',this)">
+      Important
+    </button>
+
+    <button class="filter"
+      onclick="setFilter('SAVED',this)">
+      Saved
+    </button>
+
+
   </div>
 
 
@@ -754,6 +832,14 @@ let revised = JSON.parse(
 
 let xp = Number(
   localStorage.getItem("fateh27_ca_xp") || 0
+);
+
+let important = JSON.parse(
+  localStorage.getItem("fateh27_ca_important") || "[]"
+);
+
+let bookmarked = JSON.parse(
+  localStorage.getItem("fateh27_ca_bookmarked") || "[]"
 );
 
 
@@ -1011,6 +1097,8 @@ function renderArticles(){
 
       const filterMatch =
         currentFilter === "ALL" ||
+        (currentFilter === "IMPORTANT" && important.includes(articles.indexOf(article))) ||
+        (currentFilter === "SAVED" && bookmarked.includes(articles.indexOf(article))) ||
         article.category
           .toUpperCase()
           .includes(currentFilter);
@@ -1219,6 +1307,30 @@ function createArticle(article,index){
   `;
 }
 
+/* ---------------------------------------
+   INLINE ANALYSIS
+--------------------------------------- */
+
+function toggleAnalysis(index){
+
+  const panel = document.getElementById("analysis-" + index);
+  const button = document.getElementById("analysisBtn-" + index);
+
+  if(!panel || !button) return;
+
+  const willOpen = !panel.classList.contains("open");
+
+  panel.classList.toggle("open",willOpen);
+  button.classList.toggle("open",willOpen);
+  button.setAttribute("aria-expanded",String(willOpen));
+  button.innerText = willOpen ? "Hide Analysis" : "Read Analysis";
+
+}
+
+/* ---------------------------------------
+   HINDI TRANSLATION
+--------------------------------------- */
+
 async function translateArticle(index){
 
   const article = articles[index];
@@ -1287,4 +1399,163 @@ async function translateArticle(index){
   }
 }
 
+/* ---------------------------------------
+   IMPORTANT
+--------------------------------------- */
 
+function toggleImportant(index){
+
+  if(important.includes(index)){
+    important = important.filter(i => i !== index);
+  }else{
+    important.push(index);
+  }
+
+  localStorage.setItem(
+    "fateh27_ca_important",
+    JSON.stringify(important)
+  );
+
+  renderArticles();
+
+}
+
+/* ---------------------------------------
+   BOOKMARK
+--------------------------------------- */
+
+function toggleBookmark(index){
+
+  if(bookmarked.includes(index)){
+    bookmarked = bookmarked.filter(i => i !== index);
+  }else{
+    bookmarked.push(index);
+  }
+
+  localStorage.setItem(
+    "fateh27_ca_bookmarked",
+    JSON.stringify(bookmarked)
+  );
+
+  renderArticles();
+
+}
+
+/* ---------------------------------------
+   SECTION HTML
+--------------------------------------- */
+
+function sectionHTML(title,text){
+
+  if(!text){
+    return "";
+  }
+
+  return `
+
+    <div class="section">
+
+      <div class="sectionTitle">
+        ${title}
+      </div>
+
+      <div class="sectionText">
+        ${escapeHtml(text)}
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+/* ---------------------------------------
+   REVISED
+--------------------------------------- */
+
+function markRevised(index){
+
+  if(revised.includes(index)){
+    return;
+  }
+
+
+  revised.push(index);
+
+  xp += 10;
+
+
+  localStorage.setItem(
+    "fateh27_ca_revised",
+    JSON.stringify(revised)
+  );
+
+
+  localStorage.setItem(
+    "fateh27_ca_xp",
+    xp
+  );
+
+
+  updateStats();
+
+  renderArticles();
+
+}
+
+
+/* ---------------------------------------
+   STATS
+--------------------------------------- */
+
+function updateStats(){
+
+  document.getElementById(
+    "revisedCount"
+  ).innerText = revised.length;
+
+
+  document.getElementById(
+    "xpCount"
+  ).innerText = xp;
+
+}
+
+
+/* ---------------------------------------
+   ESCAPE
+--------------------------------------- */
+
+function escapeHtml(value){
+
+  return String(value || "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+function escapeAttr(value){
+
+  return String(value || "")
+    .replace(/\\/g,"\\\\")
+    .replace(/'/g,"\\'")
+    .replace(/"/g,"&quot;");
+
+}
+
+
+/* ---------------------------------------
+   START
+--------------------------------------- */
+
+loadCurrentAffairs();
+
+</script>
+
+</body>
+</html>
