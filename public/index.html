@@ -2018,14 +2018,14 @@ if(tg){
 async function showOwnerAdminButton(){
   const adminButton = document.getElementById("ownerAdminButton");
   const accessButton = document.getElementById("ownerAccessBtn");
+
   if(adminButton) adminButton.style.display = "none";
   if(accessButton) accessButton.style.display = "none";
 
   const user = tg?.initDataUnsafe?.user || null;
 
-  if(user && String(user.id) === "5496422260"){
-    if(accessButton) accessButton.style.display = "flex";
-  }
+  // UI visibility is restricted to the FATEH27 owner.
+  if(!user || String(user.id) !== "5496422260") return;
 
   const initData = tg?.initData || "";
   if(!initData) return;
@@ -2035,14 +2035,36 @@ async function showOwnerAdminButton(){
       headers:{"x-telegram-init-data":initData}
     });
 
-    if(response.ok && accessButton){
-      accessButton.style.display = "flex";
-    }
+    const data = await response.json().catch(()=>({}));
+
+    // Server must independently confirm owner access.
+    if(!response.ok || data.success !== true) return;
+
+    if(adminButton) adminButton.style.display = "block";
+    if(accessButton) accessButton.style.display = "flex";
+
+    const quickLaunch = document.querySelector(".quickLaunch");
+    if(!quickLaunch || document.getElementById("ownerAccessBtn")) return;
+
+    const accessBtn = document.createElement("button");
+    accessBtn.id = "ownerAccessBtn";
+    accessBtn.className = "quickBtn";
+    accessBtn.type = "button";
+    accessBtn.innerHTML =
+      '<div class="quickLeft">' +
+        '<div class="quickIcon">🔐</div>' +
+        '<div class="quickText">' +
+          '<div class="quickTitle">Access Control</div>' +
+          '<div class="quickSub">Members • Requests • Approvals</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="quickArrow">›</div>';
+    accessBtn.addEventListener("click", function(){ location.href="/admin"; });
+    quickLaunch.prepend(accessBtn);
   }catch(error){
     console.warn("FATEH27 owner admin check:", error);
   }
 }
-
 function applyOfficerProfile(){
 
   const user =
