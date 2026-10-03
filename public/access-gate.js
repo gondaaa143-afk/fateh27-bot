@@ -2,8 +2,7 @@
   "use strict";
 
   function boot(){
-    const tg=window.Telegram?.WebApp;
-    if(!tg?.initData) return;
+    const tg=window.Telegram?.WebApp || null;
     if(document.getElementById("f27AccessGate")) return;
 
   const style=document.createElement("style");
@@ -22,6 +21,10 @@
 
   async function check(){
     try{
+      if(!tg?.initData){
+        text.textContent="FATEH27 can only be opened through the authenticated Telegram Mini App.";
+        return;
+      }
       const r=await fetch("/api/access",{headers:{"x-telegram-init-data":tg.initData}});
       const d=await r.json().catch(()=>({}));
       if(d.status==="approved"){gate.remove();return;}
