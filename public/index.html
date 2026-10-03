@@ -2533,6 +2533,22 @@ load();
     status.textContent="";
   }
 
+  async function fetchAccessApi(options){
+    const urls=["/api/access","https://fateh27-bot.onrender.com/api/access"];
+    let lastError=null;
+    for(const url of urls){
+      try{
+        const response=await fetch(url,options);
+        if(response.status===404 || response.status===502 || response.status===503){
+          lastError=new Error("Backend unavailable");
+          continue;
+        }
+        return response;
+      }catch(error){ lastError=error; }
+    }
+    throw lastError || new Error("Access backend unavailable");
+  }
+
   async function checkAccess(){
     const tg=window.Telegram?.WebApp;
     const initData=tg?.initData;
@@ -2546,7 +2562,7 @@ load();
     }
 
     try{
-      const response=await fetch("/api/access",{
+      const response=await fetchAccessApi({
         headers:{"x-telegram-init-data":initData}
       });
       const data=await response.json().catch(()=>({}));
