@@ -27,7 +27,7 @@ export default function PremiumPage() {
           return;
         }
 
-        const response = await fetch("/api/access", {
+        const response = await fetch(API_BASE + "/api/access", {
           headers: { "x-telegram-init-data": telegram.initData }
         });
         const data = await response.json();
