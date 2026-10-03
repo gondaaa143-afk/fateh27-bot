@@ -505,6 +505,9 @@ export default async function handler(req, res) {
       }
 
       /* NEW USER */
+      // Create the access request immediately on /start so the owner
+      // receives it even if the user never taps a second button.
+      await createAccessRequest(user);
 
       await telegram("sendMessage", {
         chat_id: chatId,
@@ -512,7 +515,7 @@ export default async function handler(req, res) {
           `🔐 FATEH27 ACCESS\n\n` +
           `Hello ${getUserName(user)}.\n\n` +
           "FATEH27 join karne ke liye owner approval required hai.\n\n" +
-          "Neeche Request Access dabao.",
+          "Access request owner ko bhej di gayi hai.\n\nApproval ke baad FATEH27 open hoga.",
         reply_markup: {
           inline_keyboard: [
             [
