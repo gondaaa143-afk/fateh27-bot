@@ -2016,54 +2016,27 @@ if(tg){
 }
 
 async function showOwnerAdminButton(){
-  const adminButton = document.getElementById("ownerAdminButton");
-  const accessButton = document.getElementById("ownerAccessBtn");
-
-  if(adminButton) adminButton.style.display = "none";
-  if(accessButton) accessButton.style.display = "none";
-
-  const user = tg?.initDataUnsafe?.user || null;
-
-  // UI visibility is restricted to the FATEH27 owner.
+  const user = window.Telegram?.WebApp?.initDataUnsafe?.user || null;
   if(!user || String(user.id) !== "5496422260") return;
 
-  const initData = tg?.initData || "";
-  if(!initData) return;
+  const quickLaunch = document.querySelector(".quickLaunch");
+  if(!quickLaunch || document.getElementById("ownerAccessBtn")) return;
 
-  try{
-    const response = await fetch("/api/access?admin=1",{
-      headers:{"x-telegram-init-data":initData}
-    });
-
-    const data = await response.json().catch(()=>({}));
-
-    // Server must independently confirm owner access.
-    if(!response.ok || data.success !== true) return;
-
-    if(adminButton) adminButton.style.display = "block";
-    if(accessButton) accessButton.style.display = "flex";
-
-    const quickLaunch = document.querySelector(".quickLaunch");
-    if(!quickLaunch || document.getElementById("ownerAccessBtn")) return;
-
-    const accessBtn = document.createElement("button");
-    accessBtn.id = "ownerAccessBtn";
-    accessBtn.className = "quickBtn";
-    accessBtn.type = "button";
-    accessBtn.innerHTML =
-      '<div class="quickLeft">' +
-        '<div class="quickIcon">🔐</div>' +
-        '<div class="quickText">' +
-          '<div class="quickTitle">Access Control</div>' +
-          '<div class="quickSub">Members • Requests • Approvals</div>' +
-        '</div>' +
+  const accessBtn = document.createElement("button");
+  accessBtn.id = "ownerAccessBtn";
+  accessBtn.className = "quickBtn";
+  accessBtn.type = "button";
+  accessBtn.innerHTML =
+    '<div class="quickLeft">' +
+      '<div class="quickIcon">🔐</div>' +
+      '<div class="quickText">' +
+        '<div class="quickTitle">Admin Panel</div>' +
+        '<div class="quickSub">Members • Requests • Approvals</div>' +
       '</div>' +
-      '<div class="quickArrow">›</div>';
-    accessBtn.addEventListener("click", function(){ location.href="/admin"; });
-    quickLaunch.prepend(accessBtn);
-  }catch(error){
-    console.warn("FATEH27 owner admin check:", error);
-  }
+    '</div>' +
+    '<div class="quickArrow">›</div>';
+  accessBtn.addEventListener("click", function(){ location.href="/admin.html"; });
+  quickLaunch.prepend(accessBtn);
 }
 function applyOfficerProfile(){
 
