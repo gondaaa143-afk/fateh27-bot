@@ -1503,7 +1503,7 @@ body {
     <div id="clock"></div>
 
     <!-- OWNER ADMIN BUTTON -->
-    <div id="ownerAdminButton" style="display:none;margin-top:10px">
+    <div id="ownerAdminLegacyButton" style="display:none;margin-top:10px">
       <button type="button" onclick="location.href='/admin'" style="border:0;border-radius:12px;background:#111;color:#fff;padding:9px 12px;font:700 11px Arial;cursor:pointer;white-space:nowrap">
         ⚙ Admin • Members
       </button>
@@ -1961,20 +1961,19 @@ if(tg){
 }
 
 async function showOwnerAdminButton(){
-  const button = document.getElementById("ownerAdminButton");
+  const button = document.querySelector(".quickLaunch #ownerAdminButton");
+  const legacy = document.getElementById("ownerAdminLegacyButton");
+  if(legacy) legacy.style.display = "none";
   if(!button) return;
   button.style.display = "none";
 
   let user = window.Telegram?.WebApp?.initDataUnsafe?.user || null;
-
-  // Telegram may populate initDataUnsafe a moment after page load.
   if(!user){
     for(let i=0;i<12 && !user;i++){
       await new Promise(r=>setTimeout(r,250));
       user = window.Telegram?.WebApp?.initDataUnsafe?.user || null;
     }
   }
-
   if(user && String(user.id) === "5496422260"){
     button.style.display = "flex";
   }
