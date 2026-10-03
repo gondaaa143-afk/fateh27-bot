@@ -23,6 +23,14 @@
 
   function getInitData(){
     const value=tg?.initData || sessionStorage.getItem("f27_tg_init_data") || "";
+    if(!tg?.initData && value){
+      try{
+        new URLSearchParams(value);
+      }catch{
+        try{sessionStorage.removeItem("f27_tg_init_data");}catch{}
+        return "";
+      }
+    }
     if(value){
       try{sessionStorage.setItem("f27_tg_init_data",value);}catch{}
     }
@@ -65,8 +73,8 @@
       text.textContent="Admin approval is required before entering FATEH27.";
       btn.style.display="block";
     }catch(e){
-      text.textContent="Access verification failed. Please refresh and try again.";
-      status.textContent="";
+      text.textContent="Access verification failed.";
+      status.textContent=e?.message || "Unknown verification error";
     }
   }
 
