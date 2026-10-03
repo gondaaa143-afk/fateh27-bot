@@ -1862,6 +1862,18 @@ body {
   </div>
 
 </button>
+<!-- OWNER ONLY ADMIN -->
+<button id="ownerAdminButton" class="quickBtn" style="display:none" type="button" onclick="location.href='/admin.html'">
+  <div class="quickLeft">
+    <div class="quickIcon">🔐</div>
+    <div class="quickText">
+      <div class="quickTitle">Admin Panel</div>
+      <div class="quickSub">Members • Requests • Approvals</div>
+    </div>
+  </div>
+  <div class="quickArrow">›</div>
+</button>
+
 <!-- REVISION ENGINE -->
 
 <button
@@ -1949,27 +1961,23 @@ if(tg){
 }
 
 async function showOwnerAdminButton(){
-  const user = window.Telegram?.WebApp?.initDataUnsafe?.user || null;
-  if(!user || String(user.id) !== "5496422260") return;
+  const button = document.getElementById("ownerAdminButton");
+  if(!button) return;
+  button.style.display = "none";
 
-  const quickLaunch = document.querySelector(".quickLaunch");
-  if(!quickLaunch || document.getElementById("ownerAccessBtn")) return;
+  let user = window.Telegram?.WebApp?.initDataUnsafe?.user || null;
 
-  const accessBtn = document.createElement("button");
-  accessBtn.id = "ownerAccessBtn";
-  accessBtn.className = "quickBtn";
-  accessBtn.type = "button";
-  accessBtn.innerHTML =
-    '<div class="quickLeft">' +
-      '<div class="quickIcon">🔐</div>' +
-      '<div class="quickText">' +
-        '<div class="quickTitle">Admin Panel</div>' +
-        '<div class="quickSub">Members • Requests • Approvals</div>' +
-      '</div>' +
-    '</div>' +
-    '<div class="quickArrow">›</div>';
-  accessBtn.addEventListener("click", function(){ location.href="/admin.html"; });
-  quickLaunch.prepend(accessBtn);
+  // Telegram may populate initDataUnsafe a moment after page load.
+  if(!user){
+    for(let i=0;i<12 && !user;i++){
+      await new Promise(r=>setTimeout(r,250));
+      user = window.Telegram?.WebApp?.initDataUnsafe?.user || null;
+    }
+  }
+
+  if(user && String(user.id) === "5496422260"){
+    button.style.display = "flex";
+  }
 }
 function applyOfficerProfile(){
 
@@ -2076,6 +2084,10 @@ function applyOfficerProfile(){
 
 /* Telegram can populate initDataUnsafe immediately or a moment later. */
 applyOfficerProfile();
+showOwnerAdminButton();
+setTimeout(showOwnerAdminButton,500);
+setTimeout(showOwnerAdminButton,1500);
+setTimeout(showOwnerAdminButton,3000);
 showOwnerAdminButton();
 setTimeout(showOwnerAdminButton, 500);
 setTimeout(showOwnerAdminButton, 1500);
