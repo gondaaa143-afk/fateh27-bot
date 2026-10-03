@@ -98,6 +98,8 @@ async function generate() {
 const markdown = await generate();
 
 fs.mkdirSync("data", { recursive: true });
+fs.mkdirSync("public/data", { recursive: true });
 fs.writeFileSync("data/current.md", markdown);
+fs.writeFileSync("public/data/current.md", markdown);
 
 console.log("Current Affairs generated.");
