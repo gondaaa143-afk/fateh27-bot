@@ -548,6 +548,12 @@ body{
   margin-top:15px;
 }
 
+/* HINDI TRANSLATION */
+.translationPanel{display:none;margin-top:12px;padding:15px;border-radius:18px;background:#f7f7f7;border:1px solid var(--line)}
+.translationPanel.open{display:block}
+.translationHeading{font-size:13px;font-weight:900;margin-bottom:10px}
+.translationLoading{font-size:12px;color:#777}
+.translationError{font-size:12px;color:#a11;font-weight:700}
 </style>
 </head>
 
@@ -1231,6 +1237,18 @@ function createArticle(article,index){
           ${isBookmarked ? "✓ Saved" : "＋ Save"}
         </button>
 
+        <button
+          class="utilityBtn"
+          id="translateBtn-${index}"
+          onclick="translateArticle(${index})">
+          हिंदी में पढ़ें
+        </button>
+
+      </div>
+
+      <div class="translationPanel" id="translation-${index}">
+        <div class="translationHeading">हिंदी अनुवाद</div>
+        <div id="translationContent-${index}"></div>
       </div>
 
       <div class="analysisPanel" id="${analysisId}">
@@ -1307,6 +1325,78 @@ function toggleAnalysis(index){
   button.setAttribute("aria-expanded",String(willOpen));
   button.innerText = willOpen ? "Hide Analysis" : "Read Analysis";
 
+}
+
+/* ---------------------------------------
+   HINDI TRANSLATION
+--------------------------------------- */
+
+async function translateArticle(index){
+
+  const article = articles[index];
+  const panel = document.getElementById("translation-" + index);
+  const content = document.getElementById("translationContent-" + index);
+  const button = document.getElementById("translateBtn-" + index);
+
+  if(!article || !panel || !content || !button) return;
+
+  const cacheKey = "fateh27_ca_hi_" + index + "_" + btoa(unescape(encodeURIComponent(article.title))).slice(0,24);
+  const cached = localStorage.getItem(cacheKey);
+
+  panel.classList.add("open");
+
+  if(cached){
+    content.innerHTML = sectionHTML("हिंदी अनुवाद", cached);
+    button.innerText = "✓ हिंदी";
+    return;
+  }
+
+  content.innerHTML = '<div class="translationLoading">हिंदी अनुवाद तैयार हो रहा है…</div>';
+  button.disabled = true;
+  button.innerText = "अनुवाद हो रहा है…";
+
+  try{
+    const tgInit = window.Telegram?.WebApp?.initData || sessionStorage.getItem("f27_tg_init_data") || "";
+    if(!tgInit) throw new Error("Telegram authentication required.");
+
+    const sourceText = [
+      "Title: " + article.title,
+      "Why in News?: " + article.why,
+      "What Happened?: " + article.what,
+      "Background: " + article.background,
+      "Prelims Focus: " + article.prelims,
+      "Mains Focus: " + article.mains,
+      "UPSC Syllabus Link: " + article.syllabus,
+      "Static Connection: " + article.staticLink,
+      "PYQ Connection: " + article.pyq,
+      "30-Second Revision: " + article.revision,
+      "Active Recall: " + article.recall
+    ].filter(Boolean).join("\n\n");
+
+    const response = await fetch("/api/translate",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+        "x-telegram-init-data":tgInit
+      },
+      body:JSON.stringify({text:sourceText,source:"en",target:"hi"})
+    });
+
+    const data = await response.json().catch(()=>({}));
+    if(!response.ok) throw new Error(data.detail || data.error || "Translation failed.");
+
+    const translation = String(data.translation || "").trim();
+    if(!translation) throw new Error("Translation returned empty output.");
+
+    localStorage.setItem(cacheKey, translation);
+    content.innerHTML = sectionHTML("हिंदी अनुवाद", translation);
+    button.innerText = "✓ हिंदी";
+  }catch(error){
+    content.innerHTML = '<div class="translationError">हिंदी अनुवाद उपलब्ध नहीं है। ' + escapeHtml(error.message || "") + '</div>';
+    button.innerText = "↻ Retry Hindi";
+  }finally{
+    button.disabled = false;
+  }
 }
 
 /* ---------------------------------------
