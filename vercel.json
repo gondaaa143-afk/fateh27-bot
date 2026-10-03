@@ -60,57 +60,5 @@
       "source": "/command-map",
       "destination": "/commander/index.html"
     }
-  ],
-  "redirects": [
-    {
-      "source": "/gs1.html",
-      "destination": "/gs1",
-      "permanent": false
-    },
-    {
-      "source": "/gs2.html",
-      "destination": "/gs2",
-      "permanent": false
-    },
-    {
-      "source": "/gs3.html",
-      "destination": "/gs3",
-      "permanent": false
-    },
-    {
-      "source": "/gs4.html",
-      "destination": "/gs4",
-      "permanent": false
-    },
-    {
-      "source": "/pyq.html",
-      "destination": "/pyq",
-      "permanent": false
-    },
-    {
-      "source": "/answer.html",
-      "destination": "/answer",
-      "permanent": false
-    },
-    {
-      "source": "/current-affairs.html",
-      "destination": "/current-affairs",
-      "permanent": false
-    },
-    {
-      "source": "/revision.html",
-      "destination": "/revision",
-      "permanent": false
-    },
-    {
-      "source": "/ai-secretary.html",
-      "destination": "/ai-secretary",
-      "permanent": false
-    },
-    {
-      "source": "/commander/index.html",
-      "destination": "/command-map",
-      "permanent": false
-    }
   ]
 }
