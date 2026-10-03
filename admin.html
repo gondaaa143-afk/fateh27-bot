@@ -5,85 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>FATEH27 • Access Control</title>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <style>
-    :root{
-      --bg:#f4f5f7;
-      --card:rgba(255,255,255,.82);
-      --line:rgba(15,23,42,.08);
-      --text:#111827;
-      --muted:#6b7280;
-      --black:#111;
-      --green:#16803c;
-      --red:#c62828;
-      --amber:#a16207;
-      --shadow:0 16px 45px rgba(15,23,42,.08);
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;min-height:100%;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:
-      radial-gradient(circle at 10% 0%,rgba(0,0,0,.05),transparent 28%),
-      radial-gradient(circle at 100% 10%,rgba(0,0,0,.04),transparent 25%),var(--bg)}
-    body{padding:18px 14px 35px}
-    button{font:inherit}
-    .app{width:min(1120px,100%);margin:auto}
-    .top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
-    .brand{display:flex;align-items:center;gap:11px}
-    .logo{width:44px;height:44px;border-radius:14px;background:#111;color:#fff;display:grid;place-items:center;font-weight:900;font-size:12px;box-shadow:0 8px 20px rgba(0,0,0,.14)}
-    h1{font-size:23px;margin:0 0 3px;font-weight:900}
-    .sub{font-size:12px;color:var(--muted)}
-    .owner{font-size:11px;font-weight:800;padding:8px 10px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.75)}
-    .hero{background:linear-gradient(145deg,rgba(255,255,255,.92),rgba(235,236,239,.78));border:1px solid var(--line);border-radius:24px;padding:20px;box-shadow:var(--shadow);margin-bottom:16px}
-    .heroTitle{font-size:13px;text-transform:uppercase;letter-spacing:1.3px;font-weight:900;color:#555}
-    .heroText{font-size:25px;font-weight:900;margin-top:6px}
-    .heroHint{font-size:12px;color:var(--muted);margin-top:7px}
-    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
-    .stat{background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:17px;padding:14px}
-    .stat b{display:block;font-size:25px;line-height:1.1}
-    .stat span{display:block;color:var(--muted);font-size:11px;font-weight:700;margin-top:5px}
-    .toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:20px 0 10px}
-    .sectionTitle{font-size:17px;font-weight:900}
-    .refresh{border:0;background:#111;color:#fff;border-radius:12px;padding:10px 14px;font-size:12px;font-weight:800;cursor:pointer}
-    .refresh:disabled{opacity:.6}
-    .panel{background:var(--card);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:16px}
-    .panelHead{padding:15px 17px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:10px}
-    .panelHead strong{font-size:14px}
-    .count{font-size:11px;font-weight:800;color:var(--muted)}
-    .list{padding:10px}
-    .row{display:grid;grid-template-columns:minmax(220px,1.5fr) minmax(150px,1fr) minmax(120px,.8fr) auto;gap:12px;align-items:center;padding:13px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.66);margin-bottom:8px}
-    .person{display:flex;align-items:center;gap:10px;min-width:0}
-    .avatar{width:40px;height:40px;border-radius:13px;background:#111;color:#fff;display:grid;place-items:center;font-weight:900;overflow:hidden;flex:0 0 40px}
-    .avatar img{width:100%;height:100%;object-fit:cover}
-    .name{font-size:13px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .username,.meta{font-size:11px;color:var(--muted);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .badge{display:inline-flex;align-items:center;border-radius:999px;padding:6px 8px;font-size:10px;font-weight:900}
-    .pending{background:#fff7df;color:var(--amber)}
-    .approved{background:#eaf8ef;color:var(--green)}
-    .rejected{background:#fdecec;color:var(--red)}
-    .actions{display:flex;gap:7px;justify-content:flex-end}
-    .action{border:0;border-radius:10px;padding:9px 11px;font-size:11px;font-weight:900;cursor:pointer}
-    .approve{background:#111;color:#fff}
-    .reject{background:#eee;color:#111}
-    .empty{padding:30px 15px;text-align:center;color:var(--muted);font-size:12px}
-    .loading{padding:28px;text-align:center;color:var(--muted);font-size:12px}
-    .error{margin:12px 0;padding:12px 14px;border-radius:13px;background:#fdecec;color:#9f1d1d;font-size:12px;font-weight:700;display:none}
-    .memberGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;padding:10px}
-    .member{padding:13px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.66)}
-    .memberTop{display:flex;justify-content:space-between;gap:8px}
-    .memberStats{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
-    .pill{font-size:10px;font-weight:800;color:#555;background:#f0f1f3;border-radius:999px;padding:6px 8px}
-    .footer{text-align:center;color:#9ca3af;font-size:10px;margin-top:18px}
-    @media(max-width:760px){
-      body{padding:12px 10px 28px}
-      .top{align-items:flex-start}
-      .owner{display:none}
-      h1{font-size:20px}
-      .stats{grid-template-columns:repeat(2,1fr)}
-      .row{grid-template-columns:1fr;gap:9px}
-      .actions{justify-content:stretch}
-      .action{flex:1}
-      .memberGrid{grid-template-columns:1fr}
-      .heroText{font-size:21px}
-    }
-  </style>
+  <style>:root{--bg:#f3f3f1;--ink:#111;--line:rgba(17,17,17,.09);--muted:#777}*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Arial,sans-serif;color:var(--ink);background:radial-gradient(circle at 8% 0%,rgba(0,0,0,.045),transparent 28%),radial-gradient(circle at 100% 18%,rgba(0,0,0,.035),transparent 25%),var(--bg)}body{padding:16px 13px 34px}button,input{font:inherit}.app{width:min(1100px,100%);margin:auto}#adminLock{min-height:60vh;display:grid;place-items:center;text-align:center;font-weight:800;color:#777}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}.brand{display:flex;align-items:center;gap:12px}.logo{width:48px;height:48px;border-radius:16px;background:#111;color:#fff;display:grid;place-items:center;font-weight:900}.topActions{display:flex;gap:8px}.topAction{border:1px solid var(--line);background:#fff;border-radius:17px;padding:10px 13px;font-weight:800}.owner{font-size:10px;font-weight:900;padding:8px 11px;border-radius:999px;background:#111;color:#fff}h1{font-size:23px;margin:0 0 5px;font-weight:900}.sub{font-size:12px;color:#777}.hero{position:relative;overflow:hidden;background:#111;color:#fff;border-radius:30px;padding:30px;margin-bottom:18px;box-shadow:0 22px 50px #0002}.hero:after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;right:-90px;top:-100px;border:1px solid #fff1}.heroTitle{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#aaa;font-weight:900}.heroText{font-size:36px;line-height:1.05;font-weight:900;margin-top:8px}.heroHint{font-size:14px;color:#aaa;margin-top:12px;max-width:570px}.heroBadge{display:inline-flex;margin-top:18px;background:#fff;color:#111;border-radius:999px;padding:9px 13px;font-size:11px;font-weight:900}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:24px}.stat{background:#1b1b1b;border-radius:19px;padding:15px}.stat b{display:block;font-size:27px}.stat span{color:#999;font-size:11px}.toolbar{display:flex;justify-content:space-between;align-items:center;margin:24px 2px 11px}.sectionTitle{font-size:19px;font-weight:900}.count{font-size:11px;color:#888;font-weight:800}.refresh{border:0;background:#111;color:#fff;border-radius:14px;padding:10px 14px;font-size:11px;font-weight:900}.search{display:flex;gap:9px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:20px;padding:13px 15px;margin-bottom:12px}.search input{width:100%;border:0;outline:0}.panel{background:#fffffff0;border:1px solid var(--line);border-radius:25px;box-shadow:0 18px 45px #1111;overflow:hidden;margin-bottom:18px}.panelHead{padding:17px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between}.list,.memberGrid{padding:10px}.row{display:grid;grid-template-columns:1.5fr 1fr .8fr auto;gap:12px;align-items:center;padding:14px;border:1px solid var(--line);border-radius:18px;background:#fff;margin-bottom:8px}.person{display:flex;align-items:center;gap:11px;min-width:0}.avatar{width:44px;height:44px;border-radius:14px;background:#111;color:#fff;display:grid;place-items:center;font-weight:900;overflow:hidden;flex:none}.avatar img{width:100%;height:100%;object-fit:cover}.name{font-size:13px;font-weight:900}.username,.meta{font-size:11px;color:#777;margin-top:3px}.actions{display:flex;gap:7px}.action{border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:11px;font-weight:900}.approve{background:#111;color:#fff}.reject{background:#eee}.badge{display:inline-flex;border-radius:999px;padding:6px 9px;font-size:10px;font-weight:900}.approved{background:#eaf5ee;color:#287744}.member{padding:17px;border:1px solid var(--line);border-radius:20px;background:#fff;margin-bottom:9px}.memberTop{display:flex;justify-content:space-between}.memberStats{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.pill{font-size:10px;background:#f0f0ef;border-radius:999px;padding:7px 9px}.empty,.loading{padding:32px;text-align:center;color:#888;font-size:12px}.error{padding:13px;border-radius:15px;background:#fdecec;color:#9f1d1d;font-size:12px;font-weight:800;display:none}.footer{text-align:center;color:#aaa;font-size:10px;margin-top:20px}@media(max-width:760px){body{padding:12px 10px}.owner{display:none}h1{font-size:21px}.hero{padding:25px}.heroText{font-size:31px}.stats{grid-template-columns:repeat(2,1fr)}.row{grid-template-columns:1fr}.actions{justify-content:stretch}.action{flex:1}}</style>
 </head>
 <body>
 <div id="adminLock">Checking owner access…</div>
@@ -92,11 +14,11 @@
     <div class="brand">
       <div class="logo">F27</div>
       <div>
-        <h1>Access Control</h1>
-        <div class="sub">FATEH27 • Members & Approvals</div>
+        <h1>Administration</h1>
+        <div class="sub">FATEH27 • Command Center</div>
       </div>
     </div>
-    <div class="owner">OWNER ACCESS</div>
+    <div class="topActions"><button class="topAction" type="button" onclick="load()">↻<br><small>Refresh</small></button><div class="owner">OWNER</div></div>
   </header>
 
   <section class="hero">
@@ -105,10 +27,10 @@
     <div class="heroHint">Review join requests and see everyone who has been approved.</div>
 
     <div class="stats">
-      <div class="stat"><b id="totalUsers">—</b><span>Total Approved</span></div>
-      <div class="stat"><b id="pendingUsers">—</b><span>Pending Requests</span></div>
-      <div class="stat"><b id="rejectedUsers">—</b><span>Rejected Requests</span></div>
-      <div class="stat"><b id="premiumUsers">—</b><span>Premium Users</span></div>
+      <div class="stat"><b id="totalUsers">—</b><span>Total Users</span></div>
+      <div class="stat"><b id="pendingUsers">—</b><span>Pending</span></div>
+      <div class="stat"><b id="rejectedUsers">—</b><span>Rejected</span></div>
+      <div class="stat"><b id="premiumUsers">—</b><span>Premium</span></div>
     </div>
   </section>
 
@@ -130,9 +52,10 @@
   </section>
 
   <div class="toolbar">
-    <div class="sectionTitle">Approved Members</div>
+    <div class="sectionTitle">Joined Users</div>
     <span id="memberCount" class="count">0 members</span>
   </div>
+  <div class="search"><span>⌕</span><input id="memberSearch" type="search" placeholder="Search name, username or Telegram ID…"></div>
 
   <section class="panel">
     <div id="membersList" class="memberGrid">
@@ -164,6 +87,7 @@
   "use strict";
 
   const $ = (id) => document.getElementById(id);
+  let allMembers=[];
 
   function esc(value){
     return String(value ?? "").replace(/[&<>"']/g, ch => ({
@@ -289,6 +213,9 @@
   }
 
   function renderMembers(members){
+    allMembers=members;
+    const q=String($("memberSearch")?.value||"").toLowerCase().trim();
+    if(q) members=members.filter(item=>[nameOf(item),item.username,item.telegramId,item.id,item.plan].filter(Boolean).join(" ").toLowerCase().includes(q));
     $("memberCount").textContent = members.length + (members.length === 1 ? " member" : " members");
 
     if(!members.length){
@@ -372,6 +299,7 @@
   }
 
   $("refreshBtn").addEventListener("click", load);
+  $("memberSearch").addEventListener("input",()=>renderMembers(allMembers));
 
   $("requestsList").addEventListener("click", function(event){
     const button = event.target.closest("[data-action]");
