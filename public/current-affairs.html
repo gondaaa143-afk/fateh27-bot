@@ -1087,20 +1087,19 @@ function renderArticles(){
 
 function createArticle(article,index){
 
-  const isRevised =
-    revised.includes(index);
-
+  const isRevised = revised.includes(index);
+  const isImportant = important.includes(index);
+  const isBookmarked = bookmarked.includes(index);
 
   const priorityClass =
-    article.priority
-      .toUpperCase() === "HIGH"
+    String(article.priority || "").toUpperCase() === "HIGH"
       ? "priority high"
       : "priority";
 
+  const analysisId = "analysis-" + index;
 
   return `
-
-    <article class="article">
+    <article class="article" id="article-${index}">
 
       <div class="articleTop">
 
@@ -1113,250 +1112,179 @@ function createArticle(article,index){
         </div>
 
         <div class="${priorityClass}">
-          ${escapeHtml(
-            article.priority || "UPSC"
-          )}
+          ${escapeHtml(article.priority || "UPSC")}
         </div>
 
       </div>
-
 
       <div class="meta">
-
         <div class="tag">
-          ${escapeHtml(
-            article.category || "UPSC"
-          )}
+          ${escapeHtml(article.category || "UPSC")}
         </div>
-
         <div class="tag">
-          ${escapeHtml(
-            article.source || "Source"
-          )}
+          ${escapeHtml(article.source || "Source")}
         </div>
+      </div>
+
+      <div class="analysisTools">
+
+        <button
+          class="analysisBtn"
+          id="analysisBtn-${index}"
+          onclick="toggleAnalysis(${index})"
+          aria-expanded="false"
+          aria-controls="${analysisId}">
+          Read Analysis
+        </button>
+
+        <button
+          class="utilityBtn ${isImportant ? "active" : ""}"
+          onclick="toggleImportant(${index})">
+          ${isImportant ? "★ Important" : "☆ Important"}
+        </button>
+
+        <button
+          class="utilityBtn ${isBookmarked ? "active" : ""}"
+          onclick="toggleBookmark(${index})">
+          ${isBookmarked ? "✓ Saved" : "＋ Save"}
+        </button>
+
+        <button
+          class="utilityBtn"
+          id="translateBtn-${index}"
+          onclick="translateArticle(${index})">
+          हिंदी में पढ़ें
+        </button>
 
       </div>
 
+      <div class="translationPanel" id="translation-${index}">
+        <div class="translationHeading">हिंदी अनुवाद</div>
+        <div id="translationContent-${index}"></div>
+      </div>
 
-      ${sectionHTML(
-        "Why in News?",
-        article.why
-      )}
+      <div class="analysisPanel" id="${analysisId}">
 
-      ${sectionHTML(
-        "What Happened?",
-        article.what
-      )}
+        <div class="analysisHeader">
+          <div class="analysisHeading">UPSC Analysis</div>
+          <div class="analysisHint">Prelims + Mains</div>
+        </div>
 
-      ${sectionHTML(
-        "Background",
-        article.background
-      )}
+        ${sectionHTML("Why in News?",article.why)}
+        ${sectionHTML("What Happened?",article.what)}
+        ${sectionHTML("Background",article.background)}
+        ${sectionHTML("Prelims Focus",article.prelims)}
+        ${sectionHTML("Mains Focus",article.mains)}
+        ${sectionHTML("UPSC Syllabus",article.syllabus)}
+        ${sectionHTML("Static Connection",article.staticLink)}
+        ${sectionHTML("PYQ Connection",article.pyq)}
+        ${sectionHTML("30-Second Revision",article.revision)}
 
-      ${sectionHTML(
-        "Prelims Focus",
-        article.prelims
-      )}
-
-      ${sectionHTML(
-        "Mains Focus",
-        article.mains
-      )}
-
-      ${sectionHTML(
-        "UPSC Syllabus",
-        article.syllabus
-      )}
-
-      ${sectionHTML(
-        "Static Connection",
-        article.staticLink
-      )}
-
-      ${sectionHTML(
-        "PYQ Connection",
-        article.pyq
-      )}
-
-      ${sectionHTML(
-        "30-Second Revision",
-        article.revision
-      )}
-
+      </div>
 
       <div class="recall">
-
         <div class="recallTitle">
           Active Recall
         </div>
-
         <div class="recallQuestion">
           ${escapeHtml(
-            article.recall ||
-            "Revise this topic."
+            article.recall || "Revise this topic."
           )}
         </div>
-
       </div>
 
-
-      <div class="actions">
+      <div class="articleFooter">
 
         <button
           class="actionBtn ${isRevised ? "revised" : ""}"
           onclick="markRevised(${index})">
-
-          ${
-            isRevised
-            ? "✓ Revised +10 XP"
-            : "Mark Revised +10 XP"
-          }
-
+          ${isRevised ? "✓ Revised +10 XP" : "Mark Revised +10 XP"}
         </button>
-
 
         ${
           article.url
-          ?
-          `
+          ? `
           <button
             class="actionBtn"
-            onclick="window.open(
-              '${escapeAttr(article.url)}',
-              '_blank'
-            )">
-
+            onclick="window.open('${escapeAttr(article.url)}','_blank')">
             Source ↗
-
           </button>
           `
-          :
-          ""
+          : ""
         }
 
       </div>
 
     </article>
-
   `;
-
 }
 
+async function translateArticle(index){
 
-/* ---------------------------------------
-   SECTION HTML
---------------------------------------- */
+  const article = articles[index];
+  const panel = document.getElementById("translation-" + index);
+  const content = document.getElementById("translationContent-" + index);
+  const button = document.getElementById("translateBtn-" + index);
 
-function sectionHTML(title,text){
+  if(!article || !panel || !content || !button) return;
 
-  if(!text){
-    return "";
-  }
+  const cacheKey = "fateh27_ca_hi_" + index + "_" + btoa(unescape(encodeURIComponent(article.title))).slice(0,24);
+  const cached = localStorage.getItem(cacheKey);
 
-  return `
+  panel.classList.add("open");
 
-    <div class="section">
-
-      <div class="sectionTitle">
-        ${title}
-      </div>
-
-      <div class="sectionText">
-        ${escapeHtml(text)}
-      </div>
-
-    </div>
-
-  `;
-
-}
-
-
-/* ---------------------------------------
-   REVISED
---------------------------------------- */
-
-function markRevised(index){
-
-  if(revised.includes(index)){
+  if(cached){
+    content.innerHTML = sectionHTML("हिंदी अनुवाद", cached);
+    button.innerText = "✓ हिंदी";
     return;
   }
 
+  content.innerHTML = '<div class="translationLoading">हिंदी अनुवाद तैयार हो रहा है…</div>';
+  button.disabled = true;
+  button.innerText = "अनुवाद हो रहा है…";
 
-  revised.push(index);
+  try{
+    const tgInit = window.Telegram?.WebApp?.initData || sessionStorage.getItem("f27_tg_init_data") || "";
+    if(!tgInit) throw new Error("Telegram authentication required.");
 
-  xp += 10;
+    const sourceText = [
+      "Title: " + article.title,
+      "Why in News?: " + article.why,
+      "What Happened?: " + article.what,
+      "Background: " + article.background,
+      "Prelims Focus: " + article.prelims,
+      "Mains Focus: " + article.mains,
+      "UPSC Syllabus Link: " + article.syllabus,
+      "Static Connection: " + article.staticLink,
+      "PYQ Connection: " + article.pyq,
+      "30-Second Revision: " + article.revision,
+      "Active Recall: " + article.recall
+    ].filter(Boolean).join("\n\n");
 
+    const response = await fetch("/api/translate",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+        "x-telegram-init-data":tgInit
+      },
+      body:JSON.stringify({text:sourceText,source:"en",target:"hi"})
+    });
 
-  localStorage.setItem(
-    "fateh27_ca_revised",
-    JSON.stringify(revised)
-  );
+    const data = await response.json().catch(()=>({}));
+    if(!response.ok) throw new Error(data.detail || data.error || "Translation failed.");
 
+    const translation = String(data.translation || "").trim();
+    if(!translation) throw new Error("Translation returned empty output.");
 
-  localStorage.setItem(
-    "fateh27_ca_xp",
-    xp
-  );
-
-
-  updateStats();
-
-  renderArticles();
-
+    localStorage.setItem(cacheKey, translation);
+    content.innerHTML = sectionHTML("हिंदी अनुवाद", translation);
+    button.innerText = "✓ हिंदी";
+  }catch(error){
+    content.innerHTML = '<div class="translationError">हिंदी अनुवाद उपलब्ध नहीं है। ' + escapeHtml(error.message || "") + '</div>';
+    button.innerText = "↻ Retry Hindi";
+  }finally{
+    button.disabled = false;
+  }
 }
 
 
-/* ---------------------------------------
-   STATS
---------------------------------------- */
-
-function updateStats(){
-
-  document.getElementById(
-    "revisedCount"
-  ).innerText = revised.length;
-
-
-  document.getElementById(
-    "xpCount"
-  ).innerText = xp;
-
-}
-
-
-/* ---------------------------------------
-   ESCAPE
---------------------------------------- */
-
-function escapeHtml(value){
-
-  return String(value || "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-
-}
-
-
-function escapeAttr(value){
-
-  return String(value || "")
-    .replace(/'/g,"%27")
-    .replace(/"/g,"%22");
-
-}
-
-
-/* ---------------------------------------
-   START
---------------------------------------- */
-
-loadCurrentAffairs();
-
-</script>
-
-</body>
-</html>
