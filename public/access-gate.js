@@ -2,6 +2,8 @@
   "use strict";
 
   function boot(){
+    // SAMBHAV standalone mode: never require Telegram auth.
+    if(new URLSearchParams(location.search).get("sambhav")==="1") return;
     const tg=window.Telegram?.WebApp || null;
     if(document.getElementById("f27AccessGate")) return;
 
