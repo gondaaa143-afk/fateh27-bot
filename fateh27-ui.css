@@ -1,0 +1,116 @@
+/* FATEH27 MASTER UI — Moya-inspired cream / olive design language */
+:root{
+  --f27-bg:#eee7d8;
+  --f27-surface:#f8f3e8;
+  --f27-card:#fffaf0;
+  --f27-card-2:#e8e0cf;
+  --f27-olive:#4d5238;
+  --f27-olive-2:#3f442f;
+  --f27-ink:#26271f;
+  --f27-muted:#777466;
+  --f27-line:rgba(64,66,48,.13);
+  --f27-shadow:0 14px 34px rgba(56,52,38,.10);
+  --f27-radius:22px;
+  --f27-pill:999px;
+}
+html{background:var(--f27-bg)!important}
+body{
+  background:
+    radial-gradient(circle at 12% 8%,rgba(90,92,60,.09),transparent 28%),
+    radial-gradient(circle at 88% 30%,rgba(132,117,76,.08),transparent 30%),
+    linear-gradient(180deg,#f5f0e5 0%,var(--f27-bg) 100%)!important;
+  color:var(--f27-ink)!important;
+}
+body:before{background:transparent!important}
+button,input,textarea,select{font-family:inherit}
+.wrap,.app{max-width:720px!important}
+.panel,.card,.hero,.subject,.secretary,.section-card,.box,.feature,.module,.tile,.item-card{
+  background:rgba(255,250,240,.88)!important;
+  border:1px solid var(--f27-line)!important;
+  border-radius:var(--f27-radius)!important;
+  box-shadow:var(--f27-shadow)!important;
+  backdrop-filter:blur(18px)!important;
+  -webkit-backdrop-filter:blur(18px)!important;
+}
+button,.action,.filter,.chip,.tab,.pill{
+  border-radius:14px;
+}
+input,textarea,select{
+  background:rgba(255,252,246,.95)!important;
+  border:1px solid var(--f27-line)!important;
+  color:var(--f27-ink)!important;
+  border-radius:15px!important;
+}
+button.primary,.primary,.send,.add,.approve,.cta,.btn-primary{
+  background:var(--f27-olive)!important;
+  color:#fff!important;
+  border-color:var(--f27-olive)!important;
+  box-shadow:0 8px 18px rgba(63,68,47,.18)!important;
+}
+button.primary:hover,.primary:hover,.send:hover,.add:hover,.approve:hover,.cta:hover,.btn-primary:hover{background:var(--f27-olive-2)!important}
+.back,.backBtn,.settings,.topAction,.iconAction{
+  background:rgba(255,250,240,.9)!important;
+  color:var(--f27-olive-2)!important;
+  border:1px solid var(--f27-line)!important;
+}
+.badge,.status,.heroBadge{
+  background:var(--f27-olive)!important;
+  color:#fff!important;
+}
+.brand,.logo,.logoText{
+  color:var(--f27-olive-2)!important;
+}
+.logo{
+  background:var(--f27-olive)!important;
+  color:#fff!important;
+}
+h1,h2,h3,.sectionTitle,.topic,.heading h1{
+  color:var(--f27-olive-2)!important;
+}
+.sub,.small,.muted,.meta,.username,.count{color:var(--f27-muted)!important}
+.filters{scrollbar-width:none}
+.filter,.tab,.chip{
+  background:#e4ddcd!important;
+  color:var(--f27-olive-2)!important;
+  border:1px solid var(--f27-line)!important;
+}
+.filter.active,.tab.active,.chip.active{
+  background:var(--f27-olive)!important;
+  color:#fff!important;
+}
+.bottom,.navBar,.bottomNav{
+  background:rgba(245,239,227,.94)!important;
+  border:1px solid var(--f27-line)!important;
+  box-shadow:0 12px 34px rgba(56,52,38,.16)!important;
+  backdrop-filter:blur(22px)!important;
+  -webkit-backdrop-filter:blur(22px)!important;
+}
+.nav,.navItem,.bottom a{
+  color:#777466!important;
+}
+.nav.active,.navItem.active,.bottom a.active{
+  background:var(--f27-olive)!important;
+  color:#fff!important;
+}
+.paper{
+  background:#f7f1e3!important;
+  color:#29291f!important;
+  border-color:#d8cfbc!important;
+}
+.paper:before{color:#29291f!important;border-color:#29291f!important}
+.listen{background:#ebe3d3!important;border-color:var(--f27-line)!important}
+.play{background:var(--f27-olive)!important}
+.kicker,.eyebrow,.label{color:var(--f27-olive)!important}
+.kicker:before{background:var(--f27-olive)!important}
+.callout{background:#e9e1d1!important;border-left-color:var(--f27-olive)!important;color:var(--f27-ink)!important}
+.text,.points{color:#48483d!important}
+.hero{background:var(--f27-olive)!important;color:#fff!important}
+.heroTitle,.heroHint{color:#dcd8c9!important}
+.stat{background:rgba(255,250,240,.08)!important;border-color:rgba(255,255,255,.08)!important}
+.search{background:rgba(255,250,240,.9)!important;border-color:var(--f27-line)!important}
+.row{background:rgba(255,250,240,.92)!important;border-color:var(--f27-line)!important}
+.panelHead{border-color:var(--f27-line)!important}
+.action.reject{background:#e7e0d3!important;color:var(--f27-ink)!important}
+@media(max-width:480px){
+  .wrap{padding-left:14px!important;padding-right:14px!important}
+}
