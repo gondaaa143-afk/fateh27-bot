@@ -926,18 +926,14 @@ app.post(
       }
 
 
-      if (
-        source !== "en" ||
-        target !== "hi"
-      ) {
-
+      if (isEditorial) {
+        if (!((source === "hi" && target === "en") || (source === "en" && target === "hi"))) {
+          return res.status(400).json({ error: "Editorial translation supports Hindi ↔ English only." });
+        }
+      } else if (source !== "en" || target !== "hi") {
         return res.status(400).json({
-
-          error:
-            "Only English to Hindi translation is enabled."
-
+          error: "Only English to Hindi translation is enabled."
         });
-
       }
 
 
@@ -968,15 +964,14 @@ app.post(
                     (isEditorial
                       ? `
 You are an expert UPSC editorial translator for FATEH27.
-
-Translate the supplied English The Hindu editorial analysis into natural, precise UPSC-level Hindi.
+Translate the supplied The Hindu editorial analysis from ${source === "hi" ? "Hindi to English" : "English to Hindi"}.
 
 STRICT RULES:
 1. Translate every supplied field; do not summarize, omit, answer, or add facts.
 2. Preserve names, dates, institutions, constitutional/legal and technical terminology.
 3. Preserve the analytical meaning and structure.
-4. Keep standard English technical terms in parentheses where useful.
-5. Output ONLY the translated fields using EXACTLY these English labels, one per line/paragraph:
+4. Keep standard English technical terms where useful.
+5. Output ONLY these exact field labels:
 TITLE:
 WHY IN NEWS?:
 WHAT HAPPENED?:
@@ -988,7 +983,7 @@ STATIC CONNECTION:
 PYQ CONNECTION:
 30-SECOND REVISION:
 ACTIVE RECALL:
-6. The values after the labels must be Hindi only, except necessary proper nouns/standard technical terms.
+6. Translate the values fully into the target language.
 7. Do not write any introduction or explanation outside these fields.
 `.trim()
                       : `
@@ -1019,19 +1014,6 @@ Output ONLY the Hindi translation.
 `.trim())
 
                 }
-
-              ]
-
-            },
-
-
-            {
-              role:
-                "user",
-
-              content: [
-
-                {
 
                   type:
                     "input_text",
