@@ -120,16 +120,16 @@ export default function PremiumPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#F4F4F4] pb-10">
-      <div className="max-w-md mx-auto px-5 pt-6">
+    <main className="min-h-screen bg-[#eee7d8] text-[#26271f] pb-10">
+      <div className="max-w-md mx-auto px-4 pt-5">
         <button
           onClick={() => router.push("/dashboard")}
-          className="text-sm text-[#666] mb-6"
+          className="text-sm text-[#4d5238] mb-5 font-semibold"
         >
           ← Dashboard
         </button>
 
-        <div className="hero-card p-6">
+        <div className="rounded-[26px] bg-[#4d5238] text-white p-6 shadow-[0_18px_42px_rgba(56,52,38,.16)]">
           <p className="text-white/60 text-sm">FATEH27 Membership</p>
           <h1 className="text-3xl font-black mt-2">Premium</h1>
           <p className="text-white/70 text-sm mt-3">
@@ -137,7 +137,7 @@ export default function PremiumPage() {
           </p>
 
           {premium && (
-            <div className="mt-5 bg-white/10 rounded-2xl p-4">
+            <div className="mt-5 bg-white/10 rounded-2xl p-4 border border-white/10">
               <p className="text-xs text-white/60">Current status</p>
               <p className="font-bold mt-1">Premium Active</p>
               {endsAt && (
@@ -149,7 +149,7 @@ export default function PremiumPage() {
           )}
         </div>
 
-        <div className="mt-6 glass rounded-[30px] p-6">
+        <div className="mt-5 rounded-[26px] bg-[#fffaf0] border border-[#4d5238]/10 p-6 shadow-[0_14px_34px_rgba(56,52,38,.10)]">
           <p className="text-xs font-semibold text-[#666] uppercase tracking-wide">Premium includes</p>
 
           <div className="mt-4 space-y-3">
@@ -160,7 +160,7 @@ export default function PremiumPage() {
               "Server-verified access"
             ].map((item) => (
               <div key={item} className="flex gap-3 items-center">
-                <span className="w-7 h-7 rounded-full bg-black text-white flex items-center justify-center text-xs">✓</span>
+                <span className="w-7 h-7 rounded-full bg-[#4d5238] text-white flex items-center justify-center text-xs">✓</span>
                 <span className="text-sm font-medium">{item}</span>
               </div>
             ))}
@@ -177,13 +177,13 @@ export default function PremiumPage() {
                 inputMode="numeric"
                 autoComplete="tel"
                 placeholder="10-digit mobile number"
-                className="w-full rounded-[16px] border border-black/10 bg-white px-4 py-3 outline-none"
+                className="w-full rounded-[16px] border border-[#4d5238]/15 bg-[#fffdf7] px-4 py-3 outline-none text-[#26271f]"
               />
 
               <button
                 onClick={startPayment}
                 disabled={paying || status !== "ready"}
-                className="w-full mt-4 rounded-[18px] bg-black text-white py-3 font-bold disabled:opacity-40"
+                className="w-full mt-4 rounded-[18px] bg-[#4d5238] text-white py-3 font-bold disabled:opacity-40 shadow-[0_8px_18px_rgba(63,68,47,.18)]"
               >
                 {paying ? "Opening Payment..." : "Pay Securely with UPI"}
               </button>
