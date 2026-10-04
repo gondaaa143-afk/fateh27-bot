@@ -11,7 +11,7 @@
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
 <style>
-:root{--bg:#f3f3f1;--ink:#111;--muted:#777;--line:rgba(17,17,17,.08)}*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Arial,sans-serif;color:var(--ink);background:radial-gradient(circle at 8% 0%,rgba(0,0,0,.045),transparent 28%),radial-gradient(circle at 100% 15%,rgba(0,0,0,.035),transparent 25%),var(--bg)}.container{width:min(1120px,100%);margin:auto;padding:14px 16px 112px}.backBtn{position:sticky;top:10px;z-index:200;border:1px solid var(--line);background:#ffffffe8;padding:11px 17px;border-radius:999px;font-size:13px;font-weight:900;box-shadow:0 10px 25px #0001;margin-bottom:18px}.header{display:flex;align-items:center;margin-bottom:18px}.brand{display:flex;align-items:center;gap:12px}.brandIcon{width:50px;height:50px;border-radius:17px;background:#111;color:#fff;display:grid;place-items:center;font-size:23px;box-shadow:0 12px 28px #0002}.brandTitle{font-size:25px;font-weight:900;letter-spacing:-.8px}.brandSub{color:#777;font-size:12px;margin-top:3px}.hero{position:relative;overflow:hidden;background:#111;color:#fff;border-radius:30px;padding:28px;margin-bottom:18px;box-shadow:0 24px 55px #0002}.hero:after{content:"";position:absolute;width:270px;height:270px;border-radius:50%;right:-105px;top:-120px;border:1px solid #fff1;box-shadow:0 0 0 48px #fff1,0 0 0 96px #fff0}.heroTop{position:relative;z-index:1;display:flex;justify-content:space-between;gap:15px;align-items:flex-start}.heroTitle{font-size:30px;font-weight:900;letter-spacing:-1px}.heroSub{color:#aaa;margin-top:7px;font-size:14px}.datePill{background:#292929;border:1px solid #fff1;padding:9px 13px;border-radius:999px;font-size:11px}.stats{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:24px}.stat{background:#1b1b1b;border-radius:18px;padding:14px}.statValue{font-size:21px;font-weight:900}.statLabel{color:#999;font-size:10px;margin-top:4px;font-weight:700}.searchBox{background:#ffffffe8;border:1px solid var(--line);border-radius:21px;padding:14px 16px;display:flex;align-items:center;gap:10px;margin-bottom:12px;box-shadow:0 9px 25px #0001}.searchBox input{width:100%;border:0;outline:0;background:transparent;font-size:15px}.filters{display:flex;gap:8px;overflow-x:auto;padding:3px 0 7px;margin-bottom:17px;scrollbar-width:none}.filters::-webkit-scrollbar{display:none}.filter{flex:0 0 auto;border:1px solid var(--line);background:#fff;color:#555;padding:10px 15px;border-radius:999px;font-size:11px;font-weight:900}.filter.active{background:#111;color:#fff;border-color:#111}#content{display:flex;flex-direction:column;gap:13px}.article{background:#ffffffe8;border:1px solid var(--line);border-radius:25px;padding:19px;box-shadow:0 10px 30px #0001}.articleTop{display:flex;justify-content:space-between;gap:11px;align-items:flex-start}.articleNumber{width:34px;height:34px;border-radius:12px;background:#111;color:#fff;display:grid;place-items:center;font-size:12px;font-weight:900;flex:none}.articleTitle{flex:1;font-size:18px;font-weight:900;line-height:1.35}.priority{padding:6px 9px;border-radius:999px;font-size:9px;font-weight:900;background:#eee}.priority.high{background:#111;color:#fff}.meta{display:flex;flex-wrap:wrap;gap:7px;margin:11px 0 14px 45px}.tag{background:#f0f0ef;padding:6px 9px;border-radius:999px;font-size:10px;font-weight:800;color:#555}.analysisTools{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px}.analysisBtn,.utilityBtn{border:1px solid var(--line);background:#f0f0ef;color:#111;padding:10px 12px;border-radius:13px;font-size:10px;font-weight:900}.analysisBtn.open,.utilityBtn.active{background:#111;color:#fff}.analysisPanel,.translationPanel{display:none;margin-top:12px;padding:15px;border-radius:19px;background:#f7f7f6;border:1px solid var(--line)}.analysisPanel.open,.translationPanel.open{display:block}.analysisHeader{display:flex;justify-content:space-between}.analysisHeading,.translationHeading{font-size:13px;font-weight:900}.analysisHint,.translationLoading{font-size:10px;color:#777}.translationError{font-size:12px;color:#a11;font-weight:800}.section{border-top:1px solid var(--line);padding-top:13px;margin-top:13px}.sectionTitle{font-size:11px;font-weight:900;text-transform:uppercase;color:#555;margin-bottom:6px}.sectionText{font-size:13px;line-height:1.7;white-space:pre-wrap}.recall{background:#111;color:#fff;border-radius:18px;padding:15px;margin-top:14px}.recallTitle{font-size:10px;color:#aaa;font-weight:900;text-transform:uppercase;margin-bottom:7px}.recallQuestion{font-size:13px;line-height:1.6}.articleFooter{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px}.actionBtn{border:0;background:#eee;padding:10px 12px;border-radius:13px;font-size:10px;font-weight:900}.actionBtn.revised{background:#111;color:#fff}.loading{background:#fff;border-radius:24px;padding:34px;text-align:center;color:#777}.error{background:#111;color:#fff;border-radius:22px;padding:24px}.bottomNav{position:fixed;bottom:15px;left:50%;transform:translateX(-50%);width:min(540px,calc(100% - 28px));background:#ffffffe8;backdrop-filter:blur(25px);border:1px solid var(--line);box-shadow:0 16px 38px #0002;border-radius:28px;padding:7px;display:flex;justify-content:space-around;z-index:100}.navBtn{border:0;background:transparent;color:#777;padding:9px 18px;border-radius:20px;font-size:11px;font-weight:800}.navBtn.active{background:#111;color:#fff}@media(max-width:600px){.container{padding:12px 13px 105px}.hero{padding:22px;border-radius:26px}.heroTitle{font-size:25px}.stats{gap:7px}.stat{padding:12px}.statValue{font-size:18px}.article{padding:17px;border-radius:22px}.articleTitle{font-size:16px}.meta{margin-left:0}.sectionText{font-size:12.5px}.navBtn{padding:8px 15px}}
+:root{--bg:#f3f3f1;--ink:#111;--muted:#777;--line:rgba(17,17,17,.08)}*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Arial,sans-serif;color:var(--ink);background:radial-gradient(circle at 8% 0%,rgba(0,0,0,.045),transparent 28%),radial-gradient(circle at 100% 15%,rgba(0,0,0,.035),transparent 25%),var(--bg)}.container{width:min(1120px,100%);margin:auto;padding:14px 16px 112px}.backBtn{position:sticky;top:10px;z-index:200;border:1px solid var(--line);background:#ffffffe8;padding:11px 17px;border-radius:999px;font-size:13px;font-weight:900;box-shadow:0 10px 25px #0001;margin-bottom:18px}.header{display:flex;align-items:center;margin-bottom:18px}.brand{display:flex;align-items:center;gap:12px}.brandIcon{width:50px;height:50px;border-radius:17px;background:#111;color:#fff;display:grid;place-items:center;font-size:23px;box-shadow:0 12px 28px #0002}.brandTitle{font-size:25px;font-weight:900;letter-spacing:-.8px}.brandSub{color:#777;font-size:12px;margin-top:3px}.hero{position:relative;overflow:hidden;background:#111;color:#fff;border-radius:30px;padding:28px;margin-bottom:18px;box-shadow:0 24px 55px #0002}.hero:after{content:"";position:absolute;width:270px;height:270px;border-radius:50%;right:-105px;top:-120px;border:1px solid #fff1;box-shadow:0 0 0 48px #fff1,0 0 0 96px #fff0}.heroTop{position:relative;z-index:1;display:flex;justify-content:space-between;gap:15px;align-items:flex-start}.heroTitle{font-size:30px;font-weight:900;letter-spacing:-1px}.heroSub{color:#aaa;margin-top:7px;font-size:14px}.datePill{background:#292929;border:1px solid #fff1;padding:9px 13px;border-radius:999px;font-size:11px}.stats{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:24px}.stat{background:#1b1b1b;border-radius:18px;padding:14px}.statValue{font-size:21px;font-weight:900}.statLabel{color:#999;font-size:10px;margin-top:4px;font-weight:700}.searchBox{background:#ffffffe8;border:1px solid var(--line);border-radius:21px;padding:14px 16px;display:flex;align-items:center;gap:10px;margin-bottom:12px;box-shadow:0 9px 25px #0001}.searchBox input{width:100%;border:0;outline:0;background:transparent;font-size:15px}.filters{display:flex;gap:8px;overflow-x:auto;padding:3px 0 7px;margin-bottom:17px;scrollbar-width:none}.filters::-webkit-scrollbar{display:none}.filter{flex:0 0 auto;border:1px solid var(--line);background:#fff;color:#555;padding:10px 15px;border-radius:999px;font-size:11px;font-weight:900}.filter.active{background:#111;color:#fff;border-color:#111}#content{display:flex;flex-direction:column;gap:13px}.sourceSection{margin:6px 0 4px}.sourceSectionHead{background:#111;color:#fff;border-radius:20px;padding:17px 19px;box-shadow:0 10px 28px #0002}.sourceSectionKicker{font-size:10px;letter-spacing:1.2px;font-weight:900;color:#aaa;text-transform:uppercase}.sourceSectionTitle{font-size:20px;font-weight:900;margin-top:4px}.sourceSectionSub{font-size:11px;color:#aaa;margin-top:5px}.article{background:#ffffffe8;border:1px solid var(--line);border-radius:25px;padding:19px;box-shadow:0 10px 30px #0001}.articleTop{display:flex;justify-content:space-between;gap:11px;align-items:flex-start}.articleNumber{width:34px;height:34px;border-radius:12px;background:#111;color:#fff;display:grid;place-items:center;font-size:12px;font-weight:900;flex:none}.articleTitle{flex:1;font-size:18px;font-weight:900;line-height:1.35}.priority{padding:6px 9px;border-radius:999px;font-size:9px;font-weight:900;background:#eee}.priority.high{background:#111;color:#fff}.meta{display:flex;flex-wrap:wrap;gap:7px;margin:11px 0 14px 45px}.tag{background:#f0f0ef;padding:6px 9px;border-radius:999px;font-size:10px;font-weight:800;color:#555}.analysisTools{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px}.analysisBtn,.utilityBtn{border:1px solid var(--line);background:#f0f0ef;color:#111;padding:10px 12px;border-radius:13px;font-size:10px;font-weight:900}.analysisBtn.open,.utilityBtn.active{background:#111;color:#fff}.analysisPanel,.translationPanel{display:none;margin-top:12px;padding:15px;border-radius:19px;background:#f7f7f6;border:1px solid var(--line)}.analysisPanel.open,.translationPanel.open{display:block}.analysisHeader{display:flex;justify-content:space-between}.analysisHeading,.translationHeading{font-size:13px;font-weight:900}.analysisHint,.translationLoading{font-size:10px;color:#777}.translationError{font-size:12px;color:#a11;font-weight:800}.section{border-top:1px solid var(--line);padding-top:13px;margin-top:13px}.sectionTitle{font-size:11px;font-weight:900;text-transform:uppercase;color:#555;margin-bottom:6px}.sectionText{font-size:13px;line-height:1.7;white-space:pre-wrap}.recall{background:#111;color:#fff;border-radius:18px;padding:15px;margin-top:14px}.recallTitle{font-size:10px;color:#aaa;font-weight:900;text-transform:uppercase;margin-bottom:7px}.recallQuestion{font-size:13px;line-height:1.6}.articleFooter{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px}.actionBtn{border:0;background:#eee;padding:10px 12px;border-radius:13px;font-size:10px;font-weight:900}.actionBtn.revised{background:#111;color:#fff}.loading{background:#fff;border-radius:24px;padding:34px;text-align:center;color:#777}.error{background:#111;color:#fff;border-radius:22px;padding:24px}.bottomNav{position:fixed;bottom:15px;left:50%;transform:translateX(-50%);width:min(540px,calc(100% - 28px));background:#ffffffe8;backdrop-filter:blur(25px);border:1px solid var(--line);box-shadow:0 16px 38px #0002;border-radius:28px;padding:7px;display:flex;justify-content:space-around;z-index:100}.navBtn{border:0;background:transparent;color:#777;padding:9px 18px;border-radius:20px;font-size:11px;font-weight:800}.navBtn.active{background:#111;color:#fff}@media(max-width:600px){.container{padding:12px 13px 105px}.hero{padding:22px;border-radius:26px}.heroTitle{font-size:25px}.stats{gap:7px}.stat{padding:12px}.statValue{font-size:18px}.article{padding:17px;border-radius:22px}.articleTitle{font-size:16px}.meta{margin-left:0}.sectionText{font-size:12.5px}.navBtn{padding:8px 15px}}
 </style>
 </head>
 
@@ -157,6 +157,16 @@
     <button class="filter"
       onclick="setFilter('IR',this)">
       IR
+    </button>
+
+    <button class="filter"
+      onclick="setFilter('THE HINDU',this)">
+      The Hindu
+    </button>
+
+    <button class="filter"
+      onclick="setFilter('PIB',this)">
+      PIB
     </button>
 
     <button class="filter"
@@ -403,6 +413,12 @@ function parseMarkdown(text){
         "Priority:"
       ),
 
+      sourceGroup: /the hindu/i.test(getSection(block,"Source:"))
+        ? "THE HINDU"
+        : /\bpib\b/i.test(getSection(block,"Source:"))
+          ? "PIB"
+          : "OTHER",
+
       why:getSection(
         block,
         "Why in News?"
@@ -608,21 +624,44 @@ function renderArticles(){
   }
 
 
-  document.getElementById(
-    "content"
-  ).innerHTML =
+  const renderCard = article => {
+    const originalIndex = articles.indexOf(article);
+    return createArticle(article, originalIndex);
+  };
 
-    filtered.map(article => {
+  if(currentFilter === "ALL" && !search){
+    const hindu = filtered.filter(a => a.sourceGroup === "THE HINDU");
+    const pib = filtered.filter(a => a.sourceGroup === "PIB");
+    const other = filtered.filter(a => a.sourceGroup === "OTHER");
 
-      const originalIndex =
-        articles.indexOf(article);
+    document.getElementById("content").innerHTML = [
+      hindu.length ? `
+        <section class="sourceSection">
+          <div class="sourceSectionHead">
+            <div class="sourceSectionKicker">Source • The Hindu</div>
+            <div class="sourceSectionTitle">The Hindu Current Affairs</div>
+            <div class="sourceSectionSub">UPSC-relevant news • Prelims + Mains</div>
+          </div>
+        </section>
+        ${hindu.map(renderCard).join("")}
+      ` : "",
+      pib.length ? `
+        <section class="sourceSection">
+          <div class="sourceSectionHead">
+            <div class="sourceSectionKicker">Source • PIB</div>
+            <div class="sourceSectionTitle">PIB Current Affairs</div>
+            <div class="sourceSectionSub">Government releases • Schemes • Reports • Policies</div>
+          </div>
+        </section>
+        ${pib.map(renderCard).join("")}
+      ` : "",
+      other.length ? other.map(renderCard).join("") : ""
+    ].join("");
+    return;
+  }
 
-      return createArticle(
-        article,
-        originalIndex
-      );
-
-    }).join("");
+  document.getElementById("content").innerHTML =
+    filtered.map(renderCard).join("");
 
 }
 
