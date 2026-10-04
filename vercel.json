@@ -5,8 +5,16 @@
       "destination": "https://fateh27-bot.onrender.com/api/:path*"
     },
     {
-      "source": "/",
-      "destination": "/index.html"
+      "source": "/sambhav",
+      "destination": "/app-preview.html"
+    },
+    {
+      "source": "/sambhav/",
+      "destination": "/app-preview.html"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "https://fateh27-bot.onrender.com/api/:path*"
     },
     {
       "source": "/admin",
