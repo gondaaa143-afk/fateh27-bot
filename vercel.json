@@ -60,5 +60,24 @@
       "source": "/command-map",
       "destination": "/commander/index.html"
     }
+  ],
+  "headers": [
+    {
+      "source": "/data/current.md",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0"
+        },
+        {
+          "key": "CDN-Cache-Control",
+          "value": "no-store"
+        },
+        {
+          "key": "Vercel-CDN-Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    }
   ]
 }
