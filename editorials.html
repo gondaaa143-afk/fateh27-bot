@@ -74,7 +74,7 @@ body{padding-bottom:96px}
 if(window.Telegram?.WebApp){Telegram.WebApp.ready();Telegram.WebApp.expand();}
 function goBack(){history.length>1?history.back():location.href='index.html';}
 let articles=[],filter='ALL',onlyBookmarks=false,bookmarks=JSON.parse(localStorage.getItem('fateh27_editorial_bookmarks')||'[]'),audio=null,audioUrl='';
-let language=localStorage.getItem('fateh27_editorial_language')||'en';
+let language=localStorage.getItem('fateh27_editorial_language')||'hi';
 let translations=JSON.parse(localStorage.getItem('fateh27_editorial_translations')||'{}');
 const translationPending=new Set();
 const UI={
@@ -89,7 +89,7 @@ function updateCounts(){document.getElementById('allCount').textContent=articles
 function setFilter(f,b){filter=f;onlyBookmarks=false;document.getElementById('bookmarkToggle').classList.remove('active');document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');render();}
 function toggleBookmarks(){onlyBookmarks=!onlyBookmarks;document.getElementById('bookmarkToggle').classList.toggle('active',onlyBookmarks);if(onlyBookmarks)document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));render();}
 function toggleBookmark(i){const key=String(i);if(bookmarks.includes(key))bookmarks=bookmarks.filter(x=>x!==key);else bookmarks.push(key);localStorage.setItem('fateh27_editorial_bookmarks',JSON.stringify(bookmarks));render();}
-function tArticle(a,i){return language==='hi' && translations[i] ? {...a,...translations[i]} : a;}
+function tArticle(a,i){const tr=translations[i];return tr&&tr[language]?{...a,...tr[language]}:a;}
 function applyLanguageUI(){
   const u=UI[language];
   document.getElementById('brandTitle').textContent=u.brand;
@@ -98,12 +98,14 @@ function applyLanguageUI(){
   document.getElementById('headingSub').textContent=u.sub;
   document.getElementById('languageBtn').textContent=u.switch;
 }
-function toggleLanguage(){
-  language=language==='en'?'hi':'en';
+function setLanguage(next){
+  if(next===language)return;
+  language=next;
   localStorage.setItem('fateh27_editorial_language',language);
   applyLanguageUI();
   render();
 }
+function toggleLanguage(){setLanguage(language==='en'?'hi':'en');}
 function splitPoints(s){return String(s||'').split(/\n+|(?<=[.!?])\s+/).map(x=>x.trim()).filter(Boolean).slice(0,5);}
 function vocab(a){const terms=[];const src=(a.prelims+' '+a.staticLink+' '+a.syllabus).replace(/\s+/g,' ').trim();const chunks=src.split(/[.;]/).map(x=>x.trim()).filter(x=>x.length>15).slice(0,4);chunks.forEach(x=>{const p=x.split(':');terms.push([p[0].slice(0,70),p.slice(1).join(':').trim()||x]);});return terms;}
 function card(a,i){
@@ -112,7 +114,7 @@ const context=[x.why,x.what,x.background].filter(Boolean).join('\n\n');
 const sig=x.mains||x.syllabus;
 const intro=(x.why||x.what||'').split(/[.!?]/)[0]+'.';
 const points=splitPoints(x.prelims||x.what),vs=vocab(x);
-const pending=language==='hi' && !translations[i];
+const pending=!translations[i]?.[language] && ((language==='en') || (language==='hi' && false));
 if(pending) ensureTranslation(i);
 return '<article class="card" id="card-'+i+'">'+
 '<div class="cardHead"><div class="meta"><span>'+esc(x.date||'04-Oct-2026')+'</span><span class="badge">'+esc(x.gs)+'</span><span class="badge">'+esc(x.priority||'UPSC')+'</span></div>'+
@@ -131,7 +133,7 @@ return '<article class="card" id="card-'+i+'">'+
 '<section class="section"><div class="kicker">'+u.conclusion+'</div><div class="callout">'+esc(pending?u.loading:(x.revision||x.mains||'Use the issue for a balanced, constitutional and evidence-based answer.'))+'</div></section>'+
 '</div></article>';}
 async function ensureTranslation(i){
-  if(language!=='hi'||translations[i]||translationPending.has(i)) return;
+  if(language!=='en'||translations[i]?.en||translationPending.has(i)) return;
   translationPending.add(i);
   let translated=false;
   try{
@@ -144,7 +146,7 @@ async function ensureTranslation(i){
       'Static Connection: '+a.staticLink,'PYQ Connection: '+a.pyq,'30-Second Revision: '+a.revision,
       'Active Recall: '+a.recall
     ].filter(Boolean).join('\n\n');
-    const r=await fetch('/api/translate',{method:'POST',headers:{'Content-Type':'application/json','x-telegram-init-data':init},body:JSON.stringify({text:sourceText,source:'en',target:'hi',kind:'editorial'})});
+    const r=await fetch((window.FATEH27_API_BASE||'https://fateh27-bot.onrender.com')+'/api/translate',{method:'POST',headers:{'Content-Type':'application/json','x-telegram-init-data':init},body:JSON.stringify({text:sourceText,source:'hi',target:'en',kind:'editorial'})});
     const data=await r.json().catch(()=>({}));
     if(!r.ok) throw new Error(data.detail||data.error||'Translation failed');
     const raw=String(data.translation||'').trim();
@@ -152,7 +154,8 @@ async function ensureTranslation(i){
     const parts={};
     raw.split(/\n(?=[A-Za-z][^:]{0,80}:)/).forEach(line=>{const p=line.match(/^([^:]+):\s*([\s\S]*)$/);if(p)parts[p[1].trim().toLowerCase()]=p[2].trim();});
     const get=(...keys)=>{for(const k of keys){if(parts[k])return parts[k];}return '';};
-    translations[i]={
+    translations[i]=translations[i]||{};
+    translations[i].en={
       title:get('title')||a.title,why:get('why in news?')||a.why,what:get('what happened?')||a.what,background:get('background')||a.background,
       prelims:get('prelims focus')||a.prelims,mains:get('mains focus')||a.mains,syllabus:get('upsc syllabus link')||a.syllabus,
       staticLink:get('static connection')||a.staticLink,pyq:get('pyq connection')||a.pyq,revision:get('30-second revision')||a.revision,recall:get('active recall')||a.recall,
@@ -164,7 +167,7 @@ async function ensureTranslation(i){
     console.error('Editorial translation failed',e);
   }finally{
     translationPending.delete(i);
-    if(language==='hi' && translated) render();
+    if(language==='en' && translated) render();
   }
 }function toggleFull(i){document.getElementById('card-'+i)?.classList.toggle('full');}
 function render(){const u=UI[language],list=articles.filter((a,i)=>(filter==='ALL'||a.gs===filter)&&(!onlyBookmarks||bookmarks.includes(String(i))));document.getElementById('content').innerHTML=list.length?list.map(a=>card(a,articles.indexOf(a))).join(''):'<div class="empty">'+u.empty+'</div>';}
