@@ -892,6 +892,11 @@ app.post(
           req.body?.target || "hi"
         );
 
+      const isEditorial =
+        cleanText(
+          req.body?.kind || ""
+        ) === "editorial";
+
 
       /* -----------------------------------------------
          VALIDATION
@@ -960,14 +965,39 @@ app.post(
                     "input_text",
 
                   text:
-                    `
+                    (isEditorial
+                      ? `
+You are an expert UPSC editorial translator for FATEH27.
+
+Translate the supplied English The Hindu editorial analysis into natural, precise UPSC-level Hindi.
+
+STRICT RULES:
+1. Translate every supplied field; do not summarize, omit, answer, or add facts.
+2. Preserve names, dates, institutions, constitutional/legal and technical terminology.
+3. Preserve the analytical meaning and structure.
+4. Keep standard English technical terms in parentheses where useful.
+5. Output ONLY the translated fields using EXACTLY these English labels, one per line/paragraph:
+TITLE:
+WHY IN NEWS?:
+WHAT HAPPENED?:
+BACKGROUND:
+PRELIMS FOCUS:
+MAINS FOCUS:
+UPSC SYLLABUS LINK:
+STATIC CONNECTION:
+PYQ CONNECTION:
+30-SECOND REVISION:
+ACTIVE RECALL:
+6. The values after the labels must be Hindi only, except necessary proper nouns/standard technical terms.
+7. Do not write any introduction or explanation outside these fields.
+`.trim()
+                      : `
 You are an expert UPSC bilingual editor.
 
 Translate the supplied UPSC Civil Services Examination
 question from English to natural, precise Hindi.
 
 STRICT RULES:
-
 1. Preserve the exact meaning.
 2. Preserve the exact demand of the question.
 3. Preserve directive words such as:
@@ -984,43 +1014,9 @@ STRICT RULES:
 11. Preserve technical terminology.
 12. Preserve numbering and structure.
 13. Use natural UPSC-level Hindi.
-14. Where useful, retain standard English terms
-    in parentheses.
-
-Examples:
-
-Discuss
-→ विवेचना कीजिए
-
-Examine
-→ परीक्षण कीजिए
-
-Analyse
-→ विश्लेषण कीजिए
-
-Critically Examine
-→ आलोचनात्मक परीक्षण कीजिए
-
-Evaluate
-→ मूल्यांकन कीजिए
-
-Assess
-→ आकलन कीजिए
-
-Comment
-→ टिप्पणी कीजिए
-
-Explain
-→ स्पष्ट कीजिए
-
-Compare
-→ तुलना कीजिए
-
-Differentiate
-→ अंतर स्पष्ट कीजिए
-
+14. Where useful, retain standard English terms in parentheses.
 Output ONLY the Hindi translation.
-                    `.trim()
+`.trim())
 
                 }
 
