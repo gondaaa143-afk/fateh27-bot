@@ -133,6 +133,7 @@ return '<article class="card" id="card-'+i+'">'+
 async function ensureTranslation(i){
   if(language!=='hi'||translations[i]||translationPending.has(i)) return;
   translationPending.add(i);
+  let translated=false;
   try{
     const a=articles[i];
     const init=window.Telegram?.WebApp?.initData||sessionStorage.getItem('f27_tg_init_data')||'';
@@ -158,15 +159,16 @@ async function ensureTranslation(i){
       category:a.category,priority:a.priority,gs:a.gs
     };
     localStorage.setItem('fateh27_editorial_translations',JSON.stringify(translations));
+    translated=true;
   }catch(e){
     console.error('Editorial translation failed',e);
   }finally{
     translationPending.delete(i);
-    if(language==='hi') render();
+    if(language==='hi' && translated) render();
   }
 }function toggleFull(i){document.getElementById('card-'+i)?.classList.toggle('full');}
 function render(){const u=UI[language],list=articles.filter((a,i)=>(filter==='ALL'||a.gs===filter)&&(!onlyBookmarks||bookmarks.includes(String(i))));document.getElementById('content').innerHTML=list.length?list.map(a=>card(a,articles.indexOf(a))).join(''):'<div class="empty">'+u.empty+'</div>';}
-async function listen(i){const a=tArticle(articles[i],i);const btn=document.getElementById('play-'+i);if(audio){audio.pause();audio=null;if(audioUrl){URL.revokeObjectURL(audioUrl);audioUrl='';}}btn.textContent=language==='hi'?'तैयार हो रहा है…':'Generating…';try{const init=window.Telegram?.WebApp?.initData||sessionStorage.getItem('f27_tg_init_data')||'';if(!init)throw new Error('Telegram authentication required.');const text='Title: '+a.title+'\nContext: '+(a.why||a.what)+'\nSignificance: '+(a.mains||a.syllabus)+'\nKey points: '+(a.prelims||a.what)+'\nConclusion: '+(a.revision||'');const r=await fetch('/api/secretary/tts',{method:'POST',headers:{'Content-Type':'application/json','x-telegram-init-data':init},body:JSON.stringify({text})});if(!r.ok)throw new Error('Voice generation failed');const blob=await r.blob();audioUrl=URL.createObjectURL(blob);audio=new Audio(audioUrl);audio.onplay=()=>btn.textContent=language==='hi'?'❚❚ रोकें':'❚❚ Pause';audio.onended=()=>btn.textContent=language==='hi'?'▶ सुनें':'▶ Listen';audio.ontimeupdate=()=>{document.getElementById('time-'+i).textContent=Math.floor(audio.currentTime/60)+':'+String(Math.floor(audio.currentTime%60)).padStart(2,'0')};btn.onclick=()=>{if(audio.paused){audio.play();btn.textContent='❚❚ Pause'}else{audio.pause();btn.textContent='▶ Listen'}};await audio.play();}catch(e){btn.textContent='▶ Listen';alert(e.message||'Listen unavailable');}}
+async function listen(i){const a=tArticle(articles[i],i);const btn=document.getElementById('play-'+i);if(audio){audio.pause();audio=null;if(audioUrl){URL.revokeObjectURL(audioUrl);audioUrl='';}}btn.textContent=language==='hi'?'तैयार हो रहा है…':'Generating…';try{const init=window.Telegram?.WebApp?.initData||sessionStorage.getItem('f27_tg_init_data')||'';if(!init)throw new Error('Telegram authentication required.');const text='Title: '+a.title+'\nContext: '+(a.why||a.what)+'\nSignificance: '+(a.mains||a.syllabus)+'\nKey points: '+(a.prelims||a.what)+'\nConclusion: '+(a.revision||'');const r=await fetch('/api/secretary/tts',{method:'POST',headers:{'Content-Type':'application/json','x-telegram-init-data':init},body:JSON.stringify({text})});if(!r.ok)throw new Error('Voice generation failed');const blob=await r.blob();audioUrl=URL.createObjectURL(blob);audio=new Audio(audioUrl);audio.onplay=()=>btn.textContent=language==='hi'?'❚❚ रोकें':'❚❚ Pause';audio.onended=()=>btn.textContent=language==='hi'?'▶ सुनें':'▶ Listen';audio.ontimeupdate=()=>{document.getElementById('time-'+i).textContent=Math.floor(audio.currentTime/60)+':'+String(Math.floor(audio.currentTime%60)).padStart(2,'0')};btn.onclick=()=>{if(audio.paused){audio.play();btn.textContent=language==='hi'?'❚❚ रोकें':'❚❚ Pause'}else{audio.pause();btn.textContent=language==='hi'?'▶ सुनें':'▶ Listen'}};await audio.play();}catch(e){btn.textContent='▶ Listen';alert(e.message||'Listen unavailable');}}
 applyLanguageUI();fetch('/data/current.md?t='+Date.now()).then(r=>r.text()).then(md=>{parse(md);render();}).catch(()=>{document.getElementById('content').innerHTML='<div class="empty">Editorials load नहीं हो पाए।</div>';});
 </script>
 </body>
