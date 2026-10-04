@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>FATEH27 — Editorials</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script src="/access-gate.js"></script>
+<style>
+:root{--bg:#06101f;--panel:#0d1b2d;--panel2:#12243a;--gold:#e8bd55;--text:#e9eef6;--muted:#9caabd;--line:#20344e}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+body{padding-bottom:96px}
+.wrap{max-width:700px;margin:auto;padding:18px 16px 120px}
+.topbar{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.back{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:14px;padding:11px 13px;font-weight:800}
+.brand{font-size:23px;font-weight:900;letter-spacing:-.5px;flex:1}
+.settings{width:45px;height:45px;border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:14px;font-size:20px}
+.toggle{height:48px;border:1px solid var(--line);background:var(--panel);border-radius:999px;display:flex;align-items:center;justify-content:center;gap:10px;color:#b7c3d3;font-weight:800;margin-bottom:14px}
+.switch{width:52px;height:30px;border-radius:20px;background:#263951;padding:4px;display:flex;align-items:center}
+.switch i{width:22px;height:22px;border-radius:50%;background:#dfe8f3;display:block;transition:.2s}
+.toggle.active .switch{background:#b99132}.toggle.active .switch i{transform:translateX(22px)}
+.filters{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding:2px 0 12px}
+.filters::-webkit-scrollbar{display:none}
+.filter{flex:0 0 auto;border:1px solid var(--line);background:#132640;color:#aebbd0;border-radius:999px;padding:11px 18px;font-weight:900}
+.filter.active{background:var(--gold);color:#111;border-color:var(--gold)}
+.filter b{display:inline-grid;place-items:center;margin-left:7px;min-width:25px;height:25px;padding:0 6px;border-radius:50%;background:#ffffff18}
+.filter.active b{background:#1111}
+.heading{text-align:center;padding:18px 0 24px;border-top:1px solid #ffffff08;border-bottom:1px solid #ffffff0d;margin-bottom:18px}
+.heading h1{font-size:24px;color:var(--gold);margin:0 0 5px}.heading p{margin:0;color:var(--muted);font-size:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-bottom:18px;box-shadow:0 14px 30px #0005}
+.cardHead{padding:18px 18px 16px}
+.meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:12px;color:#aab7ca;font-size:13px;font-weight:800}
+.badge{background:var(--gold);color:#111;padding:8px 12px;border-radius:9px;font-size:12px;font-weight:900}
+.topic{font-size:20px;font-weight:900;line-height:1.25;margin:4px 0 10px}.tags{display:flex;gap:8px;flex-wrap:wrap}.tag{border:1px solid #8d6a25;background:#17263a;color:var(--gold);border-radius:8px;padding:7px 11px;font-size:11px;font-weight:900}
+.paper{background:#f8f6ee;color:#111;padding:24px 18px 20px;min-height:220px;position:relative}
+.paper:before{content:"THE HINDU";display:block;text-align:center;font-family:Georgia,serif;font-size:30px;font-weight:900;letter-spacing:1px;border-bottom:2px solid #111;padding-bottom:7px;margin-bottom:14px}
+.paperKicker{text-align:center;font:700 11px Georgia,serif;letter-spacing:1px;text-transform:uppercase;margin-bottom:9px}.paperTitle{font:900 28px/1.02 Georgia,serif;text-align:left;max-width:590px}.paperDeck{font:17px/1.35 Georgia,serif;margin-top:12px;color:#333}.paperCaption{font:10px Arial,sans-serif;color:#666;margin-top:18px;border-top:1px solid #bbb;padding-top:8px}
+.listen{padding:13px 16px;border-top:1px solid #ffffff10;display:flex;align-items:center;gap:12px;background:#0a1728}
+.play{border:0;background:#277bc7;color:white;border-radius:28px;padding:13px 22px;font-weight:900;min-width:125px}.progress{height:5px;flex:1;background:#1d3048;border-radius:9px}.time{font-size:11px;color:#93a3b8;min-width:45px;text-align:right}
+.body{padding:20px 18px}.section{margin:0 0 26px}.section:last-child{margin-bottom:0}.kicker{display:flex;align-items:center;gap:9px;color:var(--gold);font-size:12px;font-weight:1000;letter-spacing:1.4px;text-transform:uppercase;margin-bottom:12px}.kicker:before{content:"";width:6px;height:27px;border-radius:4px;background:var(--gold)}.text{color:#d6dfeb;font-size:16px;line-height:1.75;white-space:pre-wrap}
+.callout{background:#172131;border-left:5px solid var(--gold);border-radius:12px;padding:16px 17px;color:#eef3f8;font-size:16px;line-height:1.65}
+.vocab{display:grid;gap:0}.word{padding:15px 0;border-bottom:1px dashed #ffffff14}.word:last-child{border-bottom:0}.word strong{color:#e8c35f}
+.points{padding-left:22px;color:#d6dfeb;font-size:15px;line-height:1.7}.points li{margin:8px 0}
+.counter{background:#111c2b;border:1px solid #293b53;border-radius:14px;padding:15px;color:#c8d3e0;font-size:15px;line-height:1.65}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.action{border:1px solid var(--line);background:#122238;color:#dce6f1;border-radius:11px;padding:10px 12px;font-weight:900}.action.active{background:var(--gold);color:#111}
+.full .paper{min-height:330px}.full .cardHead{padding-bottom:20px}
+.empty{padding:30px;text-align:center;color:#9caabd;background:var(--panel);border:1px solid var(--line);border-radius:18px}
+.bottom{position:fixed;left:50%;bottom:10px;transform:translateX(-50%);width:min(520px,calc(100% - 20px));height:66px;border:1px solid #263b55;background:#081526ee;backdrop-filter:blur(18px);border-radius:30px;display:flex;justify-content:space-around;z-index:20}.nav{border:0;background:transparent;color:#8798ae;font-weight:900;font-size:10px;min-width:70px}.nav.active{color:var(--gold)}
+@media(max-width:430px){.wrap{padding:12px 10px 110px}.topic{font-size:18px}.paperTitle{font-size:25px}.paperDeck{font-size:15px}.text,.callout{font-size:14px}.filter{padding:10px 15px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar"><button class="back" onclick="goBack()">←</button><div class="brand">Editorials</div><button class="settings">⚙</button></div>
+  <button id="bookmarkToggle" class="toggle" onclick="toggleBookmarks()"><span class="switch"><i></i></span> Bookmarks</button>
+  <div class="filters">
+    <button class="filter active" onclick="setFilter('ALL',this)">All <b id="allCount">0</b></button>
+    <button class="filter" onclick="setFilter('GS1',this)">GS-1 <b id="gs1Count">0</b></button>
+    <button class="filter" onclick="setFilter('GS2',this)">GS-2 <b id="gs2Count">0</b></button>
+    <button class="filter" onclick="setFilter('GS3',this)">GS-3 <b id="gs3Count">0</b></button>
+    <button class="filter" onclick="setFilter('GS4',this)">GS-4 <b id="gs4Count">0</b></button>
+  </div>
+  <div class="heading"><h1>UPSC Editorials</h1><p>The Hindu • Editorial-style analysis • Prelims + Mains</p></div>
+  <div id="content"><div class="empty">Loading editorials…</div></div>
+</div>
+<div class="bottom">
+  <button class="nav" onclick="location.href='index.html'">⌂<br>HOME</button>
+  <button class="nav active">✒<br>EDITORIALS</button>
+  <button class="nav" onclick="location.href='current-affairs.html'">◉<br>CURRENT</button>
+  <button class="nav" onclick="location.href='pyq.html'">◎<br>PYQ</button>
+  <button class="nav" onclick="location.href='answer.html'">◌<br>AI</button>
+</div>
+<script>
+if(window.Telegram?.WebApp){Telegram.WebApp.ready();Telegram.WebApp.expand();}
+function goBack(){history.length>1?history.back():location.href='index.html';}
+let articles=[],filter='ALL',onlyBookmarks=false,bookmarks=JSON.parse(localStorage.getItem('fateh27_editorial_bookmarks')||'[]'),audio=null,audioUrl='';
+function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function section(t,l){const e=l.replace(/[.*+?^{}()|[\]\\]/g,'\\$&');const m=t.match(new RegExp(e+'\\s*\\n?([\\s\\S]*?)(?=\\n###|\\n##|$)'));return m?m[1].trim():'';}
+function parse(md){articles=[];md.split(/\n---\n/).forEach((b,i)=>{if(!b.includes('### Why in News?'))return;const tm=b.match(/##\s+\d+\.\s+(.+)/);if(!tm)return;const a={title:tm[1].trim(),source:section(b,'Source:'),category:section(b,'Category:'),priority:section(b,'Priority:'),why:section(b,'Why in News?'),what:section(b,'What Happened?'),background:section(b,'Background'),prelims:section(b,'Prelims Focus'),mains:section(b,'Mains Focus'),syllabus:section(b,'UPSC Syllabus Link'),staticLink:section(b,'Static Connection'),pyq:section(b,'PYQ Connection'),revision:section(b,'30-Second Revision'),recall:section(b,'Active Recall')};if(!/the hindu/i.test(a.source))return;a.gs=guessGS(a);articles.push(a);});updateCounts();}
+function guessGS(a){const s=(a.category+' '+a.syllabus+' '+a.mains).toUpperCase();if(/GS ?4|ETHIC|INTEGRITY|PROBITY/.test(s))return 'GS4';if(/GS ?1|HISTORY|CULTURE|SOCIETY|GEOGRAPHY/.test(s))return 'GS1';if(/GS ?3|ECONOM|ENVIRONMENT|SCIENCE|TECH|SECURITY|AGRICULTURE|HEALTH/.test(s))return 'GS3';return 'GS2';}
+function updateCounts(){document.getElementById('allCount').textContent=articles.length;['GS1','GS2','GS3','GS4'].forEach(g=>document.getElementById(g.toLowerCase()+'Count').textContent=articles.filter(a=>a.gs===g).length);}
+function setFilter(f,b){filter=f;onlyBookmarks=false;document.getElementById('bookmarkToggle').classList.remove('active');document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');render();}
+function toggleBookmarks(){onlyBookmarks=!onlyBookmarks;document.getElementById('bookmarkToggle').classList.toggle('active',onlyBookmarks);if(onlyBookmarks)document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));render();}
+function toggleBookmark(i){const id=articles.indexOf(i);const k=articles.indexOf(i);const key=String(k);if(bookmarks.includes(key))bookmarks=bookmarks.filter(x=>x!==key);else bookmarks.push(key);localStorage.setItem('fateh27_editorial_bookmarks',JSON.stringify(bookmarks));render();}
+function splitPoints(s){return String(s||'').split(/\n+|(?<=[.!?])\s+/).map(x=>x.trim()).filter(Boolean).slice(0,5);}
+function vocab(a){const terms=[];const src=(a.prelims+' '+a.staticLink+' '+a.syllabus).replace(/\s+/g,' ').trim();const chunks=src.split(/[.;]/).map(x=>x.trim()).filter(x=>x.length>15).slice(0,4);chunks.forEach(x=>{const p=x.split(':');terms.push([p[0].slice(0,70),p.slice(1).join(':').trim()||x]);});return terms;}
+function card(a,i){const saved=bookmarks.includes(String(i));const context=[a.why,a.what,a.background].filter(Boolean).join('\n\n');const sig=a.mains||a.syllabus;const intro=(a.why||a.what||'').split(/[.!?]/)[0]+'.';const points=splitPoints(a.prelims||a.what);const vs=vocab(a);return '<article class="card" id="card-'+i+'">'+
+'<div class="cardHead"><div class="meta"><span>'+esc(a.date||'04-Oct-2026')+'</span><span class="badge">'+esc(a.gs)+'</span><span class="badge">'+esc(a.priority||'UPSC')+'</span></div>'+
+'<div class="topic">'+esc(a.title)+'</div><div class="tags"><span class="tag">The Hindu</span><span class="tag">'+esc(a.category||'UPSC')+'</span></div>'+
+'<div class="actions"><button class="action '+(saved?'active':'')+'" onclick="toggleBookmark('+i+')">'+(saved?'★ Saved':'☆ Bookmark')+'</button><button class="action" onclick="toggleFull('+i+')">↗ Full width</button></div></div>'+
+'<div class="paper"><div class="paperKicker">UPSC Editorial Brief</div><div class="paperTitle">'+esc(a.title)+'</div><div class="paperDeck">'+esc(a.why||a.what||'')+'</div><div class="paperCaption">Source: The Hindu • FATEH27 UPSC analysis</div></div>'+
+'<div class="listen"><button class="play" id="play-'+i+'" onclick="listen('+i+')">▶ Listen</button><div class="progress"></div><div class="time" id="time-'+i+'">0:00</div></div>'+
+'<div class="body">'+
+'<section class="section"><div class="kicker">Context</div><div class="text">'+esc(context||a.title)+'</div></section>'+
+'<section class="section"><div class="kicker">Significance for UPSC</div><div class="text">'+esc(sig||'UPSC syllabus linkage is not available in the source data.')+'</div></section>'+
+'<section class="section"><div class="kicker">UPSC Vocab</div><div class="vocab">'+(vs.length?vs.map(v=>'<div class="word"><strong>'+esc(v[0])+'</strong> — '+esc(v[1])+'</div>').join(''):'<div class="text">Source data में dedicated vocabulary उपलब्ध नहीं है.</div>')+'</div></section>'+
+'<section class="section"><div class="kicker">UPSC-ready Introduction</div><div class="callout">'+esc(intro)+'</div></section>'+
+'<section class="section"><div class="kicker">Key Points</div><ul class="points">'+(points.length?points.map(p=>'<li>'+esc(p)+'</li>').join(''):'<li>Source data में key points उपलब्ध नहीं हैं.</li>')+'</ul></section>'+
+(a.pyq?'<section class="section"><div class="kicker">Related UPSC PYQs</div><div class="counter">'+esc(a.pyq)+'</div></section>':'')+
+'<section class="section"><div class="kicker">Counter View</div><div class="counter">इस editorial brief में counter-view तभी दिखाया जाएगा जब source/AI analysis में वह उपलब्ध हो.</div></section>'+
+'<section class="section"><div class="kicker">UPSC-ready Conclusion</div><div class="callout">'+esc(a.revision||a.mains||'Use the issue for a balanced, constitutional and evidence-based answer.')+'</div></section>'+
+'</div></article>';}
+function toggleFull(i){document.getElementById('card-'+i)?.classList.toggle('full');}
+function render(){const list=articles.filter((a,i)=>(filter==='ALL'||a.gs===filter)&&(!onlyBookmarks||bookmarks.includes(String(i))));document.getElementById('content').innerHTML=list.length?list.map(a=>card(a,articles.indexOf(a))).join(''):'<div class="empty">इस filter में कोई editorial नहीं मिला।</div>';}
+async function listen(i){const a=articles[i];const btn=document.getElementById('play-'+i);if(audio){audio.pause();audio=null;if(audioUrl){URL.revokeObjectURL(audioUrl);audioUrl='';}}btn.textContent='Generating…';try{const init=window.Telegram?.WebApp?.initData||sessionStorage.getItem('f27_tg_init_data')||'';if(!init)throw new Error('Telegram authentication required.');const text='Title: '+a.title+'\nContext: '+(a.why||a.what)+'\nSignificance: '+(a.mains||a.syllabus)+'\nKey points: '+(a.prelims||a.what)+'\nConclusion: '+(a.revision||'');const r=await fetch('/api/secretary/tts',{method:'POST',headers:{'Content-Type':'application/json','x-telegram-init-data':init},body:JSON.stringify({text})});if(!r.ok)throw new Error('Voice generation failed');const blob=await r.blob();audioUrl=URL.createObjectURL(blob);audio=new Audio(audioUrl);audio.onplay=()=>btn.textContent='❚❚ Pause';audio.onended=()=>btn.textContent='▶ Listen';audio.ontimeupdate=()=>{document.getElementById('time-'+i).textContent=Math.floor(audio.currentTime/60)+':'+String(Math.floor(audio.currentTime%60)).padStart(2,'0')};btn.onclick=()=>{if(audio.paused){audio.play();btn.textContent='❚❚ Pause'}else{audio.pause();btn.textContent='▶ Listen'}};await audio.play();}catch(e){btn.textContent='▶ Listen';alert(e.message||'Listen unavailable');}}
+fetch('/data/current.md?t='+Date.now()).then(r=>r.text()).then(md=>{parse(md);render();}).catch(()=>{document.getElementById('content').innerHTML='<div class="empty">Editorials load नहीं हो पाए।</div>';});
+</script>
+</body>
+</html>
