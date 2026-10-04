@@ -15,7 +15,7 @@ body{padding-bottom:96px}
 .topbar{display:flex;align-items:center;gap:12px;margin-bottom:14px}
 .back{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:14px;padding:11px 13px;font-weight:800}
 .brand{font-size:23px;font-weight:900;letter-spacing:-.5px;flex:1}
-.settings{width:45px;height:45px;border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:14px;font-size:20px}
+.settings{width:45px;height:45px;border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:14px;font-size:20px}.languageBtn{border:1px solid #8d6a25;background:#17263a;color:var(--gold);border-radius:12px;padding:10px 12px;font-weight:900}
 .toggle{height:48px;border:1px solid var(--line);background:var(--panel);border-radius:999px;display:flex;align-items:center;justify-content:center;gap:10px;color:#b7c3d3;font-weight:800;margin-bottom:14px}
 .switch{width:52px;height:30px;border-radius:20px;background:#263951;padding:4px;display:flex;align-items:center}
 .switch i{width:22px;height:22px;border-radius:50%;background:#dfe8f3;display:block;transition:.2s}
@@ -52,8 +52,8 @@ body{padding-bottom:96px}
 </head>
 <body>
 <div class="wrap">
-  <div class="topbar"><button class="back" onclick="goBack()">←</button><div class="brand">Editorials</div><button class="settings">⚙</button></div>
-  <button id="bookmarkToggle" class="toggle" onclick="toggleBookmarks()"><span class="switch"><i></i></span> Bookmarks</button>
+  <div class="topbar"><button class="back" onclick="goBack()">←</button><div class="brand" id="brandTitle">Editorials</div><button id="languageBtn" class="languageBtn" onclick="toggleLanguage()">हिंदी</button><button class="settings">⚙</button></div>
+  <button id="bookmarkToggle" class="toggle" onclick="toggleBookmarks()"><span class="switch"><i></i></span><span id="bookmarkLabel">Bookmarks</span></button>
   <div class="filters">
     <button class="filter active" onclick="setFilter('ALL',this)">All <b id="allCount">0</b></button>
     <button class="filter" onclick="setFilter('GS1',this)">GS-1 <b id="gs1Count">0</b></button>
@@ -61,7 +61,7 @@ body{padding-bottom:96px}
     <button class="filter" onclick="setFilter('GS3',this)">GS-3 <b id="gs3Count">0</b></button>
     <button class="filter" onclick="setFilter('GS4',this)">GS-4 <b id="gs4Count">0</b></button>
   </div>
-  <div class="heading"><h1>UPSC Editorials</h1><p>The Hindu • Editorial-style analysis • Prelims + Mains</p></div>
+  <div class="heading"><h1 id="headingTitle">UPSC Editorials</h1><p id="headingSub">The Hindu • Editorial-style analysis • Prelims + Mains</p></div>
   <div id="content"><div class="empty">Loading editorials…</div></div>
 </div>
 <div class="bottom">
@@ -75,6 +75,13 @@ body{padding-bottom:96px}
 if(window.Telegram?.WebApp){Telegram.WebApp.ready();Telegram.WebApp.expand();}
 function goBack(){history.length>1?history.back():location.href='index.html';}
 let articles=[],filter='ALL',onlyBookmarks=false,bookmarks=JSON.parse(localStorage.getItem('fateh27_editorial_bookmarks')||'[]'),audio=null,audioUrl='';
+let language=localStorage.getItem('fateh27_editorial_language')||'en';
+let translations=JSON.parse(localStorage.getItem('fateh27_editorial_translations')||'{}');
+const translationPending=new Set();
+const UI={
+  en:{brand:'Editorials',bookmarks:'Bookmarks',heading:'UPSC Editorials',sub:'The Hindu • Editorial-style analysis • Prelims + Mains',switch:'हिंदी',saved:'★ Saved',bookmark:'☆ Bookmark',full:'↗ Full width',listen:'▶ Listen',source:'Source: The Hindu • FATEH27 UPSC analysis',context:'Context',significance:'Significance for UPSC',vocab:'UPSC Vocab',intro:'UPSC-ready Introduction',points:'Key Points',pyq:'Related UPSC PYQs',counter:'Counter View',conclusion:'UPSC-ready Conclusion',empty:'No editorial found in this filter.',loading:'Hindi translation is being prepared…',fallback:'Hindi translation is not available yet.'},
+  hi:{brand:'संपादकीय',bookmarks:'बुकमार्क',heading:'UPSC संपादकीय',sub:'The Hindu • संपादकीय विश्लेषण • Prelims + Mains',switch:'English',saved:'★ सेव्ड',bookmark:'☆ सेव करें',full:'↗ पूरा देखें',listen:'▶ सुनें',source:'स्रोत: The Hindu • FATEH27 UPSC विश्लेषण',context:'संदर्भ',significance:'UPSC के लिए महत्व',vocab:'UPSC शब्दावली',intro:'UPSC-उपयुक्त भूमिका',points:'मुख्य बिंदु',pyq:'संबंधित UPSC PYQs',counter:'वैकल्पिक दृष्टिकोण',conclusion:'UPSC-उपयुक्त निष्कर्ष',empty:'इस फ़िल्टर में कोई संपादकीय नहीं मिला।',loading:'हिंदी अनुवाद तैयार हो रहा है…',fallback:'हिंदी अनुवाद अभी उपलब्ध नहीं है।'}
+};
 function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function section(t,l){const e=l.replace(/[.*+?^{}()|[\]\\]/g,'\\$&');const m=t.match(new RegExp(e+'\\s*\\n?([\\s\\S]*?)(?=\\n###|\\n##|$)'));return m?m[1].trim():'';}
 function parse(md){articles=[];md.split(/\n---\n/).forEach((b,i)=>{if(!b.includes('### Why in News?'))return;const tm=b.match(/##\s+\d+\.\s+(.+)/);if(!tm)return;const a={title:tm[1].trim(),source:section(b,'Source:'),category:section(b,'Category:'),priority:section(b,'Priority:'),why:section(b,'Why in News?'),what:section(b,'What Happened?'),background:section(b,'Background'),prelims:section(b,'Prelims Focus'),mains:section(b,'Mains Focus'),syllabus:section(b,'UPSC Syllabus Link'),staticLink:section(b,'Static Connection'),pyq:section(b,'PYQ Connection'),revision:section(b,'30-Second Revision'),recall:section(b,'Active Recall')};if(!/the hindu/i.test(a.source))return;a.gs=guessGS(a);articles.push(a);});updateCounts();}
@@ -83,28 +90,85 @@ function updateCounts(){document.getElementById('allCount').textContent=articles
 function setFilter(f,b){filter=f;onlyBookmarks=false;document.getElementById('bookmarkToggle').classList.remove('active');document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');render();}
 function toggleBookmarks(){onlyBookmarks=!onlyBookmarks;document.getElementById('bookmarkToggle').classList.toggle('active',onlyBookmarks);if(onlyBookmarks)document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));render();}
 function toggleBookmark(i){const key=String(i);if(bookmarks.includes(key))bookmarks=bookmarks.filter(x=>x!==key);else bookmarks.push(key);localStorage.setItem('fateh27_editorial_bookmarks',JSON.stringify(bookmarks));render();}
+function tArticle(a,i){return language==='hi' && translations[i] ? {...a,...translations[i]} : a;}
+function applyLanguageUI(){
+  const u=UI[language];
+  document.getElementById('brandTitle').textContent=u.brand;
+  document.getElementById('bookmarkLabel').textContent=u.bookmarks;
+  document.getElementById('headingTitle').textContent=u.heading;
+  document.getElementById('headingSub').textContent=u.sub;
+  document.getElementById('languageBtn').textContent=u.switch;
+}
+function toggleLanguage(){
+  language=language==='en'?'hi':'en';
+  localStorage.setItem('fateh27_editorial_language',language);
+  applyLanguageUI();
+  render();
+}
 function splitPoints(s){return String(s||'').split(/\n+|(?<=[.!?])\s+/).map(x=>x.trim()).filter(Boolean).slice(0,5);}
 function vocab(a){const terms=[];const src=(a.prelims+' '+a.staticLink+' '+a.syllabus).replace(/\s+/g,' ').trim();const chunks=src.split(/[.;]/).map(x=>x.trim()).filter(x=>x.length>15).slice(0,4);chunks.forEach(x=>{const p=x.split(':');terms.push([p[0].slice(0,70),p.slice(1).join(':').trim()||x]);});return terms;}
-function card(a,i){const saved=bookmarks.includes(String(i));const context=[a.why,a.what,a.background].filter(Boolean).join('\n\n');const sig=a.mains||a.syllabus;const intro=(a.why||a.what||'').split(/[.!?]/)[0]+'.';const points=splitPoints(a.prelims||a.what);const vs=vocab(a);return '<article class="card" id="card-'+i+'">'+
-'<div class="cardHead"><div class="meta"><span>'+esc(a.date||'04-Oct-2026')+'</span><span class="badge">'+esc(a.gs)+'</span><span class="badge">'+esc(a.priority||'UPSC')+'</span></div>'+
-'<div class="topic">'+esc(a.title)+'</div><div class="tags"><span class="tag">The Hindu</span><span class="tag">'+esc(a.category||'UPSC')+'</span></div>'+
-'<div class="actions"><button class="action '+(saved?'active':'')+'" onclick="toggleBookmark('+i+')">'+(saved?'★ Saved':'☆ Bookmark')+'</button><button class="action" onclick="toggleFull('+i+')">↗ Full width</button></div></div>'+
-'<div class="paper"><div class="paperKicker">UPSC Editorial Brief</div><div class="paperTitle">'+esc(a.title)+'</div><div class="paperDeck">'+esc(a.why||a.what||'')+'</div><div class="paperCaption">Source: The Hindu • FATEH27 UPSC analysis</div></div>'+
-'<div class="listen"><button class="play" id="play-'+i+'" onclick="listen('+i+')">▶ Listen</button><div class="progress"></div><div class="time" id="time-'+i+'">0:00</div></div>'+
+function card(a,i){
+const u=UI[language],x=tArticle(a,i),saved=bookmarks.includes(String(i));
+const context=[x.why,x.what,x.background].filter(Boolean).join('\n\n');
+const sig=x.mains||x.syllabus;
+const intro=(x.why||x.what||'').split(/[.!?]/)[0]+'.';
+const points=splitPoints(x.prelims||x.what),vs=vocab(x);
+const pending=language==='hi' && !translations[i];
+if(pending) ensureTranslation(i);
+return '<article class="card" id="card-'+i+'">'+
+'<div class="cardHead"><div class="meta"><span>'+esc(x.date||'04-Oct-2026')+'</span><span class="badge">'+esc(x.gs)+'</span><span class="badge">'+esc(x.priority||'UPSC')+'</span></div>'+
+'<div class="topic">'+esc(x.title)+'</div><div class="tags"><span class="tag">The Hindu</span><span class="tag">'+esc(x.category||'UPSC')+'</span></div>'+
+'<div class="actions"><button class="action '+(saved?'active':'')+'" onclick="toggleBookmark('+i+')">'+(saved?u.saved:u.bookmark)+'</button><button class="action" onclick="toggleFull('+i+')">'+u.full+'</button></div></div>'+
+'<div class="paper"><div class="paperKicker">UPSC Editorial Brief</div><div class="paperTitle">'+esc(x.title)+'</div><div class="paperDeck">'+esc(x.why||x.what||'')+'</div><div class="paperCaption">'+u.source+'</div></div>'+
+'<div class="listen"><button class="play" id="play-'+i+'" onclick="listen('+i+')">'+u.listen+'</button><div class="progress"></div><div class="time" id="time-'+i+'">0:00</div></div>'+
 '<div class="body">'+
-'<section class="section"><div class="kicker">Context</div><div class="text">'+esc(context||a.title)+'</div></section>'+
-'<section class="section"><div class="kicker">Significance for UPSC</div><div class="text">'+esc(sig||'UPSC syllabus linkage is not available in the source data.')+'</div></section>'+
-'<section class="section"><div class="kicker">UPSC Vocab</div><div class="vocab">'+(vs.length?vs.map(v=>'<div class="word"><strong>'+esc(v[0])+'</strong> — '+esc(v[1])+'</div>').join(''):'<div class="text">Source data में dedicated vocabulary उपलब्ध नहीं है.</div>')+'</div></section>'+
-'<section class="section"><div class="kicker">UPSC-ready Introduction</div><div class="callout">'+esc(intro)+'</div></section>'+
-'<section class="section"><div class="kicker">Key Points</div><ul class="points">'+(points.length?points.map(p=>'<li>'+esc(p)+'</li>').join(''):'<li>Source data में key points उपलब्ध नहीं हैं.</li>')+'</ul></section>'+
-(a.pyq?'<section class="section"><div class="kicker">Related UPSC PYQs</div><div class="counter">'+esc(a.pyq)+'</div></section>':'')+
-'<section class="section"><div class="kicker">Counter View</div><div class="counter">इस editorial brief में counter-view तभी दिखाया जाएगा जब source/AI analysis में वह उपलब्ध हो.</div></section>'+
-'<section class="section"><div class="kicker">UPSC-ready Conclusion</div><div class="callout">'+esc(a.revision||a.mains||'Use the issue for a balanced, constitutional and evidence-based answer.')+'</div></section>'+
+'<section class="section"><div class="kicker">'+u.context+'</div><div class="text">'+esc(pending?u.loading:(context||x.title))+'</div></section>'+
+'<section class="section"><div class="kicker">'+u.significance+'</div><div class="text">'+esc(pending?u.loading:(sig||u.fallback))+'</div></section>'+
+'<section class="section"><div class="kicker">'+u.vocab+'</div><div class="vocab">'+(pending?'<div class="text">'+esc(u.loading)+'</div>':(vs.length?vs.map(v=>'<div class="word"><strong>'+esc(v[0])+'</strong> — '+esc(v[1])+'</div>').join(''):'<div class="text">'+esc(u.fallback)+'</div>'))+'</div></section>'+
+'<section class="section"><div class="kicker">'+u.intro+'</div><div class="callout">'+esc(pending?u.loading:intro)+'</div></section>'+
+'<section class="section"><div class="kicker">'+u.points+'</div><ul class="points">'+(pending?'<li>'+esc(u.loading)+'</li>':(points.length?points.map(p=>'<li>'+esc(p)+'</li>').join(''):'<li>'+esc(u.fallback)+'</li>'))+'</ul></section>'+
+(x.pyq?'<section class="section"><div class="kicker">'+u.pyq+'</div><div class="counter">'+esc(x.pyq)+'</div></section>':'')+
+'<section class="section"><div class="kicker">'+u.counter+'</div><div class="counter">'+(language==='hi'?'इस editorial brief में उपलब्ध source/analysis के आधार पर संतुलित वैकल्पिक दृष्टिकोण जोड़ा जाएगा।':'A balanced counter-view will be shown when supported by the source or analysis.')+'</div></section>'+
+'<section class="section"><div class="kicker">'+u.conclusion+'</div><div class="callout">'+esc(pending?u.loading:(x.revision||x.mains||'Use the issue for a balanced, constitutional and evidence-based answer.'))+'</div></section>'+
 '</div></article>';}
-function toggleFull(i){document.getElementById('card-'+i)?.classList.toggle('full');}
-function render(){const list=articles.filter((a,i)=>(filter==='ALL'||a.gs===filter)&&(!onlyBookmarks||bookmarks.includes(String(i))));document.getElementById('content').innerHTML=list.length?list.map(a=>card(a,articles.indexOf(a))).join(''):'<div class="empty">इस filter में कोई editorial नहीं मिला।</div>';}
-async function listen(i){const a=articles[i];const btn=document.getElementById('play-'+i);if(audio){audio.pause();audio=null;if(audioUrl){URL.revokeObjectURL(audioUrl);audioUrl='';}}btn.textContent='Generating…';try{const init=window.Telegram?.WebApp?.initData||sessionStorage.getItem('f27_tg_init_data')||'';if(!init)throw new Error('Telegram authentication required.');const text='Title: '+a.title+'\nContext: '+(a.why||a.what)+'\nSignificance: '+(a.mains||a.syllabus)+'\nKey points: '+(a.prelims||a.what)+'\nConclusion: '+(a.revision||'');const r=await fetch('/api/secretary/tts',{method:'POST',headers:{'Content-Type':'application/json','x-telegram-init-data':init},body:JSON.stringify({text})});if(!r.ok)throw new Error('Voice generation failed');const blob=await r.blob();audioUrl=URL.createObjectURL(blob);audio=new Audio(audioUrl);audio.onplay=()=>btn.textContent='❚❚ Pause';audio.onended=()=>btn.textContent='▶ Listen';audio.ontimeupdate=()=>{document.getElementById('time-'+i).textContent=Math.floor(audio.currentTime/60)+':'+String(Math.floor(audio.currentTime%60)).padStart(2,'0')};btn.onclick=()=>{if(audio.paused){audio.play();btn.textContent='❚❚ Pause'}else{audio.pause();btn.textContent='▶ Listen'}};await audio.play();}catch(e){btn.textContent='▶ Listen';alert(e.message||'Listen unavailable');}}
-fetch('/data/current.md?t='+Date.now()).then(r=>r.text()).then(md=>{parse(md);render();}).catch(()=>{document.getElementById('content').innerHTML='<div class="empty">Editorials load नहीं हो पाए।</div>';});
+async function ensureTranslation(i){
+  if(language!=='hi'||translations[i]||translationPending.has(i)) return;
+  translationPending.add(i);
+  try{
+    const a=articles[i];
+    const init=window.Telegram?.WebApp?.initData||sessionStorage.getItem('f27_tg_init_data')||'';
+    if(!init) throw new Error('Telegram authentication required.');
+    const sourceText=[
+      'Title: '+a.title,'Why in News?: '+a.why,'What Happened?: '+a.what,'Background: '+a.background,
+      'Prelims Focus: '+a.prelims,'Mains Focus: '+a.mains,'UPSC Syllabus Link: '+a.syllabus,
+      'Static Connection: '+a.staticLink,'PYQ Connection: '+a.pyq,'30-Second Revision: '+a.revision,
+      'Active Recall: '+a.recall
+    ].filter(Boolean).join('\n\n');
+    const r=await fetch('/api/translate',{method:'POST',headers:{'Content-Type':'application/json','x-telegram-init-data':init},body:JSON.stringify({text:sourceText,source:'en',target:'hi',kind:'editorial'})});
+    const data=await r.json().catch(()=>({}));
+    if(!r.ok) throw new Error(data.detail||data.error||'Translation failed');
+    const raw=String(data.translation||'').trim();
+    if(!raw) throw new Error('Empty translation');
+    const parts={};
+    raw.split(/\n(?=[A-Za-z][^:]{0,80}:)/).forEach(line=>{const p=line.match(/^([^:]+):\s*([\s\S]*)$/);if(p)parts[p[1].trim().toLowerCase()]=p[2].trim();});
+    const get=(...keys)=>{for(const k of keys){if(parts[k])return parts[k];}return '';};
+    translations[i]={
+      title:get('title')||a.title,why:get('why in news?')||a.why,what:get('what happened?')||a.what,background:get('background')||a.background,
+      prelims:get('prelims focus')||a.prelims,mains:get('mains focus')||a.mains,syllabus:get('upsc syllabus link')||a.syllabus,
+      staticLink:get('static connection')||a.staticLink,pyq:get('pyq connection')||a.pyq,revision:get('30-second revision')||a.revision,recall:get('active recall')||a.recall,
+      category:a.category,priority:a.priority,gs:a.gs
+    };
+    localStorage.setItem('fateh27_editorial_translations',JSON.stringify(translations));
+  }catch(e){
+    console.error('Editorial translation failed',e);
+  }finally{
+    translationPending.delete(i);
+    if(language==='hi') render();
+  }
+}function toggleFull(i){document.getElementById('card-'+i)?.classList.toggle('full');}
+function render(){const u=UI[language],list=articles.filter((a,i)=>(filter==='ALL'||a.gs===filter)&&(!onlyBookmarks||bookmarks.includes(String(i))));document.getElementById('content').innerHTML=list.length?list.map(a=>card(a,articles.indexOf(a))).join(''):'<div class="empty">'+u.empty+'</div>';}
+async function listen(i){const a=tArticle(articles[i],i);const btn=document.getElementById('play-'+i);if(audio){audio.pause();audio=null;if(audioUrl){URL.revokeObjectURL(audioUrl);audioUrl='';}}btn.textContent=language==='hi'?'तैयार हो रहा है…':'Generating…';try{const init=window.Telegram?.WebApp?.initData||sessionStorage.getItem('f27_tg_init_data')||'';if(!init)throw new Error('Telegram authentication required.');const text='Title: '+a.title+'\nContext: '+(a.why||a.what)+'\nSignificance: '+(a.mains||a.syllabus)+'\nKey points: '+(a.prelims||a.what)+'\nConclusion: '+(a.revision||'');const r=await fetch('/api/secretary/tts',{method:'POST',headers:{'Content-Type':'application/json','x-telegram-init-data':init},body:JSON.stringify({text})});if(!r.ok)throw new Error('Voice generation failed');const blob=await r.blob();audioUrl=URL.createObjectURL(blob);audio=new Audio(audioUrl);audio.onplay=()=>btn.textContent=language==='hi'?'❚❚ रोकें':'❚❚ Pause';audio.onended=()=>btn.textContent=language==='hi'?'▶ सुनें':'▶ Listen';audio.ontimeupdate=()=>{document.getElementById('time-'+i).textContent=Math.floor(audio.currentTime/60)+':'+String(Math.floor(audio.currentTime%60)).padStart(2,'0')};btn.onclick=()=>{if(audio.paused){audio.play();btn.textContent='❚❚ Pause'}else{audio.pause();btn.textContent='▶ Listen'}};await audio.play();}catch(e){btn.textContent='▶ Listen';alert(e.message||'Listen unavailable');}}
+applyLanguageUI();fetch('/data/current.md?t='+Date.now()).then(r=>r.text()).then(md=>{parse(md);render();}).catch(()=>{document.getElementById('content').innerHTML='<div class="empty">Editorials load नहीं हो पाए।</div>';});
 </script>
 </body>
 </html>
