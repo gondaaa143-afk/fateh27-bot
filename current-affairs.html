@@ -573,8 +573,14 @@ function renderArticles(){
         currentFilter === "ALL" ||
         (currentFilter === "IMPORTANT" && important.includes(articles.indexOf(article))) ||
         (currentFilter === "SAVED" && bookmarked.includes(articles.indexOf(article))) ||
-        (currentFilter === "THE HINDU" && article.sourceGroup === "THE HINDU") ||
-        (currentFilter === "PIB" && article.sourceGroup === "PIB") ||
+        (currentFilter === "THE HINDU" && (
+          article.sourceGroup === "THE HINDU" ||
+          /the hindu/i.test(article.source || "")
+        )) ||
+        (currentFilter === "PIB" && (
+          article.sourceGroup === "PIB" ||
+          /\bpib\b/i.test(article.source || "")
+        )) ||
         article.category
           .toUpperCase()
           .includes(currentFilter);
