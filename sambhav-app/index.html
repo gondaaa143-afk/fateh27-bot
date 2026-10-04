@@ -56,6 +56,8 @@ html,body{overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
       <button id="signUpTab" class="auth-tab" onclick="authMode('signup')">Sign Up</button>
     </div>
     <form id="authForm" onsubmit="submitAuth(event)">
+      <label id="nameLabel" style="display:none">Full name</label>
+      <input id="authName" class="auth-input" type="text" placeholder="Your name" style="display:none">
       <label>Email address</label>
       <input id="authEmail" class="auth-input" type="email" placeholder="you@example.com" required>
       <label>Password</label>
@@ -70,7 +72,7 @@ html,body{overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
   </div>
 </section>
 
-<header class="top"><div class="brand"><div class="logo">S</div><div><div class="eyebrow">UPSC PREPARATION</div><h1>SAMBHAV</h1></div></div><button class="icon" onclick="go('settings')">⚙</button></header>
+<header id="mainHeader" class="top"><div class="brand"><div class="logo">S</div><div><div class="eyebrow">UPSC PREPARATION</div><h1>SAMBHAV</h1></div></div><button class="icon" onclick="go('settings')">⚙</button></header>
 
 <section id="home" class="screen active"><div class="hero"><div class="eyebrow">SAMBHAV UPSC</div><div class="kicker">● YOUR DAILY UPSC SPACE</div><h2>Prepare with<br>purpose.</h2><p>Current affairs, PYQs, revision and AI — all in one focused workspace.</p></div><div class="section"><h3>Explore</h3><div class="grid">
 <button class="card" onclick="go('current')"><div class="ci">◒</div><b>Current Affairs</b><small>Daily issues, analysis and notes</small></button>
@@ -91,9 +93,15 @@ html,body{overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 <section id="settings" class="screen"><button class="back" onclick="go('home')">← Home</button><h3>Settings</h3><div class="list"><div class="li">अ</div><div><b>Language</b><p>Hindi / English</p></div></div><div class="list"><div class="li">☾</div><div><b>Appearance</b><p>Light / Dark mode</p></div></div></section>
 </main>
 <nav id="mainNav" class="nav"><button data-r="home" class="active" onclick="go('home')">⌂<br>HOME</button><button data-r="current" onclick="go('current')">◒<br>CURRENT</button><button data-r="pyq" onclick="go('pyq')">?<br>PYQ</button><button data-r="revision" onclick="go('revision')">↻<br>REVISION</button><button data-r="ai" onclick="go('ai')">✦<br>AI</button></nav>
+<script src="./sambhav-config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 const routes=['auth','home','current','pyq','revision','ai','premium','settings'];
 let mode='signin';
+const cfg=window.SAMBHAV_CONFIG||{};
+const hasBackend=Boolean(cfg.SUPABASE_URL&&cfg.SUPABASE_PUBLISHABLE_KEY);
+const supabase=hasBackend?window.supabase.createClient(cfg.SUPABASE_URL,cfg.SUPABASE_PUBLISHABLE_KEY):null;
+
 function authMode(m){
   mode=m;
   document.getElementById('signInTab').classList.toggle('active',m==='signin');
@@ -102,34 +110,94 @@ function authMode(m){
   document.getElementById('authSub').textContent=m==='signin'?'Sign in to continue your UPSC preparation.':'Join SAMBHAV and build your UPSC study space.';
   document.getElementById('authSubmit').textContent=m==='signin'?'Sign In':'Create Account';
   document.getElementById('forgotRow').style.display=m==='signin'?'block':'none';
+  document.getElementById('nameLabel').style.display=m==='signup'?'block':'none';
+  document.getElementById('authName').style.display=m==='signup'?'block':'none';
+  document.getElementById('authName').required=m==='signup';
   document.getElementById('authMsg').textContent='';
 }
-function submitAuth(e){
+
+function msg(t,error=false){
+  const el=document.getElementById('authMsg');
+  el.textContent=t;
+  el.style.color=error?'#9b3d32':'';
+}
+
+async function submitAuth(e){
   e.preventDefault();
   const email=document.getElementById('authEmail').value.trim();
   const pass=document.getElementById('authPass').value;
-  if(!email||pass.length<6){document.getElementById('authMsg').textContent='Please enter valid details.';return}
-  localStorage.setItem('sambhavUser',JSON.stringify({email,mode}));
-  enterApp();
+  const name=document.getElementById('authName').value.trim();
+  if(!email||pass.length<6){msg('Please enter a valid email and a password of at least 6 characters.',true);return}
+  if(!hasBackend){msg('SAMBHAV account service is not connected yet. Continue as Guest for preview.',true);return}
+  const submit=document.getElementById('authSubmit');
+  submit.disabled=true; submit.textContent='Please wait…';
+  try{
+    if(mode==='signup'){
+      const {data,error}=await supabase.auth.signUp({
+        email,password:pass,
+        options:{data:{full_name:name}}
+      });
+      if(error) throw error;
+      if(data.session) enterApp();
+      else msg('Account created. Check your email to verify your account.');
+    }else{
+      const {data,error}=await supabase.auth.signInWithPassword({email,password:pass});
+      if(error) throw error;
+      if(data.session) enterApp();
+    }
+  }catch(err){msg(err.message||'Authentication failed. Please try again.',true)}
+  finally{submit.disabled=false;submit.textContent=mode==='signin'?'Sign In':'Create Account'}
 }
+
+async function forgotPassword(){
+  const email=document.getElementById('authEmail').value.trim();
+  if(!email){msg('Enter your email address first.',true);return}
+  if(!hasBackend){msg('SAMBHAV account service is not connected yet.',true);return}
+  try{
+    const {error}=await supabase.auth.resetPasswordForEmail(email,{redirectTo:location.origin+location.pathname});
+    if(error) throw error;
+    msg('Password reset email sent. Check your inbox.');
+  }catch(err){msg(err.message||'Unable to send reset email.',true)}
+}
+
+function togglePass(){const x=document.getElementById('authPass');x.type=x.type==='password'?'text':'password'}
+
 function enterApp(){
-  localStorage.setItem('sambhavLoggedIn','1');
+  localStorage.setItem('sambhavGuest','1');
   go('home');
 }
-function forgotPassword(){document.getElementById('authMsg').textContent='Password reset flow will be connected to the backend.'}
-function togglePass(){const x=document.getElementById('authPass');x.type=x.type==='password'?'text':'password'}
+
+async function logout(){
+  if(supabase) await supabase.auth.signOut();
+  localStorage.removeItem('sambhavGuest');
+  location.hash='auth';
+  location.reload();
+}
+
 function go(r){
   if(!routes.includes(r))return;
+  const auth=document.getElementById('auth');
+  const logged=Boolean(window.__sambhavSession)||localStorage.getItem('sambhavGuest')==='1';
+  if(r!=='auth'&&!logged){r='auth'}
   document.querySelectorAll('.screen').forEach(x=>x.classList.toggle('active',x.id===r));
   document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.r===r));
-  const logged=localStorage.getItem('sambhavLoggedIn')==='1';
   document.getElementById('mainHeader').style.display=r==='auth'?'none':'flex';
   document.getElementById('mainNav').style.display=r==='auth'?'none':'grid';
-  if(r!=='auth'&&!logged&&!location.hash){r='auth';document.getElementById('auth').classList.add('active')}
   location.hash=r;scrollTo(0,0);
 }
-const logged=localStorage.getItem('sambhavLoggedIn')==='1';
-const initial=location.hash.slice(1);
-if(logged && routes.includes(initial) && initial!=='auth') go(initial); else if(logged) go('home'); else go('auth');
+
+async function bootAuth(){
+  if(!supabase){
+    go('auth'); return;
+  }
+  const {data}=await supabase.auth.getSession();
+  window.__sambhavSession=data.session||null;
+  if(data.session){go(location.hash.slice(1)||'home')}else{go('auth')}
+  supabase.auth.onAuthStateChange((_event,session)=>{
+    window.__sambhavSession=session;
+    if(session) go(location.hash.slice(1)||'home'); else if(localStorage.getItem('sambhavGuest')!=='1') go('auth');
+  });
+}
+bootAuth();
 </script>
 </body></html>
