@@ -573,6 +573,8 @@ function renderArticles(){
         currentFilter === "ALL" ||
         (currentFilter === "IMPORTANT" && important.includes(articles.indexOf(article))) ||
         (currentFilter === "SAVED" && bookmarked.includes(articles.indexOf(article))) ||
+        (currentFilter === "THE HINDU" && article.sourceGroup === "THE HINDU") ||
+        (currentFilter === "PIB" && article.sourceGroup === "PIB") ||
         article.category
           .toUpperCase()
           .includes(currentFilter);
