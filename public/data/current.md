@@ -1,5 +1,328 @@
 # FATEH27 DAILY CURRENT AFFAIRS
 
+## 04 October 2026
+
+> UPSC CSE • Prelims + Mains • The Hindu + PIB • Daily verified digest
+
+**Total Important Items:** 12
+
+---
+
+## 1. उत्तराखंड SIR के बाद अंतिम मतदाता सूची में लगभग 9 लाख नाम कम
+
+**Source:** The Hindu
+
+**Category:** POLITY
+
+**Priority:** उच्च
+
+### Why in News?
+उत्तराखंड में Special Intensive Revision (SIR) के बाद अंतिम electoral roll जारी हुआ, जिसमें लगभग 9 लाख नाम कम हुए।
+
+### Prelims Focus
+मतदाता सूची की तैयारी में **Article 324** के तहत Election Commission की भूमिका महत्त्वपूर्ण है। Electoral roll से संबंधित प्रमुख कानून **Representation of the People Act, 1950** है।
+
+### Mains Focus
+SIR का उद्देश्य मतदाता सूची की शुद्धता बढ़ाना है, लेकिन बड़े पैमाने पर deletion के साथ due process, पारदर्शिता और genuine voters की पुनः-नामांकन सुविधा सुनिश्चित करना जरूरी है।
+
+### UPSC Syllabus Link
+GS2: चुनाव आयोग, चुनाव सुधार, लोकतंत्र और प्रतिनिधित्व
+
+### 30-Second Revision
+उत्तराखंड SIR के बाद अंतिम सूची में लगभग 9 लाख नाम कम हुए; Form 6 के माध्यम से पात्र व्यक्ति पुनः नामांकन कर सकते हैं।
+
+---
+
+## 2. RBI Governor ने financial stability के लिए पाँच प्राथमिकताओं पर जोर दिया
+
+**Source:** The Hindu / Kautilya Economic Conclave
+
+**Category:** ECONOMY
+
+**Priority:** उच्च
+
+### Why in News?
+RBI Governor Sanjay Malhotra ने Kautilya Economic Conclave में financial stability के लिए systemic risks और proportionate supervision पर जोर दिया।
+
+### Prelims Focus
+Macroprudential regulation का उद्देश्य पूरे financial system में systemic risk को नियंत्रित करना है। RBI और Financial Stability and Development Council (FSDC) इस संदर्भ में महत्त्वपूर्ण संस्थाएँ हैं।
+
+### Mains Focus
+NBFIs, cyber risks, geopolitical shocks, cross-border financial linkages और critical third-party service providers emerging systemic risks हैं। बेहतर data-sharing, stress testing और coordinated regulation जरूरी हैं।
+
+### UPSC Syllabus Link
+GS3: बैंकिंग, वित्तीय स्थिरता, मौद्रिक नीति
+
+### 30-Second Revision
+Financial stability के लिए bank-centric regulation से आगे बढ़कर system-wide systemic-risk monitoring जरूरी है।
+
+---
+
+## 3. रूस लगभग 70,000 भारतीय skilled workers को 2026 में स्वीकार करेगा
+
+**Source:** The Hindu
+
+**Category:** INTERNATIONAL RELATIONS
+
+**Priority:** उच्च
+
+### Why in News?
+India-Russia relations पर parliamentary consultative committee meeting में बताया गया कि रूस 2026 में लगभग 70,000 भारतीय skilled workers को स्वीकार करने पर सहमत है, विशेषकर construction और logistics sectors में।
+
+### Prelims Focus
+चर्चा में automobiles, pharmaceuticals, food, marine products, engineering goods, chemicals और textiles जैसे export sectors का भी उल्लेख हुआ।
+
+### Mains Focus
+Skilled labour mobility भारत-रूस आर्थिक संबंधों को मजबूत कर सकती है और भारतीय श्रमिकों के लिए नए अवसर खोल सकती है। साथ ही worker protection, skill recognition और balanced trade महत्वपूर्ण हैं।
+
+### UPSC Syllabus Link
+GS2: भारत-रूस संबंध, प्रवासन, कूटनीति
+
+### 30-Second Revision
+Russia–India cooperation में skilled-worker mobility और balanced bilateral trade प्रमुख मुद्दे हैं।
+
+---
+
+## 4. J&K के Sawalkot Hydroelectric Project पर केंद्र विचार कर रहा है
+
+**Source:** The Hindu
+
+**Category:** ECONOMY / IR
+
+**Priority:** उच्च
+
+### Why in News?
+केंद्र 800 MW के Sawalkot hydroelectric project पर आगे बढ़ने पर विचार कर रहा है। परियोजना Chenab नदी पर J&K के Udhampur, Reasi और Ramban जिलों से संबंधित है।
+
+### Prelims Focus
+Sawalkot: Chenab River; क्षमता: 800 MW; परियोजना: NHPC; अनुमानित लागत: लगभग ₹5,129 करोड़।
+
+### Mains Focus
+J&K में hydropower ऊर्जा सुरक्षा और renewable transition के लिए महत्त्वपूर्ण है। साथ ही Indus Waters Treaty, downstream impacts, ecology और India-Pakistan relations के आयाम जुड़े हैं।
+
+### UPSC Syllabus Link
+GS2: भारत-पाकिस्तान संबंध; GS3: ऊर्जा, जल संसाधन
+
+### 30-Second Revision
+Sawalkot project Chenab पर 800 MW का NHPC hydropower project है।
+
+---
+
+## 5. Great Indian Bustard के captive-bred birds का rewilding चरण शुरू
+
+**Source:** PIB / Environment Ministry
+
+**Category:** ENVIRONMENT
+
+**Priority:** उच्च
+
+### Why in News?
+Project Great Indian Bustard के अंतर्गत captive-bred birds को Desert National Park, Rajasthan में wild-release/reintroduction programme के लिए आगे बढ़ाया गया है।
+
+### Prelims Focus
+Great Indian Bustard का वैज्ञानिक नाम **Ardeotis nigriceps** है। यह IUCN में **Critically Endangered** है और Wildlife (Protection) Act, 1972 के Schedule I में संरक्षित है।
+
+### Mains Focus
+Captive breeding के बाद rewilding habitat restoration, prey/food availability, power-line mitigation और long-term population monitoring के साथ चलना चाहिए।
+
+### UPSC Syllabus Link
+GS3: जैव विविधता, species conservation, protected areas
+
+### 30-Second Revision
+Project GIB captive breeding से आगे बढ़कर rewilding/release phase में प्रवेश कर रहा है।
+
+---
+
+## 6. Assam NRC का final register 2019 से अभी तक notify नहीं हुआ
+
+**Source:** The Hindu
+
+**Category:** POLITY
+
+**Priority:** उच्च
+
+### Why in News?
+Supreme Court में केंद्र ने बताया कि Assam का 2019 final NRC अभी तक formally notified नहीं हुआ है।
+
+### Prelims Focus
+NRC Assam में citizenship-related documentation और Supreme Court-monitored exercise से जुड़ा है। Assam Accord और citizenship determination इसका महत्वपूर्ण background है।
+
+### Mains Focus
+Citizenship determination में documentation, due process, exclusion errors, constitutional rights और humanitarian concerns के बीच संतुलन जरूरी है।
+
+### UPSC Syllabus Link
+GS2: नागरिकता, संविधान, शासन, न्यायपालिका
+
+### 30-Second Revision
+Assam NRC का 2019 final register अभी तक formally notified नहीं हुआ है।
+
+---
+
+## 7. Department-related Parliamentary Standing Committees का पुनर्गठन
+
+**Source:** The Hindu / Parliament
+
+**Category:** POLITY
+
+**Priority:** उच्च
+
+### Why in News?
+2026-27 के लिए Department-related Parliamentary Standing Committees (DRSCs) का पुनर्गठन किया गया है और विभिन्न समितियों में नए chairpersons/सदस्य आए हैं।
+
+### Prelims Focus
+DRSCs मंत्रालयों और विभागों के कार्य, demands for grants, bills और policies की detailed scrutiny में सहायता करती हैं।
+
+### Mains Focus
+Parliamentary committees executive accountability को मजबूत करती हैं और legislative scrutiny को अधिक विशेषज्ञतापूर्ण बनाती हैं। उनकी recommendations सामान्यतः advisory nature की होती हैं।
+
+### UPSC Syllabus Link
+GS2: संसद, संसदीय समितियाँ, जवाबदेही
+
+### 30-Second Revision
+DRSCs detailed parliamentary scrutiny और executive accountability का महत्वपूर्ण साधन हैं।
+
+---
+
+## 8. NLEP: 2025-26 में 3,832 बच्चों में leprosy की पहचान
+
+**Source:** The Hindu
+
+**Category:** SOCIAL ISSUES / HEALTH
+
+**Priority:** उच्च
+
+### Why in News?
+भारत में 2025-26 के दौरान 3,832 child leprosy cases दर्ज हुए, जबकि 2027 तक transmission interruption का लक्ष्य रखा गया है।
+
+### Prelims Focus
+Leprosy एक chronic infectious disease है जिसका कारण **Mycobacterium leprae** है। Early detection और multidrug therapy (MDT) disease control के प्रमुख साधन हैं।
+
+### Mains Focus
+Child cases active transmission का संकेत दे सकते हैं। Early diagnosis, contact tracing, stigma reduction और community-level surveillance को मजबूत करना आवश्यक है।
+
+### UPSC Syllabus Link
+GS2: स्वास्थ्य, सामाजिक न्याय, vulnerable groups
+
+### 30-Second Revision
+Child leprosy cases disease transmission और early-detection systems की स्थिति का महत्वपूर्ण indicator हैं।
+
+---
+
+## 9. Classical Languages के लिए Centres of Excellence
+
+**Source:** The Hindu / Government
+
+**Category:** ART & CULTURE
+
+**Priority:** मध्यम
+
+### Why in News?
+Classical languages से संबंधित Centres of Excellence और भारतीय भाषाई विरासत के संरक्षण पर ध्यान चर्चा में रहा।
+
+### Prelims Focus
+भारत में classical-language recognition सांस्कृतिक विरासत और भाषाई अध्ययन से जुड़ा है। Classical languages के लिए criteria में antiquity, rich ancient literature और distinct literary tradition जैसे तत्व महत्त्वपूर्ण हैं।
+
+### Mains Focus
+भाषाई विरासत का संरक्षण केवल साहित्य तक सीमित नहीं होना चाहिए; digitisation, university research, translation और public access को भी जोड़ा जाना चाहिए।
+
+### UPSC Syllabus Link
+GS1: भारतीय संस्कृति, भाषा और साहित्य
+
+### 30-Second Revision
+Classical-language promotion में preservation, research, digitisation और wider access चार प्रमुख आयाम हैं।
+
+---
+
+## 10. River interlinking और invasive species का ecological risk
+
+**Source:** The Hindu / ATREE study
+
+**Category:** ENVIRONMENT
+
+**Priority:** उच्च
+
+### Why in News?
+एक ATREE अध्ययन ने संकेत दिया कि river interlinking projects invasive species के प्रसार के लिए ecological pathways बना सकते हैं।
+
+### Prelims Focus
+Invasive alien species native ecosystems में biodiversity, food webs और ecosystem services को प्रभावित कर सकती हैं।
+
+### Mains Focus
+Interlinking projects के cost-benefit analysis में केवल water availability नहीं, बल्कि ecological connectivity, invasive species, sediment flow और biodiversity impacts को भी शामिल करना चाहिए।
+
+### UPSC Syllabus Link
+GS3: पर्यावरण, biodiversity, जल संसाधन
+
+### 30-Second Revision
+River interlinking में hydrological benefits के साथ invasive-species और ecosystem risks का assessment जरूरी है।
+
+---
+
+## 11. Gaza में winter से पहले humanitarian assistance बढ़ाने की WHO अपील
+
+**Source:** The Hindu / WHO
+
+**Category:** INTERNATIONAL RELATIONS
+
+**Priority:** उच्च
+
+### Why in News?
+WHO ने winter conditions से पहले Gaza में बड़े पैमाने पर humanitarian assistance के flow की आवश्यकता पर जोर दिया।
+
+### Prelims Focus
+WHO संयुक्त राष्ट्र की specialized agency है और global public-health coordination में प्रमुख भूमिका निभाती है।
+
+### Mains Focus
+Conflict zones में humanitarian access, medical supplies, civilian protection और safe aid corridors international humanitarian concerns हैं।
+
+### UPSC Syllabus Link
+GS2: अंतरराष्ट्रीय संगठन, मानवीय संकट, वैश्विक स्वास्थ्य
+
+### 30-Second Revision
+Conflict zones में humanitarian assistance की effectiveness के लिए safe access, logistics और international coordination जरूरी हैं।
+
+---
+
+## 12. Kautilya Economic Conclave 2026
+
+**Source:** PIB
+
+**Category:** ECONOMY
+
+**Priority:** मध्यम
+
+### Why in News?
+5th Kautilya Economic Conclave 3–5 October 2026 को New Delhi में आयोजित हो रहा है। PIB के अनुसार इसका theme **“Resilience in an Age of Flux”** है।
+
+### Prelims Focus
+Kautilya Economic Conclave; 5th edition; venue: New Delhi; theme: Resilience in an Age of Flux.
+
+### Mains Focus
+Global economic fragmentation, geopolitical shocks, supply-chain resilience और financial stability के दौर में policy resilience महत्वपूर्ण है।
+
+### UPSC Syllabus Link
+GS3: भारतीय अर्थव्यवस्था, वैश्विक अर्थव्यवस्था, वित्तीय स्थिरता
+
+### 30-Second Revision
+Kautilya Economic Conclave 2026 का केंद्रीय विचार बदलती वैश्विक परिस्थितियों में economic resilience है।
+
+---
+
+## आज के 5 Prelims Quick Facts
+
+1. **SIR electoral-roll preparation → RPA, 1950**
+2. **Sawalkot → Chenab River → 800 MW → NHPC**
+3. **Great Indian Bustard → Ardeotis nigriceps → Critically Endangered**
+4. **Leprosy → Mycobacterium leprae → MDT**
+5. **Kautilya Economic Conclave 2026 → “Resilience in an Age of Flux”**
+
+## आज का Mains Practice
+
+**Q. भारत में electoral-roll revision की आवश्यकता और लोकतांत्रिक समावेशन के बीच संतुलन कैसे सुनिश्चित किया जा सकता है? (250 शब्द)**
+
+**Q. भारत के hydropower expansion में ऊर्जा सुरक्षा के साथ ecological और transboundary concerns को कैसे संतुलित किया जाए? (250 शब्द)**
+
+---
 ## 03 October 2026
 
 > UPSC CSE • Prelims + Mains • The Hindu + PIB + RBI + Government + International Institutions
