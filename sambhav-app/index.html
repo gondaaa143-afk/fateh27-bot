@@ -15,8 +15,34 @@ button,input{font:inherit}.app{max-width:480px;margin:auto;min-height:100vh;padd
 .nav{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);width:min(448px,calc(100% - 26px));display:grid;grid-template-columns:repeat(5,1fr);gap:3px;background:var(--olive);border:1px solid #ffffff14;border-radius:27px;padding:7px;z-index:5;box-shadow:0 15px 35px #28312638}.nav button{border:0;background:transparent;color:#aaaF9f;padding:8px 2px;border-radius:19px;font-size:7px;line-height:1.5;font-weight:900}.nav button.active{background:var(--cream);color:var(--olive)}
 .kicker{display:inline-flex;align-items:center;gap:6px;background:var(--cream2);border-radius:999px;padding:7px 10px;font-size:8px;font-weight:950;color:var(--olive)}
 @media(max-width:360px){.hero h2{font-size:35px}.card{min-height:145px}.app{padding-left:13px;padding-right:13px}}
+</style><style>
+.auth-wrap{min-height:calc(100vh - 36px);display:flex;flex-direction:column;justify-content:center;padding:24px 8px 35px}.auth-logo{width:68px;height:68px;border-radius:24px;background:var(--olive);color:var(--cream);display:grid;place-items:center;font-size:29px;font-weight:950;margin-bottom:22px;box-shadow:0 12px 28px #28312628}.auth-title{font-size:43px;line-height:.95;letter-spacing:-.075em;margin:12px 0 9px;font-weight:950;color:var(--olive)}.auth-sub{font-size:12px;line-height:1.5;color:var(--muted);margin:0 0 25px;max-width:310px}.auth-tabs{display:grid;grid-template-columns:1fr 1fr;background:var(--cream2);border-radius:17px;padding:4px;margin-bottom:22px}.auth-tab{border:0;background:transparent;border-radius:13px;padding:11px;color:var(--muted);font-size:10px;font-weight:950}.auth-tab.active{background:var(--olive);color:var(--cream)}#authForm label{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.11em;font-weight:950;color:var(--muted);margin:0 0 7px}.auth-input{width:100%;border:1px solid var(--line);background:var(--white);border-radius:16px;padding:14px 15px;outline:0;color:var(--ink);margin-bottom:15px}.auth-input:focus{border-color:var(--olive);box-shadow:0 0 0 3px #28312612}.pass-wrap{position:relative}.pass-wrap .auth-input{padding-right:62px}.pass-wrap button{position:absolute;right:10px;top:9px;border:0;background:var(--cream2);border-radius:10px;padding:7px 9px;font-size:8px;font-weight:950;color:var(--olive)}.forgot-row{text-align:right;margin:-5px 0 15px}.forgot-row button{border:0;background:transparent;color:var(--olive);font-size:9px;font-weight:900}.auth-submit{width:100%;border:0;background:var(--olive);color:var(--cream);border-radius:17px;padding:15px;font-size:11px;font-weight:950;box-shadow:0 10px 22px #28312620}.auth-divider{display:flex;align-items:center;gap:10px;margin:19px 0;color:#9a9b8b;font-size:8px;font-weight:900}.auth-divider:before,.auth-divider:after{content:"";height:1px;background:var(--line);flex:1}.guest-btn{width:100%;border:1px solid var(--line);background:var(--white);color:var(--olive);border-radius:17px;padding:14px;font-size:10px;font-weight:950}.auth-foot{text-align:center;color:#999a8b;font-size:8px;line-height:1.5;margin:16px 15px 0}.auth-msg{font-size:9px;color:#a83b35;min-height:15px;margin:-3px 0 8px;font-weight:800}
 </style></head>
-<body><main class="app">
+<body><main class="app"><section id="auth" class="screen active">
+  <div class="auth-wrap">
+    <div class="auth-logo">S</div>
+    <div class="eyebrow">SAMBHAV UPSC</div>
+    <h2 class="auth-title" id="authTitle">Welcome back.</h2>
+    <p class="auth-sub" id="authSub">Sign in to continue your UPSC preparation.</p>
+    <div class="auth-tabs">
+      <button id="signInTab" class="auth-tab active" onclick="authMode('signin')">Sign In</button>
+      <button id="signUpTab" class="auth-tab" onclick="authMode('signup')">Sign Up</button>
+    </div>
+    <form id="authForm" onsubmit="submitAuth(event)">
+      <label>Email address</label>
+      <input id="authEmail" class="auth-input" type="email" placeholder="you@example.com" required>
+      <label>Password</label>
+      <div class="pass-wrap"><input id="authPass" class="auth-input" type="password" placeholder="••••••••" minlength="6" required><button type="button" onclick="togglePass()">Show</button></div>
+      <div id="forgotRow" class="forgot-row"><button type="button" onclick="forgotPassword()">Forgot password?</button></div>
+      <div id="authMsg" class="auth-msg"></div>
+      <button class="auth-submit" type="submit" id="authSubmit">Sign In</button>
+    </form>
+    <div class="auth-divider"><span>OR</span></div>
+    <button class="guest-btn" onclick="enterApp()">Continue as Guest</button>
+    <p class="auth-foot">By continuing, you agree to the <b>Terms</b> and <b>Privacy Policy</b>.</p>
+  </div>
+</section>
+
 <header class="top"><div class="brand"><div class="logo">S</div><div><div class="eyebrow">UPSC PREPARATION</div><h1>SAMBHAV</h1></div></div><button class="icon" onclick="go('settings')">⚙</button></header>
 
 <section id="home" class="screen active"><div class="hero"><div class="eyebrow">SAMBHAV UPSC</div><div class="kicker">● YOUR DAILY UPSC SPACE</div><h2>Prepare with<br>purpose.</h2><p>Current affairs, PYQs, revision and AI — all in one focused workspace.</p></div><div class="section"><h3>Explore</h3><div class="grid">
@@ -37,6 +63,46 @@ button,input{font:inherit}.app{max-width:480px;margin:auto;min-height:100vh;padd
 <section id="premium" class="screen"><button class="back" onclick="go('home')">← Home</button><h3>Premium</h3><div class="hero"><div class="eyebrow" style="color:#cbd5e5">PREMIUM</div><h2>Go deeper.</h2><p>Advanced AI, structured mocks and premium study workflows.</p><button class="pill">View plans</button></div></section>
 <section id="settings" class="screen"><button class="back" onclick="go('home')">← Home</button><h3>Settings</h3><div class="list"><div class="li">अ</div><div><b>Language</b><p>Hindi / English</p></div></div><div class="list"><div class="li">☾</div><div><b>Appearance</b><p>Light / Dark mode</p></div></div></section>
 </main>
-<nav class="nav"><button data-r="home" class="active" onclick="go('home')">⌂<br>HOME</button><button data-r="current" onclick="go('current')">◒<br>CURRENT</button><button data-r="pyq" onclick="go('pyq')">?<br>PYQ</button><button data-r="revision" onclick="go('revision')">↻<br>REVISION</button><button data-r="ai" onclick="go('ai')">✦<br>AI</button></nav>
-<script>const routes=['home','current','pyq','revision','ai','premium','settings'];function go(r){if(!routes.includes(r))return;document.querySelectorAll('.screen').forEach(x=>x.classList.toggle('active',x.id===r));document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.r===r));location.hash=r;scrollTo(0,0)}if(location.hash&&routes.includes(location.hash.slice(1)))go(location.hash.slice(1));</script>
+<nav id="mainNav" class="nav"><button data-r="home" class="active" onclick="go('home')">⌂<br>HOME</button><button data-r="current" onclick="go('current')">◒<br>CURRENT</button><button data-r="pyq" onclick="go('pyq')">?<br>PYQ</button><button data-r="revision" onclick="go('revision')">↻<br>REVISION</button><button data-r="ai" onclick="go('ai')">✦<br>AI</button></nav>
+<script>
+const routes=['auth','home','current','pyq','revision','ai','premium','settings'];
+let mode='signin';
+function authMode(m){
+  mode=m;
+  document.getElementById('signInTab').classList.toggle('active',m==='signin');
+  document.getElementById('signUpTab').classList.toggle('active',m==='signup');
+  document.getElementById('authTitle').textContent=m==='signin'?'Welcome back.':'Create your account.';
+  document.getElementById('authSub').textContent=m==='signin'?'Sign in to continue your UPSC preparation.':'Join SAMBHAV and build your UPSC study space.';
+  document.getElementById('authSubmit').textContent=m==='signin'?'Sign In':'Create Account';
+  document.getElementById('forgotRow').style.display=m==='signin'?'block':'none';
+  document.getElementById('authMsg').textContent='';
+}
+function submitAuth(e){
+  e.preventDefault();
+  const email=document.getElementById('authEmail').value.trim();
+  const pass=document.getElementById('authPass').value;
+  if(!email||pass.length<6){document.getElementById('authMsg').textContent='Please enter valid details.';return}
+  localStorage.setItem('sambhavUser',JSON.stringify({email,mode}));
+  enterApp();
+}
+function enterApp(){
+  localStorage.setItem('sambhavLoggedIn','1');
+  go('home');
+}
+function forgotPassword(){document.getElementById('authMsg').textContent='Password reset flow will be connected to the backend.'}
+function togglePass(){const x=document.getElementById('authPass');x.type=x.type==='password'?'text':'password'}
+function go(r){
+  if(!routes.includes(r))return;
+  document.querySelectorAll('.screen').forEach(x=>x.classList.toggle('active',x.id===r));
+  document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.r===r));
+  const logged=localStorage.getItem('sambhavLoggedIn')==='1';
+  document.getElementById('mainHeader').style.display=r==='auth'?'none':'flex';
+  document.getElementById('mainNav').style.display=r==='auth'?'none':'grid';
+  if(r!=='auth'&&!logged&&!location.hash){r='auth';document.getElementById('auth').classList.add('active')}
+  location.hash=r;scrollTo(0,0);
+}
+const logged=localStorage.getItem('sambhavLoggedIn')==='1';
+const initial=location.hash.slice(1);
+if(logged && routes.includes(initial) && initial!=='auth') go(initial); else if(logged) go('home'); else go('auth');
+</script>
 </body></html>
