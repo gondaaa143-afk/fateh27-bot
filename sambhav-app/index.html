@@ -154,7 +154,7 @@ async function forgotPassword(){
   if(!email){msg('Enter your email address first.',true);return}
   if(!hasBackend){msg('SAMBHAV account service is not connected yet.',true);return}
   try{
-    const {error}=await supabase.auth.resetPasswordForEmail(email,{redirectTo:location.origin+location.pathname});
+    const {error}=await supabase.auth.resetPasswordForEmail(email,{redirectTo:location.origin+location.pathname+'?recovery=1'});
     if(error) throw error;
     msg('Password reset email sent. Check your inbox.');
   }catch(err){msg(err.message||'Unable to send reset email.',true)}
@@ -186,10 +186,23 @@ function go(r){
   location.hash=r;scrollTo(0,0);
 }
 
+async function handleRecovery(){
+  const params=new URLSearchParams(location.search);
+  if(params.get('recovery')!=='1'||!supabase)return false;
+  const {data}=await supabase.auth.getSession();
+  if(!data.session)return false;
+  const next=prompt('Enter your new password (minimum 6 characters):');
+  if(!next||next.length<6){msg('Password must be at least 6 characters.',true);return true}
+  const {error}=await supabase.auth.updateUser({password:next});
+  if(error) msg(error.message,true); else {msg('Password updated. You can continue to SAMBHAV.');go('home')}
+  return true;
+}
+
 async function bootAuth(){
   if(!supabase){
     go('auth'); return;
   }
+  if(await handleRecovery()) return;
   const {data}=await supabase.auth.getSession();
   window.__sambhavSession=data.session||null;
   if(data.session){go(location.hash.slice(1)||'home')}else{go('auth')}
