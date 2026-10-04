@@ -8,8 +8,6 @@
 <title>FATEH27</title>
 
 <script>if(new URLSearchParams(location.search).get("app")==="sambhav"){location.replace("/app-preview.html");}</script>
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
-<script src="./access-gate.js"></script>
 <script src="./progress.js"></script>
 
 <style>
@@ -2548,60 +2546,7 @@ load();
   }
 
   async function checkAccess(){
-    const tg=window.Telegram?.WebApp;
-    const initData=tg?.initData;
-    if(!initData){
-      blocked(
-        "Telegram Login Required",
-        "FATEH27 access is available only through the authenticated Telegram Mini App.",
-        false
-      );
-      return;
-    }
-
-    try{
-      const response=await fetchAccessApi({
-        headers:{"x-telegram-init-data":initData}
-      });
-      const data=await response.json().catch(()=>({}));
-
-      if(data.status==="approved"){
-        openApp();
-        return;
-      }
-
-      if(data.status==="pending"){
-        blocked(
-          "Approval Pending",
-          "Your request has been received. FATEH27 admin approval is required before you can enter.",
-          false
-        );
-        return;
-      }
-
-      if(data.status==="rejected"){
-        blocked(
-          "Access Not Approved",
-          "Your FATEH27 access request was not approved. Contact the administrator.",
-          false
-        );
-        return;
-      }
-
-      blocked(
-        "Access Required",
-        "Request access first. Your account will enter only after FATEH27 admin approval.",
-        true
-      );
-    }catch(error){
-      console.error("FATEH27 access check:",error);
-      blocked(
-        "Access Check Failed",
-        "Server se verification nahi ho paayi. Please try again.",
-        true
-      );
-      status.textContent="Network / server error";
-    }
+    openApp();
   }
 
   btn.addEventListener("click",async function(){
