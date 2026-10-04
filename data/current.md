@@ -4,7 +4,7 @@
 
 > UPSC CSE • Prelims + Mains • The Hindu + PIB • Daily verified digest
 
-**Total Important Items:** 12
+**Total Important Items:** 20
 
 ---
 
@@ -208,28 +208,28 @@ Child leprosy cases disease transmission और early-detection systems की �
 
 ---
 
-## 9. Classical Languages के लिए Centres of Excellence
+## 9. पाँच Classical Languages के लिए Centres of Excellence
 
-**Source:** The Hindu / Government
+**Source:** The Hindu / Ministry of Education
 
-**Category:** ART & CULTURE
+**Category:** ART & CULTURE / EDUCATION
 
-**Priority:** मध्यम
+**Priority:** उच्च
 
 ### Why in News?
-Classical languages से संबंधित Centres of Excellence और भारतीय भाषाई विरासत के संरक्षण पर ध्यान चर्चा में रहा।
+केंद्र ने Assamese, Bengali, Marathi, Pali और Prakrit के अध्ययन के लिए पाँच Centres of Excellence स्थापित करने को मंजूरी दी।
 
 ### Prelims Focus
-भारत में classical-language recognition सांस्कृतिक विरासत और भाषाई अध्ययन से जुड़ा है। Classical languages के लिए criteria में antiquity, rich ancient literature और distinct literary tradition जैसे तत्व महत्त्वपूर्ण हैं।
+Centres: Assamese—Tezpur University; Bengali—Visva-Bharati; Marathi—Deccan College, Pune; Pali—Central University of Odisha; Prakrit—Central University of Gujarat. The Hindu के अनुसार कुल 11 भाषाओं को Classical Language का दर्जा दिया गया है।
 
 ### Mains Focus
-भाषाई विरासत का संरक्षण केवल साहित्य तक सीमित नहीं होना चाहिए; digitisation, university research, translation और public access को भी जोड़ा जाना चाहिए।
+यह पहल linguistic heritage के research, documentation, preservation और digitisation को मजबूत कर सकती है। Higher education institutions को regional language ecosystems से जोड़ना cultural conservation को अधिक टिकाऊ बना सकता है।
 
 ### UPSC Syllabus Link
-GS1: भारतीय संस्कृति, भाषा और साहित्य
+GS1: भारतीय संस्कृति, भाषा और साहित्य; GS2: शिक्षा
 
 ### 30-Second Revision
-Classical-language promotion में preservation, research, digitisation और wider access चार प्रमुख आयाम हैं।
+पाँच भाषाओं—Assamese, Bengali, Marathi, Pali और Prakrit—के लिए Centres of Excellence approved किए गए हैं।
 
 ---
 
@@ -308,13 +308,213 @@ Kautilya Economic Conclave 2026 का केंद्रीय विचार 
 
 ---
 
+## 13. U.S. Pacific Command के प्रमुख की भारत यात्रा
+
+**Source:** The Hindu
+
+**Category:** INTERNATIONAL RELATIONS / DEFENCE
+
+**Priority:** उच्च
+
+### Why in News?
+U.S. Pacific Command के Commander Admiral Samuel J. Paparo 8 October तक भारत यात्रा पर हैं। यात्रा का उद्देश्य U.S.-India Major Defense Partnership और military-to-military cooperation को आगे बढ़ाना है।
+
+### Prelims Focus
+चर्चा के प्रमुख क्षेत्र: digital transformation, emerging technologies, regional strategic stability और defence energy resilience.
+
+### Mains Focus
+Indo-Pacific में भारत-अमेरिका defence cooperation maritime security, emerging technologies और strategic stability को प्रभावित करता है। Defence cooperation को strategic autonomy और wider regional partnerships के साथ संतुलित करना महत्वपूर्ण है।
+
+### UPSC Syllabus Link
+GS2: भारत-अमेरिका संबंध, Indo-Pacific; GS3: आंतरिक सुरक्षा/रक्षा
+
+### 30-Second Revision
+U.S. Pacific Command chief की यात्रा India-U.S. defence partnership और Indo-Pacific security से जुड़ी है।
+
+---
+
+## 14. G20 में excess manufacturing capacity और WTO पर चर्चा
+
+**Source:** The Hindu
+
+**Category:** ECONOMY / INTERNATIONAL TRADE
+
+**Priority:** उच्च
+
+### Why in News?
+G20 trade ministers ने government-supported excess manufacturing capacities के कारण fair-trade देशों के manufacturing sectors पर पड़ने वाले प्रभाव और WTO के भविष्य से जुड़े मुद्दों पर चर्चा की।
+
+### Prelims Focus
+Key concepts: excess capacity, trade distortions, WTO rules, fair trade और industrial policy.
+
+### Mains Focus
+Subsidised overcapacity वैश्विक trade में price distortion और domestic manufacturing पर दबाव डाल सकती है। भारत के लिए WTO-consistent industrial policy, supply-chain diversification और competitive manufacturing महत्वपूर्ण हैं।
+
+### UPSC Syllabus Link
+GS3: उद्योग, व्यापार; GS2: WTO और वैश्विक संस्थाएँ
+
+### 30-Second Revision
+G20 discussion में excess manufacturing capacity और WTO framework प्रमुख मुद्दे रहे।
+
+---
+
+## 15. आंध्र प्रदेश में BC reservation पर Supreme Court में चुनौती
+
+**Source:** The Hindu
+
+**Category:** POLITY / SOCIAL JUSTICE
+
+**Priority:** उच्च
+
+### Why in News?
+Andhra Pradesh सरकार ने local body elections में Backward Classes (BCs) reservation पर High Court के 1 October के आदेश को Supreme Court में चुनौती दी।
+
+### Prelims Focus
+विवाद Constitution के **Articles 243-D(6) और 243-T(6)** तथा local bodies में political reservation से संबंधित है।
+
+### Mains Focus
+स्थानीय निकायों में OBC/BC political reservation में constitutional provisions, empirical data, representation और overall reservation limits के बीच संतुलन आवश्यक है।
+
+### UPSC Syllabus Link
+GS2: स्थानीय शासन, सामाजिक न्याय, आरक्षण
+
+### 30-Second Revision
+AP BC local-body reservation dispute Articles 243-D(6) और 243-T(6) से जुड़ा है।
+
+---
+
+## 16. UGC का Social Inclusion scheme renewal में देरी
+
+**Source:** The Hindu
+
+**Category:** SOCIAL JUSTICE / EDUCATION
+
+**Priority:** उच्च
+
+### Why in News?
+24 central universities अभी UGC के **Centre for the Study of Social Inclusion in Universities (CSSIU)** scheme के 2026-27 renewal की प्रतीक्षा कर रही हैं।
+
+### Prelims Focus
+CSSIU scheme 2007-08 में शुरू हुई थी। यह marginalised communities पर teaching, research और outreach से जुड़ी है। The Hindu के अनुसार 2024-25 में 18 centres को ₹26.05 crore reimbursement basis पर जारी हुए थे।
+
+### Mains Focus
+Social inclusion policies की सफलता के लिए केवल scheme design नहीं, बल्कि predictable funding, institutional continuity और targeted outreach जरूरी हैं। Annual renewal delays implementation और staff stability को प्रभावित कर सकते हैं।
+
+### UPSC Syllabus Link
+GS2: सामाजिक न्याय, शिक्षा, vulnerable groups
+
+### 30-Second Revision
+CSSIU marginalised communities पर higher-education research और outreach से जुड़ी UGC scheme है; 2026-27 renewal अभी process में है।
+
+---
+
+## 17. Forest fragmentation से local warming बढ़ सकती है
+
+**Source:** The Hindu / Scientific study
+
+**Category:** ENVIRONMENT / CLIMATE
+
+**Priority:** उच्च
+
+### Why in News?
+एक नए अध्ययन में पाया गया कि tropical और temperate regions में continuous forests को छोटे isolated patches में बाँटने से surface temperature बढ़ सकता है।
+
+### Prelims Focus
+Forest fragmentation habitat connectivity और local climate को प्रभावित कर सकती है। Satellite data का उपयोग forest fragmentation और temperature संबंध समझने में किया गया।
+
+### Mains Focus
+Climate action में केवल total forest cover नहीं, बल्कि forest connectivity और landscape integrity भी महत्वपूर्ण हैं। Fragmentation biodiversity loss और ecological resilience को भी प्रभावित कर सकती है।
+
+### UPSC Syllabus Link
+GS3: पर्यावरण, climate change, biodiversity
+
+### 30-Second Revision
+Forest fragmentation tropical और temperate क्षेत्रों में local surface warming को बढ़ा सकती है।
+
+---
+
+## 18. African elephants में zoopharmacognosy का evidence
+
+**Source:** The Hindu / Scientific Reports
+
+**Category:** SCIENCE & TECHNOLOGY / ENVIRONMENT
+
+**Priority:** मध्यम
+
+### Why in News?
+Kenya के Mount Elgon क्षेत्र में African elephants द्वारा बीमारी के दौरान specific plants और अन्य natural resources के उपयोग पर अध्ययन प्रकाशित हुआ।
+
+### Prelims Focus
+**Zoopharmacognosy** वह व्यवहार है जिसमें animals self-medication के लिए plants, soil, insects आदि का उपयोग करते हैं। अध्ययन में 39 natural resources की पहचान का उल्लेख है।
+
+### Mains Focus
+Animal behaviour और traditional ecological knowledge biodiversity conservation तथा indigenous knowledge systems के अध्ययन में उपयोगी हो सकते हैं। ऐसे ज्ञान के commercial use में community intellectual-property rights का सम्मान जरूरी है।
+
+### UPSC Syllabus Link
+GS3: biodiversity, conservation; GS1: indigenous knowledge
+
+### 30-Second Revision
+Zoopharmacognosy = animals द्वारा self-medication के लिए natural resources का उपयोग।
+
+---
+
+## 19. Bitchat को India App Store से हटाया गया
+
+**Source:** The Hindu
+
+**Category:** SCIENCE & TECHNOLOGY / GOVERNANCE
+
+**Priority:** मध्यम
+
+### Why in News?
+The Hindu के अनुसार offline messaging application **Bitchat** को India App Store से हटाया गया। यह Bluetooth-based messaging से जुड़ा application था और पहले Indian cyber authorities की scrutiny में आया था।
+
+### Prelims Focus
+Bluetooth-based communication, offline messaging, app-store regulation और cyber governance से जुड़ा मुद्दा।
+
+### Mains Focus
+Digital platforms के regulation में national security, lawful access, privacy, free expression और due process के बीच संतुलन आवश्यक है।
+
+### UPSC Syllabus Link
+GS2: governance, rights; GS3: cyber security, technology
+
+### 30-Second Revision
+Bitchat case offline/Bluetooth communication और digital-platform regulation के intersection को दिखाता है।
+
+---
+
+## 20. AI भारतीय IT कंपनियों के workforce ‘bench’ model को बदल रहा है
+
+**Source:** The Hindu
+
+**Category:** ECONOMY / SCIENCE & TECHNOLOGY
+
+**Priority:** उच्च
+
+### Why in News?
+The Hindu के अनुसार AI के बढ़ते उपयोग से Indian IT firms में unallocated workforce यानी **bench** की प्रकृति बदल रही है। Firms upskilling, reskilling और cross-skilling पर अधिक जोर दे रही हैं।
+
+### Prelims Focus
+IT services में bench का अर्थ ऐसे staff से है जो फिलहाल billable client project पर assigned नहीं है। AI/ML proficiency workforce deployment को प्रभावित कर रही है।
+
+### Mains Focus
+AI का प्रभाव केवल job displacement तक सीमित नहीं है; skill restructuring, productivity, reskilling और labour-market transition भी महत्वपूर्ण हैं। Human capital investment AI transition की key policy response है।
+
+### UPSC Syllabus Link
+GS3: employment, technology, AI, skill development
+
+### 30-Second Revision
+AI Indian IT sector में workforce deployment और skill requirements को पुनर्परिभाषित कर रहा है।
+
+---
+
 ## आज के 5 Prelims Quick Facts
 
 1. **SIR electoral-roll preparation → RPA, 1950**
 2. **Sawalkot → Chenab River → 800 MW → NHPC**
 3. **Great Indian Bustard → Ardeotis nigriceps → Critically Endangered**
 4. **Leprosy → Mycobacterium leprae → MDT**
-5. **Kautilya Economic Conclave 2026 → “Resilience in an Age of Flux”**
+5. **Zoopharmacognosy → animal self-medication using natural resources**
 
 ## आज का Mains Practice
 
