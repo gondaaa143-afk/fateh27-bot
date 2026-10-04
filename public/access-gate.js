@@ -2,8 +2,20 @@
   "use strict";
 
   function boot(){
-    // SAMBHAV standalone mode: never require Telegram auth.
-    if(new URLSearchParams(location.search).get("sambhav")==="1") return;
+    // SAMBHAV standalone mode: fully public, no Telegram/auth gate.
+    const standalone=new URLSearchParams(location.search).get("sambhav")==="1";
+    if(standalone){
+      document.querySelectorAll("a[href],button[onclick]").forEach(el=>{
+        const raw=el.getAttribute("href")||el.getAttribute("onclick")||"";
+        if(/\.html(?:[?#]|$)/.test(raw) && !/sambhav=1/.test(raw)){
+          if(el.hasAttribute("href")){
+            const u=new URL(el.getAttribute("href"),location.href);
+            if(u.origin===location.origin){u.searchParams.set("sambhav","1");el.setAttribute("href",u.pathname+u.search+u.hash);}
+          }
+        }
+      });
+      return;
+    }
     const tg=window.Telegram?.WebApp || null;
     if(document.getElementById("f27AccessGate")) return;
 
