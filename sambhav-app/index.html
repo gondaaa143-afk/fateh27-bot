@@ -44,6 +44,9 @@ html,body{overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
  .grid{grid-template-columns:1fr}
  .card{min-height:130px}
 }
+</style><style>
+.ca-toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:8px 0 14px}.lang-toggle{display:flex;background:var(--cream2);padding:3px;border-radius:99px}.lang-toggle button{border:0;background:transparent;padding:7px 10px;border-radius:99px;font-size:10px;font-weight:900;color:var(--muted)}.lang-toggle button.active{background:var(--olive);color:var(--cream)}
+.ca-article{background:var(--white);border-radius:30px;padding:20px;box-shadow:0 10px 30px #28312612}.ca-source{font-size:9px;letter-spacing:.1em;font-weight:900;color:var(--muted);text-transform:uppercase}.ca-article>h2{font-size:27px;line-height:1.08;letter-spacing:-.7px;margin:9px 0 22px}.ca-block{padding:18px 0;border-top:1px solid var(--line)}.ca-label{font-size:9px;font-weight:950;letter-spacing:.13em;color:var(--olive2);margin-bottom:6px}.ca-block h3{margin:0 0 6px;font-size:18px}.ca-block p,.ca-block li{font-size:13px;line-height:1.6;color:#5f6258}.ca-block ul{margin:7px 0;padding-left:19px}.keyword-wrap{display:flex;flex-wrap:wrap;gap:7px}.keyword-wrap span{background:var(--cream2);border-radius:99px;padding:8px 10px;font-size:10px;font-weight:800}.mcq-card{margin-top:18px;background:var(--olive);color:var(--cream);border-radius:25px;padding:18px}.mcq-card .ca-label{color:#d9ddc9}.mcq-card h3{font-size:17px;line-height:1.3}.mcq-opt{display:block;width:100%;text-align:left;border:1px solid #ffffff22;background:#ffffff0d;color:var(--cream);border-radius:13px;padding:11px;margin:7px 0}.mcq-opt.correct{background:#ffffff24;border-color:#d9ddc9}.mcq-card small{display:block;margin-top:12px;color:#d9ddc9;line-height:1.5}
 </style></head>
 <body><main class="app"><section id="auth" class="screen active">
   <div class="auth-wrap">
@@ -83,29 +86,32 @@ html,body{overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 
 <section id="current" class="screen">
 <button class="back" onclick="go('home')">← Home</button>
-<div class="hero">
-  <div class="eyebrow" style="color:#d9ddc9">SAMBHAV · DEEP DIVE</div>
-  <h2>One issue.<br>Complete UPSC preparation.</h2>
-  <p>Current affairs ko news se exam-ready understanding tak le jao.</p>
+<div class="ca-toolbar">
+  <div class="eyebrow">SAMBHAV · CURRENT AFFAIRS</div>
+  <div class="lang-toggle"><button id="langHi" class="active" onclick="setLang('hi')">हिंदी</button><button id="langEn" onclick="setLang('en')">English</button></div>
 </div>
-<div class="section">
-  <div class="meta"><span class="tag">GS-II</span><span class="tag">INTERNATIONAL RELATIONS</span><span class="tag">PRELIMS</span><span class="tag">MAINS</span></div>
-  <div class="list"><div class="li">01</div><div><b>India × EU Relations</b><p>Trade, technology, connectivity and strategic cooperation.</p></div></div>
-  <div class="list"><div class="li">02</div><div><b>The Issue</b><p>Why the relationship matters for India's foreign policy and strategic autonomy.</p></div></div>
-  <div class="list"><div class="li">03</div><div><b>3 Big Questions</b><p>Why EU matters to India? Why India matters to EU? Where can cooperation deepen?</p></div></div>
-  <div class="grid">
-    <div class="card"><div class="ci">PYQ</div><b>PYQ Link</b><small>Related UPSC question</small></div>
-    <div class="card"><div class="ci">DATA</div><b>Verified Data</b><small>Source-backed facts</small></div>
-    <div class="card"><div class="ci">A</div><b>Answer Builder</b><small>Intro · body · conclusion</small></div>
-    <div class="card"><div class="ci">↻</div><b>Revision</b><small>60-second recap</small></div>
+<article class="ca-article">
+  <div class="ca-source">THE HINDU · 04 OCT 2026 · GS-II</div>
+  <h2 id="caHeadline">India–EU strategic partnership gains fresh momentum</h2>
+  <div id="caHi" class="ca-content">
+    <div class="ca-block"><div class="ca-label">WHAT?</div><h3>क्या हुआ?</h3><p>भारत और यूरोपीय संघ के बीच रणनीतिक सहयोग को लेकर हालिया engagement चर्चा में है।</p></div>
+    <div class="ca-block"><div class="ca-label">WHY?</div><h3>क्यों महत्वपूर्ण है?</h3><p>यह संबंध व्यापार से आगे बढ़कर technology, connectivity, security और geopolitics तक फैल रहा है।</p></div>
+    <div class="ca-block"><div class="ca-label">KEY FACTS</div><h3>मुख्य तथ्य</h3><ul><li>भारत–EU संबंधों में economic और strategic dimensions दोनों महत्वपूर्ण हैं।</li><li>Technology cooperation emerging priority है।</li><li>Indo-Pacific और supply-chain resilience strategic context देते हैं।</li></ul></div>
+    <div class="ca-block"><div class="ca-label">PRELIMS</div><h3>Prelims Focus</h3><p>EU institutions, India–EU mechanisms, important agreements और संबंधित terminology को revise करें।</p></div>
+    <div class="ca-block"><div class="ca-label">MAINS</div><h3>GS-II Answer Points</h3><p><b>Economic:</b> trade & investment<br><b>Strategic:</b> security & Indo-Pacific<br><b>Technology:</b> critical and emerging technologies<br><b>Way Forward:</b> institutional dialogue और practical cooperation को मजबूत करना।</p></div>
+    <div class="ca-block"><div class="ca-label">KEYWORDS</div><div class="keyword-wrap"><span>Strategic Autonomy</span><span>Indo-Pacific</span><span>Supply Chain Resilience</span><span>Critical Technologies</span><span>Connectivity</span></div></div>
+    <div class="mcq-card"><div class="ca-label">MCQ</div><h3>भारत–EU संबंधों का कौन-सा आयाम वर्तमान strategic partnership में महत्वपूर्ण है?</h3><button class="mcq-opt">A. केवल कृषि</button><button class="mcq-opt">B. केवल पर्यटन</button><button class="mcq-opt" onclick="this.classList.add('correct');this.textContent='C. Technology, security and connectivity'">C. Technology, security and connectivity</button><button class="mcq-opt">D. केवल खेल</button><small>Answer: C · Explanation: Partnership का scope multi-dimensional है।</small></div>
   </div>
-  <div class="hero" style="margin-top:14px">
-    <div class="eyebrow" style="color:#d9ddc9">60-SECOND REVISION</div>
-    <h2>Trade → Technology → Connectivity → Security</h2>
-    <p>Current issue ko ek compact revision chain mein remember karo.</p>
-    <button class="pill">☆ Add to Revision</button>
+  <div id="caEn" class="ca-content" style="display:none">
+    <div class="ca-block"><div class="ca-label">WHAT?</div><h3>What happened?</h3><p>Recent engagement between India and the European Union has brought their strategic cooperation into focus.</p></div>
+    <div class="ca-block"><div class="ca-label">WHY?</div><h3>Why does it matter?</h3><p>The relationship is expanding beyond trade into technology, connectivity, security and geopolitics.</p></div>
+    <div class="ca-block"><div class="ca-label">KEY FACTS</div><h3>Key Facts</h3><ul><li>India–EU ties have both economic and strategic dimensions.</li><li>Technology cooperation is an emerging priority.</li><li>The Indo-Pacific and supply-chain resilience add strategic context.</li></ul></div>
+    <div class="ca-block"><div class="ca-label">PRELIMS</div><h3>Prelims Focus</h3><p>Revise EU institutions, India–EU mechanisms, important agreements and relevant terminology.</p></div>
+    <div class="ca-block"><div class="ca-label">MAINS</div><h3>GS-II Answer Points</h3><p><b>Economic:</b> trade & investment<br><b>Strategic:</b> security & Indo-Pacific<br><b>Technology:</b> critical and emerging technologies<br><b>Way Forward:</b> strengthen institutional dialogue and practical cooperation.</p></div>
+    <div class="ca-block"><div class="ca-label">KEYWORDS</div><div class="keyword-wrap"><span>Strategic Autonomy</span><span>Indo-Pacific</span><span>Supply Chain Resilience</span><span>Critical Technologies</span><span>Connectivity</span></div></div>
+    <div class="mcq-card"><div class="ca-label">MCQ</div><h3>Which dimension is important in the current India–EU strategic partnership?</h3><button class="mcq-opt">A. Agriculture alone</button><button class="mcq-opt">B. Tourism alone</button><button class="mcq-opt" onclick="this.classList.add('correct');this.textContent='C. Technology, security and connectivity'">C. Technology, security and connectivity</button><button class="mcq-opt">D. Sports alone</button><small>Answer: C · Explanation: The partnership is multi-dimensional.</small></div>
   </div>
-</div>
+</article>
 </section>
 
 <section id="pyq" class="screen"><button class="back" onclick="go('home')">← Home</button><h3>PYQ Practice</h3><div class="hero"><div class="eyebrow">SAMBHAV PYQ</div><h2>Practice<br>smarter.</h2><p>Your independent PYQ workspace for focused UPSC practice.</p></div><div class="section"><div class="list"><div class="li">GS1</div><div><b>History & Culture</b><p>Topic-wise PYQ practice</p></div></div><div class="list"><div class="li">GS2</div><div><b>Polity & IR</b><p>Previous year questions</p></div></div><div class="list"><div class="li">GS3</div><div><b>Economy & Environment</b><p>Previous year questions</p></div></div></div></section>
@@ -238,4 +244,11 @@ async function bootAuth(){
 }
 bootAuth();
 </script>
-</body></html>
+<script>
+function setLang(lang){
+ document.getElementById('caHi').style.display=lang==='hi'?'block':'none';
+ document.getElementById('caEn').style.display=lang==='en'?'block':'none';
+ document.getElementById('langHi').classList.toggle('active',lang==='hi');
+ document.getElementById('langEn').classList.toggle('active',lang==='en');
+}
+</script></body></html>
