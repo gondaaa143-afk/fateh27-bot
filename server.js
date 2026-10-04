@@ -1813,6 +1813,7 @@ app.post(
       }
 
       const text = cleanText(req.body?.text);
+      const language = cleanText(req.body?.language || "hi").toLowerCase();
 
       if (!text) {
         return res.status(400).json({
@@ -1830,7 +1831,9 @@ app.post(
         model: process.env.OPENAI_TTS_MODEL || "gpt-4o-mini-tts",
         voice: process.env.OPENAI_TTS_VOICE || "marin",
         input: text,
-        instructions: "Speak naturally in clear Indian Hindi/Hinglish. Calm, concise and helpful study-assistant tone.",
+        instructions: language === "en"
+          ? "Speak naturally in clear Indian English. Calm, concise and helpful UPSC study-assistant tone."
+          : "Speak naturally in clear Indian Hindi/Hinglish. Calm, concise and helpful UPSC study-assistant tone.",
         response_format: "mp3",
         speed: 0.95
       });
