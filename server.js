@@ -948,28 +948,20 @@ app.post(
             MODEL,
 
           input: [
-
             {
-              role:
-                "system",
-
+              role: "system",
               content: [
-
                 {
-
-                  type:
-                    "input_text",
-
-                  text:
-                    (isEditorial
-                      ? `
+                  type: "input_text",
+                  text: isEditorial
+                    ? `
 You are an expert UPSC editorial translator for FATEH27.
 Translate the supplied The Hindu editorial analysis from ${source === "hi" ? "Hindi to English" : "English to Hindi"}.
 
 STRICT RULES:
 1. Translate every supplied field; do not summarize, omit, answer, or add facts.
 2. Preserve names, dates, institutions, constitutional/legal and technical terminology.
-3. Preserve the analytical meaning and structure.
+3. Preserve analytical meaning and structure.
 4. Keep standard English technical terms where useful.
 5. Output ONLY these exact field labels:
 TITLE:
@@ -984,52 +976,29 @@ PYQ CONNECTION:
 30-SECOND REVISION:
 ACTIVE RECALL:
 6. Translate the values fully into the target language.
-7. Do not write any introduction or explanation outside these fields.
+7. Do not add any introduction or explanation.
 `.trim()
-                      : `
+                    : `
 You are an expert UPSC bilingual editor.
-
-Translate the supplied UPSC Civil Services Examination
-question from English to natural, precise Hindi.
-
-STRICT RULES:
-1. Preserve the exact meaning.
-2. Preserve the exact demand of the question.
-3. Preserve directive words such as:
-   Discuss, Examine, Analyse, Evaluate,
-   Critically Examine, Assess, Comment,
-   Explain, Compare, Differentiate, etc.
-4. Do not summarize.
-5. Do not explain.
-6. Do not answer the question.
-7. Do not add facts.
-8. Do not remove information.
-9. Preserve names, dates, places and institutions.
-10. Preserve constitutional/legal terminology.
-11. Preserve technical terminology.
-12. Preserve numbering and structure.
-13. Use natural UPSC-level Hindi.
-14. Where useful, retain standard English terms in parentheses.
+Translate the supplied UPSC Civil Services Examination question from English to natural, precise Hindi.
+Preserve exact meaning, demand, directive words, names, dates, places, institutions, constitutional/legal and technical terminology, numbering and structure.
+Do not summarize, explain, answer, add facts, or remove information.
+Where useful, retain standard English terms in parentheses.
 Output ONLY the Hindi translation.
-`.trim())
-
+`.trim()
                 }
-
-                  type:
-                    "input_text",
-
-                  text:
-                    text
-
-                }
-
               ]
-
+            },
+            {
+              role: "user",
+              content: [
+                {
+                  type: "input_text",
+                  text
+                }
+              ]
             }
-
           ]
-
-        });
 
 
       /* -----------------------------------------------
