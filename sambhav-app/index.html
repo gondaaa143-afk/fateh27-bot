@@ -137,16 +137,108 @@ html,body{overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 </main>
 <nav id="mainNav" class="nav"><button data-r="home" class="active" onclick="go('home')">⌂<br>HOME</button><button data-r="current" onclick="go('current')">◒<br>CURRENT</button><button data-r="pyq" onclick="go('pyq')">?<br>PYQ</button><button data-r="revision" onclick="go('revision')">↻<br>REVISION</button><button data-r="ai" onclick="go('ai')">✦<br>AI</button></nav>
 <script src="./sambhav-config.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 const routes=['auth','home','current','pyq','revision','ai','premium','settings'];
 let mode='signin';
 const cfg=window.SAMBHAV_CONFIG||{};
-const hasSupabaseConfig=Boolean(cfg.SUPABASE_URL&&cfg.SUPABASE_PUBLISHABLE_KEY);
-const hasSupabaseClient=Boolean(window.supabase&&typeof window.supabase.createClient==='function');
-const hasBackend=hasSupabaseConfig&&hasSupabaseClient;
-const supabase=hasBackend?window.supabase.createClient(cfg.SUPABASE_URL,cfg.SUPABASE_PUBLISHABLE_KEY):null;
+const supabaseUrl=cfg.SUPABASE_URL||'';
+const supabaseKey=cfg.SUPABASE_PUBLISHABLE_KEY||'';
+const hasBackend=Boolean(supabaseUrl&&supabaseKey);
+let mode='signin';
 
+async function supa(path, options={}){
+  const headers=Object.assign({'apikey':supabaseKey,'Content-Type':'application/json'},options.headers||{});
+  const res=await fetch(supabaseUrl+'/auth/v1/'+path,{...options,headers});
+  const data=await res.json().catch(()=>({}));
+  if(!res.ok) throw new Error(data.msg||data.error_description||data.message||'Authentication failed. Please try again.');
+  return data;
+}
+
+function authMode(m){
+  mode=m;
+  document.getElementById('signInTab').classList.toggle('active',m==='signin');
+  document.getElementById('signUpTab').classList.toggle('active',m==='signup');
+  document.getElementById('authTitle').textContent=m==='signin'?'Welcome back.':'Create your account.';
+  document.getElementById('authSub').textContent=m==='signin'?'Sign in to continue your UPSC preparation.':'Join SAMBHAV and build your UPSC study space.';
+  document.getElementById('authSubmit').textContent=m==='signin'?'Sign In':'Create Account';
+  document.getElementById('forgotRow').style.display=m==='signin'?'block':'none';
+  document.getElementById('nameLabel').style.display=m==='signup'?'block':'none';
+  document.getElementById('authName').style.display=m==='signup'?'block':'none';
+  document.getElementById('authName').required=m==='signup';
+  document.getElementById('authMsg').textContent='';
+}
+
+function msg(t,error=false){
+  const el=document.getElementById('authMsg');
+  el.textContent=t;
+  el.style.color=error?'#9b3d32':'';
+}
+
+async function submitAuth(e){
+  e.preventDefault();
+  const email=document.getElementById('authEmail').value.trim();
+  const pass=document.getElementById('authPass').value;
+  const name=document.getElementById('authName').value.trim();
+  if(!email||pass.length<6){msg('Please enter a valid email and a password of at least 6 characters.',true);return}
+  if(!hasBackend){msg('SAMBHAV account service is not connected. Continue as Guest for preview.',true);return}
+  const submit=document.getElementById('authSubmit');
+  submit.disabled=true; submit.textContent='Please wait…';
+  try{
+    if(mode==='signup'){
+      const data=await supa('signup',{method:'POST',body:JSON.stringify({email,password:pass,data:{full_name:name}})});
+      if(data.access_token){localStorage.setItem('sambhavAccessToken',data.access_token);localStorage.setItem('sambhavUser',JSON.stringify(data.user||{}));enterApp();}
+      else msg('Account created. Check your email to verify your account.');
+    }else{
+      const data=await supa('token?grant_type=password',{method:'POST',body:JSON.stringify({email,password:pass})});
+      if(data.access_token){localStorage.setItem('sambhavAccessToken',data.access_token);localStorage.setItem('sambhavUser',JSON.stringify(data.user||{}));enterApp();}
+    }
+  }catch(err){msg(err.message||'Authentication failed. Please try again.',true)}
+  finally{submit.disabled=false;submit.textContent=mode==='signin'?'Sign In':'Create Account'}
+}
+
+async function forgotPassword(){
+  const email=document.getElementById('authEmail').value.trim();
+  if(!email){msg('Enter your email address first.',true);return}
+  if(!hasBackend){msg('SAMBHAV account service is not connected.',true);return}
+  try{
+    await supa('recover',{method:'POST',body:JSON.stringify({email})});
+    msg('Password reset email sent. Check your inbox.');
+  }catch(err){msg(err.message||'Unable to send reset email.',true)}
+}
+
+function togglePass(){const x=document.getElementById('authPass');x.type=x.type==='password'?'text':'password'}
+
+function enterApp(){
+  localStorage.setItem('sambhavGuest','1');
+  go('home');
+}
+
+function logout(){
+  localStorage.removeItem('sambhavGuest');
+  localStorage.removeItem('sambhavAccessToken');
+  localStorage.removeItem('sambhavUser');
+  location.hash='auth';
+  location.reload();
+}
+
+function go(r){
+  if(!routes.includes(r))return;
+  const logged=Boolean(localStorage.getItem('sambhavAccessToken'))||localStorage.getItem('sambhavGuest')==='1';
+  if(r!=='auth'&&!logged){r='auth'}
+  document.querySelectorAll('.screen').forEach(x=>x.classList.toggle('active',x.id===r));
+  document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.r===r));
+  document.body.classList.toggle('sambhav-ready',r!=='auth');
+  document.getElementById('mainHeader').style.display=r==='auth'?'none':'flex';
+  document.getElementById('mainNav').style.display=r==='auth'?'none':'grid';
+  location.hash=r;scrollTo(0,0);
+}
+
+function bootAuth(){
+  const token=localStorage.getItem('sambhavAccessToken');
+  if(token||localStorage.getItem('sambhavGuest')==='1') go(location.hash.slice(1)||'home');
+  else go('auth');
+}
+bootAuth();
 function authMode(m){
   mode=m;
   document.getElementById('signInTab').classList.toggle('active',m==='signin');
