@@ -62,7 +62,7 @@ window.SAMBHAV_CONFIG = {
     };
     const oldNext=window.pyqNext;
     window.pyqNext=function(){oldNext();decorate()};
-    meta.innerHTML='<span id="pyqCount">Question</span><span id="pyqTimerX" class="pyq-timer">⏱ 15:00</span>';
+    if(!root.querySelector('#pyqTimerX')){const t=document.createElement('span');t.id='pyqTimerX';t.className='pyq-timer';t.textContent='⏱ 15:00';meta.appendChild(t);}
     setInterval(function(){if(timer>0)timer--;const el=root.querySelector('#pyqTimerX');if(el){const m=Math.floor(timer/60),s=timer%60;el.textContent='⏱ '+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');el.classList.toggle('warning',timer<=60)}} ,1000);
     decorate();stats();
   }
