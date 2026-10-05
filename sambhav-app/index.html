@@ -142,7 +142,9 @@ html,body{overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 const routes=['auth','home','current','pyq','revision','ai','premium','settings'];
 let mode='signin';
 const cfg=window.SAMBHAV_CONFIG||{};
-const hasBackend=Boolean(cfg.SUPABASE_URL&&cfg.SUPABASE_PUBLISHABLE_KEY);
+const hasSupabaseConfig=Boolean(cfg.SUPABASE_URL&&cfg.SUPABASE_PUBLISHABLE_KEY);
+const hasSupabaseClient=Boolean(window.supabase&&typeof window.supabase.createClient==='function');
+const hasBackend=hasSupabaseConfig&&hasSupabaseClient;
 const supabase=hasBackend?window.supabase.createClient(cfg.SUPABASE_URL,cfg.SUPABASE_PUBLISHABLE_KEY):null;
 
 function authMode(m){
