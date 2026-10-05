@@ -25,7 +25,7 @@ window.SAMBHAV_CONFIG = {
     };
     function currentText(){const q=root.querySelector('.pyq-q');return q?q.textContent.trim():''}
     function stats(){
-      const total=5,done=Object.keys(attempted).length,pct=Math.round(done/total*100);
+      const total=(window.pyqPool&&window.pyqPool.length)||0,done=Object.keys(attempted).length,pct=total?Math.round(done/total*100):0;
       root.querySelector('#pyqProgressBar').style.width=pct+'%';root.querySelector('#pyqProgressText').textContent=pct+'%';
       root.querySelector('#pyqAttemptedX').textContent=done;root.querySelector('#pyqUnattemptedX').textContent=total-done;
       const a=root.querySelector('#pyqAccuracyX');a.textContent=window.pyqAttempted?Math.round(window.pyqCorrect/window.pyqAttempted*100)+'%':'—';
@@ -225,4 +225,31 @@ window.SAMBHAV_CONFIG = {
   ];
   function load(){if(!window.PYQS)return setTimeout(load,100);data.forEach(x=>{if(!PYQS.some(y=>y.y===x.y&&y.q===x.q))PYQS.push(x);});if(typeof renderPyq==='function')renderPyq();}
   load();
+})();
+
+
+/* SAMBHAV 2026: replace demo PYQs with the complete Series-A paper */
+(function(){
+  function load2026(){
+    if(!window.PYQS)return setTimeout(load2026,80);
+    window.PYQS.length=0;
+    window.pyqPool=[];
+    window.pyqIndex=0;
+    if(typeof window.renderPyq==='function')window.renderPyq();
+    fetch('./api/upsc2026')
+      .then(r=>r.json())
+      .then(data=>{
+        if(!data || !Array.isArray(data.questions) || data.questions.length<99) throw new Error('2026 dataset incomplete');
+        data.questions.forEach(x=>window.PYQS.push(x));
+        window.pyqPool=window.PYQS.slice();
+        window.pyqIndex=0;
+        if(typeof window.renderPyq==='function')window.renderPyq();
+      })
+      .catch(err=>{
+        console.error('SAMBHAV 2026 PYQ load failed',err);
+        const card=document.getElementById('pyqCard');
+        if(card)card.innerHTML='<div class="pyq-q">2026 PYQs could not be loaded right now.</div><div class="pyq-explain">Please refresh and try again.</div>';
+      });
+  }
+  load2026();
 })();
