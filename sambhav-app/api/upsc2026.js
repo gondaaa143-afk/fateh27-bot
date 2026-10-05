@@ -42,7 +42,8 @@ module.exports = async function handler(req, res) {
       const pre = reveal >= 0 ? lines.slice(0,reveal) : lines;
       const answerLine = lines.find(x=>/^Correct answer Option\s+[ABCD]$/i.test(x));
       const answer = answerLine ? answerLine.slice(-1).toUpperCase().charCodeAt(0)-65 : null;
-      if (answer == null) continue;
+      const dropped = num === 64;
+      if (!dropped && answer == null) continue;
 
       const opts = [];
       for (const line of pre) {
@@ -63,8 +64,11 @@ module.exports = async function handler(req, res) {
           t:'UPSC Prelims 2026',
           q,
           o:opts,
-          a:answer,
-          e:'UPSC Prelims 2026 GS Paper-I — Series A. Correct answer as per the provisional answer key.'
+          a:dropped ? null : answer,
+          dropped,
+          e:dropped
+            ? 'Question 64 was dropped in the provisional Series-A answer key and is not counted for scoring.'
+            : 'UPSC Prelims 2026 GS Paper-I — Series A. Correct answer as per the provisional answer key.'
         });
       }
     }
@@ -78,9 +82,10 @@ module.exports = async function handler(req, res) {
       }
     }
 
-    if (unique.length < 99) throw new Error('Parsed only ' + unique.length + ' of 100 questions');
+    if (unique.length !== 100) throw new Error('Parsed only ' + unique.length + ' of 100 questions');
 
-    res.status(200).json({ year:2026, series:'A', count:unique.length, questions:unique });
+    res.setHeader('Cache-Control','s-maxage=86400, stale-while-revalidate=3600');
+    res.status(200).json({ year:2026, series:'A', count:unique.length, scoreableCount:99, droppedQuestions:[64], questions:unique });
   } catch (e) {
     res.status(502).json({ error:'Unable to load the 2026 PYQ source', detail:String(e) });
   }
