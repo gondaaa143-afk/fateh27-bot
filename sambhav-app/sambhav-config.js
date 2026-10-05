@@ -241,6 +241,8 @@ window.SAMBHAV_CONFIG = {
       .then(data=>{
         if(!data || !Array.isArray(data.questions) || data.questions.length<99) throw new Error('2026 dataset incomplete');
         data.questions.forEach(x=>window.PYQS.push(x));
+        const sel=document.getElementById('pyqSubject');
+        if(sel){ ['Science & Technology','Current Affairs & GK','Ancient History','Modern History','Art & Culture'].forEach(v=>{if(![...sel.options].some(o=>o.value===v)){const o=document.createElement('option');o.value=v;o.textContent=v;sel.appendChild(o)}}); }
         window.pyqPool=window.PYQS.slice();
         window.pyqIndex=0;
         if(typeof window.renderPyq==='function')window.renderPyq();
