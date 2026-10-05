@@ -18,6 +18,7 @@ export default async function handler(req, res) {
     add('Modern History',[7,12,6,8,19]);
     add('Art & Culture',[9,27,11]);
     for (let i = 1; i < blocks.length; i += 2) {
+      const num = Number(blocks[i]);
       const raw = blocks[i + 1] || '';
       const text = raw.replace(/<script[\s\S]*?<\/script>/gi,' ').replace(/<style[\s\S]*?<\/style>/gi,' ').replace(/<[^>]+>/g,'\n').replace(/&nbsp;/g,' ').replace(/&amp;/g,'&').replace(/&#39;/g,"'").replace(/&quot;/g,'"').replace(/\r/g,'').replace(/[ \t]+/g,' ').replace(/\n\s*\n+/g,'\n').trim();
       const lines = text.split('\n').map(x=>x.trim()).filter(Boolean);
