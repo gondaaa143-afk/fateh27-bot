@@ -255,3 +255,15 @@ window.SAMBHAV_CONFIG = {
   }
   load2026();
 })();
+
+/* SAMBHAV CURRENT AFFAIRS FEED */
+(function(){
+  function renderCurrent(){
+    const section=document.getElementById('current');
+    if(!section)return;
+    const article=section.querySelector('.ca-article');
+    if(!article)return;
+    article.innerHTML='<article class="ca-card"><div class="ca-source">PIB · 30 SEP 2026 · GS-III</div><h2>Green Energy Corridor Phase-III</h2><div class="ca-content"><div class="ca-block"><div class="ca-label">WHAT?</div><h3>क्या हुआ?</h3><p>केंद्रीय मंत्रिमंडल ने Green Energy Corridor Phase-III को मंजूरी दी।</p></div><div class="ca-block"><div class="ca-label">KEY FACTS</div><h3>मुख्य तथ्य</h3><ul><li>135 GW तक renewable energy evacuation</li><li>50 GWh Battery Energy Storage Systems</li><li>लक्ष्य: FY 2032-33</li><li>कुल outlay: ₹1,86,405 करोड़</li></ul></div><div class="ca-block"><div class="ca-label">PRELIMS</div><h3>Prelims Focus</h3><p>GEC-III, Intra-State Transmission System, BESS और renewable-energy grid integration.</p></div><div class="ca-block"><div class="ca-label">MAINS</div><h3>Mains Use</h3><p>Energy transition, grid flexibility, energy security और renewable integration के उदाहरण के रूप में उपयोग करें।</p></div><div class="ca-block"><div class="ca-label">KEYWORDS</div><div class="keyword-wrap"><span>GEC-III</span><span>BESS</span><span>InSTS</span><span>Grid Flexibility</span></div></div></div></article>';
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(renderCurrent,120));else setTimeout(renderCurrent,120);
+})();
