@@ -213,44 +213,32 @@ window.SAMBHAV_CONFIG = {
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bootV3);else setTimeout(bootV3,150);
 })();
-/* Load UPSC 2026 GS-I data into the existing PYQ engine */
-(function(){
-  const data=[
-    {y:'2026',s:'History',t:'Art & Culture',q:'Which one of the following Carnatic music ragas is similar to Raga Bilawal in Hindustani music ?',o:['Nat Bhairavi','Kamavardhini','Hanumatodi','Dheera Shankarabharanam'],a:3,e:'Official UPSC 2026 GS-I Series A. Correct answer: D.'},
-    {y:'2026',s:'Economy',t:'Currency & Exchange Rate',q:'The artificially fixed rupee-sterling exchange rate prescribed by the Hilton-Young Commission (1926) was adopted by the British Government for which one of the following reasons ?',o:['Aiding the flow of remittances from India and maintaining India’s creditworthiness','Providing support to Indian importers','Encouraging export of cotton produce from India','Preventing depreciation of the Rupee in terms of gold'],a:0,e:'Official UPSC 2026 GS-I Series A. Correct answer: A.'},
-    {y:'2026',s:'History',t:'Ancient India',q:'Consider the following statements: I. Pali texts contain the first definite references to coins, e.g., kahapana, nikkha, kamsa, and kakanika. II. The literary evidence from Pali texts is corroborated by archaeological evidence of punch-marked coins from many sites, most of them made of silver. The above statements have been associated with which of the following ?',o:['Emergence of urban life','Transition to money economy','Both 1 and 2','Neither 1 nor 2'],a:2,e:'Official UPSC 2026 GS-I Series A. Correct answer: C.'},
-    {y:'2026',s:'History',t:'Art & Culture',q:'Which of the following temples has/have a Nagara-style shikhara ? 1. Malegitti Shivalaya, Badami 2. Huchimalligudi Temple, Aihole 3. Dashavatara Temple, Deogarh 4. Virupaksha Temple, Pattadakal. Select the answer using the code given below :',o:['1 and 2','2 and 3','3 only','3 and 4'],a:1,e:'Official UPSC 2026 GS-I Series A. Correct answer: B.'},
-    {y:'2026',s:'History',t:'Jainism',q:'Among the four main forms of existence of life recognized in Jainism, which one of the following is not included ?',o:['Deva (gods)','Yaksha (demi-gods)','Manushya (humans)','Tiryancha (animals and plants)'],a:1,e:'Official UPSC 2026 GS-I Series A. Correct answer: B.'},
-    {y:'2026',s:'History',t:'Art & Culture',q:'The Hallisalasya painting in the Bagh Caves represents :',o:['A joyous folk dance','Buddha in a meditative pose','The depiction of Shiva and Parvati on Kailasha','Samudramanthan (Churning of the Ocean)'],a:0,e:'Official UPSC 2026 GS-I Series A. Correct answer: A.'}
-  ];
-  function load(){if(!window.PYQS)return setTimeout(load,100);data.forEach(x=>{if(!PYQS.some(y=>y.y===x.y&&y.q===x.q))PYQS.push(x);});if(typeof renderPyq==='function')renderPyq();}
-  load();
-})();
-
-
-/* SAMBHAV 2026: replace demo PYQs with the complete Series-A paper */
+/* SAMBHAV 2026: complete Series-A PYQ loader */
 (function(){
   function load2026(){
     if(!window.PYQS)return setTimeout(load2026,80);
-    window.PYQS.length=0;
-    window.pyqPool=[];
-    window.pyqIndex=0;
-    if(typeof window.renderPyq==='function')window.renderPyq();
-    fetch('./api/upsc2026')
-      .then(r=>r.json())
+    fetch('./api/upsc2026?source=series-a')
+      .then(r=>{if(!r.ok)throw new Error('2026 API '+r.status);return r.json()})
       .then(data=>{
-        if(!data || !Array.isArray(data.questions) || data.questions.length<99) throw new Error('2026 dataset incomplete');
+        if(!data||!Array.isArray(data.questions)||data.questions.length!==100)throw new Error('2026 dataset is not complete');
+        window.PYQS.length=0;
         data.questions.forEach(x=>window.PYQS.push(x));
-        const sel=document.getElementById('pyqSubject');
-        if(sel){ ['Science & Technology','Current Affairs & GK','Ancient History','Modern History','Art & Culture'].forEach(v=>{if(![...sel.options].some(o=>o.value===v)){const o=document.createElement('option');o.value=v;o.textContent=v;sel.appendChild(o)}}); }
         window.pyqPool=window.PYQS.slice();
         window.pyqIndex=0;
+        const sel=document.getElementById('pyqSubject');
+        if(sel){
+          ['Science & Technology','Current Affairs & GK','Ancient History','Modern History','Art & Culture'].forEach(v=>{
+            if(![...sel.options].some(o=>o.value===v)){const o=document.createElement('option');o.value=v;o.textContent=v;sel.appendChild(o)}
+          });
+        }
+        window.__sambhav2026Ready=true;
         if(typeof window.renderPyq==='function')window.renderPyq();
       })
       .catch(err=>{
         console.error('SAMBHAV 2026 PYQ load failed',err);
+        window.__sambhav2026Ready=false;
         const card=document.getElementById('pyqCard');
-        if(card)card.innerHTML='<div class="pyq-q">2026 PYQs could not be loaded right now.</div><div class="pyq-explain">Please refresh and try again.</div>';
+        if(card)card.innerHTML='<div class="pyq-q">2026 PYQs could not be loaded.</div><div class="pyq-explain">Please try again after refreshing.</div>';
       });
   }
   load2026();
