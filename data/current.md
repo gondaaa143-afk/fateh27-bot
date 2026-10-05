@@ -1,5 +1,239 @@
 # FATEH27 DAILY CURRENT AFFAIRS
 
+## 05 October 2026
+
+> UPSC CSE • Prelims + Mains • The Hindu + PIB • Daily verified digest
+> News window: 04 October 2026
+
+**Total Important Items:** 9
+
+---
+
+## 1. India का पहला LNG–Diesel dual-fuel DEMU train शुरू
+
+**Source:** The Hindu
+
+**Category:** SCIENCE & TECHNOLOGY / ENERGY / TRANSPORT
+
+**Priority:** उच्च
+
+### Why in News?
+Indian Railways ने Sabarmati से देश की पहली LNG–Diesel dual-fuel DEMU train शुरू की है। इसका उद्देश्य diesel consumption और emissions को कम करना है।
+
+### Prelims Focus
+LNG = Liquefied Natural Gas; dual-fuel technology एक ही engine को LNG और diesel दोनों पर चलने देती है। यह transport-sector decarbonisation और cleaner fuels से जुड़ा है।
+
+### Mains Focus
+Railways में alternative fuels अपनाने से fossil-fuel dependence, emissions और operating costs कम करने में मदद मिल सकती है। हालांकि LNG स्वयं fossil fuel है, इसलिए इसे long-term net-zero strategy के साथ देखा जाना चाहिए।
+
+### UPSC Syllabus Link
+GS3: ऊर्जा, परिवहन, पर्यावरण, विज्ञान एवं प्रौद्योगिकी
+
+### 30-Second Revision
+भारत की पहली LNG–Diesel dual-fuel DEMU train Sabarmati से शुरू हुई; लक्ष्य diesel use और emissions घटाना है।
+
+---
+
+## 2. Deepwater और difficult-field natural gas की ceiling price बढ़ाकर $9.89/MMBtu
+
+**Source:** The Hindu
+
+**Category:** ECONOMY / ENERGY
+
+**Priority:** उच्च
+
+### Why in News?
+Deepwater, ultra-deepwater और HPHT fields से निकलने वाली natural gas के लिए ceiling price October 2026–March 2027 अवधि में बढ़ाकर $9.89/MMBtu की गई है।
+
+### Prelims Focus
+नई ceiling: **$9.89/MMBtu**; पिछली ceiling: **$8.90/MMBtu**। ONGC/OIL के legacy APM fields के लिए cap **$7/MMBtu** है। APM pricing framework April 2023 से crude-import price linkage पर आधारित है।
+
+### Mains Focus
+Gas pricing में investment incentives और consumer affordability के बीच संतुलन जरूरी है। Higher difficult-field ceiling domestic gas production को प्रोत्साहित कर सकती है, जबकि gas price का fertiliser, power और city-gas sectors पर असर पड़ता है।
+
+### UPSC Syllabus Link
+GS3: ऊर्जा सुरक्षा, प्राकृतिक गैस, pricing reforms
+
+### 30-Second Revision
+Deepwater gas ceiling Oct 2026–Mar 2027 के लिए $9.89/MMBtu; legacy APM gas cap $7/MMBtu।
+
+---
+
+## 3. भारत Russia–Ukraine conflict में advocacy से आगे active mediation की ओर
+
+**Source:** The Hindu
+
+**Category:** INTERNATIONAL RELATIONS
+
+**Priority:** उच्च
+
+### Why in News?
+EAM S. Jaishankar ने India की Russia–Ukraine approach को केवल advocacy से आगे बढ़ाते हुए दोनों पक्षों के साथ active engagement/mediation की दिशा में बताया।
+
+### Prelims Focus
+चर्चा के मुद्दों में Black Sea safety, grain exports, energy exports और संभावित non-attack arrangements शामिल हैं। भारत की नीति strategic autonomy और dialogue पर केंद्रित रही है।
+
+### Mains Focus
+भारत के लिए conflict diplomacy में strategic autonomy, national interests, Global South credibility और humanitarian concerns को संतुलित करना चुनौती है। दोनों पक्षों से संवाद भारत की diplomatic space बढ़ा सकता है।
+
+### UPSC Syllabus Link
+GS2: भारत की विदेश नीति, रूस-यूक्रेन संघर्ष, strategic autonomy
+
+### 30-Second Revision
+भारत Russia–Ukraine conflict में dialogue और engagement को mediation-oriented diplomacy की ओर बढ़ा रहा है।
+
+---
+
+## 4. RBI की October MPC बैठक और संभावित repo-rate hike
+
+**Source:** The Hindu
+
+**Category:** ECONOMY
+
+**Priority:** उच्च
+
+### Why in News?
+October 2026 की RBI Monetary Policy Committee बैठक 5–7 October के बीच हो रही है। Rising inflation और crude-oil prices के बीच economists ने repo-rate hike की संभावना जताई है।
+
+### Prelims Focus
+MPC RBI Act, 1934 की **Section 45ZB** के तहत गठित है। इसके 6 सदस्य होते हैं और इसका प्रमुख mandate price stability है, growth को ध्यान में रखते हुए।
+
+### Mains Focus
+Rate hike inflation expectations को anchor कर सकती है, लेकिन borrowing costs बढ़ाकर investment और consumption को प्रभावित कर सकती है। Monetary policy में inflation-growth trade-off महत्वपूर्ण है।
+
+### UPSC Syllabus Link
+GS3: मौद्रिक नीति, inflation, RBI
+
+### 30-Second Revision
+October MPC के सामने inflation और growth के बीच संतुलन प्रमुख मुद्दा है; संभावित repo-rate hike पर बाजार की नजर है।
+
+---
+
+## 5. Madras High Court ने भ्रष्टाचार से अर्जित संपत्ति की mandatory attachment पर जोर दिया
+
+**Source:** The Hindu
+
+**Category:** POLITY / GOVERNANCE
+
+**Priority:** उच्च
+
+### Why in News?
+Madurai Bench of Madras High Court ने Prevention of Corruption Act, 1988 के तहत भ्रष्टाचार से अर्जित संपत्तियों की attachment को mandatory बनाने की आवश्यकता पर जोर दिया।
+
+### Prelims Focus
+Prevention of Corruption Act, 1988 भ्रष्टाचार संबंधी अपराधों के लिए प्रमुख कानून है। Property attachment का प्रश्न corruption proceeds, deterrence और due process से जुड़ता है।
+
+### Mains Focus
+Corruption control में केवल conviction पर्याप्त नहीं; illicit gains की recovery, speedy investigation, institutional accountability और due process भी जरूरी हैं। Mandatory attachment को लागू करते समय property rights और judicial safeguards का ध्यान रखना होगा।
+
+### UPSC Syllabus Link
+GS2: शासन, transparency, accountability, anti-corruption institutions
+
+### 30-Second Revision
+Madras HC ने corruption से अर्जित संपत्तियों की mandatory attachment को मजबूत deterrence के रूप में रेखांकित किया।
+
+---
+
+## 6. भारत का Rising Supercomputing Ecosystem: 40 supercomputers, 68 PF
+
+**Source:** PIB
+
+**Category:** SCIENCE & TECHNOLOGY
+
+**Priority:** उच्च
+
+### Why in News?
+PIB ने बताया कि September 2026 तक National Supercomputing Mission के अंतर्गत भारत में **40 supercomputers** deployed हैं, जिनकी संयुक्त क्षमता **68 petaflops (PF)** है।
+
+### Prelims Focus
+National Supercomputing Mission (NSM) 2015 में शुरू हुआ। Supercomputing का उपयोग weather prediction, climate modelling, computational biology, disaster management, big-data analytics और astrophysics में होता है।
+
+### Mains Focus
+High-performance computing strategic technology capacity, scientific research और disaster-resilience को मजबूत करता है। Indigenous servers, software, cooling और networking capabilities technological self-reliance को बढ़ाते हैं।
+
+### UPSC Syllabus Link
+GS3: विज्ञान एवं प्रौद्योगिकी, digital infrastructure, disaster management
+
+### 30-Second Revision
+NSM के तहत September 2026 तक 40 supercomputers और 68 PF capacity; applications में weather, climate, health और disaster modelling शामिल।
+
+---
+
+## 7. PM-SETU: Government ITIs के transformation का एक वर्ष
+
+**Source:** PIB
+
+**Category:** ECONOMY / SOCIAL SECTOR / SKILL DEVELOPMENT
+
+**Priority:** उच्च
+
+### Why in News?
+PM-SETU ने 4 October 2026 को एक वर्ष पूरा किया। इसका उद्देश्य Government ITIs को modern, industry-aligned institutions में बदलना है।
+
+### Prelims Focus
+PM-SETU = **Pradhan Mantri Skilling and Employability Transformation through Upgraded ITIs**। Total outlay **₹60,000 crore** है। Component I में 1,000 Government ITIs के लिए 200 Hub और 800 Spoke ITIs का model है।
+
+### Mains Focus
+India के demographic dividend को productive employment में बदलने के लिए vocational education को industry demand, new-age skills और apprenticeship ecosystem से जोड़ना आवश्यक है। Skill mismatch और quality of training प्रमुख चुनौतियाँ हैं।
+
+### UPSC Syllabus Link
+GS2: शिक्षा, कौशल विकास; GS3: रोजगार, human capital
+
+### 30-Second Revision
+PM-SETU का लक्ष्य 1,000 Government ITIs को Hub-and-Spoke और industry-aligned training के जरिए modernise करना है।
+
+---
+
+## 8. भारत में पहला 5.56 km Free-Space Quantum Key Distribution link
+
+**Source:** PIB
+
+**Category:** SCIENCE & TECHNOLOGY / INTERNAL SECURITY
+
+**Priority:** उच्च
+
+### Why in News?
+BISAG-N, IIT Gandhinagar और QNu Labs ने भारत का पहला **5.56 km free-space Quantum Key Distribution (QKD)** link demonstrate किया।
+
+### Prelims Focus
+QKD quantum principles का उपयोग secure encryption keys generate/distribute करने के लिए करता है। Trial में Quantum Bit Error Rate 5% से कम रहा और 230–260 bps की secure-key rate हासिल हुई।
+
+### Mains Focus
+Quantum communication future cyber-security और strategic communications के लिए महत्वपूर्ण हो सकती है। Indigenous QKD और post-quantum cryptography का integration quantum-era threats के विरुद्ध resilience बढ़ा सकता है।
+
+### UPSC Syllabus Link
+GS3: quantum technology, cyber security, emerging technologies
+
+### 30-Second Revision
+BISAG-N–IIT Gandhinagar collaboration में 5.56 km free-space QKD link demonstrated हुआ; यह quantum-secure communication की दिशा में कदम है।
+
+---
+
+## 9. NABKISAN ने India का पहला WASH-focused Social Bond list किया
+
+**Source:** PIB
+
+**Category:** ECONOMY / SOCIAL SECTOR
+
+**Priority:** मध्यम
+
+### Why in News?
+NABKISAN Finance Limited ने India का पहला exclusively **Water, Sanitation and Hygiene (WASH)-focused Social Bond** NSE पर list किया और ₹180 crore जुटाए।
+
+### Prelims Focus
+NABKISAN, NABARD की subsidiary है। Bond की maturity September 2031 और coupon rate 8.10% बताई गई है। Funds safe water, sanitation और hygiene solutions के विस्तार के लिए हैं।
+
+### Mains Focus
+Social bonds social-sector infrastructure के लिए market-based finance जुटाने का साधन हैं। WASH investment public health, productivity, women’s dignity और rural development से सीधे जुड़ा है।
+
+### UPSC Syllabus Link
+GS2: स्वास्थ्य, sanitation, inclusive development; GS3: financial markets
+
+### 30-Second Revision
+NABKISAN ने India का पहला WASH-focused Social Bond list किया और ₹180 crore raise किए।
+
+---
+
 ## 04 October 2026
 
 > UPSC CSE • Prelims + Mains • The Hindu + PIB • Daily verified digest
