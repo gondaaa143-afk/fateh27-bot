@@ -164,3 +164,52 @@ window.SAMBHAV_CONFIG = {
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bootV2);else setTimeout(bootV2,100);
 })();
+/* SAMBHAV PYQ V3: put Previous in the existing action row */
+(function(){
+  function bootV3(){
+    const root=document.getElementById('pyq');
+    if(!root || window.__sambhavPyqV3)return;
+    window.__sambhavPyqV3=true;
+    const oldRender=window.renderPyq, oldAnswer=window.pyqAnswer;
+    function startTimer(){const el=root.querySelector('#pyqTimerX');if(el){el.textContent='⏱ 15:00';el.classList.remove('warning')}}
+    function stopTimer(){const el=root.querySelector('#pyqTimerX');if(el){el.textContent='⏱ Paused';el.classList.add('warning')}}
+    function details(){
+      const it=window.pyqPool&&window.pyqPool[window.pyqIndex],card=root.querySelector('#pyqCard');if(!it||!card)return;
+      const map={
+       'Consider the following statements regarding the Constitution of India: 1. The Constitution explicitly provides for a uniform civil code. 2. Directive Principles of State Policy are not enforceable by any court. Which of the statements given above is/are correct?':['Why UPSC asks this','Tests the distinction between constitutional directives and enforceable Fundamental Rights.','Article 44 places UCC under the Directive Principles. Under Article 37, DPSPs are not enforceable by courts.','Statement 1 is wrong as UCC is a directive, not an enforceable constitutional right. Statement 2 is correct.','Prelims takeaway: Article 37 = non-justiciable DPSPs; Article 44 = UCC.'],
+       'With reference to biodiversity conservation, which one of the following best describes an in-situ conservation approach?':['Why UPSC asks this','Tests the basic distinction between in-situ and ex-situ conservation.','In-situ means conserving species within their natural ecosystem; national parks and sanctuaries are examples.','Gene banks and captive breeding outside the natural habitat are ex-situ.','Prelims takeaway: In-situ = inside natural habitat; Ex-situ = outside it.'],
+       'Consider the following statements: 1. Headline inflation includes food and energy prices. 2. Core inflation generally excludes volatile food and energy components. Which of the statements given above is/are correct?':['Why UPSC asks this','Tests inflation measurement and the distinction between headline and underlying price pressure.','Headline inflation covers the broad basket; core inflation commonly excludes volatile food and energy components.','The key clue is that core inflation removes commonly volatile components.','Prelims takeaway: Headline = broad; Core = underlying trend.'],
+       'The Indian summer monsoon is strongly influenced by which of the following phenomena?':['Why UPSC asks this','Tests the mechanism behind seasonal monsoon reversal.','Differential land-ocean heating creates pressure changes and seasonal wind reversal, with ITCZ, jet streams and the Tibetan Plateau also influencing the monsoon.','Options using “only” are overly absolute; tides alone cannot explain the monsoon.','Prelims takeaway: connect monsoon with heating + pressure gradient + seasonal wind reversal.'],
+       'The term “Drain of Wealth” in the context of colonial India primarily refers to:':['Why UPSC asks this','Tests the economic critique of colonial rule and economic nationalism.','Drain theory describes the one-way transfer of Indian resources to Britain without adequate economic return.','It is not ordinary internal trade; the defining feature is unilateral external transfer.','Prelims takeaway: Drain of Wealth is central to Dadabhai Naoroji’s economic critique.']
+      };
+      const d=map[it.q];if(!d)return;
+      let box=card.querySelector('.pyq-deep-explain');if(!box){box=document.createElement('div');box.className='pyq-deep-explain';card.appendChild(box)}
+      box.innerHTML='<div class="pyq-deep-title">UPSC Analysis</div><div><b>'+d[0]+':</b> '+d[1]+'</div><div><b>Core concept:</b> '+d[2]+'</div><div><b>Option elimination:</b> '+d[3]+'</div><div><b>'+d[4]+'</b></div>';
+    }
+    function actionRow(){
+      const actions=root.querySelector('.pyq-actions');if(!actions)return;
+      let p=actions.querySelector('#pyqPrevInline');
+      if(!p){
+        p=document.createElement('button');p.id='pyqPrevInline';p.className='pyq-secondary';p.textContent='← Previous';
+        const save=actions.querySelector('.pyq-secondary');if(save)actions.insertBefore(p,save);
+        else actions.insertBefore(p,actions.firstChild);
+      }
+      const save=actions.querySelector('.pyq-secondary:not(#pyqPrevInline)');
+      const next=actions.querySelector('.pyq-next');
+      if(save){save.style.order='1'} p.style.order='2';if(next)next.style.order='3';
+      actions.style.gridTemplateColumns='1fr 1fr 1.35fr';
+      p.onclick=function(){
+        if(!window.pyqPool||!window.pyqPool.length)return;
+        window.pyqIndex=(window.pyqIndex-1+window.pyqPool.length)%window.pyqPool.length;
+        oldRender();startTimer();setTimeout(function(){actionRow();details()},0);
+      };
+    }
+    window.renderPyq=function(){oldRender();setTimeout(function(){actionRow();startTimer();details()},0)};
+    window.pyqAnswer=function(i){oldAnswer(i);stopTimer();setTimeout(function(){actionRow();details()},0)};
+    /* Remove the separate bottom navigation created by V2. */
+    function cleanup(){root.querySelectorAll('.pyq-nav-v2').forEach(x=>x.remove());actionRow()}
+    const css=document.createElement('style');css.textContent='.pyq-nav-v2{display:none!important}.pyq-actions{grid-template-columns:1fr 1fr 1.35fr!important}.pyq-actions button{min-width:0}.pyq-deep-explain{margin-top:12px;padding:14px;border:1px solid #d9d4ba;border-radius:16px;background:#f7f4e6;color:#3b3d35;font-size:11px;line-height:1.55}.pyq-deep-explain>div{margin-bottom:9px}.pyq-deep-explain>div:last-child{margin-bottom:0}.pyq-deep-title{font-size:12px;font-weight:950;text-transform:uppercase;letter-spacing:.5px;color:#283126}';document.head.appendChild(css);
+    setTimeout(function(){cleanup();details()},150);
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bootV3);else setTimeout(bootV3,150);
+})();
