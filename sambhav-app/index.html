@@ -144,12 +144,12 @@ const cfg=window.SAMBHAV_CONFIG||{};
 const supabaseUrl=cfg.SUPABASE_URL||'';
 const supabaseKey=cfg.SUPABASE_PUBLISHABLE_KEY||'';
 const hasBackend=Boolean(supabaseUrl&&supabaseKey);
-let mode='signin';
 
-async function supa(path, options={}){
+async function supa(path,options){
+  options=options||{};
   const headers=Object.assign({'apikey':supabaseKey,'Content-Type':'application/json'},options.headers||{});
-  const res=await fetch(supabaseUrl+'/auth/v1/'+path,{...options,headers});
-  const data=await res.json().catch(()=>({}));
+  const res=await fetch(supabaseUrl+'/auth/v1/'+path,Object.assign({},options,{headers}));
+  const data=await res.json().catch(function(){return {};});
   if(!res.ok) throw new Error(data.msg||data.error_description||data.message||'Authentication failed. Please try again.');
   return data;
 }
@@ -168,7 +168,7 @@ function authMode(m){
   document.getElementById('authMsg').textContent='';
 }
 
-function msg(t,error=false){
+function msg(t,error){
   const el=document.getElementById('authMsg');
   el.textContent=t;
   el.style.color=error?'#9b3d32':'';
@@ -179,34 +179,53 @@ async function submitAuth(e){
   const email=document.getElementById('authEmail').value.trim();
   const pass=document.getElementById('authPass').value;
   const name=document.getElementById('authName').value.trim();
-  if(!email||pass.length<6){msg('Please enter a valid email and a password of at least 6 characters.',true);return}
-  if(!hasBackend){msg('SAMBHAV account service is not connected. Continue as Guest for preview.',true);return}
+  if(!email||pass.length<6){msg('Please enter a valid email and a password of at least 6 characters.',true);return;}
+  if(!hasBackend){msg('SAMBHAV account service is not connected. Continue as Guest for preview.',true);return;}
   const submit=document.getElementById('authSubmit');
-  submit.disabled=true; submit.textContent='Please wait…';
+  submit.disabled=true;
+  submit.textContent='Please wait…';
   try{
     if(mode==='signup'){
-      const data=await supa('signup',{method:'POST',body:JSON.stringify({email,password:pass,data:{full_name:name}})});
-      if(data.access_token){localStorage.setItem('sambhavAccessToken',data.access_token);localStorage.setItem('sambhavUser',JSON.stringify(data.user||{}));enterApp();}
-      else msg('Account created. Check your email to verify your account.');
+      const data=await supa('signup',{method:'POST',body:JSON.stringify({email:email,password:pass,data:{full_name:name}})});
+      if(data.access_token){
+        localStorage.setItem('sambhavAccessToken',data.access_token);
+        localStorage.setItem('sambhavUser',JSON.stringify(data.user||{}));
+        enterApp();
+      }else{
+        msg('Account created. Check your email to verify your account.');
+      }
     }else{
-      const data=await supa('token?grant_type=password',{method:'POST',body:JSON.stringify({email,password:pass})});
-      if(data.access_token){localStorage.setItem('sambhavAccessToken',data.access_token);localStorage.setItem('sambhavUser',JSON.stringify(data.user||{}));enterApp();}
+      const data=await supa('token?grant_type=password',{method:'POST',body:JSON.stringify({email:email,password:pass})});
+      if(data.access_token){
+        localStorage.setItem('sambhavAccessToken',data.access_token);
+        localStorage.setItem('sambhavUser',JSON.stringify(data.user||{}));
+        enterApp();
+      }
     }
-  }catch(err){msg(err.message||'Authentication failed. Please try again.',true)}
-  finally{submit.disabled=false;submit.textContent=mode==='signin'?'Sign In':'Create Account'}
+  }catch(err){
+    msg(err.message||'Authentication failed. Please try again.',true);
+  }finally{
+    submit.disabled=false;
+    submit.textContent=mode==='signin'?'Sign In':'Create Account';
+  }
 }
 
 async function forgotPassword(){
   const email=document.getElementById('authEmail').value.trim();
-  if(!email){msg('Enter your email address first.',true);return}
-  if(!hasBackend){msg('SAMBHAV account service is not connected.',true);return}
+  if(!email){msg('Enter your email address first.',true);return;}
+  if(!hasBackend){msg('SAMBHAV account service is not connected.',true);return;}
   try{
-    await supa('recover',{method:'POST',body:JSON.stringify({email})});
+    await supa('recover',{method:'POST',body:JSON.stringify({email:email})});
     msg('Password reset email sent. Check your inbox.');
-  }catch(err){msg(err.message||'Unable to send reset email.',true)}
+  }catch(err){
+    msg(err.message||'Unable to send reset email.',true);
+  }
 }
 
-function togglePass(){const x=document.getElementById('authPass');x.type=x.type==='password'?'text':'password'}
+function togglePass(){
+  const x=document.getElementById('authPass');
+  x.type=x.type==='password'?'text':'password';
+}
 
 function enterApp(){
   localStorage.setItem('sambhavGuest','1');
@@ -217,138 +236,29 @@ function logout(){
   localStorage.removeItem('sambhavGuest');
   localStorage.removeItem('sambhavAccessToken');
   localStorage.removeItem('sambhavUser');
-  location.hash='auth';
-  location.reload();
+  go('auth');
 }
 
 function go(r){
   if(!routes.includes(r))return;
   const logged=Boolean(localStorage.getItem('sambhavAccessToken'))||localStorage.getItem('sambhavGuest')==='1';
-  if(r!=='auth'&&!logged){r='auth'}
-  document.querySelectorAll('.screen').forEach(x=>x.classList.toggle('active',x.id===r));
-  document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.r===r));
+  if(r!=='auth'&&!logged)r='auth';
+  document.querySelectorAll('.screen').forEach(function(x){x.classList.toggle('active',x.id===r);});
+  document.querySelectorAll('.nav button').forEach(function(x){x.classList.toggle('active',x.dataset.r===r);});
   document.body.classList.toggle('sambhav-ready',r!=='auth');
   document.getElementById('mainHeader').style.display=r==='auth'?'none':'flex';
   document.getElementById('mainNav').style.display=r==='auth'?'none':'grid';
-  location.hash=r;scrollTo(0,0);
+  location.hash=r;
+  window.scrollTo(0,0);
 }
 
 function bootAuth(){
   const token=localStorage.getItem('sambhavAccessToken');
-  if(token||localStorage.getItem('sambhavGuest')==='1') go(location.hash.slice(1)||'home');
+  const guest=localStorage.getItem('sambhavGuest')==='1';
+  if(token||guest)go(location.hash.slice(1)||'home');
   else go('auth');
 }
-bootAuth();
-function authMode(m){
-  mode=m;
-  document.getElementById('signInTab').classList.toggle('active',m==='signin');
-  document.getElementById('signUpTab').classList.toggle('active',m==='signup');
-  document.getElementById('authTitle').textContent=m==='signin'?'Welcome back.':'Create your account.';
-  document.getElementById('authSub').textContent=m==='signin'?'Sign in to continue your UPSC preparation.':'Join SAMBHAV and build your UPSC study space.';
-  document.getElementById('authSubmit').textContent=m==='signin'?'Sign In':'Create Account';
-  document.getElementById('forgotRow').style.display=m==='signin'?'block':'none';
-  document.getElementById('nameLabel').style.display=m==='signup'?'block':'none';
-  document.getElementById('authName').style.display=m==='signup'?'block':'none';
-  document.getElementById('authName').required=m==='signup';
-  document.getElementById('authMsg').textContent='';
-}
 
-function msg(t,error=false){
-  const el=document.getElementById('authMsg');
-  el.textContent=t;
-  el.style.color=error?'#9b3d32':'';
-}
-
-async function submitAuth(e){
-  e.preventDefault();
-  const email=document.getElementById('authEmail').value.trim();
-  const pass=document.getElementById('authPass').value;
-  const name=document.getElementById('authName').value.trim();
-  if(!email||pass.length<6){msg('Please enter a valid email and a password of at least 6 characters.',true);return}
-  if(!hasBackend){msg('SAMBHAV account service is not connected yet. Continue as Guest for preview.',true);return}
-  const submit=document.getElementById('authSubmit');
-  submit.disabled=true; submit.textContent='Please wait…';
-  try{
-    if(mode==='signup'){
-      const {data,error}=await supabase.auth.signUp({
-        email,password:pass,
-        options:{data:{full_name:name}}
-      });
-      if(error) throw error;
-      if(data.session) enterApp();
-      else msg('Account created. Check your email to verify your account.');
-    }else{
-      const {data,error}=await supabase.auth.signInWithPassword({email,password:pass});
-      if(error) throw error;
-      if(data.session) enterApp();
-    }
-  }catch(err){msg(err.message||'Authentication failed. Please try again.',true)}
-  finally{submit.disabled=false;submit.textContent=mode==='signin'?'Sign In':'Create Account'}
-}
-
-async function forgotPassword(){
-  const email=document.getElementById('authEmail').value.trim();
-  if(!email){msg('Enter your email address first.',true);return}
-  if(!hasBackend){msg('SAMBHAV account service is not connected yet.',true);return}
-  try{
-    const {error}=await supabase.auth.resetPasswordForEmail(email,{redirectTo:location.origin+location.pathname+'?recovery=1'});
-    if(error) throw error;
-    msg('Password reset email sent. Check your inbox.');
-  }catch(err){msg(err.message||'Unable to send reset email.',true)}
-}
-
-function togglePass(){const x=document.getElementById('authPass');x.type=x.type==='password'?'text':'password'}
-
-function enterApp(){
-  localStorage.setItem('sambhavGuest','1');
-  go('home');
-}
-
-async function logout(){
-  if(supabase) await supabase.auth.signOut();
-  localStorage.removeItem('sambhavGuest');
-  location.hash='auth';
-  location.reload();
-}
-
-function go(r){
-  if(!routes.includes(r))return;
-  const auth=document.getElementById('auth');
-  const logged=Boolean(window.__sambhavSession)||localStorage.getItem('sambhavGuest')==='1';
-  if(r!=='auth'&&!logged){r='auth'}
-  document.querySelectorAll('.screen').forEach(x=>x.classList.toggle('active',x.id===r));
-  document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.r===r));
-  document.body.classList.toggle('sambhav-ready',r!=='auth');
-  document.getElementById('mainHeader').style.display=r==='auth'?'none':'flex';
-  document.getElementById('mainNav').style.display=r==='auth'?'none':'grid';
-  location.hash=r;scrollTo(0,0);
-}
-
-async function handleRecovery(){
-  const params=new URLSearchParams(location.search);
-  if(params.get('recovery')!=='1'||!supabase)return false;
-  const {data}=await supabase.auth.getSession();
-  if(!data.session)return false;
-  const next=prompt('Enter your new password (minimum 6 characters):');
-  if(!next||next.length<6){msg('Password must be at least 6 characters.',true);return true}
-  const {error}=await supabase.auth.updateUser({password:next});
-  if(error) msg(error.message,true); else {msg('Password updated. You can continue to SAMBHAV.');go('home')}
-  return true;
-}
-
-async function bootAuth(){
-  if(!supabase){
-    go('auth'); return;
-  }
-  if(await handleRecovery()) return;
-  const {data}=await supabase.auth.getSession();
-  window.__sambhavSession=data.session||null;
-  if(data.session){go(location.hash.slice(1)||'home')}else{go('auth')}
-  supabase.auth.onAuthStateChange((_event,session)=>{
-    window.__sambhavSession=session;
-    if(session) go(location.hash.slice(1)||'home'); else if(localStorage.getItem('sambhavGuest')!=='1') go('auth');
-  });
-}
 bootAuth();
 </script>
 <script>
