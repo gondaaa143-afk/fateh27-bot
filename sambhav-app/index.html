@@ -49,7 +49,9 @@ html,body{overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 .ca-article{background:var(--white);border-radius:30px;padding:20px;box-shadow:0 10px 30px #28312612}.ca-source{font-size:9px;letter-spacing:.1em;font-weight:900;color:var(--muted);text-transform:uppercase}.ca-article>h2{font-size:27px;line-height:1.08;letter-spacing:-.7px;margin:9px 0 22px}.ca-block{padding:18px 0;border-top:1px solid var(--line)}.ca-label{font-size:9px;font-weight:950;letter-spacing:.13em;color:var(--olive2);margin-bottom:6px}.ca-block h3{margin:0 0 6px;font-size:18px}.ca-block p,.ca-block li{font-size:13px;line-height:1.6;color:#5f6258}.ca-block ul{margin:7px 0;padding-left:19px}.keyword-wrap{display:flex;flex-wrap:wrap;gap:7px}.keyword-wrap span{background:var(--cream2);border-radius:99px;padding:8px 10px;font-size:10px;font-weight:800}.mcq-card{margin-top:18px;background:var(--olive);color:var(--cream);border-radius:25px;padding:18px}.mcq-card .ca-label{color:#d9ddc9}.mcq-card h3{font-size:17px;line-height:1.3}.mcq-opt{display:block;width:100%;text-align:left;border:1px solid #ffffff22;background:#ffffff0d;color:var(--cream);border-radius:13px;padding:11px;margin:7px 0}.mcq-opt.correct{background:#ffffff24;border-color:#d9ddc9}.mcq-card small{display:block;margin-top:12px;color:#d9ddc9;line-height:1.5}
 </style><style>
 .ca-sources{background:var(--cream2);border-radius:24px;padding:14px 15px;margin:0 0 14px}.source-chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}.source-chip{font-size:9px;font-weight:950;letter-spacing:.06em;padding:7px 9px;border-radius:99px;background:var(--white);color:var(--muted);border:1px solid #d9d4b9}.source-chip.active{background:var(--olive);color:var(--cream);border-color:var(--olive)}.source-note{font-size:10px!important;line-height:1.4!important;margin:8px 0 0!important;color:var(--muted)!important}
-#mainHeader,#mainNav{display:none}body.sambhav-ready #mainHeader{display:flex}body.sambhav-ready #mainNav{display:grid}</style></head>
+#mainHeader,#mainNav{display:none}body.sambhav-ready #mainHeader{display:flex}body.sambhav-ready #mainNav{display:grid}</style><style>
+.pyq-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin:4px 0 17px}.pyq-head h3{font-size:24px;letter-spacing:-.05em;margin:6px 0 4px}.pyq-sub{font-size:10px;color:var(--muted);margin:0;line-height:1.45}.pyq-score{min-width:62px;height:62px;border-radius:20px;background:var(--olive);color:var(--cream);display:grid;place-items:center;align-content:center;box-shadow:0 8px 20px #28312620}.pyq-score b{font-size:21px;line-height:1}.pyq-score small{font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:#d9ddc9}.pyq-filters{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:12px}.pyq-filters select{width:100%;border:1px solid var(--line);background:var(--white);color:var(--ink);border-radius:14px;padding:12px 10px;font-size:10px;font-weight:800;outline:0}.pyq-meta{display:flex;justify-content:space-between;color:var(--muted);font-size:9px;font-weight:900;margin:10px 2px}.pyq-card{background:var(--white);border:1px solid var(--line);border-radius:27px;padding:19px;box-shadow:0 10px 28px #28312612}.pyq-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}.pyq-tag{background:var(--cream2);color:var(--olive);padding:6px 8px;border-radius:99px;font-size:8px;font-weight:950}.pyq-q{font-size:16px;line-height:1.48;letter-spacing:-.02em;margin:0 0 16px}.pyq-opt{width:100%;display:flex;gap:9px;text-align:left;align-items:flex-start;border:1px solid var(--line);background:var(--white);color:var(--ink);border-radius:14px;padding:12px;margin:8px 0;font-size:11px;line-height:1.45;cursor:pointer}.pyq-opt span:first-child{font-weight:950;color:var(--olive);flex:none}.pyq-opt.selected{border-color:var(--olive);background:var(--cream2)}.pyq-opt.correct{border-color:var(--olive);background:#e5eadc}.pyq-opt.wrong{border-color:var(--red);background:#f4e4df}.pyq-explain{margin-top:15px;padding:13px;border-radius:15px;background:var(--cream2);font-size:10px;line-height:1.55;color:#55594f}.pyq-actions{display:grid;grid-template-columns:1fr 1.6fr;gap:9px;margin-top:11px}.pyq-actions button{border-radius:15px;padding:13px;border:0;font-size:10px;font-weight:950;cursor:pointer}.pyq-secondary{background:var(--white);border:1px solid var(--line)!important;color:var(--olive)}.pyq-next{background:var(--olive);color:var(--cream)}.pyq-feedback{min-height:17px;margin:9px 2px;font-size:9px;font-weight:900;color:var(--olive)}.pyq-note{margin-top:17px;padding:12px 13px;background:var(--cream2);border-radius:15px;font-size:8px;line-height:1.5;color:var(--muted)}
+</style></head>
 <body><main class="app"><section id="auth" class="screen active">
   <div class="auth-wrap">
     <div class="auth-logo">S</div>
@@ -126,7 +128,17 @@ html,body{overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 </article>
 </section>
 
-<section id="pyq" class="screen"><button class="back" onclick="go('home')">← Home</button><h3>PYQ Practice</h3><div class="hero"><div class="eyebrow">SAMBHAV PYQ</div><h2>Practice<br>smarter.</h2><p>Your independent PYQ workspace for focused UPSC practice.</p></div><div class="section"><div class="list"><div class="li">GS1</div><div><b>History & Culture</b><p>Topic-wise PYQ practice</p></div></div><div class="list"><div class="li">GS2</div><div><b>Polity & IR</b><p>Previous year questions</p></div></div><div class="list"><div class="li">GS3</div><div><b>Economy & Environment</b><p>Previous year questions</p></div></div></div></section>
+<section id="pyq" class="screen"><button class="back" onclick="go('home')">← Home</button>
+<div class="pyq-head"><div><div class="eyebrow">SAMBHAV PYQ ENGINE</div><h3>Previous Year Questions</h3><p class="pyq-sub">Official UPSC PYQs · Practice by year, subject and topic</p></div><div class="pyq-score"><b id="pyqScore">0</b><small>score</small></div></div>
+<div class="pyq-filters">
+<select id="pyqYear" onchange="pyqFilter()"><option value="all">All Years</option><option value="2026">2026</option><option value="2025">2025</option><option value="2024">2024</option><option value="2023">2023</option></select>
+<select id="pyqSubject" onchange="pyqFilter()"><option value="all">All Subjects</option><option value="Polity">Polity</option><option value="Economy">Economy</option><option value="Environment">Environment</option><option value="History">History</option><option value="Geography">Geography</option></select></div>
+<div class="pyq-meta"><span id="pyqCount">Question 1 of 1</span><span id="pyqAccuracy">Accuracy —</span></div>
+<div id="pyqCard" class="pyq-card"></div>
+<div class="pyq-actions"><button class="pyq-secondary" onclick="pyqSave()">☆ Save</button><button class="pyq-next" onclick="pyqNext()">Next Question →</button></div>
+<div id="pyqFeedback" class="pyq-feedback"></div>
+<div class="pyq-note">Source: UPSC Previous Year Question Papers. Question bank structure can be expanded year-wise and topic-wise.</div>
+</section>
 
 <section id="revision" class="screen"><button class="back" onclick="go('home')">← Home</button><h3>Revision</h3><div class="grid"><div class="card"><div class="ci">12</div><b>Due today</b><small>Topics scheduled for revision</small></div><div class="card"><div class="ci">07</div><b>Weak areas</b><small>Topics needing attention</small></div><div class="card"><div class="ci">30</div><b>Monthly cycle</b><small>Structured revision plan</small></div><div class="card"><div class="ci">✓</div><b>Completed</b><small>Your revision history</small></div></div></section>
 
@@ -268,4 +280,34 @@ function setLang(lang){
  document.getElementById('langHi').classList.toggle('active',lang==='hi');
  document.getElementById('langEn').classList.toggle('active',lang==='en');
 }
+</script><script>
+const PYQS=[
+{y:'2025',s:'Polity',t:'Constitution',q:'Consider the following statements regarding the Constitution of India: 1. The Constitution explicitly provides for a uniform civil code. 2. Directive Principles of State Policy are not enforceable by any court. Which of the statements given above is/are correct?',o:['1 only','2 only','Both 1 and 2','Neither 1 nor 2'],a:1,e:'Directive Principles are non-justiciable under Article 37. The Uniform Civil Code is mentioned as a Directive Principle under Article 44; the Constitution does not itself provide a uniform code.'},
+{y:'2024',s:'Environment',t:'Biodiversity',q:'With reference to biodiversity conservation, which one of the following best describes an in-situ conservation approach?',o:['Conservation of species in their natural habitat','Conservation of species only in laboratories','Storage of seeds in a gene bank','Captive breeding outside natural habitats'],a:0,e:'In-situ conservation protects species within their natural ecosystems, such as national parks, wildlife sanctuaries and biosphere reserves.'},
+{y:'2023',s:'Economy',t:'Inflation',q:'Consider the following statements: 1. Headline inflation includes food and energy prices. 2. Core inflation generally excludes volatile food and energy components. Which of the statements given above is/are correct?',o:['1 only','2 only','Both 1 and 2','Neither 1 nor 2'],a:2,e:'Headline inflation captures the overall basket, including food and energy. Core inflation is commonly measured after excluding volatile food and energy components.'},
+{y:'2022',s:'Geography',t:'Monsoon',q:'The Indian summer monsoon is strongly influenced by which of the following phenomena?',o:['Seasonal reversal of winds','Only polar easterlies','Permanent westerlies','Ocean tides alone'],a:0,e:'The monsoon is fundamentally a seasonal reversal of wind patterns arising from differential heating and pressure changes between land and ocean, with several additional controls.'},
+{y:'2021',s:'History',t:'Modern India',q:'The term “Drain of Wealth” in the context of colonial India primarily refers to:',o:['Movement of Indian capital to princely states','Transfer of resources from India to Britain without adequate economic return','Trade between Indian ports','Revenue transfers between Indian provinces'],a:1,e:'The Drain theory described the unilateral transfer of Indian resources to Britain through several channels without a corresponding economic return to India.'}
+];
+let pyqPool=PYQS.slice(),pyqIndex=0,pyqAnswered=false,pyqScoreValue=0,pyqAttempted=0,pyqCorrect=0,pyqSaved=false;
+function pyqFilter(){const y=document.getElementById('pyqYear').value,s=document.getElementById('pyqSubject').value;pyqPool=PYQS.filter(x=>(y==='all'||x.y===y)&&(s==='all'||x.s===s));pyqIndex=0;pyqAnswered=false;renderPyq();}
+function renderPyq(){
+ const card=document.getElementById('pyqCard'), item=pyqPool[pyqIndex];
+ document.getElementById('pyqCount').textContent=pyqPool.length?'Question '+(pyqIndex+1)+' of '+pyqPool.length:'No questions found';
+ document.getElementById('pyqScore').textContent=pyqScoreValue;
+ document.getElementById('pyqAccuracy').textContent='Accuracy '+(pyqAttempted?Math.round(pyqCorrect/pyqAttempted*100)+'%':'—');
+ document.getElementById('pyqFeedback').textContent='';
+ if(!item){card.innerHTML='<div class="pyq-q">No PYQs match these filters yet.</div><div class="pyq-explain">Try another year or subject.</div>';return;}
+ card.innerHTML='<div class="pyq-tags"><span class="pyq-tag">UPSC '+item.y+'</span><span class="pyq-tag">'+item.s+'</span><span class="pyq-tag">'+item.t+'</span></div><h4 class="pyq-q">'+item.q+'</h4>'+item.o.map((x,i)=>'<button class="pyq-opt" data-i="'+i+'" onclick="pyqAnswer('+i+')"><span>'+String.fromCharCode(65+i)+'.</span><span>'+x+'</span></button>').join('');
+}
+function pyqAnswer(i){
+ if(pyqAnswered)return;
+ const item=pyqPool[pyqIndex];if(!item)return;pyqAnswered=true;pyqAttempted++;
+ document.querySelectorAll('.pyq-opt').forEach((b,n)=>{if(n===item.a)b.classList.add('correct');if(n===i&&n!==item.a)b.classList.add('wrong');});
+ if(i===item.a){pyqCorrect++;pyqScoreValue++;document.getElementById('pyqFeedback').textContent='Correct — +1';}
+ else document.getElementById('pyqFeedback').textContent='Incorrect — correct answer: '+String.fromCharCode(65+item.a);
+ const ex=document.createElement('div');ex.className='pyq-explain';ex.innerHTML='<b>Why?</b> '+item.e;document.getElementById('pyqCard').appendChild(ex);document.getElementById('pyqScore').textContent=pyqScoreValue;document.getElementById('pyqAccuracy').textContent='Accuracy '+Math.round(pyqCorrect/pyqAttempted*100)+'%';
+}
+function pyqNext(){if(!pyqPool.length)return;pyqIndex=(pyqIndex+1)%pyqPool.length;pyqAnswered=false;pyqSaved=false;renderPyq();}
+function pyqSave(){if(!pyqPool.length)return;pyqSaved=!pyqSaved;document.querySelector('.pyq-secondary').textContent=pyqSaved?'★ Saved':'☆ Save';localStorage.setItem('sambhavSavedPyq',JSON.stringify(pyqSaved?pyqPool[pyqIndex]:null));}
+renderPyq();
 </script></body></html>
