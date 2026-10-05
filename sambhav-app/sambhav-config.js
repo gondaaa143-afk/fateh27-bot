@@ -68,3 +68,99 @@ window.SAMBHAV_CONFIG = {
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',ready);else setTimeout(ready,0);
 })();
+
+
+/* SAMBHAV PYQ v2: timer stop + previous + deep explanations */
+(function(){
+  function bootV2(){
+    const root=document.getElementById('pyq');
+    if(!root || window.__sambhavPyqV2)return;
+    window.__sambhavPyqV2=true;
+
+    const detailMap={
+      'Consider the following statements regarding the Constitution of India: 1. The Constitution explicitly provides for a uniform civil code. 2. Directive Principles of State Policy are not enforceable by any court. Which of the statements given above is/are correct?':{
+        why:'UPSC tests whether you can distinguish a constitutional provision from a Directive Principle and understand the enforceability of DPSPs.',
+        concept:'Article 44 directs the State to endeavour to secure a Uniform Civil Code, but it is part of the Directive Principles. DPSPs are fundamental in governance but are not enforceable by courts under Article 37.',
+        eliminate:'Statement 1 is incorrect because the Constitution does not make UCC an enforceable right; it directs the State to work towards it. Statement 2 is correct.',
+        takeaway:'Remember the trio: Article 37 — DPSPs are non-justiciable; Article 44 — UCC; Fundamental Rights — generally enforceable through constitutional remedies.'
+      },
+      'With reference to biodiversity conservation, which one of the following best describes an in-situ conservation approach?':{
+        why:'UPSC uses conservation terminology to test whether you understand the difference between protecting biodiversity inside its ecosystem and preserving it outside the natural habitat.',
+        concept:'In-situ conservation means conserving species within their natural ecosystems. National parks, wildlife sanctuaries and biosphere reserves are common examples.',
+        eliminate:'Gene banks and seed storage are ex-situ approaches. Captive breeding outside the natural habitat is also ex-situ. Therefore, natural-habitat protection is the defining clue.',
+        takeaway:'In-situ = “in the original place”; Ex-situ = “outside the original place”.'
+      },
+      'Consider the following statements: 1. Headline inflation includes food and energy prices. 2. Core inflation generally excludes volatile food and energy components. Which of the statements given above is/are correct?':{
+        why:'UPSC tests whether you understand how inflation measures are constructed and why policymakers look beyond headline inflation.',
+        concept:'Headline inflation reflects the broad price basket and therefore captures volatile components such as food and energy. Core inflation commonly removes these volatile components to reveal underlying price pressure.',
+        eliminate:'Do not confuse “core” with “overall”. The exclusion of volatile food and energy is the key distinction used in standard core-inflation measures.',
+        takeaway:'Headline = broad consumer price movement; Core = underlying trend after commonly volatile components are excluded.'
+      },
+      'The Indian summer monsoon is strongly influenced by which of the following phenomena?':{
+        why:'UPSC asks monsoon questions to test the atmospheric mechanism behind seasonal wind reversal rather than simple rainfall facts.',
+        concept:'The Indian summer monsoon involves a seasonal reversal of winds caused primarily by differential heating of land and ocean and associated pressure changes. ITCZ movement, the Tibetan Plateau, jet streams and ocean-atmosphere interactions also influence it.',
+        eliminate:'The options using “only” are too absolute. Tides do not explain the continental-scale seasonal reversal of monsoon winds.',
+        takeaway:'For Prelims, connect monsoon with differential heating + pressure gradient + seasonal wind reversal, then add ITCZ and upper-air circulation as supporting controls.'
+      },
+      'The term “Drain of Wealth” in the context of colonial India primarily refers to:':{
+        why:'UPSC tests the economic impact of colonialism and the argument developed by early nationalists such as Dadabhai Naoroji.',
+        concept:'The Drain theory described a one-way transfer of Indian resources to Britain without an equivalent economic return to India. Channels included remittances, pensions, profits, interest and certain payments connected with colonial administration.',
+        eliminate:'It was not ordinary inter-provincial trade or movement of capital within India. The defining feature is unilateral external transfer without adequate return.',
+        takeaway:'Drain of Wealth is central to the economic critique of colonial rule and the rise of economic nationalism.'
+      }
+    };
+
+    let history=[], pos=-1, answered=false;
+    const oldRender=window.renderPyq, oldAnswer=window.pyqAnswer, oldNext=window.pyqNext;
+    function item(){return window.pyqPool && window.pyqPool[window.pyqIndex];}
+    function stopTimer(){const el=root.querySelector('#pyqTimerX'); if(el){el.textContent='⏱ Paused';el.classList.add('warning');}}
+    function startTimer(){const el=root.querySelector('#pyqTimerX'); if(el){el.textContent='⏱ 15:00';el.classList.remove('warning');}}
+    function renderDetails(){
+      const it=item(), card=root.querySelector('.pyq-card')||root.querySelector('#pyqCard');
+      if(!it||!card)return;
+      const d=detailMap[it.q]; if(!d)return;
+      let box=root.querySelector('.pyq-deep-explain');
+      if(!box){box=document.createElement('div');box.className='pyq-deep-explain';card.appendChild(box)}
+      box.innerHTML='<div class="pyq-deep-title">UPSC Analysis</div><div><b>Why UPSC asks this:</b> '+d.why+'</div><div><b>Core concept:</b> '+d.concept+'</div><div><b>Option elimination:</b> '+d.eliminate+'</div><div><b>Prelims takeaway:</b> '+d.takeaway+'</div>';
+    }
+    function nav(){
+      let wrap=root.querySelector('.pyq-nav-v2');
+      if(!wrap){
+        wrap=document.createElement('div');wrap.className='pyq-nav-v2';
+        wrap.innerHTML='<button id="pyqPrevV2">← Previous</button><button id="pyqNextV2">Next →</button>';
+        const card=root.querySelector('.pyq-card')||root.querySelector('#pyqCard');
+        const actions=root.querySelector('.pyq-actions')||root.querySelector('.pyq-meta');
+        (actions||card).parentNode.insertBefore(wrap,(actions||card).nextSibling);
+        wrap.querySelector('#pyqPrevV2').onclick=function(){
+          if(!window.pyqPool || !window.pyqPool.length)return;
+          window.pyqIndex=(window.pyqIndex-1+window.pyqPool.length)%window.pyqPool.length;
+          answered=false;startTimer();oldRender();renderDetails();
+        };
+        wrap.querySelector('#pyqNextV2').onclick=function(){
+          if(!window.pyqPool || !window.pyqPool.length)return;
+          window.pyqIndex=(window.pyqIndex+1)%window.pyqPool.length;
+          answered=false;startTimer();oldRender();renderDetails();
+        };
+      }
+    }
+    const s=document.createElement('style');
+    s.textContent='.pyq-nav-v2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}.pyq-nav-v2 button{border:1px solid #d9d4ba;background:#fbfaf2;color:#283126;border-radius:14px;padding:11px;font-size:9px;font-weight:950}.pyq-deep-explain{margin-top:12px;padding:14px;border:1px solid #d9d4ba;border-radius:16px;background:#f7f4e6;color:#3b3d35;font-size:11px;line-height:1.55}.pyq-deep-explain>div{margin-bottom:9px}.pyq-deep-explain>div:last-child{margin-bottom:0}.pyq-deep-title{font-size:12px;font-weight:950;text-transform:uppercase;letter-spacing:.5px;color:#283126}';
+    document.head.appendChild(s);
+
+    window.renderPyq=function(){oldRender();setTimeout(function(){answered=false;startTimer();nav();},0)};
+    window.pyqAnswer=function(i){
+      if(answered)return;
+      answered=true;
+      oldAnswer(i);
+      stopTimer();
+      setTimeout(function(){renderDetails();nav()},0);
+    };
+    window.pyqNext=function(){
+      if(!window.pyqPool || !window.pyqPool.length)return;
+      window.pyqIndex=(window.pyqIndex+1)%window.pyqPool.length;
+      answered=false;startTimer();oldRender();nav();
+    };
+    setTimeout(function(){nav();renderDetails()},50);
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bootV2);else setTimeout(bootV2,100);
+})();
