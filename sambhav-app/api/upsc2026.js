@@ -1,4 +1,4 @@
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   try {
     const url = 'https://quizcherry.com/previous-year-papers/en/upsc-prelims-2026-gs-set-a/';
     const r = await fetch(url, { headers: { 'user-agent': 'SAMBHAV UPSC/1.0' } });
