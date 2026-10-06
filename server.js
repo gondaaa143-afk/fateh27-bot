@@ -341,83 +341,9 @@ app.use(
 app.post("/api/webhook", (req, res) => telegramWebhookHandler(req, res));
 
 /* =========================================================
-   FATEH27 ACCESS ENFORCEMENT
-   Every protected API requires a valid Telegram identity AND
-   explicit admin approval. Access/request/webhook/health and
-   secret-authenticated notification endpoints stay public.
+   FATEH27 ACCESS ENFORCEMENT REMOVED
+   The web app no longer requires Telegram authentication or admin approval.
    ========================================================= */
-
-async function requireApprovedApiUser(req, res, next) {
-  const pathName = String(req.path || "");
-
-  if (
-    req.method === "OPTIONS" ||
-    pathName === "/api/health" ||
-    pathName === "/api/access" ||
-    pathName === "/api/payments/cashfree/webhook" ||
-    pathName === "/api/notifications/current-affairs"
-  ) {
-    return next();
-  }
-
-  if (!pathName.startsWith("/api/")) return next();
-
-  const initData = String(req.headers["x-telegram-init-data"] || "").trim();
-  const telegramUserId = getTelegramUserId(req);
-
-  if (!initData || !telegramUserId) {
-    return res.status(401).json({
-      error: "Telegram authentication is required"
-    });
-  }
-
-  const adminId = String(process.env.FATEH27_ADMIN_ID || "5496422260");
-  if (telegramUserId === adminId) return next();
-
-  try {
-    const config = getFirebaseConfigForUsage();
-    const token = await getFirebaseAccessTokenForUsage();
-
-    if (!config || !token) {
-      return res.status(503).json({ error: "Access verification is unavailable" });
-    }
-
-    const accessUrl =
-      "https://firestore.googleapis.com/v1/projects/" +
-      encodeURIComponent(config.projectId) +
-      "/databases/(default)/documents/accessRequests/" +
-      encodeURIComponent(telegramUserId);
-
-    const accessResponse = await fetch(accessUrl, {
-      headers: { authorization: "Bearer " + token }
-    });
-
-    if (!accessResponse.ok) {
-      return res.status(403).json({
-        error: "FATEH27 access approval required",
-        status: accessResponse.status === 404 ? "not_requested" : "unknown"
-      });
-    }
-
-    const accessDoc = await accessResponse.json();
-    const status = String(accessDoc?.fields?.status?.stringValue || "").toLowerCase();
-
-    if (status !== "approved") {
-      return res.status(403).json({
-        error: "FATEH27 access approval required",
-        status: status || "not_requested"
-      });
-    }
-
-    return next();
-  } catch (error) {
-    console.error("FATEH27 access enforcement error:", error);
-    return res.status(503).json({ error: "Access verification failed" });
-  }
-}
-
-app.use(requireApprovedApiUser);
-
 
 /* =========================================================
    PATH
