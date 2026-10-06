@@ -1,0 +1,114 @@
+/* FATEH27 — Unified Glass UI
+   Grey + white premium system inspired by the approved two-screen concept.
+   Shared across all user-facing modules.
+*/
+:root{
+  --f27-bg:#eef0f3;
+  --f27-surface:rgba(255,255,255,.82);
+  --f27-white:#fff;
+  --f27-soft:#f5f6f8;
+  --f27-dark:#30343b;
+  --f27-ink:#17191d;
+  --f27-muted:#737983;
+  --f27-line:rgba(36,40,48,.10);
+  --f27-shadow:0 18px 50px rgba(32,36,44,.10),inset 0 1px 0 rgba(255,255,255,.95);
+  --f27-gold:#b47b18;
+  --f27-radius:26px;
+}
+*{box-sizing:border-box}
+html{background:var(--f27-bg)}
+body{
+  background:
+    radial-gradient(circle at 8% 0%,rgba(255,255,255,.95),transparent 32%),
+    radial-gradient(circle at 100% 25%,rgba(214,218,224,.55),transparent 34%),
+    linear-gradient(180deg,#f5f6f8 0%,#eceef1 100%) !important;
+  color:var(--f27-ink) !important;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Arial,sans-serif !important;
+}
+.wrap{max-width:760px !important;padding:18px 14px 112px !important}
+.panel,.card,.subject,.secretary,.hero,.section,.qcard,.detail,.upload,.preview,.response,.responseActions,.recallBox,.stat,.action,.filters,.search,.toolbar{
+  border-color:var(--f27-line) !important;
+}
+.panel,.card,.subject,.secretary,.qcard,.detail,.upload,.preview,.response,.responseActions,.recallBox,.stat,.action{
+  background:var(--f27-surface) !important;
+  backdrop-filter:blur(24px) !important;
+  -webkit-backdrop-filter:blur(24px) !important;
+  box-shadow:var(--f27-shadow) !important;
+  border-radius:var(--f27-radius) !important;
+}
+.top{min-height:54px}
+.logo{color:var(--f27-ink) !important;font-weight:900 !important;letter-spacing:-1.2px !important}
+.logo::after{content:"";display:inline-block;width:7px;height:7px;margin:0 0 4px 3px;border-radius:50%;background:var(--f27-gold);vertical-align:bottom}
+.badge,.owner,.primary,.refresh,.send,.action.primary,.f27Retry{
+  background:var(--f27-dark) !important;color:#fff !important;border-color:transparent !important;
+  box-shadow:0 10px 24px rgba(45,49,56,.18) !important;
+}
+.profile{margin-top:18px}
+.avatar,.quickIcon{
+  background:linear-gradient(145deg,#4a4f57,#252a31) !important;
+  color:#fff !important;
+  box-shadow:0 9px 22px rgba(40,44,51,.18) !important;
+}
+.idcard{background:linear-gradient(145deg,#fafbfc,#e6e8eb) !important;border:1px solid var(--f27-line) !important;box-shadow:var(--f27-shadow) !important;border-radius:28px !important}
+.section{color:var(--f27-ink) !important}
+.quickLaunch{gap:12px !important}
+.quickBtn{
+  background:rgba(255,255,255,.82) !important;
+  border:1px solid var(--f27-line) !important;
+  border-radius:23px !important;
+  box-shadow:0 12px 32px rgba(35,39,45,.08),inset 0 1px 0 #fff !important;
+}
+.quickBtn:hover{background:#fff !important;transform:translateY(-1px) !important}
+.quickTitle{color:var(--f27-ink) !important}
+.quickSub{color:var(--f27-muted) !important}
+.quickArrow{background:#e7e9ed !important;color:#5e646d !important}
+.subject,.stat{background:rgba(255,255,255,.78) !important}
+.bar{background:#dfe2e6 !important}
+.fill{background:linear-gradient(90deg,#4c5159,#a9adb4) !important}
+#aiTip{background:var(--f27-dark) !important;color:#fff !important;border-radius:20px !important}
+input,textarea,select,.search,.filters,.filter{
+  background:rgba(255,255,255,.86) !important;
+  color:var(--f27-ink) !important;
+  border-color:var(--f27-line) !important;
+  border-radius:18px !important;
+}
+button{font-family:inherit !important}
+.secondary,.back,.filter,.tab{
+  background:rgba(255,255,255,.78) !important;
+  color:var(--f27-dark) !important;
+  border-color:var(--f27-line) !important;
+}
+.filter.active,.tab.active,.nav.active{
+  background:var(--f27-dark) !important;color:#fff !important;
+}
+.score,.scoreNum{color:var(--f27-dark) !important}
+.pill{background:#eceef1 !important;color:#4f555e !important}
+.meta,.subtitle,.sub,.muted,.count,.historyMeta{color:var(--f27-muted) !important}
+.bottomNav,.bottom,.navBar{
+  background:rgba(255,255,255,.90) !important;
+  border:1px solid var(--f27-line) !important;
+  backdrop-filter:blur(24px) !important;
+  -webkit-backdrop-filter:blur(24px) !important;
+  box-shadow:0 18px 40px rgba(30,34,40,.13) !important;
+  border-radius:32px !important;
+}
+.navBtn,.nav{color:#8b919a !important}
+.navBtn.active,.nav.active{color:var(--f27-dark) !important}
+.navBtn.active::before{background:var(--f27-dark) !important}
+.accessCard{background:rgba(255,255,255,.94) !important;border:1px solid var(--f27-line) !important;box-shadow:0 22px 60px rgba(30,34,40,.14) !important}
+.accessLogo{color:var(--f27-ink) !important}
+.accessBtn{background:var(--f27-dark) !important}
+.hero{
+  background:linear-gradient(145deg,#fdfdfd,#e4e6e9) !important;
+  color:var(--f27-ink) !important;
+}
+.heroTitle,.eyebrow{color:#737983 !important}
+.hero h1,.heroText{color:var(--f27-ink) !important}
+.toolbar{background:transparent !important}
+.grid{background-image:linear-gradient(rgba(40,44,50,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(40,44,50,.018) 1px,transparent 1px) !important}
+#homeBtn{background:var(--f27-dark) !important}
+@media(max-width:600px){
+  .wrap{padding:12px 10px 108px !important}
+  .quickLaunch{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+  .quickBtn{min-height:96px !important}
+}
