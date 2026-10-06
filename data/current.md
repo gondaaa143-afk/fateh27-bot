@@ -7,6 +7,213 @@
 
 **Total Important Items:** 9
 
+
+## 06 October 2026
+
+> UPSC CSE • Prelims + Mains • The Hindu + PIB • Daily verified digest
+> News window: 05 October 2026
+
+**Total Important Items:** 8
+
+---
+
+## 1. Green Energy Corridor Phase-III: ₹1.86 लाख करोड़ का बड़ा grid push
+
+**Source:** The Hindu / Government sources
+
+**Category:** ENVIRONMENT / ENERGY / ECONOMY
+
+**Priority:** उच्च
+
+### Why in News?
+The Hindu की 05 October coverage में Green Energy Corridor Phase-III (GEC-III) को renewable power की transmission और grid integration के लिए प्रमुख कदम के रूप में रेखांकित किया गया। Cabinet ने ₹1.86 लाख करोड़ की योजना मंजूर की है, जिसमें 50 GWh Battery Energy Storage Systems (BESS) भी शामिल हैं। 
+
+### Prelims Focus
+GEC-III का लक्ष्य FY 2032-33 तक लगभग **135 GW renewable power** की evacuation क्षमता को support करना है। योजना में लगभग ₹1.36 लाख करोड़ intra-state transmission systems और ₹50,000 करोड़ 50 GWh BESS के लिए हैं। BESS intermittency, congestion और peak-demand management में मदद करता है।
+
+### Mains Focus
+भारत की renewable capacity बढ़ने के साथ केवल generation नहीं, बल्कि transmission, storage और grid flexibility भी जरूरी है। GEC-III renewable curtailment कम करने, peak-hour supply सुधारने और non-fossil energy transition को मजबूत कर सकता है। चुनौती timely execution, state-level coordination और storage economics की है।
+
+### UPSC Syllabus Link
+GS3: ऊर्जा सुरक्षा, renewable energy, infrastructure, climate change
+
+### 30-Second Revision
+GEC-III = ₹1.86 लाख करोड़; लक्ष्य 135 GW renewable evacuation + 50 GWh BESS; focus generation से आगे grid reliability पर।
+
+---
+
+## 2. India–EU FTA: 92.5% tariff lines और 97% trade value coverage
+
+**Source:** The Hindu
+
+**Category:** INTERNATIONAL RELATIONS / ECONOMY
+
+**Priority:** उच्च
+
+### Why in News?
+The Hindu की 05 October report के अनुसार Finance Minister Nirmala Sitharaman ने India–EU trade deal को एक महत्वपूर्ण trade framework के रूप में रेखांकित किया। भारत ने 92.5% tariff lines को खोलने और लगभग 97% trade value cover करने की बात कही गई।
+
+### Prelims Focus
+FTA में tariff concessions, rules of origin, market access और non-tariff barriers प्रमुख तत्व हैं। EU भारत का बड़ा trading partner है और India–EU economic engagement में goods, services, investment और standards सभी महत्वपूर्ण हैं।
+
+### Mains Focus
+EU market access भारतीय pharmaceuticals, textiles, engineering, agriculture और services exports के लिए अवसर बढ़ा सकता है। साथ ही standards, carbon-related measures, intellectual property और sensitive agricultural sectors पर negotiation challenges बने रहेंगे।
+
+### UPSC Syllabus Link
+GS2: भारत-EU संबंध; GS3: international trade, exports, external sector
+
+### 30-Second Revision
+India–EU FTA में भारत ने 92.5% tariff lines और लगभग 97% trade value coverage का प्रस्ताव/ढाँचा रखा; market access और standards प्रमुख मुद्दे हैं।
+
+---
+
+## 3. ECI का Special Intensive Revision फिर constitutional scrutiny में
+
+**Source:** The Hindu
+
+**Category:** POLITY / GOVERNANCE
+
+**Priority:** उच्च
+
+### Why in News?
+05 October की The Hindu-linked coverage में Election Commission के Special Intensive Revision (SIR) of electoral rolls को लेकर Supreme Court में उठे संवैधानिक और कानूनी सवाल प्रमुख रहे। बहस electoral-roll accuracy और eligible voters के अधिकारों के संतुलन पर केंद्रित है।
+
+### Prelims Focus
+Election Commission की constitutional authority **Article 324** से आती है। Electoral rolls की preparation/revision का statutory framework Representation of the People Act, 1950 से जुड़ा है। Article 326 adult suffrage का आधार है।
+
+### Mains Focus
+मतदाता सूची की शुद्धता लोकतांत्रिक integrity के लिए आवश्यक है, लेकिन deletion के दौरान notice, verification, appeal और due process भी जरूरी हैं। Electoral integrity और universal adult franchise के बीच संतुलन institutional trust के लिए महत्वपूर्ण है।
+
+### UPSC Syllabus Link
+GS2: निर्वाचन आयोग, चुनाव सुधार, लोकतंत्र, संवैधानिक संस्थाएँ
+
+### 30-Second Revision
+SIR का core issue: accurate electoral rolls बनाम eligible voters के अधिकार और due process।
+
+---
+
+## 4. Dhruva Space का LEAP-2 hosted payload mission
+
+**Source:** The Hindu
+
+**Category:** SCIENCE & TECHNOLOGY / SPACE
+
+**Priority:** उच्च
+
+### Why in News?
+The Hindu की 05 October coverage के अनुसार Dhruva Space के LEAP-2 mission में hosted payloads को SpaceX Transporter-18 mission के दौरान orbit में deploy किया गया। Mission में star-tracker और thermal-imaging payloads शामिल हैं।
+
+### Prelims Focus
+Hosted payload model में एक satellite platform पर दूसरे organisations के scientific/technology instruments को orbit में परीक्षण का अवसर मिलता है। इससे अलग-अलग organisations को पूरा satellite विकसित किए बिना space validation मिल सकता है।
+
+### Mains Focus
+Private space ecosystem भारत की satellite manufacturing, payload development और in-orbit validation क्षमता को बढ़ा सकता है। इससे लागत और development time कम हो सकते हैं, लेकिन space debris, spectrum, orbital coordination और technology assurance जैसे मुद्दे भी महत्वपूर्ण हैं।
+
+### UPSC Syllabus Link
+GS3: अंतरिक्ष प्रौद्योगिकी, private space sector, emerging technology
+
+### 30-Second Revision
+LEAP-2 = hosted-payload approach; Dhruva Space platform पर दूसरे organisations के instruments का in-orbit validation।
+
+---
+
+## 5. India–UAE Joint Exercise ‘Mountain Guardian 2026’ शुरू
+
+**Source:** PIB / Ministry of Defence
+
+**Category:** INTERNATIONAL RELATIONS / DEFENCE
+
+**Priority:** उच्च
+
+### Why in News?
+India–UAE joint military exercise **Mountain Guardian 2026** 05 October 2026 को Chaubatia, Uttarakhand के Foreign Training Node में शुरू हुआ। Exercise 05–18 October तक चलेगा और mountain warfare पर focus है।
+
+### Prelims Focus
+कुल **92 personnel** दोनों armies से समान representation के साथ भाग ले रहे हैं। Indian contingent Bhairav Battalion और UAE contingent Mountain Infantry Battalion से है। Drills में surveillance grids, drone operations, rock climbing और integrated field exercises शामिल हैं।
+
+### Mains Focus
+भारत-UAE defence partnership अब केवल maritime/energy cooperation तक सीमित नहीं है; military interoperability और high-altitude training भी इसका हिस्सा बन रहे हैं। Gulf region के strategic importance और Indian Ocean security के संदर्भ में यह cooperation महत्वपूर्ण है।
+
+### UPSC Syllabus Link
+GS2: भारत-UAE संबंध, West Asia; GS3: defence and security
+
+### 30-Second Revision
+Mountain Guardian 2026: India–UAE; Chaubatia, Uttarakhand; 05–18 October; mountain warfare + interoperability।
+
+---
+
+## 6. भारत की पहली National Household Travel Survey
+
+**Source:** PIB / MoSPI
+
+**Category:** ECONOMY / SOCIAL SECTOR / URBANISATION
+
+**Priority:** उच्च
+
+### Why in News?
+MoSPI के National Statistics Office ने भारत की पहली all-India **National Household Travel Survey (NHTS)** के findings जारी किए। Survey July 2025–June 2026 के दौरान हुआ और transport behaviour पर nationally comparable data देता है।
+
+### Prelims Focus
+Survey ने लगभग **4,92,023 households** और **20,34,371 persons** को cover किया। Fixed workplace commute में two-wheelers का share **42.6%** रहा। Workers का average monthly commute expenditure लगभग ₹785 बताया गया; urban workers का खर्च rural workers से काफी अधिक है।
+
+### Mains Focus
+Survey urban mobility, public transport planning, regional infrastructure और evidence-based policymaking के लिए महत्वपूर्ण baseline देता है। Private two-wheelers पर dependence congestion, emissions और road-safety challenges को बढ़ा सकती है; affordable mass transit और multimodal planning आवश्यक हैं।
+
+### UPSC Syllabus Link
+GS2: urbanisation, welfare and public services; GS3: infrastructure, transport, environment
+
+### 30-Second Revision
+India का पहला NHTS: 4.92 lakh households; 42.6% workers fixed workplace के लिए two-wheelers इस्तेमाल करते हैं; data transport planning के लिए उपयोगी है।
+
+---
+
+## 7. Project VeerAI: indigenous AI Vision SoC के लिए ₹130 करोड़ RDI support
+
+**Source:** PIB / DST
+
+**Category:** SCIENCE & TECHNOLOGY / SEMICONDUCTORS / INTERNAL SECURITY
+
+**Priority:** उच्च
+
+### Why in News?
+Technology Development Board (TDB), Department of Science & Technology ने Bengaluru-based BigEndian Semiconductors के साथ **Project VeerAI** के लिए ₹130 करोड़ का RDI Fund support agreement किया है।
+
+### Prelims Focus
+Project का कुल cost **₹260 करोड़** है। लक्ष्य camera-focused AI Vision **System-on-Chip (SoC)** विकसित करना है और technology को **TRL-5 से TRL-9** तक ले जाना है। Support Optional Convertible Debt के माध्यम से है।
+
+### Mains Focus
+Application-specific indigenous chips critical infrastructure और surveillance में technology sovereignty बढ़ा सकते हैं। AI + semiconductor self-reliance strategic autonomy को मजबूत करती है, लेकिन privacy, surveillance safeguards, cybersecurity और responsible-AI governance भी आवश्यक हैं।
+
+### UPSC Syllabus Link
+GS3: AI, semiconductors, cyber security, internal security
+
+### 30-Second Revision
+VeerAI: ₹260 crore project; TDB support ₹130 crore; indigenous AI Vision SoC; TRL-5 → TRL-9।
+
+---
+
+## 8. Navy के लिए पहला indigenous Fleet Support Ship FSS-1
+
+**Source:** PIB / Ministry of Defence
+
+**Category:** DEFENCE / MARITIME SECURITY
+
+**Priority:** उच्च
+
+### Why in News?
+05 October की PIB announcement के अनुसार Defence Minister 06 October को Visakhapatnam स्थित Hindustan Shipyard Limited में **Fleet Support Ship-1 (FSS-1)** launch करेंगे, FSS-5 की keel laying करेंगे और upgraded Slipway-4 तथा 300-tonne Goliath Crane का inauguration करेंगे।
+
+### Prelims Focus
+FSS-1 पाँच Fleet Support Ships में पहला है और लगभग **43,500 tonnes** का है। ऐसे ships समुद्र में warships को fuel, stores और अन्य replenishment support देकर fleet endurance बढ़ाते हैं। Upgraded shipyard infrastructure लगभग 45,000 DWT तक के vessels को handle करने में सक्षम होगा।
+
+### Mains Focus
+Fleet Support Ships blue-water naval capability के लिए force multipliers हैं क्योंकि वे warships की sustained deployment क्षमता बढ़ाते हैं। Indigenous construction Aatmanirbhar Bharat, defence industrial capacity और Indian Ocean Region में maritime presence को मजबूत करता है।
+
+### UPSC Syllabus Link
+GS3: defence technology, maritime security, Indian Ocean Region, Aatmanirbhar Bharat
+
+### 30-Second Revision
+FSS-1: HSL Visakhapatnam; 43,500 tonnes; Indian Navy के लिए fleet replenishment; पाँच-ship programme का पहला vessel।
 ---
 
 ## 1. India का पहला LNG–Diesel dual-fuel DEMU train शुरू
