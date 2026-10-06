@@ -331,80 +331,58 @@ async function updateRequest(userId, status) {
 
 export default async function handler(req, res) {
   try {
-    const initData = clean(req.headers["x-telegram-init-data"]);
-    if (!initData) {
-      return res.status(401).json({ error: "Telegram authentication is required" });
-    }
-
-    const user = verifyTelegramInitData(initData);
-
+    // Telegram authentication and admin approval are disabled.
+    // Keep this endpoint for backwards compatibility with existing frontend calls.
     if (req.method === "GET") {
       if (String(req.query?.admin || "") === "1") {
-        await requireAdmin(req);
-
-        // Owner authentication must not fail just because one Firestore
-        // collection is temporarily unavailable. Load each admin dataset
-        // independently and return partial data with warnings.
-        const warnings = [];
         let requests = [];
         let members = [];
+        const warnings = [];
 
-        try {
-          requests = await listRequests();
-        } catch (error) {
+        try { requests = await listRequests(); }
+        catch (error) {
           console.error("Admin access request list error:", error);
           warnings.push("Access requests could not be loaded.");
         }
 
-        try {
-          members = await listApprovedMembers();
-        } catch (error) {
+        try { members = await listApprovedMembers(); }
+        catch (error) {
           console.error("Admin member list error:", error);
           warnings.push("Joined users could not be loaded.");
         }
 
-        return res.status(200).json({ success: true, requests, members, warnings });
+        return res.status(200).json({
+          success: true,
+          status: "approved",
+          source: "web",
+          requests,
+          members,
+          warnings
+        });
       }
 
-      const state = await getAccessState(user.id);
       return res.status(200).json({
         success: true,
-        user: {
-          id: String(user.id),
-          name: [user.first_name, user.last_name].filter(Boolean).join(" "),
-          username: user.username || null
-        },
-        ...state
+        status: "approved",
+        source: "web",
+        user: { id: "web", name: "Officer", username: null }
       });
     }
 
     if (req.method === "POST") {
-      const action = String(req.body?.action || "request").toLowerCase();
-
-      if (action === "request") {
-        const result = await saveAccessRequest(user);
-        return res.status(200).json({ success: true, ...result });
-      }
-
-      if (action === "approve" || action === "reject") {
-        await requireAdmin(req);
-        const userId = clean(req.body?.userId);
-        if (!userId) return res.status(400).json({ error: "userId is required" });
-
-        const result = await updateRequest(userId, action === "approve" ? "approved" : "rejected");
-        return res.status(200).json({ success: true, ...result, userId });
-      }
-
-      return res.status(400).json({ error: "Unknown action" });
+      return res.status(200).json({
+        success: true,
+        status: "approved",
+        source: "web"
+      });
     }
 
     return res.status(405).json({ error: "Method Not Allowed" });
   } catch (error) {
     console.error("/api/access error:", error);
-    const message = error?.message || "Access control failed";
-    return res.status(error?.statusCode || (/authentication|signature|Telegram/i.test(message) ? 401 : 500)).json({
-      error: "Access control failed",
-      detail: message
+    return res.status(500).json({
+      error: "Access endpoint failed",
+      detail: error?.message || "Unknown error"
     });
   }
 }
