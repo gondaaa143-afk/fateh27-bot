@@ -262,44 +262,30 @@ export default async function handler(req, res) {
   }
 
   try {
-    const initData = clean(req.headers["x-telegram-init-data"]);
-    if (!initData) {
-      return res.status(401).json({ error: "Telegram authentication is required" });
-    }
+    const body = req.body || {};
+    const suppliedUser = body.user && typeof body.user === "object" ? body.user : {};
+    const profile = body.profile && typeof body.profile === "object" ? body.profile : {};
 
-    const user = verifyTelegramInitData(initData);
+    const userId = clean(
+      body.userId ||
+      profile.userId ||
+      suppliedUser.id ||
+      "web_" + crypto.createHash("sha256")
+        .update(String(req.ip || req.socket?.remoteAddress || "unknown"))
+        .digest("hex")
+        .slice(0, 16)
+    );
 
-    // Explicit access approval is required before any user/progress write.
-    // The owner is the only account allowed without an access request.
-    if (String(user.id) !== ADMIN_ID) {
-      const accessId = encodeURIComponent(String(user.id));
-      const accessUrl = "https://firestore.googleapis.com/v1/projects/" +
-        encodeURIComponent(getFirebaseConfig().projectId) +
-        "/databases/(default)/documents/accessRequests/" + accessId;
-      const accessToken = await getGoogleAccessToken();
-      const accessResponse = await fetch(accessUrl, {
-        headers: { authorization: "Bearer " + accessToken }
-      });
+    const user = {
+      id: userId,
+      first_name: clean(suppliedUser.first_name || profile.firstName || "Officer"),
+      last_name: clean(suppliedUser.last_name || profile.lastName || ""),
+      username: clean(suppliedUser.username || profile.username || ""),
+      language_code: clean(suppliedUser.language_code || profile.languageCode || ""),
+      is_premium: Boolean(suppliedUser.is_premium)
+    };
 
-      if (!accessResponse.ok) {
-        return res.status(403).json({
-          error: "Access approval required",
-          status: accessResponse.status === 404 ? "not_requested" : "unknown"
-        });
-      }
-
-      const accessDoc = await accessResponse.json();
-      const accessStatus = String(fromFirestoreValue(accessDoc?.fields?.status) || "").toLowerCase();
-
-      if (accessStatus !== "approved") {
-        return res.status(403).json({
-          error: "Access approval required",
-          status: accessStatus || "not_requested"
-        });
-      }
-    }
-
-    const result = await writeUserDocument(user, req.body || {});
+    const result = await writeUserDocument(user, body);
 
     return res.status(200).json({
       success: true,
@@ -307,13 +293,9 @@ export default async function handler(req, res) {
     });
   } catch (error) {
     console.error("/api/user error:", error);
-    const message = error?.message || "User sync failed";
-
-    return res.status(
-      /authentication|signature|initData|Telegram user/i.test(message) ? 401 : 500
-    ).json({
+    return res.status(500).json({
       error: "User sync failed",
-      detail: message
+      detail: error?.message || "Unknown error"
     });
   }
 }
