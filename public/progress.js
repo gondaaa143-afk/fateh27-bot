@@ -35,9 +35,17 @@ const Progress = {
     if (typeof window === "undefined") return;
 
     const telegram = window.Telegram?.WebApp;
-    const initData = telegram?.initData;
-    const telegramUser = telegram?.initDataUnsafe?.user;
-    if (!initData || !telegramUser) return;
+    const telegramUser = telegram?.initDataUnsafe?.user || null;
+    let userId = "";
+    try {
+      userId = localStorage.getItem("FATEH27_WEB_USER_ID") || "";
+      if (!userId) {
+        userId = "web_" + crypto.randomUUID();
+        localStorage.setItem("FATEH27_WEB_USER_ID", userId);
+      }
+    } catch (_) {
+      userId = "web_browser";
+    }
 
     if (this.syncInFlight) {
       this.syncQueued = true;
@@ -51,10 +59,12 @@ const Progress = {
         method: "POST",
         headers: {
           "content-type": "application/json",
-          "x-telegram-init-data": initData
         },
         body: JSON.stringify({
+          userId,
+          user: telegramUser || undefined,
           profile: {
+            userId,
             progress: this.get(),
             lastActivity: new Date().toISOString()
           },
