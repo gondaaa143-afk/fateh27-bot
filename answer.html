@@ -98,7 +98,7 @@ async function getF27AuthHeaders(){
     await new Promise(resolve=>setTimeout(resolve,250));
     initData=getF27InitData();
   }
-  if(!initData) throw new Error("Telegram authentication data nahi mila. FATEH27 ko Telegram ke Open FATEH27 / Mini App button se open karo.");
+  
   return {"Content-Type":"application/json","x-telegram-init-data":initData};
 }
 const API_BASE=(window.FATEH27_API_BASE||"https://fateh27-bot.onrender.com").replace(/\/$/,"");
