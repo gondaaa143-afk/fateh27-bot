@@ -542,12 +542,9 @@ app.post(
   rateLimit("payment-create", 10),
   async (req, res) => {
     try {
-      const initData = String(req.headers["x-telegram-init-data"] || "").trim();
-      const telegramUserId = getTelegramUserId(req);
-
-      if (!initData || !telegramUserId) {
-        return res.status(401).json({ error: "Telegram authentication is required" });
-      }
+      const telegramUserId =
+        String(req.body?.userId || req.headers["x-fateh-user-id"] || getTelegramUserId(req) || "").trim() ||
+        ("web_" + crypto.createHash("sha256").update(String(req.ip || req.socket?.remoteAddress || "unknown")).digest("hex").slice(0, 16));
 
       const config = getCashfreeConfig();
       if (!config) {
