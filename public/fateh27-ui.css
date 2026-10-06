@@ -346,3 +346,165 @@ body.f27-dark .hero{
 }
 body.f27-dark .heroTitle,body.f27-dark .eyebrow{color:#c7a65b !important}
 body.f27-dark .gold,body.f27-dark .accent{color:#d1b66f !important}
+
+/* v20261007 — FATEH27 reference UI: soft 3-column icon dashboard */
+body:not(.f27-dark) .panel{
+  background:rgba(249,250,251,.72) !important;
+  border:1px solid rgba(255,255,255,.95) !important;
+  box-shadow:0 28px 70px rgba(35,39,46,.10),inset 0 1px 0 #fff !important;
+  border-radius:34px !important;
+}
+body:not(.f27-dark) .profile{
+  padding:4px 6px 0;
+}
+body:not(.f27-dark) .idcard{
+  min-height:205px !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:flex-end !important;
+  padding:22px !important;
+  background:
+    radial-gradient(circle at 18% 20%,rgba(255,255,255,.20),transparent 24%),
+    linear-gradient(155deg,#20242b 0%,#111318 58%,#373329 100%) !important;
+  color:#fff !important;
+  border-radius:34px 34px 62px 34px !important;
+  box-shadow:0 22px 48px rgba(20,22,26,.22) !important;
+  overflow:hidden !important;
+}
+body:not(.f27-dark) .idcard:before{
+  content:"" !important;
+  position:absolute !important;
+  right:-50px !important;
+  bottom:-90px !important;
+  width:260px !important;
+  height:180px !important;
+  background:#f7f5ef !important;
+  border-radius:55% 0 0 0 !important;
+  opacity:.94 !important;
+}
+body:not(.f27-dark) .idcard:after{opacity:.22 !important}
+body:not(.f27-dark) .idcard *{position:relative;z-index:2;color:#fff !important}
+body:not(.f27-dark) .idcard:before + *{z-index:3}
+body:not(.f27-dark) .quickLaunch{
+  position:relative !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:18px 14px !important;
+  padding:22px 4px 12px !important;
+}
+body:not(.f27-dark) .quickLaunch:before{
+  content:"" !important;
+  position:absolute !important;
+  z-index:-1 !important;
+  left:-18px !important;
+  right:-18px !important;
+  top:-20px !important;
+  bottom:-28px !important;
+  background:rgba(255,255,255,.48) !important;
+  border-radius:55px 55px 34px 34px !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9) !important;
+}
+body:not(.f27-dark) .quickBtn{
+  min-height:132px !important;
+  padding:15px 8px 12px !important;
+  align-items:center !important;
+  justify-content:center !important;
+  text-align:center !important;
+  gap:8px !important;
+  border-radius:27px !important;
+  background:rgba(255,255,255,.88) !important;
+  border:1px solid rgba(45,42,35,.065) !important;
+  box-shadow:0 14px 32px rgba(44,40,32,.08),inset 0 1px 0 #fff !important;
+}
+body:not(.f27-dark) .quickLeft{
+  width:100% !important;
+  flex-direction:column !important;
+  justify-content:center !important;
+  align-items:center !important;
+  gap:9px !important;
+}
+body:not(.f27-dark) .quickIcon{
+  width:58px !important;
+  height:58px !important;
+  flex:0 0 58px !important;
+  border-radius:19px !important;
+  background:linear-gradient(145deg,#181b20,#343942) !important;
+  font-size:25px !important;
+  box-shadow:0 10px 22px rgba(31,34,39,.16) !important;
+}
+body:not(.f27-dark) .quickText{
+  width:100% !important;
+  align-items:center !important;
+}
+body:not(.f27-dark) .quickTitle{
+  font-size:13px !important;
+  line-height:16px !important;
+  white-space:normal !important;
+  text-align:center !important;
+}
+body:not(.f27-dark) .quickSub{
+  display:block !important;
+  font-size:9px !important;
+  line-height:12px !important;
+  white-space:normal !important;
+  text-align:center !important;
+  max-width:110px !important;
+}
+body:not(.f27-dark) .quickArrow{
+  width:25px !important;
+  height:25px !important;
+  right:8px !important;
+  top:8px !important;
+  bottom:auto !important;
+  font-size:18px !important;
+  background:#f0eee8 !important;
+}
+body:not(.f27-dark) .quickBtn:hover{
+  transform:translateY(-2px) !important;
+}
+body:not(.f27-dark) .quickBtn:active{
+  transform:scale(.97) !important;
+}
+body:not(.f27-dark) .section{
+  font-size:20px !important;
+  margin:30px 4px 12px !important;
+  letter-spacing:-.6px !important;
+}
+body:not(.f27-dark) .bottomNav{
+  height:72px !important;
+  border-radius:30px !important;
+}
+body.f27-dark .panel{
+  background:rgba(24,26,30,.82) !important;
+  border-color:rgba(255,255,255,.08) !important;
+  box-shadow:0 28px 70px rgba(0,0,0,.35) !important;
+}
+body.f27-dark .idcard{
+  border-radius:34px 34px 62px 34px !important;
+  background:linear-gradient(155deg,#2a2e35,#111318 65%,#3b3324) !important;
+}
+body.f27-dark .quickLaunch:before{
+  background:rgba(32,35,40,.72) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05) !important;
+}
+body.f27-dark .quickBtn{
+  background:rgba(31,35,41,.94) !important;
+  border-color:rgba(255,255,255,.08) !important;
+}
+body.f27-dark .quickIcon{
+  background:linear-gradient(145deg,#3b4048,#17191d) !important;
+}
+body.f27-dark .quickArrow{background:#292e35 !important}
+@media(max-width:767px){
+  .quickLaunch{grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:12px 9px !important}
+  .quickBtn{min-height:112px !important;border-radius:23px !important;padding:10px 4px 8px !important}
+  .quickIcon{width:48px !important;height:48px !important;flex-basis:48px !important;border-radius:16px !important;font-size:21px !important}
+  .quickTitle{font-size:10.5px !important;line-height:13px !important}
+  .quickSub{font-size:7.5px !important;line-height:10px !important;max-width:92px !important}
+  .quickArrow{width:20px !important;height:20px !important;right:5px !important;top:5px !important;font-size:15px !important}
+}
+@media(max-width:380px){
+  .quickLaunch{gap:9px 7px !important}
+  .quickBtn{min-height:103px !important}
+  .quickIcon{width:44px !important;height:44px !important;flex-basis:44px !important;font-size:19px !important}
+  .quickTitle{font-size:9.5px !important}
+}
