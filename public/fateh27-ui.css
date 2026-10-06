@@ -190,3 +190,64 @@ body.f27-dark .heroTitle,body.f27-dark .eyebrow{color:#aeb4bd !important}
 body.f27-dark .bar{background:#383e46 !important}
 body.f27-dark .fill{background:linear-gradient(90deg,#d8dce1,#777e88) !important}
 @media(max-width:600px){#f27ThemeToggle{top:10px;right:10px;width:42px;height:42px}}
+
+/* v20261007 — typography/contrast refinement */
+body{
+  -webkit-font-smoothing:antialiased !important;
+  text-rendering:optimizeLegibility !important;
+}
+body:not(.f27-dark){
+  --f27-heading:#171a1f;
+  --f27-body:#30343b;
+  --f27-muted:#6b727c;
+}
+body:not(.f27-dark) h1,body:not(.f27-dark) h2,body:not(.f27-dark) h3,
+body:not(.f27-dark) h4,body:not(.f27-dark) strong,body:not(.f27-dark) b,
+body:not(.f27-dark) .title,body:not(.f27-dark) .name,body:not(.f27-dark) .quickTitle,
+body:not(.f27-dark) .sectionTitle,body:not(.f27-dark) .logo{
+  color:#171a1f !important;
+}
+body:not(.f27-dark) p,body:not(.f27-dark) .quickSub,body:not(.f27-dark) .meta,
+body:not(.f27-dark) .subtitle,body:not(.f27-dark) .sub,body:not(.f27-dark) .muted,
+body:not(.f27-dark) .count,body:not(.f27-dark) small{
+  color:#646b75 !important;
+}
+body:not(.f27-dark) .idcard,
+body:not(.f27-dark) .idcard *{
+  color:#30343b !important;
+}
+body:not(.f27-dark) .idcard .idTitle,
+body:not(.f27-dark) .idcard h1,
+body:not(.f27-dark) .idcard h2,
+body:not(.f27-dark) .idcard strong{
+  color:#171a1f !important;
+}
+body:not(.f27-dark) input,body:not(.f27-dark) textarea,body:not(.f27-dark) select{
+  color:#20242a !important;
+}
+body.f27-dark{
+  --f27-dark-heading:#f5f7f9;
+  --f27-dark-body:#e2e6eb;
+  --f27-dark-muted:#aeb6c0;
+}
+body.f27-dark h1,body.f27-dark h2,body.f27-dark h3,body.f27-dark h4,
+body.f27-dark strong,body.f27-dark b,body.f27-dark .title,body.f27-dark .name,
+body.f27-dark .quickTitle,body.f27-dark .sectionTitle,body.f27-dark .logo{
+  color:#f5f7f9 !important;
+}
+body.f27-dark p,body.f27-dark .quickSub,body.f27-dark .meta,
+body.f27-dark .subtitle,body.f27-dark .sub,body.f27-dark .muted,
+body.f27-dark .count,body.f27-dark small{
+  color:#aeb6c0 !important;
+}
+body.f27-dark .idcard,body.f27-dark .idcard *{
+  color:#e2e6eb !important;
+}
+body.f27-dark .idcard strong,body.f27-dark .idcard h1,body.f27-dark .idcard h2{
+  color:#f5f7f9 !important;
+}
+body.f27-dark input,body.f27-dark textarea,body.f27-dark select{
+  color:#f5f7f9 !important;
+}
+body.f27-dark ::placeholder{color:#8f98a3 !important;opacity:1 !important}
+body:not(.f27-dark) ::placeholder{color:#8a919a !important;opacity:1 !important}
