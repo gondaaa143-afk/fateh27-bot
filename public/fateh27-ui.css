@@ -112,3 +112,20 @@ button{font-family:inherit !important}
   .quickLaunch{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
   .quickBtn{min-height:96px !important}
 }
+
+/* v20261007 — reference-matched soft grey/white interface */
+body{background:radial-gradient(circle at 20% 0%,#fff 0%,rgba(255,255,255,.72) 24%,transparent 48%),radial-gradient(circle at 100% 45%,rgba(220,223,228,.72),transparent 42%),linear-gradient(180deg,#f8f9fa 0%,#eef0f3 58%,#e8eaed 100%) !important}
+.panel{background:rgba(255,255,255,.78) !important;border:1px solid rgba(70,74,82,.08) !important;box-shadow:0 20px 55px rgba(44,48,56,.09),inset 0 1px 0 rgba(255,255,255,.98) !important}
+.badge{background:#f0f1f3 !important;color:#5b6068 !important;border:1px solid rgba(60,64,72,.08) !important;box-shadow:none !important}
+.idcard{background:linear-gradient(145deg,rgba(255,255,255,.94),rgba(231,233,237,.78)) !important}
+.idcard *{color:#626771 !important}
+.idcard [style*="color:#fff"],.idcard .white{color:#343941 !important}
+#ownerAdminLegacyButton button{background:#3a3f47 !important}
+.quickBtn{min-height:116px !important;background:rgba(255,255,255,.84) !important;border:1px solid rgba(70,74,82,.09) !important;box-shadow:0 15px 36px rgba(48,52,60,.08),inset 0 1px 0 rgba(255,255,255,.98) !important}
+.quickIcon{background:linear-gradient(145deg,#4c5159,#30353c) !important}
+.quickArrow{background:#eceef1 !important;color:#737982 !important}
+.quickBtn:active{background:#f1f2f4 !important}
+#aiTip{background:#f1f2f4 !important;color:#3f444c !important;border:1px solid rgba(60,64,72,.07) !important}
+.primary,.refresh,.send,#homeBtn,.f27Retry{background:#3a3f47 !important}
+.bottomNav,.bottom{background:rgba(255,255,255,.91) !important}
+@media(max-width:767px){.quickLaunch{grid-template-columns:repeat(2,minmax(0,1fr)) !important}.quickBtn{min-height:112px !important}}
