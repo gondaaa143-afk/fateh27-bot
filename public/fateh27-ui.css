@@ -251,3 +251,98 @@ body.f27-dark input,body.f27-dark textarea,body.f27-dark select{
 }
 body.f27-dark ::placeholder{color:#8f98a3 !important;opacity:1 !important}
 body:not(.f27-dark) ::placeholder{color:#8a919a !important;opacity:1 !important}
+
+/* v20261007 — FATEH27 SAMBHAV-inspired black / ivory / gold palette */
+body:not(.f27-dark){
+  background:
+    radial-gradient(circle at 8% 0%,rgba(255,255,255,.98),transparent 34%),
+    radial-gradient(circle at 100% 20%,rgba(231,226,211,.55),transparent 38%),
+    linear-gradient(180deg,#f7f5ef 0%,#efede6 100%) !important;
+  color:#171717 !important;
+}
+body:not(.f27-dark) .hero{
+  background:
+    radial-gradient(circle at 92% 10%,rgba(190,155,70,.22),transparent 30%),
+    linear-gradient(145deg,#090909 0%,#171717 58%,#29261e 100%) !important;
+  color:#fff !important;
+  border:1px solid rgba(198,166,91,.16) !important;
+  box-shadow:0 24px 60px rgba(0,0,0,.18) !important;
+}
+body:not(.f27-dark) .hero h1,body:not(.f27-dark) .heroText{color:#fff !important}
+body:not(.f27-dark) .heroTitle,body:not(.f27-dark) .eyebrow{
+  color:#c7a65b !important;
+  letter-spacing:2px !important;
+}
+body:not(.f27-dark) .hero h1 .gold,
+body:not(.f27-dark) .gold,
+body:not(.f27-dark) .accent{
+  color:#c7a65b !important;
+}
+body:not(.f27-dark) .panel,body:not(.f27-dark) .card,body:not(.f27-dark) .subject,
+body:not(.f27-dark) .secretary,body:not(.f27-dark) .qcard,body:not(.f27-dark) .detail,
+body:not(.f27-dark) .upload,body:not(.f27-dark) .preview,body:not(.f27-dark) .response,
+body:not(.f27-dark) .responseActions,body:not(.f27-dark) .recallBox,body:not(.f27-dark) .stat,
+body:not(.f27-dark) .action,body:not(.f27-dark) .quickBtn{
+  background:rgba(255,255,255,.92) !important;
+  border-color:rgba(45,42,35,.10) !important;
+  box-shadow:0 16px 40px rgba(48,43,32,.08),inset 0 1px 0 rgba(255,255,255,.98) !important;
+}
+body:not(.f27-dark) .quickBtn:hover{background:#fff !important}
+body:not(.f27-dark) .quickIcon,.avatar{
+  background:linear-gradient(145deg,#111 0%,#252525 100%) !important;
+}
+body:not(.f27-dark) .quickArrow{
+  background:#f0eee8 !important;color:#5d584d !important;
+}
+body:not(.f27-dark) .primary,body:not(.f27-dark) .refresh,body:not(.f27-dark) .send,
+body:not(.f27-dark) #homeBtn,body:not(.f27-dark) .accessBtn,
+body:not(.f27-dark) .badge,body:not(.f27-dark) .owner,
+body:not(.f27-dark) .action.primary{
+  background:#0b0b0b !important;color:#fff !important;
+}
+body:not(.f27-dark) .primary:hover,body:not(.f27-dark) .send:hover{background:#242424 !important}
+body:not(.f27-dark) .secondary,body:not(.f27-dark) .back,body:not(.f27-dark) .filter,
+body:not(.f27-dark) .tab{
+  background:#fff !important;color:#242424 !important;border-color:rgba(45,42,35,.12) !important;
+}
+body:not(.f27-dark) .filter.active,body:not(.f27-dark) .tab.active,
+body:not(.f27-dark) .nav.active{
+  background:#0b0b0b !important;color:#fff !important;
+}
+body:not(.f27-dark) .bottomNav,body:not(.f27-dark) .bottom,body:not(.f27-dark) .navBar{
+  background:rgba(255,255,255,.94) !important;
+  border-color:rgba(45,42,35,.10) !important;
+  box-shadow:0 18px 45px rgba(45,40,30,.12) !important;
+}
+body:not(.f27-dark) .navBtn.active,body:not(.f27-dark) .nav.active{color:#111 !important}
+body:not(.f27-dark) .navBtn.active::before{background:#c7a65b !important}
+body:not(.f27-dark) .pill{
+  background:#f1eee5 !important;color:#665b43 !important;
+}
+body:not(.f27-dark) .fill{
+  background:linear-gradient(90deg,#111,#c7a65b) !important;
+}
+body:not(.f27-dark) .bar{background:#e3dfd4 !important}
+body:not(.f27-dark) .logo::after{background:#c7a65b !important}
+body:not(.f27-dark) #aiTip{
+  background:#171717 !important;color:#fff !important;
+  border:1px solid rgba(199,166,91,.16) !important;
+}
+body:not(.f27-dark) .idcard{
+  background:linear-gradient(145deg,#fffdf8,#eeeae0) !important;
+}
+body:not(.f27-dark) .idcard::before{
+  background:radial-gradient(circle at 90% 20%,rgba(199,166,91,.18),transparent 32%) !important;
+}
+#f27ThemeToggle{border-color:rgba(45,42,35,.12) !important}
+body.f27-dark{
+  background:
+    radial-gradient(circle at 92% 0%,rgba(151,121,55,.13),transparent 32%),
+    linear-gradient(180deg,#111111 0%,#171717 100%) !important;
+}
+body.f27-dark .hero{
+  background:linear-gradient(145deg,#050505,#171717 62%,#2a2418) !important;
+  border-color:rgba(199,166,91,.18) !important;
+}
+body.f27-dark .heroTitle,body.f27-dark .eyebrow{color:#c7a65b !important}
+body.f27-dark .gold,body.f27-dark .accent{color:#d1b66f !important}
