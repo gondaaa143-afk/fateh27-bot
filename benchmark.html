@@ -1,68 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>FATEH27 • AI Evaluation Benchmark</title>
-<link rel="stylesheet" href="/fateh27-ui.css?v=20261007">
-<script src="/fateh27-theme.js?v=20261007" defer></script>
-<style>
-body{margin:0;min-height:100vh}
-.bmWrap{width:min(760px,100%);margin:auto;padding:18px 14px 110px}
-.bmTop{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
-.bmLogo{font-size:25px;font-weight:900;letter-spacing:-1px}.bmLogo i{display:inline-block;width:7px;height:7px;background:#b47b18;border-radius:50%;margin-left:3px}
-.bmBack{border:1px solid rgba(36,40,48,.1);background:rgba(255,255,255,.8);color:#30343b;border-radius:14px;padding:9px 12px;font-weight:700;text-decoration:none}
-.hero{padding:22px;border-radius:26px;margin-bottom:14px}
-.eyebrow{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#737983}
-h1{margin:7px 0 8px;font-size:29px;letter-spacing:-1px;color:#17191d}
-.hero p{margin:0;color:#737983;line-height:1.55;font-size:13px}
-.bmCard{padding:18px;border-radius:24px;margin-top:12px;background:rgba(255,255,255,.82);border:1px solid rgba(36,40,48,.1);box-shadow:0 15px 36px rgba(35,39,45,.08)}
-.bmHead{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.bmHead h2{margin:0;font-size:17px;color:#17191d}.source{font-size:10px;font-weight:800;padding:6px 9px;border-radius:999px;background:#eef0f3;color:#5f646d}
-.meta{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:15px 0}.metric{padding:11px;border-radius:15px;background:#f3f4f6}.metric b{display:block;font-size:14px;color:#30343b}.metric span{font-size:10px;color:#737983}
-.status{font-size:12px;color:#737983;padding-top:12px;border-top:1px solid rgba(36,40,48,.08)}.pending{font-weight:800;color:#30343b}
-.note{margin-top:12px;padding:13px 14px;border-radius:16px;background:#f3f4f6;color:#555b64;font-size:11px;line-height:1.5}
-@media(max-width:520px){.meta{grid-template-columns:1fr 1fr}.bmWrap{padding-left:10px;padding-right:10px}h1{font-size:25px}}
-</style>
-</head>
-<body>
-<main class="bmWrap">
-  <div class="bmTop">
-    <div class="bmLogo">FATEH27<i></i></div>
-    <a class="bmBack" href="/">← Home</a>
-  </div>
-  <section class="hero">
-    <div class="eyebrow">AI Answer Evaluation</div>
-    <h1>Benchmark</h1>
-    <p>Public-copy blind evaluation registry. The copy is evaluated without using candidate identity or reference marks to influence the AI score.</p>
-  </section>
-  <div id="benchmarks"></div>
-  <section class="bmCard">
-    <div class="bmHead"><h2>Scoring Protocol</h2><span class="source">BLIND</span></div>
-    <div class="note">Marks are based on answer demand, content accuracy, coverage, structure, dimensions, examples/data, conceptual clarity, introduction, conclusion and presentation. Diagrams, maps and flowcharts are audited separately. Blank or unattempted answers receive zero. This benchmark is independent and does not imply endorsement by any institute.</div>
-  </section>
-</main>
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FATEH27 • AI Evaluation Benchmark</title><link rel="stylesheet" href="/fateh27-ui.css?v=20261007"><script src="/fateh27-theme.js?v=20261007" defer></script><style>
+body{margin:0}.wrap{max-width:780px;margin:auto;padding:18px 14px 110px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.logo{font-size:25px;font-weight:900}.back,.btn{border:1px solid #ddd;background:#fff;border-radius:14px;padding:10px 13px;font-weight:800;text-decoration:none;color:#222;cursor:pointer}.btn.primary{background:#111;color:#fff}.card{margin-top:12px;padding:18px;border-radius:24px;background:rgba(255,255,255,.86);border:1px solid #ddd;box-shadow:0 15px 35px #0000000d}.eyebrow{font-size:10px;font-weight:900;letter-spacing:1px;color:#777}.hero h1{margin:7px 0;font-size:29px}.muted{color:#777;font-size:12px;line-height:1.5}.field{margin-top:13px}.field label{display:block;font-size:11px;font-weight:800;margin-bottom:6px}.field input,.field textarea,.field select{width:100%;box-sizing:border-box;border:1px solid #ddd;border-radius:13px;padding:11px;background:#f7f7f7;font:inherit}.field textarea{min-height:100px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.upload{margin-top:13px;padding:18px;border:1.5px dashed #bbb;border-radius:16px;text-align:center}.upload input{display:none}.pages{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:9px}.page{aspect-ratio:3/4;overflow:hidden;border-radius:11px;background:#eee;position:relative}.page img{width:100%;height:100%;object-fit:cover}.tag{position:absolute;top:5px;left:5px;background:#111;color:#fff;border-radius:7px;padding:4px;font-size:8px;font-weight:800}.actions{margin-top:13px}.error{display:none;margin-top:9px;padding:10px;border-radius:12px;background:#fee;color:#900;font-size:11px}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}.metric{padding:12px;border-radius:14px;background:#f2f3f4}.metric b{display:block;font-size:18px}.metric span{font-size:9px;color:#777}.result{margin-top:10px;padding:12px;border-radius:14px;background:#f2f3f4}.result h3{font-size:11px;margin:0 0 6px}.result p,.result li{font-size:11px;color:#555;line-height:1.5}.result ul{padding-left:18px}.note{margin-top:12px;padding:12px;border-radius:14px;background:#f2f3f4;font-size:10px;color:#666;line-height:1.5}@media(max-width:520px){.grid,.metrics{grid-template-columns:1fr 1fr}.pages{grid-template-columns:repeat(2,1fr)}}
+</style></head><body><main class="wrap"><div class="top"><div class="logo">FATEH27</div><a class="back" href="/">← Home</a></div>
+<section class="card hero"><div class="eyebrow">AI ANSWER EVALUATION</div><h1>Benchmark Lab</h1><div class="muted">Blind benchmark: candidate identity and reference marks are not sent to the evaluator. Upload the answer pages in order and run the same FATEH27 evaluation engine.</div></section>
+<section class="card"><b>1. Benchmark Copy</b><div class="field"><label>Reference copy</label><select id="bench"></select></div><div id="meta" class="muted"></div></section>
+<section class="card"><b>2. Question</b><div class="field"><label>Exact UPSC question</label><textarea id="q" placeholder="Paste the exact question…"></textarea></div><div class="grid"><div class="field"><label>Paper</label><select id="paper"><option>GS1</option><option>GS2</option><option>GS3</option><option>GS4</option></select></div><div class="field"><label>Maximum marks</label><input id="marks" type="number" value="10" min="1"></div></div></section>
+<section class="card"><b>3. Answer Pages</b><div class="upload"><label for="files"><b>Choose 1–5 handwritten pages</b><div class="muted">Diagrams, maps, flowcharts and presentation are audited.</div></label><input id="files" type="file" accept="image/*" multiple></div><div id="pages" class="pages"></div><div id="count" class="muted">0/5 pages selected</div><div class="actions"><button id="run" class="btn primary" disabled>Run Blind Evaluation →</button></div><div id="err" class="error"></div></section>
+<section id="out" class="card" style="display:none"><b>FATEH27 Blind Result</b><div class="metrics"><div class="metric"><b id="score">—</b><span>Estimated marks</span></div><div class="metric"><b id="max">—</b><span>Maximum</span></div><div class="metric"><b id="cov">—</b><span>Demand coverage</span></div></div><div id="details"></div></section>
+<section class="card"><b>Scoring Protocol</b><div class="note">Demand, content accuracy, coverage, structure, dimensions, examples/data, conceptual clarity, introduction, conclusion and presentation are evaluated. Diagrams/maps/flowcharts are audited separately. Blank or unattempted portions receive zero. This benchmark does not imply institute endorsement.</div></section></main>
 <script>
-(async function(){
-  const root=document.getElementById("benchmarks");
-  try{
-    const res=await fetch("/data/ai-evaluation-benchmarks.json",{cache:"no-store"});
-    const items=await res.json();
-    root.innerHTML=items.map(function(x){
-      return '<section class="bmCard">'+
-        '<div class="bmHead"><h2>'+escapeHtml(x.title)+'</h2><span class="source">'+escapeHtml(x.source)+'</span></div>'+
-        '<div class="meta">'+
-          metric(x.pages,"Pages")+
-          metric(x.questions,"Questions")+
-          metric(x.max_marks,"Max Marks")+
-        '</div>'+
-        '<div class="status">Reference score: <span class="pending">'+(x.reference_marks==null?"Pending":" "+x.reference_marks)+'</span><br>FATEH27 blind AI score: <span class="pending">'+(x.blind_ai_score==null?"Pending":" "+x.blind_ai_score)+'</span></div>'+
-        '<div class="note">'+escapeHtml((x.scoring_calibration&&x.scoring_calibration.notes)||"Blind benchmark calibration applied.")+'</div>'+
-      '</section>';
-    }).join("");
-  }catch(e){root.innerHTML='<section class="bmCard"><div class="status">Benchmark data unavailable.</div></section>'}
-  function metric(v,l){return '<div class="metric"><b>'+escapeHtml(String(v))+'</b><span>'+l+'</span></div>'}
-  function escapeHtml(v){return String(v).replace(/[&<>"']/g,function(c){return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]})}
+(async()=>{const $=id=>document.getElementById(id),S=$("bench"),F=$("files"),P=$("pages"),Q=$("q"),R=$("run"),E=$("err");let items=[],imgs=[];
+function esc(x){return String(x??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]));}
+function meta(){let x=items[+S.value]||{};$("meta").textContent=(x.pages||"—")+" pages • "+(x.questions||"—")+" questions • "+(x.max_marks||"—")+" total marks • Reference score: "+(x.reference_marks==null?"Pending":x.reference_marks);}
+try{items=await fetch("/data/ai-evaluation-benchmarks.json",{cache:"no-store"}).then(r=>r.json());S.innerHTML=items.map((x,i)=>'<option value="'+i+'">'+esc(x.title)+" • "+esc(x.source)+"</option>").join("");meta()}catch(e){$("meta").textContent="Benchmark registry unavailable."}S.onchange=meta;
+F.onchange=async()=>{E.style.display="none";let fs=[...F.files];if(fs.length>5){E.textContent="Maximum 5 pages.";E.style.display="block";return}imgs=[];P.innerHTML="";for(let i=0;i<fs.length;i++){let d=await img(fs[i]);imgs.push(d);P.innerHTML+='<div class="page"><img src="'+d+'"><span class="tag">PAGE '+(i+1)+"</span></div>"}$("count").textContent=imgs.length+"/5 pages selected";R.disabled=!imgs.length||!Q.value.trim()};
+Q.oninput=()=>R.disabled=!imgs.length||!Q.value.trim();
+R.onclick=async()=>{R.disabled=true;R.textContent="Evaluating copy…";E.style.display="none";try{let m=+$("marks").value||10;if(!Q.value.trim())throw Error("Question is required.");let body={exam:"UPSC CSE",paper:$("paper").value,gs:$("paper").value,marks:m,question:Q.value.trim(),answer:"[Answer supplied as handwritten benchmark images]",imageData:imgs[0],image:imgs[0],images:imgs,language:"English"};let res=await fetch("/api/evaluate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)}),data=await res.json();if(!res.ok||!data.success)throw Error(data.error||"AI evaluation failed.");show(data.evaluation,m)}catch(e){E.textContent=e.message;E.style.display="block"}finally{R.disabled=false;R.textContent="Run Blind Evaluation →"}};
+function show(e,m){$("out").style.display="block";$("score").textContent=e.estimated_score??"—";$("max").textContent=m;$("cov").textContent=e.demand_coverage||"—";let b=(t,v)=>v?'<div class="result"><h3>'+t+"</h3>"+(Array.isArray(v)?"<ul>"+v.map(x=>"<li>"+esc(x)+"</li>").join("")+"</ul>":"<p>"+esc(v)+"</p>")+"</div>":"";$("details").innerHTML=b("Examiner Verdict",e.verdict||e.examiner_note)+b("Strengths",e.strengths)+b("Missing Points",e.missing_points)+b("Weaknesses",e.weaknesses)+b("Better Structure",e.better_structure)+b("Diagram & Presentation Audit",e.diagram_audit)+b("Improvement Plan",e.improvements)+b("Model Answer Direction",e.model_answer_direction);$("out").scrollIntoView({behavior:"smooth"})}
+function img(f){return new Promise((ok,no)=>{let r=new FileReader;r.onload=()=>{let i=new Image;i.onload=()=>{let s=Math.min(1,1800/Math.max(i.width,i.height)),c=document.createElement("canvas");c.width=Math.round(i.width*s);c.height=Math.round(i.height*s);c.getContext("2d").drawImage(i,0,0,c.width,c.height);ok(c.toDataURL("image/jpeg",.82))};i.onerror=no;i.src=r.result};r.onerror=no;r.readAsDataURL(f)})}
 })();
-</script>
-</body>
-</html>
+</script></body></html>
