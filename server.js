@@ -1064,7 +1064,7 @@ app.post(
 
 
       const evaluationImages = Array.isArray(images)
-        ? images.filter(Boolean)
+        ? images.filter(Boolean).slice(0, 5)
         : [];
 
       const evaluationImage =
@@ -1103,8 +1103,21 @@ according to UPSC-style expectations.
 
 Do not invent facts.
 
-If an image is supplied,
-read the handwriting carefully.
+If one or more handwritten images are supplied, read every page carefully and evaluate them as ONE continuous answer in upload order.
+
+EXAMINER SIMULATION:
+- Emulate a real UPSC copy-checking experience: a human examiner has many scripts to assess, limited attention, and must quickly locate the argument, structure, evidence and conclusion.
+- This is NOT permission to randomly lower marks or introduce bias. Never degrade a score merely because of a simulated mood or fatigue.
+- Instead, model the real-world attention risk of presentation: unclear handwriting, poor spacing, weak headings, dense paragraphs, repetition, missing page continuity, irrelevant content, unlabeled diagrams, or diagrams that are hard to interpret can reduce the examiner's ability to award credit.
+- Reward answers that make correct content easy to verify: clear structure, precise keywords, relevant examples/data, legible presentation and properly integrated visuals.
+
+DIAGRAM / MAP / FLOWCHART AUDIT:
+- Inspect every uploaded page for diagrams, maps, flowcharts, tables, graphs and other visual elements.
+- Do not assume a diagram exists. If none exists, explicitly say so.
+- When a diagram exists, assess: relevance to the question, factual/conceptual accuracy, labels, readability, proportions/layout where meaningful, completeness, and whether the visual actually supports the argument.
+- Give credit for a useful, accurate diagram; flag incorrect or decorative diagrams; identify specific missing/wrong labels or relationships when visible.
+- Treat diagrams as part of the answer, not as an automatic bonus.
+- Evaluate page-to-page continuity and whether the answer appears complete.
 
 Return ONLY valid JSON matching
 the supplied schema.
@@ -1177,6 +1190,7 @@ Give:
 • improvement plan
 • model answer skeleton
 • examiner note
+• diagram/presentation audit
 
 `.trim();
 
@@ -1539,6 +1553,7 @@ Give:
           better_structure: result.model_answer_skeleton.join("\n"),
           model_answer_direction: result.model_answer_skeleton.join("\n"),
           examiner_note: result.examiner_note,
+          diagram_audit: result.diagram_audit,
           word_count_comment: result.factual_accuracy,
           final_verdict: result.verdict
         },
