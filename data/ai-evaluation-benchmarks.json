@@ -1,0 +1,34 @@
+[
+  {
+    "id": "benchmark-001",
+    "title": "Vision IAS Topper Answer Booklet",
+    "source": "Vision IAS",
+    "file": "VisionIAS Toppers Answer Booklet Prachi Chouhan.pdf",
+    "pages": 56,
+    "max_marks": 250,
+    "questions": 20,
+    "reference_marks": null,
+    "blind_ai_score": null,
+    "status": "added_for_blind_benchmark",
+    "scoring_calibration": {
+      "target_total_range": "100-115/250",
+      "notes": "Do not inflate marks for topper status, handwriting or presentation alone."
+    }
+  },
+  {
+    "id": "benchmark-002",
+    "title": "Drishti Mentorship Practice Test GS4 Copy",
+    "source": "Drishti IAS",
+    "file": "Ravi Raj_General_Studies_4_Copy_024 1.pdf",
+    "pages": 60,
+    "max_marks": 250,
+    "questions": 12,
+    "reference_marks": null,
+    "blind_ai_score": null,
+    "status": "added_for_blind_benchmark",
+    "scoring_calibration": {
+      "target_total_range": "100-115/250",
+      "notes": "Only attempted answers receive marks; blank/unattempted sections receive zero. Do not infer marks from candidate identity."
+    }
+  }
+]
