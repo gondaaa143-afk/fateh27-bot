@@ -508,3 +508,63 @@ body.f27-dark .quickArrow{background:#292e35 !important}
   .quickIcon{width:44px !important;height:44px !important;flex-basis:44px !important;font-size:19px !important}
   .quickTitle{font-size:9.5px !important}
 }
+
+
+/* v20261007 — FINAL THEME CONTRAST FIX
+   Prevent low-contrast inline/page-specific text from becoming invisible
+   when the shared light theme is active. */
+body:not(.f27-dark) .text,
+body:not(.f27-dark) .points,
+body:not(.f27-dark) .counter,
+body:not(.f27-dark) .word,
+body:not(.f27-dark) .paperDeck,
+body:not(.f27-dark) .paperCaption,
+body:not(.f27-dark) .empty,
+body:not(.f27-dark) .time{
+  color:#30343b !important;
+}
+body:not(.f27-dark) .text,
+body:not(.f27-dark) .points{
+  font-weight:500 !important;
+}
+body:not(.f27-dark) .word strong{
+  color:#9a6d13 !important;
+}
+body:not(.f27-dark) .callout{
+  color:#f7f7f5 !important;
+  background:#171717 !important;
+  border-left-color:#c7a65b !important;
+}
+body:not(.f27-dark) .listen{
+  background:#081526 !important;
+  color:#f3f5f7 !important;
+}
+body:not(.f27-dark) .listen .time{
+  color:#aeb8c5 !important;
+}
+body:not(.f27-dark) .body{
+  color:#30343b !important;
+}
+body:not(.f27-dark) .kicker{
+  color:#a17618 !important;
+}
+body.f27-dark .text,
+body.f27-dark .points,
+body.f27-dark .counter,
+body.f27-dark .word,
+body.f27-dark .paperDeck,
+body.f27-dark .paperCaption,
+body.f27-dark .empty{
+  color:#e2e6eb !important;
+}
+body.f27-dark .word strong{
+  color:#d1b66f !important;
+}
+body.f27-dark .callout{
+  color:#f5f7f9 !important;
+  background:#171b21 !important;
+  border-left-color:#c7a65b !important;
+}
+body.f27-dark .kicker{
+  color:#d1b66f !important;
+}
