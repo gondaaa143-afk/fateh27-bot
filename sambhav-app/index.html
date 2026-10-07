@@ -77,7 +77,7 @@ html,body{overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
       <button class="auth-submit" type="submit" id="authSubmit">Sign In</button>
     </form>
     <div class="auth-divider"><span>OR</span></div>
-    <button class="guest-btn" onclick="enterApp()">Continue as Guest</button>
+    <button type="button" class="guest-btn" onclick="localStorage.setItem('sambhavGuest','1');location.hash='home';location.reload();return false;">Continue as Guest</button>
     <p class="auth-foot">By continuing, you agree to the <b>Terms</b> and <b>Privacy Policy</b>.</p>
   </div>
 </section>
@@ -289,6 +289,8 @@ function go(r){
 }
 
 function bootAuth(){
+  const forceGuest=new URLSearchParams(location.search).get('guest')==='1';
+  if(forceGuest)localStorage.setItem('sambhavGuest','1');
   const token=localStorage.getItem('sambhavAccessToken');
   const guest=localStorage.getItem('sambhavGuest')==='1';
   if(token||guest)go(location.hash.slice(1)||'home');
