@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FATEH27 • AI Evaluation Benchmark</title>
+<link rel="stylesheet" href="/fateh27-ui.css?v=20261007">
+<script src="/fateh27-theme.js?v=20261007" defer></script>
+<style>
+body{margin:0;min-height:100vh}
+.bmWrap{width:min(760px,100%);margin:auto;padding:18px 14px 110px}
+.bmTop{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+.bmLogo{font-size:25px;font-weight:900;letter-spacing:-1px}.bmLogo i{display:inline-block;width:7px;height:7px;background:#b47b18;border-radius:50%;margin-left:3px}
+.bmBack{border:1px solid rgba(36,40,48,.1);background:rgba(255,255,255,.8);color:#30343b;border-radius:14px;padding:9px 12px;font-weight:700;text-decoration:none}
+.hero{padding:22px;border-radius:26px;margin-bottom:14px}
+.eyebrow{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#737983}
+h1{margin:7px 0 8px;font-size:29px;letter-spacing:-1px;color:#17191d}
+.hero p{margin:0;color:#737983;line-height:1.55;font-size:13px}
+.bmCard{padding:18px;border-radius:24px;margin-top:12px;background:rgba(255,255,255,.82);border:1px solid rgba(36,40,48,.1);box-shadow:0 15px 36px rgba(35,39,45,.08)}
+.bmHead{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.bmHead h2{margin:0;font-size:17px;color:#17191d}.source{font-size:10px;font-weight:800;padding:6px 9px;border-radius:999px;background:#eef0f3;color:#5f646d}
+.meta{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:15px 0}.metric{padding:11px;border-radius:15px;background:#f3f4f6}.metric b{display:block;font-size:14px;color:#30343b}.metric span{font-size:10px;color:#737983}
+.status{font-size:12px;color:#737983;padding-top:12px;border-top:1px solid rgba(36,40,48,.08)}.pending{font-weight:800;color:#30343b}
+.note{margin-top:12px;padding:13px 14px;border-radius:16px;background:#f3f4f6;color:#555b64;font-size:11px;line-height:1.5}
+@media(max-width:520px){.meta{grid-template-columns:1fr 1fr}.bmWrap{padding-left:10px;padding-right:10px}h1{font-size:25px}}
+</style>
+</head>
+<body>
+<main class="bmWrap">
+  <div class="bmTop">
+    <div class="bmLogo">FATEH27<i></i></div>
+    <a class="bmBack" href="/">← Home</a>
+  </div>
+  <section class="hero">
+    <div class="eyebrow">AI Answer Evaluation</div>
+    <h1>Benchmark</h1>
+    <p>Public-copy blind evaluation registry. The copy is evaluated without using candidate identity or reference marks to influence the AI score.</p>
+  </section>
+  <div id="benchmarks"></div>
+  <section class="bmCard">
+    <div class="bmHead"><h2>Scoring Protocol</h2><span class="source">BLIND</span></div>
+    <div class="note">Marks are based on answer demand, content accuracy, coverage, structure, dimensions, examples/data, conceptual clarity, introduction, conclusion and presentation. Diagrams, maps and flowcharts are audited separately. Blank or unattempted answers receive zero. This benchmark is independent and does not imply endorsement by any institute.</div>
+  </section>
+</main>
+<script>
+(async function(){
+  const root=document.getElementById("benchmarks");
+  try{
+    const res=await fetch("/data/ai-evaluation-benchmarks.json",{cache:"no-store"});
+    const items=await res.json();
+    root.innerHTML=items.map(function(x){
+      return '<section class="bmCard">'+
+        '<div class="bmHead"><h2>'+escapeHtml(x.title)+'</h2><span class="source">'+escapeHtml(x.source)+'</span></div>'+
+        '<div class="meta">'+
+          metric(x.pages,"Pages")+
+          metric(x.questions,"Questions")+
+          metric(x.max_marks,"Max Marks")+
+        '</div>'+
+        '<div class="status">Reference score: <span class="pending">'+(x.reference_marks==null?"Pending":" "+x.reference_marks)+'</span><br>FATEH27 blind AI score: <span class="pending">'+(x.blind_ai_score==null?"Pending":" "+x.blind_ai_score)+'</span></div>'+
+        '<div class="note">'+escapeHtml((x.scoring_calibration&&x.scoring_calibration.notes)||"Blind benchmark calibration applied.")+'</div>'+
+      '</section>';
+    }).join("");
+  }catch(e){root.innerHTML='<section class="bmCard"><div class="status">Benchmark data unavailable.</div></section>'}
+  function metric(v,l){return '<div class="metric"><b>'+escapeHtml(String(v))+'</b><span>'+l+'</span></div>'}
+  function escapeHtml(v){return String(v).replace(/[&<>"']/g,function(c){return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]})}
+})();
+</script>
+</body>
+</html>
