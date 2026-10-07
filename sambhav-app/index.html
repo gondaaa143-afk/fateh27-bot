@@ -54,7 +54,7 @@ html,body{overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 </style><style>
 .apna-section{margin-top:28px}.apna-section h3{font-size:11px;letter-spacing:.13em;text-transform:uppercase;margin:0 0 13px;font-weight:950;color:var(--muted)}
 .apna-feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.apna-feature{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:22px;padding:15px;min-height:118px;box-shadow:0 8px 22px #28312612;position:relative;overflow:hidden}.apna-feature:after{content:"";position:absolute;width:70px;height:70px;border-radius:50%;background:var(--cream2);right:-28px;bottom:-28px}.apna-feature .af-icon{width:36px;height:36px;border-radius:12px;background:var(--olive);color:var(--cream);display:grid;place-items:center;font-size:9px;font-weight:950;margin-bottom:17px;position:relative;z-index:1}.apna-feature b{display:block;font-size:13px;position:relative;z-index:1}.apna-feature small{display:block;color:var(--muted);font-size:9px;line-height:1.35;margin-top:4px;position:relative;z-index:1}.apna-badge{display:inline-block;margin-top:5px;padding:5px 8px;border-radius:99px;background:var(--cream2);font-size:7px;font-weight:950;color:var(--olive)}
-</style></head>
+</style><style>.benchmark-shell{background:var(--white);border:1px solid var(--line);border-radius:28px;overflow:hidden;box-shadow:0 10px 28px #28312612}.benchmark-shell iframe{display:block;width:100%;height:calc(100vh - 125px);min-height:720px;border:0;background:#fff}.benchmark-note{font-size:9px;line-height:1.5;color:var(--muted);margin:0 0 12px}</style></head>
 <body><main class="app"><section id="auth" class="screen active">
   <div class="auth-wrap">
     <div class="auth-logo">AI</div>
@@ -104,6 +104,13 @@ html,body{overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 <a class="apna-feature" href="../benchmark.html"><div class="af-icon">LAB</div><b>AI Benchmark</b><small>Coaching copy vs AI · consistency · methodology</small></a>
 </div></div>
 </div></div></section>
+
+<section id="benchmark" class="screen">
+<button class="back" onclick="go('home')">← Home</button>
+<div class="ca-toolbar"><div><div class="eyebrow">APNA AI · TRUST & CALIBRATION</div><h3 style="font-size:25px;letter-spacing:-.05em;margin:5px 0">AI Evaluation Benchmark</h3></div></div>
+<p class="benchmark-note">Real evaluated UPSC copies → blind AI review → side-by-side comparison → consistency testing. This is an independent AI benchmark, not an official UPSC evaluation or coaching endorsement.</p>
+<div class="benchmark-shell"><iframe src="../benchmark.html" title="APNA AI Evaluation Benchmark" loading="lazy"></iframe></div>
+</section>
 
 <section id="current" class="screen">
 <button class="back" onclick="go('home')">← Home</button>
@@ -167,7 +174,7 @@ html,body{overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 <nav id="mainNav" class="nav"><button data-r="home" class="active" onclick="go('home')">⌂<br>HOME</button><button data-r="current" onclick="go('current')">◒<br>CURRENT</button><button data-r="pyq" onclick="go('pyq')">?<br>PYQ</button><button data-r="revision" onclick="go('revision')">↻<br>REVISION</button><button data-r="ai" onclick="go('ai')">✦<br>AI</button></nav>
 <script src="./sambhav-config.js"></script>
 <script>
-const routes=['auth','home','current','pyq','revision','ai','premium','settings'];
+const routes=['auth','home','current','pyq','revision','ai','benchmark','premium','settings'];
 let mode='signin';
 const cfg=window.APNA AI_CONFIG||{};
 const supabaseUrl=cfg.SUPABASE_URL||'';
