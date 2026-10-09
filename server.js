@@ -739,6 +739,64 @@ app.post(
   }
 );
 
+app.get("/api/study-materials", async (req, res) => {
+  try {
+    const config = getFirebaseConfigForUsage();
+    if (!config) return res.status(503).json({ error: "Study Material storage is not configured." });
+    const token = await getFirebaseAccessTokenForUsage();
+    const url = "https://firestore.googleapis.com/v1/projects/" +
+      encodeURIComponent(config.projectId) +
+      "/databases/(default)/documents/studyMaterials?pageSize=100";
+    const response = await fetch(url, { headers: { authorization: "Bearer " + token } });
+    if (!response.ok) throw new Error("Study Material library query failed: " + response.status);
+    const data = await response.json();
+    const value = (field) => field?.stringValue ?? field?.integerValue ?? field?.timestampValue ?? "";
+    const items = (data.documents || []).map((doc) => {
+      const fields = doc.fields || {};
+      return {
+        id: doc.name.split("/").pop(),
+        title: String(value(fields.title) || value(fields.fileName) || "Untitled PDF"),
+        fileName: String(value(fields.fileName) || ""),
+        category: String(value(fields.category) || "study-material"),
+        uploadedAt: String(value(fields.uploadedAt) || ""),
+        fileSize: Number(value(fields.fileSize) || 0)
+      };
+    }).sort((a, b) => String(b.uploadedAt).localeCompare(String(a.uploadedAt)));
+    return res.json({ items });
+  } catch (error) {
+    console.error("/api/study-materials error:", error);
+    return res.status(500).json({ error: "Could not load the Study Material library." });
+  }
+});
+
+app.get("/api/study-materials/file/:id", async (req, res) => {
+  try {
+    const id = String(req.params.id || "").replace(/[^a-f0-9]/gi, "").slice(0, 32);
+    if (!id) return res.status(400).send("Invalid material id");
+    const doc = await firestoreDocument("studyMaterials/" + encodeURIComponent(id));
+    const fields = doc?.fields || {};
+    const fileId = fields.fileId?.stringValue;
+    const mimeType = fields.mimeType?.stringValue || "application/pdf";
+    const fileName = String(fields.fileName?.stringValue || "study-material.pdf").replace(/[\r\n"]/g, "");
+    const botToken = process.env.TELEGRAM_BOT_TOKEN;
+    if (!fileId || !botToken) return res.status(404).send("PDF not found");
+    const fileInfoResponse = await fetch("https://api.telegram.org/bot" + botToken + "/getFile?file_id=" + encodeURIComponent(fileId));
+    const fileInfo = await fileInfoResponse.json();
+    const filePath = fileInfo?.result?.file_path;
+    if (!fileInfoResponse.ok || !fileInfo.ok || !filePath) return res.status(502).send("Unable to retrieve PDF from Telegram");
+    const pdfResponse = await fetch("https://api.telegram.org/file/bot" + botToken + "/" + filePath);
+    if (!pdfResponse.ok) return res.status(502).send("Unable to download PDF");
+    res.setHeader("Content-Type", mimeType);
+    res.setHeader("Content-Disposition", "inline; filename*=UTF-8''" + encodeURIComponent(fileName));
+    res.setHeader("Cache-Control", "private, max-age=300");
+    const bytes = Buffer.from(await pdfResponse.arrayBuffer());
+    return res.status(200).send(bytes);
+  } catch (error) {
+    console.error("/api/study-materials/file error:", error);
+    return res.status(404).send("PDF not found");
+  }
+});
+
 app.post("/api/notifications/current-affairs", rateLimit("notifications", 10), async (req, res) => {
   try {
     const secret = String(process.env.FATEH27_NOTIFY_SECRET || "");
