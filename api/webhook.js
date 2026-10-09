@@ -290,6 +290,42 @@ function getUserName(user) {
   );
 }
 
+async function saveStudyMaterial(message, category) {
+  const { projectId } = getFirebaseConfig();
+  const token = await getGoogleAccessToken();
+  const document = message.document || {};
+  const originalName = String(document.file_name || "study-material.pdf").slice(0, 180);
+  const caption = String(message.caption || "").slice(0, 500);
+  const title = (caption || originalName).slice(0, 240);
+  const id = crypto.createHash("sha256")
+    .update(String(document.file_id) + ":" + String(message.message_id))
+    .digest("hex").slice(0, 32);
+  const fields = {
+    title: stringValue(title),
+    fileName: stringValue(originalName),
+    fileId: stringValue(document.file_id || ""),
+    mimeType: stringValue(document.mime_type || "application/pdf"),
+    fileSize: { integerValue: String(document.file_size || 0) },
+    category: stringValue(category),
+    uploadedAt: { timestampValue: new Date().toISOString() },
+    source: stringValue("telegram-bot"),
+    caption: stringValue(caption)
+  };
+  const url = "https://firestore.googleapis.com/v1/projects/" +
+    encodeURIComponent(projectId) +
+    "/databases/(default)/documents/studyMaterials/" + encodeURIComponent(id);
+  const response = await fetch(url, {
+    method: "PATCH",
+    headers: { authorization: "Bearer " + token, "content-type": "application/json" },
+    body: JSON.stringify({ fields })
+  });
+  if (!response.ok) {
+    const detail = await response.text().catch(() => "");
+    throw new Error("Study material save failed: " + response.status + " " + detail.slice(0, 200));
+  }
+  return { id, title, category };
+}
+
 /* =========================================================
    WEBHOOK
 ========================================================= */
