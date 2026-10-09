@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="theme-color" content="#06101f">
+<title>FATEH27 — Study Material</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+:root{--bg:#06101f;--panel:#0d1b2d;--panel2:#12243a;--gold:#e8bd55;--text:#e9eef6;--muted:#9caabd;--line:#20344e}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+body{padding-bottom:35px}.wrap{max-width:700px;margin:auto;padding:18px 16px 40px}
+.topbar{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.back{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:14px;padding:11px 13px;font-weight:800}
+.brand{font-size:22px;font-weight:900;letter-spacing:-.5px;flex:1}
+.hero{background:linear-gradient(135deg,#14253b,#0d1b2d);border:1px solid var(--line);border-radius:24px;padding:22px;margin-bottom:18px}
+.eyebrow{color:var(--gold);font-size:10px;font-weight:900;letter-spacing:1.8px}
+h1{font-size:30px;letter-spacing:-1px;margin:9px 0 8px}.hero p{color:var(--muted);line-height:1.6;font-size:13px;margin:0}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+button.refresh{border:1px solid #8d6a25;background:#17263a;color:var(--gold);border-radius:12px;padding:11px 14px;font-weight:900}
+.status{color:var(--muted);font-size:12px;margin:16px 2px}
+.item{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px;margin:10px 0}
+.item-title{font-size:15px;font-weight:850;overflow-wrap:anywhere}.meta{color:var(--muted);font-size:11px;margin-top:7px}
+.open{display:inline-block;margin-top:13px;background:var(--gold);color:#111827;text-decoration:none;padding:10px 13px;border-radius:11px;font-size:11px;font-weight:900}
+.empty{border:1px dashed #31445c;border-radius:18px;padding:20px;color:var(--muted);font-size:13px;line-height:1.7}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar"><button class="back" onclick="location.href='index.html'">← Home</button><div class="brand">FATEH27</div></div>
+  <section class="hero">
+    <div class="eyebrow">FATEH27 · LIBRARY</div>
+    <h1>Study Material</h1>
+    <p>Telegram bot par bheje gaye PDFs aur notes yahan milenge. The Hindu / Editorial PDFs Current Affairs section mein dikhaye jayenge.</p>
+    <div class="actions"><button class="refresh" onclick="loadMaterials()">↻ Refresh Library</button></div>
+  </section>
+  <div id="status" class="status">Library load ho rahi hai…</div>
+  <div id="list"></div>
+</div>
+<script>
+if(window.Telegram?.WebApp){Telegram.WebApp.ready();Telegram.WebApp.expand();}
+async function loadMaterials(){
+ const status=document.getElementById("status"),list=document.getElementById("list");
+ status.textContent="Library load ho rahi hai…";list.innerHTML="";
+ try{
+  const response=await fetch("/api/study-materials?category=study-material",{cache:"no-store"});
+  const data=await response.json();
+  if(!response.ok)throw new Error(data.error||"Library unavailable");
+  const items=data.items||[];
+  if(!items.length){status.textContent="0 PDFs";list.innerHTML='<div class="empty">Abhi koi PDF nahi hai. Apne FATEH27 Telegram bot par PDF document bhejo. The Hindu / editorial PDF ko caption mein “The Hindu” likhkar bhejo.</div>';return;}
+  status.textContent=items.length+" study material file"+(items.length===1?"":"s");
+  items.forEach(item=>{
+   const card=document.createElement("article");card.className="item";
+   const title=document.createElement("div");title.className="item-title";title.textContent=item.title||item.fileName||"Untitled PDF";
+   const meta=document.createElement("div");meta.className="meta";meta.textContent=(item.uploadedAt?new Date(item.uploadedAt).toLocaleString():"Telegram upload")+(item.fileSize?" · "+Math.ceil(item.fileSize/1024)+" KB":"");
+   const link=document.createElement("a");link.className="open";link.href="/api/study-materials/file/"+encodeURIComponent(item.id);link.target="_blank";link.rel="noopener";link.textContent="Open PDF ↗";
+   card.append(title,meta,link);list.appendChild(card);
+  });
+ }catch(error){status.textContent="Library load nahi ho paayi.";list.innerHTML='<div class="empty">API / storage error: '+String(error.message||error).replace(/[<>]/g,"")+'</div>';}
+}
+loadMaterials();
+</script>
+</body>
+</html>
