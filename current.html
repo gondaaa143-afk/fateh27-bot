@@ -56,6 +56,11 @@ pre{
   <small id="date"></small>
   <pre id="summary"></pre>
 </div>
+<div class="card">
+  <h2>The Hindu · Uploaded PDFs</h2>
+  <small>PDFs shared by the FATEH27 owner through the Telegram bot</small>
+  <div id="hinduPdfs" style="margin-top:14px;line-height:1.8">Loading uploads...</div>
+</div>
 
 <script>
 Telegram.WebApp.ready();
@@ -79,6 +84,26 @@ async function loadCurrent(){
 }
 
 loadCurrent();
+async function loadHinduPdfs(){
+ const root=document.getElementById("hinduPdfs");
+ try{
+  const res=await fetch("/api/study-materials?category=current-affairs");
+  const data=await res.json();
+  if(!res.ok)throw new Error("Library unavailable");
+  const items=data.items||[];
+  if(!items.length){root.textContent="No The Hindu/editorial PDFs uploaded yet.";return;}
+  root.innerHTML="";
+  items.forEach(function(item){
+   const row=document.createElement("div");
+   row.style.cssText="padding:10px 0;border-bottom:1px solid #284064";
+   const title=document.createElement("div");title.style.fontWeight="700";title.textContent=item.title||item.fileName;
+   const meta=document.createElement("small");meta.textContent=item.uploadedAt?new Date(item.uploadedAt).toLocaleDateString():"Bot upload";
+   const link=document.createElement("a");link.href="/api/study-materials/file/"+encodeURIComponent(item.id);link.target="_blank";link.rel="noopener";link.textContent="Open PDF ↗";link.style.cssText="display:inline-block;margin-top:6px;color:#9fb3d9";
+   row.appendChild(title);row.appendChild(meta);row.appendChild(document.createElement("br"));row.appendChild(link);root.appendChild(row);
+  });
+ }catch(e){root.textContent="Could not load uploaded PDFs right now.";}
+}
+loadHinduPdfs();
 </script>
 
 </body>
