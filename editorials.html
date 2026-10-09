@@ -65,6 +65,13 @@ body{padding-bottom:96px}
   </div>
   <div class="heading"><h1 id="headingTitle">UPSC Editorials</h1><p id="headingSub">The Hindu • Editorial-style analysis • Prelims + Mains</p></div>
   <div id="content"><div class="empty">Loading editorials…</div></div>
+  <section style="margin-top:22px;padding:17px;background:var(--panel);border:1px solid var(--line);border-radius:18px">
+    <div style="color:var(--gold);font-size:10px;font-weight:900;letter-spacing:1.5px">THE HINDU · PDF LIBRARY</div>
+    <h2 style="font-size:18px;margin:8px 0">Uploaded Current Affairs PDFs</h2>
+    <p style="font-size:12px;color:var(--muted);line-height:1.6;margin:0 0 12px">The Hindu / editorial PDFs sent to the FATEH27 bot appear here.</p>
+    <div id="hinduPdfStatus" style="font-size:12px;color:var(--muted)">Loading PDFs…</div>
+    <div id="hinduPdfList"></div>
+  </section>
 </div>
 <div class="bottom">
   <button class="nav" onclick="location.href='index.html'">⌂<br>HOME</button>
@@ -176,5 +183,29 @@ function render(){const u=UI[language],list=articles.filter((a,i)=>(filter==='AL
 async function listen(i){const a=tArticle(articles[i],i);const btn=document.getElementById('play-'+i);if(audio){audio.pause();audio=null;if(audioUrl){URL.revokeObjectURL(audioUrl);audioUrl='';}}btn.textContent=language==='hi'?'तैयार हो रहा है…':'Generating…';try{const init=window.Telegram?.WebApp?.initData||sessionStorage.getItem('f27_tg_init_data')||'';const text=('Title: '+a.title+'\nContext: '+(a.why||a.what)+'\nSignificance: '+(a.mains||a.syllabus)+'\nKey points: '+(a.prelims||a.what)+'\nConclusion: '+(a.revision||'')).slice(0,3900);const api=(window.FATEH27_API_BASE||'https://fateh27-bot.onrender.com');const r=await fetch(api+'/api/secretary/tts',{method:'POST',headers:{'Content-Type':'application/json','x-telegram-init-data':init},body:JSON.stringify({text,language})});if(!r.ok){const d=await r.json().catch(()=>({}));throw new Error(d.detail||d.error||'Voice generation failed');}const blob=await r.blob();audioUrl=URL.createObjectURL(blob);audio=new Audio(audioUrl);audio.onplay=()=>btn.textContent=language==='hi'?'❚❚ रोकें':'❚❚ Pause';audio.onended=()=>btn.textContent=language==='hi'?'▶ सुनें':'▶ Listen';audio.ontimeupdate=()=>{document.getElementById('time-'+i).textContent=Math.floor(audio.currentTime/60)+':'+String(Math.floor(audio.currentTime%60)).padStart(2,'0')};btn.onclick=()=>{if(audio.paused){audio.play();btn.textContent=language==='hi'?'❚❚ रोकें':'❚❚ Pause'}else{audio.pause();btn.textContent=language==='hi'?'▶ सुनें':'▶ Listen'}};await audio.play();}catch(e){btn.textContent='▶ Listen';alert(e.message||'Listen unavailable');}}
 applyLanguageUI();fetch('/data/current.md?t='+Date.now()).then(r=>r.text()).then(md=>{parse(md);render();}).catch(()=>{document.getElementById('content').innerHTML='<div class="empty">Editorials load नहीं हो पाए।</div>';});
 </script>
+
+<script>
+(async function loadHinduPdfLibrary(){
+ const status=document.getElementById("hinduPdfStatus"),list=document.getElementById("hinduPdfList");
+ if(!status||!list)return;
+ try{
+  const response=await fetch("/api/study-materials?category=current-affairs",{cache:"no-store"});
+  const data=await response.json();
+  if(!response.ok)throw new Error(data.error||"Could not load PDFs");
+  const items=data.items||[];
+  list.innerHTML="";
+  if(!items.length){status.textContent="No The Hindu PDFs uploaded yet.";return;}
+  status.textContent=items.length+" uploaded PDF"+(items.length===1?"":"s");
+  items.forEach(item=>{
+   const row=document.createElement("div");row.style.cssText="padding:12px 0;border-bottom:1px solid var(--line)";
+   const title=document.createElement("div");title.style.cssText="font-size:13px;font-weight:800";title.textContent=item.title||item.fileName||"The Hindu PDF";
+   const meta=document.createElement("div");meta.style.cssText="font-size:11px;color:var(--muted);margin-top:5px";meta.textContent=item.uploadedAt?new Date(item.uploadedAt).toLocaleDateString():"Telegram upload";
+   const link=document.createElement("a");link.href="/api/study-materials/file/"+encodeURIComponent(item.id);link.target="_blank";link.rel="noopener";link.textContent="Open PDF ↗";link.style.cssText="display:inline-block;margin-top:9px;color:var(--gold);font-size:12px;font-weight:900";
+   row.append(title,meta,link);list.appendChild(row);
+  });
+ }catch(error){status.textContent="PDF library unavailable: "+String(error.message||error).replace(/[<>]/g,"");}
+})();
+</script>
+
 </body>
 </html>
