@@ -761,7 +761,7 @@ app.get("/api/study-materials", async (req, res) => {
         uploadedAt: String(value(fields.uploadedAt) || ""),
         fileSize: Number(value(fields.fileSize) || 0)
       };
-    }).sort((a, b) => String(b.uploadedAt).localeCompare(String(a.uploadedAt)));
+    }).filter((item) => !req.query.category || item.category === String(req.query.category)).sort((a, b) => String(b.uploadedAt).localeCompare(String(a.uploadedAt)));
     return res.json({ items });
   } catch (error) {
     console.error("/api/study-materials error:", error);
