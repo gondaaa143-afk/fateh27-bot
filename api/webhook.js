@@ -592,7 +592,7 @@ export default async function handler(req, res) {
         await telegram("sendMessage", { chat_id: chatId, text: "Please send a PDF file. Other file types are not added to the library yet." });
         return res.status(200).send("OK");
       }
-      const isHindu = /the hindu|hindu editorial|editorial|newspaper/.test(fileName + " " + caption);
+      const isHindu = /the[\s_-]*hindu|hindu|editorial|newspaper/.test(fileName + " " + caption);
       const saved = await saveStudyMaterial(message, isHindu ? "current-affairs" : "study-material");
       await telegram("sendMessage", {
         chat_id: chatId,
