@@ -542,6 +542,35 @@ export default async function handler(req, res) {
     }
 
     /* =====================================================
+       ADMIN PDF INGESTION
+       PDFs are shared into the FATEH27 library. The Hindu
+       editorial/newspaper PDFs are routed to Current Affairs.
+    ===================================================== */
+
+    if (message.document && userId === ADMIN_ID) {
+      const document = message.document;
+      const fileName = String(document.file_name || "").toLowerCase();
+      const caption = String(message.caption || "").toLowerCase();
+      const isPdf = document.mime_type === "application/pdf" || fileName.endsWith(".pdf");
+      if (!isPdf) {
+        await telegram("sendMessage", { chat_id: chatId, text: "Please send a PDF file. Other file types are not added to the library yet." });
+        return res.status(200).send("OK");
+      }
+      const isHindu = /the hindu|hindu editorial|editorial|newspaper/.test(fileName + " " + caption);
+      const saved = await saveStudyMaterial(message, isHindu ? "current-affairs" : "study-material");
+      await telegram("sendMessage", {
+        chat_id: chatId,
+        text: "✅ PDF added to FATEH27.\n\n" + saved.title + "\nSection: " + (saved.category === "current-affairs" ? "Current Affairs" : "Study Material") + "\n\nOpen the dashboard and refresh the section to view it."
+      });
+      return res.status(200).send("OK");
+    }
+
+    if (message.document && userId !== ADMIN_ID) {
+      await telegram("sendMessage", { chat_id: chatId, text: "Only the FATEH27 owner can publish PDFs to the shared Study Material library." });
+      return res.status(200).send("OK");
+    }
+
+    /* =====================================================
        EXISTING GEMINI FUNCTION
     ===================================================== */
 
