@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>FATEH27 — Editorials</title>
+<title>FATEH27 — Current Affairs</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script src="/access-gate.js"></script>
 <style>
@@ -54,7 +54,10 @@ body{padding-bottom:96px}
 </head>
 <body>
 <div class="wrap">
-  <div class="topbar"><button class="back" onclick="goBack()">←</button><div class="brand" id="brandTitle">Editorials</div><button id="languageBtn" class="languageBtn" onclick="toggleLanguage()">हिंदी</button><button class="settings">⚙</button></div>
+  <div class="topbar"><button class="back" onclick="goBack()">←</button><div class="brand" id="brandTitle">Current Affairs</div><button id="languageBtn" class="languageBtn" onclick="toggleLanguage()">हिंदी</button><button class="settings">⚙</button></div>
+  <div class="filters" style="margin-bottom:4px"><button id="newsTab" class="filter active" onclick="switchView('news')">Important News Articles</button><button id="pdfTab" class="filter" onclick="switchView('pdf')">Editorials & PDFs</button></div>
+  <div id="newsView">
+  <label for="articleSearch" style="display:block;color:var(--muted);font-size:12px;margin:4px 0 7px">Search by topic, source or GS syllabus</label><input id="articleSearch" type="search" placeholder="Search current affairs…" oninput="render()" style="width:100%;padding:13px 15px;border-radius:12px;border:1px solid var(--line);background:var(--panel);color:var(--text);margin-bottom:12px;font-size:15px">
   <button id="bookmarkToggle" class="toggle" onclick="toggleBookmarks()"><span class="switch"><i></i></span><span id="bookmarkLabel">Bookmarks</span></button>
   <div class="filters">
     <button class="filter active" onclick="setFilter('ALL',this)">All <b id="allCount">0</b></button>
@@ -65,9 +68,10 @@ body{padding-bottom:96px}
   </div>
   <div class="heading"><h1 id="headingTitle">UPSC Editorials</h1><p id="headingSub">The Hindu • Editorial-style analysis • Prelims + Mains</p></div>
   <div id="content"><div class="empty">Loading editorials…</div></div>
-  <section style="margin-top:22px;padding:17px;background:var(--panel);border:1px solid var(--line);border-radius:18px">
+  </div>
+  <section id="pdfView" style="display:none;margin-top:22px;padding:17px;background:var(--panel);border:1px solid var(--line);border-radius:18px">
     <div style="color:var(--gold);font-size:10px;font-weight:900;letter-spacing:1.5px">THE HINDU · PDF LIBRARY</div>
-    <h2 style="font-size:18px;margin:8px 0">Uploaded Current Affairs PDFs</h2>
+    <h2 style="font-size:18px;margin:8px 0">Editorials & Uploaded Current Affairs PDFs</h2>
     <p style="font-size:12px;color:var(--muted);line-height:1.6;margin:0 0 12px">The Hindu / editorial PDFs sent to the FATEH27 bot appear here.</p>
     <div id="hinduPdfStatus" style="font-size:12px;color:var(--muted)">Loading PDFs…</div>
     <div id="hinduPdfList"></div>
@@ -82,13 +86,13 @@ body{padding-bottom:96px}
 <script>
 if(window.Telegram?.WebApp){Telegram.WebApp.ready();Telegram.WebApp.expand();}
 function goBack(){history.length>1?history.back():location.href='index.html';}
-let articles=[],filter='ALL',onlyBookmarks=false,bookmarks=JSON.parse(localStorage.getItem('fateh27_editorial_bookmarks')||'[]'),audio=null,audioUrl='';
+let articles=[],filter='ALL',currentView='news',onlyBookmarks=false,bookmarks=JSON.parse(localStorage.getItem('fateh27_editorial_bookmarks')||'[]'),audio=null,audioUrl='';
 let language=localStorage.getItem('fateh27_editorial_language')||'hi';
 let translations=JSON.parse(localStorage.getItem('fateh27_editorial_translations')||'{}');
 const translationPending=new Set();
 const UI={
-  en:{brand:'Editorials',bookmarks:'Bookmarks',heading:'UPSC Editorials',sub:'The Hindu • Editorial-style analysis • Prelims + Mains',switch:'हिंदी',saved:'★ Saved',bookmark:'☆ Bookmark',full:'↗ Full width',listen:'▶ Listen',source:'Source: The Hindu • FATEH27 UPSC analysis',context:'Context',significance:'Significance for UPSC',vocab:'UPSC Vocab',intro:'UPSC-ready Introduction',points:'Key Points',pyq:'Related UPSC PYQs',counter:'Counter View',conclusion:'UPSC-ready Conclusion',empty:'No editorial found in this filter.',loading:'Hindi translation is being prepared…',fallback:'Hindi translation is not available yet.'},
-  hi:{brand:'संपादकीय',bookmarks:'बुकमार्क',heading:'UPSC संपादकीय',sub:'The Hindu • संपादकीय विश्लेषण • Prelims + Mains',switch:'English',saved:'★ सेव्ड',bookmark:'☆ सेव करें',full:'↗ पूरा देखें',listen:'▶ सुनें',source:'स्रोत: The Hindu • FATEH27 UPSC विश्लेषण',context:'संदर्भ',significance:'UPSC के लिए महत्व',vocab:'UPSC शब्दावली',intro:'UPSC-उपयुक्त भूमिका',points:'मुख्य बिंदु',pyq:'संबंधित UPSC PYQs',counter:'वैकल्पिक दृष्टिकोण',conclusion:'UPSC-उपयुक्त निष्कर्ष',empty:'इस फ़िल्टर में कोई संपादकीय नहीं मिला।',loading:'हिंदी अनुवाद तैयार हो रहा है…',fallback:'हिंदी अनुवाद अभी उपलब्ध नहीं है।'}
+  en:{brand:'Current Affairs',bookmarks:'Bookmarks',heading:'UPSC Current Affairs',sub:'The Hindu + PIB • Important Articles • Prelims + Mains',switch:'हिंदी',saved:'★ Saved',bookmark:'☆ Bookmark',full:'↗ Full width',listen:'▶ Listen',source:'Source: The Hindu • FATEH27 UPSC analysis',context:'Context',significance:'Significance for UPSC',vocab:'UPSC Vocab',intro:'UPSC-ready Introduction',points:'Key Points',pyq:'Related UPSC PYQs',counter:'Counter View',conclusion:'UPSC-ready Conclusion',empty:'No editorial found in this filter.',loading:'Hindi translation is being prepared…',fallback:'Hindi translation is not available yet.'},
+  hi:{brand:'समसामयिकी',bookmarks:'बुकमार्क',heading:'UPSC समसामयिकी',sub:'The Hindu + PIB • महत्वपूर्ण लेख • Prelims + Mains',switch:'English',saved:'★ सेव्ड',bookmark:'☆ सेव करें',full:'↗ पूरा देखें',listen:'▶ सुनें',source:'स्रोत: The Hindu • FATEH27 UPSC विश्लेषण',context:'संदर्भ',significance:'UPSC के लिए महत्व',vocab:'UPSC शब्दावली',intro:'UPSC-उपयुक्त भूमिका',points:'मुख्य बिंदु',pyq:'संबंधित UPSC PYQs',counter:'वैकल्पिक दृष्टिकोण',conclusion:'UPSC-उपयुक्त निष्कर्ष',empty:'इस फ़िल्टर में कोई संपादकीय नहीं मिला।',loading:'हिंदी अनुवाद तैयार हो रहा है…',fallback:'हिंदी अनुवाद अभी उपलब्ध नहीं है।'}
 };
 function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function section(t,l){const e=l.replace(/[.*+?^{}()|[\]\\]/g,'\\$&');const m=t.match(new RegExp(e+'\\s*\\n?([\\s\\S]*?)(?=\\n###|\\n##|$)'));return m?m[1].trim():'';}
@@ -179,7 +183,8 @@ async function ensureTranslation(i){
     if(language==='en' && translated) render();
   }
 }function toggleFull(i){document.getElementById('card-'+i)?.classList.toggle('full');}
-function render(){const u=UI[language],list=articles.filter((a,i)=>(filter==='ALL'||a.gs===filter)&&(!onlyBookmarks||bookmarks.includes(String(i))));document.getElementById('content').innerHTML=list.length?list.map(a=>card(a,articles.indexOf(a))).join(''):'<div class="empty">'+u.empty+'</div>';}
+function switchView(view){currentView=view;document.getElementById('newsView').style.display=view==='news'?'block':'none';document.getElementById('pdfView').style.display=view==='pdf'?'block':'none';document.getElementById('newsTab').classList.toggle('active',view==='news');document.getElementById('pdfTab').classList.toggle('active',view==='pdf');if(view==='pdf')document.getElementById('pdfView').scrollIntoView({behavior:'smooth',block:'start'});}
+function render(){const u=UI[language],q=(document.getElementById('articleSearch')?.value||'').trim().toLowerCase(),list=articles.filter((a,i)=>(filter==='ALL'||a.gs===filter)&&(!onlyBookmarks||bookmarks.includes(String(i)))&&(!q||[a.title,a.source,a.category,a.why,a.prelims,a.mains,a.syllabus].join(' ').toLowerCase().includes(q)));document.getElementById('content').innerHTML=list.length?list.map(a=>card(a,articles.indexOf(a))).join(''):'<div class="empty">No matching articles. Try another keyword or GS filter.</div>';}
 async function listen(i){const a=tArticle(articles[i],i);const btn=document.getElementById('play-'+i);if(audio){audio.pause();audio=null;if(audioUrl){URL.revokeObjectURL(audioUrl);audioUrl='';}}btn.textContent=language==='hi'?'तैयार हो रहा है…':'Generating…';try{const init=window.Telegram?.WebApp?.initData||sessionStorage.getItem('f27_tg_init_data')||'';const text=('Title: '+a.title+'\nContext: '+(a.why||a.what)+'\nSignificance: '+(a.mains||a.syllabus)+'\nKey points: '+(a.prelims||a.what)+'\nConclusion: '+(a.revision||'')).slice(0,3900);const api=(window.FATEH27_API_BASE||'https://fateh27-bot.onrender.com');const r=await fetch(api+'/api/secretary/tts',{method:'POST',headers:{'Content-Type':'application/json','x-telegram-init-data':init},body:JSON.stringify({text,language})});if(!r.ok){const d=await r.json().catch(()=>({}));throw new Error(d.detail||d.error||'Voice generation failed');}const blob=await r.blob();audioUrl=URL.createObjectURL(blob);audio=new Audio(audioUrl);audio.onplay=()=>btn.textContent=language==='hi'?'❚❚ रोकें':'❚❚ Pause';audio.onended=()=>btn.textContent=language==='hi'?'▶ सुनें':'▶ Listen';audio.ontimeupdate=()=>{document.getElementById('time-'+i).textContent=Math.floor(audio.currentTime/60)+':'+String(Math.floor(audio.currentTime%60)).padStart(2,'0')};btn.onclick=()=>{if(audio.paused){audio.play();btn.textContent=language==='hi'?'❚❚ रोकें':'❚❚ Pause'}else{audio.pause();btn.textContent=language==='hi'?'▶ सुनें':'▶ Listen'}};await audio.play();}catch(e){btn.textContent='▶ Listen';alert(e.message||'Listen unavailable');}}
 applyLanguageUI();fetch('/data/current.md?t='+Date.now()).then(r=>r.text()).then(md=>{parse(md);render();}).catch(()=>{document.getElementById('content').innerHTML='<div class="empty">Editorials load नहीं हो पाए।</div>';});
 </script>
