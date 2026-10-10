@@ -1,0 +1,298 @@
+{
+  "version": 1,
+  "exam": "UPSC Civil Services Preliminary Examination",
+  "paper": "General Studies Paper I",
+  "series": "A",
+  "metadata": {
+    "scope": "Additional 2024 Series A batch: Q21–Q23 and Q42–Q51. Q20 and Q52 were dropped by UPSC and are intentionally excluded.",
+    "source": "https://www.minimalistias.com/pyqs/prelims/2024"
+  },
+  "questions": [
+    {
+      "id": 2024021,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": "A",
+      "questionNumber": 21,
+      "subject": "Environment",
+      "topic": "Biodiversity · Insects",
+      "question": "The organisms “Cicada, Froghopper and Pond skater” are:",
+      "options": [
+        "Birds",
+        "Fish",
+        "Insects",
+        "Reptiles"
+      ],
+      "answerIndex": 2,
+      "explanation": "Cicadas, froghoppers and pond skaters are insects, belonging to groups within the order Hemiptera.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
+      "answerKeyStatus": "Cross-checked against the cited 2024 Series A PYQ reference; verify against the official final key before scored use.",
+      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+    },
+    {
+      "id": 2024022,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": "A",
+      "questionNumber": 22,
+      "subject": "Environment",
+      "topic": "Pollution · Chewing gum",
+      "question": "Consider the following statements:\nStatement-I: Many chewing gums found in the market are considered a source of environmental pollution.\nStatement-II: Many chewing gums contain plastic as gum base.\nWhich one of the following is correct?",
+      "options": [
+        "Both statements are correct and Statement-II explains Statement-I",
+        "Both statements are correct, but Statement-II does not explain Statement-I",
+        "Statement-I is correct, but Statement-II is incorrect",
+        "Statement-I is incorrect, but Statement-II is correct"
+      ],
+      "answerIndex": 0,
+      "explanation": "Many modern chewing gums use persistent synthetic polymer gum bases; this supports Statement-I and explains the pollution concern.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
+      "answerKeyStatus": "Cross-checked against the cited 2024 Series A PYQ reference; verify against the official final key before scored use.",
+      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+    },
+    {
+      "id": 2024023,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": "A",
+      "questionNumber": 23,
+      "subject": "Environment",
+      "topic": "Biodiversity · Species distribution",
+      "question": "Consider the following pairs:\nCountry | Animal found in its natural habitat\n1. Brazil | Indri\n2. Indonesia | Elk\n3. Madagascar | Bonobo\nHow many of the pairs given above are correctly matched?",
+      "options": [
+        "Only one",
+        "Only two",
+        "All three",
+        "None"
+      ],
+      "answerIndex": 3,
+      "explanation": "None is correctly matched: indri is native to Madagascar, elk are associated with North America and parts of Asia, and bonobos are native to the Democratic Republic of the Congo.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
+      "answerKeyStatus": "Cross-checked against the cited 2024 Series A PYQ reference; verify against the official final key before scored use.",
+      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+    },
+    {
+      "id": 2024042,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": "A",
+      "questionNumber": 42,
+      "subject": "Economy",
+      "topic": "Capital markets · NBFCs and securities",
+      "question": "Consider the following statements:\n1. In India, Non-Banking Financial Companies can access the Liquidity Adjustment Facility window of the Reserve Bank of India.\n2. In India, Foreign Institutional Investors can hold Government Securities.\n3. In India, Stock Exchanges can offer separate trading platforms for debts.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 and 2 only",
+        "3 only",
+        "1, 2 and 3",
+        "2 and 3 only"
+      ],
+      "answerIndex": 2,
+      "explanation": "The cited Series A key marks all three correct, including access by the NBFC category of Standalone Primary Dealers, foreign investors' permitted G-Sec holdings and separate exchange debt platforms.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
+      "answerKeyStatus": "Cross-checked against the cited 2024 Series A PYQ reference; verify against the official final key before scored use.",
+      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+    },
+    {
+      "id": 2024043,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": "A",
+      "questionNumber": 43,
+      "subject": "Economy",
+      "topic": "Capital markets · Bonds and securities",
+      "question": "In India, which of the following can trade in Corporate Bonds and Government Securities?\n1. Insurance Companies\n2. Pension Funds\n3. Retail Investors\nSelect the correct answer using the code given below:",
+      "options": [
+        "1 and 2 only",
+        "2 and 3 only",
+        "1 and 3 only",
+        "1, 2 and 3"
+      ],
+      "answerIndex": 3,
+      "explanation": "All three can participate: insurers and pension funds are institutional investors, while retail investors can access G-Secs through RBI Retail Direct and corporate bonds through exchange platforms.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
+      "answerKeyStatus": "Cross-checked against the cited 2024 Series A PYQ reference; verify against the official final key before scored use.",
+      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+    },
+    {
+      "id": 2024044,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": "A",
+      "questionNumber": 44,
+      "subject": "Economy",
+      "topic": "Financial instruments · ETFs and swaps",
+      "question": "Consider the following:\n1. Exchange-Traded Funds (ETF)\n2. Motor vehicles\n3. Currency swap\nWhich of the above are considered financial instruments?",
+      "options": [
+        "1 only",
+        "2 and 3 only",
+        "1, 2 and 3",
+        "1 and 3 only"
+      ],
+      "answerIndex": 3,
+      "explanation": "ETF units and currency swaps are financial instruments; a motor vehicle is a physical asset rather than a financial claim or contract.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
+      "answerKeyStatus": "Cross-checked against the cited 2024 Series A PYQ reference; verify against the official final key before scored use.",
+      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+    },
+    {
+      "id": 2024045,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": "A",
+      "questionNumber": 45,
+      "subject": "Economy",
+      "topic": "National income · Economic sectors",
+      "question": "With reference to the sectors of the Indian economy, consider the following pairs:\n1. Storage of agricultural produce — Secondary\n2. Dairy farm — Primary\n3. Mineral exploration — Tertiary\n4. Weaving cloth — Secondary\nHow many of the pairs given above are correctly matched?",
+      "options": [
+        "Only one",
+        "Only two",
+        "Only three",
+        "All four"
+      ],
+      "answerIndex": 1,
+      "explanation": "Only pairs 2 and 4 are correct. Dairy farming is primary and weaving is secondary; storage is a service activity and mineral exploration is primary.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
+      "answerKeyStatus": "Cross-checked against the cited 2024 Series A PYQ reference; verify against the official final key before scored use.",
+      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+    },
+    {
+      "id": 2024046,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": "A",
+      "questionNumber": 46,
+      "subject": "Science & Technology",
+      "topic": "Energy · Sustainable aviation fuel",
+      "question": "Consider the following materials:\n1. Agricultural residues\n2. Corn grain\n3. Wastewater treatment sludge\n4. Wood mill waste\nWhich of the above can be used as feedstock for producing Sustainable Aviation Fuel?",
+      "options": [
+        "1 and 2 only",
+        "3 and 4 only",
+        "1, 2, 3 and 4",
+        "1, 3 and 4 only"
+      ],
+      "answerIndex": 2,
+      "explanation": "All four can be feedstocks for sustainable aviation fuel, including crop residues, corn, wastewater sludge and wood-mill waste.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
+      "answerKeyStatus": "Cross-checked against the cited 2024 Series A PYQ reference; verify against the official final key before scored use.",
+      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+    },
+    {
+      "id": 2024047,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": "A",
+      "questionNumber": 47,
+      "subject": "Economy",
+      "topic": "Capital formation · Fixed and working capital",
+      "question": "With reference to physical capital in the Indian economy, consider the following pairs:\n1. Farmer's plough — Working capital\n2. Computer — Fixed capital\n3. Yarn used by the weaver — Fixed capital\n4. Petrol — Working capital\nHow many of the above pairs are correctly matched?",
+      "options": [
+        "Only one",
+        "Only two",
+        "Only three",
+        "All four"
+      ],
+      "answerIndex": 1,
+      "explanation": "Pairs 2 and 4 are correct. A computer is durable fixed capital; petrol is consumed in production and is working capital. A plough is fixed capital and yarn is working capital.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
+      "answerKeyStatus": "Cross-checked against the cited 2024 Series A PYQ reference; verify against the official final key before scored use.",
+      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+    },
+    {
+      "id": 2024048,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": "A",
+      "questionNumber": 48,
+      "subject": "Science & Technology",
+      "topic": "Emerging technology · Metaverse",
+      "question": "Which one of the following terms best denotes an interoperable network of 3D virtual worlds accessible simultaneously by millions of users who can exercise property rights over virtual items?",
+      "options": [
+        "Big data analytics",
+        "Cryptography",
+        "Metaverse",
+        "Virtual matrix"
+      ],
+      "answerIndex": 2,
+      "explanation": "The description corresponds to the metaverse: interoperable, persistent 3D virtual worlds supporting simultaneous users and digital objects.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
+      "answerKeyStatus": "Cross-checked against the cited 2024 Series A PYQ reference; verify against the official final key before scored use.",
+      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+    },
+    {
+      "id": 2024049,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": "A",
+      "questionNumber": 49,
+      "subject": "Economy",
+      "topic": "Banking · Foreign bank subsidiaries",
+      "question": "With reference to the rules imposed by the Reserve Bank of India while treating foreign banks, consider the following statements:\n1. There is no minimum capital requirement for wholly owned banking subsidiaries in India.\n2. For wholly owned banking subsidiaries in India, at least 50% of board members should be Indian nationals.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answerIndex": 3,
+      "explanation": "Neither statement is correct under the framework applicable at the time: a wholly owned subsidiary had a minimum paid-up capital requirement, and the board-composition rule was not stated as in statement 2.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
+      "answerKeyStatus": "Cross-checked against the cited 2024 Series A PYQ reference; verify against the official final key before scored use.",
+      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+    },
+    {
+      "id": 2024050,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": "A",
+      "questionNumber": 50,
+      "subject": "Governance",
+      "topic": "Corporate governance · CSR",
+      "question": "With reference to Corporate Social Responsibility (CSR) rules in India, consider the following statements:\n1. CSR rules exclude expenditure that directly benefits the company or its employees.\n2. CSR rules do not specify minimum spending on CSR activities.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answerIndex": 0,
+      "explanation": "Statement 1 is correct. The Companies Act framework specifies a CSR spending floor of 2% of average net profits over the preceding three financial years, so statement 2 is incorrect.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
+      "answerKeyStatus": "Cross-checked against the cited 2024 Series A PYQ reference; verify against the official final key before scored use.",
+      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+    },
+    {
+      "id": 2024051,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": "A",
+      "questionNumber": 51,
+      "subject": "Economy",
+      "topic": "Public finance · US Treasury bonds",
+      "question": "Consider the following statements:\nStatement-I: If the United States were to default on its debt, holders of US Treasury Bonds will not be able to exercise their claims to receive payment.\nStatement-II: US government debt is not backed by hard assets, but only by the faith of the Government.\nWhich one of the following is correct?",
+      "options": [
+        "Both statements are correct and Statement-II explains Statement-I",
+        "Both statements are correct, but Statement-II does not explain Statement-I",
+        "Statement-I is correct, but Statement-II is incorrect",
+        "Statement-I is incorrect, but Statement-II is correct"
+      ],
+      "answerIndex": 0,
+      "explanation": "The cited UPSC Series A answer key accepts both statements and the explanatory relationship; Treasury securities are backed by the full faith and credit of the US government, not specific collateral.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
+      "answerKeyStatus": "Cross-checked against the cited 2024 Series A PYQ reference; verify against the official final key before scored use.",
+      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+    }
+  ]
+}
