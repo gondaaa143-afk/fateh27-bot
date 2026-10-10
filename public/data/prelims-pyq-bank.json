@@ -422,28 +422,6 @@
       "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
     },
     {
-      "id": 2024020,
-      "year": 2024,
-      "paper": "GS Paper I",
-      "series": "A",
-      "questionNumber": 20,
-      "subject": "Economy",
-      "topic": "Money market · CBLO",
-      "question": "In the Indian economy, Collateral Borrowing and Lending Obligations (CBLO) are instruments of which market?",
-      "options": [
-        "Bond market",
-        "Forex market",
-        "Money market",
-        "Stock market"
-      ],
-      "answerIndex": 2,
-      "explanation": "CBLO was a short-term collateralised borrowing and lending instrument and belongs to the money market.",
-      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
-      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
-      "answerKeyStatus": "Cross-checked against the cited 2024 Series A PYQ reference; verify against the official final key before scored use.",
-      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
-    },
-    {
       "id": 2024024,
       "year": 2024,
       "paper": "GS Paper I",
@@ -796,6 +774,28 @@
       "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
     },
     {
+      "id": 2024040,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": "A",
+      "questionNumber": 40,
+      "subject": "Economy",
+      "topic": "Money market · CBLO",
+      "question": "In the Indian economy, Collateral Borrowing and Lending Obligations (CBLO) are instruments of which market?",
+      "options": [
+        "Bond market",
+        "Forex market",
+        "Money market",
+        "Stock market"
+      ],
+      "answerIndex": 2,
+      "explanation": "CBLO was a short-term collateralised borrowing and lending instrument and belongs to the money market.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
+      "answerKeyStatus": "Cross-checked against the cited 2024 Series A PYQ reference; verify against the official final key before scored use.",
+      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+    },
+    {
       "id": 2024041,
       "year": 2024,
       "paper": "GS Paper I",
@@ -863,7 +863,7 @@
     }
   ],
   "metadata": {
-    "scope": "2024 Series A batch: Q1–Q19, Q21–Q39, Q40, Q41, Q60 and Q100; dropped Q20 intentionally excluded; not the complete 100-question archive",
+    "scope": "2024 Series A batch: Q1–Q19, Q21–Q41, Q60 and Q100; dropped Q20 intentionally excluded; not the complete 100-question archive",
     "answerKeyPolicy": "Question wording and answers cross-checked against a published Series A PYQ reference; use official UPSC final key for scored tests.",
     "officialPaperArchive": "https://www.upsc.gov.in/examinations/previous-question-papers",
     "lastReviewed": "2026-10-10"
