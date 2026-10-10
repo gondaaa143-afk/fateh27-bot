@@ -1,0 +1,299 @@
+{
+  "version": 1,
+  "exam": "UPSC Civil Services Preliminary Examination",
+  "paper": "General Studies Paper I",
+  "questions": [
+    {
+      "id": 2024001,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": null,
+      "questionNumber": 1,
+      "subject": "Geography",
+      "topic": "Atmosphere · Terrestrial radiation",
+      "question": "Consider the following statements:\nStatement-I: The atmosphere is heated more by incoming solar radiation than by terrestrial radiation.\nStatement-II: Carbon dioxide and other greenhouse gases in the atmosphere are good absorbers of long-wave radiation.\nWhich one of the following is correct in respect of the above statements?",
+      "options": [
+        "Both Statement-I and Statement-II are correct and Statement-II explains Statement-I",
+        "Both Statement-I and Statement-II are correct, but Statement-II does not explain Statement-I",
+        "Statement-I is correct, but Statement-II is incorrect",
+        "Statement-I is incorrect, but Statement-II is correct"
+      ],
+      "answerIndex": 3,
+      "explanation": "Statement-I is incorrect because the atmosphere is heated significantly by long-wave terrestrial radiation emitted by the Earth's surface. Statement-II is correct: greenhouse gases absorb long-wave radiation.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive",
+      "answerKeyStatus": "Answer reported as (d) by the referenced PYQ source; independently verify against the official final answer key before scoring.",
+      "answerKeySourceUrl": "https://upscanswercheck.com/prelims/pyq/2024/gs"
+    },
+    {
+      "id": 2024002,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": "A",
+      "questionNumber": 2,
+      "subject": "Geography",
+      "topic": "Atmosphere · Troposphere",
+      "question": "Consider the following statements:\nStatement-I: Thickness of the troposphere at the equator is much greater as compared to poles.\nStatement-II: At the equator, heat is transported to great heights by strong convectional currents.\nWhich one of the following is correct in respect of the above statements?",
+      "options": [
+        "Both Statement-I and Statement-II are correct and Statement-II explains Statement-I",
+        "Both Statement-I and Statement-II are correct, but Statement-II does not explain Statement-I",
+        "Statement-I is correct, but Statement-II is incorrect",
+        "Statement-I is incorrect, but Statement-II is correct"
+      ],
+      "answerIndex": 0,
+      "explanation": "Both statements are correct, and strong convection over the intensely heated equator explains why the troposphere is thicker there.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
+      "answerKeyStatus": "Answer cross-checked against the cited Series A PYQ reference; verify against the linked official final key before using for scored exams.",
+      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+    },
+    {
+      "id": 2024003,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": "A",
+      "questionNumber": 3,
+      "subject": "Geography",
+      "topic": "Volcanism",
+      "question": "Consider the following:\n1. Pyroclastic debris\n2. Ash and dust\n3. Nitrogen compounds\n4. Sulphur compounds\nHow many of the above are products of volcanic eruptions?",
+      "options": [
+        "Only one",
+        "Only two",
+        "Only three",
+        "All four"
+      ],
+      "answerIndex": 3,
+      "explanation": "Volcanic eruptions release solid materials such as pyroclastic debris, ash and dust, as well as gases that include nitrogen and sulphur compounds.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
+      "answerKeyStatus": "Answer cross-checked against the cited Series A PYQ reference; verify against the linked official final key before using for scored exams.",
+      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+    },
+    {
+      "id": 2024004,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": "A",
+      "questionNumber": 4,
+      "subject": "Geography",
+      "topic": "Isotherms and ocean currents",
+      "question": "Which of the following is/are correct inference/inferences from isothermal maps in the month of January?\n1. The isotherms deviate to the north over the ocean and to the south over the continent.\n2. The presence of cold ocean currents, Gulf Stream and North Atlantic Drift make the North Atlantic Ocean colder and the isotherms bend towards the north.\nSelect the answer using the code given below:",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answerIndex": 0,
+      "explanation": "In northern winter, oceans are relatively warmer than land, so isotherms bend north over oceans and south over continents. The Gulf Stream and North Atlantic Drift are warm currents, not cold.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
+      "answerKeyStatus": "Answer cross-checked against the cited Series A PYQ reference; verify against the linked official final key before using for scored exams.",
+      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+    },
+    {
+      "id": 2024005,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": "A",
+      "questionNumber": 5,
+      "subject": "Geography",
+      "topic": "Agriculture · Cocoa",
+      "question": "Which of the following countries are well known as the two largest cocoa producers in the world?",
+      "options": [
+        "Algeria and Morocco",
+        "Botswana and Namibia",
+        "Côte d’Ivoire and Ghana",
+        "Madagascar and Mozambique"
+      ],
+      "answerIndex": 2,
+      "explanation": "Côte d’Ivoire and Ghana are the two leading cocoa-producing countries, benefiting from the humid tropical conditions of West Africa.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
+      "answerKeyStatus": "Answer cross-checked against the cited Series A PYQ reference; verify against the linked official final key before using for scored exams.",
+      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+    },
+    {
+      "id": 2024006,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": "A",
+      "questionNumber": 6,
+      "subject": "Geography",
+      "topic": "Indian rivers · Tributaries of Ganga",
+      "question": "With reference to the Himalayan rivers joining the Ganga downstream of Prayagraj from West to East, which one of the following sequences is correct?",
+      "options": [
+        "Ghaghara – Gomati – Gandak – Kosi",
+        "Gomati – Ghaghara – Gandak – Kosi",
+        "Ghaghara – Gomati – Kosi – Gandak",
+        "Gomati – Ghaghara – Kosi – Gandak"
+      ],
+      "answerIndex": 1,
+      "explanation": "Moving eastward from Prayagraj, the sequence is Gomati, Ghaghara, Gandak and Kosi.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
+      "answerKeyStatus": "Answer cross-checked against the cited Series A PYQ reference; verify against the linked official final key before using for scored exams.",
+      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+    },
+    {
+      "id": 2024007,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": "A",
+      "questionNumber": 7,
+      "subject": "Geography",
+      "topic": "Weathering",
+      "question": "Consider the following statements:\nStatement-I: Rainfall is one of the reasons for weathering of rocks.\nStatement-II: Rain water contains carbon dioxide in solution.\nStatement-III: Rain water contains atmospheric oxygen.\nWhich one of the following is correct in respect of the above statements?",
+      "options": [
+        "Both Statement-II and Statement-III are correct and both of them explain Statement-I",
+        "Both Statement-II and Statement-III are correct, but only one of them explains Statement-I",
+        "Only one of the Statements II and III is correct and that explains Statement-I",
+        "Neither Statement-II nor Statement-III is correct"
+      ],
+      "answerIndex": 0,
+      "explanation": "Dissolved carbon dioxide supports carbonation, while dissolved oxygen supports oxidation; both contribute to chemical weathering.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
+      "answerKeyStatus": "Answer cross-checked against the cited Series A PYQ reference; verify against the linked official final key before using for scored exams.",
+      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+    },
+    {
+      "id": 2024008,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": "A",
+      "questionNumber": 8,
+      "subject": "Geography",
+      "topic": "World geography · North Sea",
+      "question": "Consider the following countries:\n1. Finland\n2. Germany\n3. Norway\n4. Russia\nHow many of the above countries have a border with the North Sea?",
+      "options": [
+        "Only one",
+        "Only two",
+        "Only three",
+        "All four"
+      ],
+      "answerIndex": 1,
+      "explanation": "Germany and Norway border the North Sea. Finland and Russia have Baltic or other northern coastlines, not a North Sea coastline.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
+      "answerKeyStatus": "Answer cross-checked against the cited Series A PYQ reference; verify against the linked official final key before using for scored exams.",
+      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+    },
+    {
+      "id": 2024009,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": "A",
+      "questionNumber": 9,
+      "subject": "Geography",
+      "topic": "Waterfalls of India",
+      "question": "Consider the following information:\nWaterfall | Region | River\n1. Dhuandhar | Malwa | Narmada\n2. Hundru | Chota Nagpur | Subarnarekha\n3. Gersoppa | Western Ghats | Netravati\nIn how many of the above rows is the given information correctly matched?",
+      "options": [
+        "Only one",
+        "Only two",
+        "All three",
+        "None"
+      ],
+      "answerIndex": 0,
+      "explanation": "Only Hundru Falls is correctly matched. Dhuandhar is on the Narmada near Jabalpur, not in Malwa; Gersoppa/Jog Falls is on the Sharavati, not the Netravati.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
+      "answerKeyStatus": "Answer cross-checked against the cited Series A PYQ reference; verify against the linked official final key before using for scored exams.",
+      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+    },
+    {
+      "id": 2024010,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": "A",
+      "questionNumber": 10,
+      "subject": "Geography",
+      "topic": "Mountain ranges · Types",
+      "question": "Consider the following information:\nRegion | Name of the mountain range | Type of mountain\n1. Central Asia | Vosges | Fold mountain\n2. Europe | Alps | Block mountain\n3. North America | Appalachians | Fold mountain\n4. South America | Andes | Fold mountain\nIn how many of the above rows is the given information correctly matched?",
+      "options": [
+        "Only one",
+        "Only two",
+        "Only three",
+        "All four"
+      ],
+      "answerIndex": 1,
+      "explanation": "Rows 3 and 4 are correct. The Vosges are in Europe and are block mountains; the Alps are fold mountains, not block mountains.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
+      "answerKeyStatus": "Answer cross-checked against the cited Series A PYQ reference; verify against the linked official final key before using for scored exams.",
+      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+    },
+    {
+      "id": 2024041,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": null,
+      "questionNumber": 41,
+      "subject": "Economy",
+      "topic": "Demography · Total fertility rate",
+      "question": "The total fertility rate in an economy is defined as:",
+      "options": [
+        "The number of children born per 1,000 people in the population in a year",
+        "The number of children born to a couple in their lifetime in a given population",
+        "The birth rate minus the death rate",
+        "The average number of live births a woman would have by the end of her child-bearing age"
+      ],
+      "answerIndex": 3,
+      "explanation": "Total fertility rate (TFR) is the average number of live births a woman would have over her reproductive lifetime if she experienced current age-specific fertility rates. This corresponds to option (d).",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive",
+      "answerKeyStatus": "Answer reported as (d) by the referenced PYQ source; independently verify against the official final answer key before scoring.",
+      "answerKeySourceUrl": "https://upscanswercheck.com/prelims/pyq/2024/gs"
+    },
+    {
+      "id": 2024060,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": null,
+      "questionNumber": 60,
+      "subject": "Art & Culture",
+      "topic": "UNESCO Intangible Cultural Heritage",
+      "question": "Which one of the following was the latest inclusion in the Intangible Cultural Heritage List of UNESCO?",
+      "options": [
+        "Chhau dance",
+        "Durga puja",
+        "Garba dance",
+        "Kumbh mela"
+      ],
+      "answerIndex": 2,
+      "explanation": "Among these options, Garba was inscribed in 2023, later than Chhau dance (2010), Kumbh Mela (2017) and Durga Puja in Kolkata (2021).",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive",
+      "answerKeyStatus": "Answer reported as (c) by the referenced PYQ source; independently verify against the official final answer key before scoring.",
+      "answerKeySourceUrl": "https://upscanswercheck.com/prelims/pyq/2024/gs"
+    },
+    {
+      "id": 2024100,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": null,
+      "questionNumber": 100,
+      "subject": "Government Schemes",
+      "topic": "PM-SYM",
+      "question": "With reference to the Pradhan Mantri Shram Yogi Maan-dhan (PM-SYM) Yojana, consider the following statements:\n1. The entry age group for enrolment in the scheme is 21 to 40 years.\n2. Age-specific contribution shall be made by the beneficiary.\n3. Each subscriber under the scheme shall receive a minimum pension of ₹3,000 per month after attaining the age of 60 years.\n4. Family pension is applicable to the spouse and unmarried daughters.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1, 3 and 4",
+        "2 and 3 only",
+        "2 only",
+        "1, 2 and 4"
+      ],
+      "answerIndex": 1,
+      "explanation": "Statements 2 and 3 are correct. PM-SYM is a voluntary contributory pension scheme with a minimum assured pension of ₹3,000 per month from age 60. The scheme's entry age is 18–40 years, so statement 1 is incorrect.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive",
+      "answerKeyStatus": "Answer reported as (b) by the referenced PYQ source; independently verify against the official final answer key before scoring.",
+      "answerKeySourceUrl": "https://upscanswercheck.com/prelims/pyq/2024/gs"
+    }
+  ],
+  "metadata": {
+    "scope": "Initial 2024 Series A batch: Q1–Q10 plus Q41, Q60 and Q100; not the complete 100-question archive",
+    "answerKeyPolicy": "Question wording and answers cross-checked against a published Series A PYQ reference; use official UPSC final key for scored tests.",
+    "officialPaperArchive": "https://www.upsc.gov.in/examinations/previous-question-papers",
+    "lastReviewed": "2026-10-10"
+  }
+}

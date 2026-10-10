@@ -368,6 +368,89 @@ function cleanText(value) {
 
 
 /* =========================================================
+   PRACTICE LAB — Telegram-verified learner state
+   Only verified Telegram Mini App sessions can use cloud sync.
+   Anonymous browser users keep local-only progress.
+   ========================================================= */
+
+function normalizePracticeState(input = {}) {
+  const ids = (value) => Array.isArray(value)
+    ? [...new Set(value.map(Number).filter((n) => Number.isInteger(n) && n > 0 && n <= 100000))].slice(0, 5000)
+    : [];
+  const rawAnswers = input.answers && typeof input.answers === "object" && !Array.isArray(input.answers)
+    ? input.answers : {};
+  const answers = {};
+  for (const [key, value] of Object.entries(rawAnswers).slice(0, 5000)) {
+    const id = Number(key);
+    const answer = Number(value);
+    if (Number.isInteger(id) && id > 0 && id <= 100000 && Number.isInteger(answer) && answer >= 0 && answer <= 5) {
+      answers[String(id)] = answer;
+    }
+  }
+  return {
+    answers,
+    bookmarks: ids(input.bookmarks),
+    mistakes: ids(input.mistakes),
+    marked: ids(input.marked),
+    attempted: ids(input.attempted),
+    updatedAt: new Date().toISOString()
+  };
+}
+
+app.get("/api/practice-lab/state", async (req, res) => {
+  const telegramUserId = getTelegramUserId(req);
+  if (!telegramUserId) {
+    return res.status(401).json({ error: "Open Practice Lab inside the verified FATEH27 Telegram Mini App to sync progress. Browser-only practice remains available." });
+  }
+  try {
+    let doc = null;
+    try {
+      doc = await firestoreDocument("practiceLabUsers/" + encodeURIComponent(telegramUserId));
+    } catch (error) {
+      if (!String(error?.message || "").includes("404")) throw error;
+    }
+    const raw = doc?.fields?.stateJson?.stringValue || "";
+    let state = {};
+    if (raw) {
+      try { state = JSON.parse(raw); } catch { state = {}; }
+    }
+    return res.json({ success: true, state: normalizePracticeState(state), updatedAt: doc?.fields?.updatedAt?.timestampValue || null });
+  } catch (error) {
+    console.error("/api/practice-lab/state GET error:", error);
+    return res.status(500).json({ error: "Could not load Practice Lab progress." });
+  }
+});
+
+app.put("/api/practice-lab/state", rateLimit("practice-lab-save", 60), async (req, res) => {
+  const telegramUserId = getTelegramUserId(req);
+  if (!telegramUserId) {
+    return res.status(401).json({ error: "A verified FATEH27 Telegram Mini App session is required for cloud sync." });
+  }
+  try {
+    const state = normalizePracticeState(req.body?.state || {});
+    const now = new Date().toISOString();
+    const stateJson = JSON.stringify(state);
+    if (stateJson.length > 180000) {
+      return res.status(413).json({ error: "Practice Lab progress is too large to save." });
+    }
+    await firestoreDocument("practiceLabUsers/" + encodeURIComponent(telegramUserId), {
+      method: "PATCH",
+      body: {
+        fields: {
+          telegramUserId: { stringValue: telegramUserId },
+          stateJson: { stringValue: stateJson },
+          updatedAt: { timestampValue: now }
+        }
+      }
+    });
+    return res.json({ success: true, savedAt: now });
+  } catch (error) {
+    console.error("/api/practice-lab/state PUT error:", error);
+    return res.status(500).json({ error: "Could not save Practice Lab progress." });
+  }
+});
+
+/* =========================================================
    HEALTH CHECK
    ========================================================= */
 
