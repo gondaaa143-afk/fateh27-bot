@@ -4,14 +4,36 @@
   "paper": "General Studies Paper I",
   "questions": [
     {
-      "id": 202401,
+      "id": 2024001,
       "year": 2024,
       "paper": "GS Paper I",
-      "series": "A",
+      "series": null,
       "questionNumber": 1,
+      "subject": "Economy",
+      "topic": "Demography · Total fertility rate",
+      "question": "The total fertility rate in an economy is defined as:",
+      "options": [
+        "The number of children born per 1,000 people in the population in a year",
+        "The number of children born to a couple in their lifetime in a given population",
+        "The birth rate minus the death rate",
+        "The average number of live births a woman would have by the end of her child-bearing age"
+      ],
+      "answerIndex": 3,
+      "explanation": "Total fertility rate (TFR) is the average number of live births a woman would have over her reproductive lifetime if she experienced current age-specific fertility rates. This corresponds to option (d).",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive",
+      "answerKeyStatus": "Answer reported as (d) by the referenced PYQ source; independently verify against the official final answer key before scoring.",
+      "answerKeySourceUrl": "https://upscanswercheck.com/prelims/pyq/2024/gs"
+    },
+    {
+      "id": 2024031,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": null,
+      "questionNumber": 31,
       "subject": "Geography",
-      "topic": "Atmosphere and radiation",
-      "question": "Consider the following statements:\nStatement-I: The atmosphere is heated more by incoming solar radiation than by terrestrial radiation.\nStatement-II: Carbon dioxide and other greenhouse gases in the atmosphere are good absorbers of long-wave radiation.\nWhich one of the following is correct?",
+      "topic": "Atmosphere · Terrestrial radiation",
+      "question": "Consider the following statements:\nStatement-I: The atmosphere is heated more by incoming solar radiation than by terrestrial radiation.\nStatement-II: Carbon dioxide and other greenhouse gases in the atmosphere are good absorbers of long-wave radiation.\nWhich one of the following is correct in respect of the above statements?",
       "options": [
         "Both Statement-I and Statement-II are correct and Statement-II explains Statement-I",
         "Both Statement-I and Statement-II are correct, but Statement-II does not explain Statement-I",
@@ -19,21 +41,21 @@
         "Statement-I is incorrect, but Statement-II is correct"
       ],
       "answerIndex": 3,
-      "explanation": "The atmosphere is heated substantially by terrestrial long-wave radiation, so Statement-I is incorrect. Greenhouse gases absorb long-wave radiation, making Statement-II correct.",
+      "explanation": "Statement-I is incorrect because the atmosphere is heated significantly by long-wave terrestrial radiation emitted by the Earth's surface. Statement-II is correct: greenhouse gases absorb long-wave radiation.",
       "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
-      "sourceLabel": "UPSC official question-paper archive",
-      "answerKeyStatus": "Cross-checked against a secondary answer-key reference; official key status not asserted.",
+      "sourceLabel": "UPSC official previous-question-paper archive",
+      "answerKeyStatus": "Answer reported as (d) by the referenced PYQ source; independently verify against the official final answer key before scoring.",
       "answerKeySourceUrl": "https://upscanswercheck.com/prelims/pyq/2024/gs"
     },
     {
-      "id": 2024100,
+      "id": 2024060,
       "year": 2024,
       "paper": "GS Paper I",
-      "series": "A",
-      "questionNumber": 100,
+      "series": null,
+      "questionNumber": 60,
       "subject": "Government Schemes",
       "topic": "PM-SYM",
-      "question": "With reference to the Pradhan Mantri Shram Yogi Maan-dhan (PM-SYM) Yojana, consider the following statements:\n1. The entry age group for enrolment is 21 to 40 years.\n2. Age-specific contribution shall be made by the beneficiary.\n3. Each subscriber shall receive a minimum pension of ₹3,000 per month after attaining 60 years of age.\n4. Family pension is applicable to the spouse and unmarried daughters.\nWhich of the statements given above are correct?",
+      "question": "With reference to the Pradhan Mantri Shram Yogi Maan-dhan (PM-SYM) Yojana, consider the following statements:\n1. The entry age group for enrolment in the scheme is 21 to 40 years.\n2. Age-specific contribution shall be made by the beneficiary.\n3. Each subscriber under the scheme shall receive a minimum pension of ₹3,000 per month after attaining the age of 60 years.\n4. Family pension is applicable to the spouse and unmarried daughters.\nWhich of the statements given above is/are correct?",
       "options": [
         "1, 3 and 4",
         "2 and 3 only",
@@ -41,55 +63,39 @@
         "1, 2 and 4"
       ],
       "answerIndex": 1,
-      "explanation": "Statements 2 and 3 are correct: PM-SYM is contributory and provides an assured minimum pension of ₹3,000 per month from age 60. The entry-age range and family-pension wording in statements 1 and 4 do not match the scheme conditions.",
+      "explanation": "Statements 2 and 3 are correct. PM-SYM is a voluntary contributory pension scheme with a minimum assured pension of ₹3,000 per month from age 60. The scheme's entry age is 18–40 years, so statement 1 is incorrect.",
       "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
-      "sourceLabel": "UPSC official question-paper archive",
-      "answerKeyStatus": "Cross-checked against a secondary answer-key reference; official key status not asserted.",
-      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+      "sourceLabel": "UPSC official previous-question-paper archive",
+      "answerKeyStatus": "Answer reported as (b) by the referenced PYQ source; independently verify against the official final answer key before scoring.",
+      "answerKeySourceUrl": "https://upscanswercheck.com/prelims/pyq/2024/gs"
     },
     {
-      "id": 2024025,
+      "id": 2024090,
       "year": 2024,
       "paper": "GS Paper I",
-      "series": "A",
-      "questionNumber": null,
+      "series": null,
+      "questionNumber": 90,
       "subject": "Art & Culture",
       "topic": "UNESCO Intangible Cultural Heritage",
-      "question": "Which of the following was the latest inclusion in UNESCO’s Intangible Cultural Heritage List at the time of the 2024 Civil Services Preliminary Examination?",
+      "question": "Which one of the following was the latest inclusion in the Intangible Cultural Heritage List of UNESCO?",
       "options": [
         "Chhau dance",
-        "Durga Puja",
+        "Durga puja",
         "Garba dance",
-        "Kumbh Mela"
+        "Kumbh mela"
       ],
       "answerIndex": 2,
-      "explanation": "Garba of Gujarat was inscribed on UNESCO’s Representative List of the Intangible Cultural Heritage of Humanity in 2023. Kumbh Mela was inscribed later, in 2025, so it was not the answer at the time of the 2024 examination.",
+      "explanation": "Among these options, Garba was inscribed in 2023, later than Chhau dance (2010), Kumbh Mela (2017) and Durga Puja in Kolkata (2021).",
       "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
-      "sourceLabel": "UPSC official question-paper archive",
-      "answerKeyStatus": "Question wording and options cross-checked against a secondary PYQ compilation; official key status not asserted.",
-      "answerKeySourceUrl": "https://upscyatra.in/prelims-pyq/year/2024"
-    },
-    {
-      "id": 202301,
-      "year": 2023,
-      "paper": "GS Paper I",
-      "series": "A",
-      "questionNumber": 1,
-      "subject": "Geography",
-      "topic": "Indian lakes and rivers",
-      "question": "Consider the following statements:\n1. Jhelum River passes through Wular Lake.\n2. Krishna River directly feeds Kolleru Lake.\n3. Meandering of Gandak River formed Kanwar Lake.\nHow many of the statements given above are correct?",
-      "options": [
-        "Only one",
-        "Only two",
-        "All three",
-        "None"
-      ],
-      "answerIndex": 0,
-      "explanation": "Only statement 1 is correct. The Jhelum flows through Wular Lake. The Krishna does not directly feed Kolleru Lake, and Kanwar Lake is an oxbow lake associated with the Burhi Gandak, not the Gandak as stated.",
-      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers/archives",
-      "sourceLabel": "UPSC official question-paper archive",
-      "answerKeyStatus": "Cross-checked against a secondary answer-key reference; official key status not asserted.",
-      "answerKeySourceUrl": "https://upscanswercheck.com/prelims/pyq/2023/gs"
+      "sourceLabel": "UPSC official previous-question-paper archive",
+      "answerKeyStatus": "Answer reported as (c) by the referenced PYQ source; independently verify against the official final answer key before scoring.",
+      "answerKeySourceUrl": "https://upscanswercheck.com/prelims/pyq/2024/gs"
     }
-  ]
+  ],
+  "metadata": {
+    "scope": "Initial verified-source batch, not a complete PYQ archive",
+    "answerKeyPolicy": "Secondary answer-key references shown for traceability; official final-key cross-check pending",
+    "officialPaperArchive": "https://www.upsc.gov.in/examinations/previous-question-papers",
+    "lastReviewed": "2026-10-10"
+  }
 }
