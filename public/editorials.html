@@ -67,7 +67,15 @@ body{padding-bottom:96px}
     <button class="filter" onclick="setFilter('GS4',this)">GS-4 <b id="gs4Count">0</b></button>
   </div>
   <div class="heading"><h1 id="headingTitle">UPSC Current Affairs</h1><p id="headingSub">The Hindu + PIB • Important Articles • Prelims + Mains</p></div>
-  <div id="content"><div class="empty">Loading editorials…</div></div>
+  <div id="content"><div class="empty">Loading current affairs…</div></div>
+  </div>
+  <section id="pdfView" style="display:none;margin-top:22px;padding:17px;background:var(--panel);border:1px solid var(--line);border-radius:18px">
+    <div style="color:var(--gold);font-size:10px;font-weight:900;letter-spacing:1.5px">THE HINDU · PDF LIBRARY</div>
+    <h2 style="font-size:18px;margin:8px 0">Editorials & Uploaded Current Affairs PDFs</h2>
+    <p style="font-size:12px;color:var(--muted);line-height:1.6;margin:0 0 12px">The Hindu / editorial PDFs sent to the FATEH27 bot appear here.</p>
+    <div id="hinduPdfStatus" style="font-size:12px;color:var(--muted)">Loading PDFs…</div>
+    <div id="hinduPdfList"></div>
+  </section>
 </div>
 <div class="bottom">
   <button class="nav" onclick="location.href='index.html'">⌂<br>HOME</button>
