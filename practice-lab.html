@@ -9,6 +9,94 @@
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,system-ui,-apple-system,"Segoe UI",sans-serif}button,input,select{font:inherit}button{cursor:pointer}.shell{max-width:1160px;margin:auto;padding:18px 18px 48px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}.brand{font-weight:850;letter-spacing:-.5px}.brand small{display:block;color:var(--muted);font-weight:500;font-size:12px;letter-spacing:.2px}.btn{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:10px 13px;color:var(--ink);font-weight:700}.btn.primary{background:#111;color:#fff;border-color:#111}.btn.gold{background:var(--goldbg);border-color:#e7d6a9;color:#654b14}.hero{background:linear-gradient(125deg,#121212,#2b2a27);color:#fff;border-radius:24px;padding:24px;margin-bottom:16px;box-shadow:var(--shadow)}.eyebrow{text-transform:uppercase;letter-spacing:1.8px;color:#dfc477;font-size:11px;font-weight:800}.hero h1{font-size:clamp(26px,4vw,38px);line-height:1.12;margin:8px 0}.hero p{margin:0;color:#d0d0d0;max-width:650px}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:22px}.stat{background:#ffffff10;border:1px solid #ffffff20;border-radius:15px;padding:12px}.stat span{display:block;color:#c4c4c4;font-size:12px}.stat b{font-size:24px}.tabs{display:flex;gap:8px;overflow:auto;padding:3px 0 13px}.tab{white-space:nowrap;border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:10px 15px;font-weight:750;color:var(--muted)}.tab.active{background:#111;color:#fff;border-color:#111}.panel{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:var(--shadow);margin-bottom:14px}.row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.muted{color:var(--muted)}.filters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:14px}.field label{display:block;font-size:12px;font-weight:750;color:var(--muted);margin-bottom:5px}.field select,.field input{width:100%;border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:11px;border-radius:11px}.layout{display:grid;grid-template-columns:minmax(0,1fr) 285px;gap:14px;align-items:start}.qtop{display:flex;align-items:center;justify-content:space-between;gap:10px;color:var(--muted);font-size:13px}.qtext{font-size:clamp(18px,2.4vw,22px);font-weight:760;line-height:1.45;margin:18px 0}.options{display:grid;gap:9px}.option{display:flex;align-items:flex-start;gap:10px;text-align:left;width:100%;padding:13px;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:13px}.option .letter{flex:0 0 28px;height:28px;display:grid;place-items:center;border:1px solid var(--line);border-radius:9px;font-size:12px;font-weight:800}.option.selected{border-color:var(--gold);background:var(--goldbg)}.option.correct{border-color:#75bd96;background:#eaf7ef}.option.wrong{border-color:#e1a19b;background:#fff0ef}.explain{border:1px solid var(--line);border-radius:14px;padding:14px;margin-top:14px;background:color-mix(in srgb,var(--panel) 90%,var(--bg))}.explain h3{margin:0 0 5px;font-size:14px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:17px}.side h3{margin:0 0 5px}.timer{font-size:28px;font-weight:850;font-variant-numeric:tabular-nums}.palette{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;margin:13px 0}.num{border:1px solid var(--line);border-radius:9px;aspect-ratio:1;background:var(--panel);color:var(--ink);font-weight:800}.num.current{outline:2px solid var(--gold);outline-offset:1px}.num.answered{background:#e8f6ee;border-color:#a7d7ba;color:#176b41}.num.marked{background:#fff2d9;border-color:#e7c779;color:#795719}.num.answered.marked{background:#e9efff;border-color:#b2c4f1;color:#244f9c}.legend{display:flex;flex-wrap:wrap;gap:8px;font-size:11px;color:var(--muted)}.dot{display:inline-block;width:9px;height:9px;border-radius:3px;background:#e8f6ee;border:1px solid #a7d7ba;margin-right:4px}.list{display:grid;gap:9px}.item{border:1px solid var(--line);border-radius:14px;padding:14px}.item h3{margin:0 0 6px;font-size:15px}.pill{display:inline-block;border-radius:999px;padding:3px 8px;font-size:11px;font-weight:800;background:#f0f1f3;color:#505763;margin-right:4px}.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.metric{border:1px solid var(--line);border-radius:15px;padding:14px}.metric b{display:block;font-size:25px}.bar{height:8px;background:#eceef1;border-radius:99px;overflow:hidden;margin:8px 0}.bar i{display:block;height:100%;background:var(--gold);border-radius:99px}.notice{background:#fff7e4;border:1px solid #ead8a7;color:#614b1d;padding:11px 13px;border-radius:12px;font-size:12px;margin-top:12px}.empty{text-align:center;padding:35px 12px;color:var(--muted)}.hidden{display:none!important}body.dark{--bg:#0f1115;--panel:#181b21;--ink:#f2f3f5;--muted:#a4aab5;--line:#303640;--goldbg:#30291a;--shadow:0 12px 34px #0002}body.dark .option.correct{background:#153325}body.dark .option.wrong{background:#351e20}body.dark .num.answered{background:#153325}body.dark .num.marked{background:#30291a}body.dark .num.answered.marked{background:#1b2843}body.dark .notice{background:#30291a;color:#ead7a4;border-color:#5e4c26}body.dark .pill{background:#292e37;color:#d9dce2}
 @media(max-width:820px){.layout{grid-template-columns:1fr}.side{order:-1}.side .palette{grid-template-columns:repeat(10,minmax(0,1fr))}.filters{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:520px){.shell{padding:12px 11px 30px}.hero{padding:19px;border-radius:19px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.panel{padding:14px;border-radius:17px}.filters{grid-template-columns:1fr 1fr}.metrics{grid-template-columns:1fr}.side .palette{grid-template-columns:repeat(8,minmax(0,1fr))}.top .btn{padding:8px 10px}}
+
+/* Responsive fit: preserve all controls and features across narrow, tablet, desktop and landscape screens. */
+html{width:100%;overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth}
+body{width:100%;min-width:0;overflow-x:hidden}
+.shell,.panel,.hero,.layout,.layout>*{min-width:0;max-width:100%}
+button,a,input,select{max-width:100%;touch-action:manipulation}
+button,.btn,.tab{min-height:42px}
+.qtext,.option,.explain,.item,.notice{overflow-wrap:anywhere;word-break:normal}
+.options,.filters,.stats,.metrics,.layout,.field{min-width:0}
+.field select,.field input{min-width:0}
+.tabs{max-width:100%;overscroll-behavior-x:contain;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+.actions>*{flex:0 1 auto}
+.palette{min-width:0}
+.num{min-width:0;min-height:34px}
+@media(min-width:1100px){
+  .shell{padding-left:24px;padding-right:24px}
+  .layout{grid-template-columns:minmax(0,1fr) 300px}
+}
+@media(max-width:900px){
+  .shell{padding:14px 14px 32px}
+  .layout{grid-template-columns:minmax(0,1fr)}
+  .side{order:0}
+  .side .palette{grid-template-columns:repeat(auto-fit,minmax(34px,1fr))}
+  .filters{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:600px){
+  .shell{padding:10px 10px 24px}
+  .top{align-items:flex-start;gap:8px;margin-bottom:12px}
+  .brand{font-size:14px}
+  .brand small{font-size:11px;line-height:1.35}
+  .top>div:last-child{gap:6px!important}
+  .top .btn{font-size:12px;padding:8px 9px;min-height:38px;white-space:nowrap}
+  .hero{padding:17px 15px;border-radius:17px}
+  .hero h1{font-size:clamp(23px,7vw,31px);overflow-wrap:anywhere}
+  .hero p{font-size:13px}
+  .stats{gap:8px;margin-top:16px}
+  .stat{padding:10px;border-radius:12px}
+  .stat span{font-size:11px;line-height:1.35}
+  .stat b{font-size:21px}
+  .tabs{gap:6px;padding-bottom:10px}
+  .tab{padding:9px 12px;font-size:12px;min-height:40px}
+  .panel{padding:12px;border-radius:15px;margin-bottom:10px}
+  .filters{grid-template-columns:minmax(0,1fr);gap:9px}
+  .field select,.field input{padding:11px;font-size:16px}
+  .row{gap:9px}
+  .row h2{font-size:18px}
+  #startBtn{width:100%}
+  #filterCount{font-size:12px}
+  .qtop{align-items:flex-start;flex-wrap:wrap}
+  .qtext{font-size:18px;line-height:1.45;margin:15px 0}
+  .option{padding:11px;gap:8px;font-size:14px}
+  .option .letter{flex-basis:26px;height:26px}
+  .actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+  .actions>*{width:100%;min-width:0;padding:10px 8px;font-size:12px;white-space:normal}
+  .actions .primary,.actions .gold{grid-column:span 2}
+  .side .palette{grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+  .num{min-height:36px;font-size:12px}
+  .timer{font-size:25px}
+  .metrics{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .metric{padding:11px}
+  .metric b{font-size:21px}
+  .item{padding:11px}
+  .explain{padding:11px}
+  footer{overflow-wrap:anywhere}
+}
+@media(max-width:360px){
+  .shell{padding-left:7px;padding-right:7px}
+  .top .btn{padding:7px;font-size:11px}
+  .brand small{max-width:145px}
+  .hero{padding:14px 12px}
+  .stat{padding:8px}
+  .stat b{font-size:19px}
+  .panel{padding:10px}
+  .actions{grid-template-columns:minmax(0,1fr)}
+  .actions .primary,.actions .gold{grid-column:auto}
+  .side .palette{grid-template-columns:repeat(5,minmax(0,1fr))}
+  .metrics{grid-template-columns:minmax(0,1fr)}
+}
+@media(orientation:landscape) and (max-height:520px) and (max-width:950px){
+  .hero{padding:14px 18px}
+  .hero h1{font-size:25px}
+  .stats{margin-top:12px}
+  .layout{grid-template-columns:minmax(0,1fr) minmax(210px,34%)}
+  .side{order:0}
+  .side .palette{grid-template-columns:repeat(6,minmax(0,1fr))}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
 </style>
 </head>
 <body>
@@ -19,7 +107,7 @@
 <section id="practiceView">
 <div class="panel"><div class="row"><div><h2 style="margin:0">Build a practice set</h2><div class="muted" style="font-size:13px">Choose a subject and attempt questions at your pace.</div></div><button class="btn gold" id="resetBtn">Reset session</button></div><div class="filters"><div class="field"><label for="year">Year</label><select id="year"><option value="All">All years</option><option value="2024">2024</option></select></div><div class="field"><label for="subject">Subject</label><select id="subject"><option value="All">All subjects</option><option>Polity</option><option>Economy</option><option>Environment</option><option>Geography</option><option>Science & Technology</option><option>History</option><option>Art & Culture</option><option>Government Schemes</option></select></div><div class="field"><label for="mode">Mode</label><select id="mode"><option value="practice">Practice · instant feedback</option><option value="exam">Exam · reveal on submit</option></select></div><div class="field"><label for="duration">Timer</label><select id="duration"><option value="0">No timer</option><option value="10">10 minutes</option><option value="20">20 minutes</option></select></div><div class="field"><label for="search">Find a question</label><input id="search" placeholder="Search topic or keyword"></div></div><div class="row" style="margin-top:13px"><span class="muted" id="filterCount">Loading question bank…</span><button class="btn primary" id="startBtn">Start / Apply filters</button></div></div>
 <div class="layout"><main class="panel" id="questionPanel"><div class="qtop"><span id="qMeta">Loading verified-source question bank…</span><button class="btn" id="bookmarkBtn" type="button">☆ Bookmark</button></div><div class="qtext" id="qText"></div><div class="options" id="options"></div><div id="explanation" class="explain hidden"></div><div class="actions"><button class="btn" id="prevBtn">← Previous</button><button class="btn" id="markBtn">⚑ Mark for review</button><button class="btn" id="clearBtn">Clear response</button><button class="btn primary" id="nextBtn">Save & Next →</button><button class="btn gold hidden" id="submitBtn">Submit test</button></div><div id="resultNotice" class="notice hidden"></div></main>
-<aside class="panel side"><div class="row"><h3>Question palette</h3><span class="pill" id="progressLabel">0 / 8</span></div><div class="timer" id="timer">—</div><div class="muted" style="font-size:12px">Time remaining</div><div class="palette" id="palette"></div><div class="legend"><span><i class="dot"></i>Answered</span><span>🟨 Marked</span><span>⬜ Unanswered</span></div><div class="notice">Initial batch: 4 questions from UPSC Prelims 2024. Official paper links and answer-key provenance are shown in each explanation; this is not yet the full archive.</div></aside></div>
+<aside class="panel side"><div class="row"><h3>Question palette</h3><span class="pill" id="progressLabel">0 / 8</span></div><div class="timer" id="timer">—</div><div class="muted" style="font-size:12px">Time remaining</div><div class="palette" id="palette"></div><div class="legend"><span><i class="dot"></i>Answered</span><span>🟨 Marked</span><span>⬜ Unanswered</span></div><div class="notice">Current sourced batch: 52 questions from UPSC Prelims 2024 Series A. Official paper links and answer-key provenance are shown in each explanation; this is not yet the full archive.</div></aside></div>
 </section>
 <section id="mistakesView" class="hidden"><div class="panel"><div class="row"><div><h2 style="margin:0">Mistakes Notebook</h2><div class="muted">Incorrect answers collected for revision.</div></div><button class="btn" id="retryMistakes">Practice mistakes</button></div><div id="mistakeList" class="list" style="margin-top:14px"></div></div></section>
 <section id="bookmarksView" class="hidden"><div class="panel"><h2 style="margin:0">Bookmarked questions</h2><div class="muted">Save difficult questions while practising.</div><div id="bookmarkList" class="list" style="margin-top:14px"></div></div></section>
