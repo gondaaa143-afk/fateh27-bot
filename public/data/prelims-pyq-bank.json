@@ -224,6 +224,226 @@
       "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
     },
     {
+      "id": 2024011,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": "A",
+      "questionNumber": 11,
+      "subject": "Economy",
+      "topic": "Infrastructure · Greenfield airports",
+      "question": "Consider the following airports:\n1. Donyi Polo Airport\n2. Kushinagar International Airport\n3. Vijayawada International Airport\nIn the recent past, which of the above have been constructed as Greenfield projects?",
+      "options": [
+        "1 and 2 only",
+        "2 and 3 only",
+        "1 and 3 only",
+        "1, 2 and 3"
+      ],
+      "answerIndex": 0,
+      "explanation": "Donyi Polo Airport at Hollongi and Kushinagar are greenfield airports. Vijayawada is an existing airport that has been expanded, making it a brownfield project.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
+      "answerKeyStatus": "Cross-checked against the cited 2024 Series A PYQ reference; verify against the official final key before scored use.",
+      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+    },
+    {
+      "id": 2024012,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": "A",
+      "questionNumber": 12,
+      "subject": "Geography",
+      "topic": "Atmosphere · Water vapour",
+      "question": "With reference to water vapour, which of the following statements is/are correct?\n1. It is a gas, the amount of which decreases with altitude.\n2. Its percentage is maximum at the poles.\nSelect the answer using the code given below:",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answerIndex": 0,
+      "explanation": "Water vapour generally decreases with altitude and is most abundant in warm, humid tropical regions, not at the cold poles.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
+      "answerKeyStatus": "Cross-checked against the cited 2024 Series A PYQ reference; verify against the official final key before scored use.",
+      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+    },
+    {
+      "id": 2024013,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": "A",
+      "questionNumber": 13,
+      "subject": "Geography",
+      "topic": "Climate · Marine West Coast",
+      "question": "Consider the following description:\n1. Annual and daily range of temperatures is low.\n2. Precipitation occurs throughout the year.\n3. Precipitation varies between 50 cm and 250 cm.\nWhat is this type of climate?",
+      "options": [
+        "Equatorial climate",
+        "China type climate",
+        "Humid subtropical climate",
+        "Marine West Coast climate"
+      ],
+      "answerIndex": 3,
+      "explanation": "The Marine West Coast climate has a small annual and daily temperature range and year-round precipitation, with totals often within the stated range.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
+      "answerKeyStatus": "Cross-checked against the cited 2024 Series A PYQ reference; verify against the official final key before scored use.",
+      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+    },
+    {
+      "id": 2024014,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": "A",
+      "questionNumber": 14,
+      "subject": "Geography",
+      "topic": "Atmosphere · Coriolis force",
+      "question": "With reference to Coriolis force, which of the following statements is/are correct?\n1. It increases with increase in wind velocity.\n2. It is maximum at the poles and is absent at the equator.\nSelect the answer using the code given below:",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answerIndex": 2,
+      "explanation": "The Coriolis effect increases with wind speed and the sine of latitude; it is zero at the equator and greatest at the poles.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
+      "answerKeyStatus": "Cross-checked against the cited 2024 Series A PYQ reference; verify against the official final key before scored use.",
+      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+    },
+    {
+      "id": 2024015,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": "A",
+      "questionNumber": 15,
+      "subject": "Geography",
+      "topic": "Earth · Solstice and day length",
+      "question": "On June 21 every year, which of the following latitudes experience sunlight for more than 12 hours?\n1. Equator\n2. Tropic of Cancer\n3. Tropic of Capricorn\n4. Arctic Circle\nSelect the correct answer using the code given below:",
+      "options": [
+        "1 only",
+        "2 only",
+        "3 and 4",
+        "2 and 4"
+      ],
+      "answerIndex": 3,
+      "explanation": "On the June solstice, northern latitudes have more than 12 hours of daylight. The Tropic of Cancer and Arctic Circle qualify; the equator has approximately 12 hours and the southern hemisphere has shorter days.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
+      "answerKeyStatus": "Cross-checked against the cited 2024 Series A PYQ reference; verify against the official final key before scored use.",
+      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+    },
+    {
+      "id": 2024016,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": "A",
+      "questionNumber": 16,
+      "subject": "Environment",
+      "topic": "Ecosystems · Tropical peatlands",
+      "question": "One of the following regions has the world's largest tropical peatland, which holds about three years' worth of global carbon emissions from fossil fuels; destruction of which can adversely affect the global climate. Which region is it?",
+      "options": [
+        "Amazon Basin",
+        "Congo Basin",
+        "Kikori Basin",
+        "Rio de la Plata Basin"
+      ],
+      "answerIndex": 1,
+      "explanation": "The Cuvette Centrale peatlands in the Congo Basin are the world's largest tropical peatland complex and store enormous quantities of carbon.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
+      "answerKeyStatus": "Cross-checked against the cited 2024 Series A PYQ reference; verify against the official final key before scored use.",
+      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+    },
+    {
+      "id": 2024017,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": "A",
+      "questionNumber": 17,
+      "subject": "Environment",
+      "topic": "Pollution · PFAS",
+      "question": "With reference to perfluoroalkyl and polyfluoroalkyl substances (PFAS), consider the following statements:\n1. PFAS are found widely in drinking water, food and food packaging materials.\n2. PFAS are not easily degraded in the environment.\n3. Persistent exposure to PFAS can lead to bioaccumulation in animal bodies.\nWhich of the statements given above are correct?",
+      "options": [
+        "1 and 2 only",
+        "2 and 3 only",
+        "1 and 3 only",
+        "1, 2 and 3"
+      ],
+      "answerIndex": 3,
+      "explanation": "PFAS are persistent synthetic chemicals found in many products and environmental media; some can accumulate in organisms.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
+      "answerKeyStatus": "Cross-checked against the cited 2024 Series A PYQ reference; verify against the official final key before scored use.",
+      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+    },
+    {
+      "id": 2024018,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": "A",
+      "questionNumber": 18,
+      "subject": "Environment",
+      "topic": "Ecology · Parasitoids",
+      "question": "Consider the following organisms:\n1. Carabid beetles\n2. Centipedes\n3. Flies\n4. Termites\n5. Wasps\nParasitoid species are found in how many of the above kinds of organisms?",
+      "options": [
+        "Only two",
+        "Only three",
+        "Only four",
+        "All five"
+      ],
+      "answerIndex": 1,
+      "explanation": "Parasitoid species occur among flies and wasps and in some beetle groups; the source's keyed answer is 'Only three'. This item should be reviewed against the official final key before scored use.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
+      "answerKeyStatus": "Secondary key reference; verify this answer against the official final key before scored use.",
+      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+    },
+    {
+      "id": 2024019,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": "A",
+      "questionNumber": 19,
+      "subject": "Environment",
+      "topic": "Biology · Fabaceae",
+      "question": "Consider the following plants:\n1. Groundnut\n2. Horse-gram\n3. Soybean\nHow many of the above belong to the pea family?",
+      "options": [
+        "Only one",
+        "Only two",
+        "All three",
+        "None"
+      ],
+      "answerIndex": 2,
+      "explanation": "Groundnut, horse-gram and soybean are legumes belonging to the family Fabaceae (Leguminosae).",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
+      "answerKeyStatus": "Cross-checked against the cited 2024 Series A PYQ reference; verify against the official final key before scored use.",
+      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+    },
+    {
+      "id": 2024020,
+      "year": 2024,
+      "paper": "GS Paper I",
+      "series": "A",
+      "questionNumber": 20,
+      "subject": "Economy",
+      "topic": "Money market · CBLO",
+      "question": "In the Indian economy, Collateral Borrowing and Lending Obligations (CBLO) are instruments of which market?",
+      "options": [
+        "Bond market",
+        "Forex market",
+        "Money market",
+        "Stock market"
+      ],
+      "answerIndex": 2,
+      "explanation": "CBLO was a short-term collateralised borrowing and lending instrument and belongs to the money market.",
+      "sourceUrl": "https://www.upsc.gov.in/examinations/previous-question-papers",
+      "sourceLabel": "UPSC official previous-question-paper archive; Series A",
+      "answerKeyStatus": "Cross-checked against the cited 2024 Series A PYQ reference; verify against the official final key before scored use.",
+      "answerKeySourceUrl": "https://www.minimalistias.com/pyqs/prelims/2024"
+    },
+    {
       "id": 2024041,
       "year": 2024,
       "paper": "GS Paper I",
@@ -291,7 +511,7 @@
     }
   ],
   "metadata": {
-    "scope": "Initial 2024 Series A batch: Q1–Q10 plus Q41, Q60 and Q100; not the complete 100-question archive",
+    "scope": "Initial 2024 Series A batch: Q1–Q20 plus Q41, Q60 and Q100; not the complete 100-question archive",
     "answerKeyPolicy": "Question wording and answers cross-checked against a published Series A PYQ reference; use official UPSC final key for scored tests.",
     "officialPaperArchive": "https://www.upsc.gov.in/examinations/previous-question-papers",
     "lastReviewed": "2026-10-10"
