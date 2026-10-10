@@ -7,6 +7,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import accessHandler from "./api/access.js";
 import telegramWebhookHandler from "./api/webhook.js";
+import autolinkHandler from "./api/autolink.js";
 
 dotenv.config();
 
@@ -339,6 +340,7 @@ app.use(
 
 /* Telegram Bot webhook must stay public: Telegram does not send Mini App initData. */
 app.post("/api/webhook", (req, res) => telegramWebhookHandler(req, res));
+app.post("/api/current-affairs/autolink", (req, res) => autolinkHandler(req, res));
 
 /* =========================================================
    FATEH27 ACCESS ENFORCEMENT REMOVED
